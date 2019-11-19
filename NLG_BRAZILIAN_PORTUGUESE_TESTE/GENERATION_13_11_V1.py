@@ -7,6 +7,9 @@ Created on Wed Mar 20 10:50:31 2019
 
 TESTE DE VERSÃO
 
+
+Agora vou inserir outra mudança pra tentar ver se consigo fazer esse trem
+
 ######PRELIMINARES
 import os
 os.getcwd()
