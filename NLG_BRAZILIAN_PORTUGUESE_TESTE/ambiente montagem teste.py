@@ -1,7 +1,6 @@
 ###A FAZER : CONTINUAR A ORAÇÃO VERBAL
 
 
-
 def oraçãoProjetada():
     '''(str,str,str)->str
     Retorna a formação estrutural na lexicogramática (oração) de uma figura específica
@@ -2331,6 +2330,47 @@ def formação_da_estrutura_do_substantivo_comumteste ():
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
         
     return substantivo_comum  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

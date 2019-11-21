@@ -5,16 +5,17 @@ Created on Wed Mar 20 10:50:31 2019
 @author: andre
 """
 
-TESTE DE VERSÃO
 
 
-Agora vou inserir outra mudança pra tentar ver se consigo fazer esse trem
+
+
 
 ######PRELIMINARES
 import os
 os.getcwd()
 #help(os)
 #os.listdir(os.curdir)
+
 
 
 ##LEGENDA_SIGLAS
@@ -45,7 +46,154 @@ import choice
 #####################
                 ###########ORDEM DA PALAVRA
 
+###ADVÉRBIO    INÍCIO####
 
+def advérbioModoSwitcher():
+   
+    i = int(input())
+    
+    switcherModo = {
+         1:'bem',
+         2:'mal',
+         3:'assim',
+         4:'adrede',
+         5:'melhor',
+         6:'pior',
+         7:'depressa',
+         8:'devagar',
+         9:'acinte',
+         10:'debalde', 
+         11:'cuidadosamente', 
+         12:'calmamente',
+         13:'tristemente'
+        }
+            
+    return switcherModo.get(i, 'Seleção não disponível')
+
+
+def advérbioIntensidadeSwitcher():
+    
+    i = int(input())
+    
+    switcherIntensidade = {
+         1:'muito', 
+         2:'demais',
+         3:'todo',
+         4:'pouco', 
+         5:'tão',
+         6:'quão',
+         7:'demasiado',
+         8:'bastante', 
+         9:'imenso',
+         10:'demais',
+         11:'mais', 
+         12:'menos', 
+         13:'quanto', 
+         14:'quase', 
+         15:'tanto', 
+         16:'assaz', 
+         17:'tudo', 
+         18:'nada' 
+         }
+    return switcherIntensidade.get(i, 'Seleção não disponível')
+
+        
+
+def advérbioLugarSwitcher():
+    i = int(input())
+    
+    switcherLugar = {
+    
+        1:'aí',
+        2:'aqui',
+        3:'acolá',
+        4:'cá', 
+        5:'lá',
+        6:'ali',
+        7:'adiante',
+        8:'abaixo',
+        9:'embaixo',
+        10:'acima',
+        11:'adentro',
+        12:'dentro'
+        }
+    
+    return switcherLugar.get(i, 'Seleção não disponível')
+
+
+a= choice.Menu(['1','2']).ask()
+def advérbioTempoSwitcher():
+    i = int(input())
+    
+    switcherTempo = {
+        1:'ainda',
+        2:'agora',
+        3:'amanhã',
+        4:'à noite',
+        5:'anteontem',
+        6:'antes',
+        7:'à tarde', 
+        8:'às vezes',
+        9:'atualmente',
+        10:'breve', 
+        11:'cedo', 
+        12:'depois',
+        13:'de manhã',
+        14:'de repente',
+        15:'de vez em quando',
+        16:'hoje', 
+        17:'hoje em dia',
+        18:'já',  
+        19:'logo', 
+        20:'nunca', 
+        21:'ontem', 
+        22:'ora',
+        23:'outrora', 
+        24:'quando',
+        25:'sempre', 
+        26:'tarde',
+        27:'jamais',
+        }
+    return switcherTempo.get(i, 'Seleção não disponível')
+
+        
+
+def advérbioNegaçãoSwitcher():
+    i = int(input())
+    
+    switcherNegação = {1:'não',2:'nem',3:'tampouco',4:'nunca',5:'jamais'}
+    return switcherNegação.get(i,'Seleção não disponível')
+
+def advérbioAfirmaçãoSwitcher():
+    
+    i = int(input())
+    
+    switcherAfirmação = {1:'sim',
+                       2:'deveras',
+                       3:'indubitavelmente',
+                       4:'decididamente',
+                       5:'certamente',
+                       6:'realmente',
+                       7:'decerto',
+                       8:'certo',
+                       9:'efetivamente' 
+                       }
+    return switcherAfirmação.get (i,'Seleção não disponível')
+    
+
+def advérbioDúvidaSwitcher():
+    
+    i = int(input())
+    
+    switcherDúvida = {1:'possivelmente',
+                         2:'provavelmente',   
+                         3: 'acaso',
+                         4:'porventura',
+                         5:'quiçá',
+                         6:'será',
+                         7:'talvez', 
+                         8:'casualmente'}
+    return switcherDúvida.get(i, 'Seleção não disponível')
 
 def advérbio():
     '''
@@ -57,347 +205,158 @@ def advérbio():
         
     elif modo_inserção == 'inserção_menu':
         
-        
-    
         tipo_de_advérbio = choice.Menu(['Modo',
                                         'Intensidade',
                                         'Lugar','Tempo','Negação',
                                         'Afirmação','Dúvida','Adv_relativo']).ask()
         
         if tipo_de_advérbio == 'Modo':
-            advérbio = input("""
-                             1:bem
-                             2:mal
-                             3:assim
-                             4:adrede
-                             5:melhor
-                             6:pior
-                             7:depressa
-                             8:devagar
-                             9:acinte 
-                             10:debalde 
-                             11:cuidadosamente 
-                             12:calmamente
-                             13:tristemente
-                            
-                           Escolha uma opção:""")
+            print ("""
+                     1:bem
+                     2:mal
+                     3:assim
+                     4:adrede
+                     5:melhor
+                     6:pior
+                     7:depressa
+                     8:devagar
+                     9:acinte 
+                     10:debalde 
+                     11:cuidadosamente 
+                     12:calmamente
+                     13:tristemente
+                    
+                   Escolha uma opção:""")
+            
+            advérbio = advérbioModoSwitcher()
         
-            if advérbio == '1':
-                advérbio = 'bem'
-            elif advérbio == '2':
-                advérbio = 'mal'
-            elif advérbio == '3':
-                advérbio = 'assim'
-            elif advérbio == '4':
-                advérbio = 'adrede'
-            elif advérbio == '5':
-                advérbio = 'melhor'
-            elif advérbio == '6':
-                advérbio = 'pior'
-            elif advérbio == '7':
-                advérbio = 'depressa'
-            elif advérbio == '8':
-                advérbio = 'devagar'
-            elif advérbio == '9':
-                advérbio = 'acinte'
-            elif advérbio == '10':
-                advérbio = 'debalde'
-            elif advérbio == '11':
-                advérbio = 'cuidadosamente'
-            elif advérbio == '12':
-                advérbio = 'calmamente'
-            elif advérbio == '13':
-                advérbio = 'tristemente'
-        
-        
-        elif tipo_de_advérbio == 'Intensidade':
-            advérbio = input("""
-                             1:muito 
-                             2:demais
-                             3:todo
-                             4:pouco 
-                             5:tão 
-                             6:quão
-                             7:demasiado
-                             8:bastante 
-                             9:imenso
-                             10:demais
-                             11:mais 
-                             12:menos 
-                             13:quanto 
-                             14:quase 
-                             15:tanto 
-                             16:assaz 
-                             17:tudo 
-                             18:nada 
-                             
     
-                           Escolha uma opção:""")
-        
-            if advérbio == '1':
-                advérbio = 'muito'
-            elif advérbio == '2':
-                advérbio = 'demais'
-            elif advérbio == '3':
-                advérbio = 'todo'
-            elif advérbio == '4':
-                advérbio = 'pouco'
-            elif advérbio == '5':
-                advérbio = 'tão'
-            elif advérbio == '6':
-                advérbio = 'quão'
-            elif advérbio == '7':
-                advérbio = 'demasiado'
-            elif advérbio == '8':
-                advérbio = 'bastante'
-            elif advérbio == '9':
-                advérbio = 'imenso'
-            elif advérbio == '10':
-                advérbio = 'demais'
-            elif advérbio == '11':
-                advérbio = 'mais'
-            elif advérbio == '12':
-                advérbio = 'menos'
-            elif advérbio == '13':
-                advérbio = 'quanto'
-            elif advérbio == '14':
-                advérbio = 'quase'
-            elif advérbio == '15':
-                advérbio = 'tanto'
-            elif advérbio == '16':
-                advérbio = 'assaz'
-            elif advérbio == '17':
-                advérbio = 'tudo'
-            elif advérbio == '18':
-                advérbio = 'nada'
+
+        elif tipo_de_advérbio == 'Intensidade':
+            print("""
+                     1:muito 
+                     2:demais
+                     3:todo
+                     4:pouco 
+                     5:tão 
+                     6:quão
+                     7:demasiado
+                     8:bastante 
+                     9:imenso
+                     10:demais
+                     11:mais 
+                     12:menos 
+                     13:quanto 
+                     14:quase 
+                     15:tanto 
+                     16:assaz 
+                     17:tudo 
+                     18:nada 
+                     
+
+                   Escolha uma opção:""")
+
+            advérbio = advérbioIntensidadeSwitcher()
         
         
         elif tipo_de_advérbio == 'Lugar':
-            advérbio = input("""
-                             1:aí
-                             2:aqui
-                             3:acolá 
-                             4:cá 
-                             5:lá
-                             6:ali
-                             7:adiante
-                             8:abaixo
-                             9:embaixo
-                             10:acima
-                             11:adentro
-                             12:dentro
-                    
-    
-                           Escolha uma opção:""")
+            print("""
+                 1:aí
+                 2:aqui
+                 3:acolá 
+                 4:cá 
+                 5:lá
+                 6:ali
+                 7:adiante
+                 8:abaixo
+                 9:embaixo
+                 10:acima
+                 11:adentro
+                 12:dentro
+                 Escolha uma opção:""")
             
-            if advérbio == '1':
-                advérbio = 'aí'
-            elif advérbio == '2':
-                advérbio = 'aqui'
-            elif advérbio == '3':
-                advérbio = 'acolá'
-            elif advérbio == '4':
-                advérbio = 'cá'
-            elif advérbio == '5':
-                advérbio = 'lá'
-            elif advérbio == '6':
-                advérbio = 'ali'
-            elif advérbio == '7':
-                advérbio = 'adiante'
-            elif advérbio == '8':
-                advérbio = 'abaixo'
-            elif advérbio == '9':
-                advérbio = 'embaixo'
-            elif advérbio == '10':
-                advérbio = 'acima'
-            elif advérbio == '11':
-                advérbio = 'adentro'
-            elif advérbio == '12':
-                advérbio = 'dentro'
-            
-        
-        
+            advérbio = advérbioLugarSwitcher()
+
         elif tipo_de_advérbio == 'Tempo':
+            print ("""
+                     1:ainda 
+                     2:agora
+                     3:amanhã
+                     4:à noite
+                     5:anteontem
+                     6:antes
+                     7:à tarde 
+                     8:às vezes
+                     9:atualmente
+                     10:breve 
+                     11:cedo 
+                     12:depois
+                     13:de manhã
+                     14:de repente
+                     15:de vez em quando
+                     16:hoje 
+                     17:hoje em dia
+                     18:já  
+                     19:logo 
+                     20:nunca 
+                     21:ontem 
+                     22:ora 
+                     23:outrora 
+                     24:quando 
+                     25:sempre 
+                     26:tarde 
+                     27:jamais         
+                     
+
+                   Escolha uma opção:""")
             
-            advérbio = input("""
-                             1:ainda 
-                             2:agora
-                             3:amanhã
-                             4:à noite
-                             5:anteontem
-                             6:antes
-                             7:à tarde 
-                             8:às vezes
-                             9:atualmente
-                             10:breve 
-                             11:cedo 
-                             12:depois
-                             13:de manhã
-                             14:de repente
-                             15:de vez em quando
-                             16:hoje 
-                             17:hoje em dia
-                             18:já  
-                             19:logo 
-                             20:nunca 
-                             21:ontem 
-                             22:ora 
-                             23:outrora 
-                             24:quando 
-                             25:sempre 
-                             26:tarde 
-                             27:jamais         
-                             
-    
-                           Escolha uma opção:""")
-        
-            if advérbio == '1':
-                advérbio = 'ainda'
-            elif advérbio == '2':
-                advérbio = 'agora'
-            elif advérbio == '3':
-                advérbio = 'amanhã'
-            elif advérbio == '4':
-                advérbio = 'à noite'
-            elif advérbio == '5':
-                advérbio = 'anteontem'
-            elif advérbio == '6':
-                advérbio = 'antes'
-            elif advérbio == '7':
-                advérbio = 'à tarde '
-            elif advérbio == '8':
-                advérbio = 'às vezes'
-            elif advérbio == '9':
-                advérbio = 'atualmente'
-            elif advérbio == '10':
-                advérbio = 'breve'
-            elif advérbio == '11':
-                advérbio = 'cedo'
-            elif advérbio == '12':
-                advérbio = 'depois'
-            elif advérbio == '13':
-                advérbio = 'de manhã'
-            elif advérbio == '14':
-                advérbio = 'de repente'
-            elif advérbio == '15':
-                advérbio = 'de vez em quando'
-            elif advérbio == '16':
-                advérbio = 'hoje'
-            elif advérbio == '17':
-                advérbio = 'hoje em dia'
-            elif advérbio == '18':
-                advérbio = 'já'
-            elif advérbio == '19':
-                advérbio = 'logo'
-            elif advérbio == '20':
-                advérbio = 'nunca'
-            elif advérbio == '21':
-                advérbio = 'ontem'
-            elif advérbio == '22':
-                advérbio = 'ora'
-            elif advérbio == '23':
-                advérbio = 'outrora'
-            elif advérbio == '24':
-                advérbio = 'quando'
-            elif advérbio == '25':
-                advérbio = 'sempre'
-            elif advérbio == '26':
-                advérbio = 'tarde'
-            elif advérbio == '27':
-                advérbio = 'jamais'
+            advérbio = advérbioTempoSwitcher()
         
         
         elif tipo_de_advérbio == 'Negação':
-            
-            advérbio = input("""
-                             1:não
-                             2:nem
-                             3:tampouco 
-                             4:nunca
-                             5:jamais 
-                             
-    
-                           Escolha uma opção:""")
-        
-            if advérbio == '1':
-                advérbio = 'não'
-            elif advérbio == '2':
-                advérbio = 'nem'
-            elif advérbio == '3':
-                advérbio = 'tampouco'
-            elif advérbio == '4':
-                advérbio = 'nunca'
-            elif advérbio == '5':
-                advérbio = 'jamais'
-            
-         
+            print("""
+                 1:não
+                 2:nem
+                 3:tampouco 
+                 4:nunca
+                 5:jamais 
+               Escolha uma opção:""")
+            advérbio = advérbioNegaçãoSwitcher()
+      
         elif tipo_de_advérbio == 'Afirmação':
             
-            advérbio = input("""
-                             1:sim 
-                             2:deveras 
-                             3:indubitavelmente
-                             4:decididamente
-                             5:certamente
-                             6:realmente
-                             7:decerto
-                             8:certo
-                             9:efetivamente 
-                             
-                           Escolha uma opção:""")
-        
-            if advérbio == '1':
-                advérbio = 'sim'
-            elif advérbio == '2':
-                advérbio = 'deveras'
-            elif advérbio == '3':
-                advérbio = 'indubitavelmente'
-            elif advérbio == '4':
-                advérbio = 'decididamente'
-            elif advérbio == '5':
-                advérbio = 'certamente'
-            elif advérbio == '6':
-                advérbio = 'realmente'
-            elif advérbio == '7':
-                advérbio = 'decerto'
-            elif advérbio == '8':
-                advérbio = 'certo'
-            elif advérbio == '9':
-                advérbio = 'efetivamente'
+            print("""
+             1:sim 
+             2:deveras 
+             3:indubitavelmente
+             4:decididamente
+             5:certamente
+             6:realmente
+             7:decerto
+             8:certo
+             9:efetivamente 
+             
+           Escolha uma opção:""")
+
+            advérbio= advérbioAfirmaçãoSwitcher()
             
-    
-    
         elif tipo_de_advérbio == 'Dúvida':
             
-            advérbio = input("""
-                             1:possivelmente
-                             2:provavelmente   
-                             3: acaso
-                             4:porventura
-                             5:quiçá
-                             6:será
-                             7:talvez 
-                             8:casualmente 
-                      
-                             
-                           Escolha uma opção:""")
+            print("""
+                 1:possivelmente
+                 2:provavelmente   
+                 3: acaso
+                 4:porventura
+                 5:quiçá
+                 6:será
+                 7:talvez 
+                 8:casualmente 
+          
+                 
+               Escolha uma opção:""")
+            
+            advébio = advérbioDúvidaSwitcher()
         
-            if advérbio == '1':
-                advérbio = 'possivelmente'
-            elif advérbio == '2':
-                advérbio = 'provavelmente'
-            elif advérbio == '3':
-                advérbio = 'acaso'
-            elif advérbio == '4':
-                advérbio = 'porventura'
-            elif advérbio == '5':
-                advérbio = 'quiçá'
-            elif advérbio == '6':
-                advérbio = 'será'
-            elif advérbio == '7':
-                advérbio = 'talvez'
-            elif advérbio == '8':
-                advérbio = 'casualmente'
         
         elif tipo_de_advérbio == 'Adv_relativo':
             
@@ -408,7 +367,7 @@ def advérbio():
 
 
 
-
+###ADVÉRBIO    FIM####
 
 
 
@@ -418,6 +377,8 @@ def advérbio():
 
 
 ####################################################################
+##### VERBO INÍCIO####
+
 def def_classe_de_verbo ():
     
     '''
@@ -668,194 +629,92 @@ def OI_ORIENTAÇÃO_MODAL_NÃO_FINITO():
     #time.sleep(1)
     print()
 
-    OI_ORIENTAÇÃO_MODAL_NÃO_FINITO = input("""
-                                      
-                                      1:subjuntivo_conjuntivo
-                                      2:subjuntivo_condicional 
-                                      3:subjuntivo_optativo
-                                      4:imperativo_I
-                                      5:imperativo_II
-                                      6:não_finito_concretizado 
-                                      
-
-                       Escolha uma opção:""")
-
+    OI_ORIENTAÇÃO_MODAL_NÃO_FINITO = choice.Menu(['subjuntivo_conjuntivo','subjuntivo_condicional',
+                                                   'subjuntivo_optativo','imperativo_I','imperativo_II',
+                                                   'não_finito_concretizado']).ask()
     
+    return OI_ORIENTAÇÃO_MODAL_NÃO_FINITO
     
-    
-    if OI_ORIENTAÇÃO_MODAL_NÃO_FINITO == '1':
-        return 'subjuntivo_conjuntivo'
-    
-    elif OI_ORIENTAÇÃO_MODAL_NÃO_FINITO == '2':
-        return 'subjuntivo_condicional'
-    
-    elif OI_ORIENTAÇÃO_MODAL_NÃO_FINITO == '3':
-        return 'subjuntivo_optativo'
-    
-    elif OI_ORIENTAÇÃO_MODAL_NÃO_FINITO == '4':
-        return 'imperativo_I'
-    
-    elif OI_ORIENTAÇÃO_MODAL_NÃO_FINITO == '5':
-        return 'imperativo_II'
-    
-    elif OI_ORIENTAÇÃO_MODAL_NÃO_FINITO == '6':
-        return 'não_finito_concretizado'
-    
-    
-    else:
-        print("Selecione um tipo de Orientação Interpessoal válido, a partir do menu.")
-        print("Tente novamente")     
+     
            
 def OI_ORIENTAÇÃO_MODAL_FINITO():
     print("Qual é a Orientação interpessoal finita desejada?")
     #time.sleep(1)
     print()
 
-    OI_ORIENTAÇÃO_MODAL_FINITO = input("""
+    OI_ORIENTAÇÃO_MODAL_FINITO = choice.Menu(['presente',
+                                     'pretérito_perfectivo_I',
+                                     'pretérito_perfectivo_II',
+                                     'pretérito_imperfectivo',
+                                     'passado_volitivo', 
+                                     'futuro']).ask()
                                       
-                                     1:presente
-                                     2:pretérito_perfectivo_I
-                                     3:pretérito_perfectivo_II
-                                     4:pretérito_imperfectivo
-                                     5:passado_volitivo 
-                                     6:futuro
-                                      
-
-                       Escolha uma opção:""")
+    return OI_ORIENTAÇÃO_MODAL_FINITO
 
     
-    if OI_ORIENTAÇÃO_MODAL_FINITO == "1":
-        return 'presente'
-    
-    elif OI_ORIENTAÇÃO_MODAL_FINITO == '2':
-        return 'pretérito_perfectivo_I'
-    
-    elif OI_ORIENTAÇÃO_MODAL_FINITO == '3':
-        return 'pretérito_perfectivo_II'
-    
-    elif OI_ORIENTAÇÃO_MODAL_FINITO == '4':
-        return 'pretérito_imperfectivo'
-    
-    elif OI_ORIENTAÇÃO_MODAL_FINITO == '5':
-        return 'passado_volitivo'
-    
-    elif OI_ORIENTAÇÃO_MODAL_FINITO == '6':
-        return 'futuro'
-    
-    
-    else:
-        print("Selecione um tipo de Orientação Interpessoal finiata válida, a partir do menu.")
-        print("Tente novamente")
-
 
 def OI_não_orientado():
     print("Qual é a Orientação interpessoal desejada?")
     
     
 
-    tipo_de_orientação = input("""
-                                      1:infinitivo
-                                      2:gerúndio
-                                      3:particípio
-                                      
-
-                       Escolha uma opção:""")
-
-    if tipo_de_orientação == "1":
-        return 'infinitivo'
-    
-    
-    elif tipo_de_orientação == '2':
-        return 'gerúndio'
-    
-    elif tipo_de_orientação == '3':
-        return 'particípio'
-    
-   
-    else:
-        print("Selecione um tipo de Orientação Interpessoal válido, a partir do menu.")
-        print("Tente novamente")     
+    tipo_de_orientação = choice.Menu([
+                                      'infinitivo',
+                                      'gerúndio',
+                                      'particípio'
+                                        ]).ask()
+    return tipo_de_orientação   
         
       
 
 
 def OI_tipo_de_orientação():
+    
     print("Qual é a Orientação interpessoal desejada?")
-    #time.sleep(1)
-    print()
+    print ("""
+          0: infinitivo
+          1: presente
+          2: pretérito_perfectivo_I
+          3: pretérito_perfectivo_II
+          4: pretérito_imperfectivo
+          5: passado_volitivo 
+          6: futuro
+          7: subjuntivo_conjuntivo
+          8: subjuntivo_condicional 
+          9: subjuntivo_optativo
+          10: imperativo_I
+          11: imperativo_II
+          12: não_finito_concretizado 
+          13: gerúndio
+          14: particípio
+          15: NA
+          """
+        )
+   
+    i = int(input('Selecione uma opção:'))
+    switcher = {
+              0: 'infinitivo',
+              1: 'presente',
+              2: 'pretérito_perfectivo_I',
+              3: 'pretérito_perfectivo_II',
+              4: 'pretérito_imperfectivo',
+              5: 'passado_volitivo',
+              6: 'futuro',
+              7: 'subjuntivo_conjuntivo',
+              8: 'subjuntivo_condicional',
+              9: 'subjuntivo_optativo',
+              10: 'imperativo_I',
+              11: 'imperativo_II',
+              12: 'não_finito_concretizado',
+              13: 'gerúndio',
+              14: 'particípio',
+              15: 'NA'
 
-    tipo_de_orientação = input("""
-                                      0:infinitivo
-                                      1:presente
-                                      2:pretérito_perfectivo_I
-                                      3:pretérito_perfectivo_II
-                                      4:pretérito_imperfectivo
-                                      5:passado_volitivo 
-                                      6:futuro
-                                      7:subjuntivo_conjuntivo
-                                      8:subjuntivo_condicional 
-                                      9:subjuntivo_optativo
-                                      10:imperativo_I
-                                      11:imperativo_II
-                                      12:não_finito_concretizado 
-                                      13:gerúndio
-                                      14:particípio
-                                      15:NA
-
-                       Escolha uma opção:""")
-
-    if tipo_de_orientação == "0":
-        return 'infinitivo'
-    elif tipo_de_orientação == "1":
-        return 'presente'
+                       }
     
-    elif tipo_de_orientação == '2':
-        return 'pretérito_perfectivo_I'
+    tipo_de_orientação = switcher.get(i,'Seleção não disponível.')
     
-    elif tipo_de_orientação == '3':
-        return 'pretérito_perfectivo_II'
-    
-    elif tipo_de_orientação == '4':
-        return 'pretérito_imperfectivo'
-    
-    elif tipo_de_orientação == '5':
-        return 'passado_volitivo'
-    
-    elif tipo_de_orientação == '6':
-        return 'futuro'
-    
-    elif tipo_de_orientação == '7':
-        return 'subjuntivo_conjuntivo'
-    
-    elif tipo_de_orientação == '8':
-        return 'subjuntivo_condicional'
-    
-    elif tipo_de_orientação == '9':
-        return 'subjuntivo_optativo'
-    
-    elif tipo_de_orientação == '10':
-        return 'imperativo_I'
-    
-    elif tipo_de_orientação == '11':
-        return 'imperativo_II'
-    
-    elif tipo_de_orientação == '12':
-        return 'não_finito_concretizado'
-    
-    elif tipo_de_orientação == '13':
-        return 'gerúndio'
-    
-    elif tipo_de_orientação == '14':
-        return 'particípio'
-    
-    elif tipo_de_orientação == '15':
-        return 'NA'
-    else:
-        print("Selecione um tipo de Orientação Interpessoal válido, a partir do menu.")
-        print("Tente novamente")     
-        
-      
-
+    return tipo_de_orientação
        
  #######S       
         
@@ -12365,7 +12224,6 @@ def grupo_verbal():
     
     return grupo_verbal
         
-
 
 
 
