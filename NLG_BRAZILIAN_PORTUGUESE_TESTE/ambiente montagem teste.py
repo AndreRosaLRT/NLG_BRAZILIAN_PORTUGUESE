@@ -1971,7 +1971,8 @@ def oraçãoProjetada():
 
 
 
-
+import GENERATION
+type (GENERATION)
 
 
 
@@ -2049,7 +2050,7 @@ def oração_Verbal():
                     Receptor = frase_preposicional ()
                     Polaridade = POLARIDADE ()
                     print ('Qual a oração projetada?')
-                    Oração_projetada = oração()
+                    Oração_projetada = oraçãoProjetada()
         
                     oraçãoVerbal = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor + '\"' + Oração_projetada + '\" ' + '.'
                     #Ex.: Eu disse a ele "Eu comi o bolo". 
@@ -2063,7 +2064,7 @@ def oração_Verbal():
                     Receptor = frase_preposicional ()
                     Polaridade = POLARIDADE ()
                     print ('Qual a oração projetada?')
-                    Oração_projetada = oração()
+                    Oração_projetada = oraçãoProjetada()
         
                     oraçãoVerbal = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor  + ' ' + 'que'  + ' ' + '\"' + Oração_projetada + '\" ' + '.'
                     #Ex.: Eu disse a ele que "Eu comi o bolo". 
@@ -2085,7 +2086,7 @@ def oração_Verbal():
                     
                     Polaridade = POLARIDADE ()
                     print ('Qual a oração projetada?')
-                    Oração_projetada = oração()
+                    Oração_projetada = oraçãoProjetada()
         
                     oraçãoVerbal = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '\"' + Oração_projetada + '\" ' + '.'
                     #Ex.: Eu disse  "Eu comi o bolo". 
@@ -2107,7 +2108,13 @@ def oração_Verbal():
     return oraçãoVerbal.capitalize()
                     
                     
-            
+          
+
+
+
+
+
+  
             elif TIPO_SEMIOTICIDADE == 'não_projeção':
                 print ('Selecione o tipo de não_projeção')
                 TIPO_NÃO_PROJEÇÃO = '-verbiagem'

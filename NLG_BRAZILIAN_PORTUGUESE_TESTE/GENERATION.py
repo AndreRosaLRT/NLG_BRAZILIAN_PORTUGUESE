@@ -716,12 +716,12 @@ def OI_tipo_de_orientação():
     
     return tipo_de_orientação
        
- #######S       
+ #######       
         
 def realização_transitoriedade_infinitivo ():
     '''(str)->str
     
-    Retorna o morfema que realiza a transitoriedade de um verbo no infinitivo, dados
+    Retorna o morfema que realiza a transitoriedade de um verbo no infinitivo, dado
     padrão de morfologia.
     
     >>>realização_transitoriedade_infinitivo ()
@@ -762,19 +762,14 @@ def realização_transitoriedade_presente ():
     padrão_de_morfologia =  choice.Menu(['-AR','-ER','-IR', '-OR']).ask()
     OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
     OI_número = choice.Menu(['singular', 'plural']).ask()
-   
-    
     if (
         padrão_de_morfologia == '-AR' and  OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular' or
         padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular' or
         padrão_de_morfologia == '-IR' and  OI_tipo_de_pessoa == '1pessoa'and OI_número == 'singular'
          ):
-       
-        
         MI = 'o'
         return MI
-
-
+    
     elif (padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular'):
 
         MI='onho'
