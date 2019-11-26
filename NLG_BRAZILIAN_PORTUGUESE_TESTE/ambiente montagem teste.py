@@ -2104,27 +2104,61 @@ def oração_Verbal():
                     oraçãoVerbal = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo   + ' ' + 'que'  + ' ' + '\"' + Oração_projetada + '\" ' + '.'
                     #Ex.: Eu disse que "Eu comi o bolo".      
             
-    
-    return oraçãoVerbal.capitalize()
-                    
-                    
-          
-
-
-
-
-
-  
+           
+            
             elif TIPO_SEMIOTICIDADE == 'não_projeção':
-                print ('Selecione o tipo de não_projeção')
+                
                 TIPO_NÃO_PROJEÇÃO = '-verbiagem'
+                print ('Qual o Processo?')
+                Processo = grupo_verbal()
+                print('Qual é o Dizente?')
+                Dizente = estrutura_GN()
+                Polaridade = POLARIDADE ()
+                
+                oraçãoVerbal =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '.'
+              
+    elif Transitividade == 'PR_Verbal_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+        
+        Tema_interpessoal = TEMA_INTERPESSOAL()
+        Tema_textual=TEMA_TEXTUAL()
+        TIPO_SEMIOTICIDADE = 'não_projeção'
+        print ('Selecione a Receptividade')
+        RECEPTIVIDADE = choice.Menu (['+receptor','-receptor']).ask()
+        
+        if RECEPTIVIDADE == '+receptor':
+            print ('Qual o Processo?')
+            Processo = grupo_verbal()
+            print('Qual é o Dizente?')
+            Dizente = estrutura_GN()
+            print('Qual é a Verbiagem?')
+            Verbiagem = estrutura_GN()
+            print ('Qual é o Receptor?')
+            Receptor = frase_preposicional ()
+            Polaridade = POLARIDADE ()
+            
+            oraçãoVerbal = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Verbiagem + ' '+ Receptor +'.' 
+            
+           
+             
+        else:
+            print ('Qual o Processo?')
+            Processo = grupo_verbal()
+            print('Qual é o Dizente?')
+            Dizente = estrutura_GN()
+            print('Qual é a Verbiagem?')
+            Verbiagem = estrutura_GN()            
+            Polaridade = POLARIDADE ()
+            
+            oraçãoVerbal = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Verbiagem +'.'
+              
+           
+    return oraçãoVerbal.capitalize() 
      
             
             
+           
             
-            
-    return oração.capitalize()
-        
+   
         
         
         
