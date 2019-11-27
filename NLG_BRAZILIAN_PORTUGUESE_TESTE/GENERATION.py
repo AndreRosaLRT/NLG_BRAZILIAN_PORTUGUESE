@@ -18,9 +18,6 @@ os.getcwd()
 
 
 
-##LEGENDA_SIGLAS
-#OE (ORIENTAÇÃO EXPERIENCIAL)
-#OI (ORIENTAÇÃO INTERPESSOAL)
 
 #packages
 
@@ -15687,12 +15684,6 @@ def partícula_modal():
 ####FORMAÇÃO DA ORAÇÃO
    
 
-
-
-
-   
-
-
 def atribuição_de_relação():
     '''
     '''
@@ -15709,17 +15700,12 @@ def atribuição_de_relação():
 def PROCESSO_RELACIONAL():
     '''
     '''
-    
-    
     tipo_de_relacional = choice.Menu (['PR_relacional_intensivo_atributivo',
                                        'PR_relacional_intensivo_identificativo',
                                        'PR_relacional_possessivo_atributivo',
                                        'PR_relacional_circunstancial_atributivo',
                                        'PR_relacional_possessivo_identificativo',
                                        'PR_relacional_circunstancial_identificativo']).ask()
-    
-    
-    
     
     
     return tipo_de_relacional
@@ -15762,17 +15748,16 @@ def TRANSITIVIDADE():
         Processo = 'PR_Verbal'
         Agenciamento = AGENCIAMENTO()
         
-        TRANSITIVIDADE = Processo + '_' + Agenciamento 
-    
+        TRANSITIVIDADE = Processo + '_' + Agenciamento
+
+    elif TIPO_DE_PROCESSO == 'Mental':
+        print ('Selecione as opções do sistema da Oração mental')
+        Processo = 'PR_Mental'
+        Agenciamento = AGENCIAMENTO()
         
+        TRANSITIVIDADE = Processo +'_'+Agenciamento
+    
     return TRANSITIVIDADE
-
-
-
-
-
-
-
 
 def oração():
     '''(str,str,str)->str
@@ -15791,7 +15776,211 @@ def oração():
     Tema_id = TEMA_IDEACIONAL()
     
     
-    if Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+    if Transitividade == 'PR_Verbal_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+        Tema_interpessoal = TEMA_INTERPESSOAL()
+        Tema_textual=TEMA_TEXTUAL()
+        print ('Selecione a Receptividade')
+        RECEPTIVIDADE = choice.Menu (['+receptor','-receptor']).ask()
+        print ('Qual a Ordem do Dizente?')
+        ORDEM_DO_DIZENTE = choice.Menu (['atividade','semioticidade']).ask()
+        
+        if ORDEM_DO_DIZENTE == 'atividade':    
+            TIPO_ATIVIDADE = 'fala'
+    
+            if TIPO_ATIVIDADE == 'fala' and RECEPTIVIDADE == '-receptor':
+                
+                print ('Qual o Processo?')
+                Processo = grupo_verbal()
+                print('Qual é o Dizente?')
+                Dizente = estrutura_GN()
+                Polaridade = POLARIDADE ()
+            
+                oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '.'
+                 #Ex.: Eu conversei até anoitecer; Eu falei muito ontem; Nós discutimos...
+        
+            elif TIPO_ATIVIDADE == 'fala' and RECEPTIVIDADE == '+receptor':
+                
+                print ('Qual o Processo?')
+                Processo = grupo_verbal()
+                print('Qual é o Dizente?')
+                Dizente = estrutura_GN()
+                print ('Qual é o Receptor?')
+                Receptor = frase_preposicional ()
+                Polaridade = POLARIDADE ()
+            
+                oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' +  Receptor + '.'
+                
+                #Ex.: Eu conversei com você até anoitecer; Eu falei com você muito ontem; Nós discutimos com ela...
+            
+       
+        
+        elif ORDEM_DO_DIZENTE == 'semioticidade' and RECEPTIVIDADE == '+receptor': 
+            print ('Selecione o tipo de Semioticidade')
+            
+            TIPO_SEMIOTICIDADE = choice.Menu (['projeção','não_projeção']).ask()
+            if TIPO_SEMIOTICIDADE == 'projeção':
+                print ('Selecione o tipo de projeção')
+                TIPO_PROJEÇÃO = choice.Menu (['citativa', 'relativa']).ask()
+                
+                
+                if TIPO_PROJEÇÃO == 'citativa':
+                    print ('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual é o Dizente?')
+                    Dizente = estrutura_GN()
+                    print ('Qual é o Receptor?')
+                    Receptor = frase_preposicional ()
+                    Polaridade = POLARIDADE ()
+                    print ('Qual a oração projetada?')
+                    Oração_projetada = oraçãoProjetada()
+        
+                    oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor + '"' + Oração_projetada + '" ' + '.'
+                    #Ex.: Eu disse a ele "Eu comi o bolo". 
+                
+                elif TIPO_PROJEÇÃO == 'relativa':
+                    print ('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual é o Dizente?')
+                    Dizente = estrutura_GN()
+                    print ('Qual é o Receptor?')
+                    Receptor = frase_preposicional ()
+                    Polaridade = POLARIDADE ()
+                    print ('Qual a oração projetada?')
+                    Oração_projetada = oraçãoProjetada()
+        
+                    oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor  + ' ' + 'que'  + ' ' + '"' + Oração_projetada + '" ' + '.'
+                    #Ex.: Eu disse a ele que "Eu comi o bolo". 
+                    
+        elif ORDEM_DO_DIZENTE == 'semioticidade' and RECEPTIVIDADE == '-receptor': 
+            print ('Selecione o tipo de Semioticidade')
+            
+            TIPO_SEMIOTICIDADE = choice.Menu (['projeção','não_projeção']).ask()
+            if TIPO_SEMIOTICIDADE == 'projeção':
+                print ('Selecione o tipo de projeção')
+                TIPO_PROJEÇÃO = choice.Menu (['citativa', 'relativa']).ask()
+                
+                
+                if TIPO_PROJEÇÃO == 'citativa':
+                    print ('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual é o Dizente?')
+                    Dizente = estrutura_GN()
+                    
+                    Polaridade = POLARIDADE ()
+                    print ('Qual a oração projetada?')
+                    Oração_projetada = oraçãoProjetada()
+        
+                    oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '"' + Oração_projetada + '" ' + '.'
+                    #Ex.: Eu disse  "Eu comi o bolo". 
+                
+                elif TIPO_PROJEÇÃO == 'relativa':
+                    print ('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual é o Dizente?')
+                    Dizente = estrutura_GN()
+                    
+                    Polaridade = POLARIDADE ()
+                    print ('Qual a oração projetada?')
+                    Oração_projetada = oração()
+        
+                    oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo   + ' ' + 'que'  + ' ' + '"' + Oração_projetada + '" ' + '.'
+                    #Ex.: Eu disse que "Eu comi o bolo".      
+            
+           
+            
+            elif TIPO_SEMIOTICIDADE == 'não_projeção':
+                
+                TIPO_NÃO_PROJEÇÃO = '-verbiagem'
+                print ('Qual o Processo?')
+                Processo = grupo_verbal()
+                print('Qual é o Dizente?')
+                Dizente = estrutura_GN()
+                Polaridade = POLARIDADE ()
+                
+                oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '.'
+              
+    elif Transitividade == 'PR_Verbal_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+        
+        Tema_interpessoal = TEMA_INTERPESSOAL()
+        Tema_textual=TEMA_TEXTUAL()
+        TIPO_SEMIOTICIDADE = 'não_projeção'
+        print ('Selecione a Receptividade')
+        RECEPTIVIDADE = choice.Menu (['+receptor','-receptor']).ask()
+        
+        if RECEPTIVIDADE == '+receptor':
+            print ('Qual o Processo?')
+            Processo = grupo_verbal()
+            print('Qual é o Dizente?')
+            Dizente = estrutura_GN()
+            print('Qual é a Verbiagem?')
+            Verbiagem = estrutura_GN()
+            print ('Qual é o Receptor?')
+            Receptor = frase_preposicional ()
+            Polaridade = POLARIDADE ()
+            
+            oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Verbiagem + ' '+ Receptor +'.' 
+            
+           
+             
+        else:
+            print ('Qual o Processo?')
+            Processo = grupo_verbal()
+            print('Qual é o Dizente?')
+            Dizente = estrutura_GN()
+            print('Qual é a Verbiagem?')
+            Verbiagem = estrutura_GN()            
+            Polaridade = POLARIDADE ()
+            
+            oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Verbiagem +'.'
+          
+     elif   'PR_Verbal_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+        
+        Tema_interpessoal = TEMA_INTERPESSOAL()
+        Tema_textual=TEMA_TEXTUAL()  
+        print ('Qual o Processo?')
+        Processo = grupo_verbal()
+        Polaridade = POLARIDADE ()
+        print('Qual é o Dizente?')
+        Dizente = estrutura_GN()
+        
+        print('O Alvo é realizado por grupo nominal ou frase preposicional?')
+        realização_alvo = choice.Menu(['GN','FP']).ask()
+        if realização_alvo == 'GN':
+            print('Qual é o Alvo?')
+            Alvo = estrutura_GN()
+            print ('Qual a localização do alvo na oração (em relação ao Processo)?')
+            localização_alvo = choice.Menu(['ante_processo','pós_processo']).ask()
+            if localização_alvo == 'ante_processo':
+                oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Alvo + ' ' + Processo +'.'
+            else:
+                oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo+ ' ' + Alvo +'.'
+           
+                
+        else:
+            print('Qual é o Alvo?')
+            Alvo = frase_preposicional()
+            
+            oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo+ ' ' + Alvo +'.'
+
+    
+    elif   'PR_Verbal_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+        
+        Tema_interpessoal = TEMA_INTERPESSOAL()
+        Tema_textual=TEMA_TEXTUAL()  
+        print ('Qual o Processo?')
+        Processo = grupo_verbal()
+        Polaridade = POLARIDADE ()
+        print('Qual é o Dizente?')
+        Dizente = frase_preposicional()
+        print('Qual é o Alvo?')
+        Alvo = estrutura_GN()
+           
+        oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Alvo  + ' ' + Polaridade + ' ' + Processo+ ' ' + Dizente +'.'
+           
+    
+    ###MATERIAL
+    
+    elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
         
