@@ -6,23 +6,119 @@
 
 
 
-import GENERATION
-type (GENERATION)
 
 
 def oraçãoMental():
-    '''
-    '''
-    Transitividade = TRANSITIVIDADE()
-    Modo = MODO()
-    Tema_id = TEMA_IDEACIONAL() 
+	'''
+	'''
+	Transitividade = TRANSITIVIDADE()
+	Modo = MODO()
+	Tema_id = TEMA_IDEACIONAL()
+	Tema_interpessoal = TEMA_INTERPESSOAL()
+	Tema_textual=TEMA_TEXTUAL()
+	
+	if Transitividade == 'PR_Mental_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+
+		print ('Selecione o tipo de processo mental:')
+		TIPO_DE_PROCESSO = choice.Menu(['superior','inferior']).ask()
+	    
+		if TIPO_DE_PROCESSO == 'superior':
+			TIPO_SUPERIOR = choice.Menu(['cognitivo','desiderativo',]).ask()
+			print ('Qual o Experienciador (Ente:Humanizado)?')
+			Experienciador = estrutura_GN()
+		else:
+			TIPO_INFERIOR = choice.Menu(['emotivo','perceptivo']).ask()
+			print ('Qual o Experienciador (Ente:Animalizado☺)?')
+			Experienciador = estrutura_GN()
+			 
+		print ('Qual o Processo?')
+		Processo = grupo_verbal()
+		Polaridade = POLARIDADE ()
+	    
+		print ('Em orações mentais médio sem alcance, a Fenomenalização seleciona especificamente a Não-fenomenalização:comportamento_passivo')
+		
+		oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Experienciador  + ' ' + Polaridade + ' ' + Processo + '.'
     
-    
-    if Transitividade == '' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        Tema_interpessoal = TEMA_INTERPESSOAL()
-        Tema_textual=TEMA_TEXTUAL()
+	
+		
+		
+			
+	
+	    
+	
+	
+	
+	
+	
+	
+	
+	elif Transitividade == 'PR_Mental_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+		
+		
+		print ('Selecione o tipo de processo mental:')
+		TIPO_DE_PROCESSO = choice.Menu(['superior','inferior']).ask()
+	    
+		if TIPO_DE_PROCESSO == 'superior':
+			TIPO_SUPERIOR = choice.Menu(['cognitivo','desiderativo',]).ask()
+			print ('Qual o Experienciador (Ente:Humanizado)?')
+			Experienciador = estrutura_GN()
+		else:
+			TIPO_INFERIOR = choice.Menu(['emotivo','perceptivo']).ask()
+			print ('Qual o Experienciador (Ente:Animalizado☺)?')
+			Experienciador = estrutura_GN()
+			 
+		print ('Qual o Processo?')
+		Processo = grupo_verbal()
+		Polaridade = POLARIDADE ()
         
+		print ('Qual o tipo de Fenomenalizalção?')
+		FENOMENALIZAÇÃO = choice.Menu(['fenomenalização', 'não-fenomenalização']).ask()
+		if FENOMENALIZAÇÃO == 'fenomenalização':
+            TIPO_fenomenalização = choice.Menu(['hiperfenômeno','fenômeno_simples']).ask()
+            if TIPO_fenomenalização == 'hiperfenômeno':
+                TIPO_hiperfenômeno = choice.Menu(['criativo','reativo']).ask()
+                if TIPO_hiperfenômeno == 'criativo':
+                    TIPO_criativo = choice.Menu(['pensamento','desejo']).ask()
+                elif TIPO_hiperfenômeno == 'reativo':
+                    TIPO_reativo = choice.Menu(['metafenômeno','macrofenômeno']).ask()
+            elif TIPO_fenomenalização == 'fenômeno_simples':
+                #ver qual a realização
+		elif FENOMENALIZAÇÃO == 'não-fenomenalização':
+			print ('Em caso de orações mentais médio com alcance e Não-fenomenalização seleciona-se a opção: assunto']).ask()
+	        Assunto = frase_preposicional()
+			
+			oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Experienciador  + ' ' + Polaridade + ' ' + Processo + ' ' + Assunto + '.'
+	return oração
+		
+		
+		if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
+			TIPO_DE_COGNITIVO = choice.Menu (['pensar','saber','sonhar']).ask()
+		
+	    elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
+			TIPO_DE_DESIDERATIVO = choice.Menu(['querer','esperar']).ask()
+			
+		elif TIPO_INFERIOR == 'emotivo' and TIPO_reativo == 'metafenômeno':
+			TIPO_DE_EMOTIVO = choice.Menu(['gostar','agradar']).ask()
+		
+		
         
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+#		op
         TIPO_DE_PROCESSO = choice.Menu(['superior','inferior']).ask()
         if TIPO_DE_PROCESSO == 'superior':
             TIPO_SUPERIOR = choice.Menu(['cognitivo','desiderativo',]).ask()
@@ -40,7 +136,19 @@ def oraçãoMental():
                     TIPO_reativo = choice.Menu(['metafenômeno','macrofenômeno']).ask()
             elif TIPO_fenomenalização == 'fenômeno_simples':
                 #ver qual a realização
-            
+		elif FENOMENALIZAÇÃO == 'não-fenomenalização':
+			NÃO_FENOMENALIZAÇÃO = choice.Menu (['comportamento_passivo', 'assunto']).ask()
+        
+		
+		
+		if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
+			TIPO_DE_COGNITIVO = choice.Menu (['pensar','saber','sonhar']).ask()
+		
+	    elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
+			TIPO_DE_DESIDERATIVO = choice.Menu(['querer','esperar']).ask()
+			
+		elif TIPO_INFERIOR == 'emotivo' and TIPO_reativo == 'metafenômeno':
+			TIPO_DE_EMOTIVO = choice.Menu(['gostar','agradar']).ask()
         
         
         
