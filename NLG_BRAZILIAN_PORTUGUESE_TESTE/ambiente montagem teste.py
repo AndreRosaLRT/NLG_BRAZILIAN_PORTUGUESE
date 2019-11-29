@@ -74,7 +74,7 @@ def oraçãoMental():
 		print ('Qual o tipo de Fenomenalizalção?')
 		FENOMENALIZAÇÃO = choice.Menu(['fenomenalização', 'não-fenomenalização']).ask()
 		if FENOMENALIZAÇÃO == 'fenomenalização':
-            TIPO_fenomenalização = choice.Menu(['hiperfenômeno','fenômeno_simples']).ask()
+			TIPO_fenomenalização = choice.Menu(['hiperfenômeno','fenômeno_simples']).ask()
             if TIPO_fenomenalização == 'hiperfenômeno':
                 TIPO_hiperfenômeno = choice.Menu(['criativo','reativo']).ask()
                 if TIPO_hiperfenômeno == 'criativo':
