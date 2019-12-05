@@ -65,7 +65,7 @@ def advérbioModoSwitcher():
          13:'tristemente'
         }
             
-    return switcherModo.get(i, 'Seleção não disponível')
+    return switcherModo.get(i, 'Seleção nao disponível')
 
 
 def advérbioIntensidadeSwitcher():
@@ -92,7 +92,7 @@ def advérbioIntensidadeSwitcher():
          17:'tudo', 
          18:'nada' 
          }
-    return switcherIntensidade.get(i, 'Seleção não disponível')
+    return switcherIntensidade.get(i, 'Seleção nao disponível')
 
         
 
@@ -115,7 +115,7 @@ def advérbioLugarSwitcher():
         12:'dentro'
         }
     
-    return switcherLugar.get(i, 'Seleção não disponível')
+    return switcherLugar.get(i, 'Seleção nao disponível')
 
 
 a= choice.Menu(['1','2']).ask()
@@ -151,15 +151,15 @@ def advérbioTempoSwitcher():
         26:'tarde',
         27:'jamais',
         }
-    return switcherTempo.get(i, 'Seleção não disponível')
+    return switcherTempo.get(i, 'Seleção nao disponível')
 
         
 
 def advérbioNegaçãoSwitcher():
     i = int(input())
     
-    switcherNegação = {1:'não',2:'nem',3:'tampouco',4:'nunca',5:'jamais'}
-    return switcherNegação.get(i,'Seleção não disponível')
+    switcherNegação = {1:'nao',2:'nem',3:'tampouco',4:'nunca',5:'jamais'}
+    return switcherNegação.get(i,'Seleção nao disponível')
 
 def advérbioAfirmaçãoSwitcher():
     
@@ -175,7 +175,7 @@ def advérbioAfirmaçãoSwitcher():
                        8:'certo',
                        9:'efetivamente' 
                        }
-    return switcherAfirmação.get (i,'Seleção não disponível')
+    return switcherAfirmação.get (i,'Seleção nao disponível')
     
 
 def advérbioDúvidaSwitcher():
@@ -190,7 +190,7 @@ def advérbioDúvidaSwitcher():
                          6:'será',
                          7:'talvez', 
                          8:'casualmente'}
-    return switcherDúvida.get(i, 'Seleção não disponível')
+    return switcherDúvida.get(i, 'Seleção nao disponível')
 
 def advérbio():
     '''
@@ -312,7 +312,7 @@ def advérbio():
         
         elif tipo_de_advérbio == 'Negação':
             print("""
-                 1:não
+                 1:nao
                  2:nem
                  3:tampouco 
                  4:nunca
@@ -415,7 +415,7 @@ def def_classe_de_verbo ():
 
 ####ESTA FUNÇÃO DEPENDE DE FORNECIMENTO DO PARÂMETO 'VERBO'
 
-#        A primeira função o verbo não precisa estar lematizado, ou seja, podemos entrar qualquer verbo, mesmo conjugado e
+#        A primeira função o verbo nao precisa estar lematizado, ou seja, podemos entrar qualquer verbo, mesmo conjugado e
 #        a função retorna o ME. Essa opção me paree um pouco redundante pois se sabemos de antemão qual é o verbo, já sabemos
 ##        qual é o ME. A segunda função depende de um verbo lematizado que dependerá por sua vez de escolhas dentro de opções de
 #        tipos de experiências que são realizadas por verbos lematizados (esses verbos então serão realizações de opções dentro de
@@ -621,16 +621,16 @@ def detecção_transitoriedade_do_verbo ():
 
 
 ###################MENU PARA TIPOS DE OI
-def OI_ORIENTAÇÃO_MODAL_NÃO_FINITO():
-    print("Qual é a Orientação modal não_finita desejada?")
+def OI_ORIENTAÇÃO_MODAL_nao_FINITO():
+    print("Qual é a Orientação modal nao_finita desejada?")
     #time.sleep(1)
     print()
 
-    OI_ORIENTAÇÃO_MODAL_NÃO_FINITO = choice.Menu(['subjuntivo_conjuntivo','subjuntivo_condicional',
+    OI_ORIENTAÇÃO_MODAL_nao_FINITO = choice.Menu(['subjuntivo_conjuntivo','subjuntivo_condicional',
                                                    'subjuntivo_optativo','imperativo_I','imperativo_II',
-                                                   'não_finito_concretizado']).ask()
+                                                   'nao_finito_concretizado']).ask()
     
-    return OI_ORIENTAÇÃO_MODAL_NÃO_FINITO
+    return OI_ORIENTAÇÃO_MODAL_nao_FINITO
     
      
            
@@ -650,7 +650,7 @@ def OI_ORIENTAÇÃO_MODAL_FINITO():
 
     
 
-def OI_não_orientado():
+def OI_nao_orientado():
     print("Qual é a Orientação interpessoal desejada?")
     
     
@@ -681,7 +681,7 @@ def OI_tipo_de_orientação():
           9: subjuntivo_optativo
           10: imperativo_I
           11: imperativo_II
-          12: não_finito_concretizado 
+          12: nao_finito_concretizado 
           13: gerúndio
           14: particípio
           15: NA
@@ -702,14 +702,14 @@ def OI_tipo_de_orientação():
               9: 'subjuntivo_optativo',
               10: 'imperativo_I',
               11: 'imperativo_II',
-              12: 'não_finito_concretizado',
+              12: 'nao_finito_concretizado',
               13: 'gerúndio',
               14: 'particípio',
               15: 'NA'
 
                        }
     
-    tipo_de_orientação = switcher.get(i,'Seleção não disponível.')
+    tipo_de_orientação = switcher.get(i,'Seleção nao disponível.')
     
     return tipo_de_orientação
        
@@ -2283,11 +2283,11 @@ def realização_transitoriedade_subjuntivo_optativo():
 
 
 
-############não_finito_concretizado
+############nao_finito_concretizado
             
-def realização_transitoriedade_não_finito_concretizado():
+def realização_transitoriedade_nao_finito_concretizado():
     '''(str)->str
-    Retorna o morfema que realiza a transitoriedade de um verbo  não_finito_concretizado, 
+    Retorna o morfema que realiza a transitoriedade de um verbo  nao_finito_concretizado, 
     dados  o padrão de morfologia, tipo de pessoa, e número.
     
     >>>
@@ -2548,7 +2548,7 @@ def realização_transitoriedade_imperativo_I():
         padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular' or
         padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular'
         ):
-        return 'Morfologias de imperativo não selecionam 1pessoa do singular, pois não se direcionam exclusivamente ao falante. Selecione uma opção válida' 
+        return 'Morfologias de imperativo nao selecionam 1pessoa do singular, pois nao se direcionam exclusivamente ao falante. Selecione uma opção válida' 
 
  
     
@@ -2663,7 +2663,7 @@ def realização_transitoriedade_imperativo_II():
         padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular' or
         padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular'
         ):
-        return 'Morfologias de imperativo não selecionam 1pessoa do singular, pois não se direcionam exclusivamente ao falante. Selecione uma opção válida' 
+        return 'Morfologias de imperativo nao selecionam 1pessoa do singular, pois nao se direcionam exclusivamente ao falante. Selecione uma opção válida' 
  
 ###gerúndio
 def realização_transitoriedade_gerúndio():
@@ -2829,8 +2829,8 @@ def realização_transitoriedade_do_verbo ():
         MI = realização_transitoriedade_subjuntivo_optativo()
         return MI
     
-    elif tipo_de_orientação == 'não_finito_concretizado':
-        MI = realização_transitoriedade_não_finito_concretizado()
+    elif tipo_de_orientação == 'nao_finito_concretizado':
+        MI = realização_transitoriedade_nao_finito_concretizado()
         return MI
    
     elif tipo_de_orientação == 'imperativo_I':
@@ -2912,18 +2912,18 @@ def formação_da_estrutura_do_verbo2 (): #O tipo_de_experiência
 #################
 
 
-def formação_verbo_estar_não_finito():
+def formação_verbo_estar_nao_finito():
     '''            
     '''
     
     verbo_lematizado = 'estar'
     
     
-    TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()
+    TIPO_OM_nao_FINITA = OI_ORIENTAÇÃO_MODAL_nao_FINITO()
         
     
 
-    if TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
+    if TIPO_OM_nao_FINITA == 'subjuntivo_condicional':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
@@ -2990,7 +2990,7 @@ def formação_verbo_estar_não_finito():
 
 
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_conjuntivo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_conjuntivo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
             
@@ -3054,18 +3054,18 @@ def formação_verbo_estar_não_finito():
                 verbo=ME + 'ej' + MI
                 return verbo
 
-    elif TIPO_OM_NÃO_FINITA == 'não_finito_concretizado':
+    elif TIPO_OM_nao_FINITA == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI
         return verbo
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
+    elif TIPO_OM_nao_FINITA == 'imperativo_I':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -3119,13 +3119,13 @@ def formação_verbo_estar_não_finito():
 
 
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_II':
+    elif TIPO_OM_nao_FINITA == 'imperativo_II':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         if OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -3184,7 +3184,7 @@ def formação_verbo_estar_não_finito():
                  verbo=ME + 'ej'+ MI
                  return verbo
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_optativo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_optativo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
@@ -3854,9 +3854,9 @@ def formação_verbo_estar():
                 verbo=ME + 'ej' + MI
                 return verbo
 
-    elif tipo_de_orientação == 'não_finito_concretizado':
+    elif tipo_de_orientação == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI
         return verbo
 
@@ -3865,7 +3865,7 @@ def formação_verbo_estar():
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -3925,7 +3925,7 @@ def formação_verbo_estar():
         
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         if OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -4050,17 +4050,17 @@ def formação_verbo_estar():
 
 
 
-def formação_verbo_dizer_não_finito():
+def formação_verbo_dizer_nao_finito():
     '''            
     '''
     
     verbo_lematizado = 'dizer'
     
     
-    TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()                        
+    TIPO_OM_nao_FINITA = OI_ORIENTAÇÃO_MODAL_nao_FINITO()                        
 
 
-    if TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
+    if TIPO_OM_nao_FINITA == 'subjuntivo_condicional':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
@@ -4116,7 +4116,7 @@ def formação_verbo_dizer_não_finito():
                verbo=ME +'iss'+ MI
                
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_conjuntivo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_conjuntivo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
             
@@ -4173,18 +4173,18 @@ def formação_verbo_dizer_não_finito():
 
 
 
-    elif TIPO_OM_NÃO_FINITA == 'não_finito_concretizado':
+    elif TIPO_OM_nao_FINITA == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI    
 
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
+    elif TIPO_OM_nao_FINITA == 'imperativo_I':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -4229,13 +4229,13 @@ def formação_verbo_dizer_não_finito():
                 verbo=ME +  MI    
 
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_II':
+    elif TIPO_OM_nao_FINITA == 'imperativo_II':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -4285,7 +4285,7 @@ def formação_verbo_dizer_não_finito():
                  MI = 'am'
                  verbo=ME + 'ig'+ MI
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_optativo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_optativo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
@@ -4643,19 +4643,19 @@ def formação_verbo_dizer_finito():
                         
 
 
-def formação_verbo_ter_não_finito():
+def formação_verbo_ter_nao_finito():
     '''            
     '''
     
     verbo_lematizado = 'ter'
     
     
-    TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()                        
+    TIPO_OM_nao_FINITA = OI_ORIENTAÇÃO_MODAL_nao_FINITO()                        
     
     
 
 
-    if TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
+    if TIPO_OM_nao_FINITA == 'subjuntivo_condicional':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
@@ -4711,7 +4711,7 @@ def formação_verbo_ter_não_finito():
                verbo=ME +'iv'+ MI
                
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_conjuntivo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_conjuntivo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
             
@@ -4768,18 +4768,18 @@ def formação_verbo_ter_não_finito():
 
 
 
-    elif TIPO_OM_NÃO_FINITA == 'não_finito_concretizado':
+    elif TIPO_OM_nao_FINITA == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI    
 
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
+    elif TIPO_OM_nao_FINITA == 'imperativo_I':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -4824,13 +4824,13 @@ def formação_verbo_ter_não_finito():
                 verbo=ME + 'enh'+ MI    
 
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_II':
+    elif TIPO_OM_nao_FINITA == 'imperativo_II':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -4880,7 +4880,7 @@ def formação_verbo_ter_não_finito():
                  MI = 'am'
                  verbo=ME + 'enh'+ MI
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_optativo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_optativo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
@@ -5616,9 +5616,9 @@ def formação_verbo_ter():
 
 
 
-    elif tipo_de_orientação == 'não_finito_concretizado':
+    elif tipo_de_orientação == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI    
 
 
@@ -5627,7 +5627,7 @@ def formação_verbo_ter():
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -5678,7 +5678,7 @@ def formação_verbo_ter():
         
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -5785,17 +5785,17 @@ def formação_verbo_ter():
     
 
 
-def formação_verbo_ser_não_finito():
+def formação_verbo_ser_nao_finito():
     '''            
     '''
     
     verbo_lematizado = 'ser'
     
     
-    TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO() 
+    TIPO_OM_nao_FINITA = OI_ORIENTAÇÃO_MODAL_nao_FINITO() 
 
    
-    if TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
+    if TIPO_OM_nao_FINITA == 'subjuntivo_condicional':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = 'f'
@@ -5851,18 +5851,18 @@ def formação_verbo_ser_não_finito():
                verbo=ME +  MI    
 
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_conjuntivo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_conjuntivo':
         ME = verbo_lematizado[slice(-2)]
         MI = realização_transitoriedade_subjuntivo_conjuntivo()
         verbo=ME + 'ej'+ MI 
     
     
-    elif TIPO_OM_NÃO_FINITA == 'não_finito_concretizado':
+    elif TIPO_OM_nao_FINITA == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI    
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_optativo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_optativo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = 'f'
@@ -5920,12 +5920,12 @@ def formação_verbo_ser_não_finito():
 
 
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
+    elif TIPO_OM_nao_FINITA == 'imperativo_I':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = verbo_lematizado[slice(-2)]          
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -5969,13 +5969,13 @@ def formação_verbo_ser_não_finito():
                 MI  = 'am'
                 verbo=ME +'ej'+ MI    
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_II':
+    elif TIPO_OM_nao_FINITA == 'imperativo_II':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = verbo_lematizado[slice(-2)]
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
@@ -6620,9 +6620,9 @@ def formação_verbo_ser():
         verbo=ME + 'ej'+ MI 
     
     
-    elif tipo_de_orientação == 'não_finito_concretizado':
+    elif tipo_de_orientação == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI    
 
     elif tipo_de_orientação == 'subjuntivo_optativo':
@@ -6688,7 +6688,7 @@ def formação_verbo_ser():
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = verbo_lematizado[slice(-2)]          
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -6738,7 +6738,7 @@ def formação_verbo_ser():
         ME = verbo_lematizado[slice(-2)]
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
@@ -6790,19 +6790,19 @@ def formação_verbo_ser():
     
  
 
-def formação_verbo_ir_não_finito():
+def formação_verbo_ir_nao_finito():
     '''            
     '''
     
     verbo_lematizado = 'ser'
     
     
-    TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()
+    TIPO_OM_nao_FINITA = OI_ORIENTAÇÃO_MODAL_nao_FINITO()
 
       
 
 
-    if TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
+    if TIPO_OM_nao_FINITA == 'subjuntivo_condicional':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = 'f'
@@ -6858,7 +6858,7 @@ def formação_verbo_ir_não_finito():
                 MI  = 'ossem'
                 verbo=ME +  MI
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_conjuntivo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_conjuntivo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
             
@@ -6915,18 +6915,18 @@ def formação_verbo_ir_não_finito():
 
 
 
-    elif TIPO_OM_NÃO_FINITA == 'não_finito_concretizado':
+    elif TIPO_OM_nao_FINITA == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI
 
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
+    elif TIPO_OM_nao_FINITA == 'imperativo_I':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -6970,13 +6970,13 @@ def formação_verbo_ir_não_finito():
                 MI  = 'ão'
                 verbo=ME + MI
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_II':
+    elif TIPO_OM_nao_FINITA == 'imperativo_II':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = 'v'
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         if OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -7026,7 +7026,7 @@ def formação_verbo_ir_não_finito():
                  MI = 'ão'
                  verbo=ME +  MI
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_optativo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_optativo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = 'f'
@@ -7633,9 +7633,9 @@ def formação_verbo_ir():
 
 
 
-    elif tipo_de_orientação == 'não_finito_concretizado':
+    elif tipo_de_orientação == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI
 
 
@@ -7644,7 +7644,7 @@ def formação_verbo_ir():
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -7694,7 +7694,7 @@ def formação_verbo_ir():
         ME = 'v'
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         if OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -7802,20 +7802,20 @@ def formação_verbo_ir():
     
 
 
-def formação_verbo_vir_não_finito():
+def formação_verbo_vir_nao_finito():
     '''            
     '''
     
     verbo_lematizado = 'vir'
     
     
-    TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()
+    TIPO_OM_nao_FINITA = OI_ORIENTAÇÃO_MODAL_nao_FINITO()
     
     
         
 
 
-    if TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
+    if TIPO_OM_nao_FINITA == 'subjuntivo_condicional':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = verbo_lematizado[slice(-2)]
@@ -7868,7 +7868,7 @@ def formação_verbo_vir_não_finito():
                verbo=ME +  MI
 
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_conjuntivo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_conjuntivo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = verbo_lematizado[slice(-2)]    
@@ -7925,19 +7925,19 @@ def formação_verbo_vir_não_finito():
 
 
 
-    elif TIPO_OM_NÃO_FINITA == 'não_finito_concretizado':
+    elif TIPO_OM_nao_FINITA == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI
 
 
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
+    elif TIPO_OM_nao_FINITA == 'imperativo_I':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = verbo_lematizado[slice(-2)]          
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -7982,13 +7982,13 @@ def formação_verbo_vir_não_finito():
                 verbo=ME +'enh'+ MI    
 
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_II':
+    elif TIPO_OM_nao_FINITA == 'imperativo_II':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = verbo_lematizado[slice(-2)]
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         if OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -8039,7 +8039,7 @@ def formação_verbo_vir_não_finito():
                  verbo=verbo=ME +'enh'+ MI
 
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_optativo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_optativo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = verbo_lematizado[slice(-2)]
@@ -8725,9 +8725,9 @@ def formação_verbo_vir():
 
 
 
-    elif tipo_de_orientação == 'não_finito_concretizado':
+    elif tipo_de_orientação == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI
 
 
@@ -8737,7 +8737,7 @@ def formação_verbo_vir():
         OI_número = choice.Menu(['singular', 'plural']).ask()
         ME = verbo_lematizado[slice(-2)]          
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -8788,7 +8788,7 @@ def formação_verbo_vir():
         ME = verbo_lematizado[slice(-2)]
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         if OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -8900,18 +8900,18 @@ def formação_verbo_vir():
 
 
   
-def formação_verbo_haver_não_finito():
+def formação_verbo_haver_nao_finito():
     '''            
     '''
     
     verbo_lematizado = 'haver'
     
     
-    TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()
+    TIPO_OM_nao_FINITA = OI_ORIENTAÇÃO_MODAL_nao_FINITO()
     
    
     
-    if TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
+    if TIPO_OM_nao_FINITA == 'subjuntivo_condicional':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
     
@@ -8945,7 +8945,7 @@ def formação_verbo_haver_não_finito():
                 MI  = 'ésseis'
                 verbo=ME +'ouv'+ MI
     
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_conjuntivo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_conjuntivo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
                 
@@ -9002,17 +9002,17 @@ def formação_verbo_haver_não_finito():
 
 
 
-    elif TIPO_OM_NÃO_FINITA == 'não_finito_concretizado':
+    elif TIPO_OM_nao_FINITA == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
+    elif TIPO_OM_nao_FINITA == 'imperativo_I':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
 
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
 
 
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -9054,13 +9054,13 @@ def formação_verbo_haver_não_finito():
                 MI  = 'am'
                 verbo=ME + 'aj'+ MI
 
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_II':
+    elif TIPO_OM_nao_FINITA == 'imperativo_II':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
 
 
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
 
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
@@ -9110,7 +9110,7 @@ def formação_verbo_haver_não_finito():
                 MI = 'am'
                 verbo = ME + 'aj'+ MI
 
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_optativo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_optativo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
 
@@ -9749,9 +9749,9 @@ def formação_verbo_haver():
 
 
 
-    elif tipo_de_orientação == 'não_finito_concretizado':
+    elif tipo_de_orientação == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI
 
     elif tipo_de_orientação == 'imperativo_I':
@@ -9759,7 +9759,7 @@ def formação_verbo_haver():
         OI_número = choice.Menu(['singular', 'plural']).ask()
 
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
 
 
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -9807,7 +9807,7 @@ def formação_verbo_haver():
 
 
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
 
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
@@ -9912,19 +9912,19 @@ def formação_verbo_haver():
     
 
 
-def formação_verbo_poder_não_finito():
+def formação_verbo_poder_nao_finito():
     '''            
     '''
     
     verbo_lematizado = 'poder'
     
     
-    TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO() 
+    TIPO_OM_nao_FINITA = OI_ORIENTAÇÃO_MODAL_nao_FINITO() 
 
     
                
            
-    if TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
+    if TIPO_OM_nao_FINITA == 'subjuntivo_condicional':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
@@ -9958,7 +9958,7 @@ def formação_verbo_poder_não_finito():
                MI  = 'ésseis'
                verbo=ME +'ud'+ MI
                
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_conjuntivo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_conjuntivo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
             
@@ -10016,17 +10016,17 @@ def formação_verbo_poder_não_finito():
     
     
     
-    elif TIPO_OM_NÃO_FINITA == 'não_finito_concretizado':
+    elif TIPO_OM_nao_FINITA == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI
     
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
+    elif TIPO_OM_nao_FINITA == 'imperativo_I':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -10068,13 +10068,13 @@ def formação_verbo_poder_não_finito():
                 MI  = 'ossam'
                 verbo=ME + MI
     
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_II':
+    elif TIPO_OM_nao_FINITA == 'imperativo_II':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         if OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -10127,7 +10127,7 @@ def formação_verbo_poder_não_finito():
     
     
     
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_optativo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_optativo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
         
@@ -10644,9 +10644,9 @@ def formação_verbo_poder():
     
     
     
-    elif tipo_de_orientação == 'não_finito_concretizado':
+    elif tipo_de_orientação == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + MI
     
     elif tipo_de_orientação == 'imperativo_I':
@@ -10654,7 +10654,7 @@ def formação_verbo_poder():
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            return 'Imperativos não selecionam 1pessoa do singular'
+            return 'Imperativos nao selecionam 1pessoa do singular'
             
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -10702,7 +10702,7 @@ def formação_verbo_poder():
         
         
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print('Imperativos não selecionam 1pessoa do singular')
+            print('Imperativos nao selecionam 1pessoa do singular')
             
         if OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
             padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask() 
@@ -11249,9 +11249,9 @@ def formação_verbo_fazer():
                 MI  = 'am'
                 verbo=ME + 'ç' + MI
    
-    elif tipo_de_orientação == 'não_finito_concretizado':
+    elif tipo_de_orientação == 'nao_finito_concretizado':
         ME = verbo_lematizado[slice(-2)]
-        MI = realização_transitoriedade_não_finito_concretizado()
+        MI = realização_transitoriedade_nao_finito_concretizado()
         verbo=ME + 'az' + MI
    
  #####################   
@@ -11261,7 +11261,7 @@ def formação_verbo_fazer():
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print ( 'Imperativos não selecionam 1pessoa do singular. Seleciona novamente:')
+            print ( 'Imperativos nao selecionam 1pessoa do singular. Seleciona novamente:')
             formação_verbo_fazer()
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -11325,7 +11325,7 @@ def formação_verbo_fazer():
         OI_número = choice.Menu(['singular', 'plural']).ask()
                   
         if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
-            print ( 'Imperativos não selecionam 1pessoa do singular. Selecione novamente:')
+            print ( 'Imperativos nao selecionam 1pessoa do singular. Selecione novamente:')
             formação_verbo_fazer()
             
         elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
@@ -11556,7 +11556,7 @@ def formação_verbo_gerúndio():
     return verbo_gerúndio
 
 
-def realização_transitoriedade_do_verbo_não_finito ():
+def realização_transitoriedade_do_verbo_nao_finito ():
     '''( str)-> str
 
     Retorna o morfema que realiza a transitoriedade do verbo no português
@@ -11566,33 +11566,33 @@ def realização_transitoriedade_do_verbo_não_finito ():
     'o'
 
     '''
-    TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()
+    TIPO_OM_nao_FINITA = OI_ORIENTAÇÃO_MODAL_nao_FINITO()
     
     
     
     
     
-    if TIPO_OM_NÃO_FINITA == 'subjuntivo_conjuntivo':
+    if TIPO_OM_nao_FINITA == 'subjuntivo_conjuntivo':
         MI = realização_transitoriedade_subjuntivo_conjuntivo()
         return MI
      
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_condicional':
         MI = realização_transitoriedade_subjuntivo_condicional()
         return MI
     
-    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_optativo':
+    elif TIPO_OM_nao_FINITA == 'subjuntivo_optativo':
         MI = realização_transitoriedade_subjuntivo_optativo()
         return MI
     
-    elif TIPO_OM_NÃO_FINITA == 'não_finito_concretizado':
-        MI = realização_transitoriedade_não_finito_concretizado()
+    elif TIPO_OM_nao_FINITA == 'nao_finito_concretizado':
+        MI = realização_transitoriedade_nao_finito_concretizado()
         return MI
    
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
+    elif TIPO_OM_nao_FINITA == 'imperativo_I':
         MI = realização_transitoriedade_imperativo_I()
         return MI
     
-    elif TIPO_OM_NÃO_FINITA == 'imperativo_II':
+    elif TIPO_OM_nao_FINITA == 'imperativo_II':
         MI = realização_transitoriedade_imperativo_II()
         return MI
     
@@ -11641,7 +11641,7 @@ def realização_transitoriedade_do_verbo_finito ():
     
 
 
-def realização_transitoriedade_do_verbo_não_orientado ():
+def realização_transitoriedade_do_verbo_nao_orientado ():
     '''( str)-> str
 
     Retorna o morfema que realiza a transitoriedade do verbo no português
@@ -11651,7 +11651,7 @@ def realização_transitoriedade_do_verbo_não_orientado ():
     'o'
 
     '''
-    tipo_de_orientação = OI_não_orientado()
+    tipo_de_orientação = OI_nao_orientado()
     
     if tipo_de_orientação == 'infinitivo':
         MI = realização_transitoriedade_infinitivo ()
@@ -11697,29 +11697,29 @@ def formação_da_estrutura_do_verbo_lexical_finito ():
     return verbo
 
 
-def formação_da_estrutura_do_verbo_lexical_não_finito ():
+def formação_da_estrutura_do_verbo_lexical_nao_finito ():
     '''
     ''' 
     prompt="Qual é o verbo lematizado desejado?"
     verbo_lematizado = input(prompt)
     
     if verbo_lematizado=='estar':
-        verbo = formação_verbo_estar_não_finito()
+        verbo = formação_verbo_estar_nao_finito()
     elif verbo_lematizado=='ser':
-        verbo = formação_verbo_ser_não_finito()
+        verbo = formação_verbo_ser_nao_finito()
     elif verbo_lematizado=='ir':
-        verbo = formação_verbo_ir_não_finito()
+        verbo = formação_verbo_ir_nao_finito()
     elif verbo_lematizado=='vir':
-        verbo = formação_verbo_vir_não_finito()
+        verbo = formação_verbo_vir_nao_finito()
     elif verbo_lematizado=='haver':
-        verbo = formação_verbo_haver_não_finito()
+        verbo = formação_verbo_haver_nao_finito()
     elif verbo_lematizado == 'ter':
-        verbo = formação_verbo_ter_não_finito()
+        verbo = formação_verbo_ter_nao_finito()
     elif verbo_lematizado == 'dizer':
-        verbo = formação_verbo_dizer_não_finito()
+        verbo = formação_verbo_dizer_nao_finito()
     else:
         ME = (verbo_lematizado[slice (-2)])
-        MI = realização_transitoriedade_do_verbo_não_finito ()
+        MI = realização_transitoriedade_do_verbo_nao_finito ()
         verbo=ME + MI
         
     
@@ -11727,7 +11727,7 @@ def formação_da_estrutura_do_verbo_lexical_não_finito ():
 
 
 
-def formação_da_estrutura_do_verbo_modal_não_finito ():
+def formação_da_estrutura_do_verbo_modal_nao_finito ():
     '''
     '''
     print("Qual é o verbo modal lematizado desejado?")
@@ -11737,17 +11737,17 @@ def formação_da_estrutura_do_verbo_modal_não_finito ():
     
     if tipo_de_modal == 'dever':
         ME = tipo_de_modal[slice(-2)]
-        MI = realização_transitoriedade_do_verbo_não_finito ()
+        MI = realização_transitoriedade_do_verbo_nao_finito ()
         verbo=ME + MI
         
     
         
     elif tipo_de_modal == 'poder':
-        verbo = formação_verbo_poder_não_finito ()
+        verbo = formação_verbo_poder_nao_finito ()
 
 
     elif tipo_de_modal == 'haver':
-        verbo = formação_verbo_haver_não_finito ()
+        verbo = formação_verbo_haver_nao_finito ()
     
     return verbo
 
@@ -11812,7 +11812,7 @@ def formação_da_estrutura_do_verbo_auxiliar_finito ():
 
 
 
-def formação_da_estrutura_do_verbo_auxiliar_não_finito ():
+def formação_da_estrutura_do_verbo_auxiliar_nao_finito ():
     '''
     '''
     
@@ -11820,37 +11820,37 @@ def formação_da_estrutura_do_verbo_auxiliar_não_finito ():
     tipo_de_auxiliar = choice.Menu(['estar', 'ter','ir','vir','ser','haver']).ask()
 
     if tipo_de_auxiliar == 'estar':
-        verbo = formação_verbo_estar_não_finito()
+        verbo = formação_verbo_estar_nao_finito()
                      
                      
     elif tipo_de_auxiliar == 'ter':
-        verbo = formação_verbo_ter_não_finito()
+        verbo = formação_verbo_ter_nao_finito()
 
 
     elif tipo_de_auxiliar == 'haver':
-        verbo = formação_verbo_haver_não_finito()
+        verbo = formação_verbo_haver_nao_finito()
 
 
     elif tipo_de_auxiliar == 'ir':
-        verbo = formação_verbo_ir_não_finito()
+        verbo = formação_verbo_ir_nao_finito()
 
     elif tipo_de_auxiliar == 'vir':
-       verbo = formação_verbo_vir_não_finito() 
+       verbo = formação_verbo_vir_nao_finito() 
 
     elif tipo_de_auxiliar == 'ser':
-        verbo = formação_verbo_ser_não_finito()
+        verbo = formação_verbo_ser_nao_finito()
     
     return verbo           
     
      
 
 
-def formação_verbo_não_orientado():
+def formação_verbo_nao_orientado():
     '''            
     '''
     
     verbo_lematizado = input ('Qual é o verbo lematizado?')
-    tipo_de_orientação = OI_não_orientado()
+    tipo_de_orientação = OI_nao_orientado()
     
     if verbo_lematizado =='vir':
         
@@ -11978,46 +11978,46 @@ def verbo_geral2():
     
     classe_do_verbo = def_classe_de_verbo ()
     print ('Qual a orientação interpessoal?')
-    ORIENTAÇÃO =  choice.Menu(['orientado', 'não_orientado']).ask()
+    ORIENTAÇÃO =  choice.Menu(['orientado', 'nao_orientado']).ask()
     
-    if (classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'não_orientado' or
-        classe_do_verbo == 'modal' and ORIENTAÇÃO == 'não_orientado' or
-        classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'não_orientado'):
+    if (classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'nao_orientado' or
+        classe_do_verbo == 'modal' and ORIENTAÇÃO == 'nao_orientado' or
+        classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'nao_orientado'):
         
-        verbo=formação_verbo_não_orientado()
+        verbo=formação_verbo_nao_orientado()
 
     
     elif classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'orientado':
         
-        ORIENTAÇÃO_MODAL= choice.Menu(['finito', 'não_finito']).ask()
+        ORIENTAÇÃO_MODAL= choice.Menu(['finito', 'nao_finito']).ask()
   
         if ORIENTAÇÃO_MODAL == 'finito':
             
             verbo = formação_da_estrutura_do_verbo_lexical_finito ()
             
-        elif ORIENTAÇÃO_MODAL == 'não_finito': 
-            verbo = formação_da_estrutura_do_verbo_lexical_não_finito ()
+        elif ORIENTAÇÃO_MODAL == 'nao_finito': 
+            verbo = formação_da_estrutura_do_verbo_lexical_nao_finito ()
             
     
     elif classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'orientado':
-        ORIENTAÇÃO_MODAL= choice.Menu(['finito', 'não_finito']).ask()
+        ORIENTAÇÃO_MODAL= choice.Menu(['finito', 'nao_finito']).ask()
 
         if ORIENTAÇÃO_MODAL == 'finito':
             
             verbo = formação_da_estrutura_do_verbo_auxiliar_finito ()
             
-        elif ORIENTAÇÃO_MODAL == 'não_finito': 
-            verbo = formação_da_estrutura_do_verbo_auxiliar_não_finito ()
+        elif ORIENTAÇÃO_MODAL == 'nao_finito': 
+            verbo = formação_da_estrutura_do_verbo_auxiliar_nao_finito ()
             
     elif classe_do_verbo == 'modal' and ORIENTAÇÃO == 'orientado':
-        ORIENTAÇÃO_MODAL= choice.Menu(['finito', 'não_finito']).ask()
+        ORIENTAÇÃO_MODAL= choice.Menu(['finito', 'nao_finito']).ask()
         
         if ORIENTAÇÃO_MODAL == 'finito':
             
             verbo = formação_da_estrutura_do_verbo_modal_finito ()
             
-        elif ORIENTAÇÃO_MODAL == 'não_finito': 
-            verbo = formação_da_estrutura_do_verbo_modal_não_finito ()
+        elif ORIENTAÇÃO_MODAL == 'nao_finito': 
+            verbo = formação_da_estrutura_do_verbo_modal_nao_finito ()
            
     return verbo           
 
@@ -12064,7 +12064,7 @@ def realização_de_AGÊNCIA():
     '''
     '''
     print ('Qual de Agência?')
-    AGÊNCIA =  choice.Menu(['agenciado_ativa', 'agenciado_passiva', 'não-agenciado']).ask()
+    AGÊNCIA =  choice.Menu(['agenciado_ativa', 'agenciado_passiva', 'nao-agenciado']).ask()
     
     if AGÊNCIA == 'agenciado_passiva':
         print('Qual o verbo auxiliar de agência passiva desejado?')
@@ -12084,9 +12084,9 @@ def realização_de_AGÊNCIA():
     
         grupo_verbal_agência_ativa = formação_da_estrutura_do_verbo_geral() 
         return grupo_verbal_agência_ativa
-    elif AGÊNCIA == 'não-agenciado':
-        grupo_verbal_não_agenciado = formação_da_estrutura_do_verbo_geral()
-        return grupo_verbal_não_agenciado
+    elif AGÊNCIA == 'nao-agenciado':
+        grupo_verbal_nao_agenciado = formação_da_estrutura_do_verbo_geral()
+        return grupo_verbal_nao_agenciado
         
     
 def realização_de_AGÊNCIA_passiva():
@@ -12132,30 +12132,30 @@ def grupo_verbal():
     '''
 
     print ('Qual a agência do GV?')
-    AGÊNCIA =  choice.Menu(['agenciado_ativa', 'agenciado_passiva', 'não_agenciado', 'não_agenciado_voz_passiva']).ask()
+    AGÊNCIA =  choice.Menu(['agenciado_ativa', 'agenciado_passiva', 'nao_agenciado', 'nao_agenciado_voz_passiva']).ask()
     print ('Há a seleção de  tempo secundário')
     TEMPO_SECUNDÁRIO = choice.Menu(['-','1_reiteração', '2_reiterações','3_reiterações','4_reiterações']).ask()
     
     if (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '-' or
-        AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '-'):
+        AGÊNCIA == 'nao_agenciado' and TEMPO_SECUNDÁRIO == '-'):
         print ('Selecione a finitude')
-        FINITUDE = choice.Menu(['finito', 'não_finito', 'não_orientado' ]).ask()
+        FINITUDE = choice.Menu(['finito', 'nao_finito', 'nao_orientado' ]).ask()
         
         if FINITUDE == 'finito':
             grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito ()
         
-        elif FINITUDE == 'não_finito' :
-            grupo_verbal = formação_da_estrutura_do_verbo_lexical_não_finito ()
+        elif FINITUDE == 'nao_finito' :
+            grupo_verbal = formação_da_estrutura_do_verbo_lexical_nao_finito ()
         
-        elif FINITUDE == 'não_orientado':   
-            grupo_verbal = formação_verbo_não_orientado()
+        elif FINITUDE == 'nao_orientado':   
+            grupo_verbal = formação_verbo_nao_orientado()
         
     elif (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '1_reiteração'or
-          AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '1_reiteração'):
+          AGÊNCIA == 'nao_agenciado' and TEMPO_SECUNDÁRIO == '1_reiteração'):
          
         grupo_verbal = verbo_geral2 () + ' ' + verbo_geral2 ()
     elif (AGÊNCIA == 'agenciado_passiva' and TEMPO_SECUNDÁRIO == '1_reiteração' or
-          AGÊNCIA == 'não_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '1_reiteração') :
+          AGÊNCIA == 'nao_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '1_reiteração') :
         print('Qual o verbo auxiliar de agência passiva desejado?')
         auxiliar_da_passiva =  choice.Menu(['ser','estar']).ask()
         if auxiliar_da_passiva == 'ser':
@@ -12169,11 +12169,11 @@ def grupo_verbal():
         grupo_verbal = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
     
     elif (AGÊNCIA == 'agenciado_ativa'and TEMPO_SECUNDÁRIO == '2_reiterações' or
-          AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '2_reiteração'):
+          AGÊNCIA == 'nao_agenciado' and TEMPO_SECUNDÁRIO == '2_reiteração'):
         grupo_verbal = verbo_geral2 () + ' ' + verbo_geral2 () + ' ' + verbo_geral2 ()
     
     elif (AGÊNCIA == 'agenciado_passiva'and TEMPO_SECUNDÁRIO == '2_reiterações' or
-          AGÊNCIA == 'não_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '2_reiteração'):
+          AGÊNCIA == 'nao_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '2_reiteração'):
          
         verbo1=verbo_geral2 ()
         verbos_passiva= realização_de_AGÊNCIA_passiva()
@@ -12182,11 +12182,11 @@ def grupo_verbal():
         
     
     elif  (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '3_reiterações' or
-           AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '3_reiteração'):
+           AGÊNCIA == 'nao_agenciado' and TEMPO_SECUNDÁRIO == '3_reiteração'):
          grupo_verbal = verbo_geral2 () + ' ' + verbo_geral2 () + ' ' + verbo_geral2 ()
 
     elif (AGÊNCIA == 'agenciado_passiva' and TEMPO_SECUNDÁRIO == '3_reiterações' or
-          AGÊNCIA == 'não_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '3_reiteração'):
+          AGÊNCIA == 'nao_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '3_reiteração'):
          
         verbo1=verbo_geral2 ()
         verbo2=verbo_geral2 ()
@@ -12196,11 +12196,11 @@ def grupo_verbal():
         grupo_verbal = verbo1 + ' ' +  verbo2 + ' ' + verbos_passiva
     
     elif (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '4_reiterações' or
-          AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '4_reiteração'):
+          AGÊNCIA == 'nao_agenciado' and TEMPO_SECUNDÁRIO == '4_reiteração'):
          grupo_verbal = verbo_geral2 () + ' ' + verbo_geral2 () + ' ' + verbo_geral2 ()
 
     elif (AGÊNCIA == 'agenciado_passiva' and TEMPO_SECUNDÁRIO == '4_reiterações' or
-         AGÊNCIA == 'não_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '4_reiteração'):
+         AGÊNCIA == 'nao_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '4_reiteração'):
          
         verbo1=verbo_geral2 ()
         verbo2=verbo_geral2 ()
@@ -12244,7 +12244,7 @@ def grupo_conjuntivo():
            
             elif tipo_de_paratática == 'Adversativa':
                 conjunção = choice.Menu(['contudo','entretanto','mas',
-                                         'não obstante','no entanto',
+                                         'nao obstante','no entanto',
                                          'porém','todavia']).ask()
                     
             elif tipo_de_paratática == 'Alternativa':# PRECISO VER COMO IMPLEMENTAR UM COMPLEXO COM ESTE TIPO
@@ -12285,7 +12285,7 @@ def grupo_conjuntivo():
                 conjunção = choice.Menu(['se','caso','quando',
                                          'conquanto que','salvo se','sem que',
                                          'dado que','desde que','a menos que',
-                                         'a não ser que']).ask()
+                                         'a nao ser que']).ask()
         
         
             elif tipo_de_hipotática == 'Conformativa':
@@ -12354,7 +12354,7 @@ def conjunção_continuativa():
                                  4:mas 
                                  5:sim 
                                  6:bem 
-                                 7:não 
+                                 7:nao 
                                  8:agora 
                                  9:então 
                                  10:pois é 
@@ -12393,7 +12393,7 @@ def conjunção_continuativa():
         elif conjunção_continuativa == '6':
             conjunção_continuativa = 'bem'
         elif conjunção_continuativa == '7':
-            conjunção_continuativa = 'não'
+            conjunção_continuativa = 'nao'
         elif conjunção_continuativa == '8':
             conjunção_continuativa = 'agora'
         elif conjunção_continuativa == '9':
@@ -12443,11 +12443,11 @@ def conjunção_continuativa():
 ###ESSE TRECHO QUE SEGUE É PRA GUARDAR PRO CASO DE PRECISAR FICAR MAIS ESPECÍFICO NO GRUPO_VERBAL
 #
 #print ('Quais tempos secundários?')
-#        TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL = choice.Menu(['NA','tempo_secundário_DT_presente','tempo_secundário_DT_passado','tempo_secundário_DT_futuro', 'tempo_secundário_não_orientado']).ask()
+#        TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL = choice.Menu(['NA','tempo_secundário_DT_presente','tempo_secundário_DT_passado','tempo_secundário_DT_futuro', 'tempo_secundário_nao_orientado']).ask()
 #        compilação_TEMPORAL = []
 #    
 #        
-#        while  TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL == 'tempo_secundário_DT_presente' or  TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL =='tempo_secundário_DT_passado'or  TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL =='tempo_secundário_DT_futuro' or TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL =='tempo_secundário_não_orientado':
+#        while  TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL == 'tempo_secundário_DT_presente' or  TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL =='tempo_secundário_DT_passado'or  TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL =='tempo_secundário_DT_futuro' or TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL =='tempo_secundário_nao_orientado':
 #            compilação_TEMPORAL= [TEMPO_PRIMÁRIO,TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL]
 #            TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL = choice.Menu(['NA','tempo_secundário_DT_presente','tempo_secundário_DT_passado','tempo_secundário_DT_futuro']).ask()
 #            if TEMPO_SECUNDÁRIO_DÊIXIS_TEMPORAL == 'NA':
@@ -12875,7 +12875,7 @@ def detecção_experiência_do_substantivo (): ##dado o substantivo flexionado##
 
 #OS LEMAS QUE SERVIRÃO PARA  FUNÇÃO QUE SEGUE VIRÃO DA ANOTAÇÃO NA ONTOLOGIA: 
 #        o que na ontologia tiver anotado como Thing, vai servir como um
-##        banco lexical do qual o operador vai selecionar(não sei ainda se 
+##        banco lexical do qual o operador vai selecionar(nao sei ainda se 
 #        vai ser importado automaticamente ou se vou ter de inserir manualmente
 #        )
         
@@ -12891,13 +12891,13 @@ def realização_experiência_do_substantivo (): ##dado o substantivo_lematizado
     >>>realização_experiência_do_substantivo ()
     'gat'
     '''
-    flexão_gênero_potencial = choice.Menu (['masculino/feminino', 'não_binário']).ask()
+    flexão_gênero_potencial = choice.Menu (['masculino/feminino', 'nao_binário']).ask()
     substantivo_lematizado = input ('Qual é o substantivo lematizado?')
     
     if flexão_gênero_potencial == 'masculino/feminino':
         morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
     
-    elif flexão_gênero_potencial == 'não_binário':
+    elif flexão_gênero_potencial == 'nao_binário':
         morfema_experiencial_do_substantivo = substantivo_lematizado
     
     
@@ -12918,7 +12918,7 @@ def realização_flexões_substantivos ():
     '''
 
     
-    gênero = choice.Menu (['masculino', 'feminino', 'não_binário']).ask()
+    gênero = choice.Menu (['masculino', 'feminino', 'nao_binário']).ask()
     número = choice.Menu (['singular', 'plural']).ask()
 
 
@@ -12938,19 +12938,19 @@ def realização_flexões_substantivos ():
         morfema_flexão_substantivo = 'as'
         
     
-    elif gênero == 'não_binário' and número == 'singular':
+    elif gênero == 'nao_binário' and número == 'singular':
        morfema_flexão_substantivo =  ''
        
-    elif gênero == 'não_binário' and número == 'plural':
+    elif gênero == 'nao_binário' and número == 'plural':
        morfema_flexão_substantivo =  's'
     
     return morfema_flexão_substantivo
 
 
 ###Com relação aos substantivos comuns tenho que ver a abordagem que vou tomar
-#com relação aos substantivos não binários, ou inerentemente masculinos ou femininos. Me parece
+#com relação aos substantivos nao binários, ou inerentemente masculinos ou femininos. Me parece
 #que o sistema se organiza a realizar o gênero em alguns casos na ordem da palavra, e em
-#outros casos na ordem do grupo (mesa: não parece ter uma contrapartida masculina)
+#outros casos na ordem do grupo (mesa: nao parece ter uma contrapartida masculina)
 
 
 def formação_da_estrutura_do_substantivo_comum ():
@@ -13026,12 +13026,12 @@ def formação_da_estrutura_do_substantivo_comum ():
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo  
         
         
-        elif flexão_gênero_potencial == 'não_binário'and número == 'singular' :
+        elif flexão_gênero_potencial == 'nao_binário'and número == 'singular' :
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexão_substantivo = ''
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
             
-        elif flexão_gênero_potencial == 'não_binário'and número == 'plural' :
+        elif flexão_gênero_potencial == 'nao_binário'and número == 'plural' :
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexão_substantivo = 's'
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
@@ -13125,7 +13125,7 @@ def formação_da_estrutura_do_substantivo_comum ():
     else:
     
         print ('Qual o gênero')
-        flexão_gênero_potencial = choice.Menu (['masculino' , 'feminino', 'não_binário']).ask()
+        flexão_gênero_potencial = choice.Menu (['masculino' , 'feminino', 'nao_binário']).ask()
         print ('Qual o número')
         número = choice.Menu (['singular', 'plural']).ask()
         
@@ -13151,12 +13151,12 @@ def formação_da_estrutura_do_substantivo_comum ():
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo  
         
         
-        elif flexão_gênero_potencial == 'não_binário'and número == 'singular' :
+        elif flexão_gênero_potencial == 'nao_binário'and número == 'singular' :
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexão_substantivo = ''
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
             
-        elif flexão_gênero_potencial == 'não_binário'and número == 'plural' :
+        elif flexão_gênero_potencial == 'nao_binário'and número == 'plural' :
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexão_substantivo = 's'
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
@@ -13208,13 +13208,13 @@ def realização_experiência_do_adjetivo ():
     >>>realização_experiência_do_adjetivo ()
     'gat'
     '''
-    flexão_gênero_potencial = choice.Menu (['masculino/feminino', 'não_binário']).ask()
+    flexão_gênero_potencial = choice.Menu (['masculino/feminino', 'nao_binário']).ask()
     adjetivo_lematizado = input ('Qual é o adjetivo lematizado?')
     
     if flexão_gênero_potencial == 'masculino/feminino':
         morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
     
-    elif flexão_gênero_potencial == 'não_binário':
+    elif flexão_gênero_potencial == 'nao_binário':
         morfema_experiencial_do_adjetivo = adjetivo_lematizado
     
     
@@ -13235,7 +13235,7 @@ def realização_flexões_adjetivos ():
     '''
 
     
-    gênero = choice.Menu (['masculino', 'feminino', 'não_binário']).ask()
+    gênero = choice.Menu (['masculino', 'feminino', 'nao_binário']).ask()
     número = choice.Menu (['singular', 'plural']).ask()
 
 
@@ -13255,10 +13255,10 @@ def realização_flexões_adjetivos ():
         morfema_flexão_adjetivo = 'as'
         
     
-    elif gênero == 'não_binário' and número == 'singular':
+    elif gênero == 'nao_binário' and número == 'singular':
        morfema_flexão_adjetivo =  ''
        
-    elif gênero == 'não_binário' and número == 'plural':
+    elif gênero == 'nao_binário' and número == 'plural':
        morfema_flexão_adjetivo =  's'
     
     return morfema_flexão_adjetivo
@@ -13285,7 +13285,7 @@ def adjetivo_modificador ():
     else:    
   
         adjetivo_lematizado = input ('Qual é o adjetivo lematizado?')
-        flexão_gênero_potencial = choice.Menu (['masculino' , 'feminino', 'não_binário']).ask()
+        flexão_gênero_potencial = choice.Menu (['masculino' , 'feminino', 'nao_binário']).ask()
         número = choice.Menu (['singular', 'plural']).ask()
         
         if flexão_gênero_potencial == 'masculino' and número == 'singular': 
@@ -13309,12 +13309,12 @@ def adjetivo_modificador ():
             modificador = morfema_experiencial_do_adjetivo + morfema_flexão_adjetivo  
         
         
-        elif flexão_gênero_potencial == 'não_binário'and número == 'singular' :
+        elif flexão_gênero_potencial == 'nao_binário'and número == 'singular' :
             morfema_experiencial_do_adjetivo = adjetivo_lematizado
             morfema_flexão_adjetivo = ''
             modificador = morfema_experiencial_do_adjetivo + morfema_flexão_adjetivo
             
-        elif flexão_gênero_potencial == 'não_binário'and número == 'plural' :
+        elif flexão_gênero_potencial == 'nao_binário'and número == 'plural' :
             morfema_experiencial_do_adjetivo = adjetivo_lematizado
             morfema_flexão_adjetivo = 's'
             modificador = morfema_experiencial_do_adjetivo + morfema_flexão_adjetivo
@@ -13335,7 +13335,7 @@ def realização_pronominal_casoreto():
     'eu'
     '''
 
-    pessoa_da_interlocução = choice.Menu (['falante', 'ouvinte', 'não_interlocutor']).ask()
+    pessoa_da_interlocução = choice.Menu (['falante', 'ouvinte', 'nao_interlocutor']).ask()
 
     número = choice.Menu (['singular', 'plural']).ask()
 
@@ -13350,7 +13350,7 @@ def realização_pronominal_casoreto():
         else:
             pronome_pessoal_reto = 'você'
 
-    elif pessoa_da_interlocução == 'não_interlocutor' and número == 'singular':
+    elif pessoa_da_interlocução == 'nao_interlocutor' and número == 'singular':
         gênero = choice.Menu (['masculino', 'feminino']).ask()
         if gênero == 'masculino':
             pronome_pessoal_reto = 'ele'
@@ -13369,7 +13369,7 @@ def realização_pronominal_casoreto():
         else:
             pronome_pessoal_reto = 'vocês'
 
-    elif pessoa_da_interlocução == 'não_interlocutor' and número == 'plural':
+    elif pessoa_da_interlocução == 'nao_interlocutor' and número == 'plural':
         gênero = choice.Menu (['masculino', 'feminino']).ask()
         if gênero == 'masculino':
             pronome_pessoal_reto = 'eles'
@@ -13390,7 +13390,7 @@ def realização_pronome_caso_oblíquo():
     '''
     tonicidade = choice.Menu (['átono','tônico']).ask()
     
-    pessoa_da_interlocução = choice.Menu (['falante', 'ouvinte', 'não_interlocutor']).ask()
+    pessoa_da_interlocução = choice.Menu (['falante', 'ouvinte', 'nao_interlocutor']).ask()
 
     número = choice.Menu (['singular', 'plural']).ask()
     
@@ -13402,12 +13402,12 @@ def realização_pronome_caso_oblíquo():
     elif pessoa_da_interlocução == 'ouvinte' and número == 'singular'and tonicidade == 'átono':
        pronome_pessoal_oblíquo = 'te'
 
-    elif pessoa_da_interlocução == 'não_interlocutor' and número == 'singular' and tonicidade == 'átono':
-        morfologia_do_pronome = choice.Menu (['padrão', 'não_padrão']).ask()
+    elif pessoa_da_interlocução == 'nao_interlocutor' and número == 'singular' and tonicidade == 'átono':
+        morfologia_do_pronome = choice.Menu (['padrão', 'nao_padrão']).ask()
         
         
         if morfologia_do_pronome == 'padrão' :
-            gênero = choice.Menu (['masculino', 'feminino','não_binário']).ask()
+            gênero = choice.Menu (['masculino', 'feminino','nao_binário']).ask()
             
             if gênero =='masculino':
                 pronome_pessoal_oblíquo = 'o'
@@ -13417,7 +13417,7 @@ def realização_pronome_caso_oblíquo():
         
             else:
                 pronome_pessoal_oblíquo = choice.Menu (['se','lhe']).ask()
-        elif morfologia_do_pronome == 'não_padrão':
+        elif morfologia_do_pronome == 'nao_padrão':
             gênero = choice.Menu (['masculino', 'feminino']).ask()
             
             if gênero == 'masculino':
@@ -13431,12 +13431,12 @@ def realização_pronome_caso_oblíquo():
     elif pessoa_da_interlocução == 'ouvinte' and número == 'plural'and tonicidade == 'átono':
        pronome_pessoal_oblíquo = 'vos'
 
-    elif pessoa_da_interlocução == 'não_interlocutor' and número == 'plural' and tonicidade == 'átono':
-        morfologia_do_pronome = choice.Menu (['padrão', 'não_padrão']).ask()
+    elif pessoa_da_interlocução == 'nao_interlocutor' and número == 'plural' and tonicidade == 'átono':
+        morfologia_do_pronome = choice.Menu (['padrão', 'nao_padrão']).ask()
         
         
         if morfologia_do_pronome == 'padrão' :
-            gênero = choice.Menu (['masculino', 'feminino','não_binário']).ask()
+            gênero = choice.Menu (['masculino', 'feminino','nao_binário']).ask()
             
             if gênero =='masculino':
                 pronome_pessoal_oblíquo = 'os'
@@ -13446,7 +13446,7 @@ def realização_pronome_caso_oblíquo():
         
             else:
                 pronome_pessoal_oblíquo = choice.Menu (['se','lhes']).ask()
-        elif morfologia_do_pronome == 'não_padrão':
+        elif morfologia_do_pronome == 'nao_padrão':
             gênero = choice.Menu (['masculino', 'feminino']).ask()
             
             if gênero == 'masculino':
@@ -13458,15 +13458,15 @@ def realização_pronome_caso_oblíquo():
         pronome_pessoal_oblíquo = 'mim'
     
     elif pessoa_da_interlocução == 'ouvinte' and número == 'singular'and tonicidade == 'tônico':
-        morfologia_do_pronome = choice.Menu (['padrão', 'não_padrão']).ask()
+        morfologia_do_pronome = choice.Menu (['padrão', 'nao_padrão']).ask()
         if morfologia_do_pronome == 'padrão':
            pronome_pessoal_oblíquo = 'ti'
         else:
             pronome_pessoal_oblíquo = 'você'
 
-    elif pessoa_da_interlocução == 'não_interlocutor' and número == 'singular' and tonicidade == 'tônico':
+    elif pessoa_da_interlocução == 'nao_interlocutor' and número == 'singular' and tonicidade == 'tônico':
        
-        gênero = choice.Menu (['masculino', 'feminino','não_binário']).ask()
+        gênero = choice.Menu (['masculino', 'feminino','nao_binário']).ask()
         
         if gênero =='masculino':
             pronome_pessoal_oblíquo = 'ele'
@@ -13475,14 +13475,14 @@ def realização_pronome_caso_oblíquo():
             pronome_pessoal_oblíquo = 'ela'
     
         
-        elif gênero == 'não_binário':
+        elif gênero == 'nao_binário':
             pronome_pessoal_oblíquo = 'si'
         
     elif pessoa_da_interlocução == 'falante' and número == 'plural' and tonicidade == 'tônico':
         pronome_pessoal_oblíquo = 'nós'
     
     elif pessoa_da_interlocução == 'ouvinte' and número == 'plural'and tonicidade == 'tônico':
-        morfologia_do_pronome = choice.Menu (['padrão', 'não_padrão']).ask()
+        morfologia_do_pronome = choice.Menu (['padrão', 'nao_padrão']).ask()
         
         if morfologia_do_pronome == 'padrão':
            pronome_pessoal_oblíquo = 'vós'
@@ -13490,9 +13490,9 @@ def realização_pronome_caso_oblíquo():
             pronome_pessoal_oblíquo = 'vocês'
         
 
-    elif pessoa_da_interlocução == 'não_interlocutor' and número == 'plural' and tonicidade == 'tônico':
+    elif pessoa_da_interlocução == 'nao_interlocutor' and número == 'plural' and tonicidade == 'tônico':
        
-        gênero = choice.Menu (['masculino', 'feminino','não_binário']).ask()
+        gênero = choice.Menu (['masculino', 'feminino','nao_binário']).ask()
         
         if gênero =='masculino':
             pronome_pessoal_oblíquo = 'eles'
@@ -13501,7 +13501,7 @@ def realização_pronome_caso_oblíquo():
             pronome_pessoal_oblíquo = 'elas'
     
         
-        elif gênero == 'não_binário':
+        elif gênero == 'nao_binário':
             pronome_pessoal_oblíquo = 'si'
                 
            
@@ -13636,15 +13636,15 @@ def estrutura_lógica_dêixis():
 
 
 #a fazer: verificar as opções que coloquei para os diferentes tipos de dêixis:
-    #não preciso talvez colocar todas as opções de especificidade em cada um deles
-    #pra não ter a possibilidade de dar erro nas escolhas. 
+    #nao preciso talvez colocar todas as opções de especificidade em cada um deles
+    #pra nao ter a possibilidade de dar erro nas escolhas. 
 def Dêitico_ñ_seletivo_específico():
     '''
     '''
     
     
     print ('Selecione a especificidade:')
-    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
+    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'nao_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
         
          
     print ('Selecione a orientação:')
@@ -13691,14 +13691,14 @@ def Dêitico_ñ_seletivo_ñ_específico():
     
     
     print ('Selecione a especificidade:')
-    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
+    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'nao_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
         
          
     print ('Selecione a orientação:')
     ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade', 'orientação_específica_proximidade_e_pessoa']).ask()
         
 
-    if DETERMINAÇÃO_espeficifidade == 'não_específico' and ORIENTAÇÃO == 'NA':
+    if DETERMINAÇÃO_espeficifidade == 'nao_específico' and ORIENTAÇÃO == 'NA':
         print ('Selecione número:')
         número = choice.Menu (['singular', 'plural']).ask()
         print('Selecione o gênero')
@@ -13734,7 +13734,7 @@ def Dêitico_prox():
     
     
     print ('Selecione a especificidade:')
-    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
+    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'nao_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
         
          
     print ('Selecione a orientação:')
@@ -13743,7 +13743,7 @@ def Dêitico_prox():
          
     if  DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_proximidade' :
         print ('Selecione a pessoa da interlocução:')
-        pessoa_da_interlocução_proximidade = choice.Menu (['próximo_ao_falante', 'próximo_ao_ouvinte', 'próximo_ao_não_interlocutor']).ask()
+        pessoa_da_interlocução_proximidade = choice.Menu (['próximo_ao_falante', 'próximo_ao_ouvinte', 'próximo_ao_nao_interlocutor']).ask()
         
         
         if pessoa_da_interlocução_proximidade == 'próximo_ao_falante':
@@ -13789,7 +13789,7 @@ def Dêitico_prox():
             elif número == 'plural' and gênero == 'feminino':
                 determinante = 'essas'
             
-        elif pessoa_da_interlocução_proximidade == 'próximo_ao_não_interlocutor':
+        elif pessoa_da_interlocução_proximidade == 'próximo_ao_nao_interlocutor':
             print ('Selecione número:')
             número = choice.Menu (['singular', 'plural']).ask()
             print('Selecione o gênero')
@@ -13820,7 +13820,7 @@ def Dêitico_pess():
     '''
         
     print ('Selecione a especificidade:')
-    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
+    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'nao_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
         
          
     print ('Selecione a orientação:')
@@ -13986,7 +13986,7 @@ def Dêitico_ñ_seletivo_específico_e_Dêitico_pess():
    
     
     print ('Selecione a especificidade:')
-    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
+    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'nao_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
         
          
     print ('Selecione a orientação:')
@@ -14115,14 +14115,14 @@ def Dêitico_ñ_seletivo_ñ_específico_e_Dêitico_pess():
     
     
     print ('Selecione a especificidade:')
-    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
+    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'nao_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
         
          
     print ('Selecione a orientação:')
     ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade', 'orientação_específica_proximidade_e_pessoa']).ask()
         
 
-    if  DETERMINAÇÃO_espeficifidade == 'não_específico' and ORIENTAÇÃO == 'orientação_específica_pessoa':
+    if  DETERMINAÇÃO_espeficifidade == 'nao_específico' and ORIENTAÇÃO == 'orientação_específica_pessoa':
      
         
         print ('Selecione a pessoa da interlocução do possuidor')
@@ -14271,7 +14271,7 @@ def Dêitico_prox_e_Dêitico_pess():
    
     
     print ('Selecione a especificidade:')
-    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
+    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'nao_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
         
          
     print ('Selecione a orientação:')
@@ -14282,7 +14282,7 @@ def Dêitico_prox_e_Dêitico_pess():
     if  DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_proximidade_e_pessoa':
         
         print ('Selecione a pessoa da interlocução:')
-        pessoa_da_interlocução_proximidade = choice.Menu (['próximo_ao_falante', 'próximo_ao_ouvinte', 'próximo_ao_não_interlocutor']).ask()
+        pessoa_da_interlocução_proximidade = choice.Menu (['próximo_ao_falante', 'próximo_ao_ouvinte', 'próximo_ao_nao_interlocutor']).ask()
         
         if pessoa_da_interlocução_proximidade == 'próximo_ao_falante':
         
@@ -14553,7 +14553,7 @@ def Dêitico_prox_e_Dêitico_pess():
                     determinante = 'essas suas'
                     return determinante
         
-        elif pessoa_da_interlocução_proximidade == 'próximo_ao_não_interlocutor' :
+        elif pessoa_da_interlocução_proximidade == 'próximo_ao_nao_interlocutor' :
             
             print ('Selecione a pessoa da interlocução do possuidor')
             pessoa_da_interlocução_possuidor = choice.Menu (['1s', '2s', '3s', '1p', '2p','3p']).ask()
@@ -14768,24 +14768,24 @@ def Ente():
     
     
     print ('Qual o tipo de Ente?')
-    tipo_de_Ente = choice.Menu (['consciente', 'não_consciente', 'NA']).ask()
+    tipo_de_Ente = choice.Menu (['consciente', 'nao_consciente', 'NA']).ask()
     
     if tipo_de_Ente == 'NA':
         Ente = ''
         return Ente
     
-    elif tipo_de_Ente == 'não_consciente':
-        print ('Qual tipo de não_consciente?')
-        tipo_de_não_consciente = choice.Menu(['material', 'semiótico']) .ask()
+    elif tipo_de_Ente == 'nao_consciente':
+        print ('Qual tipo de nao_consciente?')
+        tipo_de_nao_consciente = choice.Menu(['material', 'semiótico']) .ask()
         
-        if tipo_de_não_consciente == 'material':
+        if tipo_de_nao_consciente == 'material':
             print ('Qual tipo de material?')
-            tipo_de_não_consciente_material = choice.Menu (['animal', 'objeto_material', 'substância_material', 'abstração_material']).ask()
+            tipo_de_nao_consciente_material = choice.Menu (['animal', 'objeto_material', 'substância_material', 'abstração_material']).ask()
             
-            if (tipo_de_não_consciente_material == 'animal' or
-                tipo_de_não_consciente_material == 'objeto_material' or
-                tipo_de_não_consciente_material == 'substância_material' or
-                tipo_de_não_consciente_material == 'abstração_material'):
+            if (tipo_de_nao_consciente_material == 'animal' or
+                tipo_de_nao_consciente_material == 'objeto_material' or
+                tipo_de_nao_consciente_material == 'substância_material' or
+                tipo_de_nao_consciente_material == 'abstração_material'):
                 print ('Qual a classe de palavra que realiza o Ente?')
                 classe_palavra_Ente = choice.Menu (['substantivo_comum', 'substantivo_próprio', 'pronome_caso_reto','pronome_caso_oblíquo']).ask()
                 
@@ -14799,13 +14799,13 @@ def Ente():
                 elif classe_palavra_Ente == 'pronome_caso_oblíquo':
                     Ente = realização_pronome_caso_oblíquo()
                     
-        elif tipo_de_não_consciente == 'semiótico':
+        elif tipo_de_nao_consciente == 'semiótico':
             print ('Qual tipo de semiótico?')
-            tipo_de_não_consciente_semiótico = choice.Menu (['instituição', 'objeto_semiótico',  'abstração_semiótica']).ask()
+            tipo_de_nao_consciente_semiótico = choice.Menu (['instituição', 'objeto_semiótico',  'abstração_semiótica']).ask()
             
-            if (tipo_de_não_consciente_semiótico == 'instituição' or
-                tipo_de_não_consciente_semiótico == 'objeto_semiótico' or
-                tipo_de_não_consciente_semiótico == 'abstração_semiótica'):
+            if (tipo_de_nao_consciente_semiótico == 'instituição' or
+                tipo_de_nao_consciente_semiótico == 'objeto_semiótico' or
+                tipo_de_nao_consciente_semiótico == 'abstração_semiótica'):
                 print ('Qual a classe de palavra que realiza o Ente?')
                 classe_palavra_Ente = choice.Menu (['substantivo_comum', 'substantivo_próprio', 'pronome_caso_reto','pronome_caso_oblíquo']).ask()
                 
@@ -14882,9 +14882,9 @@ def estrutura_GN_downraked():
 def estrutura_GN():
     
     print ('Há dissociação entre Ente e Núcleo do GN?')
-    dissociação_Ente_Núcleo = choice.Menu(['sim','não']).ask()
+    dissociação_Ente_Núcleo = choice.Menu(['sim','nao']).ask()
     
-    if dissociação_Ente_Núcleo == 'não':
+    if dissociação_Ente_Núcleo == 'nao':
         
     
         Determinante= Dêixis_geral()
@@ -15166,12 +15166,12 @@ def PROCESSO_MATERIAL():
 #        atribuição_relação == 'atribuição_expan_intencificação' and tipo_de_relacional == 'circunstancial_atributiva' or
 #        atribuição_relação == 'atribuição_expan_intencificação' and tipo_de_relacional == 'circunstancial_identificativa'or
 #        
-#        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'intensiva_atributiva' or
-#        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'intensiva_identificativa' or
-#        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'possessiva_atributiva' or
-#        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'possessiva_identificativa' or
-#        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'circunstancial_atributiva' or
-#        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'circunstancial_identificativa'):
+#        atribuição_relação == 'nao_atribuição' and tipo_de_relacional == 'intensiva_atributiva' or
+#        atribuição_relação == 'nao_atribuição' and tipo_de_relacional == 'intensiva_identificativa' or
+#        atribuição_relação == 'nao_atribuição' and tipo_de_relacional == 'possessiva_atributiva' or
+#        atribuição_relação == 'nao_atribuição' and tipo_de_relacional == 'possessiva_identificativa' or
+#        atribuição_relação == 'nao_atribuição' and tipo_de_relacional == 'circunstancial_atributiva' or
+#        atribuição_relação == 'nao_atribuição' and tipo_de_relacional == 'circunstancial_identificativa'):
 #        
 #        relacional = atribuição_relação + ' ' + tipo_de_relacional    
 #        
@@ -15199,7 +15199,7 @@ def PROCESSO_MATERIAL():
 #sujeitabilidade
     #coloquei aqui apenas responsabilidade e pressuposição pois
     #pessoa e número já é decidido na ordem da palavra 9tenho que ver o impacto teórico que
-        ##isso tem..não sei se preciso repetir as escolhas)
+        ##isso tem..nao sei se preciso repetir as escolhas)
 
 def SUJEITABILIDADE():
     '''
@@ -15207,11 +15207,11 @@ def SUJEITABILIDADE():
     print ('Qual o tipo de Sujeito?')
     RESPONSABILIDADE = choice.Menu(['SUJ_responsavel', 
                                   'SUJ_distante_impessoal',
-                                  'SUJ_distante_não_responsavel','SUJ_-sujeitabilidade']).ask() 
+                                  'SUJ_distante_nao_responsavel','SUJ_-sujeitabilidade']).ask() 
 
     PRESSUPOSIÇÃO_DO_SUJEITO = choice.Menu(['recuperado_explicito',
                                             'recuperado_implicito',
-                                            'não_recuperavel', 'recuperacao_NA']).ask() 
+                                            'nao_recuperavel', 'recuperacao_NA']).ask() 
 
     SUJEITABILIDADE =   RESPONSABILIDADE + '_' +  PRESSUPOSIÇÃO_DO_SUJEITO    
     
@@ -15248,13 +15248,13 @@ def AVALIAÇÃO_MODAL ():
     else:
         POLARIDADE = choice.Menu (['positiva','negativa']).ask()
         ##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada. 
-        #Por enquanto vou modelar apenas a realização/ou não do adjunto-polaridade 'não'.
+        #Por enquanto vou modelar apenas a realização/ou nao do adjunto-polaridade 'nao'.
         
         if POLARIDADE == 'positiva':
             Adjunto_polaridade =''
         
         elif POLARIDADE == 'negativa':
-            Adjunto_polaridade = 'não'
+            Adjunto_polaridade = 'nao'
             
     return Adjunto_polaridade
 
@@ -15268,7 +15268,7 @@ def TIPO_POLARIDADE():
     print ('Qual o tipo de polaridade?')
     tipo_polaridade = choice.Menu (['positiva','negativa']).ask()
     ##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada. 
-    #Por enquanto vou modelar apenas a realização/ou não do adjunto-polaridade 'não'.
+    #Por enquanto vou modelar apenas a realização/ou nao do adjunto-polaridade 'nao'.
     
     return tipo_polaridade
 
@@ -15278,13 +15278,13 @@ def POLARIDADE ():
     print ('Qual o tipo de polaridade?')
     tipo_polaridade = choice.Menu (['positiva','negativa']).ask()
         ##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada (em que estruturas?). 
-        #Por enquanto vou modelar apenas a realização/ou não do adjunto-polaridade 'não'.
+        #Por enquanto vou modelar apenas a realização/ou nao do adjunto-polaridade 'nao'.
         
     if tipo_polaridade == 'positiva':
         Adjunto_polaridade = ''
     
     elif tipo_polaridade == 'negativa':
-        Adjunto_polaridade = 'não'
+        Adjunto_polaridade = 'nao'
         
     return Adjunto_polaridade
 
@@ -15306,7 +15306,7 @@ def POLARIDADE ():
 #    else:
 #        POLARIDADE = choice.Menu (['positiva','negativa']).ask()
 #        ##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada. 
-#        #Por enquanto vou modelar apenas a realização/ou não do adjunto-polaridade 'não'.
+#        #Por enquanto vou modelar apenas a realização/ou nao do adjunto-polaridade 'nao'.
 #        
 #        if POLARIDADE == 'positiva':
 #            Adjunto_polaridade == 'AvM_polaridade_positiva'
@@ -15315,7 +15315,7 @@ def POLARIDADE ():
 #            Adjunto_polaridade == 'AvM_polaridade_negativa'
 #    
 
-##para o sistema de modo, AINDA não considerei o subsistema de VALIDAÇÃO. (será implementado)
+##para o sistema de modo, AINDA nao considerei o subsistema de VALIDAÇÃO. (será implementado)
 
 def MODO():
     '''
@@ -15331,22 +15331,22 @@ def MODO():
 #TEMA
  
 
-def TEMA_TEXTUAL():
+def TEMA_TEXTUAL(Tema_textual):
     '''
     '''
    
-    print ('Há TEMA TEXTUAL?')
-    Tema_textual = choice.Menu(['sim','não']).ask()
+#    print ('Há TEMA TEXTUAL?')
+#    Tema_textual = choice.Menu(['sim','nao']).ask()
     
-    if Tema_textual == 'não':
+    if Tema_textual == 'nao':
         
         TEMA_TEXTUAL = ''
     else:
     
         print ('Há TEMA TEXTUAL continuativo?')
-        tem_continuativo = choice.Menu(['sim','não']).ask()
+        tem_continuativo = choice.Menu(['sim','nao']).ask()
         
-        if tem_continuativo == 'não':
+        if tem_continuativo == 'nao':
             
             TEMA_CONTINUATIVO = ''
         else:
@@ -15355,18 +15355,18 @@ def TEMA_TEXTUAL():
         
         print ('Há TEMA TEXTUAL conjuntivo?')
         
-        tem_conjuntivo= choice.Menu(['sim','não']).ask()
+        tem_conjuntivo= choice.Menu(['sim','nao']).ask()
         
-        if tem_conjuntivo == 'não':
+        if tem_conjuntivo == 'nao':
             
             TEMA_CONJUNTIVO = ''
         else:
             TEMA_CONJUNTIVO = grupo_conjuntivo()
         
         print ('Há TEMA TEXTUAL relativo?')
-        tem_relativo = choice.Menu(['sim','não']).ask()
+        tem_relativo = choice.Menu(['sim','nao']).ask()
         
-        if tem_relativo == 'não':
+        if tem_relativo == 'nao':
             TEMA_RELATIVO= ''
         elif tem_relativo == 'sim':
             print('Qual a tipo de relativo?')
@@ -15385,14 +15385,14 @@ def TEMA_TEXTUAL():
     return TEMA_TEXTUAL
 
 
-def TEMA_INTERPESSOAL():
+def TEMA_INTERPESSOAL(Tema_interpessoal):
     '''
     '''
-    
-    print ('Há TEMA INTERPESSOAL?')
-    
-    Tema_interpessoal=choice.Menu(['sim','não']).ask()
-    if Tema_interpessoal == 'não':
+#    
+#    print ('Há TEMA INTERPESSOAL?')
+#    
+#    Tema_interpessoal=choice.Menu(['sim','nao']).ask()
+    if Tema_interpessoal == 'nao':
         TEMA_INTERPESSOAL = ''
     
     elif Tema_interpessoal == 'sim':###POR ENQUANTO, TRABALHANDO COM A REALIZAÇÃO DE APENAS 1 TEMA INTERPESSOAL
@@ -15430,10 +15430,10 @@ def TEMA_IDEACIONAL():
     '''
     
     print ('Qual a ORIENTAÇÃO MODAL do tema?')
-    ORIENTAÇÃO_MODAL = choice.Menu(['orientado', 'não_orientado']).ask()
+    ORIENTAÇÃO_MODAL = choice.Menu(['orientado', 'nao_orientado']).ask()
     
     print ('Qual a ORIENTAÇÃO TRANSITIVA do tema?')
-    ORIENTAÇÃO_TRANSITIVA = choice.Menu(['direcional', 'não_direcional']).ask()
+    ORIENTAÇÃO_TRANSITIVA = choice.Menu(['direcional', 'nao_direcional']).ask()
     
     print ('Qual a SELEÇÃO TEMÁTICA do tema?')
     SELEÇÃO_TEMÁTICA = choice.Menu(['default', 'proeminente']).ask()
@@ -15496,7 +15496,7 @@ def TEMA_IDEACIONAL():
                 TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_codificação'
                
     
-    elif ORIENTAÇÃO_MODAL == 'não_orientado' and ORIENTAÇÃO_TRANSITIVA == 'direcional' and SELEÇÃO_TEMÁTICA == 'proeminente':
+    elif ORIENTAÇÃO_MODAL == 'nao_orientado' and ORIENTAÇÃO_TRANSITIVA == 'direcional' and SELEÇÃO_TEMÁTICA == 'proeminente':
     
         TEMA_ÂNGULO = choice.Menu(['TID_fonte','TID_ponto_de_vista']).ask()
         
@@ -15504,7 +15504,7 @@ def TEMA_IDEACIONAL():
         
         
     
-    elif ORIENTAÇÃO_MODAL == 'orientado' and ORIENTAÇÃO_TRANSITIVA == 'não_direcional' and SELEÇÃO_TEMÁTICA == 'default':
+    elif ORIENTAÇÃO_MODAL == 'orientado' and ORIENTAÇÃO_TRANSITIVA == 'nao_direcional' and SELEÇÃO_TEMÁTICA == 'default':
     
         TEMA_ELEMENTAL = choice.Menu(['TID_complemento_elemental','TID_adjunto_elemental']).ask()
         
@@ -15512,7 +15512,7 @@ def TEMA_IDEACIONAL():
         
        
     
-    elif ORIENTAÇÃO_MODAL == 'não_orientado' and ORIENTAÇÃO_TRANSITIVA == 'não_direcional' and SELEÇÃO_TEMÁTICA == 'proeminente':
+    elif ORIENTAÇÃO_MODAL == 'nao_orientado' and ORIENTAÇÃO_TRANSITIVA == 'nao_direcional' and SELEÇÃO_TEMÁTICA == 'proeminente':
         print ('Qual tipo de TEMA PROEMINENTE?')
         
         TEMA_PROEMINENTE = choice.Menu(['TID_perspectiva_intensificação',
@@ -15561,7 +15561,7 @@ def conjunção_continuativa():
                                  4:mas 
                                  5:sim 
                                  6:bem 
-                                 7:não 
+                                 7:nao 
                                  8:agora 
                                  9:então 
                                  10:pois é 
@@ -15600,7 +15600,7 @@ def conjunção_continuativa():
         elif conjunção_continuativa == '6':
             conjunção_continuativa = 'bem'
         elif conjunção_continuativa == '7':
-            conjunção_continuativa = 'não'
+            conjunção_continuativa = 'nao'
         elif conjunção_continuativa == '8':
             conjunção_continuativa = 'agora'
         elif conjunção_continuativa == '9':
@@ -15678,7 +15678,7 @@ def partícula_modal():
 
 
 
-## NO CASO DO SISTEMA DE AVALIAÇÃO_MODAL EU NÃO CONTEMPLEI AINDA TODO O SISTEMA, POR ENQUANTO VOU ME 
+## NO CASO DO SISTEMA DE AVALIAÇÃO_MODAL EU nao CONTEMPLEI AINDA TODO O SISTEMA, POR ENQUANTO VOU ME 
 #ATER APENAS AO SUBSISTEMA DE POLARIDADE.           
 
 ####FORMAÇÃO DA ORAÇÃO
@@ -15765,7 +15765,7 @@ import json
 
     
     
-def oraçãoGerada():
+def oraçãoGerada(Transitividade, Modo, Tema_id, RECEPTIVIDADE, ORDEM_DO_DIZENTE):
     '''(str,str,str)->str
     Retorna a formação estrutural na lexicogramática (oração) de uma figura específica
     da semãntica
@@ -15774,39 +15774,34 @@ def oraçãoGerada():
     'eu bebi água'
     '''
    
-    ##ORAÇÃO verbal
+    ##ORAÇÃO VERBAL
     
-    Transitividade = TRANSITIVIDADE()
-    Modo = MODO()
-    Tema_id = TEMA_IDEACIONAL()
-    
+
     
     if Transitividade == 'PR_Verbal_AG_medio_sem_alcance' and Modo == 'SUJ_responsavel_recuperado_explicito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         
-        Tema_interpessoal = TEMA_INTERPESSOAL()
-        Tema_textual=TEMA_TEXTUAL()
-        
-        print ('Selecione a Receptividade')
-        RECEPTIVIDADE = choice.Menu (['+receptor','-receptor']).ask()
-        print ('Qual a Ordem do Dizente?')
-        ORDEM_DO_DIZENTE = choice.Menu (['atividade','semioticidade']).ask()
-        
-        if ORDEM_DO_DIZENTE == 'atividade':    
+#        Tema_interpessoal = TEMA_INTERPESSOAL()
+#        Tema_textual=TEMA_TEXTUAL()
+#        print ('Selecione a Receptividade')
+#        RECEPTIVIDADE = choice.Menu (['+receptor','-receptor']).ask()
+#        print ('Qual a Ordem do Dizente?')
+#        ORDEM_DO_DIZENTE = choice.Menu (['atividade','semioticidade']).ask()
+#        
+#        
+        if ORDEM_DO_DIZENTE == 'atividade':
+               
             TIPO_ATIVIDADE = 'fala'
-    
+            print('teste')
             if TIPO_ATIVIDADE == 'fala' and RECEPTIVIDADE == '-receptor':
+                 print ('Qual o Processo?')
+                 Processo = grupo_verbal()
+                 print('Qual é o Dizente?')
+                 Dizente = estrutura_GN()
+                 Polaridade = POLARIDADE ()
                 
-                print ('Qual o Processo?')
-                Processo = grupo_verbal()
-                print('Qual é o Dizente?')
-                Dizente = estrutura_GN()
-                Polaridade = POLARIDADE ()
-            
-                oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '.'
-                 #Ex.: Eu conversei até anoitecer; Eu falei muito ontem; Nós discutimos...
-        
+                 oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '.'
+                     #Ex.: Eu conversei até anoitecer; Eu falei muito ontem; Nós discutimos...
             elif TIPO_ATIVIDADE == 'fala' and RECEPTIVIDADE == '+receptor':
-                
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print('Qual é o Dizente?')
@@ -15814,17 +15809,17 @@ def oraçãoGerada():
                 print ('Qual é o Receptor?')
                 Receptor = frase_preposicional ()
                 Polaridade = POLARIDADE ()
-            
-                oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' +  Receptor + '.'
                 
-                #Ex.: Eu conversei com você até anoitecer; Eu falei com você muito ontem; Nós discutimos com ela...
-            
+                oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' +  Receptor + '.'
+                    
+                    #Ex.: Eu conversei com você até anoitecer; Eu falei com você muito ontem; Nós discutimos com ela...
+    return oração
        
         
         elif ORDEM_DO_DIZENTE == 'semioticidade' and RECEPTIVIDADE == '+receptor': 
             print ('Selecione o tipo de Semioticidade')
             
-            TIPO_SEMIOTICIDADE = choice.Menu (['projeção','não_projeção']).ask()
+            TIPO_SEMIOTICIDADE = choice.Menu (['projeção','nao_projeção']).ask()
             if TIPO_SEMIOTICIDADE == 'projeção':
                 print ('Selecione o tipo de projeção')
                 TIPO_PROJEÇÃO = choice.Menu (['citativa', 'relativa']).ask()
@@ -15861,7 +15856,7 @@ def oraçãoGerada():
         elif ORDEM_DO_DIZENTE == 'semioticidade' and RECEPTIVIDADE == '-receptor': 
             print ('Selecione o tipo de Semioticidade')
             
-            TIPO_SEMIOTICIDADE = choice.Menu (['projeção','não_projeção']).ask()
+            TIPO_SEMIOTICIDADE = choice.Menu (['projeção','nao_projeção']).ask()
             if TIPO_SEMIOTICIDADE == 'projeção':
                 print ('Selecione o tipo de projeção')
                 TIPO_PROJEÇÃO = choice.Menu (['citativa', 'relativa']).ask()
@@ -15895,9 +15890,9 @@ def oraçãoGerada():
             
            
             
-            elif TIPO_SEMIOTICIDADE == 'não_projeção':
+            elif TIPO_SEMIOTICIDADE == 'nao_projeção':
                 
-                TIPO_NÃO_PROJEÇÃO = '-verbiagem'
+                TIPO_nao_PROJEÇÃO = '-verbiagem'
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print('Qual é o Dizente?')
@@ -15910,7 +15905,7 @@ def oraçãoGerada():
         
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
-        TIPO_SEMIOTICIDADE = 'não_projeção'
+        TIPO_SEMIOTICIDADE = 'nao_projeção'
         print ('Selecione a Receptividade')
         RECEPTIVIDADE = choice.Menu (['+receptor','-receptor']).ask()
         
@@ -16109,7 +16104,7 @@ def oraçãoGerada():
             elif tipo_Escopo == 'escopo(entidade)':
                 Escopo = estrutura_GN() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
             print ('Há resultado locativo?')
-            realização_locativo =choice.Menu(['sim','não']).ask()
+            realização_locativo =choice.Menu(['sim','nao']).ask()
             if realização_locativo == 'sim':
                 Resultado_locativo = frase_preposicional()
             else:
@@ -16142,7 +16137,7 @@ def oraçãoGerada():
             print('Orações médio_sem_alcance selecionam -escopo')
             
             print ('Há resultado locativo?')
-            realização_locativo =choice.Menu(['sim','não']).ask()
+            realização_locativo =choice.Menu(['sim','nao']).ask()
             if realização_locativo == 'sim':
                 Resultado_locativo = frase_preposicional()
             else:
@@ -16314,7 +16309,7 @@ def oraçãoGerada():
 
 ###### INTENSIVA ATRIBUTIVA (SEM ATRIBUIDOR)
     if Transitividade == 'PR_relacional_intensivo_atributivo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-       ####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso não são reversíveis)
+       ####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso nao são reversíveis)
        ## Selecionam sem_atribuição_de relação no sistema de ATRIBUIÇÃO DE RELAÇÃO
        
        
@@ -16325,7 +16320,7 @@ def oraçãoGerada():
         tipo_especificação_associação = choice.Menu(['entidade','qualidade']).ask()
         print ('Qual a fase da atribuição?')
         fase_atribuição= choice.Menu(['neutra','faseada']).ask()##Me parece que neste caso há diferenças em termos de verbo lexical que realiza o Processo (e tempo verbal em alguns casos)
-                                                            ###não vou especializar os tipos de fase.
+                                                            ###nao vou especializar os tipos de fase.
         print ('Qual o domínio da atribuição')
         domínio_atribuição = choice.Menu(['material','semiótico']).ask()
         
@@ -16758,7 +16753,7 @@ def oraçãoGerada():
         
         elif TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_processo':
          ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste de, providenciar
-         ##NÃO SEI SE ESTA PARTE DO SISTEMA FUNCIONA BEM NO PORTUGUÊS
+         ##nao SEI SE ESTA PARTE DO SISTEMA FUNCIONA BEM NO PORTUGUÊS
         
             print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
             direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
@@ -17087,7 +17082,7 @@ def oraçãoGerada():
             elif tipo_Escopo == 'escopo(entidade)':
                 Escopo = estrutura_GN() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
             print ('Há resultado locativo?')
-            realização_locativo =choice.Menu(['sim','não']).ask()
+            realização_locativo =choice.Menu(['sim','nao']).ask()
             if realização_locativo == 'sim':
                 Resultado_locativo = frase_preposicional()
             else:
@@ -17120,7 +17115,7 @@ def oraçãoGerada():
             print('Orações médio_sem_alcance selecionam -escopo')
             
             print ('Há resultado locativo?')
-            realização_locativo =choice.Menu(['sim','não']).ask()
+            realização_locativo =choice.Menu(['sim','nao']).ask()
             if realização_locativo == 'sim':
                 Resultado_locativo = frase_preposicional()
             else:
@@ -17291,7 +17286,7 @@ def oraçãoGerada():
 
 ###### INTENSIVA ATRIBUTIVA (SEM ATRIBUIDOR)
     if Transitividade == 'PR_relacional_intensivo_atributivo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-       ####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso não são reversíveis)
+       ####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso nao são reversíveis)
        ## Selecionam sem_atribuição_de relação no sistema de ATRIBUIÇÃO DE RELAÇÃO
        
        
@@ -17302,7 +17297,7 @@ def oraçãoGerada():
         tipo_especificação_associação = choice.Menu(['entidade','qualidade']).ask()
         print ('Qual a fase da atribuição?')
         fase_atribuição= choice.Menu(['neutra','faseada']).ask()##Me parece que neste caso há diferenças em termos de verbo lexical que realiza o Processo (e tempo verbal em alguns casos)
-                                                            ###não vou especializar os tipos de fase.
+                                                            ###nao vou especializar os tipos de fase.
         print ('Qual o domínio da atribuição')
         domínio_atribuição = choice.Menu(['material','semiótico']).ask()
         
@@ -17735,7 +17730,7 @@ def oraçãoGerada():
         
         elif TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_processo':
          ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste de, providenciar
-         ##NÃO SEI SE ESTA PARTE DO SISTEMA FUNCIONA BEM NO PORTUGUÊS
+         ##nao SEI SE ESTA PARTE DO SISTEMA FUNCIONA BEM NO PORTUGUÊS
         
             print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
             direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
@@ -17944,7 +17939,7 @@ def ler_json(json_test):
     a = json.load (open('C:\\Users\\andre\\Dropbox\\André Rosa\\FACULDADE\\Doutorado\\TESE\\GERAÇÃO DE LINGUAGEM COM O PYTHON\\NLG_BRAZILIAN_PORTUGUESE_SPYDER\\json_test.json'))
     
     print(a)
-    return oraçãoGerada(a['Transitividade'], a['Modo'], a['Tema_id'])
+    return oraçãoGerada(a['Transitividade'], a['Modo'], a['Tema_id'], a['RECEPTIVIDADE'], a['ORDEM_DO_DIZENTE'])
 #
 
 
@@ -17953,4 +17948,3 @@ def ler_json(json_test):
 
 
 
-#

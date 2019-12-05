@@ -1,12 +1,7 @@
-###A FAZER : CONTINUAR A ORAÇÃO VERBAL
-
-
-
-   
-
-
-
-
+###A FAZER : CONTINUAR A ORAÇÃO mental
+## REVER OS PARÂMETROS PASSADAS A CADA UMA DAS FUNÇÕES PARA PODER USAR O JSON
+## VER SE VAI PRECISAR SEPARAR AS ORAÇÕES POR TIPO PARA PODER ESTABELECER OS PARÂMETROS PRA CADA
+	#UMA DELAS
 
 def oraçãoMental():
 	'''
@@ -75,8 +70,8 @@ def oraçãoMental():
 		FENOMENALIZAÇÃO = choice.Menu(['fenomenalização', 'não-fenomenalização']).ask()
 		if FENOMENALIZAÇÃO == 'fenomenalização':
 			TIPO_fenomenalização = choice.Menu(['hiperfenômeno','fenômeno_simples']).ask()
-            if TIPO_fenomenalização == 'hiperfenômeno':
-                TIPO_hiperfenômeno = choice.Menu(['criativo','reativo']).ask()
+			if TIPO_fenomenalização == 'hiperfenômeno':
+				TIPO_hiperfenômeno = choice.Menu(['criativo','reativo']).ask()
                 if TIPO_hiperfenômeno == 'criativo':
                     TIPO_criativo = choice.Menu(['pensamento','desejo']).ask()
                 elif TIPO_hiperfenômeno == 'reativo':
