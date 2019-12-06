@@ -42,9 +42,6 @@ import choice
 ###############################################################################
 #####################
                 ###########ORDEM DA PALAVRA
-
-###ADVÉRBIO    INÍCIO####
-
 def advérbioModoSwitcher():
    
     i = int(input())
@@ -65,7 +62,7 @@ def advérbioModoSwitcher():
          13:'tristemente'
         }
             
-    return switcherModo.get(i, 'Seleção não disponível')
+    return switcherModo.get(i, 'Seleção nao disponível')
 
 
 def advérbioIntensidadeSwitcher():
@@ -92,7 +89,7 @@ def advérbioIntensidadeSwitcher():
          17:'tudo', 
          18:'nada' 
          }
-    return switcherIntensidade.get(i, 'Seleção não disponível')
+    return switcherIntensidade.get(i, 'Seleção nao disponível')
 
         
 
@@ -115,7 +112,7 @@ def advérbioLugarSwitcher():
         12:'dentro'
         }
     
-    return switcherLugar.get(i, 'Seleção não disponível')
+    return switcherLugar.get(i, 'Seleção nao disponível')
 
 
 a= choice.Menu(['1','2']).ask()
@@ -151,15 +148,15 @@ def advérbioTempoSwitcher():
         26:'tarde',
         27:'jamais',
         }
-    return switcherTempo.get(i, 'Seleção não disponível')
+    return switcherTempo.get(i, 'Seleção nao disponível')
 
         
 
 def advérbioNegaçãoSwitcher():
     i = int(input())
     
-    switcherNegação = {1:'não',2:'nem',3:'tampouco',4:'nunca',5:'jamais'}
-    return switcherNegação.get(i,'Seleção não disponível')
+    switcherNegação = {1:'nao',2:'nem',3:'tampouco',4:'nunca',5:'jamais'}
+    return switcherNegação.get(i,'Seleção nao disponível')
 
 def advérbioAfirmaçãoSwitcher():
     
@@ -175,7 +172,7 @@ def advérbioAfirmaçãoSwitcher():
                        8:'certo',
                        9:'efetivamente' 
                        }
-    return switcherAfirmação.get (i,'Seleção não disponível')
+    return switcherAfirmação.get (i,'Seleção nao disponível')
     
 
 def advérbioDúvidaSwitcher():
@@ -190,7 +187,7 @@ def advérbioDúvidaSwitcher():
                          6:'será',
                          7:'talvez', 
                          8:'casualmente'}
-    return switcherDúvida.get(i, 'Seleção não disponível')
+    return switcherDúvida.get(i, 'Seleção nao disponível')
 
 def advérbio():
     '''
@@ -312,7 +309,7 @@ def advérbio():
         
         elif tipo_de_advérbio == 'Negação':
             print("""
-                 1:não
+                 1:nao
                  2:nem
                  3:tampouco 
                  4:nunca
@@ -366,9 +363,6 @@ def advérbio():
 
 ###ADVÉRBIO    FIM####
 
-
-
-######
     
 
 

@@ -1,7 +1,40 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ###A FAZER : CONTINUAR A ORAÇÃO mental
 ## REVER OS PARÂMETROS PASSADAS A CADA UMA DAS FUNÇÕES PARA PODER USAR O JSON
 ## VER SE VAI PRECISAR SEPARAR AS ORAÇÕES POR TIPO PARA PODER ESTABELECER OS PARÂMETROS PRA CADA
 	#UMA DELAS
+
+
+
+
+def ler_json2(json_test):
+    
+    a = json.load (open('json_test_func.json'))
+    return grupo_verbal(a['AGENCIA'], a['TEMPO_SECUNDARIO'], a['FINITUDE'], a['verbo_lematizado'])
+	
+#
+
+
+
+
 
 def oraçãoMental():
 	'''
