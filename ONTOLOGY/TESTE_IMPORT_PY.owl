@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/andre/ontologies/2019/6/teste_importação_py#"
+     xml:base="http://www.semanticweb.org/andre/ontologies/2019/6/teste_importação_py"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:GUM-3="http://www.ontospace.uni-bremen.de/ontology/stable/GUM-3.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/andre/ontologies/2019/6/teste_importação_py">
+        <owl:imports rdf:resource="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Circ_deCincoASeteDiasNaSemana -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Circ_deCincoASeteDiasNaSemana">
+        <rdf:type rdf:resource="http://www.ontospace.uni-bremen.de/ontology/stable/GUM-3.owl#Circumstance"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLAUSE: Cinco pessoas examinavam os pés de cinco a sete dias na semana.&apos;,</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">de cinco a sete dias na semana</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">de cinco a sete dias na semana</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Cl6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Cl6">
+        <rdf:type rdf:resource="http://www.ontospace.uni-bremen.de/ontology/stable/GUM-3.owl#NonAffectingDoing"/>
+        <GUM-3:actee rdf:resource="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Thing_pé"/>
+        <GUM-3:actor rdf:resource="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Thing_pessoa"/>
+        <GUM-3:processInConfiguration rdf:resource="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Process_examinar"/>
+        <GUM-3:temporalCircumstance rdf:resource="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Circ_deCincoASeteDiasNaSemana"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLAUSE: Cinco pessoas examinavam os pés de cinco a sete dias na semana.&apos;,</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SubdomainInSelfcare: autocuidado com os pés</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#MultiConfig_MC5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#MultiConfig_MC5">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MULTICONFIGURATION: Cinco pessoas examinavam os pés de cinco a sete dias na semana.&apos;,</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MC5</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Process_examinar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Process_examinar">
+        <rdf:type rdf:resource="http://www.ontospace.uni-bremen.de/ontology/stable/GUM-3.owl#Process"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLAUSE: Cinco pessoas examinavam os pés de cinco a sete dias na semana.&apos;,</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examinar</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examinar</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Quality_Cinco -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Quality_Cinco">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLAUSE: Cinco pessoas examinavam os pés de cinco a sete dias na semana.&apos;,</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cinco</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cinco</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Thing_pessoa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Thing_pessoa">
+        <rdf:type rdf:resource="http://www.ontospace.uni-bremen.de/ontology/stable/GUM-3.owl#Person"/>
+        <GUM-3:hasEnhancement rdf:resource="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Quality_Cinco"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLAUSE: Cinco pessoas examinavam os pés de cinco a sete dias na semana.&apos;,</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pessoa</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pessoa</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Thing_pé -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/andre/ontologies/2019/6/untitled-ontology-248#Thing_pé">
+        <rdf:type rdf:resource="http://www.ontospace.uni-bremen.de/ontology/stable/GUM-3.owl#NonConsciousThing"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLAUSE: Cinco pessoas examinavam os pés de cinco a sete dias na semana.&apos;,</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pé</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pé</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

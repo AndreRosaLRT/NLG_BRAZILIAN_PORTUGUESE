@@ -115,7 +115,6 @@ def advérbioLugarSwitcher():
     return switcherLugar.get(i, 'Seleção nao disponível')
 
 
-a= choice.Menu(['1','2']).ask()
 def advérbioTempoSwitcher():
     i = int(input())
     
@@ -587,19 +586,10 @@ def detecção_transitoriedade_do_verbo ():
     '''
     (str) -> str
 
-
     Retorna o morfema interpessoal que realiza a orientação interpessoal
     dados o verbo, seu padrão de morfologia, seu tipo de orientação
     e o tipo de pessoa.
 
-    >>>detecção_transitoriedade_do_verbo ('levar')
-    'ar'
-    >>>detecção_transitoriedade_do_verbo ('levo')
-    'o'
-    >>>detecção_transitoriedade_do_verbo ('exponho')
-    'onho'
-    >>>detecção_transitoriedade_do_verbo ('levei')
-    'ei'
     >>>detecção_transitoriedade_do_verbo ('expus')
     'us'
     >>>detecção_transitoriedade_do_verbo ('li')
@@ -2911,12 +2901,7 @@ def formação_verbo_estar_não_finito():
     '''
     
     verbo_lematizado = 'estar'
-    
-    
     TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()
-        
-    
-
     if TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
@@ -3239,13 +3224,6 @@ def formação_verbo_estar_não_finito():
                         
 
 
-
-
-
-
-    
-
-
 def formação_verbo_estar_finito():
     '''            
     '''
@@ -3479,9 +3457,7 @@ def formação_verbo_estar():
     '''            
     '''
     
-    verbo_lematizado = 'estar'
-    
-    
+    verbo_lematizado = 'estar
     tipo_de_orientação = OI_tipo_de_orientação()
         
     if tipo_de_orientação == 'infinitivo':
@@ -5782,10 +5758,7 @@ def formação_verbo_ter():
 def formação_verbo_ser_não_finito():
     '''            
     '''
-    
     verbo_lematizado = 'ser'
-    
-    
     TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO() 
 
    
@@ -6015,20 +5988,27 @@ def formação_verbo_ser_não_finito():
                         
     return verbo
 
-
-
+def formação_verbo_ser_não_orientado():
+    verbo_lematizado = 'ser'
+    TIPO_OM_NÃO_ORIENTADA = OI_não_orientado()
+    if TIPO_OM_NÃO_ORIENTADA == 'infinitivo':
+        verbo=verbo_lematizado
+    elif TIPO_OM_NÃO_ORIENTADA == 'gerúndio':
+        ME = verbo_lematizado[slice(-2)]
+        MI = 'endo'
+        verbo= ME + MI
+    elif TIPO_OM_NÃO_ORIENTADA == 'particípio':
+        ME = verbo_lematizado[slice(-2)]
+        MI = 'ido'
+        verbo= ME + MI
+    return verbo
 
 def formação_verbo_ser_finito():
     '''            
     '''
     
     verbo_lematizado = 'ser'
-    
-    
-    TIPO_OM_FINITA = OI_ORIENTAÇÃO_MODAL_FINITO() 
-
-    
-        
+    TIPO_OM_FINITA = OI_ORIENTAÇÃO_MODAL_FINITO()
     if TIPO_OM_FINITA == 'pretérito_imperfectivo':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
@@ -6284,15 +6264,12 @@ def formação_verbo_ser_finito():
 
 
 
-def formação_verbo_ser():
+def formação_verbo_ser ():
     '''            
     '''
     
     verbo_lematizado = 'ser'
-    
-    
-    tipo_de_orientação = OI_tipo_de_orientação() 
-
+    tipo_de_orientação = OI_tipo_de_orientação()
     if tipo_de_orientação == 'infinitivo':
         verbo=verbo_lematizado
         
@@ -6672,10 +6649,6 @@ def formação_verbo_ser():
             else:
                 MI  = 'orem'
                 verbo=ME + MI
-
-    
-
-
 
     elif tipo_de_orientação == 'imperativo_I':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
@@ -11842,59 +11815,41 @@ def formação_da_estrutura_do_verbo_auxiliar_não_finito ():
 def formação_verbo_não_orientado():
     '''            
     '''
-    
     verbo_lematizado = input ('Qual é o verbo lematizado?')
     tipo_de_orientação = OI_não_orientado()
-    
     if verbo_lematizado =='vir':
-        
         if tipo_de_orientação == 'gerúndio':
             ME = verbo_lematizado[slice(-2)]
-    
             MI = realização_transitoriedade_gerúndio()
             verbo = ME + MI
-            
-        
         elif tipo_de_orientação == 'particípio':
             ME = verbo_lematizado[slice(-2)]
             MI = 'indo'
             verbo= ME + MI
-        
         elif tipo_de_orientação == 'infinitivo':
             verbo= verbo_lematizado
-            
     elif verbo_lematizado =='dizer':
         if tipo_de_orientação == 'gerúndio':
             ME = verbo_lematizado[slice(-2)]
-    
             MI = realização_transitoriedade_gerúndio()
             verbo = ME + MI
-            
-        
         elif tipo_de_orientação == 'particípio':
             ME = verbo_lematizado[slice(-4)]
             MI = 'ito'
             verbo= ME + MI
-        
         elif tipo_de_orientação == 'infinitivo':
             verbo= verbo_lematizado
-            
     else:
         if tipo_de_orientação == 'gerúndio':
             ME = verbo_lematizado[slice(-2)]
-    
             MI = realização_transitoriedade_gerúndio()
             verbo = ME + MI
-            
         elif tipo_de_orientação == 'particípio':
             ME = verbo_lematizado[slice(-2)]
-    
             MI = realização_transitoriedade_particípio()
             verbo = ME + MI
         elif tipo_de_orientação == 'infinitivo':
             verbo= verbo_lematizado
-    
-    
     return verbo
          
 
@@ -11909,8 +11864,6 @@ def formação_verbo_não_orientado():
 
 def verbo_modal():
     print("Qual é o verbo modal lematizado desejado?")
-    
-   
 
     tipo_de_modal = input("""
                                       0:poder
@@ -11936,23 +11889,13 @@ def verbo_modal():
 
 def formação_da_estrutura_do_verbo_geral1 ():
     '''(str)->str
-    
     Retorna a estrutura que realiza os verbos no português.
-    
     '''
-    
-    
     classe_do_verbo = def_classe_de_verbo ()
-    
-    
     if classe_do_verbo == 'lexical':
         verbo = formação_da_estrutura_do_verbo_lexical ()
-        
-       
     elif classe_do_verbo == 'modal':
         verbo = formação_da_estrutura_do_verbo_modal ()
-        
-                         
     elif classe_do_verbo == 'auxiliar':
         verbo = formação_da_estrutura_do_verbo_auxiliar ()
     
@@ -11962,58 +11905,99 @@ def formação_da_estrutura_do_verbo_geral1 ():
 
 ###############
 
-
 def verbo_geral2():
     '''(str)->str
-    
     Retorna a estrutura que realiza os verbos no português.
-    
     '''
-    
-    classe_do_verbo = def_classe_de_verbo ()
-    print ('Qual a orientação interpessoal?')
-    ORIENTAÇÃO =  choice.Menu(['orientado', 'não_orientado']).ask()
-    
-    if (classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'não_orientado' or
-        classe_do_verbo == 'modal' and ORIENTAÇÃO == 'não_orientado' or
-        classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'não_orientado'):
-        
-        verbo=formação_verbo_não_orientado()
+    print('Qual o tipo de experiência')
+    TIPO_DE_EXPERIÊNCIA = choice.Menu(['Ser', 'Fazer', 'Sentir']).ask()
+    if TIPO_DE_EXPERIÊNCIA == 'Ser':
+        print ('Selecione um lema com experiência de Ser:')
+        classe_do_verbo = def_classe_de_verbo()
+        print('Qual a orientação interpessoal?')
+        ORIENTAÇÃO = choice.Menu(['orientado', 'não_orientado']).ask()
+        if (classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'não_orientado' or
+                classe_do_verbo == 'modal' and ORIENTAÇÃO == 'não_orientado' or
+                classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'não_orientado'):
+            verbo = formação_verbo_não_orientado()
+        elif classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'orientado':
+            ORIENTAÇÃO_MODAL = choice.Menu(['finito', 'não_finito']).ask()
+            if ORIENTAÇÃO_MODAL == 'finito':
+                verbo = formação_da_estrutura_do_verbo_lexical_finito()
+            elif ORIENTAÇÃO_MODAL == 'não_finito':
+                verbo = formação_da_estrutura_do_verbo_lexical_não_finito()
+        elif classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'orientado':
+            ORIENTAÇÃO_MODAL = choice.Menu(['finito', 'não_finito']).ask()
+            if ORIENTAÇÃO_MODAL == 'finito':
+                verbo = formação_da_estrutura_do_verbo_auxiliar_finito()
+            elif ORIENTAÇÃO_MODAL == 'não_finito':
+                verbo = formação_da_estrutura_do_verbo_auxiliar_não_finito()
+        elif classe_do_verbo == 'modal' and ORIENTAÇÃO == 'orientado':
+            ORIENTAÇÃO_MODAL = choice.Menu(['finito', 'não_finito']).ask()
+            if ORIENTAÇÃO_MODAL == 'finito':
+                verbo = formação_da_estrutura_do_verbo_modal_finito()
+            elif ORIENTAÇÃO_MODAL == 'não_finito':
+                verbo = formação_da_estrutura_do_verbo_modal_não_finito()
 
-    
-    elif classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'orientado':
-        
-        ORIENTAÇÃO_MODAL= choice.Menu(['finito', 'não_finito']).ask()
-  
-        if ORIENTAÇÃO_MODAL == 'finito':
-            
-            verbo = formação_da_estrutura_do_verbo_lexical_finito ()
-            
-        elif ORIENTAÇÃO_MODAL == 'não_finito': 
-            verbo = formação_da_estrutura_do_verbo_lexical_não_finito ()
-            
-    
-    elif classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'orientado':
-        ORIENTAÇÃO_MODAL= choice.Menu(['finito', 'não_finito']).ask()
+    elif TIPO_DE_EXPERIÊNCIA == 'Fazer':
+        print('Selecione um lema com experiência de Fazer:')
+        classe_do_verbo = def_classe_de_verbo()
+        print('Qual a orientação interpessoal?')
+        ORIENTAÇÃO = choice.Menu(['orientado', 'não_orientado']).ask()
+        if (classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'não_orientado' or
+                classe_do_verbo == 'modal' and ORIENTAÇÃO == 'não_orientado' or
+                classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'não_orientado'):
+            verbo = formação_verbo_não_orientado()
 
-        if ORIENTAÇÃO_MODAL == 'finito':
-            
-            verbo = formação_da_estrutura_do_verbo_auxiliar_finito ()
-            
-        elif ORIENTAÇÃO_MODAL == 'não_finito': 
-            verbo = formação_da_estrutura_do_verbo_auxiliar_não_finito ()
-            
-    elif classe_do_verbo == 'modal' and ORIENTAÇÃO == 'orientado':
-        ORIENTAÇÃO_MODAL= choice.Menu(['finito', 'não_finito']).ask()
-        
-        if ORIENTAÇÃO_MODAL == 'finito':
-            
-            verbo = formação_da_estrutura_do_verbo_modal_finito ()
-            
-        elif ORIENTAÇÃO_MODAL == 'não_finito': 
-            verbo = formação_da_estrutura_do_verbo_modal_não_finito ()
-           
-    return verbo           
+        elif classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'orientado':
+            ORIENTAÇÃO_MODAL = choice.Menu(['finito', 'não_finito']).ask()
+            if ORIENTAÇÃO_MODAL == 'finito':
+                verbo = formação_da_estrutura_do_verbo_lexical_finito()
+            elif ORIENTAÇÃO_MODAL == 'não_finito':
+                verbo = formação_da_estrutura_do_verbo_lexical_não_finito()
+        elif classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'orientado':
+            ORIENTAÇÃO_MODAL = choice.Menu(['finito', 'não_finito']).ask()
+            if ORIENTAÇÃO_MODAL == 'finito':
+                verbo = formação_da_estrutura_do_verbo_auxiliar_finito()
+            elif ORIENTAÇÃO_MODAL == 'não_finito':
+                verbo = formação_da_estrutura_do_verbo_auxiliar_não_finito()
+        elif classe_do_verbo == 'modal' and ORIENTAÇÃO == 'orientado':
+            ORIENTAÇÃO_MODAL = choice.Menu(['finito', 'não_finito']).ask()
+            if ORIENTAÇÃO_MODAL == 'finito':
+                verbo = formação_da_estrutura_do_verbo_modal_finito()
+            elif ORIENTAÇÃO_MODAL == 'não_finito':
+                verbo = formação_da_estrutura_do_verbo_modal_não_finito()
+
+    elif TIPO_DE_EXPERIÊNCIA == 'Fazer':
+        print('Selecione um lema com experiência de Fazer:')
+        classe_do_verbo = def_classe_de_verbo()
+        print('Qual a orientação interpessoal?')
+        ORIENTAÇÃO = choice.Menu(['orientado', 'não_orientado']).ask()
+        if (classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'não_orientado' or
+                classe_do_verbo == 'modal' and ORIENTAÇÃO == 'não_orientado' or
+                classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'não_orientado'):
+            verbo = formação_verbo_não_orientado()
+
+        elif classe_do_verbo == 'lexical' and ORIENTAÇÃO == 'orientado':
+            ORIENTAÇÃO_MODAL = choice.Menu(['finito', 'não_finito']).ask()
+            if ORIENTAÇÃO_MODAL == 'finito':
+                verbo = formação_da_estrutura_do_verbo_lexical_finito()
+            elif ORIENTAÇÃO_MODAL == 'não_finito':
+                verbo = formação_da_estrutura_do_verbo_lexical_não_finito()
+        elif classe_do_verbo == 'auxiliar' and ORIENTAÇÃO == 'orientado':
+            ORIENTAÇÃO_MODAL = choice.Menu(['finito', 'não_finito']).ask()
+            if ORIENTAÇÃO_MODAL == 'finito':
+                verbo = formação_da_estrutura_do_verbo_auxiliar_finito()
+            elif ORIENTAÇÃO_MODAL == 'não_finito':
+                verbo = formação_da_estrutura_do_verbo_auxiliar_não_finito()
+        elif classe_do_verbo == 'modal' and ORIENTAÇÃO == 'orientado':
+            ORIENTAÇÃO_MODAL = choice.Menu(['finito', 'não_finito']).ask()
+            if ORIENTAÇÃO_MODAL == 'finito':
+                verbo = formação_da_estrutura_do_verbo_modal_finito()
+            elif ORIENTAÇÃO_MODAL == 'não_finito':
+                verbo = formação_da_estrutura_do_verbo_modal_não_finito()
+
+    return verbo
 
 
 
@@ -12099,18 +12083,11 @@ def realização_de_AGÊNCIA_passiva():
     grupo_verbal_agência_passiva = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
     
     return grupo_verbal_agência_passiva
-    
-   
-    
-    
-    
-    
-    
-    
+
 #partindo do sistema 
     
 ##para grupo verbal, fiz seleções nos sistemas de tempo secundário e agenciamento
-    #pq as outras seleções já são feitas na ordem da palavra verba(ficaria redundante)
+    #pq as outras seleções já são feitas na ordem da palavra verbal(ficaria redundante)
 
 
 def grupo_verbal(): 
@@ -12125,29 +12102,51 @@ def grupo_verbal():
     'andava'
     '''
 
-    print ('Qual a agência do GV?')
-    AGÊNCIA =  choice.Menu(['agenciado_ativa', 'agenciado_passiva', 'não_agenciado', 'não_agenciado_voz_passiva']).ask()
-    print ('Há a seleção de  tempo secundário')
-    TEMPO_SECUNDÁRIO = choice.Menu(['-','1_reiteração', '2_reiterações','3_reiterações','4_reiterações']).ask()
-    
+    print('Qual a agência do GV?')
+    AGÊNCIA = choice.Menu(['agenciado_ativa', 'agenciado_passiva', 'não_agenciado', 'não_agenciado_voz_passiva']).ask()
+    print('Há a seleção de  tempo secundário')
+    TEMPO_SECUNDÁRIO = choice.Menu(['-', '1_reiteração', '2_reiterações', '3_reiterações', '4_reiterações']).ask()
+
     if (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '-' or
-        AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '-'):
-        print ('Selecione a finitude')
-        FINITUDE = choice.Menu(['finito', 'não_finito', 'não_orientado' ]).ask()
-        
+            AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '-'):
+        print('Selecione a finitude')
+        FINITUDE = choice.Menu(['finito', 'não_finito', 'não_orientado']).ask()
+
         if FINITUDE == 'finito':
-            grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito ()
-        
-        elif FINITUDE == 'não_finito' :
-            grupo_verbal = formação_da_estrutura_do_verbo_lexical_não_finito ()
-        
-        elif FINITUDE == 'não_orientado':   
+            print('Qual o aspecto verbal?')
+            ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+
+            if ASPECTO == 'perfectivo':
+                print('Selecione morfologia do perfectivo:')
+                grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
+            else:
+                print('Selecione morfologia do imperfectivo:')
+                grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
+
+        elif FINITUDE == 'não_finito':
+            grupo_verbal = formação_da_estrutura_do_verbo_lexical_não_finito()
+
+        elif FINITUDE == 'não_orientado':
             grupo_verbal = formação_verbo_não_orientado()
-        
-    elif (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '1_reiteração'or
-          AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '1_reiteração'):
-         
-        grupo_verbal = verbo_geral2 () + ' ' + verbo_geral2 ()
+
+    elif (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '1_reiteração'
+          or AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '1_reiteração'):
+        print('Selecione a finitude')
+        FINITUDE = choice.Menu(['finito', 'não_finito', 'não_orientado']).ask()
+
+        if FINITUDE == 'finito':
+            print('Qual o aspecto verbal?')
+            ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+
+            if ASPECTO == 'perfectivo':
+                print('Selecione morfologia do perfectivo:')
+                grupo_verbal = verbo_geral2() + ' ' + verbo_geral2()
+            else:
+                print('Selecione morfologia do imperfectivo:')
+                grupo_verbal = verbo_geral2() + ' ' + verbo_geral2()
+
+    ####
+
     elif (AGÊNCIA == 'agenciado_passiva' and TEMPO_SECUNDÁRIO == '1_reiteração' or
           AGÊNCIA == 'não_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '1_reiteração') :
         print('Qual o verbo auxiliar de agência passiva desejado?')
@@ -14874,7 +14873,8 @@ def estrutura_GN_downraked():
     ##ALGUMA FUNÇÃO DENTRO NO GN DO QUAL FAZ PARTE('XÍCARA DE CAFÉ',no qual 'xícara' é um grupo nominal 
     #com função de Numerativo no GN DE PRIMEIRO NÍVEL)
 def estrutura_GN():
-    
+
+      
     print ('Há dissociação entre Ente e Núcleo do GN?')
     dissociação_Ente_Núcleo = choice.Menu(['sim','não']).ask()
     
@@ -15038,8 +15038,8 @@ def circunstância():
 def AGENCIAMENTO():
     
     print ('Qual o tipo de Agenciamento?')
-    AGENCIAMENTO = choice.Menu(['AG_medio_sem_alcance',
-                                'AG_medio_com_alcance', 
+    AGENCIAMENTO = choice.Menu(['AG_médio_sem_alcance',
+                                'AG_médio_com_alcance',
                                 'AG_efetivo_operativo',
                                 'AG_efetivo_receptivo',
                                 'AG_NA']).ask() 
@@ -15199,13 +15199,13 @@ def SUJEITABILIDADE():
     '''
     '''
     print ('Qual o tipo de Sujeito?')
-    RESPONSABILIDADE = choice.Menu(['SUJ_responsavel', 
+    RESPONSABILIDADE = choice.Menu(['SUJ_responsável',
                                   'SUJ_distante_impessoal',
-                                  'SUJ_distante_não_responsavel','SUJ_-sujeitabilidade']).ask() 
+                                  'SUJ_distante_não_responsável','SUJ_-sujeitabilidade']).ask()
 
-    PRESSUPOSIÇÃO_DO_SUJEITO = choice.Menu(['recuperado_explicito',
-                                            'recuperado_implicito',
-                                            'não_recuperavel', 'recuperacao_NA']).ask() 
+    PRESSUPOSIÇÃO_DO_SUJEITO = choice.Menu(['recuperado_explícito',
+                                            'recuperado_implícito',
+                                            'não_recuperável', 'recuperação_NA']).ask()
 
     SUJEITABILIDADE =   RESPONSABILIDADE + '_' +  PRESSUPOSIÇÃO_DO_SUJEITO    
     
@@ -15756,26 +15756,27 @@ def TRANSITIVIDADE():
 import json
 
 
+def oraçãoProjetada():
+    oração = oraçãoGerada()
+    return oração
 
-    
-    
+
 def oraçãoGerada():
     '''(str,str,str)->str
     Retorna a formação estrutural na lexicogramática (oração) de uma figura específica
-    da semãntica
+    da semântica
     
-    >>>formação_estrutura_oração ()
+    >>> oraçãoGerada()
     'eu bebi água'
     '''
-   
-    ##ORAÇÃO verbal
-    
+
     Transitividade = TRANSITIVIDADE()
     Modo = MODO()
     Tema_id = TEMA_IDEACIONAL()
+
+    ##ORAÇÃO verbal
     
-    
-    if Transitividade == 'PR_Verbal_AG_medio_sem_alcance' and Modo == 'SUJ_responsavel_recuperado_explicito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+    if Transitividade == 'PR_Verbal_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
@@ -15934,7 +15935,7 @@ def oraçãoGerada():
             
             oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Verbiagem +'.'
           
-    elif'PR_Verbal_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+    elif Transitividade =='PR_Verbal_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()  
@@ -15964,7 +15965,7 @@ def oraçãoGerada():
             oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo+ ' ' + Alvo +'.'
 
     
-    elif   'PR_Verbal_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+    elif Transitividade=='PR_Verbal_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()  
@@ -15977,11 +15978,12 @@ def oraçãoGerada():
         Alvo = estrutura_GN()
            
         oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Alvo  + ' ' + Polaridade + ' ' + Processo+ ' ' + Dizente +'.'
-           
-    
+
     ###MATERIAL
     
-    elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+    elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' \
+            and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+            and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
         
@@ -16032,9 +16034,7 @@ def oraçãoGerada():
         
         
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador  + ' ' + Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta +'  '+ Beneficiário +'.'
-    
-    
-      
+
     elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         Tema_textual=TEMA_TEXTUAL()
         Tema_interpessoal = TEMA_INTERPESSOAL() 
@@ -16063,26 +16063,23 @@ def oraçãoGerada():
         
         
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta +' '+ Cliente +'.'
-    
-        
-    elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        
+
+    elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance'\
+            and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+            and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         Tema_textual=TEMA_TEXTUAL()
         Tema_interpessoal = TEMA_INTERPESSOAL()
-        
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
         Ator = estrutura_GN()
         Polaridade = POLARIDADE()
-        
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN() + grupo_verbal()
         else:
             Iniciador = ''
-        
         print ('Há resultado do processo?')
         TIPO_DE_RESULTADO = choice.Menu(['elaboração','intensificação']).ask()
         if TIPO_DE_RESULTADO == 'elaboração':
@@ -16093,7 +16090,8 @@ def oraçãoGerada():
              elif tipo_Escopo == 'escopo(entidade)':
                  Escopo = estrutura_GN() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
             
-             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo + ' ' +  Escopo+'.'
+             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade \
+                      + ' ' + Processo + ' ' +  Escopo+'.'
     
         elif TIPO_DE_RESULTADO == 'intensificação':
             print('Qual é o Escopo?')
@@ -16307,7 +16305,9 @@ def oraçãoGerada():
     
 
 ###### INTENSIVA ATRIBUTIVA (SEM ATRIBUIDOR)
-    if Transitividade == 'PR_relacional_intensivo_atributivo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+    elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_médio_com_alcance' \
+            and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+            and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
        ####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso não são reversíveis)
        ## Selecionam sem_atribuição_de relação no sistema de ATRIBUIÇÃO DE RELAÇÃO
        
@@ -16360,8 +16360,9 @@ def oraçãoGerada():
    
     
 ###### INTENSIVA ATRIBUTIVA (COM ATRIBUIDOR)
-            ##Nesse caso, a oração é Effective (Tem Agente) e pode ser operativa ou receptiva (há a possibilidade de Agente de segunda, terceira.....ordem)
-        ####para desenvolver....
+            ##Nesse caso, a oração é Effective (Tem Agente) e pode ser operativa ou receptiva
+    # (há a possibilidade de Agente de segunda, terceira.....ordem)
+
     elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         print ('Qual o tipo de atribuição de relação?')
         tipo_atribuição_relação = atribuição_de_relação()
@@ -16423,9 +16424,12 @@ def oraçãoGerada():
     
     ####INTENSIVA_IDENTIFICATIVA (sem DESIGNADOR)
     
-    elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_equativo_decodificação':
+    elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' \
+            and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+            and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_equativo_decodificação':
         
-        print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+        print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito '
+               'deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
         direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
         
         if direcionalidade_voz == 'meio_operativa':
@@ -16580,7 +16584,9 @@ def oraçãoGerada():
          
 #POSSESSIVO ATRIBUTIV0
     
-    if Transitividade == 'PR_relacional_possessivo_atributivo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+    if Transitividade == 'PR_relacional_possessivo_atributivo_AG_médio_com_alcance' \
+            and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+            and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
        
 
         TIPO_ATRIBUIÇÃO_POSSESSIVO = choice.Menu (['posse_atributo','posse_processo']).ask()
@@ -17931,18 +17937,6 @@ def oraçãoGerada():
     return oração.capitalize() 
 
    
-
-
-def ler_json(json_test):
-    
-    a = json.load (open('C:\\Users\\andre\\Dropbox\\André Rosa\\FACULDADE\\Doutorado\\TESE\\GERAÇÃO DE LINGUAGEM COM O PYTHON\\NLG_BRAZILIAN_PORTUGUESE_SPYDER\\json_test.json'))
-    
-    print(a)
-    return oraçãoGerada(a['Transitividade'], a['Modo'], a['Tema_id'])
-#
-
-
-
 
 
 

@@ -1,0 +1,560 @@
+<EXPERTO/EXPERTO-TEXTO 3>
+<EXPLICAR> <ARTIGO ACADÊMICO>
+<MONÓLOGO> <ESCRITO>
+<TÍTULO: ATIVIDADES DE AUTOCUIDADO E SUAS RELAÇÕES COM CONTROLE METABÓLICO E CLÍNICO DAS PESSOAS COM DIABETES MELLITUS>
+<FONTE:http://www.scielo.br/scielo.php?script=sci_arttext&pid=S0104-07072015000300697&lng=en&tlng=en>
+<DATA DE PRODUÇÃO: setembro, 2015>
+<NÚMERO DE PALAVRAS: 3900>
+
+Estudo transversal que objetivou avaliar as atividades de autocuidado das pessoas com o diabetes mellitus tipo 2 e verificar
+suas relações com as características sociodemográficas e clínicas. A amostra incluiu 218 pacientes em seguimento ambulatorial. As
+atividades de autocuidado foram avaliadas por meio de questionário traduzido e validado para o Brasil. Os itens deste questionário
+que obtiveram maiores médias foram os relacionados à terapia medicamentosa, e os menores, com a prática de atividade física. A idade
+correlacionou-se inversamente com a prática de atividade física e cuidado com os pés, e o tempo de diagnóstico da doença apresentou
+correlação direta com a monitorização da glicemia. Os dados mostraram que as atividades de autocuidado relacionadas às mudanças
+comportamentais são as que requerem maiores investimentos para atingir as metas do cuidado, e a idade e tempo do diagnóstico
+devem ser considerados no planejamento da assistência de enfermagem a pessoa com diabetes melltius.
+
+O diabetes mellitus (DM) é destacado pela
+sua crescente taxa de prevalência e alta morbimortalidade.
+No ano de 2013, aproximadamente
+382 milhões de pessoas no mundo possuíam essa
+doença e 77% dessa população encontravam-se em
+países de baixo e médio desenvolvimento.1
+No Brasil também se observa uma tendência
+do aumento da prevalência. Estudo multicêntrico
+realizado em nove capitais, entre os anos de 1986 a
+1988 mostrou uma prevalência média de 7,6% na
+faixa etária de 30 a 69 anos.2 Na cidade de Ribeirão
+Preto-SP, estudo realizado entre 1996 e 1997,
+utilizando métodos semelhantes, a prevalência foi
+de 12,1%3 e, posteriormente, entre os anos 2005 e
+2007, foi de 15,02%.4
+Estudo nacional cujo objetivo foi estimar a
+frequência e a distribuição dos fatores de risco e
+de proteção, para doenças crônicas, em 26 estados
+brasileiros e no Distrito Federal, mostrou que a
+frequência de DM autorreferida variou de 3,6%
+em Palmas a 8,2% no estado de São Paulo.5
+Referente à morbimortalidade atribuível
+ao DM, a literatura mostra que o mau controle
+por um longo período de tempo está associado a
+importantes morbidades, tais como a retinopatia,
+nefropatia, neuropatia, doenças macrovasculares
+e lesões em pés,6 e a mortalidade no ano de 2000,
+foi estimada em 2,9 milhões, o que equivale a 5,2%
+de todas as mortes no mundo.7
+Destaca-se que o cuidado é fundamental no
+controle da doença e a pessoa com DM é a principal
+responsável por desempenhar, diariamente,
+atividades relacionadas ao tratamento.8
+No tratamento do DM, sete comportamentos
+são essenciais para o autocuidado: alimentação
+saudável, ser ativo, monitorização, tomar medicamentos,
+resolução de problemas, enfrentamento
+saudável e reduzir riscos.9
+Para desenvolver os cuidados com a doença,
+é fundamental que a pessoa tenha habilidades
+necessárias. No entanto, estas habilidades podem
+ser influenciadas pelos fatores pessoais, tais como
+sexo, idade, autoestima, fatores psicológicos,
+fatores interpessoais e fatores ambientais (nível
+socioeconômico, condições de vida e moradia),
+além do conhecimento sobre a doença, do tratamento,
+duração da doença, acesso aos serviços de
+saúde, entre outros.10
+O conhecimento das características pessoais
+que podem interferir nas atividades de autocuidado,
+assim como das atividades com desempenho
+prejudicado, subsidiará o planejamento do cuidado
+com intervenções para as suas necessidades
+específicas.
+Diante do exposto, o presente estudo objetivou
+avaliar as atividades de autocuidado e
+verificar as suas relações com as características
+sociodemográficas, o controle metabólico e os
+dados clínicos de pessoas com DM tipo 2 (DM2),
+em seguimento ambulatorial.
+
+Estudo transversal desenvolvido no Ambulatório
+de Diabetes de uma unidade de atenção
+terciária, no período de junho de 2011 a junho
+de 2012. A amostra foi selecionada por meio da
+revisão semanal dos prontuários das pessoas
+agendadas para o atendimento no setor, que
+atendessem aos seguintes critérios de inclusão:
+diagnóstico de DM2, de ambos os sexos, idade
+=40 anos, capazes de dialogar, cujo tratamento
+medicamentoso fosse insulina, antidiabético oral
+e/ou associações e ausência de complicações em
+estágio avançado.
+As complicações consideradas em estágio
+avançado foram: tratamento hemodialítico, amaurose,
+sequelas incapacitantes de acidente vascular
+cerebral/insuficiência cardíaca, amputações e/
+ou úlcera ativa em membros inferiores, pessoas
+em cadeira de rodas e/ou maca. Dessa forma, a
+amostra constituiu-se de 218 adultos com DM2.
+Os resultados dos exames laboratoriais foram
+obtidos mediante a consulta aos prontuários
+eletrônicos, na mesma data da realização das
+entrevistas.
+As atividades de autocuidado foram obtidas
+por meio do Questionário de Atividades de Autocuidado
+com o Diabetes (QAD), versão traduzida,
+adaptada e validada para a cultura brasileira11 do
+Summary of Diabetes Self-Care Activities Questionnaire
+(SDSCA), a partir da versão original, na língua
+inglesa,12 mediante autorização dos autores da
+escala original e da versão traduzida e adaptada
+para o Brasil.
+O QAD possui 15 itens de avaliação do
+autocuidado com o DM, distribuídos em sete
+dimensões: “alimentação geral” (dois itens), “alimentação
+específica” (três itens), “atividade física”
+(dois itens), “monitorização da glicemia” (dois
+itens), “cuidado com os pés” (três itens) e “uso da
+medicação” (com três itens, utilizados de acordo
+com o esquema medicamentoso). Inclui também
+outros três itens para a avaliação do tabagismo.11
+O QAD avalia a realização de um determinado
+comportamento em dias por semana, portanto,
+os escores de cada item podem variar de 0 a 7, e
+maiores escores indicam melhores resultados.13
+Nos itens da dimensão alimentação específica, os
+valores foram invertidos (se 7=0, 6=1, 5=2, 4=3,
+3=4, 2=5, 1=6, 0=7 e vice-versa), como sugerido
+no SDSCA revisado.12 Os dados sobre o tabagismo
+foram classificados em fumante e não fumante
+e, para a análise desta variável, consideraram-se
+a proporção de fumantes e a média de cigarros
+consumidos por dia.11
+No momento do convite às pessoas para participar
+do estudo, os objetivos eram apresentados
+e, para aquelas que concordassem, solicitava-se
+a assinatura do Termo de Consentimento Livre
+e Esclarecido. O tempo médio das entrevistas foi
+de 70 minutos.
+Os dados foram duplamente digitados e
+validados no programa Microsoft Excel. Posteriormente,
+o banco de dados foi exportado para
+o programa Statistical Analysis System (SAS) for
+Windows, versão 9.2, para análise exploratória uni
+e bivariada com medidas de tendência central (média
+e mediana) e de variabilidade (desvio-padrão
+– DP). As variáveis numéricas foram submetidas
+aos testes de Komolgorov-Smirnov e Levene para
+verificar, respectivamente, a distribuição normal
+e a homogeneidade das variâncias.
+Para comparar as variáveis numéricas entre
+dois grupos, foi utilizado o teste de Mann-Whitney,
+e entre três ou mais grupos foi usado o teste
+de Kruskal-Wallis, devido à ausência de distribuição
+normal das variáveis. As correlações entre as
+variáveis numéricas foram investigadas por meio
+do coeficiente de correlação de Spearman. As diferenças
+foram consideradas significativas, quando
+o nível de significância (p) foi menor que 0,05.
+O presente estudo compõe o projeto intitulado
+“Impacto de um programa de atenção às
+pessoas com DM centrado em intervenções educativas
+e no apoio social”, aprovado pelo Comitê
+de Ética em Pesquisa do Hospital das Clínicas
+da Faculdade de Medicina de Ribeirão Preto da
+Universidade de São Paulo, processo n. 9510/2010.
+
+Na caracterização sociodemográfica, a média
+de idade das pessoas foi de 60,7 anos (DP=8,2).
+Houve maiores frequências de sexo feminino
+(53,6%); casados/amasiados (71,5%), aposentados
+(50,9%), procedentes do município de Ribeirão
+Preto e/ou da região (82,5%) e baixa escolaridade
+(82,1%). A renda familiar mensal média foi de
+R$ 1.806,10.
+Referente aos dados clínicos, a média do
+índice de massa corporal (IMC) foi de 32,1 Kg/m²,
+com 131 (60%) participantes obesos; a circunferência
+abdominal apresentou-se acima dos parâmetros
+de normalidade para 107 (92,2%) mulheres e
+68 (68%) homens.
+O tempo médio de diagnóstico foi de 15,2
+anos (DP=8,0). Dos 218 participantes, 172 (78,9%)
+faziam uso de uma classe de antidiabético oral
+(ADO) e 20 (11,6%), de associações de ADO. O
+tempo médio de uso foi de 11,9 anos, e a frequência
+diária de tomada foi, em média, de 2,6 vezes ao
+dia. Quanto à insulina, 46 (21,1%) usavam somente
+insulina, com o tempo médio de uso de 8,3 anos;
+a frequência diária de aplicação foi, em média, 2,2
+vezes ao dia; e o esquema insulínico mais utilizado
+(56,3%) foi NPH+ Regular.
+Destacam-se, para os exames laboratoriais, as
+médias e respectivas porcentagens dos resultados
+considerados alterados nos participantes do estudo.
+A média da hemoglobina foi de 9,5 (DP=2,0)%
+e alterada (=7%) em 194 (90,6%); da glicemia plasmática
+de jejum, 158,4 (DP=69,3) mg/dl e alterada
+(=130mg/dl) em 132 (61,1%); do colesterol, 174,59
+(DP=41,8) mg/dl e alterado (=200mg/dl) em 54
+(27,3%); do HDL Colesterol, 35,76 (DP=8,6) mg/
+dl e alterado (=45) em 166 (87,5%); do LDL Colesterol
+102 (DP=34,5) mg/dl e alterado (=100) em 86
+(48,4%); dos triglicérides, 199,58 (DP=142,7) mg/
+dl e alterado em 115 (58,1%).
+Para a avaliação das atividades de autocuidado,
+destacam os itens que obtiveram o maior e
+o menor valor na escala total, respectivamente. O
+item “tomar injeções de insulina conforme recomendado”
+foi o que alcançou maior média (escore
+próximo de sete), nas atividades referidas pelos
+respondentes, e o item “realizar exercício físico
+específico” obteve a menor média (escore próximo
+de zero), entre todas as dimensões (Tabela 1).
+Ressalta-se que, embora não se tenha identificado
+uma distribuição normal dos escores das
+atividades de autocuidado, os mesmos foram
+expressos em média com o respectivo DP, em conformidade
+com o estudo de tradução e validação
+do instrumento.11
+
+Quanto ao tabagismo, 194 (89%) das pessoas
+referiram não ter “fumado um cigarro nos sete
+dias anteriores”, 24 (11%) responderam afirmativamente
+que fumaram, variando o consumo de 1
+a 30 cigarros ao dia, com média de 9,3 (DP=9,1).
+Para um p<0,05, observou-se que a idade
+correlacionou-se fraca e inversamente com
+“atividade física” e com “cuidado com os pés”.
+O número de pessoas residentes na casa se
+correlacionou fraca e inversamente com “alimentação
+geral”. A dimensão “cuidado com os
+pés” apresentou correlação fraca e direta com
+a escolaridade. Destaca-se, também, correlação
+direta e de fraca magnitude entre a dimensão
+“monitorização da glicemia” e o tempo de diagnóstico
+do DM2.
+
+Para as variáveis de natureza nominal, verificou-
+se diferença significativa dos escores do QAD
+relacionados à prática de atividade física (menores
+escores nas pessoas do sexo feminino e nas que
+referiram trabalhar em casa) e monitorização da
+glicemia (menores escores para as pessoas que não
+fazem uso de insulina e para as que fazem uso de
+ADO) (Tabela 3).
+Referente às variáveis ocupação e tratamento
+medicamentoso, utilizou-se o teste post-hoc de Dunn,
+e foi observado diferenças nos escores de atividade
+física e de monitorização da glicemia, respectivamente,
+entre os inativos no mercado de trabalho e
+os que trabalham em casa (p=0,015), e entre o uso
+de ADO e o uso de insulina (p<0,001), bem como
+entre o uso de ADO e o uso de associações (p<0,001).
+Com relação às variáveis clínicas e metabólicas,
+observou-se associação inversa e de fraca
+magnitude do item “alimentação geral” com a
+HbA1c (-0,17) e com o colesterol total (-0,14). O
+valor da estatística corresponde ao coeficiente de
+Spearman.
+
+Na avaliação das atividades de autocuidado,
+a atividade que obteve maior média corresponde
+ao uso da terapia medicamentosa, e a menor foi
+para a prática de atividade física. Resultados, estes,
+semelhantes aos de dois estudos que utilizaram
+o mesmo instrumento.13-14 O primeiro estudo,
+transversal, objetivou avaliar as atividades de
+autocuidado de adultos brasileiros com DM e
+complicações em membros inferiores e encontrou
+maior pontuação para as atividades relacionadas à
+terapêutica medicamentosa do que para a realização
+de atividade física,13 resultados semelhantes
+ao do estudo desenvolvido na Índia, cujo objetivo
+foi estimar o comportamento de autocuidado e os
+fatores que o influenciam entre adultos com DM2
+naquele país.14
+A literatura tem mostrado que comportamento
+relacionado aos hábitos alimentares é
+um dos desafios para o cuidado à saúde, principalmente
+pelos aspectos culturais, econômicos,
+emocionais, ambientais que os envolvem.10
+Estudo qualitativo com o objetivo de caracterizar
+as dificuldades encontradas para mudanças
+de práticas alimentares de pessoas com DM2, de
+um ambulatório de alta complexidade em Teresina-
+PI, verificou que as pessoas reconhecem a
+importância da alimentação equilibrada para uma
+vida saudável, porém não seguem totalmente a
+prescrição dietética. Os autores referem, ainda,
+que algumas pessoas seguem corretamente as
+recomendações somente quando a glicemia está
+alterada, e que, quando voltam à normalidade,
+abandonam a prescrição.15
+A amostra estudada parece estar consciente
+sobre a restrição de açúcares simples, pois o item
+relacionado ao consumo de doces obteve média
+igual a 6,0 dias/semana, próximo a pontuação
+máxima de sete. A educação alimentar é um dos
+pontos primordiais no tratamento do DM; sem
+uma alimentação adequada, não é possível um
+bom controle metabólico. Todavia, as pessoas
+com DM e os profissionais da saúde relatam que
+modificar os hábitos alimentares é um dos aspectos
+mais desafiadores no autocuidado.6
+Estudo transversal, realizado em Várzea
+Grande-MT, com objetivo de caracterizar as pessoas
+com DM2 da Unidade de Saúde da Família
+(USF) em relação às variáveis sociodemográficas
+e práticas de autocuidado, avaliou o consumo de
+frutas e verduras separadamente e foi observado
+que 34,6% dos participantes consomem frutas de
+duas a três vezes por semana, enquanto o consumo
+de verduras é observado em 38,5% das pessoas, e
+as mesmas referiram consumir de duas a três vezes
+por semana,16 sugerindo menor ingestão destes
+grupos de alimentos em relação aos achados do
+presente estudo.
+Nesse último estudo citado, o consumo de
+doces foi relatado por 46,1% dos participantes, e
+os mesmos referiram consumir pelo menos uma
+vez por semana.
+Referente aos exercícios/atividades físicas,
+destaca-se que a amostra do presente estudo foi
+constituída por adultos e idosos, os quais podem
+ter maior facilidade para atividades físicas do que
+para exercícios específicos.
+Nos estudos realizados em Portugal17 e em
+Florianópolis,11 houve resultados semelhantes aos
+do presente estudo, apresentando maior pontuação
+quando os respondentes eram questionados
+sobre a realização de atividade física por, pelo menos,
+30 minutos e menor pontuação quando questionados
+sobre realizar atividade física específica.
+Pode-se fazer um paralelo entre a baixa
+frequência de dias da semana para os exercícios
+físicos e a baixa porcentagem de atividade física
+mostrada em outros dois estudos, nos quais esse
+comportamento foi desempenhado, respectivamente,
+por 15,4% e 19,5% dos participantes.14,16
+Estudo descritivo realizado entre adultos com
+DM1 e DM2, que objetivou comparar a realização
+de atividade física, por meio do questionário IPAQ
+e cuidados relacionados ao exercício físico, mostrou
+que, entre 118 pessoas com DM2, 30,7% eram
+pouco ativas, 60,6%, ativas e 8,7%, muito ativas.18
+A atividade de autocuidado referente a
+“avaliar o açúcar no sangue o número de vezes
+recomendado” obteve baixa média. Esse achado
+corrobora o estudo que objetivou avaliar as atividades
+de autocuidado de pessoas com DM e complicações
+em membros inferiores,13 no qual obteve
+para este item, média menor de dias realizados.
+Esse fato pode ser atribuído a outros fatores,
+tais como o acesso aos insumos fornecidos
+pelas Unidades Básicas de Saúde para realizar as
+medidas, no entanto, esta variável não foi avaliada
+na presente investigação. A literatura tem
+apontado algumas dificuldades para a realização
+da monitorização glicêmica domiciliar, tais como
+fatores psicológicos, econômicos e sociais.6 Estudo
+de revisão integrativa da literatura sobre a automonitorização
+da glicemia capilar no domicílio
+destaca que os principais motivos para a não realização
+dessa atividade, conforme o recomendado
+foram: dificuldades financeiras, medo de agulhas/
+lancetas e da dor, e inabilidade para manusear o
+glicosímetro, mesmo com a obtenção de instruções
+adequadas.19
+Quanto a dimensão “cuidados com os pés”,
+os resultados diferiram do estudo realizado com
+pessoas que possuíam lesões nos pés,13 o qual mostrou
+maiores médias para os itens que compõem
+esta dimensão, possivelmente pela necessidade
+presente e contato mais próximo com os profissionais
+para a realização do tratamento das lesões.
+Em ensaio clínico controlado, realizado entre
+adultos brasileiros com DM2, 56,4% dos participantes
+referiram examinar os pés diariamente
+na avaliação basal.20 Em estudo descritivo, 38,5%
+dos participantes referiram examinar os pés todos
+os dias, no entanto, 69,2% disseram não saber a
+importância de tal cuidado.16
+Entre os cuidados com os pés, destacam-se o
+exame diário dos mesmos, a inspeção dos calçados
+antes de calçá-los e a higienização dos pés com
+secagem cuidadosa, especialmente nos espaços
+interdigitais.6,21-22 Dessa forma, conclui-se que a
+amostra estudada está aquém do recomendado
+para as atividades de exame dos pés e dos calçados
+antes de calçá-los.
+As atividades de autocuidado “uso de medicação”
+obtiveram as maiores médias em seus itens
+e, apesar da literatura reportar ao termo “adesão
+ao tratamento medicamentoso” ao estudar as atividades
+de autocuidado sobre o uso de medicação,
+os dados do presente estudo foram similares aos
+estudos que avaliaram a adesão aos medicamentos
+nas pessoas com DM.
+Ressalta-se que a maioria dos estudos, referentes
+à terapêutica medicamentosa do DM,
+avalia essa dimensão do tratamento como um
+comportamento de adesão/não adesão, com o uso
+de diferentes métodos de mensuração e, portanto,
+os resultados são expressos de diversas maneiras,
+tais como taxas (em porcentagem) ou categorias
+(aderentes/não aderentes), entre outros, o que
+pode dificultar a comparação entre os estudos.
+Além disso, entre aqueles que avaliam o uso da
+medicação por meio de taxas, nem sempre as
+apresentam de forma distinta entre insulina e antidiabéticos
+orais, o que também contribui para a
+dificuldade de análises comparativas entre um e
+outro comportamento.
+Estudo seccional, com o objetivo de analisar
+a relação entre apoio social, adesão aos tratamentos
+e controle metabólico de pessoas com DM2,
+obteve maior taxa de adesão ao tratamento medicamentoso
+(95,5%), sendo que 64,2% das pessoas
+estudadas faziam uso de insulina e ADO associados.
+23 Resultado semelhante a esse último estudo
+mostrou, em uma amostra de adultos com DM2,
+que 75,9% pessoas referiram adesão ao tratamento
+medicamentoso e 19,1% dessa amostra também
+fazia associação entre insulina e ADO.16 Observase,
+portanto, que, independentemente do tipo de
+fármaco prescrito, as pessoas com DM parecem
+desempenhar, com maior frequência, a atividade
+de autocuidado relativa à medicação do que aquelas
+relacionadas às mudanças de estilo de vida.
+Quanto ao “tabagismo”, dos 218 participantes,
+51,8% nunca fumaram, 37,2% referiram ser extabagistas
+e 11%, tabagistas. Estudo que objetivou
+verificar as práticas de autocuidado das pessoas
+com DM2, em unidade de atenção primária da
+saúde, encontrou que 19,2% das pessoas estudadas
+eram tabagistas, porcentagem superior à do
+presente estudo.16
+Na análise de associações entre as características
+sociodemográficas e as atividades de
+autocuidado, observou-se, no presente estudo,
+correlação inversa e estatisticamente significante
+entre idade e “atividade física” e “cuidado com os
+pés”, sugerindo que quanto maior a idade, menor
+a frequência da atividade física e o cuidado com os
+pés. Esses dados podem refletir as características
+da amostra estudada, ou seja, maior frequência
+de pessoas acima de 60 anos (57,3%), com IMC
+alterado, fatores estes que poderão dificultar ou
+limitar as atividades físicas e as práticas de autocuidado
+com os pés.
+O estudo descritivo, realizado entre pessoas
+com DM1 e DM2, investigou a associação entre
+fatores sociodemográficos, clínicos, percepção da
+doença, apoio social e adesão ao tratamento não
+farmacológico e encontrou que o avançar da idade
+parece predizer menor adesão à atividade física.23
+Em contrapartida, o estudo transversal e
+descritivo que objetivou analisar as características
+sociodemográficas e clínicas e a sua relação com
+o conhecimento, as atitudes frente à doença, o
+autocuidado e o controle metabólico das pessoas
+com DM2, em Belo Horizonte-MG, não encontrou
+associação estatisticamente significativa entre
+autocuidado e as variáveis sociodemográficas.24
+Na presente investigação, houve correlação
+direta e estatisticamente significativa entre
+“cuidado com os pés” e escolaridade. Resultado
+semelhante ao de outros estudos, os quais mostraram
+que as pessoas de escolaridade elevada
+apresentavam boa capacidade para o autocuidado10
+e que a escolaridade pode predizer a adesão
+ao tratamento não medicamentoso.25
+Outro estudo encontrou resultados divergentes
+relacionados às características sociodemográficas
+e as atividades de autocuidado com
+dieta e atividade física. A escolaridade apresentou
+correlação inversa com a adesão a estes dois aspectos
+do tratamento, sugerindo que quanto maior a
+escolaridade, menor a adesão.23
+O tempo de diagnóstico da doença relacionou-
+se diretamente com a “monitorização
+da glicemia”, ou seja, quanto maior o tempo de
+diagnóstico, maior a frequência da monitorização
+da glicemia. É possível que as pessoas com DM,
+durante o longo período da doença, tenham recebido
+informações ou vivenciaram situações que as
+motivaram a este comportamento.
+Na amostra estudada, foram encontrados
+menores escores de “monitorização da glicemia”
+nas pessoas que não usavam insulina. Este fato
+pode relacionar-se a maior ênfase para automonitorização
+da glicemia entre as pessoas que fazem
+uso de insulina, ou mesmo, o apoio do Sistema
+de Saúde na dispensação de insumos para estas
+pessoas, pois para as pessoas com DM2, que não
+fazem uso de insulina, a prática da monitorização
+da glicemia não é recomendada como rotina.26
+No presente estudo, observaram-se menores
+escores de “atividade física” nas pessoas do sexo
+feminino e naquelas que trabalham em casa. Resultado
+semelhante foi encontrado no estudo cujo
+objetivo foi estimar o autocuidado e os fatores que
+influenciam estes comportamentos em adultos
+com DM2 no Sul da Índia, no qual houve diferença
+significativa na adesão à atividade física, ou seja,
+as mulheres aderem menos que os homens.14
+Observaram-se relações entre “alimentação
+geral” e HbA1c e colesterol total, sendo uma correlação
+fraca e inversa, indicando que quanto maior a
+frequência na realização da alimentação saudável,
+menores os níveis de HbA1c e colesterol total.
+Apesar da correlação significativa entre “alimentação
+geral” e HbA1c, a média desta variável
+estava acima da faixa de normalidade; tal fato pode
+ser atribuído ao tipo de instrumento utilizado, ao
+se referir a comportamentos dos últimos sete dias.
+Os comportamentos de adesão não são estáveis,
+podem se modificar ao longo do tempo, portanto,
+necessitam de aferições regulares como forma de
+avaliar a eficácia da terapêutica.27
+Destacam-se como limitações do presente
+estudo: a investigação sobre relação entre as
+atividades de autocuidado e o controle metabólico,
+uma vez que outras variáveis podem ter
+influenciado esses resultados, tais como o regime
+terapêutico, o tempo da doença, morbidades associadas,
+idade entre outros; a escassez de estudos
+que, efetivamente, utilizam o termo “atividades de
+autocuidado”, bem como a fragilidade da relação
+entre estas atividades com as variáveis clínicas e
+de controle metabólico.
+Estudos de seguimento são sugeridos para
+responder às questões sobre a influência das
+atividades de autocuidado no controle clínicometabólico.
+CONCLUSÃO
+Na amostra estudada, houve um maior desempenho
+nas atividades de autocuidado relacionadas
+ao uso das medicações, principalmente ao
+uso da insulina, do que as referentes às atividades
+que requerem mudanças comportamentais, tais
+como alimentação e atividade física. Os dados
+deste estudo sugerem também haver relação entre
+as atividades de autocuidado e as características
+sociodemográficas e clinicas, as quais devem ser
+consideradas durante o planejamento da assistência
+de enfermagem às pessoas com DM2.
+Portanto, conscientizar as pessoas com DM2
+sobre a importância da mudança do estilo de vida
+nas atividades de autocuidado auxiliará na prevenção
+e/ou retardo das complicações decorrentes
+da doença, além de contribuir para melhorar a
+qualidade de vida.
+Os profissionais de saúde devem atuar como
+facilitadores, na motivação para as mudanças
+comportamentais desejáveis para o controle da
+doença, e apoiar o desenvolvimento ou fortalecimento
+de habilidades para o autocuidado.
+Portanto, o processo educativo para as atividades
+de autocuidado deve ser contínuo e atualizado de
+acordo com as necessidades pessoas identificadas
+a cada atendimento.

@@ -1,0 +1,1660 @@
+<COMPLETO 1>
+<EXPLICAR> <ARTIGO ACADÊMICO>
+<MONÓLOGO> <ESCRITO>
+<NÚMERO DE PALAVRAS: 13300>
+
+
+
+Analisar o autocuidado de pacientes com diabetes mellitus tipo 2 na Estratégia Saúde da Família, em Teresina-PI.
+Pesquisa transversal selecionou, por amostragem probabilística simples, 331 pessoas com diabetes mellitus. A coleta de dados aconteceu de agosto a dezembro de 2012, com uso de questionário de atividades de autocuidado com o diabetes e instrumento estruturado para registro de informações socioeconômicas e orientações recebidas pelo profi ssional enfermeiro.
+Os dados revelaram que os pacientes têm baixa adesão à automonitorização glicêmica, à prática de exercícios físicos e cuidados com os pés, porém com boa aderência ao uso da medicação. Apenas 38,7% da amostra examinavam os pés de cinco a sete dias na semana. Houve associação estatisticamente signifi cativa entre as atividades de autocuidado com os pés e as orientações do enfermeiro (p <0,05). Conclui-se que há necessidade de sensibilização no concernente ao desenvolvimento de habilidades para o autocuidado. O autocuidado é definido por Orem como a prática de atividades para a manutenção da vida, da saúde e do bem-estar, realizadas pelo indivíduo em seu próprio benefício. Quando realizadas eficazmente, contribuem para a manutenção da integridade e funcionamento humano. A participação ativa do paciente, por meio das atividades de autocuidado, constitui-se a peça principal para o controle do diabetes mellitus (DM), uma vez que os pacientes e familiares são responsáveis por mais de 95% do tratamento. Diversos estudos discutem a baixa adesão às atividades de autocuidado
+com o diabetes, descrevendo possíveis fatores responsáveis pela ascensão dessa problemática. Fatores de ordem pessoal, socioeconômica e cultural, além de aspectos relativos à doença, ao tratamento, ao sistema de saúde e à equipe multiprofissional podem influenciar o autogerenciamento dos cuidados. Os profissionais de saúde, em geral, e a Enfermagem, em particular, têm a missão de promover melhor adesão do paciente ao tratamento por meio do estímulo a mudanças comportamentais imprescindíveis ao efetivo controle da doença. Pesquisa demonstrou que as orientações sobre autocuidado recebidas pelo paciente, as mudanças no estilo de vida e as habilidades para executá-las implicam prevenção e redução de complicações. Os cuidados com os pés constituem-se uma das vertentes do autocuidado dos pacientes com DM, uma vez que o pé diabético é uma das principais complicações advindas da doença e causa constante de hospitalizações e
+amputações entre esses pacientes. É importante ação de enfermagem o ensino aos pacientes sobre os cuidados apropriados com os pés, os quais se iniciam com o exame diário criterioso desses membros. O autoexame dos pés deve incluir a lavagem, a secagem e a lubrificação, para evitar o acúmulo de umidade nos espaços interdigitais. Deve ser enfatizada também a seleção de calçados adequados. O profissional deve avaliar os pés dos pacientes diabéticos anualmente, procurando identificar deformidades e detectar
+neuropatia por monofilamento de 10g, além de palpar
+pulsos periféricos (pediosa e tibial posterior).
+Nesse contexto, procura-se explorar as ações desenvolvidas
+pelo profissional enfermeiro na prevenção do pé diabético e sua
+repercussão na adesão dos pacientes ao autocuidado com os pés.
+O presente estudo tem como objetivo analisar o autocuidado
+de pacientes com diabetes mellitus tipo 2 na Estratégia
+Saúde da Família, em Teresina-PI.
+
+Caracteriza-se por ser estudo descritivo de natureza transversal
+desenvolvido nos Centros de Saúde que integram a Fundação
+Municipal de Saúde (FMS) de Teresina-PI, onde equipes
+da Estratégia Saúde da Família (ESF) realizam atividades de
+atenção básica.
+A população pesquisada se constituiu de 8.709 pacientes
+com diabetes mellitus tipo 2 (DM2) acompanhados pelas
+equipes da ESF de Teresina, conforme dados contidos no DATASUS
+SIS-HIPERDIA. Por amostragem probabilística simples
+teve-se uma amostra de 368 pessoas com DM2, das quais foram
+entrevistadas 331.
+Foram incluídas pessoas com DM2, cadastradas no SIS-HIPERDIA
+e acompanhadas pela mesma equipe da ESF há pelo
+menos 12 meses. Os critérios de exclusão foram os seguintes:
+intolerância à glicose, dificuldades de locomoção dos pacientes,
+diabéticos impossibilitados de realizar as atividades de
+autocuidado, em virtude de déficit visual, transtorno mental
+e/ou limitações físicas.
+A abordagem da amostra foi em sala reservada enquanto
+aguardavam atendimento do enfermeiro. Nesse momento foram
+esclarecidos os objetivos da pesquisa para que as pessoas
+manifestassem o desejo de participar ou não do estudo, com a
+garantia do seu anonimato. Àqueles que concordaram foi entregue
+o Termo de Consentimento Livre e Esclarecido (TCLE)
+para que fosse assinado.
+Para a coleta de dados utilizou-se o Questionário de Atividades
+de Autocuidado com o Diabetes (QAD) versão traduzida
+e adaptada para a cultura brasileira do instrumento
+Summary of Diabetes Self-Care Activities (SDSCA), como
+estratégia de mensuração das atividades de autocuidado de
+pessoas com diabetes. Informações sobre as características
+socioeconômicas da amostra e ações de promoção do autocuidado
+com os pés orientadas pelo enfermeiro foram obtidas
+por meio da aplicação de um instrumento estruturado.
+A versão brasileira do SDSCA é composta por 15 itens, sendo
+3 itens direcionados aos cuidados com os pés. A avaliação
+é parametrizada em dias da semana, numa escala de 0 a 7,
+correspondendo aos comportamentos referentes aos últimos
+sete dias. A adesão às atividades de autocuidado com os pés
+resultou satisfatória quando os escores eram maiores ou iguais
+a cinco. Optou-se por aplicá-lo em forma de entrevista em
+virtude da baixa escolaridade dos participantes.
+Após a coleta dos dados procedeu-se à investigação detalhada
+das informações recolhidas, utilizando-se a estatística
+descritiva por meio do software Statistical Package for Social
+Sciences for Windows (SPSS for Windows), na versão 18.0.
+O teste de Kolmogorov-Smirnov permitiu a verificação da
+normalidade dos dados. Por não apresentarem distribuição normal,
+recorreu-se à utilização do teste não paramétrico de Mann-
+-Whitney (Teste U) para averiguar diferenças entre orientações
+do enfermeiro e os itens do QAD direcionados aos cuidados
+com os pés. O teste é significativo no nível de p < 0,05.
+
+Participaram da pesquisa 331 pessoas com DM2. Quanto
+às características socioeconômicas da amostra, obteve-se que
+223 (67,4%) eram do sexo feminino; 203 (61,3%) casados;
+média de idade de 59,05 (DP=9,70) anos, e de escolaridade
+de 4,6 (DP=4,34) anos de estudo. Conviviam em média 4,14
+(DP=1,97) pessoas no domicílio, com renda familiar mensal
+média de R$1.081,00 (DP=768,98).
+Quanto às ações de promoção do autocuidado com os pés
+orientadas pelos enfermeiros (Figura 1), 53,8% (n=178) dos
+entrevistados são unânimes em afirmar que nunca receberam orientação do enfermeiro a respeito da necessidade de examinar os pés e de secar os espaços interdigitais, bem como
+66,5% (n=220) negaram orientações sobre a inspeção dos
+sapatos antes de calçá-los.
+Ao se investigarem as ações realizadas pelo enfermeiro durante
+a consulta obteve-se que 79,5% (263) não tiveram os pés examinados
+durante o atendimento, e em 96,4% (n=319) não se
+realizou o teste de sensibilidade dos pés nos últimos 12 meses.
+O Questionário de Atividades de Autocuidado com o Diabetes
+(QAD) permitiu verificar que o item examinar os pés obteve aderência de 3,06 dias, sendo que 38,7% (n=128) dos
+participantes exercem essa ação de 5 a 7 dias na semana. No
+entanto, esse percentual cai para 29% (n=96) quando se trata
+de examinar os sapatos antes de calçá-los. Quanto a secar os
+espaços interdigitais depois de lavar os pés, o estudo mostrou
+média de 3,10 dias, com 40,8% (n=135) dos entrevistados
+realizando esse comportamento na mesma frequência citada
+anteriormente.
+A associação entre as orientações disponibilizadas pelo enfermeiro
+e a adesão aos itens do QAD direcionados aos cuidados
+com os pés foi possível mediante a utilização
+do teste não paramétrico de Mann-Whitney.
+Percebe-se que o valor médio dos postos relativos aos itens
+examinar os pés, examinar o interior dos sapatos e secar os espaços
+interdigitais foi superior no grupo que diz ter recebido
+orientações do enfermeiro sobre esses aspectos da assistência
+com valor de p < 0,05, o que mostra que houve associação
+estatisticamente significativa entre esses itens e a variável
+orientação.
+DISCUSSÃO
+O declínio das taxas de natalidade aliado ao avanço da
+expectativa de vida resulta no envelhecimento da população.
+Consequentemente, essa transição demográfica repercute positivamente
+na incidência e prevalência de problemas crônicos
+de saúde. O aumento da expectativa de vida no Brasil tem incrementado a prevalência de DM, uma vez que a doença
+tende a crescer com o aumento da faixa etária. Estudos
+realizados com pacientes diabéticos têm demonstrado não
+apenas o incremento no quantitativo com o avançar da idade,
+mas também a prevalência do sexo feminino.
+Até a faixa etária dos 40 anos, a prevalência da obesidade
+é semelhante em ambos os sexos, idade a partir da qual essa
+prevalência é duas vezes mais elevada em mulheres em relação
+a homens. Esse fato pode justificar a ascensão da doença em
+pessoas do sexo feminino em Teresina, já que a obesidade é um
+dos principais fatores para as altas prevalências de DM.
+Deve-se atentar também para o baixo grau de escolaridade
+dos participantes, uma vez que pessoas com menor nível de
+escolaridade podem apresentar dificuldades de compreender
+as recomendações terapêuticas dadas pelos profissionais de
+saúde, o que justificaria a menor adesão desses pacientes
+ao tratamento.
+Estudos destacam a importância da família como componente
+de motivação para a adesão terapêutica, uma vez que
+o apoio e a participação familiar repercutem positivamente
+para a melhoria das condutas de autocuidado. A família e os
+amigos exercem papel determinante na vida diária das pessoas.
+A vida familiar acaba por influenciar a tomada de decisão
+quanto ao seguimento das recomendações, levando, pois, o
+paciente se reorganizar para a obtenção do controle metabólico.
+É de suma importância o enfermeiro considerar a família
+como partícipe do processo.
+É importante ressaltar o baixo nível socioeconômico da
+amostra analisada imposto pela baixa renda familiar com que
+essas pessoas sobrevivem, característica semelhante àquela
+encontrada em Porto Alegre.
+A OMS atribui à pobreza e aos baixos níveis de escolaridade
+a precariedade da saúde de parcela significativa da população
+mundial, uma vez que os indivíduos com menor poder aquisitivo
+vivem e trabalham em ambientes relacionados às piores condições
+de saúde e, em geral, não têm acesso aos serviços de saúde
+ou a medidas preventivas. Além disso, famílias carentes tendem
+a ter menor grau de escolaridade. Seguramente, isso contribui
+para a manutenção do círculo pobreza e saúde precária.
+As consultas de enfermagem, além de outras finalidades,
+podem auxiliar o indivíduo a se capacitar para o autocuidado,
+por meio de orientações essenciais ao bom controle glicêmico.
+Nessa oportunidade o enfermeiro deve desenvolver estratégias
+que promovam a prevenção do pé diabético.
+É prescrição de enfermagem ensinar ao paciente os cuidados
+que deve tomar, entre os quais a inspeção diária e a manutenção
+dos pés limpos e secos, especialmente entre os dedos,
+o que pode evitar complicações onerosas, tanto físicas como
+emocionais. Destaca-se, também, a necessidade de incentivar
+o paciente a usar calçados fechados que se adaptem bem aos
+pés, assim como inspecioná-los antes de calçar.
+Acrescenta-se à consulta de enfermagem o exame dos
+membros inferiores para identificação do pé em risco. O informe
+da não realização de exame dos pés nas consultas realizadas
+no último ano mostrou-se associado à ocorrência de
+amputação (p<0,05), apresentando risco de 1,9 vezes maior
+em relação àqueles que tiveram os pés examinados.
+A neuropatia sensitivo-motora constitui-se em fator preditivo
+do surgimento de úlceras nos membros inferiores, podendo
+estar presente em cerca de 30% da população de diabéticos
+atendidos em hospitais e 20% daqueles atendidos na atenção
+básica. Frequentemente assintomática, seu diagnóstico deve
+ser realizado com o uso de testes neurológicos, entre os
+quais se destaca o limiar de percepção cutânea realizado com
+a utilização de monofilamento de 10g, para pesquisar a perda
+da sensibilidade.
+Tais ações devem ser implementadas, pelo enfermeiro, na
+rotina de atendimento a essa clientela, ao se considerar que
+o pé diabético é uma das principais causas de hospitalização
+de pessoas com diabetes. Pesquisa encontrou que das 559
+causas de internações registradas no hospital de Mérida, no
+México, 15,2% se devem ao pé diabético.
+Os dados identificados nesse estudo remetem à necessidade
+de profunda reflexão e mudança acerca do fazer dos enfermeiros
+de Teresina-PI, pois a ausência desses cuidados é considerada
+comportamento de alto risco para a ocorrência de agravos
+no pé, bem como de custos com especialistas e internações.
+Os cuidados com os pés constituem-se uma das vertentes
+do autocuidado dos pacientes com DM. É necessária a inspeção
+diária dos pés para detectar precocemente pequenos
+traumas ou sinais de que o calçado utilizado está sendo inadequado. Esse comportamento foi realizado, em média, por
+3,06 dias na semana pela amostra estudada, semelhante aos
+dados de 3,5 e 3,55 encontrados em Portugal e em Santa
+Catarina, respectivamente.
+A aderência de 2,24 dias ao item examinar sapatos antes
+de calçá-los mascara a real informação de que, na verdade,
+essas pessoas utilizam calçados abertos, não havendo, portanto,
+a necessidade de se olhar o interior, dado este percebido
+mediante diário de campo e que contraria o que preconiza a
+literatura, endossada pela SBD e ADA.
+Pesquisa mostrou que, dos 22 diabéticos participantes do
+seu estudo, 81,8% utilizavam sapato aberto. Numa cidade do
+interior de Minas Gerais identificou-se percentual de 92%
+de diabéticos utilizando calçados inadequados. Verificou-se
+também que apenas 23,07% dos entrevistados realizavam
+sistematicamente limpeza dos pés com água morna e sabão
+neutro, hidratação, exame diário e manutenção dos pés secos.
+Deve-se lembrar que os pacientes aqui analisados secam os
+espaços interdigitais em média 3,10 dias na semana.
+Tais comportamentos constituem-se risco para a ocorrência
+de complicações que só pioram a qualidade de vida dessas
+pessoas. No entanto, alertam para a necessidade de implementação
+de práticas educativas efetivas voltadas para essa
+clientela e que levem em conta os costumes nordestinos.
+Para melhorar a adesão dos diabéticos às atividades de
+autocuidado, os profissionais de saúde, em geral, e os enfermeiros,
+em particular, devem continuamente disponibilizar
+orientações básicas no sentido de reduzir a morbimortalidade
+por complicações da doença. Dessa perspectiva destaca-se a
+atuação dos profissionais da Atenção Primária à Saúde (APS),
+uma vez que são responsáveis pela grande maioria das ações
+de saúde, entre as quais o acompanhamento de pessoas com
+diabetes mellitus.
+
+Estudo verificou associação estatisticamente significativa
+entre a adesão ao tratamento não farmacológico e as orientações
+dispensadas pelo enfermeiro. Nesse sentido, convém
+ressaltar o excelente resultado das orientações do enfermeiro
+na adesão dos pacientes aos cuidados com os pés, especificamente
+examinar os pés, examinar os sapatos antes de calçá-los
+e secar os espaços interdigitais, com p=0,000.
+A educação em saúde constitui-se como medida essencial
+para reduzir o desenvolvimento e a progressão de úlceras
+nos pés, uma vez que essa área é vulnerável a traumas
+imperceptíveis.
+Assim, os resultados do presente estudo permitiram concluir
+que a população de diabéticos de Teresina-PI se compõe
+basicamente de pessoas do sexo feminino, de baixo nível
+socioeconômico, carentes de informações dispensadas pelo
+profissional enfermeiro no que tange aos cuidados com os
+pés e com baixa aderência a essas atividades de autocuidado.
+No entanto, observou-se relação estatisticamente significativa
+das orientações disponibilizadas pelos enfermeiros
+aos pacientes para a aderência às atividades de autocuidado
+com os pés. Neste estudo, porém, não se avaliou a forma
+como esse profissional passa essa informação. Destaca-se
+também que esses pacientes sejam acompanhados conjuntamente
+por outros profissionais de saúde que provavelmente
+reforçam essas orientações, sendo corresponsáveis por tais
+resultados.
+Apesar de traduzidos e validados para o português brasileiro,
+percebeu-se que os pacientes apresentaram limitações
+no entendimento do item examinar o interior dos sapatos antes
+de calçá-los, uma vez que esse questionamento caberia
+apenas àqueles que utilizassem calçado fechado. Sugere-se
+reformulação na redação desse item, bem como aplicação em
+outras amostras brasileiras.
+É necessária a formação, e atuação contínua, da equipe
+interdisciplinar em conjunto com os diabéticos e a sociedade
+civil organizada. A atenção primária à saúde deve ser capacitada
+para a realização de práticas educativas dialógicas e
+reflexivas que valorizem o nível cultural das pessoas. Adicionalmente,
+os profissionais envolvidos precisam intensificar
+as ações direcionadas ao aconselhamento e à comunicação,
+uma vez que foi demonstrada a eficácia das orientações na
+adesão às práticas de autocuidado com os pés.
+
+Investigar as diferenças no autocuidado com os pés e no estilo de vida entre mulheres
+e homens diabéticos. Estudo transversal realizado com uma amostra de 1.515 diabéticos
+com 40 anos ou mais. Foram utilizados modelos de regressão de Poisson para identificar
+diferenças entre os sexos na prevalência de déficit de autocuidado com os pés e no estilo de vida,
+ajustando-se por características socioeconômicas, clínicas, tabagismo e alcoolismo.A
+prevalência de déficit de autocuidado com os pés, caracterizada por baixa frequência de secagem
+dos espaços interdigitais; da não avaliação periódica dos pés; do hábito de andar descalço; de
+higiene insatisfatória e corte inadequado de unhas foi significativamente maior entre os homens.
+Contudo, eles apresentaram menor prevalência na prática de escaldar os pés e no uso de calçados
+inadequados em comparação às mulheres. Em relação ao estilo de vida, os homens também
+apresentaram comportamentos menos saudáveis pois tem significativamente menor controle
+alimentar e não realizam os exames laboratoriais referentes ao perfil lipídico na frequência
+recomendada.Considerar as diferenças de gênero no autocuidado com os pés e no
+estilo de vida permite à equipe de enfermagem direcionar atividades educacionais e intervenções
+nos fatores de risco à ulceração dos pés.
+Descritores: Diabetes Mellitus; Complicações do Diabetes; Pé Diabético; Autocuidado; Enfermagem.
+
+
+No Brasil, em 2014, identificou-se que existiam
+11,6 milhões de pessoas com diabetes mellitus
+(DM),população com idade entre 20 e 79 anos,
+correspondentes a 8,7% do total de 133,8 milhões de
+indivíduos nessa faixa etária. Estima-se que o DM foi
+responsável pela morte de 116.383 pessoas no mesmo
+ano e 41,7% dessas mortes ocorreu em indivíduos com
+menos de 60 anos.
+Entre as complicações crônicas do DM, o pé
+diabético representa a mais comum do DM tipo 2 (DM2) e
+caracteriza-se pela presença de alterações neurológicas,
+ortopédicas, vasculares e/ou infecciosas que precedem
+o surgimento de úlceras de difícil cicatrização. Esse
+agravo é um dos principais fatores que predispõe as
+amputações não traumáticas dos membros inferiores
+e calcula-se que a taxa média global desse tipo de
+mutilação em indivíduos com DM seja de 19,03%.
+Para a prevenção desse agravo e outras
+complicações do DM é imprescindível que o diabético
+mantenha o controle glicêmico adequado, que
+exige mudanças no seu estilo de vida e a adoção de
+atitudes de autocuidado. Essas medidas envolvem
+o segmento de um plano alimentar, a monitorização
+glicêmica e do perfil lipídico, a realização de atividades
+físicas regulares, o uso correto da medicação e cuidados
+com os pés. Dorothea Elizabeth Orem, enfermeira,
+umas das primeiras referências sobre a prática do
+autocuidado, define-o como sendo a realização de ações
+que os indivíduos iniciam e executam por si mesmos
+para manter a vida, a saúde e o bem-estar. Em sua
+teoria, Orem preconiza que a pessoa que não consegue
+realizar as atividades necessárias para manutenção da
+sua saúde apresenta um déficit de autocuidado, o que
+indica a necessidade de intervenção de profissional.
+As limitações em realizar as mudanças no estilo
+de vida e nas práticas de autocuidado necessários ao
+tratamento é um problema conhecido no contexto da
+assistência ao diabético, o que prejudica a resposta
+fisiológica do indivíduo a doença, a relação profissionalpaciente
+e aumentam os custos diretos e indiretos do
+tratamento. O processo de mudança é complexo
+e o sexo do diabético tem sido identificado como um
+dos fatores que interferem no comportamento e atitude
+das pessoas que necessitam adotar novos hábitos e
+medidas de autocuidado. Estudos realizados em pessoas
+com DM identificaram que as mulheres apresentaram
+piores resultados relacionados ao controle glicêmico
+e lipídico, considerando-se que os homens
+demonstraram piores condutas relativas aos cuidados
+com os pés.
+Embora a literatura demonstre que as diferenças
+entre os sexos estão associadas ao comportamento
+do diabético perante a adoção do plano terapêutico,
+não foram identificados estudos nacionais sobre essas
+diferenças relacionadas ao estilo de vida e autocuidado
+para prevenção do pé diabético e outras complicações
+crônicas. Assim, foi objetivo desse estudo investigar as
+diferenças no autocuidado com os pés e no estilo de vida
+entre mulheres e homens diabéticos.
+
+
+Estudo transversal, realizado com pessoas com
+DM2, com 40 anos ou mais de idade, residentes em
+área urbana de um município de grande porte do sul
+do Brasil. Para a definição da amostra representativa e
+estratificada por região do município, foi considerada a
+prevalência de 11% de diabéticos na população com 40
+anos ou mais de idade. Primeiramente, estimou-se
+a população total de diabéticos com mais de 40 anos
+nas cinco regiões do município (norte, sul, leste, oeste e
+centro) e em seguida calculou-se o tamanho da amostra
+em cada uma delas no programa Epi Info versão 3.5.3,
+adotando-se erro da amostra de 5% e 10% de perdas em
+cada uma das regiões do município. A soma das amostras
+calculadas em cada região totalizou 1.515 indivíduos.
+Após, procedeu-se uma nova estratificação da amostra
+por unidades básicas de saúde (UBS) de cada uma
+das regiões. Assim, os participantes do estudo foram
+selecionados por sorteio dentre aqueles registrados no
+Sistema de Cadastramento de Hipertensos e Diabéticos
+(HIPERDIA) de cada unidade. Foram excluídas da
+pesquisa pessoas com DM em tratamento dialítico, com
+úlceras ativas nos membros inferiores e indivíduos que
+não apresentavam capacidade cognitiva preservada,
+sendo estas substituídas pela próxima do sorteio. Essas
+informações foram previamente obtidas nos prontuários
+dos indivíduos selecionados no sorteio e confirmadas
+com os profissionais da equipe de saúde das UBSs.
+Os diabéticos selecionados no sorteio foram
+convidados a participar do estudo por contato
+telefônico ou convites impressos entregues por agentes
+comunitários de saúde. Os dados foram coletados nas
+UBSs. As pessoas que não compareceram para coleta
+dos dados após três agendamentos, os que não foram
+localizados no endereço registrado no prontuário e os que
+se recusaram a participar do estudo foram substituídos
+por outro participante, por meio de um novo sorteio e
+convocação, até que a amostra fosse completada.
+Para coleta de dados utilizou-se um instrumento
+desenvolvido por Bortoletto e adaptado
+para a realização desse estudo. Este instrumento é
+constituído por variáveis socioeconômicas, de estilo 
+de vida, condições clínicas, autocuidado com os pés
+e exame clínico dos membros inferiores. Foi realizada
+entrevista com os participantes para identificação das
+características socioeconômicas e relacionadas ao estilo
+de vida e autocuidado com os pés. Também foram feitas
+buscas nos prontuários para identificação das variáveis
+que compuseram a condição clínica. Após a entrevista,
+procedeu-se a aferição do peso corporal, da altura e
+exame clínico dos membros inferiores dos participantes.
+As variáveis de interesse foram aquelas
+relacionadas ao autocuidado com os pés e estilo de vida
+dos diabéticos. O autocuidado com os pés foi avaliado a
+partir dos seguintes comportamentos informados pelos
+entrevistados: hábito de secar os espaços interdigitais
+dos pés após o banho (sim/não); inspeção/avaliação
+periódica dos membros inferiores (sim/não); andava
+descalços frequentemente (sim/não); e se faziam
+escalda pés (sim/não). Ainda, avaliou-se no momento
+da entrevista se o calçado utilizado era apropriado
+(sim/não), a adequação da higiene e do corte de unhas
+dos pés (sim/não). O escalda pés consiste em
+imergi-los em um recipiente com água aquecida. A
+higiene foi considerada adequada quando o participante
+apresentava pés limpos, secos e com odor normal. O
+calçado foi considerado apropriado quando era de
+modelo fechado, com um centímetro a mais na parte
+interna do pé, confeccionado em material tipo couro
+macio ou lona/algodão.
+Quanto às variáveis relacionadas ao estilo de vida,
+os participantes foram questionados se realizavam algum
+
+Pesquisa (ABEP). A classificação socioeconômica foi
+categorizada em: classes A e B, classe C e classes D e E.
+A condição clínica foi avaliada de acordo com as
+variáveis de tempo de diagnóstico, tipo de tratamento,
+presença de hipertensão arterial sistêmica (HAS) e de
+complicações crônicas relacionadas ao DM. A presença
+de complicações crônicas foi determinada quando o
+indivíduo apresentava: retinopatia diabética, nefropatia
+diabética, acidente vascular encefálico (AVE), infarto
+agudo do miocárdio (IAM), neuropatia diabética
+periférica, doença vascular periférica e/ou deformidades
+nos pés. As alterações nos membros inferiores foram
+identificadas por meio do exame clínico dos pés conforme
+recomendado pela American Diabetes Association.
+Para a análise da associação foi utilizada a razão de
+prevalência (RP). Realizou-se o teste de qui-quadrado de
+Wald, com nível de significância de 5%, para determinar
+se havia diferença entre mulheres e homens quanto as
+variáveis relacionadas ao estilo de vida, a realização
+dos exames laboratoriais no tempo recomendado e a
+prática de autocuidados com pés. Posteriormente, essas
+análises foram ajustadas por aquelas que constituíram o
+bloco de variáveis socioeconômicas e condições clínicas,
+em modelos de Regressão de Poisson, sendo que para
+o ajuste, selecionou-se dentre essas variáveis as que
+apresentaram valor de p<0,20 na análise bivariada
+com as variáveis de estilo de vida e autocuidado com
+os pés. Essas variáveis foram selecionadas para ajustar
+o modelo considerando-se que esta doença tem relação
+com as condições de vida das pessoas e se agrava com
+o aumento do tempo de diagnóstico e aspectos clínicos
+dos pacientes.
+O sexo feminino foi estabelecido como referência,
+uma vez que pesquisas recentes tem identificado que
+os homens apresentam, com mais frequência, déficits
+de autocuidado relacionado ao DM em comparação as
+mulheres. As análises estatísticas foram realizadas
+no programa Statistical Package for the Social Sciences
+21.0. Esse estudo foi aprovado pelo Comitê de Ética
+em Pesquisa da Universidade Estadual de Londrina,
+conforme Certificado de Apresentação para Apreciação
+Ética – CAAE nº 0123.0.268.268-11.
+
+Dos 1.515 entrevistados, 954 (63,0%) eram
+mulheres. A idade variou entre 40 e 84 anos, com
+média de 65 anos e mediana de 66. Os homens
+apresentaram a mediana da idade igual a 66 anos e as
+mulheres 65. Nos dois sexos foi maior a proporção de
+indivíduos de cor da pele branca, posto que 50,6% das
+mulheres e 58,6% dos homens se autodenominaram
+brancos. A maior parte da população possuía menos de
+oito anos de estudo, 78,4% das mulheres e 66,7% dos
+homens. Quanto à classificação socioeconômica, 62,8%
+das mulheres eram da classe econômica C, seguida por
+23,0% das classes A/B e 14,2% das classes D/E. Entre
+os homens, 32,3% eram da classe A/B, 59,0% da classe
+C e apenas 8,7% das classes econômicas D/E.
+No que se refere às condições clínicas, mais da
+metade dos participantes do estudo receberam o
+diagnóstico da doença há menos de 10 anos. Desses
+54,1% eram mulheres e 52,6% homens. A prevalência
+do uso de insulina no tratamento foi semelhante entre
+homens e mulheres (23,8% das mulheres e 22,8% dos
+homens) e a prevalência de HAS foi elevada em ambos
+os sexos (81,6% das mulheres e 76,% dos homens).
+Quanto ao estilo de vida, verificou-se que a
+prevalência de atividade física regular foi maior entre os
+homens (25,0%) em comparação as mulheres (19,9%),
+considerando-se que a realização de dieta para o
+controle alimentar foi mais frequente entre as mulheres
+(77,3%). Observou-se que 83,6% dos homens e 87,8%
+das mulheres apresentaram IMC classificado como
+sobrepeso ou obesidade. Ainda, o hábito de fumar e
+ingerir bebidas alcoólicas em excesso foi mais prevalente
+em homens, 11,8% e 37,4%, respectivamente,
+enquanto que apenas 6,5% das mulheres referiram
+fumar e 11,4% ingeriam álcool em quantidades acima
+do recomendado. A realização dos exames laboratoriais
+no período recomendado para o controle do DM foi
+mais frequente para as mulheres, uma vez que 40,8%
+realizaram a aferição da HbAc1 nos últimos seis meses
+e 51,8% coletaram os exames relacionados ao perfil
+lipídico no último ano em relação a 34,0% e 41,5%
+entre os homens, respectivamente.
+
+Em relação ao autocuidado com os pés, as
+mulheres apresentaram maior prevalência de cuidados
+necessários para prevenir lesões. Contudo, os homens
+demonstraram melhores hábitos relacionados ao calçado
+adequado (62,0%) e a não realização do escalda-pés,
+uma vez que apenas 10,7% afirmaram ter esse hábito,
+enquanto que 40,4% das mulheres admitiram essa
+prática.
+
+Na análise de regressão de Poisson, para
+identificação das diferenças entre os sexos quanto ao
+estilo de vida para o controle do DM e autocuidado
+com os pés, verificou-se que os homens mantiveram
+maior prevalência, estatisticamente significativa, de
+déficit no controle alimentar auto referido (RP=1,47/
+IC95%=1,22-1,77), da mesma maneira que da não
+realização dos exames laboratoriais relacionados ao
+perfil lipídico no último ano (RP=1,15/ IC95%=1,06-
+1,27), após o ajuste por variáveis socioeconômicas,
+clínicas do DM, tabagismo e consumo de álcool em
+excesso.
+
+Ainda, todas as variáveis relacionadas ao autocuidado
+com os pés mantiveram-se associadas estatisticamente
+ao sexo, inclusive após serem ajustadas por
+características socioeconômicas, clínicas, tabagismo e
+alcoolismo. Os homens apresentaram maiores déficits
+dos seguintes cuidados: não secavam os espaços interdigitais
+dos pés após o banho (RP=1,75/IC95%=1,43-
+2,15), não avaliavam os pés periodicamente (RP=1,32/
+IC95%=1,15-1,51), andavam descalços frequentemente
+(RP=1,31/IC95%=1,10-1,55), apresentavam
+o corte de unhas inadequado (RP=1,49/IC95%=1,37-
+1,62) e a higiene inadequada (RP=1,49/IC95%=1,37-
+1,62). Entretanto, o sexo masculino apresentou-se
+estatisticamente associado a menores prevalências de
+déficit de autocuidado relacionado ao calçado adequado
+(RP=0,49/IC95%=0,44-0,55) e a não realização do
+escalda-pés (RP=0,33/IC95%=0,25-0,44) em comparação
+ao sexo feminino.
+
+Nessa pesquisa identificou-se que a maioria das
+práticas relacionadas às mudanças no estilo de vida
+necessárias ao controle do DM e o autocuidado com os
+pés para prevenção das ulcerações estão associadas ao
+sexo. A realização de algum tipo de controle alimentar foi
+mais prevalente no sexo feminino, assim como em outro
+estudo realizado com 4.839 pessoas com DM, no qual as
+mulheres relataram um consumo diário mais frequente
+de frutas e verduras e baixa ingestão de alimentos ricos
+em gordura, em comparação com os homens.
+Em contrapartida, a maior prevalência da prática
+de atividade física regular apresentou associação
+com o sexo masculino. Este resultado também foi
+verificado em outros estudos em que as mulheres com
+DM tendiam a ser mais fisicamente inativas do que os
+homens, enquanto que eles eram menos aderentes
+às recomendações sobre a dieta e monitoramento
+da glicemia.
+Quanto ao controle do DM, por meio da realização
+dos exames laboratoriais da hemoglobina glicada
+e do perfil lipídico, os homens apresentaram maior
+prevalência de déficit relacionado a esse cuidado. Esse
+resultado pode estar associado ao fato de as mulheres
+serem mais atentas quanto aos sintomas e sinais físicos
+das doenças e procuram assistência em serviços de
+saúde com maior frequência que os homens. Além
+disso, outros estudos identificaram que as mulheres
+retratam maior prevalência de alterações nos valores do
+perfil lipídico e por isso necessitam de medicações para
+o tratamento da dislipidemia precocemente.
+No que se refere aos autocuidados relacionados à
+prevenção do pé diabético, os homens apresentaram
+maiores déficits em comparação às mulheres. Um
+estudo prospectivo, com sete anos de seguimento,
+identificou o sexo masculino como um fator de risco para
+amputação em pacientes com pé diabético, juntamente
+com outros fatores como o longo tempo de diagnostico,
+hemoglobina glicada elevada, retinopatia e o uso da
+insulina no tratamento.
+Outro dado importante identificado nesta pesquisa
+refere-se ao fato de que as mulheres apresentaram
+maior prevalência de cuidados com os pés, como secar os
+espaços interdigitais dos pés após o banho, avaliar os pés,
+cortar as unhas de maneira a prevenir o encravamento
+e lesões, não andar descalço e higiene adequada. A
+prática dessas ações sugere um conhecimento adquirido
+pelas mulheres sobre o autocuidado necessário para
+prevenção de ulceração nos membros inferiores. Os
+cuidados de secar os espaços interdigitais dos pés e
+realizar a higiene adequadamente reduzem o risco de
+infecções bacterianas e fúngicas, uma vez que essas
+são algumas das principais causas que precedem a
+amputação de membros inferiores.
+Neste momento, os homens apresentaram menor
+frequência dos déficits relacionados à prática de
+escaldar os pés e uso de calçado inadequado. O escaldapés
+é uma prática comum entre as mulheres por estar
+relacionado ao hábito estético de fazer esfoliação da
+pele e a retirada do hiponíquio (cutículas). Além disso,
+culturalmente, as mulheres utilizam calçados com
+modelos diferentes, que incluem saltos altos, aberturas
+laterais e nos calcanhares, que possibilitam a exposição
+dos dedos. Outra hipótese está relacionada ao fato
+de que a pessoa pode não ter acesso a outro tipo
+de calçado devido a dificuldades econômicas. Estudo
+de caso controle, que analisou os fatores associados
+a amputações em pessoas com DM, verificou que a
+probabilidade de amputação em pessoas que não
+utilizavam sapados adequados era 4,75 vezes maior do
+que naquelas que utilizavam.
+Salienta-se que os indivíduos entrevistados eram
+em sua maioria pessoas idosas, com baixo grau de
+escolaridade e, predominantemente, pertencentes
+à classe econômica C. É fato que as condições
+socioeconômicas têm relação direta com os fatores
+de risco para as complicações das Doenças Crônicas
+não Transmissíveis (DCNT), uma vez que interferem
+no acesso a serviços de saúde, opções de tratamento
+e medidas de prevenção necessárias para evitar esse
+tipo de agravo. Em sua teoria, Orem afirma que o
+engajamento das pessoas nas práticas de autocuidado
+depende de aspectos culturais e educacionais,
+habilidades e limitações individuais, experiência de vida,
+estado de saúde e recursos disponíveis.
+Nesse sentido, os fatores socioeconômicos
+interferem nos hábitos de vida e prática de autocuidado
+das pessoas com DM, principalmente, no que diz
+respeito à compreensão das orientações necessárias
+para o controle da doença e recursos para uma
+vida saudável. A baixa escolaridade do indivíduo e
+as limitações relacionadas às condições sociais e
+financeiras impõe aos profissionais de saúde um desafio
+que requer o planejamento de estratégias diferenciadas
+de orientações para o autocuidado.
+No acompanhamento da pessoa com DM na
+atenção básica, a consulta de enfermagem e a visita
+domiciliar são momentos propícios para identificar
+os déficits de autocuidado, a capacidade do indivíduo
+para esse cuidado e a sua rede de apoio familiar. Esses
+encontros possibilitam ao profissional acompanhar o
+desempenho das ações de cuidado praticadas pela
+pessoa ou seu cuidador e a gerir fatores que interferem
+no desenvolvimento das habilidades de assistência.
+Ainda em relação à consulta do enfermeiro, a
+avaliação dos membros inferiores e a estratificação
+do risco de desenvolvimento de úlceras são ações
+essenciais para prevenção e tratamento precoce do pé
+diabético. Estudo que avaliou a efetividade de um
+programa de cuidados de enfermagem em pessoas com
+DM, realizado durante dois anos, identificou que essa
+estratégia proporcionou a redução do risco de ulceração
+nos membros inferiores dos participantes e a prevenção
+do surgimento de novas úlceras naqueles com histórico
+de lesão anterior. As medidas assistenciais que foram
+implantadas nesse programa incluíam a avaliação
+periódica dos pés, educação para o autocuidado,
+tratamento das lesões e micoses, hidratação da pele,
+encaminhamento a especialidades médicas nos casos
+mais graves, entre outras(21).
+Nesse aspecto, o olhar do profissional é necessário
+para a identificação de alterações clínicas e necessidades
+assistenciais para o controle do DM, prevenção das
+complicações crônicas e tratamento precoce do pé
+diabético. Ressalta-se que, nas orientações quanto
+ao planto terapêutico e capacitação para o autocuidado,
+é essencial que profissionais de saúde considerem que
+mulheres e homens possuem diferentes crenças quanto
+aos benefícios do autocuidado relacionado ao DM. Em
+outros estudos(16-17) foi identificado que as mulheres
+apresentam melhores condições de educação em DM e
+expectativas mais elevadas de que o autocuidado pode
+melhorar os resultados de saúde, enquanto que os
+homens relutam em aceitar os problemas de saúde e a
+buscar assistência profissional.
+Outro estudo relacionado à percepção dos homens
+sobre sua saúde verificou que, uma grande parte
+deles, mesmo com diagnóstico de doença crônica,
+não buscava por assistência médica e tinham como
+principais justificativas a falta de tempo devido à
+jornada de trabalho, incompatibilidade entre seu
+horário e o atendimento dos serviços de saúde,
+ausência de sintomas graves e por encontrarem maiores
+dificuldades para atendimento do que as mulheres(16).
+Quanto as mulheres com DM, pesquisa identificou elas
+necessitavam de maior apoio profissional e familiar
+para adesão ao tratamento do que os homens. Esse
+fato repercutiu inclusive na realização do controle
+alimentar, uma vez que as mulheres tendiam a não
+cozinhar alimentos que a família não apreciava e que
+seriam necessários a sua dieta, tais como a restrição
+de sal e açúcares. Também, aquelas com dificuldades
+financeiras, consideraram um ato de egoísmo comprar
+alimentos exclusivos a suas necessidades.
+Portanto, é possível verificar alguns dos aspectos
+culturais, sociais e comportamentais que envolvem o
+estilo de vida e a prática de autocuidado de homens e
+mulheres com DM e esses resultados não podem ser
+ignorados na elaboração do plano terapêutico e apoio
+assistencial por profissionais da atenção primária a
+saúde. Muitas vezes, os profissionais de saúde julgam
+as pessoas e seus familiares, que são taxados como
+desleixadas ou irresponsáveis, por não seguir as
+recomendações realizadas sem conhecerem o contexto
+em que vivem esses indivíduos. O estabelecimento do
+vínculo e acolhimento das necessidades das pessoas
+diagnosticadas com DCNT devem ser um dos primeiros
+passos para a intervenção nos fatores de risco e
+controle desses agravos. O acompanhamento dos
+indivíduos com DM, com vistas não só no tratamento,
+mas também em melhorar a qualidade de vida, requer
+um olhar holístico dos profissionais sobre as questões
+intervenientes a adesão terapêutica e a capacitação
+para o autocuidado.
+Cabe destacar que a saúde do homem e os
+aspectos envolvidos com o seu controle é um desafio
+para os profissionais de saúde, que necessitam de
+estratégias que proporcionem uma maior busca e
+adesão desses indivíduos por ações de prevenção e
+controle das DCNT.
+
+Esse estudo apresentou limitações relacionadas aos
+dados auto referidos sobre a prática de autocuidado com
+os pés e estilo de vida e por isso podem estar subestimados
+no que refere-se ao diagnóstico de complicações crônicas
+ou superestimados quanto aos hábitos alimentares,
+prática de atividade física e cuidados com os pés. Além
+disso, destaca-se a impossibilidade do estabelecimento de
+relação entre causa e efeito entre a variável dependente
+e as independentes devido ao delineamento transversal
+da pesquisa. Ressalta-se ainda as diferenças relacionadas
+às características socioculturais das diferentes populações,
+que exercem forte influência no comportamento do
+indivíduo perante a sua doença e que poderiam ser melhor
+abordadas em estudos qualitativos.
+Os resultados demonstraram diferenças
+estatisticamente significativas no estilo de vida e
+na prática de autocuidado relacionado ao DM entre
+mulheres e homens. A população em estudo apresentou
+déficits de autocuidado necessários à prevenção de
+complicações crônicas do DM. Nessa perspectiva,
+acredita-se que a análise do comportamento de homens
+e mulheres com DM, no que se refere ao autocuidado e
+estilo de vida, verificada nesse estudo, pode contribuir
+com o planejamento e implementação da assistência
+as pessoas com DCNT, objetivando a redução dos
+indicadores relacionados a mortalidade e incapacidades
+resultantes das complicações dessa doença.
+tipo de controle alimentar, se praticavam atividade física
+regular (atividade física realizada no mínimo 30 minutos
+e acima de três vezes por semana), se eram tabagistas
+e quanto ao consumo excessivo de álcool (ingestão
+superior a uma dose por dia para mulheres e duas
+doses por dia para homens). Ainda, foram interrogadas
+quanto à realização de exames laboratoriais periódicos
+para o controle do DM. Recomenda-se que as pessoas
+diagnosticadas com DM realizem a avaliação da
+hemoglobina glicada (HbAc1) no mínimo a cada seis
+meses e do perfil lipídico anualmente. O perfil lipídico
+é constituído pela avaliação dos triglicerídeos, colesterol
+total, lipoproteínas de baixa densidade (LDL) e
+lipoproteínas de alta densidade (HDL). O peso corporal
+e a altura também foram aferidos e em seguida, foi
+determinado o índice de massa corpórea (IMC), sendo
+esse classificado em acima do peso quando IMC = 25
+kg/m2.
+Em referência às variáveis socioeconômicas, essas
+incluíram o sexo, idade, estado civil, cor da pele auto
+referida, anos de estudo e classificação socioeconômica
+de acordo com a Associação Brasileira de Empresas de Pesquisa (ABEP)(15). A classificação socioeconômica foi
+categorizada em: classes A e B, classe C e classes D e E.
+A condição clínica foi avaliada de acordo com as
+variáveis de tempo de diagnóstico, tipo de tratamento,
+presença de hipertensão arterial sistêmica (HAS) e de
+complicações crônicas relacionadas ao DM. A presença
+de complicações crônicas foi determinada quando o
+indivíduo apresentava: retinopatia diabética, nefropatia
+diabética, acidente vascular encefálico (AVE), infarto
+agudo do miocárdio (IAM), neuropatia diabética
+periférica, doença vascular periférica e/ou deformidades
+nos pés. As alterações nos membros inferiores foram
+identificadas por meio do exame clínico dos pés conforme
+recomendado pela American Diabetes Association(2).
+Para a análise da associação foi utilizada a razão de
+prevalência (RP). Realizou-se o teste de qui-quadrado de
+Wald, com nível de significância de 5%, para determinar
+se havia diferença entre mulheres e homens quanto as
+variáveis relacionadas ao estilo de vida, a realização
+dos exames laboratoriais no tempo recomendado e a
+prática de autocuidados com pés. Posteriormente, essas
+análises foram ajustadas por aquelas que constituíram o
+bloco de variáveis socioeconômicas e condições clínicas,
+em modelos de Regressão de Poisson, sendo que para
+o ajuste, selecionou-se dentre essas variáveis as que
+apresentaram valor de p<0,20 na análise bivariada
+com as variáveis de estilo de vida e autocuidado com
+os pés. Essas variáveis foram selecionadas para ajustar
+o modelo considerando-se que esta doença tem relação
+com as condições de vida das pessoas e se agrava com
+o aumento do tempo de diagnóstico e aspectos clínicos
+dos pacientes.
+O sexo feminino foi estabelecido como referência,
+uma vez que pesquisas recentes tem identificado que
+os homens apresentam, com mais frequência, déficits
+de autocuidado relacionado ao DM em comparação as
+mulheres(7,10,12). As análises estatísticas foram realizadas
+no programa Statistical Package for the Social Sciences
+21.0. Esse estudo foi aprovado pelo Comitê de Ética
+em Pesquisa da Universidade Estadual de Londrina,
+conforme Certificado de Apresentação para Apreciação
+Ética – CAAE nº 0123.0.268.268-11.
+
+Dos 1.515 entrevistados, 954 (63,0%) eram
+mulheres. A idade variou entre 40 e 84 anos, com
+média de 65 anos e mediana de 66. Os homens
+apresentaram a mediana da idade igual a 66 anos e as
+mulheres 65. Nos dois sexos foi maior a proporção de
+indivíduos de cor da pele branca, posto que 50,6% das
+mulheres e 58,6% dos homens se autodenominaram
+brancos. A maior parte da população possuía menos de oito anos de estudo, 78,4% das mulheres e 66,7% dos
+homens. Quanto à classificação socioeconômica, 62,8%
+das mulheres eram da classe econômica C, seguida por
+23,0% das classes A/B e 14,2% das classes D/E. Entre
+os homens, 32,3% eram da classe A/B, 59,0% da classe
+C e apenas 8,7% das classes econômicas D/E.
+No que se refere às condições clínicas, mais da
+metade dos participantes do estudo receberam o
+diagnóstico da doença há menos de 10 anos. Desses
+54,1% eram mulheres e 52,6% homens. A prevalência
+do uso de insulina no tratamento foi semelhante entre
+homens e mulheres (23,8% das mulheres e 22,8% dos
+homens) e a prevalência de HAS foi elevada em ambos
+os sexos (81,6% das mulheres e 76,% dos homens).
+Quanto ao estilo de vida, verificou-se que a
+prevalência de atividade física regular foi maior entre os
+homens (25,0%) em comparação as mulheres (19,9%),
+considerando-se que a realização de dieta para o
+controle alimentar foi mais frequente entre as mulheres
+(77,3%). Observou-se que 83,6% dos homens e 87,8%
+das mulheres apresentaram IMC classificado como
+sobrepeso ou obesidade. Ainda, o hábito de fumar e
+ingerir bebidas alcoólicas em excesso foi mais prevalente
+em homens, 11,8% e 37,4%, respectivamente,
+enquanto que apenas 6,5% das mulheres referiram
+fumar e 11,4% ingeriam álcool em quantidades acima
+do recomendado. A realização dos exames laboratoriais
+no período recomendado para o controle do DM foi
+mais frequente para as mulheres, uma vez que 40,8%
+realizaram a aferição da HbAc1 nos últimos seis meses
+e 51,8% coletaram os exames relacionados ao perfil
+lipídico no último ano em relação a 34,0% e 41,5%
+entre os homens, respectivamente.
+Em relação ao autocuidado com os pés, as
+mulheres apresentaram maior prevalência de cuidados
+necessários para prevenir lesões. Contudo, os homens
+demonstraram melhores hábitos relacionados ao calçado
+adequado (62,0%) e a não realização do escalda-pés,
+uma vez que apenas 10,7% afirmaram ter esse hábito,
+enquanto que 40,4% das mulheres admitiram essa
+prática.
+Na análise de regressão de Poisson, para
+identificação das diferenças entre os sexos quanto ao
+estilo de vida para o controle do DM e autocuidado
+com os pés, verificou-se que os homens mantiveram
+maior prevalência, estatisticamente significativa, de
+déficit no controle alimentar auto referido (RP=1,47/
+IC95%=1,22-1,77), da mesma maneira que da não
+realização dos exames laboratoriais relacionados ao
+perfil lipídico no último ano (RP=1,15/ IC95%=1,06-
+1,27), após o ajuste por variáveis socioeconômicas,
+clínicas do DM, tabagismo e consumo de álcool em
+excesso .
+
+Ainda, todas as variáveis relacionadas ao autocuidado
+com os pés mantiveram-se associadas estatisticamente
+ao sexo, inclusive após serem ajustadas por
+características socioeconômicas, clínicas, tabagismo e
+alcoolismo. Os homens apresentaram maiores déficits
+dos seguintes cuidados: não secavam os espaços interdigitais
+dos pés após o banho (RP=1,75/IC95%=1,43-
+2,15), não avaliavam os pés periodicamente (RP=1,32/
+IC95%=1,15-1,51), andavam descalços frequentemente
+(RP=1,31/IC95%=1,10-1,55), apresentavam
+o corte de unhas inadequado (RP=1,49/IC95%=1,37-
+1,62) e a higiene inadequada (RP=1,49/IC95%=1,37-
+1,62). Entretanto, o sexo masculino apresentou-se
+estatisticamente associado a menores prevalências de
+déficit de autocuidado relacionado ao calçado adequado
+(RP=0,49/IC95%=0,44-0,55) e a não realização do
+escalda-pés (RP=0,33/IC95%=0,25-0,44) em comparação
+ao sexo feminino.
+
+Nessa pesquisa identificou-se que a maioria das
+práticas relacionadas às mudanças no estilo de vida
+necessárias ao controle do DM e o autocuidado com os
+pés para prevenção das ulcerações estão associadas ao
+sexo. A realização de algum tipo de controle alimentar foi
+mais prevalente no sexo feminino, assim como em outro
+estudo realizado com 4.839 pessoas com DM, no qual as
+mulheres relataram um consumo diário mais frequente
+de frutas e verduras e baixa ingestão de alimentos ricos
+em gordura, em comparação com os homens(10).
+Em contrapartida, a maior prevalência da prática
+de atividade física regular apresentou associação
+com o sexo masculino. Este resultado também foi
+verificado em outros estudos em que as mulheres com
+DM tendiam a ser mais fisicamente inativas do que os
+homens(7-8), enquanto que eles eram menos aderentes
+às recomendações sobre a dieta(7,16) e monitoramento
+da glicemia(7).
+Quanto ao controle do DM, por meio da realização
+dos exames laboratoriais da hemoglobina glicada
+e do perfil lipídico, os homens apresentaram maior
+prevalência de déficit relacionado a esse cuidado. Esse
+resultado pode estar associado ao fato de as mulheres
+serem mais atentas quanto aos sintomas e sinais físicos
+das doenças e procuram assistência em serviços de
+saúde com maior frequência que os homens(8,10). Além
+disso, outros estudos identificaram que as mulheres
+retratam maior prevalência de alterações nos valores do
+perfil lipídico e por isso necessitam de medicações para
+o tratamento da dislipidemia precocemente(2,7,9).
+No que se refere aos autocuidados relacionados à
+prevenção do pé diabético, os homens apresentaram
+maiores déficits em comparação às mulheres. Um
+estudo prospectivo, com sete anos de seguimento,
+identificou o sexo masculino como um fator de risco para
+amputação em pacientes com pé diabético, juntamente
+com outros fatores como o longo tempo de diagnostico,
+hemoglobina glicada elevada, retinopatia e o uso da
+insulina no tratamento(17).
+Outro dado importante identificado nesta pesquisa
+refere-se ao fato de que as mulheres apresentaram
+maior prevalência de cuidados com os pés, como secar os
+espaços interdigitais dos pés após o banho, avaliar os pés,
+cortar as unhas de maneira a prevenir o encravamento
+e lesões, não andar descalço e higiene adequada. A
+prática dessas ações sugere um conhecimento adquirido
+pelas mulheres sobre o autocuidado necessário para
+prevenção de ulceração nos membros inferiores. Os
+cuidados de secar os espaços interdigitais dos pés e
+realizar a higiene adequadamente reduzem o risco de
+infecções bacterianas e fúngicas, uma vez que essas
+são algumas das principais causas que precedem a
+amputação de membros inferiores(4,12,14).
+Neste momento, os homens apresentaram menor
+frequência dos déficits relacionados à prática de
+escaldar os pés e uso de calçado inadequado. O escaldapés
+é uma prática comum entre as mulheres por estar
+relacionado ao hábito estético de fazer esfoliação da
+pele e a retirada do hiponíquio (cutículas). Além disso,
+culturalmente, as mulheres utilizam calçados com
+modelos diferentes, que incluem saltos altos, aberturas
+laterais e nos calcanhares, que possibilitam a exposição
+dos dedos. Outra hipótese está relacionada ao fato
+de que a pessoa pode não ter acesso a outro tipo
+de calçado devido a dificuldades econômicas. Estudo
+de caso controle, que analisou os fatores associados
+a amputações em pessoas com DM, verificou que a
+probabilidade de amputação em pessoas que não
+utilizavam sapados adequados era 4,75 vezes maior do
+que naquelas que utilizavam(18).
+Salienta-se que os indivíduos entrevistados eram
+em sua maioria pessoas idosas, com baixo grau de
+escolaridade e, predominantemente, pertencentes
+à classe econômica C. É fato que as condições
+socioeconômicas têm relação direta com os fatores
+de risco para as complicações das Doenças Crônicas
+não Transmissíveis (DCNT), uma vez que interferem
+no acesso a serviços de saúde, opções de tratamento
+e medidas de prevenção necessárias para evitar esse
+tipo de agravo(2,19). Em sua teoria, Orem afirma que o
+engajamento das pessoas nas práticas de autocuidado
+depende de aspectos culturais e educacionais,
+habilidades e limitações individuais, experiência de vida,
+estado de saúde e recursos disponíveis(6).
+Nesse sentido, os fatores socioeconômicos
+interferem nos hábitos de vida e prática de autocuidado
+das pessoas com DM, principalmente, no que diz
+respeito à compreensão das orientações necessárias
+para o controle da doença e recursos para uma
+vida saudável. A baixa escolaridade do indivíduo e
+as limitações relacionadas às condições sociais e
+financeiras impõe aos profissionais de saúde um desafio
+que requer o planejamento de estratégias diferenciadas
+de orientações para o autocuidado (2,4,12).
+No acompanhamento da pessoa com DM na
+atenção básica, a consulta de enfermagem e a visita
+domiciliar são momentos propícios para identificar
+os déficits de autocuidado, a capacidade do indivíduo
+para esse cuidado e a sua rede de apoio familiar. Esses
+encontros possibilitam ao profissional acompanhar o
+desempenho das ações de cuidado praticadas pela
+pessoa ou seu cuidador e a gerir fatores que interferem
+no desenvolvimento das habilidades de assistência(20).
+
+Ainda em relação à consulta do enfermeiro, a
+avaliação dos membros inferiores e a estratificação
+do risco de desenvolvimento de úlceras são ações
+essenciais para prevenção e tratamento precoce do pé
+diabético(2). Estudo que avaliou a efetividade de um
+programa de cuidados de enfermagem em pessoas com
+DM, realizado durante dois anos, identificou que essa
+estratégia proporcionou a redução do risco de ulceração
+nos membros inferiores dos participantes e a prevenção
+do surgimento de novas úlceras naqueles com histórico
+de lesão anterior. As medidas assistenciais que foram
+implantadas nesse programa incluíam a avaliação
+periódica dos pés, educação para o autocuidado,
+tratamento das lesões e micoses, hidratação da pele,
+encaminhamento a especialidades médicas nos casos
+mais graves, entre outras(21).
+Nesse aspecto, o olhar do profissional é necessário
+para a identificação de alterações clínicas e necessidades
+assistenciais para o controle do DM, prevenção das
+complicações crônicas e tratamento precoce do pé
+diabético(2,14). Ressalta-se que, nas orientações quanto
+ao planto terapêutico e capacitação para o autocuidado,
+é essencial que profissionais de saúde considerem que
+mulheres e homens possuem diferentes crenças quanto
+aos benefícios do autocuidado relacionado ao DM. Em
+outros estudos(16-17) foi identificado que as mulheres
+apresentam melhores condições de educação em DM e
+expectativas mais elevadas de que o autocuidado pode
+melhorar os resultados de saúde, enquanto que os
+homens relutam em aceitar os problemas de saúde e a
+buscar assistência profissional.
+Outro estudo relacionado à percepção dos homens
+sobre sua saúde verificou que, uma grande parte
+deles, mesmo com diagnóstico de doença crônica,
+não buscava por assistência médica e tinham como
+principais justificativas a falta de tempo devido à
+jornada de trabalho, incompatibilidade entre seu
+horário e o atendimento dos serviços de saúde,
+ausência de sintomas graves e por encontrarem maiores
+dificuldades para atendimento do que as mulheres(16).
+Quanto as mulheres com DM, pesquisa identificou elas
+necessitavam de maior apoio profissional e familiar
+para adesão ao tratamento do que os homens. Esse
+fato repercutiu inclusive na realização do controle
+alimentar, uma vez que as mulheres tendiam a não
+cozinhar alimentos que a família não apreciava e que
+seriam necessários a sua dieta, tais como a restrição
+de sal e açúcares. Também, aquelas com dificuldades
+financeiras, consideraram um ato de egoísmo comprar
+alimentos exclusivos a suas necessidades(8).
+Portanto, é possível verificar alguns dos aspectos
+culturais, sociais e comportamentais que envolvem o
+estilo de vida e a prática de autocuidado de homens e
+mulheres com DM e esses resultados não podem ser
+ignorados na elaboração do plano terapêutico e apoio
+assistencial por profissionais da atenção primária a
+saúde. Muitas vezes, os profissionais de saúde julgam
+as pessoas e seus familiares, que são taxados como
+desleixadas ou irresponsáveis, por não seguir as
+recomendações realizadas sem conhecerem o contexto
+em que vivem esses indivíduos. O estabelecimento do
+vínculo e acolhimento das necessidades das pessoas
+diagnosticadas com DCNT devem ser um dos primeiros
+passos para a intervenção nos fatores de risco e
+controle desses agravos. O acompanhamento dos
+indivíduos com DM, com vistas não só no tratamento,
+mas também em melhorar a qualidade de vida, requer
+um olhar holístico dos profissionais sobre as questões
+intervenientes a adesão terapêutica e a capacitação
+para o autocuidado.
+Cabe destacar que a saúde do homem e os
+aspectos envolvidos com o seu controle é um desafio
+para os profissionais de saúde, que necessitam de
+estratégias que proporcionem uma maior busca e
+adesão desses indivíduos por ações de prevenção e
+controle das DCNT.
+Esse estudo apresentou limitações relacionadas aos
+dados auto referidos sobre a prática de autocuidado com
+os pés e estilo de vida e por isso podem estar subestimados
+no que refere-se ao diagnóstico de complicações crônicas
+ou superestimados quanto aos hábitos alimentares,
+prática de atividade física e cuidados com os pés. Além
+disso, destaca-se a impossibilidade do estabelecimento de
+relação entre causa e efeito entre a variável dependente
+e as independentes devido ao delineamento transversal
+da pesquisa. Ressalta-se ainda as diferenças relacionadas
+às características socioculturais das diferentes populações,
+que exercem forte influência no comportamento do
+indivíduo perante a sua doença e que poderiam ser melhor
+abordadas em estudos qualitativos.
+Os resultados demonstraram diferenças
+estatisticamente significativas no estilo de vida e
+na prática de autocuidado relacionado ao DM entre
+mulheres e homens. A população em estudo apresentou
+déficits de autocuidado necessários à prevenção de
+complicações crônicas do DM. Nessa perspectiva,
+acredita-se que a análise do comportamento de homens
+e mulheres com DM, no que se refere ao autocuidado e
+estilo de vida, verificada nesse estudo, pode contribuir
+com o planejamento e implementação da assistência
+as pessoas com DCNT, objetivando a redução dos
+indicadores relacionados a mortalidade e incapacidades
+resultantes das complicações dessa doença.
+
+Estudo transversal que objetivou avaliar as atividades de autocuidado das pessoas com o diabetes mellitus tipo 2 e verificar
+suas relações com as características sociodemográficas e clínicas. A amostra incluiu 218 pacientes em seguimento ambulatorial. As
+atividades de autocuidado foram avaliadas por meio de questionário traduzido e validado para o Brasil. Os itens deste questionário
+que obtiveram maiores médias foram os relacionados à terapia medicamentosa, e os menores, com a prática de atividade física. A idade
+correlacionou-se inversamente com a prática de atividade física e cuidado com os pés, e o tempo de diagnóstico da doença apresentou
+correlação direta com a monitorização da glicemia. Os dados mostraram que as atividades de autocuidado relacionadas às mudanças
+comportamentais são as que requerem maiores investimentos para atingir as metas do cuidado, e a idade e tempo do diagnóstico
+devem ser considerados no planejamento da assistência de enfermagem a pessoa com diabetes melltius.
+
+O diabetes mellitus (DM) é destacado pela
+sua crescente taxa de prevalência e alta morbimortalidade.
+No ano de 2013, aproximadamente
+382 milhões de pessoas no mundo possuíam essa
+doença e 77% dessa população encontravam-se em
+países de baixo e médio desenvolvimento.1
+No Brasil também se observa uma tendência
+do aumento da prevalência. Estudo multicêntrico
+realizado em nove capitais, entre os anos de 1986 a
+1988 mostrou uma prevalência média de 7,6% na
+faixa etária de 30 a 69 anos.2 Na cidade de Ribeirão
+Preto-SP, estudo realizado entre 1996 e 1997,
+utilizando métodos semelhantes, a prevalência foi
+de 12,1%3 e, posteriormente, entre os anos 2005 e
+2007, foi de 15,02%.4
+Estudo nacional cujo objetivo foi estimar a
+frequência e a distribuição dos fatores de risco e
+de proteção, para doenças crônicas, em 26 estados
+brasileiros e no Distrito Federal, mostrou que a
+frequência de DM autorreferida variou de 3,6%
+em Palmas a 8,2% no estado de São Paulo.5
+Referente à morbimortalidade atribuível
+ao DM, a literatura mostra que o mau controle
+por um longo período de tempo está associado a
+importantes morbidades, tais como a retinopatia,
+nefropatia, neuropatia, doenças macrovasculares
+e lesões em pés,6 e a mortalidade no ano de 2000,
+foi estimada em 2,9 milhões, o que equivale a 5,2%
+de todas as mortes no mundo.7
+Destaca-se que o cuidado é fundamental no
+controle da doença e a pessoa com DM é a principal
+responsável por desempenhar, diariamente,
+atividades relacionadas ao tratamento.8
+No tratamento do DM, sete comportamentos
+são essenciais para o autocuidado: alimentação
+saudável, ser ativo, monitorização, tomar medicamentos,
+resolução de problemas, enfrentamento
+saudável e reduzir riscos.9
+Para desenvolver os cuidados com a doença,
+é fundamental que a pessoa tenha habilidades
+necessárias. No entanto, estas habilidades podem
+ser influenciadas pelos fatores pessoais, tais como
+sexo, idade, autoestima, fatores psicológicos,
+fatores interpessoais e fatores ambientais (nível
+socioeconômico, condições de vida e moradia),
+além do conhecimento sobre a doença, do tratamento,
+duração da doença, acesso aos serviços de
+saúde, entre outros.10
+O conhecimento das características pessoais
+que podem interferir nas atividades de autocuidado,
+assim como das atividades com desempenho
+prejudicado, subsidiará o planejamento do cuidado
+com intervenções para as suas necessidades
+específicas.
+Diante do exposto, o presente estudo objetivou
+avaliar as atividades de autocuidado e
+verificar as suas relações com as características
+sociodemográficas, o controle metabólico e os
+dados clínicos de pessoas com DM tipo 2 (DM2),
+em seguimento ambulatorial.
+
+Estudo transversal desenvolvido no Ambulatório
+de Diabetes de uma unidade de atenção
+terciária, no período de junho de 2011 a junho
+de 2012. A amostra foi selecionada por meio da
+revisão semanal dos prontuários das pessoas
+agendadas para o atendimento no setor, que
+atendessem aos seguintes critérios de inclusão:
+diagnóstico de DM2, de ambos os sexos, idade
+=40 anos, capazes de dialogar, cujo tratamento
+medicamentoso fosse insulina, antidiabético oral
+e/ou associações e ausência de complicações em
+estágio avançado.
+As complicações consideradas em estágio
+avançado foram: tratamento hemodialítico, amaurose,
+sequelas incapacitantes de acidente vascular
+cerebral/insuficiência cardíaca, amputações e/
+ou úlcera ativa em membros inferiores, pessoas
+em cadeira de rodas e/ou maca. Dessa forma, a
+amostra constituiu-se de 218 adultos com DM2.
+Os resultados dos exames laboratoriais foram
+obtidos mediante a consulta aos prontuários
+eletrônicos, na mesma data da realização das
+entrevistas.
+As atividades de autocuidado foram obtidas
+por meio do Questionário de Atividades de Autocuidado
+com o Diabetes (QAD), versão traduzida,
+adaptada e validada para a cultura brasileira11 do
+Summary of Diabetes Self-Care Activities Questionnaire
+(SDSCA), a partir da versão original, na língua
+inglesa,12 mediante autorização dos autores da
+escala original e da versão traduzida e adaptada
+para o Brasil.
+O QAD possui 15 itens de avaliação do
+autocuidado com o DM, distribuídos em sete
+dimensões: “alimentação geral” (dois itens), “alimentação
+específica” (três itens), “atividade física”
+(dois itens), “monitorização da glicemia” (dois
+itens), “cuidado com os pés” (três itens) e “uso da
+medicação” (com três itens, utilizados de acordo
+com o esquema medicamentoso). Inclui também
+outros três itens para a avaliação do tabagismo.11
+O QAD avalia a realização de um determinado
+comportamento em dias por semana, portanto,
+os escores de cada item podem variar de 0 a 7, e
+maiores escores indicam melhores resultados.13
+Nos itens da dimensão alimentação específica, os
+valores foram invertidos (se 7=0, 6=1, 5=2, 4=3,
+3=4, 2=5, 1=6, 0=7 e vice-versa), como sugerido
+no SDSCA revisado.12 Os dados sobre o tabagismo
+foram classificados em fumante e não fumante
+e, para a análise desta variável, consideraram-se
+a proporção de fumantes e a média de cigarros
+consumidos por dia.11
+No momento do convite às pessoas para participar
+do estudo, os objetivos eram apresentados
+e, para aquelas que concordassem, solicitava-se
+a assinatura do Termo de Consentimento Livre
+e Esclarecido. O tempo médio das entrevistas foi
+de 70 minutos.
+Os dados foram duplamente digitados e
+validados no programa Microsoft Excel. Posteriormente,
+o banco de dados foi exportado para
+o programa Statistical Analysis System (SAS) for
+Windows, versão 9.2, para análise exploratória uni
+e bivariada com medidas de tendência central (média
+e mediana) e de variabilidade (desvio-padrão
+– DP). As variáveis numéricas foram submetidas
+aos testes de Komolgorov-Smirnov e Levene para
+verificar, respectivamente, a distribuição normal
+e a homogeneidade das variâncias.
+Para comparar as variáveis numéricas entre
+dois grupos, foi utilizado o teste de Mann-Whitney,
+e entre três ou mais grupos foi usado o teste
+de Kruskal-Wallis, devido à ausência de distribuição
+normal das variáveis. As correlações entre as
+variáveis numéricas foram investigadas por meio
+do coeficiente de correlação de Spearman. As diferenças
+foram consideradas significativas, quando
+o nível de significância (p) foi menor que 0,05.
+O presente estudo compõe o projeto intitulado
+“Impacto de um programa de atenção às
+pessoas com DM centrado em intervenções educativas
+e no apoio social”, aprovado pelo Comitê
+de Ética em Pesquisa do Hospital das Clínicas
+da Faculdade de Medicina de Ribeirão Preto da
+Universidade de São Paulo, processo n. 9510/2010.
+
+Na caracterização sociodemográfica, a média
+de idade das pessoas foi de 60,7 anos (DP=8,2).
+Houve maiores frequências de sexo feminino
+(53,6%); casados/amasiados (71,5%), aposentados
+(50,9%), procedentes do município de Ribeirão
+Preto e/ou da região (82,5%) e baixa escolaridade
+(82,1%). A renda familiar mensal média foi de
+R$ 1.806,10.
+Referente aos dados clínicos, a média do
+índice de massa corporal (IMC) foi de 32,1 Kg/m²,
+com 131 (60%) participantes obesos; a circunferência
+abdominal apresentou-se acima dos parâmetros
+de normalidade para 107 (92,2%) mulheres e
+68 (68%) homens.
+O tempo médio de diagnóstico foi de 15,2
+anos (DP=8,0). Dos 218 participantes, 172 (78,9%)
+faziam uso de uma classe de antidiabético oral
+(ADO) e 20 (11,6%), de associações de ADO. O
+tempo médio de uso foi de 11,9 anos, e a frequência
+diária de tomada foi, em média, de 2,6 vezes ao
+dia. Quanto à insulina, 46 (21,1%) usavam somente
+insulina, com o tempo médio de uso de 8,3 anos;
+a frequência diária de aplicação foi, em média, 2,2
+vezes ao dia; e o esquema insulínico mais utilizado
+(56,3%) foi NPH+ Regular.
+Destacam-se, para os exames laboratoriais, as
+médias e respectivas porcentagens dos resultados
+considerados alterados nos participantes do estudo.
+A média da hemoglobina foi de 9,5 (DP=2,0)%
+e alterada (=7%) em 194 (90,6%); da glicemia plasmática
+de jejum, 158,4 (DP=69,3) mg/dl e alterada
+(=130mg/dl) em 132 (61,1%); do colesterol, 174,59
+(DP=41,8) mg/dl e alterado (=200mg/dl) em 54
+(27,3%); do HDL Colesterol, 35,76 (DP=8,6) mg/
+dl e alterado (=45) em 166 (87,5%); do LDL Colesterol
+102 (DP=34,5) mg/dl e alterado (=100) em 86
+(48,4%); dos triglicérides, 199,58 (DP=142,7) mg/
+dl e alterado em 115 (58,1%).
+Para a avaliação das atividades de autocuidado,
+destacam os itens que obtiveram o maior e
+o menor valor na escala total, respectivamente. O
+item “tomar injeções de insulina conforme recomendado”
+foi o que alcançou maior média (escore
+próximo de sete), nas atividades referidas pelos
+respondentes, e o item “realizar exercício físico
+específico” obteve a menor média (escore próximo
+de zero), entre todas as dimensões (Tabela 1).
+Ressalta-se que, embora não se tenha identificado
+uma distribuição normal dos escores das
+atividades de autocuidado, os mesmos foram
+expressos em média com o respectivo DP, em conformidade
+com o estudo de tradução e validação
+do instrumento.11
+
+Quanto ao tabagismo, 194 (89%) das pessoas
+referiram não ter “fumado um cigarro nos sete
+dias anteriores”, 24 (11%) responderam afirmativamente
+que fumaram, variando o consumo de 1
+a 30 cigarros ao dia, com média de 9,3 (DP=9,1).
+Para um p<0,05, observou-se que a idade
+correlacionou-se fraca e inversamente com
+“atividade física” e com “cuidado com os pés”.
+O número de pessoas residentes na casa se
+correlacionou fraca e inversamente com “alimentação
+geral”. A dimensão “cuidado com os
+pés” apresentou correlação fraca e direta com
+a escolaridade. Destaca-se, também, correlação
+direta e de fraca magnitude entre a dimensão
+“monitorização da glicemia” e o tempo de diagnóstico
+do DM2.
+
+Para as variáveis de natureza nominal, verificou-
+se diferença significativa dos escores do QAD
+relacionados à prática de atividade física (menores
+escores nas pessoas do sexo feminino e nas que
+referiram trabalhar em casa) e monitorização da
+glicemia (menores escores para as pessoas que não
+fazem uso de insulina e para as que fazem uso de
+ADO) (Tabela 3).
+Referente às variáveis ocupação e tratamento
+medicamentoso, utilizou-se o teste post-hoc de Dunn,
+e foi observado diferenças nos escores de atividade
+física e de monitorização da glicemia, respectivamente,
+entre os inativos no mercado de trabalho e
+os que trabalham em casa (p=0,015), e entre o uso
+de ADO e o uso de insulina (p<0,001), bem como
+entre o uso de ADO e o uso de associações (p<0,001).
+Com relação às variáveis clínicas e metabólicas,
+observou-se associação inversa e de fraca
+magnitude do item “alimentação geral” com a
+HbA1c (-0,17) e com o colesterol total (-0,14). O
+valor da estatística corresponde ao coeficiente de
+Spearman.
+
+Na avaliação das atividades de autocuidado,
+a atividade que obteve maior média corresponde
+ao uso da terapia medicamentosa, e a menor foi
+para a prática de atividade física. Resultados, estes,
+semelhantes aos de dois estudos que utilizaram
+o mesmo instrumento.13-14 O primeiro estudo,
+transversal, objetivou avaliar as atividades de
+autocuidado de adultos brasileiros com DM e
+complicações em membros inferiores e encontrou
+maior pontuação para as atividades relacionadas à
+terapêutica medicamentosa do que para a realização
+de atividade física,13 resultados semelhantes
+ao do estudo desenvolvido na Índia, cujo objetivo
+foi estimar o comportamento de autocuidado e os
+fatores que o influenciam entre adultos com DM2
+naquele país.14
+A literatura tem mostrado que comportamento
+relacionado aos hábitos alimentares é
+um dos desafios para o cuidado à saúde, principalmente
+pelos aspectos culturais, econômicos,
+emocionais, ambientais que os envolvem.10
+Estudo qualitativo com o objetivo de caracterizar
+as dificuldades encontradas para mudanças
+de práticas alimentares de pessoas com DM2, de
+um ambulatório de alta complexidade em Teresina-
+PI, verificou que as pessoas reconhecem a
+importância da alimentação equilibrada para uma
+vida saudável, porém não seguem totalmente a
+prescrição dietética. Os autores referem, ainda,
+que algumas pessoas seguem corretamente as
+recomendações somente quando a glicemia está
+alterada, e que, quando voltam à normalidade,
+abandonam a prescrição.15
+A amostra estudada parece estar consciente
+sobre a restrição de açúcares simples, pois o item
+relacionado ao consumo de doces obteve média
+igual a 6,0 dias/semana, próximo a pontuação
+máxima de sete. A educação alimentar é um dos
+pontos primordiais no tratamento do DM; sem
+uma alimentação adequada, não é possível um
+bom controle metabólico. Todavia, as pessoas
+com DM e os profissionais da saúde relatam que
+modificar os hábitos alimentares é um dos aspectos
+mais desafiadores no autocuidado.6
+Estudo transversal, realizado em Várzea
+Grande-MT, com objetivo de caracterizar as pessoas
+com DM2 da Unidade de Saúde da Família
+(USF) em relação às variáveis sociodemográficas
+e práticas de autocuidado, avaliou o consumo de
+frutas e verduras separadamente e foi observado
+que 34,6% dos participantes consomem frutas de
+duas a três vezes por semana, enquanto o consumo
+de verduras é observado em 38,5% das pessoas, e
+as mesmas referiram consumir de duas a três vezes
+por semana,16 sugerindo menor ingestão destes
+grupos de alimentos em relação aos achados do
+presente estudo.
+Nesse último estudo citado, o consumo de
+doces foi relatado por 46,1% dos participantes, e
+os mesmos referiram consumir pelo menos uma
+vez por semana.
+Referente aos exercícios/atividades físicas,
+destaca-se que a amostra do presente estudo foi
+constituída por adultos e idosos, os quais podem
+ter maior facilidade para atividades físicas do que
+para exercícios específicos.
+Nos estudos realizados em Portugal17 e em
+Florianópolis,11 houve resultados semelhantes aos
+do presente estudo, apresentando maior pontuação
+quando os respondentes eram questionados
+sobre a realização de atividade física por, pelo menos,
+30 minutos e menor pontuação quando questionados
+sobre realizar atividade física específica.
+Pode-se fazer um paralelo entre a baixa
+frequência de dias da semana para os exercícios
+físicos e a baixa porcentagem de atividade física
+mostrada em outros dois estudos, nos quais esse
+comportamento foi desempenhado, respectivamente,
+por 15,4% e 19,5% dos participantes.14,16
+Estudo descritivo realizado entre adultos com
+DM1 e DM2, que objetivou comparar a realização
+de atividade física, por meio do questionário IPAQ
+e cuidados relacionados ao exercício físico, mostrou
+que, entre 118 pessoas com DM2, 30,7% eram
+pouco ativas, 60,6%, ativas e 8,7%, muito ativas.18
+A atividade de autocuidado referente a
+“avaliar o açúcar no sangue o número de vezes
+recomendado” obteve baixa média. Esse achado
+corrobora o estudo que objetivou avaliar as atividades
+de autocuidado de pessoas com DM e complicações
+em membros inferiores,13 no qual obteve
+para este item, média menor de dias realizados.
+Esse fato pode ser atribuído a outros fatores,
+tais como o acesso aos insumos fornecidos
+pelas Unidades Básicas de Saúde para realizar as
+medidas, no entanto, esta variável não foi avaliada
+na presente investigação. A literatura tem
+apontado algumas dificuldades para a realização
+da monitorização glicêmica domiciliar, tais como
+fatores psicológicos, econômicos e sociais.6 Estudo
+de revisão integrativa da literatura sobre a automonitorização
+da glicemia capilar no domicílio
+destaca que os principais motivos para a não realização
+dessa atividade, conforme o recomendado
+foram: dificuldades financeiras, medo de agulhas/
+lancetas e da dor, e inabilidade para manusear o
+glicosímetro, mesmo com a obtenção de instruções
+adequadas.19
+Quanto a dimensão “cuidados com os pés”,
+os resultados diferiram do estudo realizado com
+pessoas que possuíam lesões nos pés,13 o qual mostrou
+maiores médias para os itens que compõem
+esta dimensão, possivelmente pela necessidade
+presente e contato mais próximo com os profissionais
+para a realização do tratamento das lesões.
+Em ensaio clínico controlado, realizado entre
+adultos brasileiros com DM2, 56,4% dos participantes
+referiram examinar os pés diariamente
+na avaliação basal.20 Em estudo descritivo, 38,5%
+dos participantes referiram examinar os pés todos
+os dias, no entanto, 69,2% disseram não saber a
+importância de tal cuidado.16
+Entre os cuidados com os pés, destacam-se o
+exame diário dos mesmos, a inspeção dos calçados
+antes de calçá-los e a higienização dos pés com
+secagem cuidadosa, especialmente nos espaços
+interdigitais.6,21-22 Dessa forma, conclui-se que a
+amostra estudada está aquém do recomendado
+para as atividades de exame dos pés e dos calçados
+antes de calçá-los.
+As atividades de autocuidado “uso de medicação”
+obtiveram as maiores médias em seus itens
+e, apesar da literatura reportar ao termo “adesão
+ao tratamento medicamentoso” ao estudar as atividades
+de autocuidado sobre o uso de medicação,
+os dados do presente estudo foram similares aos
+estudos que avaliaram a adesão aos medicamentos
+nas pessoas com DM.
+Ressalta-se que a maioria dos estudos, referentes
+à terapêutica medicamentosa do DM,
+avalia essa dimensão do tratamento como um
+comportamento de adesão/não adesão, com o uso
+de diferentes métodos de mensuração e, portanto,
+os resultados são expressos de diversas maneiras,
+tais como taxas (em porcentagem) ou categorias
+(aderentes/não aderentes), entre outros, o que
+pode dificultar a comparação entre os estudos.
+Além disso, entre aqueles que avaliam o uso da
+medicação por meio de taxas, nem sempre as
+apresentam de forma distinta entre insulina e antidiabéticos
+orais, o que também contribui para a
+dificuldade de análises comparativas entre um e
+outro comportamento.
+Estudo seccional, com o objetivo de analisar
+a relação entre apoio social, adesão aos tratamentos
+e controle metabólico de pessoas com DM2,
+obteve maior taxa de adesão ao tratamento medicamentoso
+(95,5%), sendo que 64,2% das pessoas
+estudadas faziam uso de insulina e ADO associados.
+23 Resultado semelhante a esse último estudo
+mostrou, em uma amostra de adultos com DM2,
+que 75,9% pessoas referiram adesão ao tratamento
+medicamentoso e 19,1% dessa amostra também
+fazia associação entre insulina e ADO.16 Observase,
+portanto, que, independentemente do tipo de
+fármaco prescrito, as pessoas com DM parecem
+desempenhar, com maior frequência, a atividade
+de autocuidado relativa à medicação do que aquelas
+relacionadas às mudanças de estilo de vida.
+Quanto ao “tabagismo”, dos 218 participantes,
+51,8% nunca fumaram, 37,2% referiram ser extabagistas
+e 11%, tabagistas. Estudo que objetivou
+verificar as práticas de autocuidado das pessoas
+com DM2, em unidade de atenção primária da
+saúde, encontrou que 19,2% das pessoas estudadas
+eram tabagistas, porcentagem superior à do
+presente estudo.16
+Na análise de associações entre as características
+sociodemográficas e as atividades de
+autocuidado, observou-se, no presente estudo,
+correlação inversa e estatisticamente significante
+entre idade e “atividade física” e “cuidado com os
+pés”, sugerindo que quanto maior a idade, menor
+a frequência da atividade física e o cuidado com os
+pés. Esses dados podem refletir as características
+da amostra estudada, ou seja, maior frequência
+de pessoas acima de 60 anos (57,3%), com IMC
+alterado, fatores estes que poderão dificultar ou
+limitar as atividades físicas e as práticas de autocuidado
+com os pés.
+O estudo descritivo, realizado entre pessoas
+com DM1 e DM2, investigou a associação entre
+fatores sociodemográficos, clínicos, percepção da
+doença, apoio social e adesão ao tratamento não
+farmacológico e encontrou que o avançar da idade
+parece predizer menor adesão à atividade física.23
+Em contrapartida, o estudo transversal e
+descritivo que objetivou analisar as características
+sociodemográficas e clínicas e a sua relação com
+o conhecimento, as atitudes frente à doença, o
+autocuidado e o controle metabólico das pessoas
+com DM2, em Belo Horizonte-MG, não encontrou
+associação estatisticamente significativa entre
+autocuidado e as variáveis sociodemográficas.24
+Na presente investigação, houve correlação
+direta e estatisticamente significativa entre
+“cuidado com os pés” e escolaridade. Resultado
+semelhante ao de outros estudos, os quais mostraram
+que as pessoas de escolaridade elevada
+apresentavam boa capacidade para o autocuidado10
+e que a escolaridade pode predizer a adesão
+ao tratamento não medicamentoso.25
+Outro estudo encontrou resultados divergentes
+relacionados às características sociodemográficas
+e as atividades de autocuidado com
+dieta e atividade física. A escolaridade apresentou
+correlação inversa com a adesão a estes dois aspectos
+do tratamento, sugerindo que quanto maior a
+escolaridade, menor a adesão.23
+O tempo de diagnóstico da doença relacionou-
+se diretamente com a “monitorização
+da glicemia”, ou seja, quanto maior o tempo de
+diagnóstico, maior a frequência da monitorização
+da glicemia. É possível que as pessoas com DM,
+durante o longo período da doença, tenham recebido
+informações ou vivenciaram situações que as
+motivaram a este comportamento.
+Na amostra estudada, foram encontrados
+menores escores de “monitorização da glicemia”
+nas pessoas que não usavam insulina. Este fato
+pode relacionar-se a maior ênfase para automonitorização
+da glicemia entre as pessoas que fazem
+uso de insulina, ou mesmo, o apoio do Sistema
+de Saúde na dispensação de insumos para estas
+pessoas, pois para as pessoas com DM2, que não
+fazem uso de insulina, a prática da monitorização
+da glicemia não é recomendada como rotina.26
+No presente estudo, observaram-se menores
+escores de “atividade física” nas pessoas do sexo
+feminino e naquelas que trabalham em casa. Resultado
+semelhante foi encontrado no estudo cujo
+objetivo foi estimar o autocuidado e os fatores que
+influenciam estes comportamentos em adultos
+com DM2 no Sul da Índia, no qual houve diferença
+significativa na adesão à atividade física, ou seja,
+as mulheres aderem menos que os homens.14
+Observaram-se relações entre “alimentação
+geral” e HbA1c e colesterol total, sendo uma correlação
+fraca e inversa, indicando que quanto maior a
+frequência na realização da alimentação saudável,
+menores os níveis de HbA1c e colesterol total.
+Apesar da correlação significativa entre “alimentação
+geral” e HbA1c, a média desta variável
+estava acima da faixa de normalidade; tal fato pode
+ser atribuído ao tipo de instrumento utilizado, ao
+se referir a comportamentos dos últimos sete dias.
+Os comportamentos de adesão não são estáveis,
+podem se modificar ao longo do tempo, portanto,
+necessitam de aferições regulares como forma de
+avaliar a eficácia da terapêutica.27
+Destacam-se como limitações do presente
+estudo: a investigação sobre relação entre as
+atividades de autocuidado e o controle metabólico,
+uma vez que outras variáveis podem ter
+influenciado esses resultados, tais como o regime
+terapêutico, o tempo da doença, morbidades associadas,
+idade entre outros; a escassez de estudos
+que, efetivamente, utilizam o termo “atividades de
+autocuidado”, bem como a fragilidade da relação
+entre estas atividades com as variáveis clínicas e
+de controle metabólico.
+Estudos de seguimento são sugeridos para
+responder às questões sobre a influência das
+atividades de autocuidado no controle clínicometabólico.
+CONCLUSÃO
+Na amostra estudada, houve um maior desempenho
+nas atividades de autocuidado relacionadas
+ao uso das medicações, principalmente ao
+uso da insulina, do que as referentes às atividades
+que requerem mudanças comportamentais, tais
+como alimentação e atividade física. Os dados
+deste estudo sugerem também haver relação entre
+as atividades de autocuidado e as características
+sociodemográficas e clinicas, as quais devem ser
+consideradas durante o planejamento da assistência
+de enfermagem às pessoas com DM2.
+Portanto, conscientizar as pessoas com DM2
+sobre a importância da mudança do estilo de vida
+nas atividades de autocuidado auxiliará na prevenção
+e/ou retardo das complicações decorrentes
+da doença, além de contribuir para melhorar a
+qualidade de vida.
+Os profissionais de saúde devem atuar como
+facilitadores, na motivação para as mudanças
+comportamentais desejáveis para o controle da
+doença, e apoiar o desenvolvimento ou fortalecimento
+de habilidades para o autocuidado.
+Portanto, o processo educativo para as atividades
+de autocuidado deve ser contínuo e atualizado de
+acordo com as necessidades pessoas identificadas
+a cada atendimento.
