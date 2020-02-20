@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 print('Selecione a finitude:')
 FINITUDE = choice.Menu(['finito', 'não-finito', 'não-orientado']).ask()
 print('Há a seleção de  tempo secundário')
@@ -21,199 +29,281 @@ def grupo_verbal_teste():
     >>>grupo_verbal()
     'andava'
     '''
-    print ('Qual o tipo de evento desejado?')
+    print ('Qual o tipo de evento desejado para o grupo verbal?')
     TIPO_DE_EVENTO = choice.Menu(['Ser','Fazer','Sentir']).ask()
 
     if TIPO_DE_EVENTO == 'Ser' or TIPO_DE_EVENTO == 'Fazer' or TIPO_DE_EVENTO == 'Sentir':
-        print ('Selecione um lema que realize o tipo de evento desejado:')
+        print ('Selecione um lema verbal que realize o tipo de evento desejado:')
         print('Qual a agência do GV?')
         AGÊNCIA = choice.Menu(['agenciado_ativa', 'agenciado_passiva', 'não_agenciado']).ask()
-        print('Há a seleção de  tempo secundário')
-        TEMPO_SECUNDÁRIO = choice.Menu(['-', '1_reiteração', '2_reiterações', '3_reiterações', '4_reiterações']).ask()
 
-        if (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '-' or
-                AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '-'):
-            print ('Dêixis modal = não_modalizada')
-            print('Selecione a finitude')
-            FINITUDE = choice.Menu(['finito', 'não-finito', 'não-orientado']).ask()
+        if AGÊNCIA == 'agenciado_ativa' or AGÊNCIA == 'não_agenciado':
+            print('Há a seleção de  tempo secundário')
+            TEMPO_SECUNDÁRIO = choice.Menu(['-', '1_reiteração', '2_reiterações',
+                                            '3_reiterações', '4_reiterações']).ask()
 
-            if FINITUDE == 'finito':
-                print('Qual a dêixis temporal?')
-                DÊIXIS_TEMPORAL = choice.Menu(['presente', 'passado', 'futuro']).ask()
-                print('Qual o aspecto verbal?')
-                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+            if TEMPO_SECUNDÁRIO == '-':
+                print ('Dêixis modal = não_modalizada')
+                print('Selecione a finitude')
+                FINITUDE = choice.Menu(['finito', 'não-finito', 'não-orientado']).ask()
+                if FINITUDE == 'finito':
+                    print('Qual a dêixis temporal?')
+                    DÊIXIS_TEMPORAL = choice.Menu(['presente', 'passado', 'futuro']).ask()
+                    if  DÊIXIS_TEMPORAL == 'presente':
+                        print('Selecione morfologia de presente e aspecto perfectivo:')
+                        grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
+                    elif  DÊIXIS_TEMPORAL == 'passado':
+                        print('Qual o aspecto verbal?')
+                        ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                        if ASPECTO == 'perfectivo':
+                            print('Selecione morfologia de pretérito perfectivo:')
+                            grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
+                        else:
+                            print('Selecione morfologia de pretérito imperfectivo:')
+                            grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
+                    elif DÊIXIS_TEMPORAL == 'futuro':
+                        grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
 
-                if ASPECTO == 'perfectivo' and DÊIXIS_TEMPORAL == 'presente':
-                    print('Selecione morfologia de presente e aspecto perfectivo:')
-                    grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
-                elif ASPECTO == 'perfectivo' and DÊIXIS_TEMPORAL == 'passado':
-                    print('Selecione morfologia de pretérito e aspecto perfectivo:')##este
-                    # casso curioso, não sei se possível
-                    grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
-                elif ASPECTO == 'perfectivo' and DÊIXIS_TEMPORAL == 'futuro':
-                    print('Selecione morfologia de pretérito e aspecto perfectivo:')
-                    grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
-                elif ASPECTO == 'imperfectivo' and DÊIXIS_TEMPORAL == 'presente':
-                    print('Selecione morfologia de presente e aspecto imperfectivo:')
-                    grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
-                elif ASPECTO == 'perfectivo' and DÊIXIS_TEMPORAL == 'passado':
-                    print('Selecione morfologia de pretérito e aspecto imperfectivo:')##este
-                    # casso curioso, não sei se possível
-                    grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
-                elif ASPECTO == 'perfectivo' and DÊIXIS_TEMPORAL == 'futuro':
-                    print('Selecione morfologia de pretérito e aspecto imperfectivo:')
-                    grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
-
-###
-######
-#########PAREI A INSPEÇÃO AQUI ,,REVISAR OS ABAIXO
-
-            elif FINITUDE == 'não-finito':
-                print('Qual o aspecto verbal?')
-                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
-                if ASPECTO == 'perfectivo':
-                    print('Selecione morfologia de perfectivo:')
-                    grupo_verbal = formação_da_estrutura_do_verbo_lexical_não_finito()
-                else:
-                    print('Selecione morfologia de imperfectivo:')
+                elif FINITUDE == 'não-finito':
                     grupo_verbal = formação_da_estrutura_do_verbo_lexical_não_finito()
 
-            elif FINITUDE == 'não-orientado':
-                grupo_verbal = formação_verbo_não_orientado()
+                elif FINITUDE == 'não-orientado':
+                    print('Qual o aspecto verbal?')
+                    ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                    if ASPECTO == 'perfectivo':
+                        grupo_verbal = formação_verbo_particípio()
 
-        elif (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '1_reiteração'
-              or AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '1_reiteração'):
-            print('Selecione a finitude')
-            FINITUDE = choice.Menu(['finito', 'não-finito', 'não-orientado']).ask()
-            print('Qual a dêixis modal?')
-            DÊIXIS_MODAL = choice.Menu(['modalizado_modulação', 'modalizado_modalização', 'não-modalizado']).ask()
+                    elif ASPECTO == 'imperfectivo':
+                        print('Selecione o tipo de OI não-orientação desejada')
+                        não_orientado = choice.Menu(['infinitivo','gerúndio'])
 
-            if FINITUDE == 'finito' and DÊIXIS_MODAL == 'não-modalizado':
-                print('Qual a dêixis temporal?')
-                DÊIXIS_TEMPORAL = choice.Menu(['presente', 'passado', 'futuro']).ask()
+                        if não_orientado == 'infinitivo':
+                            verbo_lematizado = input ('Qual o verbo lematizado?')
+                            grupo_verbal = verbo_lematizado
+                        else:
+                            verbo_lematizado = input ('Qual o verbo lematizado?')
+                            if verbo_lematizado == 'vir':
+                                ME = verbo_lematizado[slice(-2)]
+                                MI = realização_transitoriedade_gerúndio()
+                                verbo = ME + MI
+                                grupo_verbal = verbo
+                            elif verbo_lematizado == 'dizer':
+                                ME = verbo_lematizado[slice(-2)]
+                                MI = realização_transitoriedade_gerúndio()
+                                verbo = ME + MI
+                                grupo_verbal = verbo
+                            else:
+                                ME = verbo_lematizado[slice(-2)]
+                                MI = realização_transitoriedade_gerúndio()
+                                verbo = ME + MI
+                                grupo_verbal = verbo
+
+            elif TEMPO_SECUNDÁRIO == '1_reiteração':
+                print ('Selecione a DÊIXIS_TEMPORAL e FINITUDE respectivas de acordo com as '
+                       'seleções de ORIENTAÇÃO_INTERPESSOAL do verbo '
+                       'e DÊIXIS_MODAL de acordo com a função dos verbos que compõem o grupo verbal :')
                 print('Qual o aspecto verbal?')
                 ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
-
                 if ASPECTO == 'perfectivo':
                     print('Selecione morfologia do perfectivo:')
-                    grupo_verbal = verbo_geral2() + ' ' + verbo_geral2()
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo realiza o Evento?')
+                    Evento = verbo_geral2()
                 else:
                     print('Selecione morfologia do imperfectivo:')
-                    grupo_verbal = verbo_geral2() + ' ' + verbo_geral2()
+                    print ('Qual o verbo da primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual o verbo que realiza o Evento?')
+                    Evento = formação_da_estrutura_do_verbo_lexical()
 
-            elif FINITUDE == 'não-finito' and DÊIXIS_MODAL == 'não-modalizado':
+                    grupo_verbal = verbo1 + ' ' + Evento
+
+
+            elif TEMPO_SECUNDÁRIO =='2_reiterações':
+                print('Selecione a DÊIXIS_TEMPORAL e FINITUDE respectivas de acordo com as '
+                      'seleções de ORIENTAÇÃO_INTERPESSOAL do verbo '
+                      'e DÊIXIS_MODAL de acordo com a função dos verbos que compõem o grupo verbal:')
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia do perfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + Evento
+
+                else:
+                    print('Selecione morfologia do imperfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual o verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual o verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+
+                    grupo_verbal = verbo1 + ' ' +verbo2 + ' ' + Evento
+
+            elif TEMPO_SECUNDÁRIO =='3_reiterações':
+                print('Selecione a DÊIXIS_TEMPORAL e FINITUDE respectivas de acordo com as '
+                      'seleções de ORIENTAÇÃO_INTERPESSOAL do verbo '
+                      'e DÊIXIS_MODAL de acordo com a função dos verbos que compõem o grupo verbal:')
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia do perfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição no grupo?')
+                    verbo3 = verbo_geral2()
+                    print('Qual verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + Evento
+                else:
+                    print('Selecione morfologia do imperfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual o verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição no grupo?')
+                    verbo3 = verbo_geral2()
+                    print('Qual o verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + Evento
+
+            elif TEMPO_SECUNDÁRIO =='4_reiterações':
+                print('Selecione a DÊIXIS_TEMPORAL e FINITUDE respectivas de acordo com as '
+                      'seleções de ORIENTAÇÃO_INTERPESSOAL do verbo '
+                      'e DÊIXIS_MODAL de acordo com a função dos verbos que compõem o grupo verbal:')
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia do perfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição no grupo?')
+                    verbo3 = verbo_geral2()
+                    print('Qual verbo ocupa a quarta posição no grupo?')
+                    verbo4 = verbo_geral2()
+                    print('Qual verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + verbo4 + ' ' + Evento
+                else:
+                    print('Selecione morfologia do imperfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual o verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição no grupo?')
+                    verbo3 = verbo_geral2()
+                    print('Qual verbo ocupa a quarta posição no grupo?')
+                    verbo4 = verbo_geral2()
+                    print('Qual o verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + verbo4 + ' ' + Evento
+    
+
+        ####PASSIVA
+
+        elif AGÊNCIA == 'agenciado_passiva':
+            print('Quantas reiterações de TEMPO SECUNDÁRIO?')
+            TEMPO_SECUNDÁRIO = choice.Menu(['1_reiteração', '2_reiterações','3_reiterações', '4_reiterações']).ask()
+            print('Selecione a DÊIXIS_TEMPORAL e FINITUDE respectivas de acordo com as '
+                  'seleções de ORIENTAÇÃO_INTERPESSOAL do verbo '
+                  'e DÊIXIS_MODAL de acordo com a função dos verbos que compõem o grupo verbal:')
+            
+            if TEMPO_SECUNDÁRIO == '1_reiteração':
                 print('Qual o aspecto verbal?')
                 ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
                 if ASPECTO == 'perfectivo':
                     print('Selecione morfologia de perfectivo:')
-                    grupo_verbal = grupo_verbal = verbo_geral2() + ' ' + verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbos_passiva
                 else:
                     print('Selecione morfologia de imperfectivo:')
-                    grupo_verbal = verbo_geral2() + ' ' + verbo_geral2()
-    return grupo_verbal
-        ####
-
-        elif AGÊNCIA == 'agenciado_passiva' and TEMPO_SECUNDÁRIO == '1_reiteração':
-            print('Selecione a finitude')
-            FINITUDE = choice.Menu(['finito', 'não-finito', 'não-orientado']).ask()
-            print('Qual o verbo auxiliar de agência passiva desejado?')
-            auxiliar_da_passiva = choice.Menu(['ser', 'estar']).ask()
-
-            if auxiliar_da_passiva == 'ser' and FINITUDE == 'finito':
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbos_passiva
+            elif TEMPO_SECUNDÁRIO == '2_reiterações':
                 print('Qual o aspecto verbal?')
                 ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
                 if ASPECTO == 'perfectivo':
                     print('Selecione morfologia de perfectivo:')
-                    verbo_auxiliar_da_passiva = formação_verbo_ser_finito()
-                    verbo_lexical = formação_verbo_particípio()
-                    grupo_verbal = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbos_passiva
                 else:
                     print('Selecione morfologia de imperfectivo:')
-                    verbo_auxiliar_da_passiva = formação_verbo_ser_finito()
-                    verbo_lexical = formação_verbo_particípio()
-                    grupo_verbal = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
-
-
-            elif auxiliar_da_passiva == 'estar' and FINITUDE == 'finito':
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbos_passiva
+            elif TEMPO_SECUNDÁRIO == '3_reiterações':
                 print('Qual o aspecto verbal?')
                 ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
                 if ASPECTO == 'perfectivo':
                     print('Selecione morfologia de perfectivo:')
-                    verbo_auxiliar_da_passiva = formação_verbo_estar_finito()
-                    verbo_lexical = formação_verbo_particípio()
-                    grupo_verbal = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição do grupo verbal?')
+                    verbo2 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' +verbos_passiva
                 else:
                     print('Selecione morfologia de imperfectivo:')
-                    verbo_auxiliar_da_passiva = formação_verbo_estar_finito()
-                    verbo_lexical = formação_verbo_particípio()
-                    grupo_verbal = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
-
-            elif auxiliar_da_passiva == 'ser' and FINITUDE == 'não-finito':
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' +verbos_passiva
+            
+            elif TEMPO_SECUNDÁRIO == '4_reiterações':
                 print('Qual o aspecto verbal?')
                 ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
                 if ASPECTO == 'perfectivo':
                     print('Selecione morfologia de perfectivo:')
-                    verbo_auxiliar_da_passiva = formação_verbo_ser_não_finito()
-                    verbo_lexical = formação_verbo_particípio()
-                    grupo_verbal = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição do grupo verbal?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição do grupo verbal?')
+                    verbo3 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' '+verbos_passiva
                 else:
                     print('Selecione morfologia de imperfectivo:')
-                    verbo_auxiliar_da_passiva = formação_verbo_ser_não_finito()
-                    verbo_lexical = formação_verbo_particípio()
-                    grupo_verbal = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição do grupo verbal?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição do grupo verbal?')
+                    verbo3 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + verbos_passiva
 
 
-            elif auxiliar_da_passiva == 'estar' and FINITUDE == 'finito':
-                print('Qual o aspecto verbal?')
-                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
-                if ASPECTO == 'perfectivo':
-                    print('Selecione morfologia de perfectivo:')
-                    verbo_auxiliar_da_passiva = formação_verbo_estar_não_finito()
-                    verbo_lexical = formação_verbo_particípio()
-                    grupo_verbal = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
-                else:
-                    print('Selecione morfologia de imperfectivo:')
-                    verbo_auxiliar_da_passiva = formação_verbo_estar_não_finito()
-                    verbo_lexical = formação_verbo_particípio()
-                    grupo_verbal = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
-            ###########################################################################
+return grupo_verbal
 
 
 
-    elif (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '2_reiterações' or
-      AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '2_reiteração'):\
-    print('Selecione a finitude')
-    FINITUDE = choice.Menu(['finito', 'não-finito', 'não-orientado']).ask()
-    print('Qual a dêixis modal?')
-    DÊIXIS_MODAL = choice.Menu(['modalizado_modulação', 'modalizado_modalização', 'não-modalizado']).ask()
-    if FINITUDE == 'finito' and DÊIXIS_MODAL == 'não-modalizado':
-        print('Qual a dêixis temporal?')
-        DÊIXIS_TEMPORAL = choice.Menu(['presente', 'passado', 'futuro']).ask()
+        
 
-        print('Qual o aspecto verbal?')
-        ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
-
-        if ASPECTO == 'perfectivo':
-            print('Selecione morfologia do perfectivo:')
-            grupo_verbal = formação_da_estrutura_do_verbo_auxiliar () + ' ' + formação_da_estrutura_do_verbo_auxiliar () + ' ' + formação_da_estrutura_do_verbo_lexical ()
-
-        else:
-            print('Selecione morfologia do imperfectivo:')
-            grupo_verbal = formação_da_estrutura_do_verbo_auxiliar () + ' ' + formação_da_estrutura_do_verbo_auxiliar () + ' ' + formação_da_estrutura_do_verbo_lexical ()
-
-    elif FINITUDE == 'finito' and DÊIXIS_MODAL == 'modalizado':
-        print('Qual a dêixis temporal?')
-        DÊIXIS_TEMPORAL = choice.Menu(['presente', 'passado', 'futuro']).ask()
-        print('Qual o aspecto verbal?')
-        ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
-
-        if ASPECTO == 'perfectivo':
-            print('Selecione morfologia do perfectivo:')
-            grupo_verbal = formação_da_estrutura_do_verbo_auxiliar() + ' ' + formação_da_estrutura_do_verbo_auxiliar() + ' ' + formação_da_estrutura_do_verbo_lexical()
-
-        else:
-            print('Selecione morfologia do imperfectivo:')
-            grupo_verbal = formação_da_estrutura_do_verbo_auxiliar() + ' ' + formação_da_estrutura_do_verbo_auxiliar() + ' ' + formação_da_estrutura_do_verbo_lexical()
+#########parei aqui
+print('Qual verbo ocupa a primeira posição do grupo verbal?')
 
 
 
@@ -222,10 +312,6 @@ def grupo_verbal_teste():
 
 
 
-
-
-
-        elif (AGÊNCIA == 'agenciado_passiva' and TEMPO_SECUNDÁRIO == '2_reiterações':
 
             verbo1 = verbo_geral2()
             verbos_passiva = realização_de_AGÊNCIA_passiva()
