@@ -12040,10 +12040,11 @@ def realização_de_AGÊNCIA_passiva():
     #pq as outras seleções já são feitas na ordem da palavra verbal(ficaria redundante)
 
 
-def grupo_verbal(): 
+def grupo_verbal():
     '''()->str
-    
-    Retorna a estrutura que realiza o grupo verbal
+
+    Retorna a estrutura que realiza o grupo verbal, dadas escolhas de
+    TIPO DE EVENTO, AGÊNCIA, TEMPO SECUNDÁRIO, FINITUDE E ASPECTO.
     >>>grupo_verbal()
     'ando'
     >>>grupo_verbal()
@@ -12051,116 +12052,274 @@ def grupo_verbal():
     >>>grupo_verbal()
     'andava'
     '''
+    print('Qual o tipo de evento desejado para o grupo verbal?')
+    TIPO_DE_EVENTO = choice.Menu(['Ser', 'Fazer', 'Sentir']).ask()
 
-    print('Qual a agência do GV?')
-    AGÊNCIA = choice.Menu(['agenciado_ativa', 'agenciado_passiva', 'não_agenciado', 'não_agenciado_voz_passiva']).ask()
-    print('Há a seleção de  tempo secundário')
-    TEMPO_SECUNDÁRIO = choice.Menu(['-', '1_reiteração', '2_reiterações', '3_reiterações', '4_reiterações']).ask()
+    if TIPO_DE_EVENTO == 'Ser' or TIPO_DE_EVENTO == 'Fazer' or TIPO_DE_EVENTO == 'Sentir':
+        print('Selecione um lema verbal que realize o tipo de evento desejado:')
+        print('Qual a agência do GV?')
+        AGÊNCIA = choice.Menu(['agenciado_ativa', 'agenciado_passiva', 'não_agenciado']).ask()
 
-    if (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '-' or
-            AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '-'):
-        print('Selecione a finitude')
-        FINITUDE = choice.Menu(['finito', 'não_finito', 'não_orientado']).ask()
+        if AGÊNCIA == 'agenciado_ativa' or AGÊNCIA == 'não_agenciado':
+            print('Há a seleção de  tempo secundário')
+            TEMPO_SECUNDÁRIO = choice.Menu(['-', '1_reiteração', '2_reiterações',
+                                            '3_reiterações', '4_reiterações']).ask()
 
-        if FINITUDE == 'finito':
-            print('Qual o aspecto verbal?')
-            ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+            if TEMPO_SECUNDÁRIO == '-':
+                print('Dêixis modal = não_modalizada')
+                print('Selecione a finitude')
+                FINITUDE = choice.Menu(['finito', 'não-finito', 'não-orientado']).ask()
+                if FINITUDE == 'finito':
+                    print('Qual a dêixis temporal?')
+                    DÊIXIS_TEMPORAL = choice.Menu(['presente', 'passado', 'futuro']).ask()
+                    if DÊIXIS_TEMPORAL == 'presente':
+                        print('Selecione morfologia de presente e aspecto perfectivo:')
+                        grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
+                    elif DÊIXIS_TEMPORAL == 'passado':
+                        print('Qual o aspecto verbal?')
+                        ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                        if ASPECTO == 'perfectivo':
+                            print('Selecione morfologia de pretérito perfectivo:')
+                            grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
+                        else:
+                            print('Selecione morfologia de pretérito imperfectivo:')
+                            grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
+                    elif DÊIXIS_TEMPORAL == 'futuro':
+                        grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
 
-            if ASPECTO == 'perfectivo':
-                print('Selecione morfologia do perfectivo:')
-                grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
-            else:
-                print('Selecione morfologia do imperfectivo:')
-                grupo_verbal = formação_da_estrutura_do_verbo_lexical_finito()
+                elif FINITUDE == 'não-finito':
+                    grupo_verbal = formação_da_estrutura_do_verbo_lexical_não_finito()
 
-        elif FINITUDE == 'não_finito':
-            grupo_verbal = formação_da_estrutura_do_verbo_lexical_não_finito()
+                elif FINITUDE == 'não-orientado':
+                    print('Qual o aspecto verbal?')
+                    ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                    if ASPECTO == 'perfectivo':
+                        print('Verbo não orientado e perfectivo = particípio:')
+                        grupo_verbal = formação_verbo_particípio()
 
-        elif FINITUDE == 'não_orientado':
-            grupo_verbal = formação_verbo_não_orientado()
+                    elif ASPECTO == 'imperfectivo':
+                        print('Selecione o tipo de OI não-orientação desejada')
+                        não_orientado = choice.Menu(['infinitivo', 'gerúndio'])
 
-    elif (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '1_reiteração'
-          or AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '1_reiteração'):
-        print('Selecione a finitude')
-        FINITUDE = choice.Menu(['finito', 'não_finito', 'não_orientado']).ask()
+                        if não_orientado == 'infinitivo':
+                            verbo_lematizado = input('Qual o verbo lematizado?')
+                            grupo_verbal = verbo_lematizado
+                        else:
+                            verbo_lematizado = input('Qual o verbo lematizado?')
+                            if verbo_lematizado == 'vir':
+                                ME = verbo_lematizado[slice(-2)]
+                                MI = realização_transitoriedade_gerúndio()
+                                verbo = ME + MI
+                                grupo_verbal = verbo
+                            elif verbo_lematizado == 'dizer':
+                                ME = verbo_lematizado[slice(-2)]
+                                MI = realização_transitoriedade_gerúndio()
+                                verbo = ME + MI
+                                grupo_verbal = verbo
+                            else:
+                                ME = verbo_lematizado[slice(-2)]
+                                MI = realização_transitoriedade_gerúndio()
+                                verbo = ME + MI
+                                grupo_verbal = verbo
 
-        if FINITUDE == 'finito':
-            print('Qual o aspecto verbal?')
-            ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+            elif TEMPO_SECUNDÁRIO == '1_reiteração':
+                print('Selecione a DÊIXIS_TEMPORAL e FINITUDE respectivas de acordo com as '
+                      'seleções de ORIENTAÇÃO_INTERPESSOAL do verbo '
+                      'e DÊIXIS_MODAL de acordo com a função dos verbos que compõem o grupo verbal :')
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia do perfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                else:
+                    print('Selecione morfologia do imperfectivo:')
+                    print('Qual o verbo da primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual o verbo que realiza o Evento?')
+                    Evento = formação_da_estrutura_do_verbo_lexical()
 
-            if ASPECTO == 'perfectivo':
-                print('Selecione morfologia do perfectivo:')
-                grupo_verbal = verbo_geral2() + ' ' + verbo_geral2()
-            else:
-                print('Selecione morfologia do imperfectivo:')
-                grupo_verbal = verbo_geral2() + ' ' + verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + Evento
 
-    ####
 
-    elif (AGÊNCIA == 'agenciado_passiva' and TEMPO_SECUNDÁRIO == '1_reiteração' or
-          AGÊNCIA == 'não_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '1_reiteração') :
-        print('Qual o verbo auxiliar de agência passiva desejado?')
-        auxiliar_da_passiva =  choice.Menu(['ser','estar']).ask()
-        if auxiliar_da_passiva == 'ser':
-            verbo_auxiliar_da_passiva = formação_verbo_ser()
-            verbo_lexical = formação_verbo_particípio()
-     
-        elif auxiliar_da_passiva == 'estar':
-            verbo_auxiliar_da_passiva = formação_verbo_estar()
-            verbo_lexical = formação_verbo_particípio()
-        
-        grupo_verbal = verbo_auxiliar_da_passiva + ' ' + verbo_lexical
-    
-    elif (AGÊNCIA == 'agenciado_ativa'and TEMPO_SECUNDÁRIO == '2_reiterações' or
-          AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '2_reiteração'):
-        grupo_verbal = verbo_geral2 () + ' ' + verbo_geral2 () + ' ' + verbo_geral2 ()
-    
-    elif (AGÊNCIA == 'agenciado_passiva'and TEMPO_SECUNDÁRIO == '2_reiterações' or
-          AGÊNCIA == 'não_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '2_reiteração'):
-         
-        verbo1=verbo_geral2 ()
-        verbos_passiva= realização_de_AGÊNCIA_passiva()
-           
-        grupo_verbal = verbo1 + ' ' + verbos_passiva
-        
-    
-    elif  (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '3_reiterações' or
-           AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '3_reiteração'):
-         grupo_verbal = verbo_geral2 () + ' ' + verbo_geral2 () + ' ' + verbo_geral2 ()
+            elif TEMPO_SECUNDÁRIO == '2_reiterações':
+                print('Selecione a DÊIXIS_TEMPORAL e FINITUDE respectivas de acordo com as '
+                      'seleções de ORIENTAÇÃO_INTERPESSOAL do verbo '
+                      'e DÊIXIS_MODAL de acordo com a função dos verbos que compõem o grupo verbal:')
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia do perfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + Evento
 
-    elif (AGÊNCIA == 'agenciado_passiva' and TEMPO_SECUNDÁRIO == '3_reiterações' or
-          AGÊNCIA == 'não_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '3_reiteração'):
-         
-        verbo1=verbo_geral2 ()
-        verbo2=verbo_geral2 ()
-        verbos_passiva= realização_de_AGÊNCIA_passiva()
-        
-           
-        grupo_verbal = verbo1 + ' ' +  verbo2 + ' ' + verbos_passiva
-    
-    elif (AGÊNCIA == 'agenciado_ativa' and TEMPO_SECUNDÁRIO == '4_reiterações' or
-          AGÊNCIA == 'não_agenciado' and TEMPO_SECUNDÁRIO == '4_reiteração'):
-         grupo_verbal = verbo_geral2 () + ' ' + verbo_geral2 () + ' ' + verbo_geral2 ()
+                else:
+                    print('Selecione morfologia do imperfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual o verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual o verbo realiza o Evento?')
+                    Evento = verbo_geral2()
 
-    elif (AGÊNCIA == 'agenciado_passiva' and TEMPO_SECUNDÁRIO == '4_reiterações' or
-         AGÊNCIA == 'não_agenciado_voz_passiva' and TEMPO_SECUNDÁRIO == '4_reiteração'):
-         
-        verbo1=verbo_geral2 ()
-        verbo2=verbo_geral2 ()
-        verbo3=verbo_geral2 ()
-        verbos_passiva = realização_de_AGÊNCIA_passiva()
-           
-        grupo_verbal = verbo1 + ' ' +  verbo2 + ' ' +  verbo3 + ' ' + verbos_passiva
-    
-    
-    ######
-    
-    
-    
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + Evento
+
+            elif TEMPO_SECUNDÁRIO == '3_reiterações':
+                print('Selecione a DÊIXIS_TEMPORAL e FINITUDE respectivas de acordo com as '
+                      'seleções de ORIENTAÇÃO_INTERPESSOAL do verbo '
+                      'e DÊIXIS_MODAL de acordo com a função dos verbos que compõem o grupo verbal:')
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia do perfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição no grupo?')
+                    verbo3 = verbo_geral2()
+                    print('Qual verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + Evento
+                else:
+                    print('Selecione morfologia do imperfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual o verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição no grupo?')
+                    verbo3 = verbo_geral2()
+                    print('Qual o verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + Evento
+
+            elif TEMPO_SECUNDÁRIO == '4_reiterações':
+                print('Selecione a DÊIXIS_TEMPORAL e FINITUDE respectivas de acordo com as '
+                      'seleções de ORIENTAÇÃO_INTERPESSOAL do verbo '
+                      'e DÊIXIS_MODAL de acordo com a função dos verbos que compõem o grupo verbal:')
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia do perfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição no grupo?')
+                    verbo3 = verbo_geral2()
+                    print('Qual verbo ocupa a quarta posição no grupo?')
+                    verbo4 = verbo_geral2()
+                    print('Qual verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + verbo4 + ' ' + Evento
+                else:
+                    print('Selecione morfologia do imperfectivo:')
+                    print('Qual verbo ocupa a primeira posição no grupo?')
+                    verbo1 = verbo_geral2()
+                    print('Qual o verbo ocupa a segunda posição no grupo?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição no grupo?')
+                    verbo3 = verbo_geral2()
+                    print('Qual verbo ocupa a quarta posição no grupo?')
+                    verbo4 = verbo_geral2()
+                    print('Qual o verbo realiza o Evento?')
+                    Evento = verbo_geral2()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + verbo4 + ' ' + Evento
+
+
+        ####PASSIVA
+
+        elif AGÊNCIA == 'agenciado_passiva':
+            print('Quantas reiterações de TEMPO SECUNDÁRIO?')
+            TEMPO_SECUNDÁRIO = choice.Menu(['1_reiteração', '2_reiterações', '3_reiterações', '4_reiterações']).ask()
+            print('Selecione a DÊIXIS_TEMPORAL e FINITUDE respectivas de acordo com as '
+                  'seleções de ORIENTAÇÃO_INTERPESSOAL do verbo '
+                  'e DÊIXIS_MODAL de acordo com a função dos verbos que compõem o grupo verbal:')
+
+            if TEMPO_SECUNDÁRIO == '1_reiteração':
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia de perfectivo:')
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbos_passiva
+                else:
+                    print('Selecione morfologia de imperfectivo:')
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbos_passiva
+            elif TEMPO_SECUNDÁRIO == '2_reiterações':
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia de perfectivo:')
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbos_passiva
+                else:
+                    print('Selecione morfologia de imperfectivo:')
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbos_passiva
+            elif TEMPO_SECUNDÁRIO == '3_reiterações':
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia de perfectivo:')
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição do grupo verbal?')
+                    verbo2 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbos_passiva
+                else:
+                    print('Selecione morfologia de imperfectivo:')
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbos_passiva
+
+            elif TEMPO_SECUNDÁRIO == '4_reiterações':
+                print('Qual o aspecto verbal?')
+                ASPECTO = choice.Menu(['perfectivo', 'imperfectivo']).ask()
+                if ASPECTO == 'perfectivo':
+                    print('Selecione morfologia de perfectivo:')
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição do grupo verbal?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição do grupo verbal?')
+                    verbo3 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + verbos_passiva
+                else:
+                    print('Selecione morfologia de imperfectivo:')
+                    print('Qual verbo ocupa a primeira posição do grupo verbal?')
+                    verbo1 = verbo_geral2()
+                    print('Qual verbo ocupa a segunda posição do grupo verbal?')
+                    verbo2 = verbo_geral2()
+                    print('Qual verbo ocupa a terceira posição do grupo verbal?')
+                    verbo3 = verbo_geral2()
+                    print('Selecione os verbo da passiva:')
+                    verbos_passiva = realização_de_AGÊNCIA_passiva()
+                    grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + verbos_passiva
+
     return grupo_verbal
-        
-
-
 
 
 def grupo_conjuntivo():
@@ -12750,8 +12909,6 @@ def Numerativo():
         Numerativo = ''
         
     elif real_numerativo == 'sim':
-        
-        
         print ('Qual o tipo de Numerativo selecionado')
         função_Numerativo = choice.Menu (['quant_precisa_absoluta(cardinais)', 
                                            'quant_precisa_div/multi(fração/multiplicativos)', 
@@ -12770,15 +12927,103 @@ def Numerativo():
             tipo_precisa = choice.Menu(['porcentagem']).ask()
             
             if tipo_precisa == 'porcentagem':
-                
                 Numerativo = porcento()
-                
-        
+
         elif função_Numerativo == 'quant_precisa_absoluta(cardinais)':
             Numerativo = num_cardinal_extenso()
+        elif função_Numerativo == 'quant_imprecisa_pron_indef_numer':
+            print("""
+                    1: 'algum'
+                    2: 'nenhum'
+                    3: 'todo'
+                    4: 'muito'
+                    5: 'pouco'
+                    6: 'vário'
+                    7: 'tanto'
+                    8: 'outro'
+                    9: 'quanto'
+                    10: 'alguma'
+                    11: 'nenhuma'
+                    12: 'toda'
+                    13: 'muita'
+                    14: 'pouca'
+                    15: 'vária'
+                    16: 'tanta'
+                    17:'outra'
+                    18: 'quanta'
+                    19:'alguns'
+                    20:'nenhuns'
+                    21:'todos'
+                    22:'muitos'
+                    23:'poucos'
+                    24:'vários'
+                    25:'tantos'
+                    26:'outros'
+                    27:'quantos'
+                    28:'algumas'
+                    29:'nenhumas'
+                    30:'todas'
+                    31:'muitas'
+                    32:'poucas'
+                    33:'várias'
+                    34:'tantas'
+                    35:'outras'
+                    36:'quantas'    
+
+                               Escolha uma opção:""")
+
+            Numerativo = NumerativoIndefinidoSwitcher()
+
     
     return Numerativo
-#    
+
+
+def NumerativoIndefinidoSwitcher():
+    i = int(input())
+
+    switcherNumInd = {
+        1: 'algum',
+        2: 'nenhum',
+        3: 'todo',
+        4: 'muito',
+        5: 'pouco',
+        6: 'vário',
+        7: 'tanto',
+        8: 'outro',
+        9: 'quanto',
+        10: 'alguma',
+        11: 'nenhuma',
+        12: 'toda',
+        13: 'muita',
+        14: 'pouca',
+        15: 'vária',
+        16: 'tanta',
+        17:'outra',
+        18: 'quanta',
+        19:'alguns',
+        20:'nenhuns',
+        21:'todos',
+        22:'muitos',
+        23:'poucos',
+        24:'vários',
+        25:'tantos',
+        26:'outros',
+        27:'quantos',
+        28:'algumas',
+        29:'nenhumas',
+        30:'todas',
+        31:'muitas',
+        32:'poucas',
+        33:'várias',
+        34:'tantas',
+        35:'outras',
+        36:'quantas',
+    }
+
+    return switcherNumInd.get(i, 'Seleção nao disponível')
+
+
+#
 
 ###A palavra nominal que realiza o Ente no GRUPO NOMINAL- Flexiona para nos eixos:
 #     Gênero, Número, Grau. Por enquanto, vou trabalhar apenas com Gênero e número.(ORDEM DA PALAVRA AINDA)
@@ -12896,7 +13141,7 @@ def realização_flexões_substantivos ():
 #outros casos na ordem do grupo (mesa: não parece ter uma contrapartida masculina)
 
 
-def formação_da_estrutura_do_substantivo_comum ():
+def formação_da_estrutura_do_substantivo_comum():
     '''(str, str)-str
 
     Retorna a realização de um substantivo comum dados a experiência_do_substantivo
@@ -12908,15 +13153,12 @@ def formação_da_estrutura_do_substantivo_comum ():
     
   
     substantivo_lematizado = input ('Qual é o substantivo lematizado?')
-    
-    
+
     if substantivo_lematizado[-1:] == 'm':
         morfema_experiencial_do_substantivo = substantivo_lematizado [slice(-1)]
         morfema_número = 'ns'
         substantivo_comum = morfema_experiencial_do_substantivo + morfema_número
-          
-   
-    
+
     elif substantivo_lematizado[-2:] == 'ão':
         print ('Escolha o tipo de plural:')
         tipo_ão = choice.Menu (['ãos','ões','ães']).ask()
@@ -12938,13 +13180,11 @@ def formação_da_estrutura_do_substantivo_comum ():
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_número = 'es'
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_número
-            
-            
-            
-    
+
+
     elif (substantivo_lematizado[-1:] == 'r' or substantivo_lematizado[-1:] == 'z') :
         print ('Qual o gênero')
-        flexão_gênero_potencial = choice.Menu (['masculino' , 'feminino']).ask()
+        flexão_gênero_potencial = choice.Menu (['masculino' , 'feminino','não_binário']).ask()
         print ('Qual o número')
         número = choice.Menu (['singular', 'plural']).ask()
         
@@ -12976,12 +13216,9 @@ def formação_da_estrutura_do_substantivo_comum ():
             
         elif flexão_gênero_potencial == 'não_binário'and número == 'plural' :
             morfema_experiencial_do_substantivo = substantivo_lematizado
-            morfema_flexão_substantivo = 's'
+            morfema_flexão_substantivo = 'es'
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-    
-    
-    
-    
+
     elif substantivo_lematizado[-2:] == 'al':
         print ('Qual o número')
         número = choice.Menu (['singular', 'plural']).ask()
@@ -13048,9 +13285,7 @@ def formação_da_estrutura_do_substantivo_comum ():
             morfema_experiencial_do_substantivo = substantivo_lematizado [slice(-2)]
             morfema_flexão_substantivo = 'úis'
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-            
-   
-    
+
     elif substantivo_lematizado[-2:] == 'ul':
         print ('Qual o número')
         número = choice.Menu (['singular', 'plural']).ask()
@@ -13063,16 +13298,13 @@ def formação_da_estrutura_do_substantivo_comum ():
             morfema_experiencial_do_substantivo = substantivo_lematizado [slice(-2)]
             morfema_flexão_substantivo = 'úis'
             substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-    
 
     else:
-    
         print ('Qual o gênero')
         flexão_gênero_potencial = choice.Menu (['masculino' , 'feminino', 'não_binário']).ask()
         print ('Qual o número')
         número = choice.Menu (['singular', 'plural']).ask()
-        
-        
+
         if flexão_gênero_potencial == 'masculino' and número == 'singular': 
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
             morfema_flexão_substantivo = 'o'
@@ -14733,7 +14965,7 @@ def Ente():
                 classe_palavra_Ente = choice.Menu (['substantivo_comum', 'substantivo_próprio', 'pronome_caso_reto','pronome_caso_oblíquo']).ask()
                 
                 if classe_palavra_Ente =='substantivo_comum':
-                    Ente = formação_da_estrutura_do_substantivo_comum ()
+                    Ente = formação_da_estrutura_do_substantivo_comum()
                 
                 elif classe_palavra_Ente =='substantivo_próprio':
                     Ente = nome_próprio ()
@@ -14792,14 +15024,18 @@ def Ente():
 #####ESTRUTURA DO GRUPO NOMINAL:
      
 ##
-def qualificador_frase_prep():
+qualificador_frase_prep()
+def qualificador():
     
     print('Há Qualificador no gn?')
     tem_qualificador = choice.Menu(['sim', 'NA']).ask()
     
     if tem_qualificador == 'sim':
-        
-        Qualificador = Preposição() +' '+ Ente( )
+        realização_qualificador = choice.Menu(['frase-preposicional', 'oração']).ask()
+        if realização_qualificador == 'frase-preposicional':
+            Qualificador = Preposição() +' '+ Ente( )
+        else:
+            Qualificador = "que" + oraçãoProjetada()
     else:
         Qualificador = ''
     return Qualificador 
@@ -14807,16 +15043,10 @@ def qualificador_frase_prep():
 
 def estrutura_GN_downraked():
     
-    Determinante= Dêixis_geral()
-    numerativo = Numerativo() 
-    ente = Ente() 
-    Classificador = adjetivo_modificador () 
-    Epíteto = adjetivo_modificador () 
-    Qualificador = qualificador_frase_prep()
-    
-    GN = Determinante + ' ' + numerativo + ' ' + ente + ' ' + Classificador + ' ' + Epíteto + ' '+ Qualificador
-    
-    return GN 
+    GN_downranked = estrutura_GN()
+
+    return GN_downranked
+
 
 
 ####NO CASO A SEGUIR, PODE ACONTECER DE UM GRUPO NOMINAL DESCER DE ORDEM E REALIZAR, POR SUA VEZ,
@@ -14829,22 +15059,22 @@ def estrutura_GN():
     dissociação_Ente_Núcleo = choice.Menu(['sim','não']).ask()
     
     if dissociação_Ente_Núcleo == 'não':
-        
-    
+
         Determinante= Dêixis_geral()
         numerativo = Numerativo() 
         ente = Ente() 
-        Classificador = adjetivo_modificador () 
-        Epíteto = adjetivo_modificador () 
-        Qualificador = qualificador_frase_prep()
+        Classificador = adjetivo_modificador()
+        Epíteto = adjetivo_modificador()
+        Qualificador = qualificador()
         
         GN = Determinante + ' ' + numerativo + ' ' + ente + ' ' + Classificador + ' ' + Epíteto + ' '+ Qualificador
         
     else:
-        Núcleo_lógico= estrutura_GN_downraked ()
-        Qualificador_Ente = frase_preposicional ()
-        
-        GN = Núcleo_lógico +' ' + Qualificador_Ente
+
+        Núcleo_lógico= estrutura_GN_downraked()
+        print('Selecione o Qualificador/Ente:')
+        Qualificador =  qualificador()
+        GN = Núcleo_lógico +' ' + Qualificador
     return GN 
 
 
@@ -15757,15 +15987,13 @@ def oraçãoGerada():
                 print('Qual é o Dizente?')
                 Dizente = estrutura_GN()
                 print ('Qual é o Receptor?')
-                Receptor = frase_preposicional ()
-                Polaridade = POLARIDADE ()
+                Receptor = frase_preposicional()
+                Polaridade = POLARIDADE()
             
                 oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' +  Receptor + '.'
                 
                 #Ex.: Eu conversei com você até anoitecer; Eu falei com você muito ontem; Nós discutimos com ela...
-            
-       
-        
+
         elif ORDEM_DO_DIZENTE == 'semioticidade' and RECEPTIVIDADE == '+receptor': 
             print ('Selecione o tipo de Semioticidade')
             
@@ -15773,8 +16001,6 @@ def oraçãoGerada():
             if TIPO_SEMIOTICIDADE == 'projeção':
                 print ('Selecione o tipo de projeção')
                 TIPO_PROJEÇÃO = choice.Menu (['citativa', 'relativa']).ask()
-                
-                
                 if TIPO_PROJEÇÃO == 'citativa':
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
@@ -15833,7 +16059,7 @@ def oraçãoGerada():
                     
                     Polaridade = POLARIDADE ()
                     print ('Qual a oração projetada?')
-                    Oração_projetada = oração()
+                    Oração_projetada = oraçãoProjetada()
         
                     oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo   + ' ' + 'que'  + ' ' + '"' + Oração_projetada + '" ' + '.'
                     #Ex.: Eu disse que "Eu comi o bolo".      
@@ -15871,9 +16097,7 @@ def oraçãoGerada():
             Polaridade = POLARIDADE ()
             
             oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Verbiagem + ' '+ Receptor +'.' 
-            
-           
-             
+
         else:
             print ('Qual o Processo?')
             Processo = grupo_verbal()
@@ -15906,8 +16130,6 @@ def oraçãoGerada():
                 oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Alvo + ' ' + Processo +'.'
             else:
                 oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo+ ' ' + Alvo +'.'
-           
-                
         else:
             print('Qual é o Alvo?')
             Alvo = frase_preposicional()
@@ -15931,9 +16153,7 @@ def oraçãoGerada():
 
     ###MATERIAL
     
-    elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' \
-            and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-            and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+    elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
         
@@ -16014,9 +16234,7 @@ def oraçãoGerada():
         
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta +' '+ Cliente +'.'
 
-    elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance'\
-            and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-            and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+    elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance'and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         Tema_textual=TEMA_TEXTUAL()
         Tema_interpessoal = TEMA_INTERPESSOAL()
         print ('Qual o Processo?')
@@ -16062,37 +16280,35 @@ def oraçãoGerada():
     
     
     elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        
-        Tema_textual=TEMA_TEXTUAL()
+
+        Tema_textual = TEMA_TEXTUAL()
         Tema_interpessoal = TEMA_INTERPESSOAL()
-        
-    
-        print ('Qual o Processo?')
+        print('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
         Ator = estrutura_GN()
         Polaridade = POLARIDADE()
-    
-    
-        print ('Há resultado do processo?')
-        TIPO_DE_RESULTADO = choice.Menu(['elaboração','intensificação']).ask()
+        print('Há resultado do processo?')
+        TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
         if TIPO_DE_RESULTADO == 'elaboração':
-             print('Orações médio_sem_alcance  selecionam -escopo')
-             Escopo = ''
-             
+            print('Orações médio_sem_alcance  selecionam -escopo')
+            Escopo = ''
+            oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade + ' ' + Processo + '.'
+
+
         elif TIPO_DE_RESULTADO == 'intensificação':
             print('Orações médio_sem_alcance selecionam -escopo')
-            
-            print ('Há resultado locativo?')
-            realização_locativo =choice.Menu(['sim','não']).ask()
+
+            print('Há resultado locativo?')
+            realização_locativo = choice.Menu(['sim', 'não']).ask()
             if realização_locativo == 'sim':
                 Resultado_locativo = frase_preposicional()
             else:
-                Resultado_locativo=''
-    
-            oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Resultado_locativo +'.'
-    
-   
+                Resultado_locativo = ''
+
+            oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Resultado_locativo + '.'
+
+
     ##ORAÇÃO METEOROLÓGICA
     elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_NA' and Modo == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         
@@ -17889,6 +18105,3 @@ def oraçãoGerada():
    
 
 
-
-
-#
