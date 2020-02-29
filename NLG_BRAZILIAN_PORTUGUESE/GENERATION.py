@@ -13509,9 +13509,7 @@ def realização_pronominal_casoreto():
     >>>realização_pronominal_casoreto ('','')
     'eu'
     '''
-
     pessoa_da_interlocução = choice.Menu (['falante', 'ouvinte', 'não_interlocutor']).ask()
-
     número = choice.Menu (['singular', 'plural']).ask()
 
     if pessoa_da_interlocução == 'falante' and número == 'singular':
@@ -13535,7 +13533,6 @@ def realização_pronominal_casoreto():
            
     elif pessoa_da_interlocução == 'falante' and número == 'plural':
         pronome_pessoal_reto = 'nós'
-        
 
     elif pessoa_da_interlocução == 'ouvinte' and número == 'plural':
         morfologia_do_pronome = choice.Menu (['padrão', 'de_terceira_pessoa']).ask()
@@ -13548,12 +13545,10 @@ def realização_pronominal_casoreto():
         gênero = choice.Menu (['masculino', 'feminino']).ask()
         if gênero == 'masculino':
             pronome_pessoal_reto = 'eles'
-            
         else:
             pronome_pessoal_reto = 'elas'          
            
     return pronome_pessoal_reto
-
 
 
 def realização_pronome_caso_oblíquo():
@@ -13564,13 +13559,8 @@ def realização_pronome_caso_oblíquo():
     'me'
     '''
     tonicidade = choice.Menu (['átono','tônico']).ask()
-    
     pessoa_da_interlocução = choice.Menu (['falante', 'ouvinte', 'não_interlocutor']).ask()
-
     número = choice.Menu (['singular', 'plural']).ask()
-    
-    
-
     if pessoa_da_interlocução == 'falante' and número == 'singular' and tonicidade == 'átono':
         pronome_pessoal_oblíquo = 'me'
     
@@ -13863,8 +13853,6 @@ def Dêitico_ñ_seletivo_específico():
 def Dêitico_ñ_seletivo_ñ_específico():
     '''
     '''
-    
-    
     print ('Selecione a especificidade:')
     DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
         
@@ -13897,30 +13885,22 @@ def Dêitico_ñ_seletivo_ñ_específico():
             
     
     ####
-    
-
-
-
 
 
 def Dêitico_prox():
     '''
     '''
-    
-    
     print ('Selecione a especificidade:')
-    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
-        
-         
+    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)',
+                                              'genérico(de_massa)', 'genérico(contável)']).ask()
     print ('Selecione a orientação:')
-    ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade', 'orientação_específica_proximidade_e_pessoa']).ask()
-        
-         
+    ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa',
+                              'orientação_específica_proximidade',
+                              'orientação_específica_proximidade_e_pessoa']).ask()
+
     if  DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_proximidade' :
         print ('Selecione a pessoa da interlocução:')
         pessoa_da_interlocução_proximidade = choice.Menu (['próximo_ao_falante', 'próximo_ao_ouvinte', 'próximo_ao_não_interlocutor']).ask()
-        
-        
         if pessoa_da_interlocução_proximidade == 'próximo_ao_falante':
             print ('Selecione número:')
             número = choice.Menu (['singular', 'plural']).ask()
@@ -13929,41 +13909,25 @@ def Dêitico_prox():
             
             if número == 'singular' and gênero == 'masculino':
                 determinante = 'este'
-                
-        
             elif número == 'plural' and gênero == 'masculino':
                 determinante = 'estes'
-                
-      
             elif número == 'singular' and gênero == 'feminino':    
                 determinante = 'esta'
-                
-        
             elif número == 'plural' and gênero == 'feminino':
                 determinante = 'estas'
-                
-        
         elif pessoa_da_interlocução_proximidade == 'próximo_ao_ouvinte':
             print ('Selecione número:')
             número = choice.Menu (['singular', 'plural']).ask()
             print('Selecione o gênero')
             gênero = choice.Menu (['masculino', 'feminino']).ask()
-            
             if número == 'singular' and gênero == 'masculino':
                 determinante = 'esse'
-                
-        
             elif número == 'plural' and gênero == 'masculino':
                 determinante = 'esses'
-                
-    
             elif número == 'singular' and gênero == 'feminino':
                 determinante = 'essa'
-               
-            
             elif número == 'plural' and gênero == 'feminino':
                 determinante = 'essas'
-            
         elif pessoa_da_interlocução_proximidade == 'próximo_ao_não_interlocutor':
             print ('Selecione número:')
             número = choice.Menu (['singular', 'plural']).ask()
@@ -13971,53 +13935,34 @@ def Dêitico_prox():
             gênero = choice.Menu (['masculino', 'feminino']).ask()
             if número == 'singular' and gênero == 'masculino':
                 determinante = 'aquele'
-        
             elif número == 'plural' and gênero == 'masculino':
                 determinante = 'aqueles'
-        
             elif número == 'singular' and gênero == 'feminino':
                 determinante = 'aquela'
-        
             elif número == 'plural' and gênero == 'feminino':
                 determinante = 'aquelas'
     
     return determinante
-    
 
-###
-    
-   
-
-    
 
 def Dêitico_pess():
     '''
     '''
-        
     print ('Selecione a especificidade:')
-    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
-        
-         
+    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)',
+                                              'genérico(de_massa)', 'genérico(contável)']).ask()
+
     print ('Selecione a orientação:')
-    ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade', 'orientação_específica_proximidade_e_pessoa']).ask()
-        
-
-
+    ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
+                              'orientação_específica_proximidade_e_pessoa']).ask()
     if DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_pessoa' :
-   
-   
         print ('Selecione a pessoa da interlocução do possuidor')
         pessoa_da_interlocução_possuidor = choice.Menu (['1s', '2s', '3s', '1p', '2p','3p']).ask()
-        
         if pessoa_da_interlocução_possuidor == '1s':
-            
             print ('Selecione número do objeto possuído:')
             número_obj_possuído = choice.Menu (['singular', 'plural']).ask()
-            
             print('Selecione o gênero do objeto possuído')
             gênero_obj_possuído = choice.Menu (['masculino', 'feminino']).ask()
-        
-            
             if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
                 determinante = 'meu'
             elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
@@ -14027,15 +13972,11 @@ def Dêitico_pess():
             elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
                 determinante = 'minhas'
         
-        elif pessoa_da_interlocução_possuidor == '2s': 
-            
+        elif pessoa_da_interlocução_possuidor == '2s':
             print ('Selecione número do objeto possuído:')
             número_obj_possuído = choice.Menu (['singular', 'plural']).ask()
-            
             print('Selecione o gênero do objeto possuído')
             gênero_obj_possuído = choice.Menu (['masculino', 'feminino']).ask()
-        
-        
             if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
                 print( 'Selecione a morfologia do pronome:')
                 morfologia_do_pronome = choice.Menu (['padrão', 'de_terceira_pessoa']).ask()
@@ -14312,9 +14253,7 @@ def Dêitico_ñ_seletivo_ñ_específico_e_Dêitico_pess():
         if pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
             determinante = 'um meu'
             return determinante
-    
-        
-        
+
         elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
             determinante = 'uns meus'
             return determinante
@@ -14434,30 +14373,25 @@ def Dêitico_ñ_seletivo_ñ_específico_e_Dêitico_pess():
             else:
                 determinante = 'umas suas'
                 return determinante
-        
-        
-       
-      
-        
+
 
 def Dêitico_prox_e_Dêitico_pess():
     '''
     '''
-   
-    
     print ('Selecione a especificidade:')
-    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)', 'genérico(contável)']).ask()
-        
-         
+    DETERMINAÇÃO_espeficifidade= choice.Menu(['NA','específico', 'não_específico', 'genérico(=todos,quaisquer)',
+                                              'genérico(de_massa)', 'genérico(contável)']).ask()
     print ('Selecione a orientação:')
-    ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade', 'orientação_específica_proximidade_e_pessoa']).ask()
+    ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
+                              'orientação_específica_proximidade_e_pessoa']).ask()
               
         
 
     if  DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_proximidade_e_pessoa':
         
         print ('Selecione a pessoa da interlocução:')
-        pessoa_da_interlocução_proximidade = choice.Menu (['próximo_ao_falante', 'próximo_ao_ouvinte', 'próximo_ao_não_interlocutor']).ask()
+        pessoa_da_interlocução_proximidade = choice.Menu (['próximo_ao_falante', 'próximo_ao_ouvinte',
+                                                           'próximo_ao_não_interlocutor']).ask()
         
         if pessoa_da_interlocução_proximidade == 'próximo_ao_falante':
         
@@ -14470,20 +14404,25 @@ def Dêitico_prox_e_Dêitico_pess():
             print('Selecione o gênero do objeto possuído')
             gênero_obj_possuído = choice.Menu (['masculino', 'feminino']).ask()
             
-            if pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
+            if pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' \
+                    and gênero_obj_possuído == 'masculino':
                 determinante = 'este meu'
                 return determinante
-            elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
+            elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' \
+                    and gênero_obj_possuído == 'masculino':
                 determinante = 'estes meus'
                 return determinante
-            elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
+            elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular'\
+                    and gênero_obj_possuído == 'feminino':
                 determinante = 'esta minha'
                 return determinante
-            elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
+            elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' \
+                    and gênero_obj_possuído == 'feminino':
                 determinante = 'estas minhas'
                 return determinante
         
-            elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
+            elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'singular' \
+                    and gênero_obj_possuído == 'masculino':
                 print( 'Selecione a morfologia do pronome:')
                 morfologia_do_pronome = choice.Menu (['padrão', 'de_terceira_pessoa']).ask()
                 if morfologia_do_pronome =='padrão':
@@ -14493,7 +14432,8 @@ def Dêitico_prox_e_Dêitico_pess():
                     determinante = 'este seu'
                     return determinante
             
-            elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
+            elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'plural' \
+                    and gênero_obj_possuído == 'masculino':
                 print( 'Selecione a morfologia do pronome:')
                 morfologia_do_pronome = choice.Menu (['padrão', 'de_terceira_pessoa']).ask()
                 if morfologia_do_pronome == 'padrão':
@@ -14503,7 +14443,8 @@ def Dêitico_prox_e_Dêitico_pess():
                     determinante = 'estes seus'
                     return determinante
             
-            elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
+            elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'singular' \
+                    and gênero_obj_possuído == 'feminino':
                 print( 'Selecione a morfologia do pronome:')
                 morfologia_do_pronome = choice.Menu (['padrão', 'de_terceira_pessoa']).ask()
                 if morfologia_do_pronome == 'padrão':
@@ -14513,7 +14454,8 @@ def Dêitico_prox_e_Dêitico_pess():
                     determinante = 'esta sua'
                     return determinante
             
-            elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
+            elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'plural' \
+                    and gênero_obj_possuído == 'feminino':
                 print( 'Selecione a morfologia do pronome:')
                 morfologia_do_pronome = choice.Menu (['padrão', 'de_terceira_pessoa']).ask()
                 if morfologia_do_pronome == 'padrão':
@@ -15024,7 +14966,7 @@ def Ente():
 #####ESTRUTURA DO GRUPO NOMINAL:
      
 ##
-qualificador_frase_prep()
+
 def qualificador():
     
     print('Há Qualificador no gn?')
@@ -15852,7 +15794,7 @@ def partícula_modal():
 
 
 
-## NO CASO DO SISTEMA DE AVALIAÇÃO_MODAL EU NÃO CONTEMPLEI AINDA TODO O SISTEMA, POR ENQUANTO VOU ME 
+## NO CASO DO SISTEMA DE AVALIAÇÃO_MODAL EU NÃO CONTEMPLEI AINDA  O SISTEMA, POR ENQUANTO VOU ME
 #ATER APENAS AO SUBSISTEMA DE POLARIDADE.           
 
 ####FORMAÇÃO DA ORAÇÃO
@@ -15939,13 +15881,15 @@ import json
 def oraçãoProjetada():
     oração = oraçãoGerada()
     return oração
-
+def oraçãoDownranked():
+    oração = oraçãoGerada()
+    return oração
 
 def oraçãoGerada():
     '''(str,str,str)->str
     Retorna a formação estrutural na lexicogramática (oração) de uma figura específica
     da semântica
-    
+
     >>> oraçãoGerada()
     'eu bebi água'
     '''
@@ -15954,171 +15898,499 @@ def oraçãoGerada():
     Modo = MODO()
     Tema_id = TEMA_IDEACIONAL()
 
+    #ORAÇÃO MENTAL
+    if Transitividade == 'PR_Mental_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+
+        print('Selecione o tipo de processo mental:')
+        TIPO_DE_PROCESSO = choice.Menu(['superior', 'inferior']).ask()
+        print('Qual a FENOMENALIZAÇÃO?')
+        print('Médio sem alcance: Fenomenalização = não-fenomenalização')
+        FENOMENALIZAÇÃO = choice.Menu(['não-fenomenalização', 'fenomenalização']).ask()
+
+        if FENOMENALIZAÇÃO == 'não-fenomenalização':
+            print('Qual tipo de não-fenomenalização?')
+            print('Médio sem alcance: Não-fenomenalização = comportamento-passivo')
+            TIPO_NÃO_FENOMENALIZAÇÃO = choice.Menu(['comportamento-passivo']).ask()
+
+            if TIPO_DE_PROCESSO == 'superior' and TIPO_NÃO_FENOMENALIZAÇÃO == 'comportamento-passivo':
+                print('Qual tipo de Processo superior?')
+                TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
+                if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
+                    print('Selecione verbo lematizado cognitivo ou desiderativo:')
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Humanizado)?')
+                    Experienciador = estrutura_GN()
+                    Polaridade = POLARIDADE()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + '.'
+                    #Ex.: Tenho pensado; Eu pensei a noite toda;
+            elif TIPO_DE_PROCESSO == 'inferior' and TIPO_NÃO_FENOMENALIZAÇÃO == 'comportamento-passivo':
+                print('Qual tipo de Processo inferior?')
+                TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+                if TIPO_INFERIOR == 'emotivo' or TIPO_INFERIOR == 'perceptivo':
+                    print('Selecione verbo lematizado emotivo ou perceptivo:')
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Animalizado)?')
+                    Experienciador = estrutura_GN()
+                    Polaridade = POLARIDADE()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + '.'
+                    #'Eu ouvi perfeitamente' - verificar se esse caso se configura como um sem alcance
+                    #pois apesar de não esta instanciado, há o potencial de fenômeno
+
+    elif Transitividade == 'PR_Mental_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+        print('Selecione o tipo de processo mental:')
+        TIPO_DE_PROCESSO = choice.Menu(['superior', 'inferior']).ask()
+        print('Qual a FENOMENALIZAÇÃO?')
+        FENOMENALIZAÇÃO = choice.Menu(['não-fenomenalização', 'fenomenalização']).ask()
+        if FENOMENALIZAÇÃO == 'não-fenomenalização':
+            print('Médio com alcance, Não-fenomenalização = assunto ')
+            print('Qual tipo de não-fenomenalização?')
+            TIPO_NÃO_FENOMENALIZAÇÃO = choice.Menu(['assunto']).ask()
+
+            if TIPO_DE_PROCESSO == 'superior' and TIPO_NÃO_FENOMENALIZAÇÃO == 'assunto':
+                print('Qual tipo de Processo superior?')
+                TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
+                if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
+                    print('Selecione verbo lematizado cognitivo ou desiderativo:')
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Humanizado)?')
+                    Experienciador = estrutura_GN()
+                    print('Qual o Assunto?')
+                    Assunto = circunstância()
+                    Polaridade = POLARIDADE()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Assunto + '.'
+                    #Ex.: Eu sei de futebol.
+            elif TIPO_DE_PROCESSO == 'inferior' and TIPO_NÃO_FENOMENALIZAÇÃO == 'assunto':
+                print('Qual tipo de Processo inferior?')
+                TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+                if TIPO_INFERIOR == 'emotivo' or TIPO_INFERIOR == 'perceptivo':
+                    print('Selecione verbo lematizado cognitivo ou desiderativo:')
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Animalizado)?')
+                    Experienciador = estrutura_GN()
+                    print('Qual o Assunto?')
+                    Assunto = circunstância()
+                    Polaridade = POLARIDADE()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Assunto + '.'
+
+        elif FENOMENALIZAÇÃO == 'fenomenalização':
+            print('Médio com alcance = mental emanente.')
+            print('Qual tipo de fenomenalização?')
+            TIPO_FENOMENALIZAÇÃO = choice.Menu(['hiperfenômeno', 'fenômeno_simples']).ask()
+            if TIPO_DE_PROCESSO == 'superior' and TIPO_FENOMENALIZAÇÃO == 'fenômeno_simples':
+                print('Qual tipo de Processo superior?')
+                TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
+                if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
+                    print('Selecione verbo lematizado cognitivo ou desiderativo:')
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Humanizado)?')
+                    Experienciador = estrutura_GN()
+                    print('Qual o Fenômeno?')
+                    Fenômeno = estrutura_GN()
+                    Polaridade = POLARIDADE()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Fenômeno + '.'
+            elif TIPO_DE_PROCESSO == 'superior' and TIPO_FENOMENALIZAÇÃO == 'hiperfenômeno':
+                print('Qual tipo de Processo superior?')
+                TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
+                if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
+                    print('Qual tipo de hiperfenômeno?')
+                    print('Projeção = hiperfenômeno: criativo')
+                    TIPO_HIPERFENÔMENO = choice.Menu(['criativo']).ask()
+
+                    if TIPO_HIPERFENÔMENO == 'criativo':
+                        TIPO_criativo = choice.Menu(['pensamento', 'desejo']).ask()
+                        if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
+                            TIPO_DE_COGNITIVO = choice.Menu(['pensar', 'saber', 'sonhar']).ask()
+                            if TIPO_DE_COGNITIVO == 'pensar' or TIPO_DE_COGNITIVO == 'saber' or TIPO_DE_COGNITIVO == 'sonhar':
+                                print('Selecione o verbo lexical correspondente ao Tipo de cognitivo:')
+                                print('Qual o Processo?')
+                                Processo = grupo_verbal()
+                                print('Qual o Experienciador (Ente:Humanizado)?')
+                                Experienciador = estrutura_GN()
+                                print('Qual o hiperfenômeno projetado? Selecione orientado-finito')
+                                Pensamento = oraçãoProjetada()
+                                Polaridade = POLARIDADE()
+                                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Pensamento
+                        elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
+                            TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar']).ask()
+                            if TIPO_DE_DESIDERATIVO == 'querer' or TIPO_DE_DESIDERATIVO == 'esperar':
+                                print('Selecione o verbo lexical correspondente ao Tipo de desiderativo:')
+                                print('Qual o Processo?')
+                                Processo = grupo_verbal()
+                                print('Qual o Experienciador (Ente:Humanizado)?')
+                                Experienciador = estrutura_GN()
+                                print('Qual o hiperfenômeno projetado?')
+                                print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
+                                Desejo = oraçãoProjetada()
+                                Polaridade = POLARIDADE()
+                                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Desejo
+
+            elif TIPO_DE_PROCESSO == 'inferior' and TIPO_FENOMENALIZAÇÃO == 'fenômeno_simples':
+                print('Qual tipo de Processo inferior?')
+                TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+                if TIPO_INFERIOR == 'emotivo' or TIPO_INFERIOR == 'perceptivo':
+                    print('Selecione verbo lematizado cognitivo ou desiderativo:')
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Animalizado)?')
+                    Experienciador = estrutura_GN()
+                    print('Qual o Fenômeno?')
+                    Fenômeno = estrutura_GN()
+                    Polaridade = POLARIDADE()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Fenômeno + '.'
+
+            elif TIPO_DE_PROCESSO == 'inferior' and TIPO_FENOMENALIZAÇÃO == 'hiperfenômeno':
+                print('Qual tipo de Processo inferior?')
+                TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+                print('Qual tipo de hiperfenômeno?')
+                TIPO_HIPERFENÔMENO = choice.Menu([ 'reativo']).ask()
+                if TIPO_INFERIOR == 'emotivo' and TIPO_HIPERFENÔMENO == 'reativo':
+                    print('Qual o tipo de reativo?')
+                    TIPO_reativo = choice.Menu(['metafenômeno']).ask()
+                    if TIPO_reativo == 'metafenômeno':
+                        TIPO_DE_EMOTIVO = choice.Menu(['gostar', 'agradar']).ask()
+                        print('Selecione o verbo lexical correspondente ao Tipo de emotivo:')
+                        print('Qual o Processo?')
+                        Processo = grupo_verbal()
+                        print('Qual o Experienciador (Ente:Humanizado)?')
+                        Experienciador = estrutura_GN()
+                        print('Qual o metafenômeno? Metafenômenos têm natureza abstrata')
+                        realização_metafenômeno = choice.Menu(['oração_mudada_ordem', 'oração_que',
+                             'GN+oração_qualificadora']).ask()
+                        if realização_metafenômeno == 'oração_mudada_ordem':
+                            print('Selecione as orientações desejadas:')
+                            Metafenômeno = oraçãoProjetada()
+
+                        elif realização_metafenômeno == 'oração_que':
+                            print('Selecione orientações desejadas')
+                            Metafenômeno = 'que' + ' ' + oraçãoProjetada()
+                        else:
+                            print('Selecione o GN com oração qualificadora:')
+                            Metafenômeno = estrutura_GN()
+
+                        Polaridade = POLARIDADE()
+                        oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo +  ' ' + Metafenômeno+'.'
+
+                elif TIPO_INFERIOR == 'perceptivo' and TIPO_HIPERFENÔMENO == 'reativo':
+                    print('Qual o tipo de reativo?')
+                    TIPO_reativo = choice.Menu(['macrofenômeno']).ask()
+                    if TIPO_reativo == 'macrofenômeno':
+                        print('Qual o Processo?')
+                        Processo = grupo_verbal()
+                        print('Qual o Experienciador (Ente:Humanizado)?')
+                        Experienciador = estrutura_GN()
+                        print('Qual o macrofenômeno? Macrofenômenos têm natureza concreta')
+                        realização_macrofenômeno = choice.Menu(['não_finito_concretizado','não-orientado_gerúndio','oração_que',
+                                                                'GN+oração_qualificadora']).ask()
+                        if realização_macrofenômeno == 'não_finito_concretizado':
+                            print('Selecione grupo verbal não-finito_concretizado')
+                            Macrofenômeno = oraçãoProjetada()
+
+                        elif realização_macrofenômeno == 'não-orientado_gerúndio':
+                            print('Selecione grupo verbal não-orientado_gerúndio')
+                            Macrofenômeno = oraçãoProjetada()
+                        elif realização_macrofenômeno =='oração_que':
+                            print('Selecione orientações desejadas')
+                            Macrofenômeno = 'que' + ' '+oraçãoProjetada()
+                        else:
+                            print('Selecione o GN com oração qualificadora:')
+                            Macrofenômeno = estrutura_GN()
+
+                        Polaridade = POLARIDADE()
+                        oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' \
+                                 + Processo + ' ' + Macrofenômeno
+
+    elif Transitividade == 'PR_Mental_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+        print('Efetivo operativo = mental impingente.')
+        print('Selecione o tipo de processo mental:')
+        TIPO_DE_PROCESSO = choice.Menu(['superior', 'inferior']).ask()
+        print('Qual a FENOMENALIZAÇÃO?')
+        FENOMENALIZAÇÃO = choice.Menu(['não-fenomenalização', 'fenomenalização']).ask()
+        if FENOMENALIZAÇÃO == 'fenomenalização':
+            print('Qual tipo de fenomenalização?')
+            TIPO_FENOMENALIZAÇÃO = choice.Menu(['hiperfenômeno', 'fenômeno_simples']).ask()
+            if TIPO_DE_PROCESSO == 'superior' and TIPO_FENOMENALIZAÇÃO == 'fenômeno_simples':
+                print('Qual tipo de Processo superior?')
+                TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
+                if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
+                    print('Selecione verbo lematizado cognitivo ou desiderativo:')
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Humanizado)?')
+                    Experienciador = estrutura_GN()
+                    print('Qual o Fenômeno Agente?')
+                    FenômenoAgente = estrutura_GN()
+                    Polaridade = POLARIDADE()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + FenômenoAgente + ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + '.'
+            elif TIPO_DE_PROCESSO == 'superior' and TIPO_FENOMENALIZAÇÃO == 'hiperfenômeno':
+                print('Qual tipo de Processo superior?')
+                TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
+                if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
+                    print('Qual tipo de hiperfenômeno?')
+                    print('Projeção = hiperfenômeno: criativo')
+                    TIPO_HIPERFENÔMENO = choice.Menu(['criativo']).ask()
+
+                    if TIPO_HIPERFENÔMENO == 'criativo':
+                        TIPO_criativo = choice.Menu(['pensamento', 'desejo']).ask()
+                        if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
+                            TIPO_DE_COGNITIVO = choice.Menu(['pensar', 'saber', 'sonhar']).ask()
+                            if TIPO_DE_COGNITIVO == 'pensar' or TIPO_DE_COGNITIVO == 'saber' or TIPO_DE_COGNITIVO == 'sonhar':
+                                print('Selecione o verbo lexical correspondente ao Tipo de cognitivo:')
+                                print('Qual o Processo?')
+                                Processo = grupo_verbal()
+                                print('Qual o Experienciador (Ente:Humanizado)?')
+                                Experienciador = estrutura_GN()
+                                print('Qual o Pensamento Agente? Selecione orientado-finito')
+                                PensamentoAgente = oraçãoProjetada()
+                                Polaridade = POLARIDADE()
+                                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +' ' + 'que' + ' ' + PensamentoAgente  + ' ' + Polaridade + ' ' + Processo + ' '+ Experienciador +'.'
+                                #Ex.:PROBABILIDADE BAIXA DE OCORRÊNCIA: Que você não viria ocorreu me
+
+                        elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
+                            TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar']).ask()
+                            if TIPO_DE_DESIDERATIVO == 'querer' or TIPO_DE_DESIDERATIVO == 'esperar':
+                                print('Selecione o verbo lexical correspondente ao Tipo de desiderativo:')
+                                print('Qual o Processo?')
+                                Processo = grupo_verbal()
+                                print('Qual o Experienciador (Ente:Humanizado)?')
+                                Experienciador = estrutura_GN()
+                                print('Qual o Desejo Agente?')
+                                print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
+                                DesejoAgente = oraçãoProjetada()
+                                Polaridade = POLARIDADE()
+                                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + ' ' + 'que' + ' ' + DesejoAgente + ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + '.'
+                                # Ex.:PROBABILIDADE BAIXA DE OCORRÊNCIA: Que você não viria ocorreu me
+
+            elif TIPO_DE_PROCESSO == 'inferior' and TIPO_FENOMENALIZAÇÃO == 'fenômeno_simples':
+                print('Qual tipo de Processo inferior?')
+                TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+                if TIPO_INFERIOR == 'emotivo' or TIPO_INFERIOR == 'perceptivo':
+                    print('Selecione verbo lematizado cognitivo ou desiderativo:')
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Animalizado)?')
+                    Experienciador = estrutura_GN()
+                    print('Qual o Fenômeno/Agente?')
+                    FenômenoAgente = estrutura_GN()
+                    Polaridade = POLARIDADE()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + FenômenoAgente + ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + '.'
+                    #Ex.: Seus modos entristecem me
+
+            elif TIPO_DE_PROCESSO == 'inferior' and TIPO_FENOMENALIZAÇÃO == 'hiperfenômeno':
+                print('Qual tipo de Processo inferior?')
+                TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+                print('Qual tipo de hiperfenômeno?')
+                TIPO_HIPERFENÔMENO = choice.Menu(['reativo']).ask()
+                if TIPO_INFERIOR == 'emotivo' and TIPO_HIPERFENÔMENO == 'reativo':
+                    print('Qual o tipo de reativo?')
+                    TIPO_reativo = choice.Menu(['metafenômeno']).ask()
+                    if TIPO_reativo == 'metafenômeno':
+                        TIPO_DE_EMOTIVO = choice.Menu(['gostar', 'agradar']).ask()
+                        print('Selecione o verbo lexical correspondente ao Tipo de emotivo:')
+                        print('Qual o Processo?')
+                        Processo = grupo_verbal()
+                        print('Qual o Experienciador (Ente:Humanizado)?')
+                        Experienciador = estrutura_GN()
+                        print('Qual o metafenômeno? Metafenômenos têm natureza abstrata')
+                        realização_metafenômeno = choice.Menu(['oração_mudada_ordem', 'oração_que',
+                                                               'GN+oração_qualificadora']).ask()
+                        if realização_metafenômeno == 'oração_mudada_ordem':
+                            print('Selecione as orientações desejadas:')
+                            MetafenômenoAgente = oraçãoProjetada()
+
+                        elif realização_metafenômeno == 'oração_que':
+                            print('Selecione orientações desejadas')
+                            MetafenômenoAgente = 'que' + ' ' + oraçãoProjetada()
+                        else:
+                            print('Selecione o GN com oração qualificadora:')
+                            MetafenômenoAgente = estrutura_GN()
+
+                        Polaridade = POLARIDADE()
+                        oração = Tema_interpessoal + ' ' + Tema_textual + ' ' \
+                                 + MetafenômenoAgente + ' ' + Polaridade + ' ' \
+                                 + Processo + ' ' + Experienciador + '.'
+
+                elif TIPO_INFERIOR == 'perceptivo' and TIPO_HIPERFENÔMENO == 'reativo':
+                    print('Qual o tipo de reativo?')
+                    TIPO_reativo = choice.Menu(['macrofenômeno']).ask()
+                    if TIPO_reativo == 'macrofenômeno':
+                        print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Humanizado)?')
+                    Experienciador = estrutura_GN()
+                    print('Qual o macrofenômeno? Macrofenômenos têm natureza concreta')
+                    realização_macrofenômeno = choice.Menu(
+                        ['não_finito_concretizado', 'não-orientado_gerúndio', 'oração_que',
+                         'GN+oração_qualificadora']).ask()
+                    if realização_macrofenômeno == 'não_finito_concretizado':
+                        print('Selecione grupo verbal não-finito_concretizado')
+                        MacrofenômenoAgente = oraçãoProjetada()
+
+                    elif realização_macrofenômeno == 'não-orientado_gerúndio':
+                        print('Selecione grupo verbal não-orientado_gerúndio')
+                        MacrofenômenoAgente = oraçãoProjetada()
+                    elif realização_macrofenômeno == 'oração_que':
+                        print('Selecione orientações desejadas')
+                        MacrofenômenoAgente = 'que' + ' ' + oraçãoProjetada()
+                    else:
+                        print('Selecione o GN com oração qualificadora:')
+                        Macrofenômeno = estrutura_GN()
+
+                    Polaridade = POLARIDADE()
+                    oração = Tema_interpessoal + ' ' + Tema_textual \
+                             + ' ' + MacrofenômenoAgente + ' ' + Polaridade + ' ' \
+                             + Processo + ' ' + Experienciador + '.'
+
+
+
+
     ##ORAÇÃO verbal
-    
-    if Transitividade == 'PR_Verbal_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        
+
+    elif Transitividade == 'PR_Verbal_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+
         Tema_interpessoal = TEMA_INTERPESSOAL()
-        Tema_textual=TEMA_TEXTUAL()
-        
-        print ('Selecione a Receptividade')
-        RECEPTIVIDADE = choice.Menu (['+receptor','-receptor']).ask()
-        print ('Qual a Ordem do Dizente?')
-        ORDEM_DO_DIZENTE = choice.Menu (['atividade','semioticidade']).ask()
-        
-        if ORDEM_DO_DIZENTE == 'atividade':    
+        Tema_textual = TEMA_TEXTUAL()
+        print('Qual a Ordem do Dizente?')
+        ORDEM_DO_DIZENTE = choice.Menu(['atividade', 'semioticidade']).ask()
+        if ORDEM_DO_DIZENTE == 'atividade':
             TIPO_ATIVIDADE = 'fala'
-    
-            if TIPO_ATIVIDADE == 'fala' and RECEPTIVIDADE == '-receptor':
-                
-                print ('Qual o Processo?')
-                Processo = grupo_verbal()
-                print('Qual é o Dizente?')
-                Dizente = estrutura_GN()
-                Polaridade = POLARIDADE ()
-            
-                oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '.'
-                 #Ex.: Eu conversei até anoitecer; Eu falei muito ontem; Nós discutimos...
-        
-            elif TIPO_ATIVIDADE == 'fala' and RECEPTIVIDADE == '+receptor':
-                
-                print ('Qual o Processo?')
-                Processo = grupo_verbal()
-                print('Qual é o Dizente?')
-                Dizente = estrutura_GN()
-                print ('Qual é o Receptor?')
-                Receptor = frase_preposicional()
-                Polaridade = POLARIDADE()
-            
-                oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' +  Receptor + '.'
-                
-                #Ex.: Eu conversei com você até anoitecer; Eu falei com você muito ontem; Nós discutimos com ela...
 
-        elif ORDEM_DO_DIZENTE == 'semioticidade' and RECEPTIVIDADE == '+receptor': 
-            print ('Selecione o tipo de Semioticidade')
-            
-            TIPO_SEMIOTICIDADE = choice.Menu (['projeção','não_projeção']).ask()
-            if TIPO_SEMIOTICIDADE == 'projeção':
-                print ('Selecione o tipo de projeção')
-                TIPO_PROJEÇÃO = choice.Menu (['citativa', 'relativa']).ask()
-                if TIPO_PROJEÇÃO == 'citativa':
-                    print ('Qual o Processo?')
-                    Processo = grupo_verbal()
-                    print('Qual é o Dizente?')
-                    Dizente = estrutura_GN()
-                    print ('Qual é o Receptor?')
-                    Receptor = frase_preposicional ()
-                    Polaridade = POLARIDADE ()
-                    print ('Qual a oração projetada?')
-                    Oração_projetada = oraçãoProjetada()
-        
-                    oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor + '"' + Oração_projetada + '" ' + '.'
-                    #Ex.: Eu disse a ele "Eu comi o bolo". 
-                
-                elif TIPO_PROJEÇÃO == 'relativa':
-                    print ('Qual o Processo?')
-                    Processo = grupo_verbal()
-                    print('Qual é o Dizente?')
-                    Dizente = estrutura_GN()
-                    print ('Qual é o Receptor?')
-                    Receptor = frase_preposicional ()
-                    Polaridade = POLARIDADE ()
-                    print ('Qual a oração projetada?')
-                    Oração_projetada = oraçãoProjetada()
-        
-                    oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor  + ' ' + 'que'  + ' ' + '"' + Oração_projetada + '" ' + '.'
-                    #Ex.: Eu disse a ele que "Eu comi o bolo". 
-                    
-        elif ORDEM_DO_DIZENTE == 'semioticidade' and RECEPTIVIDADE == '-receptor': 
-            print ('Selecione o tipo de Semioticidade')
-            
-            TIPO_SEMIOTICIDADE = choice.Menu (['projeção','não_projeção']).ask()
-            if TIPO_SEMIOTICIDADE == 'projeção':
-                print ('Selecione o tipo de projeção')
-                TIPO_PROJEÇÃO = choice.Menu (['citativa', 'relativa']).ask()
-                
-                
-                if TIPO_PROJEÇÃO == 'citativa':
-                    print ('Qual o Processo?')
-                    Processo = grupo_verbal()
-                    print('Qual é o Dizente?')
-                    Dizente = estrutura_GN()
-                    
-                    Polaridade = POLARIDADE ()
-                    print ('Qual a oração projetada?')
-                    Oração_projetada = oraçãoProjetada()
-        
-                    oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '"' + Oração_projetada + '" ' + '.'
-                    #Ex.: Eu disse  "Eu comi o bolo". 
-                
-                elif TIPO_PROJEÇÃO == 'relativa':
-                    print ('Qual o Processo?')
-                    Processo = grupo_verbal()
-                    print('Qual é o Dizente?')
-                    Dizente = estrutura_GN()
-                    
-                    Polaridade = POLARIDADE ()
-                    print ('Qual a oração projetada?')
-                    Oração_projetada = oraçãoProjetada()
-        
-                    oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo   + ' ' + 'que'  + ' ' + '"' + Oração_projetada + '" ' + '.'
-                    #Ex.: Eu disse que "Eu comi o bolo".      
-            
-           
-            
-            elif TIPO_SEMIOTICIDADE == 'não_projeção':
-                
-                TIPO_NÃO_PROJEÇÃO = '-verbiagem'
-                print ('Qual o Processo?')
+            if TIPO_ATIVIDADE == 'fala':
+
+                print('Qual o Processo?')
                 Processo = grupo_verbal()
                 print('Qual é o Dizente?')
                 Dizente = estrutura_GN()
-                Polaridade = POLARIDADE ()
-                
-                oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '.'
-              
+                print('Há Receptor?')
+                print('Selecione a Receptividade')
+                RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+                if RECEPTIVIDADE == '+receptor':
+                    Receptor = frase_preposicional()
+                else:
+                    Receptor = ''
+                Polaridade = POLARIDADE()
+
+                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor + '.'
+                # Ex.: Eu conversei até anoitecer; Eu falei muito ontem; Nós discutimos...
+
+
+        elif ORDEM_DO_DIZENTE == 'semioticidade':
+            print('Semioticidade em Médio sem alcance = não_projeção')
+            TIPO_SEMIOTICIDADE = choice.Menu(['não_projeção']).ask()
+
+            if TIPO_SEMIOTICIDADE == 'não_projeção':
+                print('Não-projeção + médio sem alcance = -verbiagem')
+                TIPO_NÃO_PROJEÇÃO = '-verbiagem'
+                print('Qual o Processo?')
+                Processo = grupo_verbal()
+                print('Qual é o Dizente?')
+                Dizente = estrutura_GN()
+                print('Há Receptor?')
+                print('Selecione a Receptividade')
+                RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+                if RECEPTIVIDADE == '+receptor':
+                    Receptor = frase_preposicional()
+                else:
+                    Receptor = ''
+                Polaridade = POLARIDADE()
+
+                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo + '.'
+
     elif Transitividade == 'PR_Verbal_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        
+
+        Tema_interpessoal = TEMA_INTERPESSOAL()
+        Tema_textual = TEMA_TEXTUAL()
+        print('Qual a Ordem do Dizente?')
+        ORDEM_DO_DIZENTE = choice.Menu(['semioticidade']).ask()
+        print('Selecione a Receptividade')
+        RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+
+        if ORDEM_DO_DIZENTE == 'semioticidade':
+            print('Selecione o tipo de Semioticidade')
+
+            TIPO_SEMIOTICIDADE = choice.Menu(['projeção', 'não_projeção']).ask()
+            if TIPO_SEMIOTICIDADE == 'projeção':
+                print('Selecione o tipo de projeção')
+                TIPO_PROJEÇÃO = choice.Menu(['citativa', 'relativa']).ask()
+                if TIPO_PROJEÇÃO == 'citativa':
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual é o Dizente?')
+                    Dizente = estrutura_GN()
+                    print('Há Receptor?')
+                    print('Selecione a Receptividade')
+                    RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+                    if RECEPTIVIDADE == '+receptor':
+                        Receptor = frase_preposicional()
+                    else:
+                        Receptor = ''
+                    Polaridade = POLARIDADE()
+                    print('Qual a oração projetada?')
+                    Oração_projetada = oraçãoProjetada()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor + '"' + Oração_projetada + '" ' + '.'
+                    # Ex.: Eu disse a ele "Eu comi o bolo".
+
+                elif TIPO_PROJEÇÃO == 'relativa':
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual é o Dizente?')
+                    Dizente = estrutura_GN()
+                    print('Há Receptor?')
+                    print('Selecione a Receptividade')
+                    RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+                    if RECEPTIVIDADE == '+receptor':
+                        Receptor = frase_preposicional()
+                    else:
+                        Receptor = ''
+                    Polaridade = POLARIDADE()
+                    Polaridade = POLARIDADE()
+                    print('Qual a oração projetada?')
+                    Oração_projetada = oraçãoProjetada()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor + ' ' + 'que' + ' ' + '"' + Oração_projetada + '" ' + '.'
+                    # Ex.: Eu disse a ele que "Eu comi o bolo".
+
+            elif TIPO_SEMIOTICIDADE == 'não_projeção':
+                print('Qual o Processo?')
+                Processo = grupo_verbal()
+                print('Qual é o Dizente?')
+                Dizente = estrutura_GN()
+                print('Qual é a Verbiagem?')
+                Verbiagem = estrutura_GN()
+                print('Há Receptor?')
+                print('Selecione a Receptividade')
+                RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+                if RECEPTIVIDADE == '+receptor':
+                    Receptor = frase_preposicional()
+                else:
+                    Receptor = ''
+                Polaridade = POLARIDADE()
+
+                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo + ' ' + Verbiagem + ' ' + Receptor + '.'
+
+    elif Transitividade =='PR_Verbal_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
-        TIPO_SEMIOTICIDADE = 'não_projeção'
-        print ('Selecione a Receptividade')
-        RECEPTIVIDADE = choice.Menu (['+receptor','-receptor']).ask()
-        
-        if RECEPTIVIDADE == '+receptor':
-            print ('Qual o Processo?')
-            Processo = grupo_verbal()
-            print('Qual é o Dizente?')
-            Dizente = estrutura_GN()
-            print('Qual é a Verbiagem?')
-            Verbiagem = estrutura_GN()
-            print ('Qual é o Receptor?')
-            Receptor = frase_preposicional ()
-            Polaridade = POLARIDADE ()
-            
-            oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Verbiagem + ' '+ Receptor +'.' 
-
-        else:
-            print ('Qual o Processo?')
-            Processo = grupo_verbal()
-            print('Qual é o Dizente?')
-            Dizente = estrutura_GN()
-            print('Qual é a Verbiagem?')
-            Verbiagem = estrutura_GN()            
-            Polaridade = POLARIDADE ()
-            
-            oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + ' ' + Verbiagem +'.'
-          
-    elif Transitividade =='PR_Verbal_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        
-        Tema_interpessoal = TEMA_INTERPESSOAL()
-        Tema_textual=TEMA_TEXTUAL()  
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         Polaridade = POLARIDADE ()
         print('Qual é o Dizente?')
         Dizente = estrutura_GN()
-        
+
         print('O Alvo é realizado por grupo nominal ou frase preposicional?')
         realização_alvo = choice.Menu(['GN','FP']).ask()
         if realização_alvo == 'GN':
@@ -16133,14 +16405,14 @@ def oraçãoGerada():
         else:
             print('Qual é o Alvo?')
             Alvo = frase_preposicional()
-            
+
             oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo+ ' ' + Alvo +'.'
 
-    
+
     elif Transitividade=='PR_Verbal_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        
+
         Tema_interpessoal = TEMA_INTERPESSOAL()
-        Tema_textual=TEMA_TEXTUAL()  
+        Tema_textual=TEMA_TEXTUAL()
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         Polaridade = POLARIDADE ()
@@ -16148,15 +16420,15 @@ def oraçãoGerada():
         Dizente = frase_preposicional()
         print('Qual é o Alvo?')
         Alvo = estrutura_GN()
-           
+
         oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Alvo  + ' ' + Polaridade + ' ' + Processo+ ' ' + Dizente +'.'
 
     ###MATERIAL
-    
+
     elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
-        
+
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
@@ -16164,22 +16436,22 @@ def oraçãoGerada():
         print('Qual é a Meta?')
         Meta = estrutura_GN()
         Polaridade = POLARIDADE ()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
         else:
             Iniciador = ''
-        
+
         print ('Há resultado do processo?')
         TIPO_DE_RESULTADO = choice.Menu(['elaboração','extensão','intensificação']).ask()
-        
+
         if TIPO_DE_RESULTADO == 'elaboração':
-            
+
             print ('há Resultado_elaboração atributo ou papel?')
             RESULTADO_QUALITATIVO = choice.Menu (['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
-            if (RESULTADO_QUALITATIVO == 'resultado_atributo' or 
+            if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
                 RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
                 realização_atributo = choice.Menu(['adjetivo','frase_preposicional']).ask()
                 if realização_atributo == 'adjetivo':
@@ -16188,11 +16460,11 @@ def oraçãoGerada():
                     Atributo = frase_preposicional()
             elif RESULTADO_QUALITATIVO == '-resultado':
                 Atributo = ''
-            
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta +' '+ Atributo+'.'
-             
-    
-        
+
+
+
         elif TIPO_DE_RESULTADO == 'extensão':
             print ('Há Participante Beneficiário na oração?')
             RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
@@ -16200,14 +16472,14 @@ def oraçãoGerada():
                 Beneficiário = frase_preposicional()
             elif RECEPÇÃO == '-beneficiário':
                 Beneficiário = ''
-                
-        
-        
+
+
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador  + ' ' + Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta +'  '+ Beneficiário +'.'
 
     elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         Tema_textual=TEMA_TEXTUAL()
-        Tema_interpessoal = TEMA_INTERPESSOAL() 
+        Tema_interpessoal = TEMA_INTERPESSOAL()
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
@@ -16215,23 +16487,23 @@ def oraçãoGerada():
         print('Qual é a Meta?')
         Meta = estrutura_GN()
         Polaridade = POLARIDADE ()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN()
         else:
             Iniciador = ''
-        
+
         print ('Há Participante Cliente na oração?') #Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
         CLIENTE = choice.Menu (['+cliente','-cliente']).ask()
-        
+
         if CLIENTE == '+cliente':
-            Cliente = frase_preposicional() 
+            Cliente = frase_preposicional()
         else:
             Cliente=''
-        
-        
+
+
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta +' '+ Cliente +'.'
 
     elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance'and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
@@ -16257,10 +16529,10 @@ def oraçãoGerada():
                  Escopo = estrutura_GN()
              elif tipo_Escopo == 'escopo(entidade)':
                  Escopo = estrutura_GN() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
-            
+
              oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade \
                       + ' ' + Processo + ' ' +  Escopo+'.'
-    
+
         elif TIPO_DE_RESULTADO == 'intensificação':
             print('Qual é o Escopo?')
             tipo_Escopo = choice.Menu (['escopo(processo)','escopo(entidade)']).ask()
@@ -16274,11 +16546,11 @@ def oraçãoGerada():
                 Resultado_locativo = frase_preposicional()
             else:
                 Resultado_locativo=''
-    
-        
+
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo + ' ' +  Escopo+ ' ' + Resultado_locativo +'.'
-    
-    
+
+
     elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
 
         Tema_textual = TEMA_TEXTUAL()
@@ -16311,10 +16583,10 @@ def oraçãoGerada():
 
     ##ORAÇÃO METEOROLÓGICA
     elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_NA' and Modo == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        
+
         Tema_textual=TEMA_TEXTUAL()
         Tema_interpessoal = TEMA_INTERPESSOAL()
-       
+
         tipo_intransitiva = choice.Menu(['impessoal(fenômeno_natural)','pessoal']).ask()
         print ('Qual o tipo de inTransitividade?')
         if tipo_intransitiva == 'impessoal(fenômeno_natural)':
@@ -16329,65 +16601,65 @@ def oraçãoGerada():
                     Escopo = estrutura_GN()
             elif escopo_intransitiva == '-escopo':
                 Escopo = ''
-                    
-                    
+
+
         print ('Qual o Processo?')
         Processo = grupo_verbal()
-        
-        
+
+
         Polaridade = POLARIDADE()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN()
         else:
             Iniciador = ''
-        
-        
+
+
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador+' '+  Polaridade + ' ' + Processo + ' ' + Escopo +'.'
-    
-   
+
+
     elif Transitividade == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         Tema_textual=TEMA_TEXTUAL()
-        Tema_interpessoal = TEMA_INTERPESSOAL()   
+        Tema_interpessoal = TEMA_INTERPESSOAL()
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
         Ator = estrutura_GN()
         Polaridade = POLARIDADE()
-           
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN() + grupo_verbal()
         else:
-            Iniciador = '' 
-        
-        
+            Iniciador = ''
+
+
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo +'.'
-    
-         
-        
+
+
+
         ##########COMEÇO DE AGENCIAMENTO PASSIVA(E CONSEQUENTEMENTE NO TEMA IDEACIONAL)
-      
+
     elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_complemento_elemental':
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
-        
+
         print ('Qual o Processo?')
         Processo = grupo_verbal() ##selecionar agenciado_passivo
         print('Qual é a Meta?')
         Meta = estrutura_GN()
         Polaridade = POLARIDADE ()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
         else:
             Iniciador = ''
-       
+
         print ('O Ator/Agente é realizado na oração?')
         realização_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
         if realização_Ator == '+ator/agente':
@@ -16395,16 +16667,16 @@ def oraçãoGerada():
             Ator = frase_preposicional()
         elif realização_Ator == '-ator/agente':
             Ator = ''
-            
-          
+
+
         print ('Há resultado do processo?')
         TIPO_DE_RESULTADO = choice.Menu(['elaboração','extensão','intensificação']).ask()
-        
+
         if TIPO_DE_RESULTADO == 'elaboração':
-            
+
             print ('há Resultado_elaboração atributo ou papel?')
             RESULTADO_QUALITATIVO = choice.Menu (['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
-            if (RESULTADO_QUALITATIVO == 'resultado_atributo' or 
+            if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
                 RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
                 realização_atributo = choice.Menu(['adjetivo','frase_preposicional']).ask()
                 if realização_atributo == 'adjetivo':
@@ -16413,9 +16685,9 @@ def oraçãoGerada():
                     Atributo = frase_preposicional()
             elif RESULTADO_QUALITATIVO == '-resultado':
                 Atributo = ''
-            
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Atributo+ ' ' + Ator +'.'
-        
+
         elif TIPO_DE_RESULTADO == 'extensão':
             print ('Há Participante Beneficiário na oração?')
             RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
@@ -16423,30 +16695,30 @@ def oraçãoGerada():
                 Beneficiário = frase_preposicional()
             elif RECEPÇÃO == '-beneficiário':
                 Beneficiário = ''
-                
-        
+
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade + ' ' + Processo  +'  '+ Beneficiário + ' ' + Ator +'.'
-          
+
    ##
-        
+
     elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_complemento_elemental':
-        
+
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
-        
+
         print ('Qual o Processo?')
         Processo = grupo_verbal() ##selecionar agenciado_passivo
         print('Qual é a Meta?')
         Meta = estrutura_GN()
         Polaridade = POLARIDADE ()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
         else:
             Iniciador = ''
-       
+
         print ('O Ator/Agente é realizado na oração?')
         realização_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
         if realização_Ator == '+ator/agente':
@@ -16454,21 +16726,21 @@ def oraçãoGerada():
             Ator = frase_preposicional()
         elif realização_Ator == '-ator/agente':
             Ator = ''
-            
-          
+
+
         print ('Há Participante Cliente na oração?') #Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
         CLIENTE = choice.Menu (['+cliente','-cliente']).ask()
-        
+
         if CLIENTE == '+cliente':
-            Cliente = frase_preposicional() 
+            Cliente = frase_preposicional()
         elif CLIENTE == '-cliente':
             Cliente=''
-            
+
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +'.'
-    
-    
+
+
     ###RELACIONAl
-    
+
 
 ###### INTENSIVA ATRIBUTIVA (SEM ATRIBUIDOR)
     elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_médio_com_alcance' \
@@ -16476,11 +16748,11 @@ def oraçãoGerada():
             and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
        ####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso não são reversíveis)
        ## Selecionam sem_atribuição_de relação no sistema de ATRIBUIÇÃO DE RELAÇÃO
-       
-       
+
+
         Tema_textual=TEMA_TEXTUAL()
-        Tema_interpessoal = TEMA_INTERPESSOAL() 
-        
+        Tema_interpessoal = TEMA_INTERPESSOAL()
+
         print('Qual o tipo de especificação de associação?')
         tipo_especificação_associação = choice.Menu(['entidade','qualidade']).ask()
         print ('Qual a fase da atribuição?')
@@ -16488,43 +16760,43 @@ def oraçãoGerada():
                                                             ###não vou especializar os tipos de fase.
         print ('Qual o domínio da atribuição')
         domínio_atribuição = choice.Menu(['material','semiótico']).ask()
-        
-        
-        
+
+
+
         if (tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
             tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
             tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
             tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
-                                                             
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador?')
             Portador = estrutura_GN()
             print ('Qual o Atributo?')
             Atributo = estrutura_GN()
-            
+
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo +'.'
-   
+
         elif (tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
               tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
               tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
               tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
-           
-            print ('Qual o Processo?')                                                 
+
+            print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador?')
             Portador = estrutura_GN()
             print ('Qual o Atributo?')
             Atributo = adjetivo_modificador ()## O que diferencia os dois tipos é o que realiza o Atributo. Neste caso
-                                      # o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo. 
+                                      # o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo.
                                       ##Tenho que ver ainda casos metafóricos ex,:'o caso é de grande importância')
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo +'.'
-   
-    
+
+
 ###### INTENSIVA ATRIBUTIVA (COM ATRIBUIDOR)
             ##Nesse caso, a oração é Effective (Tem Agente) e pode ser operativa ou receptiva
     # (há a possibilidade de Agente de segunda, terceira.....ordem)
@@ -16535,15 +16807,15 @@ def oraçãoGerada():
         ##ir verificando no corpus se há diferença de realização para cada uma das opções a seguir e também se as ordens dos
         #elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
         ##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE REALIZAÇÃO...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-        
+
         if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
             tipo_atribuição_relação =='atribuição_proj_ment_desiderativa',
             tipo_atribuição_relação =='atribuição_proj_verbal',
             tipo_atribuição_relação =='atribuição_expan_elaboração',
             tipo_atribuição_relação =='atribuição_expan_intencificação'):
-            
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
+            Tema_interpessoal = TEMA_INTERPESSOAL()
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Atribuidor?')
@@ -16551,10 +16823,10 @@ def oraçãoGerada():
             print ('Qual o Portador?')
             Portador = estrutura_GN()
             print ('Qual o Atributo?')
-            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar) 
-            
+            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual + ' ' +  Atribuidor+ ' ' + Polaridade + ' ' + Processo  + ' ' + Portador  + ' ' + Atributo +'.'
 
     elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
@@ -16563,50 +16835,50 @@ def oraçãoGerada():
         ##ir verificando no corpus se há diferença de realização para cada uma das opções a seguir e também se as ordens dos
         #elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
         ##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE REALIZAÇÃO...COM O GRUPO NOMINAL E UMA ESTRUTURA DE ELEMENTOS NA ORAÇÃO
-        
+
         if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
             tipo_atribuição_relação =='atribuição_proj_ment_desiderativa',
             tipo_atribuição_relação =='atribuição_proj_verbal',
             tipo_atribuição_relação =='atribuição_expan_elaboração',
             tipo_atribuição_relação =='atribuição_expan_intencificação'):
-            
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
+            Tema_interpessoal = TEMA_INTERPESSOAL()
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Atribuidor?')
             Atribuidor = frase_preposicional()
-            
-            
+
+
             print ('Qual o Portador?')
             Portador = estrutura_GN()
             print ('Qual o Atributo?')
-            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar) 
-            
+            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo  + ' ' +   Atributo + ' ' +  Atribuidor +'.'
 
-    
+
     ####INTENSIVA_IDENTIFICATIVA (sem DESIGNADOR)
-    
+
     elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' \
             and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
             and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_equativo_decodificação':
-        
+
         print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito '
                'deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
         direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-        
+
         if direcionalidade_voz == 'meio_operativa':
             print ('Neste caso, o Símbolo/Identificado conflui com o Sujeito(geralmente o elemento em posição temática)')
-            
+
         # (confluência do Símbolo/Identificado) =
-       
-       
+
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-           
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Símbolo(Token)?')
@@ -16614,19 +16886,19 @@ def oraçãoGerada():
             print ('Qual o Valor(Value)?')
             Valor = estrutura_GN()
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo + ' ' + Valor +'.'
-    
-    
-    
-        elif direcionalidade_voz == 'meio_receptiva': 
+
+
+
+        elif direcionalidade_voz == 'meio_receptiva':
             print ('Neste caso, o Valor/Identificador conflui com o Sujeito')
             ##NESTE CASO, confluência de Valor/Sujeito
-           
-       
+
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-           
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Valor(Value)?')
@@ -16634,25 +16906,25 @@ def oraçãoGerada():
             print ('Qual é o Símbolo(Token)?')
             Símbolo = estrutura_GN()
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo+'.'
-    
-    
-    
+
+
+
     elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_equativo_codificação':
-        
+
         print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
         direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-        
+
         if direcionalidade_voz == 'meio_operativa':
             print ('Neste caso, o Símbolo/Identificado conflui com o Sujeito(geralmente o elemento em posição temática)')
-            
+
         # (confluência do Símbolo/Identificador/Sujeito) =
           #(Valor/Identificado/complemento)
-       
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-           
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Símbolo(Token)?')
@@ -16660,20 +16932,20 @@ def oraçãoGerada():
             print ('Qual o Valor(Value)?')
             Valor = estrutura_GN()
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo + ' ' + Valor +'.'
-    
-    
-    
-        elif direcionalidade_voz == 'meio_receptiva': 
+
+
+
+        elif direcionalidade_voz == 'meio_receptiva':
             print ('Neste caso, o Valor conflui com o Sujeito')
             ##NESTE CASO, confluência de Valor/Identificado/Sujeito
             ##(Símbolo/Identificador/Complemento)
-            
-       
+
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-           
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Valor(Value)?')
@@ -16681,11 +16953,11 @@ def oraçãoGerada():
             print ('Qual é o Símbolo(Token)?')
             Símbolo = estrutura_GN()
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo+'.'
-  
+
     ####INTENSIVA_IDENTIFICATIVA (COM DESIGNADOR = AGENTE)
-    
+
 #    ###TRUE_Efetiva_operativa
     elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         print ('Qual o tipo de atribuição de relação?')
@@ -16693,17 +16965,17 @@ def oraçãoGerada():
         ##ir verificando no corpus se há diferença de realização para cada uma das opções a seguir e também se as ordens dos
         #elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
         #POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE REALIZAÇÃO...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-        
+
         if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
             tipo_atribuição_relação =='atribuição_proj_ment_desiderativa',
             tipo_atribuição_relação =='atribuição_proj_verbal',
             tipo_atribuição_relação =='atribuição_expan_elaboração',
             tipo_atribuição_relação =='atribuição_expan_intencificação'):
-           
-            
+
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-     
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Designador?')
@@ -16713,27 +16985,27 @@ def oraçãoGerada():
             print ('Qual o Valor(Value)?')
             Valor = estrutura_GN() ##ou frase preposicional?
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual + ' ' +  Designador+ ' ' + Polaridade + ' ' + Processo  + ' ' + Símbolo  + ' ' + Valor +'.'
             ###rever possíveis estruturas para este tipo de oração(pode haver 2 processos?)
-     
+
      ###TRUE_Efetiva_receptiva
-       
+
     elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         print ('Qual o tipo de atribuição de relação?')
         tipo_atribuição_relação = atribuição_de_relação()
         ##ir verificando no corpus se há diferença de realização para cada uma das opções a seguir e também se as ordens dos
         #elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
         ##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE REALIZAÇÃO...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-        
+
         if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
             tipo_atribuição_relação =='atribuição_proj_ment_desiderativa',
             tipo_atribuição_relação =='atribuição_proj_verbal',
             tipo_atribuição_relação =='atribuição_expan_elaboração',
             tipo_atribuição_relação =='atribuição_expan_intencificação'):
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-           
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Designador?')
@@ -16743,28 +17015,28 @@ def oraçãoGerada():
             print ('Qual o Valor(Value)?')
             Valor = estrutura_GN() ##ou frase preposicional?
             Polaridade = POLARIDADE ()
-    #        
+    #
             oração =  Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo  + ' ' + Polaridade + ' ' + Processo   + ' ' + Valor + ' ' +  Designador +'.'
     ####NOS DOIS TIPOS DE ORAÇÃO ANTERIORES É PRECISO VERIFICAR: possibilidade de realização de cada participante;
     #        #ordem na estrutura; etc (vou fazer isso de acordo com o que for encontrando no corpus, por enquanto estao comentadas)
-         
+
 #POSSESSIVO ATRIBUTIV0
-    
+
     if Transitividade == 'PR_relacional_possessivo_atributivo_AG_médio_com_alcance' \
             and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
             and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-       
+
 
         TIPO_ATRIBUIÇÃO_POSSESSIVO = choice.Menu (['posse_atributo','posse_processo']).ask()
-        
-        if TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_atributo':       
-            
+
+        if TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_atributo':
+
             realização_atributo = choice.Menu(['grupo_nominal_possessivo', 'frase_preposicional']).ask()
-           
+
             if realização_atributo == 'grupo_nominal_possessivo':
-            
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
+                Tema_interpessoal = TEMA_INTERPESSOAL()
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Posse?')
@@ -16772,12 +17044,12 @@ def oraçãoGerada():
                 print ('Qual é o Atributo/Possuidor?')
                 Atributo_Possuidor = estrutura_GN()
                 Polaridade = POLARIDADE()
-                
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador_Posse + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Possuidor+'.'
-  
+
             elif realização_atributo == 'frase_preposicional':
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
+                Tema_interpessoal = TEMA_INTERPESSOAL()
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Posse?')
@@ -16785,21 +17057,21 @@ def oraçãoGerada():
                 print ('Qual é o Atributo/Possuidor?')
                 Atributo_Possuidor = frase_preposicional()
                 Polaridade = POLARIDADE()
-            
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador_Posse + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Possuidor +'.'
-  
-               
+
+
         elif TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_processo':
-            
+
             ##VERBO TER/POSSUIR/
-            
+
             tipo_possuidor= choice.Menu (['possuidor_portador','possuidor_atributo']).ask()
-            
+
             if tipo_possuidor == 'possuidor_portador':
-                    
-                
+
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
+                Tema_interpessoal = TEMA_INTERPESSOAL()
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Possuidor?')
@@ -16807,17 +17079,17 @@ def oraçãoGerada():
                 print ('Qual é o Atributo/Posse?')
                 Atributo_Posse = estrutura_GN()
                 Polaridade = POLARIDADE()
-            
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador_Possuidor + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Posse+'.'
-      
-            
+
+
             ###VERBOS PERTENCER A/...
-            
+
             elif tipo_possuidor == 'possuidor_atributo':
-                    
-                
+
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
+                Tema_interpessoal = TEMA_INTERPESSOAL()
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Possuidor?')
@@ -16825,35 +17097,35 @@ def oraçãoGerada():
                 print ('Qual é o Atributo/Posse?')
                 Atributo_Possuidor = frase_preposicional()
                 Polaridade = POLARIDADE()
-            
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador_Posse + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Possuidor+'.'
-      
-            
-        # POSSESSIVO IDENTIFICATIVO 
-     
-       
+
+
+        # POSSESSIVO IDENTIFICATIVO
+
+
     elif Transitividade == 'PR_relacional_possessivo_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        
+
         TIPO_IDENTIFICATIVO_POSSESSIVO = choice.Menu (['posse_participante','posse_processo']).ask()
-        
+
         if TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_participante':
-            
+
             print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
             direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-        
+
             if direcionalidade_voz == 'meio_operativa':
                 print ('Neste caso, o Símbolo conflui com o Sujeito/Possuído/Identificado')
-                
+
                 print (
                         'Escolha o tipo de realização do Valor:')
                 realização_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-           
+
                 if realização_Valor == 'grupo_nominal':
-                
-                
+
+
                     Tema_textual=TEMA_TEXTUAL()
-                    Tema_interpessoal = TEMA_INTERPESSOAL() 
-                   
+                    Tema_interpessoal = TEMA_INTERPESSOAL()
+
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)/Possuído?')
@@ -16861,16 +17133,16 @@ def oraçãoGerada():
                     print ('Qual o Valor(Value)/Possuidor?')
                     Valor_Possuidor = estrutura_GN()
                     Polaridade = POLARIDADE ()
-                    
+
                     #Ex.: O piano é seu
                     oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo_Possuído + ' ' + Polaridade + ' ' + Processo + ' ' + Valor_Possuidor +'.'
-               
+
                 elif realização_Valor == 'frase_preposicional':
-                
-                
+
+
                     Tema_textual=TEMA_TEXTUAL()
-                    Tema_interpessoal = TEMA_INTERPESSOAL() 
-                   
+                    Tema_interpessoal = TEMA_INTERPESSOAL()
+
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)?')
@@ -16878,22 +17150,22 @@ def oraçãoGerada():
                     print ('Qual o Valor(Value)?')
                     Valor_Possuidor = frase_preposicional()
                     Polaridade = POLARIDADE ()
-                    
+
                     #Ex.: O piano é do André
                     oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo_Possuído + ' ' + Polaridade + ' ' + Processo + ' ' + Valor_Possuidor +'.'
-           
-            
+
+
             elif direcionalidade_voz == 'meio_receptiva':
                 print ('Neste caso, o Valor conflui com Sujeito/Identificado/Possuidor')
-                
+
                 realização_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-           
+
                 if realização_Valor == 'grupo_nominal':
-                
-                
+
+
                     Tema_textual=TEMA_TEXTUAL()
-                    Tema_interpessoal = TEMA_INTERPESSOAL() 
-                   
+                    Tema_interpessoal = TEMA_INTERPESSOAL()
+
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)/Possuído?')
@@ -16901,16 +17173,16 @@ def oraçãoGerada():
                     print ('Qual o Valor(Value)/Possuidor?')
                     Valor_Possuidor = estrutura_GN()
                     Polaridade = POLARIDADE ()
-                    
+
                     #Ex.: O seu é o piano
                     oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor_Possuidor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo_Possuído +'.'
-               
+
                 elif realização_Valor == 'frase_preposicional':
-                
-                
+
+
                     Tema_textual=TEMA_TEXTUAL()
-                    Tema_interpessoal = TEMA_INTERPESSOAL() 
-                   
+                    Tema_interpessoal = TEMA_INTERPESSOAL()
+
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)?')
@@ -16918,23 +17190,23 @@ def oraçãoGerada():
                     print ('Qual o Valor(Value)?')
                     Valor_Possuidor = estrutura_GN()
                     Polaridade = POLARIDADE ()
-                    
+
                     #Ex.: O do André é o piano
-                    oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor_Possuidor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo_Possuído +'.'        
-        
+                    oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor_Possuidor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo_Possuído +'.'
+
         elif TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_processo':
          ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste de, providenciar
          ##NÃO SEI SE ESTA PARTE DO SISTEMA FUNCIONA BEM NO PORTUGUÊS
-        
+
             print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
             direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-        
+
             if direcionalidade_voz == 'meio_operativa':
                 print ('Neste caso, o Símbolo conflui com o Sujeito/Possuidor/Identificado')
-                
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
-               
+                Tema_interpessoal = TEMA_INTERPESSOAL()
+
                 print ('Qual o Processo? ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste, providenciar')
                 Processo = grupo_verbal()
                 print ('Qual é o Símbolo(Token)/Possuidor?')
@@ -16942,24 +17214,24 @@ def oraçãoGerada():
                 print ('Qual o Valor(Value)/Possuído?')
                 Valor_Possuído = estrutura_GN()
                 Polaridade = POLARIDADE ()
-                
+
                 #Ex.: O produto contém plástico, Eles merecem a aposentadoria
-                
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo_Possuidor + ' ' + Polaridade + ' ' + Processo + ' ' + Valor_Possuído +'.'
-           
-                
-            
+
+
+
             elif direcionalidade_voz == 'meio_receptiva':
                 print ('Neste caso, o Valor conflui com Sujeito/Identificado/Possuído')
-                
+
                 realização_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-           
+
                 if realização_Valor == 'grupo_nominal':
-                
-                
+
+
                     Tema_textual=TEMA_TEXTUAL()
-                    Tema_interpessoal = TEMA_INTERPESSOAL() 
-                   
+                    Tema_interpessoal = TEMA_INTERPESSOAL()
+
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()##na passiva
                     print ('Qual o Valor(Value)/Possuído?')
@@ -16967,20 +17239,20 @@ def oraçãoGerada():
                     print ('Qual é o Símbolo(Token)/Possuidor?')
                     Símbolo_Possuidor = frase_preposicional()
                     Polaridade = POLARIDADE ()
-                    
+
                     #Ex.: O seu é o piano
                     oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor_Possuído + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo_Possuidor +'.'
 
 
-#####RELACIONAL CIRCUNSTANCIAL 
-                    
+#####RELACIONAL CIRCUNSTANCIAL
+
     elif Transitividade == 'PR_relacional_circunstancial_atributivo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         print ('Qual o tipo de realização da Relacional Circunstancial?')
         TIPO_ATRIBUTIVO_CIRCUNSTANCIAL = choice.Menu (['atributo_circunstancial','processo_circunstancial']).ask()
-        
+
         if TIPO_ATRIBUTIVO_CIRCUNSTANCIAL == 'atributo_circunstancial':
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
+            Tema_interpessoal = TEMA_INTERPESSOAL()
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador')
@@ -16988,11 +17260,11 @@ def oraçãoGerada():
             print ('Qual é o Atributo Circunstancial?')
             Atributo_Circunstancial = circunstância()
             Polaridade = POLARIDADE()
-            
+
             #Ex.: O livro é sobre a IIGuerra
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Circunstancial +'.'
-        
+
         elif TIPO_ATRIBUTIVO_CIRCUNSTANCIAL =='processo_circunstancial':
             Tema_textual=TEMA_TEXTUAL()
             Tema_interpessoal = TEMA_INTERPESSOAL()
@@ -17003,30 +17275,30 @@ def oraçãoGerada():
             print ('Qual é o Atributo Circunstancial?')
             Atributo = estrutura_GN()
             Polaridade = POLARIDADE()
-            
+
             #Ex.: O livro retrata a IIGuerra
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo +'.'
-        
-        
-        
-        
+
+
+
+
     elif Transitividade == 'PR_relacional_circunstancial_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        
+
         print ('O significado circunstancial é realixado no participante ou no processo?')
         TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL = choice.Menu (['participante_circunstancial','processo_circunstancial']).ask()
-        
+
         if TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'participante_circunstancial':
-            
-        
+
+
             print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
             direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-            
+
             if direcionalidade_voz == 'meio_operativa':
                 print ('Neste caso, há confluência Símbolo/Sujeito/Identificado')
-                
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
-               
+                Tema_interpessoal = TEMA_INTERPESSOAL()
+
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual é o Símbolo(Token)?')
@@ -17034,18 +17306,18 @@ def oraçãoGerada():
                 print ('Qual o Valor(Value)?')
                 Valor = estrutura_GN()
                 Polaridade = POLARIDADE ()
-                
+
                 #Ex.: Amanhá é dia 10
-                
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo + ' ' + Valor +'.'
-               
-                
+
+
             elif direcionalidade_voz == 'meio_receptiva':
                 print ('Neste caso, há confluência Valor/Sujeito/Identificado')
-                
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
-               
+                Tema_interpessoal = TEMA_INTERPESSOAL()
+
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual é o Símbolo(Token)?')
@@ -17053,23 +17325,23 @@ def oraçãoGerada():
                 print ('Qual o Valor(Value)?')
                 Valor = estrutura_GN()
                 Polaridade = POLARIDADE ()
-                
+
                 #Ex.:dia 10 é Amanhá
-                
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo +'.'
-               
-    
+
+
         elif TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'processo_circunstancial':
-         
+
             print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
             direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-            
+
             if direcionalidade_voz == 'meio_operativa':
                 print ('Neste caso, há confluência Símbolo/Sujeito/Identificado')
-                
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
-               
+                Tema_interpessoal = TEMA_INTERPESSOAL()
+
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual é o Símbolo(Token)?')
@@ -17077,65 +17349,65 @@ def oraçãoGerada():
                 print ('Qual o Valor(Value)?')
                 Valor = circunstância()
                 Polaridade = POLARIDADE()
-                
-                #Ex.: A feira dura o dia todo
-                
+
+                #Ex.: A feira dura o dia
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo + ' ' + Valor +'.'
-               
-        
+
+
             elif direcionalidade_voz == 'meio_receptiva':
                 print ('Neste caso, há confluência Valor/Sujeito/Identificado')
-                    
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
-               
+                Tema_interpessoal = TEMA_INTERPESSOAL()
+
                 print ('Qual o Processo?')
                 Processo = grupo_verbal() ## reiterações-verbo na passiva
                 print ('Qual o Valor(Value)?')
                 Valor = circunstância()
                 print ('Qual é o Símbolo(Token)?')
                 Símbolo = circunstância()
-               
+
                 Polaridade = POLARIDADE()
-                
-                #Ex.: O dia todo é ocupado pela feira
-                
+
+                # Ex.: O dia inteiro é ocupado pela feira
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo +'.'
-    
-   
-    
-    
+
+
+
+
     ##ORAÇÃO EXISTENCIAL
-    
-  
+
+
     elif Transitividade ==  'PR_Existencial_AG_NA' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-        
+
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
-        
+
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Existente?')
         Existente = estrutura_GN()
-        
+
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Processo + ' ' + Existente +'.'
-               
+
 #
 ##
 ###
 ######
 ####### ORAÇÕES INTERROGATIVAS POLARES
-        
-        
-        
-        
-        
+
+
+
+
+
     ##ORAÇÃO MATERIAL MODO INTERROGATIVO POLAR
-    
+
     elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
-        
+
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
@@ -17143,22 +17415,22 @@ def oraçãoGerada():
         print('Qual é a Meta?')
         Meta = estrutura_GN()
         Polaridade = POLARIDADE ()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
         else:
             Iniciador = ''
-        
+
         print ('Há resultado do processo?')
         TIPO_DE_RESULTADO = choice.Menu(['elaboração','extensão','intensificação']).ask()
-        
+
         if TIPO_DE_RESULTADO == 'elaboração':
-            
+
             print ('há Resultado_elaboração atributo ou papel?')
             RESULTADO_QUALITATIVO = choice.Menu (['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
-            if (RESULTADO_QUALITATIVO == 'resultado_atributo' or 
+            if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
                 RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
                 realização_atributo = choice.Menu(['adjetivo','frase_preposicional']).ask()
                 if realização_atributo == 'adjetivo':
@@ -17167,11 +17439,11 @@ def oraçãoGerada():
                     Atributo = frase_preposicional()
             elif RESULTADO_QUALITATIVO == '-resultado':
                 Atributo = ''
-            
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta +' '+ Atributo+'?'
-             
-    
-        
+
+
+
         elif TIPO_DE_RESULTADO == 'extensão':
             print ('Há Participante Beneficiário na oração?')
             RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
@@ -17179,15 +17451,15 @@ def oraçãoGerada():
                 Beneficiário = frase_preposicional()
             elif RECEPÇÃO == '-beneficiário':
                 Beneficiário = ''
-                
-        
-        
+
+
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador  + ' ' + Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta +'  '+ Beneficiário +'?'
-    
-    
+
+
     elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
         Tema_textual=TEMA_TEXTUAL()
-        Tema_interpessoal = TEMA_INTERPESSOAL() 
+        Tema_interpessoal = TEMA_INTERPESSOAL()
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
@@ -17195,44 +17467,44 @@ def oraçãoGerada():
         print('Qual é a Meta?')
         Meta = estrutura_GN()
         Polaridade = POLARIDADE ()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN()
         else:
             Iniciador = ''
-        
+
         print ('Há Participante Cliente na oração?') #Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
         CLIENTE = choice.Menu (['+cliente','-cliente']).ask()
-        
+
         if CLIENTE == '+cliente':
-            Cliente = frase_preposicional() 
+            Cliente = frase_preposicional()
         else:
             Cliente=''
-        
-        
+
+
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta +' '+ Cliente +'?'
-    
-        
+
+
     elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-        
+
         Tema_textual=TEMA_TEXTUAL()
         Tema_interpessoal = TEMA_INTERPESSOAL()
-        
+
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
         Ator = estrutura_GN()
         Polaridade = POLARIDADE()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN() + grupo_verbal()
         else:
             Iniciador = ''
-        
+
         print ('Há resultado do processo?')
         TIPO_DE_RESULTADO = choice.Menu(['elaboração','intensificação']).ask()
         if TIPO_DE_RESULTADO == 'elaboração':
@@ -17242,9 +17514,9 @@ def oraçãoGerada():
                  Escopo = estrutura_GN()
              elif tipo_Escopo == 'escopo(entidade)':
                  Escopo = estrutura_GN() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
-            
+
              oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo + ' ' +  Escopo+'?'
-    
+
         elif TIPO_DE_RESULTADO == 'intensificação':
             print('Qual é o Escopo?')
             tipo_Escopo = choice.Menu (['escopo(processo)','escopo(entidade)']).ask()
@@ -17258,49 +17530,49 @@ def oraçãoGerada():
                 Resultado_locativo = frase_preposicional()
             else:
                 Resultado_locativo=''
-    
-        
+
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo + ' ' +  Escopo+ ' ' + Resultado_locativo +'?'
-    
-    
+
+
     elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-        
+
         Tema_textual=TEMA_TEXTUAL()
         Tema_interpessoal = TEMA_INTERPESSOAL()
-        
-    
+
+
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
         Ator = estrutura_GN()
         Polaridade = POLARIDADE()
-    
-    
+
+
         print ('Há resultado do processo?')
         TIPO_DE_RESULTADO = choice.Menu(['elaboração','intensificação']).ask()
         if TIPO_DE_RESULTADO == 'elaboração':
              print('Orações médio_sem_alcance  selecionam -escopo')
              Escopo = ''
-             
+
         elif TIPO_DE_RESULTADO == 'intensificação':
             print('Orações médio_sem_alcance selecionam -escopo')
-            
+
             print ('Há resultado locativo?')
             realização_locativo =choice.Menu(['sim','não']).ask()
             if realização_locativo == 'sim':
                 Resultado_locativo = frase_preposicional()
             else:
                 Resultado_locativo=''
-    
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Resultado_locativo +'?'
-    
-   
+
+
     ##ORAÇÃO METEOROLÓGICA MODO INTERROGATIVO POLAR
     elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_NA' and Modo == 'sujeitabilidade_recuperação_NA_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-        
+
         Tema_textual=TEMA_TEXTUAL()
         Tema_interpessoal = TEMA_INTERPESSOAL()
-       
+
         tipo_intransitiva = choice.Menu(['impessoal(fenômeno_natural)','pessoal']).ask()
         print ('Qual o tipo de inTransitividade?')
         if tipo_intransitiva == 'impessoal(fenômeno_natural)':
@@ -17315,64 +17587,64 @@ def oraçãoGerada():
                     Escopo = estrutura_GN()
             elif escopo_intransitiva == '-escopo':
                 Escopo = ''
-                    
-                    
+
+
         print ('Qual o Processo?')
         Processo = grupo_verbal()
-               
+
         Polaridade = POLARIDADE()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN()
         else:
             Iniciador = ''
-        
-        
+
+
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador+' '+  Polaridade + ' ' + Processo + ' ' + Escopo +'?'
-    
-   
+
+
     elif Transitividade == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
         Tema_textual=TEMA_TEXTUAL()
-        Tema_interpessoal = TEMA_INTERPESSOAL()   
+        Tema_interpessoal = TEMA_INTERPESSOAL()
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
         Ator = estrutura_GN()
         Polaridade = POLARIDADE()
-           
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN() + grupo_verbal()
         else:
-            Iniciador = '' 
-        
-        
+            Iniciador = ''
+
+
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador+' '+ Ator + ' ' + Polaridade + ' ' + Processo +'?'
-    
-         
-        
+
+
+
         ##########COMEÇO DE AGENCIAMENTO PASSIVA(E CONSEQUENTEMENTE NO TEMA IDEACIONAL)
-      
+
     elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_complemento_elemental':
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
-        
+
         print ('Qual o Processo?')
         Processo = grupo_verbal() ##selecionar agenciado_passivo
         print('Qual é a Meta?')
         Meta = estrutura_GN()
         Polaridade = POLARIDADE ()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
         else:
             Iniciador = ''
-       
+
         print ('O Ator/Agente é realizado na oração?')
         realização_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
         if realização_Ator == '+ator/agente':
@@ -17380,16 +17652,16 @@ def oraçãoGerada():
             Ator = frase_preposicional()
         elif realização_Ator == '-ator/agente':
             Ator = ''
-            
-          
+
+
         print ('Há resultado do processo?')
         TIPO_DE_RESULTADO = choice.Menu(['elaboração','extensão','intensificação']).ask()
-        
+
         if TIPO_DE_RESULTADO == 'elaboração':
-            
+
             print ('há Resultado_elaboração atributo ou papel?')
             RESULTADO_QUALITATIVO = choice.Menu (['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
-            if (RESULTADO_QUALITATIVO == 'resultado_atributo' or 
+            if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
                 RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
                 realização_atributo = choice.Menu(['adjetivo','frase_preposicional']).ask()
                 if realização_atributo == 'adjetivo':
@@ -17398,9 +17670,9 @@ def oraçãoGerada():
                     Atributo = frase_preposicional()
             elif RESULTADO_QUALITATIVO == '-resultado':
                 Atributo = ''
-            
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Atributo+ ' ' + Ator +'?'
-        
+
         elif TIPO_DE_RESULTADO == 'extensão':
             print ('Há Participante Beneficiário na oração?')
             RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
@@ -17408,30 +17680,30 @@ def oraçãoGerada():
                 Beneficiário = frase_preposicional()
             elif RECEPÇÃO == '-beneficiário':
                 Beneficiário = ''
-                
-        
+
+
             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade + ' ' + Processo  +'  '+ Beneficiário + ' ' + Ator +'?'
-          
+
    ##
-        
+
     elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_complemento_elemental':
-        
+
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
-        
+
         print ('Qual o Processo?')
         Processo = grupo_verbal() ##selecionar agenciado_passivo
         print('Qual é a Meta?')
         Meta = estrutura_GN()
         Polaridade = POLARIDADE ()
-        
+
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
             Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
         else:
             Iniciador = ''
-       
+
         print ('O Ator/Agente é realizado na oração?')
         realização_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
         if realização_Ator == '+ator/agente':
@@ -17439,31 +17711,31 @@ def oraçãoGerada():
             Ator = frase_preposicional()
         elif realização_Ator == '-ator/agente':
             Ator = ''
-            
-          
+
+
         print ('Há Participante Cliente na oração?') #Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
         CLIENTE = choice.Menu (['+cliente','-cliente']).ask()
-        
+
         if CLIENTE == '+cliente':
-            Cliente = frase_preposicional() 
+            Cliente = frase_preposicional()
         elif CLIENTE == '-cliente':
             Cliente=''
-            
+
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +'?'
-    
-    
+
+
     ###RELACIONAl MODO INTERROGATIVO POLAR
-    
+
 
 ###### INTENSIVA ATRIBUTIVA (SEM ATRIBUIDOR)
     if Transitividade == 'PR_relacional_intensivo_atributivo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
        ####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso não são reversíveis)
        ## Selecionam sem_atribuição_de relação no sistema de ATRIBUIÇÃO DE RELAÇÃO
-       
-       
+
+
         Tema_textual=TEMA_TEXTUAL()
-        Tema_interpessoal = TEMA_INTERPESSOAL() 
-        
+        Tema_interpessoal = TEMA_INTERPESSOAL()
+
         print('Qual o tipo de especificação de associação?')
         tipo_especificação_associação = choice.Menu(['entidade','qualidade']).ask()
         print ('Qual a fase da atribuição?')
@@ -17471,43 +17743,43 @@ def oraçãoGerada():
                                                             ###não vou especializar os tipos de fase.
         print ('Qual o domínio da atribuição')
         domínio_atribuição = choice.Menu(['material','semiótico']).ask()
-        
-        
-        
+
+
+
         if (tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
             tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
             tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
             tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
-                                                             
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador?')
             Portador = estrutura_GN()
             print ('Qual o Atributo?')
             Atributo = estrutura_GN()
-            
+
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo +'?'
-   
+
         elif (tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
               tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
               tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
               tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
-           
-            print ('Qual o Processo?')                                                 
+
+            print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador?')
             Portador = estrutura_GN()
             print ('Qual o Atributo?')
             Atributo = adjetivo_modificador ()## O que diferencia os dois tipos é o que realiza o Atributo. Neste caso
-                                      # o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo. 
+                                      # o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo.
                                       ##Tenho que ver ainda casos metafóricos ex,:'o caso é de grande importância')
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo +'?'
-   
-    
+
+
 ###### INTENSIVA ATRIBUTIVA (COM ATRIBUIDOR)
             ##Nesse caso, a oração é Effective (Tem Agente) e pode ser operativa ou receptiva (há a possibilidade de Agente de segunda, terceira.....ordem)
         ####para desenvolver....
@@ -17517,15 +17789,15 @@ def oraçãoGerada():
         ##ir verificando no corpus se há diferença de realização para cada uma das opções a seguir e também se as ordens dos
         #elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
         ##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE REALIZAÇÃO...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-        
+
         if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
             tipo_atribuição_relação =='atribuição_proj_ment_desiderativa',
             tipo_atribuição_relação =='atribuição_proj_verbal',
             tipo_atribuição_relação =='atribuição_expan_elaboração',
             tipo_atribuição_relação =='atribuição_expan_intencificação'):
-            
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
+            Tema_interpessoal = TEMA_INTERPESSOAL()
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Atribuidor?')
@@ -17533,10 +17805,10 @@ def oraçãoGerada():
             print ('Qual o Portador?')
             Portador = estrutura_GN()
             print ('Qual o Atributo?')
-            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar) 
-            
+            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual + ' ' +  Atribuidor+ ' ' + Polaridade + ' ' + Processo  + ' ' + Portador  + ' ' + Atributo +'?'
 
     elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
@@ -17545,46 +17817,46 @@ def oraçãoGerada():
         ##ir verificando no corpus se há diferença de realização para cada uma das opções a seguir e também se as ordens dos
         #elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
         ##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE REALIZAÇÃO...COM O GRUPO NOMINAL E UMA ESTRUTURA DE ELEMENTOS NA ORAÇÃO
-        
+
         if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
             tipo_atribuição_relação =='atribuição_proj_ment_desiderativa',
             tipo_atribuição_relação =='atribuição_proj_verbal',
             tipo_atribuição_relação =='atribuição_expan_elaboração',
             tipo_atribuição_relação =='atribuição_expan_intencificação'):
-            
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
+            Tema_interpessoal = TEMA_INTERPESSOAL()
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Atribuidor?')
             Atribuidor = frase_preposicional()
-            
-            
+
+
             print ('Qual o Portador?')
             Portador = estrutura_GN()
             print ('Qual o Atributo?')
-            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar) 
-            
+            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo  + ' ' +   Atributo + ' ' +  Atribuidor +'?'
 
-    
+
     ####INTENSIVA_IDENTIFICATIVA (sem DESIGNADOR)
-    
+
     elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_decodificação':
         print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
         direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-        
+
         if direcionalidade_voz == 'meio_operativa':
             print ('Neste caso, o Símbolo/Identificado conflui com o Sujeito(geralmente o elemento em posição temática)')
-            
+
         # (confluência do Símbolo/Identificado) =
-       
-       
+
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-           
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Símbolo(Token)?')
@@ -17592,19 +17864,19 @@ def oraçãoGerada():
             print ('Qual o Valor(Value)?')
             Valor = estrutura_GN()
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo + ' ' + Valor +'?'
-    
-    
-    
-        elif direcionalidade_voz == 'meio_receptiva': 
+
+
+
+        elif direcionalidade_voz == 'meio_receptiva':
             print ('Neste caso, o Valor/Identificador conflui com o Sujeito')
             ##NESTE CASO, confluência de Valor/Sujeito
-           
-       
+
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-           
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Valor(Value)?')
@@ -17612,25 +17884,25 @@ def oraçãoGerada():
             print ('Qual é o Símbolo(Token)?')
             Símbolo = estrutura_GN()
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo+'?'
-    
-    
-    
+
+
+
     elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_codificação':
-        
+
         print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
         direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-        
+
         if direcionalidade_voz == 'meio_operativa':
             print ('Neste caso, o Símbolo/Identificado conflui com o Sujeito(geralmente o elemento em posição temática)')
-            
+
         # (confluência do Símbolo/Identificador/Sujeito) =
           #(Valor/Identificado/complemento)
-       
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-           
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Símbolo(Token)?')
@@ -17638,20 +17910,20 @@ def oraçãoGerada():
             print ('Qual o Valor(Value)?')
             Valor = estrutura_GN()
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo + ' ' + Valor +'?'
-    
-    
-    
-        elif direcionalidade_voz == 'meio_receptiva': 
+
+
+
+        elif direcionalidade_voz == 'meio_receptiva':
             print ('Neste caso, o Valor conflui com o Sujeito')
             ##NESTE CASO, confluência de Valor/Identificado/Sujeito
             ##(Símbolo/Identificador/Complemento)
-            
-       
+
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-           
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Valor(Value)?')
@@ -17659,12 +17931,12 @@ def oraçãoGerada():
             print ('Qual é o Símbolo(Token)?')
             Símbolo = estrutura_GN()
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo+'?'
-      
-    
+
+
     ####INTENSIVA_IDENTIFICATIVA (COM DESIGNADOR = AGENTE)
-    
+
 #    ###TRUE_Efetiva_operativa
     elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
         print ('Qual o tipo de atribuição de relação?')
@@ -17672,17 +17944,17 @@ def oraçãoGerada():
         ##ir verificando no corpus se há diferença de realização para cada uma das opções a seguir e também se as ordens dos
         #elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
         #POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE REALIZAÇÃO...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-        
+
         if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
             tipo_atribuição_relação =='atribuição_proj_ment_desiderativa',
             tipo_atribuição_relação =='atribuição_proj_verbal',
             tipo_atribuição_relação =='atribuição_expan_elaboração',
             tipo_atribuição_relação =='atribuição_expan_intencificação'):
-           
-            
+
+
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-     
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Designador?')
@@ -17692,27 +17964,27 @@ def oraçãoGerada():
             print ('Qual o Valor(Value)?')
             Valor = estrutura_GN() ##ou frase preposicional?
             Polaridade = POLARIDADE ()
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual + ' ' +  Designador+ ' ' + Polaridade + ' ' + Processo  + ' ' + Símbolo  + ' ' + Valor +'?'
             ###rever possíveis estruturas para este tipo de oração(pode haver 2 processos?)
-     
+
      ###TRUE_Efetiva_receptiva
-       
+
     elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_receptivo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
         print ('Qual o tipo de atribuição de relação?')
         tipo_atribuição_relação = atribuição_de_relação()
         ##ir verificando no corpus se há diferença de realização para cada uma das opções a seguir e também se as ordens dos
         #elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
         ##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE REALIZAÇÃO...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-        
+
         if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
             tipo_atribuição_relação =='atribuição_proj_ment_desiderativa',
             tipo_atribuição_relação =='atribuição_proj_verbal',
             tipo_atribuição_relação =='atribuição_expan_elaboração',
             tipo_atribuição_relação =='atribuição_expan_intencificação'):
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
-           
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Designador?')
@@ -17722,26 +17994,26 @@ def oraçãoGerada():
             print ('Qual o Valor(Value)?')
             Valor = estrutura_GN() ##ou frase preposicional?
             Polaridade = POLARIDADE ()
-    #        
+    #
             oração =  Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo  + ' ' + Polaridade + ' ' + Processo   + ' ' + Valor + ' ' +  Designador +'?'
     ####NOS DOIS TIPOS DE ORAÇÃO ANTERIORES É PRECISO VERIFICAR: possibilidade de realização de cada participante;
     #        #ordem na estrutura; etc (vou fazer isso de acordo com o que for encontrando no corpus, por enquanto estao comentadas)
-         
+
 #POSSESSIVO ATRIBUTIV0
-    
+
     if Transitividade == 'PR_relacional_possessivo_atributivo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-       
+
 
         TIPO_ATRIBUIÇÃO_POSSESSIVO = choice.Menu (['posse_atributo','posse_processo']).ask()
-        
-        if TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_atributo':       
-            
+
+        if TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_atributo':
+
             realização_atributo = choice.Menu(['grupo_nominal_possessivo', 'frase_preposicional']).ask()
-           
+
             if realização_atributo == 'grupo_nominal_possessivo':
-            
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
+                Tema_interpessoal = TEMA_INTERPESSOAL()
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Posse?')
@@ -17749,12 +18021,12 @@ def oraçãoGerada():
                 print ('Qual é o Atributo/Possuidor?')
                 Atributo_Possuidor = estrutura_GN()
                 Polaridade = POLARIDADE()
-                
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador_Posse + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Possuidor+'?'
-  
+
             elif realização_atributo == 'frase_preposicional':
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
+                Tema_interpessoal = TEMA_INTERPESSOAL()
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Posse?')
@@ -17762,21 +18034,21 @@ def oraçãoGerada():
                 print ('Qual é o Atributo/Possuidor?')
                 Atributo_Possuidor = frase_preposicional()
                 Polaridade = POLARIDADE()
-            
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador_Posse + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Possuidor +'?'
-  
-               
+
+
         elif TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_processo':
-            
+
             ##VERBO TER/POSSUIR/
-            
+
             tipo_possuidor= choice.Menu (['possuidor_portador','possuidor_atributo']).ask()
-            
+
             if tipo_possuidor == 'possuidor_portador':
-                    
-                
+
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
+                Tema_interpessoal = TEMA_INTERPESSOAL()
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Possuidor?')
@@ -17784,17 +18056,17 @@ def oraçãoGerada():
                 print ('Qual é o Atributo/Posse?')
                 Atributo_Posse = estrutura_GN()
                 Polaridade = POLARIDADE()
-            
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador_Possuidor + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Posse+'?'
-      
-            
+
+
             ###VERBOS PERTENCER A/...
-            
+
             elif tipo_possuidor == 'possuidor_atributo':
-                    
-                
+
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
+                Tema_interpessoal = TEMA_INTERPESSOAL()
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Possuidor?')
@@ -17802,35 +18074,35 @@ def oraçãoGerada():
                 print ('Qual é o Atributo/Posse?')
                 Atributo_Possuidor = frase_preposicional()
                 Polaridade = POLARIDADE()
-            
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador_Posse + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Possuidor+'?'
-      
-            
-        # POSSESSIVO IDENTIFICATIVO 
-     
-       
+
+
+        # POSSESSIVO IDENTIFICATIVO
+
+
     elif Transitividade == 'PR_relacional_possessivo_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-        
+
         TIPO_IDENTIFICATIVO_POSSESSIVO = choice.Menu (['posse_participante','posse_processo']).ask()
-        
+
         if TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_participante':
-            
+
             print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
             direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-        
+
             if direcionalidade_voz == 'meio_operativa':
                 print ('Neste caso, o Símbolo conflui com o Sujeito/Possuído/Identificado')
-                
+
                 print (
                         'Escolha o tipo de realização do Valor:')
                 realização_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-           
+
                 if realização_Valor == 'grupo_nominal':
-                
-                
+
+
                     Tema_textual=TEMA_TEXTUAL()
-                    Tema_interpessoal = TEMA_INTERPESSOAL() 
-                   
+                    Tema_interpessoal = TEMA_INTERPESSOAL()
+
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)/Possuído?')
@@ -17838,16 +18110,16 @@ def oraçãoGerada():
                     print ('Qual o Valor(Value)/Possuidor?')
                     Valor_Possuidor = estrutura_GN()
                     Polaridade = POLARIDADE ()
-                    
+
                     #Ex.: O piano é seu
                     oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo_Possuído + ' ' + Polaridade + ' ' + Processo + ' ' + Valor_Possuidor +'?'
-               
+
                 elif realização_Valor == 'frase_preposicional':
-                
-                
+
+
                     Tema_textual=TEMA_TEXTUAL()
-                    Tema_interpessoal = TEMA_INTERPESSOAL() 
-                   
+                    Tema_interpessoal = TEMA_INTERPESSOAL()
+
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)?')
@@ -17855,22 +18127,22 @@ def oraçãoGerada():
                     print ('Qual o Valor(Value)?')
                     Valor_Possuidor = frase_preposicional()
                     Polaridade = POLARIDADE ()
-                    
+
                     #Ex.: O piano é do André
                     oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo_Possuído + ' ' + Polaridade + ' ' + Processo + ' ' + Valor_Possuidor +'?'
-           
-            
+
+
             elif direcionalidade_voz == 'meio_receptiva':
                 print ('Neste caso, o Valor conflui com Sujeito/Identificado/Possuidor')
-                
+
                 realização_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-           
+
                 if realização_Valor == 'grupo_nominal':
-                
-                
+
+
                     Tema_textual=TEMA_TEXTUAL()
-                    Tema_interpessoal = TEMA_INTERPESSOAL() 
-                   
+                    Tema_interpessoal = TEMA_INTERPESSOAL()
+
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)/Possuído?')
@@ -17878,16 +18150,16 @@ def oraçãoGerada():
                     print ('Qual o Valor(Value)/Possuidor?')
                     Valor_Possuidor = estrutura_GN()
                     Polaridade = POLARIDADE ()
-                    
+
                     #Ex.: O seu é o piano
                     oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor_Possuidor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo_Possuído +'?'
-               
+
                 elif realização_Valor == 'frase_preposicional':
-                
-                
+
+
                     Tema_textual=TEMA_TEXTUAL()
-                    Tema_interpessoal = TEMA_INTERPESSOAL() 
-                   
+                    Tema_interpessoal = TEMA_INTERPESSOAL()
+
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)?')
@@ -17895,23 +18167,23 @@ def oraçãoGerada():
                     print ('Qual o Valor(Value)?')
                     Valor_Possuidor = estrutura_GN()
                     Polaridade = POLARIDADE ()
-                    
+
                     #Ex.: O do André é o piano
-                    oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor_Possuidor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo_Possuído +'?'        
-        
+                    oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor_Possuidor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo_Possuído +'?'
+
         elif TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_processo':
          ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste de, providenciar
          ##NÃO SEI SE ESTA PARTE DO SISTEMA FUNCIONA BEM NO PORTUGUÊS
-        
+
             print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
             direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-        
+
             if direcionalidade_voz == 'meio_operativa':
                 print ('Neste caso, o Símbolo conflui com o Sujeito/Possuidor/Identificado')
-                
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
-               
+                Tema_interpessoal = TEMA_INTERPESSOAL()
+
                 print ('Qual o Processo? ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste, providenciar')
                 Processo = grupo_verbal()
                 print ('Qual é o Símbolo(Token)/Possuidor?')
@@ -17919,24 +18191,24 @@ def oraçãoGerada():
                 print ('Qual o Valor(Value)/Possuído?')
                 Valor_Possuído = estrutura_GN()
                 Polaridade = POLARIDADE ()
-                
+
                 #Ex.: O produto contém plástico, Eles merecem a aposentadoria
-                
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo_Possuidor + ' ' + Polaridade + ' ' + Processo + ' ' + Valor_Possuído +'?'
-           
-                
-            
+
+
+
             elif direcionalidade_voz == 'meio_receptiva':
                 print ('Neste caso, o Valor conflui com Sujeito/Identificado/Possuído')
-                
+
                 realização_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-           
+
                 if realização_Valor == 'grupo_nominal':
-                
-                
+
+
                     Tema_textual=TEMA_TEXTUAL()
-                    Tema_interpessoal = TEMA_INTERPESSOAL() 
-                   
+                    Tema_interpessoal = TEMA_INTERPESSOAL()
+
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()##na passiva
                     print ('Qual o Valor(Value)/Possuído?')
@@ -17944,20 +18216,20 @@ def oraçãoGerada():
                     print ('Qual é o Símbolo(Token)/Possuidor?')
                     Símbolo_Possuidor = frase_preposicional()
                     Polaridade = POLARIDADE ()
-                    
+
                     #Ex.: O seu é o piano
                     oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor_Possuído + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo_Possuidor +'?'
 
 
 #####RELACIONAL CIRCUNSTANCIAL MODO INTERROGATIVO POLAR
-                    
+
     elif Transitividade == 'PR_relacional_circunstancial_atributivo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
         print ('Qual o tipo de realização da Relacional Circunstancial?')
         TIPO_ATRIBUTIVO_CIRCUNSTANCIAL = choice.Menu (['atributo_circunstancial','processo_circunstancial']).ask()
-        
+
         if TIPO_ATRIBUTIVO_CIRCUNSTANCIAL == 'atributo_circunstancial':
             Tema_textual=TEMA_TEXTUAL()
-            Tema_interpessoal = TEMA_INTERPESSOAL() 
+            Tema_interpessoal = TEMA_INTERPESSOAL()
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador')
@@ -17965,11 +18237,11 @@ def oraçãoGerada():
             print ('Qual é o Atributo Circunstancial?')
             Atributo_Circunstancial = circunstância()
             Polaridade = POLARIDADE()
-            
+
             #Ex.: O livro é sobre a IIGuerra
-            
+
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Circunstancial +'?'
-        
+
         elif TIPO_ATRIBUTIVO_CIRCUNSTANCIAL =='processo_circunstancial':
             Tema_textual=TEMA_TEXTUAL()
             Tema_interpessoal = TEMA_INTERPESSOAL()
@@ -17980,30 +18252,30 @@ def oraçãoGerada():
             print ('Qual é o Atributo Circunstancial?')
             Atributo = estrutura_GN()
             Polaridade = POLARIDADE()
-            
+
             #Ex.: O livro retrata a IIGuerra
             oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo +'?'
-        
-        
-        
-        
+
+
+
+
     elif Transitividade == 'PR_relacional_circunstancial_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-        
+
         print ('O significado circunstancial é realixado no participante ou no processo?')
         TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL = choice.Menu (['participante_circunstancial','processo_circunstancial']).ask()
-        
+
         if TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'participante_circunstancial':
-            
-        
+
+
             print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
             direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-            
+
             if direcionalidade_voz == 'meio_operativa':
                 print ('Neste caso, há confluência Símbolo/Sujeito/Identificado')
-                
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
-               
+                Tema_interpessoal = TEMA_INTERPESSOAL()
+
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual é o Símbolo(Token)?')
@@ -18011,18 +18283,18 @@ def oraçãoGerada():
                 print ('Qual o Valor(Value)?')
                 Valor = estrutura_GN()
                 Polaridade = POLARIDADE ()
-                
+
                 #Ex.: Amanhá é dia 10
-                
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo + ' ' + Valor +'?'
-               
-                
+
+
             elif direcionalidade_voz == 'meio_receptiva':
                 print ('Neste caso, há confluência Valor/Sujeito/Identificado')
-                
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
-               
+                Tema_interpessoal = TEMA_INTERPESSOAL()
+
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual é o Símbolo(Token)?')
@@ -18030,23 +18302,23 @@ def oraçãoGerada():
                 print ('Qual o Valor(Value)?')
                 Valor = estrutura_GN()
                 Polaridade = POLARIDADE ()
-                
+
                 #Ex.:dia 10 é Amanhá
-                
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo +'?'
-               
-    
+
+
         elif TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'processo_circunstancial':
-         
+
             print ('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
             direcionalidade_voz = choice.Menu(['meio_operativa','meio_receptiva']).ask()
-            
+
             if direcionalidade_voz == 'meio_operativa':
                 print ('Neste caso, há confluência Símbolo/Sujeito/Identificado')
-                
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
-               
+                Tema_interpessoal = TEMA_INTERPESSOAL()
+
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual é o Símbolo(Token)?')
@@ -18054,54 +18326,55 @@ def oraçãoGerada():
                 print ('Qual o Valor(Value)?')
                 Valor = circunstância()
                 Polaridade = POLARIDADE()
-                
-                #Ex.: A feira dura o dia todo
-                
+
+                #Ex.: A feira dura o dia inteiro
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo + ' ' + Valor +'?'
-               
-        
+
+
             elif direcionalidade_voz == 'meio_receptiva':
                 print ('Neste caso, há confluência Valor/Sujeito/Identificado')
-                    
+
                 Tema_textual=TEMA_TEXTUAL()
-                Tema_interpessoal = TEMA_INTERPESSOAL() 
-               
+                Tema_interpessoal = TEMA_INTERPESSOAL()
+
                 print ('Qual o Processo?')
                 Processo = grupo_verbal() ## reiterações-verbo na passiva
                 print ('Qual o Valor(Value)?')
                 Valor = circunstância()
                 print ('Qual é o Símbolo(Token)?')
                 Símbolo = circunstância()
-               
+
                 Polaridade = POLARIDADE()
-                
+
                 #Ex.: O dia todo é ocupado pela feira
-                
+
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Valor + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo +'?'
-    
-   
-    
-    
+
+
+
+
     ##ORAÇÃO EXISTENCIAL MODO INTERROGATIVO POLAR
-    
-  
+
+
     elif Transitividade ==  'PR_Existencial_AG_NA' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-        
+
         Tema_interpessoal = TEMA_INTERPESSOAL()
         Tema_textual=TEMA_TEXTUAL()
-        
+
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Existente?')
         Existente = estrutura_GN()
-        
+
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Processo + ' ' + Existente +'?'
-    
-    
-    
-    
-    return oração.capitalize() 
-
-   
 
 
+    return oração.capitalize()
+
+
+
+
+##A FAZERES
+
+# Ainda não fiz a interrogativa polar da oração mental

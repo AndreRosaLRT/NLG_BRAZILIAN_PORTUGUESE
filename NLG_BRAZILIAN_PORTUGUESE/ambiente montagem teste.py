@@ -358,7 +358,7 @@ def oraçãoMental():
                     Polaridade = POLARIDADE()
 
                     oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + '.'
-
+                    #Ex.: Tenho pensado; Eu pensei a noite toda;
             elif TIPO_DE_PROCESSO == 'inferior' and TIPO_NÃO_FENOMENALIZAÇÃO == 'comportamento-passivo':
                 print('Qual tipo de Processo inferior?')
                 TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
@@ -371,6 +371,8 @@ def oraçãoMental():
                     Polaridade = POLARIDADE()
 
                     oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + '.'
+                    #'Eu ouvi perfeitamente' - verificar se esse caso se configura como um sem alcance
+                    #pois apesar de não esta instanciado, há o potencial de fenômeno
 
     elif Transitividade == 'PR_Mental_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
         print('Selecione o tipo de processo mental:')
@@ -396,7 +398,7 @@ def oraçãoMental():
                     Polaridade = POLARIDADE()
 
                     oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Assunto + '.'
-
+                    #Ex.: Eu sei de futebol.
             elif TIPO_DE_PROCESSO == 'inferior' and TIPO_NÃO_FENOMENALIZAÇÃO == 'assunto':
                 print('Qual tipo de Processo inferior?')
                 TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
@@ -411,6 +413,7 @@ def oraçãoMental():
                     Polaridade = POLARIDADE()
 
                     oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Assunto + '.'
+
         elif FENOMENALIZAÇÃO == 'fenomenalização':
             print('Médio com alcance = mental emanente.')
             print('Qual tipo de fenomenalização?')
@@ -429,6 +432,41 @@ def oraçãoMental():
                     Polaridade = POLARIDADE()
 
                     oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Fenômeno + '.'
+            elif TIPO_DE_PROCESSO == 'superior' and TIPO_FENOMENALIZAÇÃO == 'hiperfenômeno':
+                print('Qual tipo de Processo superior?')
+                TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
+                if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
+                    print('Qual tipo de hiperfenômeno?')
+                    print('Projeção = hiperfenômeno: criativo')
+                    TIPO_HIPERFENÔMENO = choice.Menu(['criativo']).ask()
+
+                    if TIPO_HIPERFENÔMENO == 'criativo':
+                        TIPO_criativo = choice.Menu(['pensamento', 'desejo']).ask()
+                        if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
+                            TIPO_DE_COGNITIVO = choice.Menu(['pensar', 'saber', 'sonhar']).ask()
+                            if TIPO_DE_COGNITIVO == 'pensar' or TIPO_DE_COGNITIVO == 'saber' or TIPO_DE_COGNITIVO == 'sonhar':
+                                print('Selecione o verbo lexical correspondente ao Tipo de cognitivo:')
+                                print('Qual o Processo?')
+                                Processo = grupo_verbal()
+                                print('Qual o Experienciador (Ente:Humanizado)?')
+                                Experienciador = estrutura_GN()
+                                print('Qual o hiperfenômeno projetado? Selecione orientado-finito')
+                                Pensamento = oraçãoProjetada()
+                                Polaridade = POLARIDADE()
+                                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Pensamento
+                        elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
+                            TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar']).ask()
+                            if TIPO_DE_DESIDERATIVO == 'querer' or TIPO_DE_DESIDERATIVO == 'esperar':
+                                print('Selecione o verbo lexical correspondente ao Tipo de desiderativo:')
+                                print('Qual o Processo?')
+                                Processo = grupo_verbal()
+                                print('Qual o Experienciador (Ente:Humanizado)?')
+                                Experienciador = estrutura_GN()
+                                print('Qual o hiperfenômeno projetado?')
+                                print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
+                                Desejo = oraçãoProjetada()
+                                Polaridade = POLARIDADE()
+                                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Desejo
 
             elif TIPO_DE_PROCESSO == 'inferior' and TIPO_FENOMENALIZAÇÃO == 'fenômeno_simples':
                 print('Qual tipo de Processo inferior?')
@@ -439,98 +477,80 @@ def oraçãoMental():
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Animalizado)?')
                     Experienciador = estrutura_GN()
-                    print('Qual o Assunto?')
+                    print('Qual o Fenômeno?')
                     Fenômeno = estrutura_GN()
                     Polaridade = POLARIDADE()
 
                     oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Fenômeno + '.'
-            elif TIPO_DE_PROCESSO == 'superior' and TIPO_FENOMENALIZAÇÃO == 'hiperfenômeno':
-                print('Qual tipo de Processo superior?')
-                TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
-                if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
-                    print('Qual tipo de hiperfenômeno?')
-                    TIPO_HIPERFENÔMENO = choice.Menu(['criativo', 'reativo']).ask()
 
-                    if TIPO_HIPERFENÔMENO == 'criativo':
-                        TIPO_criativo = choice.Menu(['pensamento', 'desejo']).ask()
-                        if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
-                            TIPO_DE_COGNITIVO = choice.Menu(['pensar', 'saber', 'sonhar']).ask()
-                            if TIPO_DE_COGNITIVO == 'pensar' or TIPO_DE_COGNITIVO == 'saber' or TIPO_DE_COGNITIVO == 'sonhar':
-                                print ('Selecione o verbo lexical correspondente ao Tipo de cognitivo:')
-                                print('Qual o Processo?')
-                                Processo = grupo_verbal()
-                                print('Qual o Experienciador (Ente:Humanizado)?')
-                                Experienciador = estrutura_GN()
-                                print('Qual o hiperfenômeno projetado? Selecione orientado-finito')
-                                Pensamento = oraçãoProjetada()
-                                Polaridade = POLARIDADE()
-                                oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Experienciador  + ' ' + Polaridade + ' ' + Processo   + ' ' + 'que'  + ' ' +  Pensamento
-                        elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
-                            TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar']).ask()
-                            if TIPO_DE_DESIDERATIVO == 'querer' or TIPO_DE_DESIDERATIVO == 'esperar':
-                                print('Selecione o verbo lexical correspondente ao Tipo de desiderativo:')
-                                print('Qual o Processo?')
-                                Processo = grupo_verbal()
-                                print('Qual o Experienciador (Ente:Humanizado)?')
-                                Experienciador = estrutura_GN()
-                                print('Qual o hiperfenômeno projetado?')
-                                print ('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
-                                Desejo = oraçãoProjetada()
-                                Polaridade = POLARIDADE()
-                                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Desejo
+            elif TIPO_DE_PROCESSO == 'inferior' and TIPO_FENOMENALIZAÇÃO == 'hiperfenômeno':
+                print('Qual tipo de Processo inferior?')
+                TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+                print('Qual tipo de hiperfenômeno?')
+                TIPO_HIPERFENÔMENO = choice.Menu([ 'reativo']).ask()
+                if TIPO_INFERIOR == 'emotivo' and TIPO_HIPERFENÔMENO == 'reativo':
+                    print('Qual o tipo de reativo?')
+                    TIPO_reativo = choice.Menu(['metafenômeno']).ask()
+                    if TIPO_reativo == 'metafenômeno':
+                        TIPO_DE_EMOTIVO = choice.Menu(['gostar', 'agradar']).ask()
+                        print('Selecione o verbo lexical correspondente ao Tipo de emotivo:')
+                        print('Qual o Processo?')
+                        Processo = grupo_verbal()
+                        print('Qual o Experienciador (Ente:Humanizado)?')
+                        Experienciador = estrutura_GN()
+                        print('Qual o metafenômeno? Metafenômenos têm natureza abstrata')
+                        realização_metafenômeno = choice.Menu(['oração_mudada_ordem', 'oração_que',
+                             'GN+oração_qualificadora']).ask()
+                        if realização_metafenômeno == 'oração_mudada_ordem':
+                            print('Selecione as orientações desejadas:')
+                            Metafenômeno = oraçãoProjetada()
 
+                        elif realização_metafenômeno == 'oração_que':
+                            print('Selecione orientações desejadas')
+                            Metafenômeno = 'que' + ' ' + oraçãoProjetada()
+                        else:
+                            print('Selecione o GN com oração qualificadora:')
+                            Metafenômeno = estrutura_GN()
 
-            #PAREI AQUI
+                        Polaridade = POLARIDADE()
+                        oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo +  ' ' + Metafenômeno+'.'
 
-            # elif TIPO_DE_PROCESSO == 'inferior' and TIPO_FENOMENALIZAÇÃO == 'hiperfenômeno':
-            #     print('Qual tipo de Processo inferior?')
-            #     TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
-            #     print('Qual tipo de hiperfenômeno?')
-            #     TIPO_HIPERFENÔMENO = choice.Menu(['criativo', 'reativo']).ask()
-            #     if TIPO_HIPERFENÔMENO == 'reativo':
-            #         print('Qual o tipo de reativo?')
-            #         TIPO_reativo = choice.Menu(['metafenômeno', 'macrofenômeno']).ask()
-            #         if TIPO_INFERIOR == 'emotivo' and TIPO_reativo == 'metafenômeno':
-            #             TIPO_DE_EMOTIVO = choice.Menu(['gostar', 'agradar']).ask()
-            #             print('Selecione o verbo lexical correspondente ao Tipo de emotivo:')
-            #             print('Qual o Processo?')
-            #             Processo = grupo_verbal()
-            #             print('Qual o Experienciador (Ente:Humanizado)?')
-            #             Experienciador = estrutura_GN()
-            #             print('Qual o hiperfenômeno projetado?')
-            #             print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
-            #             Desejo = oraçãoProjetada()
-            #             Polaridade = POLARIDADE()
-            #             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Desejo
-            #
-            #
-            #
-            #         elif TIPO_INFERIOR == 'perceptivo' and TIPO_reativo == 'macrofenômeno':
-            #             print('Qual o Processo?')
-            #             Processo = grupo_verbal()
-            #             print('Qual o Experienciador (Ente:Humanizado)?')
-            #             Experienciador = estrutura_GN()
-            #             print('Qual o hiperfenômeno projetado?')
-            #             print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
-            #             Desejo = oraçãoProjetada()
-            #             Polaridade = POLARIDADE()
-            #             oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Desejo
+                elif TIPO_INFERIOR == 'perceptivo' and TIPO_HIPERFENÔMENO == 'reativo':
+                    print('Qual o tipo de reativo?')
+                    TIPO_reativo = choice.Menu(['macrofenômeno']).ask()
+                    if TIPO_reativo == 'macrofenômeno':
+                        print('Qual o Processo?')
+                        Processo = grupo_verbal()
+                        print('Qual o Experienciador (Ente:Humanizado)?')
+                        Experienciador = estrutura_GN()
+                        print('Qual o macrofenômeno? Macrofenômenos têm natureza concreta')
+                        realização_macrofenômeno = choice.Menu(['não_finito_concretizado','não-orientado_gerúndio','oração_que',
+                                                                'GN+oração_qualificadora']).ask()
+                        if realização_macrofenômeno == 'não_finito_concretizado':
+                            print('Selecione grupo verbal não-finito_concretizado')
+                            Macrofenômeno = oraçãoProjetada()
 
-    return oração.capitalize()
+                        elif realização_macrofenômeno == 'não-orientado_gerúndio':
+                            print('Selecione grupo verbal não-orientado_gerúndio')
+                            Macrofenômeno = oraçãoProjetada()
+                        elif realização_macrofenômeno =='oração_que':
+                            print('Selecione orientações desejadas')
+                            Macrofenômeno = 'que' + ' '+oraçãoProjetada()
+                        else:
+                            print('Selecione o GN com oração qualificadora:')
+                            Macrofenômeno = estrutura_GN()
 
-
-
-
-
-
+                        Polaridade = POLARIDADE()
+                        oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' \
+                                 + Processo + ' ' + Macrofenômeno
 
     elif Transitividade == 'PR_Mental_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+        print('Efetivo operativo = mental impingente.')
         print('Selecione o tipo de processo mental:')
         TIPO_DE_PROCESSO = choice.Menu(['superior', 'inferior']).ask()
         print('Qual a FENOMENALIZAÇÃO?')
-        FENOMENALIZAÇÃO = choice.Menu(['fenomenalização']).ask()
+        FENOMENALIZAÇÃO = choice.Menu(['não-fenomenalização', 'fenomenalização']).ask()
         if FENOMENALIZAÇÃO == 'fenomenalização':
-            print('Efetivo operativo = mental impingente.')
             print('Qual tipo de fenomenalização?')
             TIPO_FENOMENALIZAÇÃO = choice.Menu(['hiperfenômeno', 'fenômeno_simples']).ask()
             if TIPO_DE_PROCESSO == 'superior' and TIPO_FENOMENALIZAÇÃO == 'fenômeno_simples':
@@ -542,27 +562,138 @@ def oraçãoMental():
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Humanizado)?')
                     Experienciador = estrutura_GN()
-                    print('Qual o Fenômeno?')
-                    Fenômeno = estrutura_GN()
+                    print('Qual o Fenômeno Agente?')
+                    FenômenoAgente = estrutura_GN()
                     Polaridade = POLARIDADE()
 
-                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Fenômeno + '.'
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + FenômenoAgente + ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + '.'
+            elif TIPO_DE_PROCESSO == 'superior' and TIPO_FENOMENALIZAÇÃO == 'hiperfenômeno':
+                print('Qual tipo de Processo superior?')
+                TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
+                if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
+                    print('Qual tipo de hiperfenômeno?')
+                    print('Projeção = hiperfenômeno: criativo')
+                    TIPO_HIPERFENÔMENO = choice.Menu(['criativo']).ask()
+
+                    if TIPO_HIPERFENÔMENO == 'criativo':
+                        TIPO_criativo = choice.Menu(['pensamento', 'desejo']).ask()
+                        if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
+                            TIPO_DE_COGNITIVO = choice.Menu(['pensar', 'saber', 'sonhar']).ask()
+                            if TIPO_DE_COGNITIVO == 'pensar' or TIPO_DE_COGNITIVO == 'saber' or TIPO_DE_COGNITIVO == 'sonhar':
+                                print('Selecione o verbo lexical correspondente ao Tipo de cognitivo:')
+                                print('Qual o Processo?')
+                                Processo = grupo_verbal()
+                                print('Qual o Experienciador (Ente:Humanizado)?')
+                                Experienciador = estrutura_GN()
+                                print('Qual o Pensamento Agente? Selecione orientado-finito')
+                                PensamentoAgente = oraçãoProjetada()
+                                Polaridade = POLARIDADE()
+                                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +' ' + 'que' + ' ' + PensamentoAgente  + ' ' + Polaridade + ' ' + Processo + ' '+ Experienciador +'.'
+                                #Ex.:PROBABILIDADE BAIXA DE OCORRÊNCIA: Que você não viria ocorreu me
+
+                        elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
+                            TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar']).ask()
+                            if TIPO_DE_DESIDERATIVO == 'querer' or TIPO_DE_DESIDERATIVO == 'esperar':
+                                print('Selecione o verbo lexical correspondente ao Tipo de desiderativo:')
+                                print('Qual o Processo?')
+                                Processo = grupo_verbal()
+                                print('Qual o Experienciador (Ente:Humanizado)?')
+                                Experienciador = estrutura_GN()
+                                print('Qual o Desejo Agente?')
+                                print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
+                                DesejoAgente = oraçãoProjetada()
+                                Polaridade = POLARIDADE()
+                                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + ' ' + 'que' + ' ' + DesejoAgente + ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + '.'
+                                # Ex.:PROBABILIDADE BAIXA DE OCORRÊNCIA: Que você não viria ocorreu me
+
+            elif TIPO_DE_PROCESSO == 'inferior' and TIPO_FENOMENALIZAÇÃO == 'fenômeno_simples':
+                print('Qual tipo de Processo inferior?')
+                TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+                if TIPO_INFERIOR == 'emotivo' or TIPO_INFERIOR == 'perceptivo':
+                    print('Selecione verbo lematizado cognitivo ou desiderativo:')
+                    print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Animalizado)?')
+                    Experienciador = estrutura_GN()
+                    print('Qual o Fenômeno/Agente?')
+                    FenômenoAgente = estrutura_GN()
+                    Polaridade = POLARIDADE()
+
+                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + FenômenoAgente + ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + '.'
+                    #Ex.: Seus modos entristecem me
+
+            elif TIPO_DE_PROCESSO == 'inferior' and TIPO_FENOMENALIZAÇÃO == 'hiperfenômeno':
+                print('Qual tipo de Processo inferior?')
+                TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+                print('Qual tipo de hiperfenômeno?')
+                TIPO_HIPERFENÔMENO = choice.Menu(['reativo']).ask()
+                if TIPO_INFERIOR == 'emotivo' and TIPO_HIPERFENÔMENO == 'reativo':
+                    print('Qual o tipo de reativo?')
+                    TIPO_reativo = choice.Menu(['metafenômeno']).ask()
+                    if TIPO_reativo == 'metafenômeno':
+                        TIPO_DE_EMOTIVO = choice.Menu(['gostar', 'agradar']).ask()
+                        print('Selecione o verbo lexical correspondente ao Tipo de emotivo:')
+                        print('Qual o Processo?')
+                        Processo = grupo_verbal()
+                        print('Qual o Experienciador (Ente:Humanizado)?')
+                        Experienciador = estrutura_GN()
+                        print('Qual o metafenômeno? Metafenômenos têm natureza abstrata')
+                        realização_metafenômeno = choice.Menu(['oração_mudada_ordem', 'oração_que',
+                                                               'GN+oração_qualificadora']).ask()
+                        if realização_metafenômeno == 'oração_mudada_ordem':
+                            print('Selecione as orientações desejadas:')
+                            MetafenômenoAgente = oraçãoProjetada()
+
+                        elif realização_metafenômeno == 'oração_que':
+                            print('Selecione orientações desejadas')
+                            MetafenômenoAgente = 'que' + ' ' + oraçãoProjetada()
+                        else:
+                            print('Selecione o GN com oração qualificadora:')
+                            MetafenômenoAgente = estrutura_GN()
+
+                        Polaridade = POLARIDADE()
+                        oração = Tema_interpessoal + ' ' + Tema_textual + ' ' \
+                                 + MetafenômenoAgente + ' ' + Polaridade + ' ' \
+                                 + Processo + ' ' + Experienciador + '.'
+
+                elif TIPO_INFERIOR == 'perceptivo' and TIPO_HIPERFENÔMENO == 'reativo':
+                    print('Qual o tipo de reativo?')
+                    TIPO_reativo = choice.Menu(['macrofenômeno']).ask()
+                    if TIPO_reativo == 'macrofenômeno':
+                        print('Qual o Processo?')
+                    Processo = grupo_verbal()
+                    print('Qual o Experienciador (Ente:Humanizado)?')
+                    Experienciador = estrutura_GN()
+                    print('Qual o macrofenômeno? Macrofenômenos têm natureza concreta')
+                    realização_macrofenômeno = choice.Menu(
+                        ['não_finito_concretizado', 'não-orientado_gerúndio', 'oração_que',
+                         'GN+oração_qualificadora']).ask()
+                    if realização_macrofenômeno == 'não_finito_concretizado':
+                        print('Selecione grupo verbal não-finito_concretizado')
+                        MacrofenômenoAgente = oraçãoProjetada()
+
+                    elif realização_macrofenômeno == 'não-orientado_gerúndio':
+                        print('Selecione grupo verbal não-orientado_gerúndio')
+                        MacrofenômenoAgente = oraçãoProjetada()
+                    elif realização_macrofenômeno == 'oração_que':
+                        print('Selecione orientações desejadas')
+                        MacrofenômenoAgente = 'que' + ' ' + oraçãoProjetada()
+                    else:
+                        print('Selecione o GN com oração qualificadora:')
+                        Macrofenômeno = estrutura_GN()
+
+                    Polaridade = POLARIDADE()
+                    oração = Tema_interpessoal + ' ' + Tema_textual \
+                             + ' ' + MacrofenômenoAgente + ' ' + Polaridade + ' ' \
+                             + Processo + ' ' + Experienciador + '.'
+
+
+    return oração.capitalize()
 
 
 
 
-    if TIPO_fenomenalização == 'hiperfenômeno':
-				TIPO_hiperfenômeno = choice.Menu(['criativo','reativo']).ask()
-                if TIPO_hiperfenômeno == 'criativo':
-                    TIPO_criativo = choice.Menu(['pensamento','desejo']).ask()
-                elif TIPO_hiperfenômeno == 'reativo':
-                    TIPO_reativo = choice.Menu(['metafenômeno','macrofenômeno']).ask()
-
-                #ver qual a realização
-
-
-
-		elif FENOMENALIZAÇÃO == 'não-fenomenalização':
+                elif FENOMENALIZAÇÃO == 'não-fenomenalização':
 			print ('Em caso de orações mentais médio com alcance e Não-fenomenalização seleciona-se a opção: assunto']).ask()
 	        Assunto = frase_preposicional()
 			
@@ -575,43 +706,7 @@ def oraçãoMental():
 		
 
 
-		
-#		operativas
-        TIPO_DE_PROCESSO = choice.Menu(['superior','inferior']).ask()
-        if TIPO_DE_PROCESSO == 'superior':
-            TIPO_SUPERIOR = choice.Menu(['cognitivo','desiderativo',]).ask()
-        else:
-            TIPO_INFERIOR = choice.Menu(['emotivo','perceptivo']).ask()
-            
-        FENOMENALIZAÇÃO = choice.Menu(['fenomenalização', 'não-fenomenalização']).ask()
-        if FENOMENALIZAÇÃO == 'fenomenalização':
-            TIPO_fenomenalização = choice.Menu(['hiperfenômeno','fenômeno_simples']).ask()
-            if TIPO_fenomenalização == 'hiperfenômeno':
-                TIPO_hiperfenômeno = choice.Menu(['criativo','reativo']).ask()
-                if TIPO_hiperfenômeno == 'criativo':
-                    TIPO_criativo = choice.Menu(['pensamento','desejo']).ask()
-                elif TIPO_hiperfenômeno == 'reativo':
-                    TIPO_reativo = choice.Menu(['metafenômeno','macrofenômeno']).ask()
-            elif TIPO_fenomenalização == 'fenômeno_simples':
-                #ver qual a realização
-		elif FENOMENALIZAÇÃO == 'não-fenomenalização':
-			NÃO_FENOMENALIZAÇÃO = choice.Menu (['comportamento_passivo', 'assunto']).ask()
-        
-		
-		
-		if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
-			TIPO_DE_COGNITIVO = choice.Menu (['pensar','saber','sonhar']).ask()
-		
-	    elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
-			TIPO_DE_DESIDERATIVO = choice.Menu(['querer','esperar']).ask()
-			
-		elif TIPO_INFERIOR == 'emotivo' and TIPO_reativo == 'metafenômeno':
-			TIPO_DE_EMOTIVO = choice.Menu(['gostar','agradar']).ask()
 
-
-def oraçãoProjetada():
-    oração = oraçãoGerada ()
-    return oração
 
 #
 #
