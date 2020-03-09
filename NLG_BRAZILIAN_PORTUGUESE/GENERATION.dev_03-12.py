@@ -15410,7 +15410,7 @@ def oraçãoGerada(Transitividade, Modo, Tema_id, RECEPTIVIDADE, ORDEM_DO_DIZENT
                  oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Dizente  + ' ' + Polaridade + ' ' + Processo + '.'
                      #Ex.: Eu conversei até anoitecer; Eu falei muito ontem; Nós discutimos...
           
-    return oração    
+
             
             elif TIPO_ATIVIDADE == 'fala' and RECEPTIVIDADE == '+receptor':
                 print ('Qual o Processo?')

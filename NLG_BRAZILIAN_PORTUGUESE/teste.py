@@ -1,3 +1,47 @@
+def oraçãoGeradaTeste():
+    '''(str,str,str)->str
+    Retorna a formação estrutural na lexicogramática (oração) de uma figura específica
+    da semântica
+
+    >>>
+    'eu bebi água'
+    '''
+
+    Transitividade = TRANSITIVIDADE()
+    Modo = MODO()
+    Tema_id = TEMA_IDEACIONAL()
+
+    ####INTENSIVA_IDENTIFICATIVA (sem DESIGNADOR)
+
+    if Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_decodificação':
+        print ('teste1')
+        print('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito deste tipo de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+        direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+
+        if direcionalidade_voz == 'meio_operativa':
+            print('Neste caso, o Símbolo/Identificado conflui '
+                  'com o Sujeito(geralmente o elemento em posição temática')
+
+            # (confluência do Símbolo/Identificado) =
+
+            Tema_textual = TEMA_TEXTUAL()
+            Tema_interpessoal = TEMA_INTERPESSOAL()
+
+            print('Qual o Processo?')
+            Processo = grupo_verbal()
+            print('Qual é o Símbolo(Token)?')
+            Símbolo = estrutura_GN()
+            print('Qual o Valor(Value)?')
+            Valor = estrutura_GN()
+            Polaridade = POLARIDADE()
+
+            oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo + ' ' + Valor + '?'
+
+    return oração
+
+
+
+
 a = json.load (open('json_test.json'))
 Transitividade = a["dados_oracao"]["Transitividade"]
 Modo = a["dados_oracao"]["Modo"]
@@ -7,149 +51,6 @@ Tema_textual=a["dados_oracao"]["Tema_textual"]
 RECEPTIVIDADE =a["dados_oracao"]["RECEPTIVIDADE"]
 ORDEM_DO_DIZENTE=a["ORDEM_DO_DIZENTE"]
 TIPO_ATIVIDADE =  a["dados_oracao"]["TIPO_ATIVIDADE"]
-
-
-def oraçãoVerbal():
-    '''(str,str,str)->str
-    Retorna a formação estrutural na lexicogramática (oração) de uma figura específica
-    da semântica
-
-    >>> oraçãoGerada()
-    'eu bebi água'
-    '''
-
-    Transitividade = 'PR_Verbal_AG_médio_sem_alcance'
-    Modo = 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito'
-    Tema_id = 'TID_default_indicativo_declarativo_TIdentif_NA'
-    ##ORAÇÃO verbal
-
-    if Transitividade == 'PR_Verbal_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-        Tema_interpessoal = TEMA_INTERPESSOAL()
-        Tema_textual = TEMA_TEXTUAL()
-        print('Qual a Ordem do Dizente?')
-        ORDEM_DO_DIZENTE = choice.Menu(['atividade', 'semioticidade']).ask()
-        if ORDEM_DO_DIZENTE == 'atividade':
-            TIPO_ATIVIDADE = 'fala'
-
-            if TIPO_ATIVIDADE == 'fala':
-
-                print('Qual o Processo?')
-                Processo = grupo_verbal()
-                print('Qual é o Dizente?')
-                Dizente = estrutura_GN()
-                print('Há Receptor?')
-                print('Selecione a Receptividade')
-                RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-                if RECEPTIVIDADE == '+receptor':
-                    Receptor = frase_preposicional()
-                else:
-                    Receptor = ''
-                Polaridade = POLARIDADE()
-
-                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor + '.'
-                # Ex.: Eu conversei até anoitecer; Eu falei muito ontem; Nós discutimos...
-
-
-        elif ORDEM_DO_DIZENTE == 'semioticidade':
-            print('Semioticidade em Médio sem alcance = não_projeção')
-            TIPO_SEMIOTICIDADE = choice.Menu(['não_projeção']).ask()
-
-            if TIPO_SEMIOTICIDADE == 'não_projeção':
-                print('Não-projeção + médio sem alcance = -verbiagem')
-                TIPO_NÃO_PROJEÇÃO = '-verbiagem'
-                print('Qual o Processo?')
-                Processo = grupo_verbal()
-                print('Qual é o Dizente?')
-                Dizente = estrutura_GN()
-                print('Há Receptor?')
-                print('Selecione a Receptividade')
-                RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-                if RECEPTIVIDADE == '+receptor':
-                    Receptor = frase_preposicional()
-                else:
-                    Receptor = ''
-                Polaridade = POLARIDADE()
-
-                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo + '.'
-
-    elif Transitividade == 'PR_Verbal_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-        Tema_interpessoal = TEMA_INTERPESSOAL()
-        Tema_textual = TEMA_TEXTUAL()
-        print('Qual a Ordem do Dizente?')
-        ORDEM_DO_DIZENTE = choice.Menu(['semioticidade']).ask()
-        print('Selecione a Receptividade')
-        RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-
-        if ORDEM_DO_DIZENTE == 'semioticidade':
-            print('Selecione o tipo de Semioticidade')
-
-            TIPO_SEMIOTICIDADE = choice.Menu(['projeção', 'não_projeção']).ask()
-            if TIPO_SEMIOTICIDADE == 'projeção':
-                print('Selecione o tipo de projeção')
-                TIPO_PROJEÇÃO = choice.Menu(['citativa', 'relativa']).ask()
-                if TIPO_PROJEÇÃO == 'citativa':
-                    print('Qual o Processo?')
-                    Processo = grupo_verbal()
-                    print('Qual é o Dizente?')
-                    Dizente = estrutura_GN()
-                    print('Há Receptor?')
-                    print('Selecione a Receptividade')
-                    RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-                    if RECEPTIVIDADE == '+receptor':
-                        Receptor = frase_preposicional()
-                    else:
-                        Receptor = ''
-                    Polaridade = POLARIDADE()
-                    print('Qual a oração projetada?')
-                    Oração_projetada = oraçãoProjetada()
-
-                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor + '"' + Oração_projetada + '" ' + '.'
-                    # Ex.: Eu disse a ele "Eu comi o bolo".
-
-                elif TIPO_PROJEÇÃO == 'relativa':
-                    print('Qual o Processo?')
-                    Processo = grupo_verbal()
-                    print('Qual é o Dizente?')
-                    Dizente = estrutura_GN()
-                    print('Há Receptor?')
-                    print('Selecione a Receptividade')
-                    RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-                    if RECEPTIVIDADE == '+receptor':
-                        Receptor = frase_preposicional()
-                    else:
-                        Receptor = ''
-                    Polaridade = POLARIDADE()
-                    Polaridade = POLARIDADE()
-                    print('Qual a oração projetada?')
-                    Oração_projetada = oraçãoProjetada()
-
-                    oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo + ' ' + Receptor + ' ' + 'que' + ' ' + '"' + Oração_projetada + '" ' + '.'
-                    # Ex.: Eu disse a ele que "Eu comi o bolo".
-
-            elif TIPO_SEMIOTICIDADE == 'não_projeção':
-                print('Qual o Processo?')
-                Processo = grupo_verbal()
-                print('Qual é o Dizente?')
-                Dizente = estrutura_GN()
-                print('Qual é a Verbiagem?')
-                Verbiagem = estrutura_GN()
-                print('Há Receptor?')
-                print('Selecione a Receptividade')
-                RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-                if RECEPTIVIDADE == '+receptor':
-                    Receptor = frase_preposicional()
-                else:
-                    Receptor = ''
-                Polaridade = POLARIDADE()
-
-                oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo + ' ' + Verbiagem + ' ' + Receptor + '.'
-    return oração
-
-
-
-
 
 
 
