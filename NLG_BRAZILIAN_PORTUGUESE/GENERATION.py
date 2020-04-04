@@ -12,7 +12,7 @@ Created on Wed Mar 20 10:50:31 2019
 #os.listdir(os.curdir)
 
 #packages
-
+import re
 import choice
 #help (choice)
 #import argparse
@@ -644,50 +644,19 @@ def OI_não_orientado():
 
 def OI_tipo_de_orientação():
     
-    print("Qual é a Orientação interpessoal desejada?")
-    print ("""
-          0: infinitivo
-          1: presente
-          2: pretérito_perfectivo_I
-          3: pretérito_perfectivo_II
-          4: pretérito_imperfectivo
-          5: passado_volitivo 
-          6: futuro
-          7: subjuntivo_conjuntivo
-          8: subjuntivo_condicional 
-          9: subjuntivo_optativo
-          10: imperativo_I
-          11: imperativo_II
-          12: não_finito_concretizado 
-          13: gerúndio
-          14: particípio
-          15: NA
-          """
-        )
-   
-    i = int(input('Selecione uma opção:'))
-    switcher = {
-              0: 'infinitivo',
-              1: 'presente',
-              2: 'pretérito_perfectivo_I',
-              3: 'pretérito_perfectivo_II',
-              4: 'pretérito_imperfectivo',
-              5: 'passado_volitivo',
-              6: 'futuro',
-              7: 'subjuntivo_conjuntivo',
-              8: 'subjuntivo_condicional',
-              9: 'subjuntivo_optativo',
-              10: 'imperativo_I',
-              11: 'imperativo_II',
-              12: 'não_finito_concretizado',
-              13: 'gerúndio',
-              14: 'particípio',
-              15: 'NA'
+    print("Qual é o tipo de Orientação interpessoal desejado?")
 
-                       }
-    
-    tipo_de_orientação = switcher.get(i,'Seleção não disponível.')
-    
+    tipo_OI = choice.Menu(['OI_não_orientado','OI_finito','OI_não_finito']).ask()
+
+    if tipo_OI == 'OI_não_orientado':
+        tipo_de_orientação = OI_não_orientado()
+
+    elif tipo_OI == 'OI_finito':
+        tipo_de_orientação = OI_ORIENTAÇÃO_MODAL_FINITO()
+
+    elif tipo_OI == 'OI_não_finito':
+        tipo_de_orientação = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()
+
     return tipo_de_orientação
        
  #######       
@@ -723,7 +692,7 @@ def realização_transitoriedade_infinitivo ():
         
         
 
-def realização_transitoriedade_presente ():
+def realização_transitoriedade_presente():
     '''(str,str,str,str)->str
     
     Retorna o morfema que realiza a transitoriedade de um verbo no presente, dados
@@ -2450,7 +2419,7 @@ def realização_transitoriedade_não_finito_concretizado():
             return MI
             
         
-#######imperativo_I
+#######imperativo_I (afirmativo)
     
 def realização_transitoriedade_imperativo_I():
     '''(str)->str
@@ -2462,128 +2431,158 @@ def realização_transitoriedade_imperativo_I():
     ''' 
     padrão_de_morfologia =  choice.Menu(['-AR','-ER','-IR', '-OR']).ask()
     OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
-    OI_número = choice.Menu(['singular', 'plural']).ask()       
-           
+    OI_número = choice.Menu(['singular', 'plural']).ask()
+
     if (
-        padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular' or
-        padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular'
-          ):
+            (padrão_de_morfologia == '-AR' or '-ER' or '-IR' or '-OR')
+            and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular'):
+            return 'Morfologias de imperativo não selecionam 1pessoa do singular ' \
+                   'pois não se direcionam exclusivamente ao falante. Selecione uma opção válida'
+
+    elif (padrão_de_morfologia == '-AR' and (OI_tipo_de_pessoa == '2pessoa' or '3pessoa')
+        and OI_número == 'singular'):
         padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
         if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
             MI = 'a'
-            return MI
         else:
             MI = 'e'
-            return MI
-   
+
     elif (
-        padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular' or
-        padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular' or
-        padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular' or
-        padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular'
-          ):
+            (padrão_de_morfologia == '-ER'
+        and (OI_tipo_de_pessoa == '2pessoa' or '3pessoa' ) and OI_número == 'singular')
+        or
+            (padrão_de_morfologia == '-IR'
+             and (OI_tipo_de_pessoa == '2pessoa' or '3pessoa') and OI_número == 'singular')):
+
         padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
         if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
-            MI = 'e'
-            return MI
-        else:
             MI = 'a'
-            return MI
-  
+
+        else:
+            MI = 'e'
+
     elif (
-        padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular' or
-        padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular'
-         ):
+        padrão_de_morfologia == '-OR' and (OI_tipo_de_pessoa == '2pessoa' or '3pessoa')
+        and OI_número == 'singular'
+              ):
         padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
         if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
-            MI = 'õe'
-            return MI
-        else:
             MI = 'onha'
-            return MI
-    
-    elif (padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural'):
-        
-            MI = 'emos'
-            return MI
-    
+        else:
+            MI = 'õe'
+
+
+    elif padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural':
+        MI = 'emos'
     elif (
         padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural' or
         padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural'
            ):
            MI = 'amos'
-           return MI
-   
-    elif (padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural'):
-        
-            MI = 'onhamos'
-            return MI
-        
-    elif (
-        padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular' or
-        padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular' or
-        padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular' or
-        padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular'
-        ):
-        return 'Morfologias de imperativo não selecionam 1pessoa do singular, pois não se direcionam exclusivamente ao falante. Selecione uma opção válida' 
 
- 
-    
+    elif (padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural'):
+
+        MI = 'onhamos'
+
+    elif (padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural'):
+
+        MI = 'ai'
+
+    elif padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural':
+        MI = 'ei'
+
+    elif padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural':
+        MI = 'i'
+
+    elif padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural':
+        MI = 'onde'
+
+    elif padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural':
+        MI = 'em'
+    #
+    elif (padrão_de_morfologia == '-ER' or '-IR') and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural':
+        MI = 'am'
+
+    elif padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural':
+        MI = 'onham'
+
+
+    return MI
+
+
 #######imperativo_II (negativo)
-            
+
 def realização_transitoriedade_imperativo_II():
     '''(str)->str
-    Retorna o morfema que realiza a transitoriedade de um verbo no imperativo_II, 
+    Retorna o morfema que realiza a transitoriedade de um verbo no imperativo_II,
     dados  o padrão de morfologia, tipo de pessoa, e número.
-    
+
     >>>
     ''
-    ''' 
+    '''
     padrão_de_morfologia =  choice.Menu(['-AR','-ER','-IR', '-OR']).ask()
     OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
-    OI_número = choice.Menu(['singular', 'plural']).ask()    
-    
-    
+    OI_número = choice.Menu(['singular', 'plural']).ask()
+
+
     if (padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular'):
-        
+
             MI = 'es'
+            return MI
+
+    elif (
+            (padrão_de_morfologia == '-ER' or '-IR')
+            and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular'
+        ):
+
+            MI = 'as'
+
+    elif (
+        padrão_de_morfologia == '-OR'
+        and OI_tipo_de_pessoa == '2pessoa'
+        and OI_número == 'singular'
+        ):
+
+            MI = 'onhas'
+
+    elif (
+            padrão_de_morfologia == '-AR'
+            and OI_tipo_de_pessoa == '3pessoa'
+            and OI_número == 'singular'
+        ):
+
+            MI = 'e'
             return MI
     
     elif (
-        padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular' or
-        padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular'
+            (
+                padrão_de_morfologia == '-ER' or '-IR'
+            )
+                and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular' or
+                padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '3pessoa'
+                and OI_número == 'singular'
             ):
         
             MI = 'a'
-            return MI
-    
-    elif (padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular'):
-        
-            MI = 'onha'
-            return MI
-    
-    elif (padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular'):
-        
-            MI = 'es'
-            return MI
+
     
     elif (
-        padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular' or
-        padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular'
-            ):
-        
-            MI = 'a'
-            return MI
-    
-    elif (padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular'):
+            padrão_de_morfologia == '-OR'
+            and OI_tipo_de_pessoa == '3pessoa'
+            and OI_número == 'singular'
+        ):
         
             MI = 'onha'
-            return MI
+
     
-    elif (padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural'):
+    elif (
+            padrão_de_morfologia == '-AR'
+            and OI_tipo_de_pessoa == '1pessoa'
+            and OI_número == 'plural'
+        ):
         
             MI = 'emos'
-            return MI
+
     
     elif (
         padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural' or
@@ -2591,48 +2590,58 @@ def realização_transitoriedade_imperativo_II():
             ):
         
             MI = 'amos'
-            return MI
+
     
-    elif (padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular'):
+    elif (
+            padrão_de_morfologia == '-OR'
+            and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural'):
         
             MI = 'onhamos'
-            return MI
      
-    elif (padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural'):
+    elif (
+            padrão_de_morfologia == '-AR'
+            and OI_tipo_de_pessoa == '2pessoa'
+            and OI_número == 'plural'
+        ):
         
             MI = 'eis'
-            return MI
-    
+
     elif (
         padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural' or
         padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural'
             ):
         
             MI = 'ais'
-            return MI
     
-    elif (padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural'):
+    elif (
+            padrão_de_morfologia == '-OR'
+            and OI_tipo_de_pessoa == '2pessoa'
+            and OI_número == 'plural'
+        ):
         
             MI = 'onhais'
-            return MI
+
       
-    elif (padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural'):
+    elif (
+            padrão_de_morfologia == '-AR'
+            and OI_tipo_de_pessoa == '3pessoa'
+            and OI_número == 'plural'
+        ):
         
             MI = 'em'
-            return MI
-    
+
     elif (
         padrão_de_morfologia == '-ER' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural' or
         padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural'
             ):
         
             MI = 'am'
-            return MI
+
     
     elif (padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural'):
         
             MI = 'onham'
-            return MI
+
     
     elif (
         padrão_de_morfologia == '-AR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular' or
@@ -2640,7 +2649,11 @@ def realização_transitoriedade_imperativo_II():
         padrão_de_morfologia == '-IR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular' or
         padrão_de_morfologia == '-OR' and OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular'
         ):
-        return 'Morfologias de imperativo não selecionam 1pessoa do singular, pois não se direcionam exclusivamente ao falante. Selecione uma opção válida' 
+        print ('Morfologias de imperativo não selecionam 1pessoa do singular, '
+               'pois não se direcionam exclusivamente ao falante. Selecione uma opção válida')
+
+
+    return MI
  
 ###gerúndio
 def realização_transitoriedade_gerúndio():
@@ -2879,6 +2892,408 @@ def formação_da_estrutura_do_verbo2(): #O tipo_de_experiência
 
 
 #################
+# VERBO SABER
+
+
+def formação_verbo_saber():
+    verbo_lematizado = 'saber'
+
+    print("Qual é o tipo de Orientação interpessoal desejado?")
+
+    tipo_OI = choice.Menu(['OI_não_orientado', 'OI_finito', 'OI_não_finito']).ask()
+    if tipo_OI == 'OI_não_orientado':
+        verbo = formação_verbo_saber_não_orientado()
+    elif tipo_OI == 'OI_finito':
+        verbo = formação_verbo_saber_finito()
+    else:
+        verbo = formação_verbo_saber_não_finito()
+
+    return verbo
+
+
+def formação_verbo_saber_não_orientado():
+    verbo_lematizado = 'saber'
+    TIPO_OM_NÃO_ORIENTADA = OI_não_orientado()
+    if TIPO_OM_NÃO_ORIENTADA == 'infinitivo':
+        verbo=verbo_lematizado
+    elif TIPO_OM_NÃO_ORIENTADA == 'gerúndio':
+        ME = verbo_lematizado[slice(-2)]
+        MI = 'endo'
+        verbo= ME + MI
+    elif TIPO_OM_NÃO_ORIENTADA == 'particípio':
+        ME = verbo_lematizado[slice(-2)]
+        MI = 'ido'
+        verbo= ME + MI
+    return verbo
+
+
+def formação_verbo_saber_finito():
+    '''
+    '''
+
+    verbo_lematizado = 'saber'
+    TIPO_OM_FINITA = OI_ORIENTAÇÃO_MODAL_FINITO()
+    if TIPO_OM_FINITA == 'pretérito_imperfectivo':
+        OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
+        OI_número = choice.Menu(['singular', 'plural']).ask()
+
+        if (OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular' or
+                OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular'):
+            ME = verbo_lematizado[slice(-2)]
+            MI = 'ia'
+            verbo = ME + MI
+
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
+            ME = verbo_lematizado[slice(-2)]
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'ia'
+                verbo = ME + MI
+
+            else:
+                MI = 'ias'
+                verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural':
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                ME = verbo_lematizado[slice(-2)]
+                MI = 'ia'
+                verbo = ME + MI
+
+            else:
+                ME = verbo_lematizado[slice(-2)]
+                MI = 'íamos'
+                verbo = ME + MI
+
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                ME = verbo_lematizado[slice(-2)]
+                MI = 'ia'
+                verbo = ME + MI
+
+            else:
+                ME = verbo_lematizado[slice(-2)]
+                MI = 'íeis'
+                verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural':
+            ME = 'sab'
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'ia'
+                verbo = ME + MI
+
+            else:
+                MI = 'iam'
+                verbo = ME + MI
+    #
+    elif TIPO_OM_FINITA == 'futuro':
+        ME = verbo_lematizado[slice(-2)]
+        MI = realização_transitoriedade_futuro()
+        verbo = ME + MI
+
+    elif TIPO_OM_FINITA == 'passado_volitivo':
+        ME = verbo_lematizado[slice(-2)]
+        MI = realização_transitoriedade_passado_volitivo()
+        verbo = ME + MI
+
+    elif TIPO_OM_FINITA == 'presente':
+        OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
+        OI_número = choice.Menu(['singular', 'plural']).ask()
+
+        if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
+            ME = verbo_lematizado[slice(-4)]
+            MI = 'ei'
+            verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
+            ME = verbo_lematizado[slice(-2)]
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'e'
+                verbo = ME + MI
+
+            else:
+                MI = 'es'
+                verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular':
+            ME = verbo_lematizado[slice(-2)]
+            MI = 'e'
+            verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                ME = verbo_lematizado[slice(-2)]
+                MI = 'e'
+                verbo = ME + MI
+
+            else:
+                ME = verbo_lematizado[slice(-2)]
+                MI = 'emos'
+                verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural':
+            ME = verbo_lematizado[slice(-2)]
+            MI = 'eis'
+            verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural':
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                ME = verbo_lematizado[slice(-2)]
+                MI = 'e'
+                verbo = ME + MI
+
+            else:
+                ME = verbo_lematizado[slice(-2)]
+                MI = 'em'
+                verbo = ME + MI
+
+    elif TIPO_OM_FINITA == 'pretérito_perfectivo_I':
+        OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
+        OI_número = choice.Menu(['singular', 'plural']).ask()
+        ME = verbo_lematizado[slice(-4)]
+        if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
+            MI = 'oube'
+            verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oube'
+                verbo = ME + MI
+
+            else:
+                MI = 'ste'
+                verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular':
+
+            MI = 'oube'
+            verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oube'
+                verbo = ME + MI
+            else:
+                MI = 'oubemos'
+                verbo = ME + MI
+
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural':
+
+            MI = 'oubestes'
+            verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oube'
+                verbo = ME + MI
+
+            else:
+                MI = 'ouberam'
+                verbo = ME + MI
+
+    elif TIPO_OM_FINITA == 'pretérito_perfectivo_II':
+        OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
+        OI_número = choice.Menu(['singular', 'plural']).ask()
+        ME = verbo_lematizado[slice(-4)]
+        if ((OI_tipo_de_pessoa == '1pessoa' or '3pessoa')  and OI_número == 'singular'):
+            MI = 'oubera'
+            verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oubera'
+                verbo = ME + MI
+            else:
+                MI = 'ouberas'
+                verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oubera'
+                verbo = ME + MI
+            else:
+                MI = 'oubéramos'
+                verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oubera'
+                verbo = ME + MI
+
+            else:
+                MI = 'oubéreis'
+                verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oubera'
+                verbo = ME + MI
+
+            else:
+                MI = 'ouberam'
+                verbo = ME + MI
+
+    return verbo
+
+
+def formação_verbo_saber_não_finito():
+    '''
+    '''
+    verbo_lematizado = 'saber'
+    TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()
+
+    if TIPO_OM_NÃO_FINITA == 'subjuntivo_condicional':
+        OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
+        OI_número = choice.Menu(['singular', 'plural']).ask()
+        ME = verbo_lematizado[slice(-4)]
+        if (OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular'
+            or OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular'):
+
+            MI = 'oubesse'
+            verbo = ME + MI
+
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oubesse'
+                verbo = ME + MI
+
+            else:
+                MI = 'oubesses'
+                verbo = ME + MI
+
+        elif OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oubesse'
+                verbo = ME + MI
+
+            else:
+                MI = 'oubésssemos'
+                verbo = ME + MI
+    #
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oubesse'
+                verbo = ME + MI
+
+            else:
+                MI = 'oubésseis'
+                verbo = ME + MI
+    #
+        elif OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'oubesse'
+                verbo = ME + MI
+
+            else:
+                MI = 'oubessem'
+                verbo = ME + MI
+
+    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_conjuntivo':
+        ME = verbo_lematizado[slice(-4)]
+        MI = realização_transitoriedade_subjuntivo_conjuntivo()
+        verbo = ME + 'aib' + MI
+
+    elif TIPO_OM_NÃO_FINITA == 'não_finito_concretizado':
+        ME = verbo_lematizado[slice(-4)]
+        MI = realização_transitoriedade_não_finito_concretizado()
+        verbo = ME + 'oub'+ MI
+    #
+    elif TIPO_OM_NÃO_FINITA == 'subjuntivo_optativo':
+        ME = verbo_lematizado[slice(-4)]
+        MI = realização_transitoriedade_subjuntivo_optativo()
+        verbo = ME + 'oub' + MI
+
+    elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
+        OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
+        OI_número = choice.Menu(['singular', 'plural']).ask()
+        ME = verbo_lematizado[slice(-4)]
+        if OI_tipo_de_pessoa == '1pessoa' and OI_número == 'singular':
+            print ('Imperativos não selecionam 1pessoa do singular')
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'singular':
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'a'
+                verbo = ME + "aib" + MI
+
+            else:
+                MI = 'e'
+                verbo = ME + 'ab' + MI
+
+
+        elif OI_tipo_de_pessoa == '3pessoa' and OI_número == 'singular':
+
+            MI = 'a'
+            verbo = ME + 'aib' + MI
+
+        elif OI_tipo_de_pessoa == '1pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'a'
+                verbo = ME + 'aib' + MI
+            else:
+                MI = 'amos'
+                verbo = ME + 'aib' + MI
+
+        elif OI_tipo_de_pessoa == '2pessoa' and OI_número == 'plural':
+
+            MI = 'ei'
+            verbo = ME +'ab'+ MI
+
+        elif OI_tipo_de_pessoa == '3pessoa' and OI_número == 'plural':
+
+            padrão_pessoa_morfologia = choice.Menu(['Morfologia de 3pessoa do singular', 'Morfologia_padrão']).ask()
+            if padrão_pessoa_morfologia == 'Morfologia de 3pessoa do singular':
+                MI = 'a'
+                verbo = ME + 'aib' + MI
+            else:
+                MI = 'am'
+                verbo = ME + 'aib' + MI
+
+
+        elif TIPO_OM_NÃO_FINITA == 'imperativo_II':
+            ME = verbo_lematizado[slice(-4)]
+            MI = realização_transitoriedade_subjuntivo_optativo()
+            verbo = ME + 'aib' + MI
+
+    return verbo
+
 
 
 def formação_verbo_estar_não_finito():
@@ -5816,10 +6231,6 @@ def formação_verbo_ser_não_finito():
                 MI  = 'orem'
                 verbo=ME + MI
 
-    
-
-
-
     elif TIPO_OM_NÃO_FINITA == 'imperativo_I':
         OI_tipo_de_pessoa = choice.Menu(['1pessoa','2pessoa','3pessoa']).ask()
         OI_número = choice.Menu(['singular', 'plural']).ask()
@@ -6685,16 +7096,13 @@ def formação_verbo_ser():
     return verbo                       
                         
                         
-                        
-                        
-    
- 
+
 
 def formação_verbo_ir_não_finito():
     '''            
     '''
     
-    verbo_lematizado = 'ser'
+    verbo_lematizado = 'ir'
     
     
     TIPO_OM_NÃO_FINITA = OI_ORIENTAÇÃO_MODAL_NÃO_FINITO()
@@ -14966,7 +15374,7 @@ def Preposição():
                                  'inserção_menu']).ask()
 
     if modo_inserção == 'inserção_manual':
-        preposição = input('Escreva a preposição desejada:')
+        preposição = input('Escreva a Preposição desejada:')
 
     elif modo_inserção == 'inserção_menu':
         Preposição = input("""                   
@@ -14987,18 +15395,8 @@ def Preposição():
                15:sob
                16:sobre
                17:trás
-               18:do
-               19:da
-               20:dos
-               21:das
-               22:no
-               23:na
-               24:nos
-               25:nas
-               26:pelo
-               27:pela
-               28:pelos
-               29:pelas
+
+
                    Escolha uma opção:""")
 
     if Preposição == '1':
@@ -15035,47 +15433,53 @@ def Preposição():
         prepocição = 'sobre'
     elif Preposição == '17':
         prepocição = 'trás'
-    elif Preposição == '18':
-        prepocição = 'do'
-    elif Preposição == '19':
-        prepocição = 'da'
-    elif Preposição == '20':
-        prepocição = 'dos'
-    elif Preposição == '21':
-        prepocição = 'das'
-    elif Preposição == '22':
-        prepocição = 'no'
-    elif Preposição == '23':
-        prepocição = 'na'
-    elif Preposição == '24':
-        prepocição = 'nos'
-    elif Preposição == '25':
-        prepocição = 'nas'
-    elif Preposição == '26':
-        prepocição = 'pelo'
-    elif Preposição == '27':
-        prepocição = 'pela'
-    elif Preposição == '28':
-        prepocição = 'pelos'
-    elif Preposição == '29':
-        prepocição = 'pelas'
-    
+
     return prepocição
 
 
-
-
-###FRASE PREPOSICIONAL
 def frase_preposicional():
     '''
     '''
-    
+
     preposição = Preposição()
-    grupo_nominal = estrutura_GN_downraked()
-    
-    frase_proposicional = preposição + ' ' + grupo_nominal
-    
+    grupo_nominal = (re.sub(' +', ' ', estrutura_GN_downraked())).strip()
+
+    if (preposição == 'por' and (grupo_nominal[0] == 'o' or 'a')):
+
+        frase_proposicional = 'pel' + grupo_nominal
+
+    elif preposição == 'a':
+        if grupo_nominal[0] == 'a':
+            frase_proposicional = 'à' + grupo_nominal[(-(len(grupo_nominal) - 1)):]
+        elif grupo_nominal[0] == 'o':
+            frase_proposicional = preposição + grupo_nominal
+        elif grupo_nominal[5] == 'aquel':
+            frase_proposicional = 'à' + grupo_nominal[(-(len(grupo_nominal) - 1)):]
+
+    elif (preposição == 'de' and (grupo_nominal[0] == 'o' or 'a'
+                                  or grupo_nominal[:2] == 'um' or 'un' or 'el'
+                                  or grupo_nominal[:3] == 'est' or 'ist' or 'ess' or 'iss'
+                                  or grupo_nominal[:4] == 'outr'
+                                  or grupo_nominal[:5] == 'aquel' or 'aquil')):
+
+        frase_proposicional = (preposição[slice(-1)]) + grupo_nominal
+
+    elif (preposição == 'em' and (grupo_nominal[0] == 'o' or 'a'
+                                  or grupo_nominal[:2] == 'um' or 'un' or 'el'
+                                  or grupo_nominal[:3] == 'est' or 'ist' or 'ess' or 'iss'
+                                  or grupo_nominal[:4] == 'outr'
+                                  or grupo_nominal[:5] == 'aquel' or 'aquil')):
+
+        frase_proposicional = 'n' + grupo_nominal
+
+    elif (preposição == 'para' and (grupo_nominal[0] == 'o' or 'a'
+                                    or grupo_nominal[:5] == 'aquel' or 'aquil')):
+
+        frase_proposicional = 'pr' + grupo_nominal
+
     return frase_proposicional
+
+
 #A FAZERES:
 ############ORDEM DA ORAÇÃO
 
@@ -15807,18 +16211,18 @@ import json
 
 
 def oraçãoProjetada():
-    oração = oraçãoGerada()
+    oração = oração_gerar()
     return oração
 def oraçãoDownranked():
-    oração = oraçãoGerada()
+    oração = oração_gerar()
     return oração
 
-def oraçãoGerada():
+def oração_gerar():
     '''(str,str,str)->str
     Retorna a formação estrutural na lexicogramática
      (oração) de uma figura específica da semântica
 
-    >>> oraçãoGerada()
+    >>> oração_gerar()
     'eu bebi água'
     '''
     Transitividade = TRANSITIVIDADE()
@@ -17488,6 +17892,7 @@ def oraçãoGerada():
         Processo = grupo_verbal()
         print('Qual é o Existente?')
         Existente = estrutura_GN()
+        Circunstância = circunstância()
 
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Processo + ' ' + Existente +' ' + Circunstância +'.'
 
@@ -18562,7 +18967,7 @@ def oraçãoGerada():
                  + ' ' +Processo + ' ' + Existente +' ' + Circunstância +'?'
 
 
-    return oração.capitalize()
+    return ((re.sub(' +', ' ', oração)).strip()).capitalize()
 
 
 

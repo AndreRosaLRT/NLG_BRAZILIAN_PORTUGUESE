@@ -12191,7 +12191,7 @@ def conjunção_continuativa():
 
 
 # if __name__ == '__main__':
-#     oraçãoGerada()
+#     oração_gerar()
     
 
 
@@ -14549,7 +14549,7 @@ def estrutura_GN():
 def Preposição():
     '''
     '''
-    #Por enquanto vou deixar preposição + artigo como preposição - dos, das, do...
+    #Por enquanto vou deixar Preposição + artigo como Preposição - dos, das, do...
     Preposição = input("""
                                       
                    1:a
