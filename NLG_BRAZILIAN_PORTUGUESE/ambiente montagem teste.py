@@ -7,6 +7,67 @@ import re
 #REVER BENEFICIÁRIOS NAS MATERIAIS E INSERIR BENEFICIÁRIO NAS INTERROGATIVAS POLARES
 
 
+
+#CONTINUAR COM OS VERBOS IRREGULARES
+
+('abster','acudiradequar','adjazer','advertir','advir','afazer','aferir','agredir','ansiar',
+'antedar','antepor','antever','apor','aprazer','apropinquar','aspergir','assentir','ater','atrair','atribuir','autodestruir','avir',
+'bem-dizer','bem-fazer','bem-querer', 'bendizer','benfazer','benquerer','buir','bulir','caber','cair','cerzir',
+'circumpor','circunver','cobrir','compor','comprazer','concernir','concluir','condizer','conferir','confugir',
+'conseguir','consentir','construir', 'consumir','conter','contradizer,contrafazer,contrair,contrapor,
+
+'contrapor','contravir','convergir','convir','crer','cuspir','dar','decompor','delinquir','denegrir','depor',
+'desafazer','desaguar','desapor','desaprazer','desavir','descaber','descobrir','descompor','descomprazer',
+'desconstruir','desconvir',descrer,desdar,desdizer,desimpedir,desimpor,deslinguar,desmedi,
+desmentir,desmobiliar,despedir, despir,despolir,despor,desprazer,desprecaver,desprover,
+desquerer,dessaber,destruir, desvaler,desver,deter,devir,digerir,disperder,dispor,distrair,
+divertir,dizer,dormir,embairemergir,encobrir,engolir,entredizer,entrefazer,entreouvir,
+entrepor,entrequerer,entrever,entrevir,entupir,enxaguar,equivale,escapulir,esfazer,
+estar,estrear,esvair,expedir,expelir,expor,extrapor,fazer,fotocompor,fraguar,
+frigir,fugir,gelifazer,haver,idear,imergir,impedir,impelir,impor,incendiar,
+indispor,influir,insatisfazer,inserir,interdizer,intermedia,interpor,interver,
+intervir,irjazer,justaporler,liquefazermaisquer,ermaldispor,
+maldizer,malfazer,malinguar,malparir,malquere,manter,mediar,medi,mentir,
+minguar,obter,obvir,odiar,opor,ouvir,parir,pedir,perder,perfazer,perseguirpersentir,
+pleitear,poder,poer,polir,pospor,pôrprazer,predispor,predizer,preferir,prepor,pressentir,
+pressupor,preterir,prevenir,prever,progredirpropor,prossupor,prover,provir,pruirpuir,
+putrefazer,querer,raer,rarefazer,readequa,reaver,reavir,recobrir,recompor,reconvir,redar,
+redispor,redizer,reexpedir,reexpor,refazer,
+regredir,reimpor,reindispor,reler,remediar,remedir,reobter,reouvir,repedir,repelir,repor,
+repropor,requerer,resfolegar,ressentir,reter,
+retrair,retranspor,rever,revir,rir,ruir,saber,sacudir,sair,santiguar,satisfazer,seguir,
+sentir,ser,servir,sobpor,sobre-expor,sobreexpor,sobrepor,
+sobrestar,sobrevir,sorrir,sortear,sortir,sotopor,subir,submergir,subpor,subsumir,subtrair,
+sugerir,sumir,super,expor,superimpor,superpor,supor,
+suster,telever,ter,torrefazer,tossir,trair,transfazer,transfugir,transgredir,transpor,traspor,
+trazer,treler,tresler,trespor,tumefazer,
+valer,ver,vestir,vir)]
+
+
+# VERBO PÔR (contemplado na função geral)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def oraçãoGeradateste():
     '''(str,str,str)->str
     Retorna a formação estrutural na lexicogramática
