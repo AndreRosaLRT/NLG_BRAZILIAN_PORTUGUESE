@@ -47,12 +47,13 @@ type(lema_ind)
  'bem-dizer', 'bem-fazer', 'bem-querer', 'bendizer', 'benfazer', 'benquerer', 'buir', 'bulir', 'caber', 'cair',
  'cerzir',
  'circumpor', 'circunver', 'cobrir', 'compor', 'comprazer', 'concernir', 'concluir', 'condizer', 'conferir', 'confugir',
- 'conseguir', 'consentir', 'construir', 'consumir', 'conter', 'contradizer,contrafazer,contrair,contrapor,
-
-                                                              'contrapor', 'contravir', 'convergir', 'convir', 'crer',
+ 'conseguir', 'consentir', 'construir', 'consumir', 'conter', 'contradizer','contrafazer','contrair','contrapor',
+ 'contrapor', 'contravir', 'convergir', 'convir', 'crer',
  'cuspir', 'dar', 'decompor', 'delinquir', 'denegrir', 'depor',
  'desafazer', 'desaguar', 'desapor', 'desaprazer', 'desavir', 'descaber', 'descobrir', 'descompor', 'descomprazer',
- 'desconstruir', 'desconvir', descrer, desdar, desdizer, desimpedir, desimpor, deslinguar, desmedi,
+ 'desconstruir', 'desconvir', 'super',
+
+descrer, desdar, desdizer, desimpedir, desimpor, deslinguar, desmedi,
  desmentir, desmobiliar, despedir, despir, despolir, despor, desprazer, desprecaver, desprover,
  desquerer, dessaber, destruir, desvaler, desver, deter, devir, digerir, disperder, dispor, distrair,
  divertir, dizer, dormir, embairemergir, encobrir, engolir, entredizer, entrefazer, entreouvir,
@@ -72,17 +73,13 @@ type(lema_ind)
  retrair, retranspor, rever, revir, rir, ruir, saber, sacudir, sair, santiguar, satisfazer, seguir,
  sentir, ser, servir, sobpor, sobre - expor, sobreexpor, sobrepor,
  sobrestar, sobrevir, sorrir, sortear, sortir, sotopor, subir, submergir, subpor, subsumir, subtrair,
- sugerir, sumir, super, expor, superimpor, superpor, supor,
+ sugerir, sumir,  expor, superimpor, superpor, supor,
  suster, telever, ter, torrefazer, tossir, trair, transfazer, transfugir, transgredir, transpor, traspor,
  trazer, treler, tresler, trespor, tumefazer,
- valer, ver, vestir, vir)]
+ valer, ver, vestir, vir
 
-# VERBOS JÁ MODELADOS: estar, agredir, aferir, medir, estar, saber, dizer, ter, ser, ir, poder, haver, vir, intervir,
+# VERBOS JÁ MODELADOS: ter, estar, agredir, aferir, medir, estar, saber, dizer, ter, ser, ir, poder, haver, vir, intervir,
 # VERBO PÔR (contemplado na função geral)
-# VERBO aferir (feito)
-
-# CONFERIR E REFAZER VERBO TER DE ACORDO COM NOVOS CRITÉRIOS
-
 
 def oraçãoGeradateste():
     '''(str,str,str)->str
