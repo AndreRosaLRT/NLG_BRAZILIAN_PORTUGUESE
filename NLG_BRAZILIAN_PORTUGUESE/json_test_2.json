@@ -1,0 +1,14 @@
+{
+	"verbo_lematizado": "comer",
+	"MI":
+		{
+			"TIPO_OM_FINITA": "presente",
+			"realizacao_transitoriedade_presente":
+			{
+				"padrao_de_morfologia": "-ER",
+				"OI_tipo_de_pessoa": "1pessoa",
+				"OI_numero": "singular"
+			}
+		}
+
+}
