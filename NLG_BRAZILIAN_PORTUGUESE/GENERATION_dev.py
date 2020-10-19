@@ -2588,7 +2588,7 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_num
 
 	elif tipo_de_orientacao == 'subjuntivo_condicional':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, OI_numero,
+		MI = realizacao_transitoriedade_subjuntivo_condicionalsubjuntivo_condicional(padrao_de_morfologia, OI_numero,
 		                                                       OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 		verbo = ME + MI
 
@@ -6292,10 +6292,10 @@ def formacao_verbo_vir_intervir(verbo, tipo_de_orientacao,padrao_de_morfologia,
 #
 # # # # subjuntivo_optativo
 # # #
-# for numero in OI_numeros:
-# 	for tipo_pessoa in OI_tipo_pessoas:
-# 		print(formacao_verbo_vir_intervir('vir', 'subjuntivo_optativo', '-IR', numero, None, tipo_pessoa))
-# #
+for numero in OI_numeros:
+	for tipo_pessoa in OI_tipo_pessoas:
+		print(formacao_verbo_vir_intervir('vir', 'subjuntivo_optativo', '-IR', numero, None, tipo_pessoa))
+#
 # # # # imperativo_I
 # for numero in OI_numeros:
 # 	for tipo_pessoa in OI_tipo_pessoas:
@@ -6326,533 +6326,37 @@ def formacao_verbo_vir_intervir(verbo, tipo_de_orientacao,padrao_de_morfologia,
 # 		print(formacao_verbo_vir_intervir('vir', 'particípio', '-IR', numero, genero, None))
 
 
-##parei aqui
-
-
 # VERBO HAVER
-def formação_verbo_haver_não_finito():
+def formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                         OI_numero,genero, OI_tipo_de_pessoa,
+                         padrao_pessoa_morfologia='Morfologia_padrão'):
 	'''
     '''
 
-	if tipo_de_orientacao == 'subjuntivo_condicional':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural'
-		):
-			ME = verbo[slice(-4)]
-			MI = realizacao_transitoriedade_subjuntivo_condicional()
-			verbo = ME + 'ouv' + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'esse'
-				verbo = ME + 'ud' + MI
-
-			else:
-				MI = 'éssemos'
-				verbo = ME + 'ouv' + MI
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'esse'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'ésseis'
-				verbo = ME + 'ouv' + MI
-
-	elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular'):
-			ME = verbo[slice(-4)]
-			MI = 'a'
-			verbo = ME + 'aj' + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + 'aj' + MI
-
-			else:
-				MI = 'as'
-				verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + 'aj' + MI
-
-			else:
-				MI = 'amos'
-				verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + 'aj' + MI
-
-			else:
-				MI = 'ais'
-				verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + 'aj' + MI
-
-			else:
-				MI = 'am'
-				verbo = ME + 'aj' + MI
-
-
-
-	elif tipo_de_orientacao == 'não_finito_concretizado':
-		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_nao_finito_concretizado()
-		verbo = ME + MI
-
-	elif tipo_de_orientacao == 'imperativo_I':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			return 'Imperativos não selecionam 1pessoa do singular'
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-4)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + 'aj' + MI
-
-			else:
-				MI = 'á'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'a'
-			verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-			else:
-				MI = 'amos'
-				verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-			MI = 'ei'
-			verbo = ME + 'av' + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-			else:
-				MI = 'am'
-				verbo = ME + 'aj' + MI
-
-	elif tipo_de_orientacao == 'imperativo_II':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			print('Imperativos não selecionam 1pessoa do singular')
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-4)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + 'aj' + MI
-
-			else:
-				MI = 'as'
-				verbo = ME + 'aj' + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'a'
-			verbo = ME + 'aj' + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + MI
-			else:
-				MI = 'amos'
-				verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + 'aj' + MI
-			else:
-				MI = 'ais'
-				verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + 'aj' + MI
-			else:
-				MI = 'am'
-				verbo = ME + 'aj' + MI
-
-	elif tipo_de_orientacao == 'subjuntivo_optativo':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular'):
-			verbo = verbo
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-2)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-
-			else:
-				MI = 'eres'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'ermos'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'erdes'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'erem'
-				verbo = ME + MI
-
-	return verbo
-
-
-def formação_verbo_haver_finito():
-	'''
-    '''
-
-	verbo = 'haver'
-
-	tipo_de_orientacao = OI_finito()
-
-	if tipo_de_orientacao == 'pretérito_imperfectivo':
-
-		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_preterito_imperfectivo()
-		verbo = ME + MI
-
-	elif tipo_de_orientacao == 'futuro':
-		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_futuro()
-		verbo = ME + MI
-
-	elif tipo_de_orientacao == 'passado_volitivo':
-		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_passado_volitivo()
-		verbo = ME + MI
-
-
-
-
-	elif tipo_de_orientacao == 'presente':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'ei'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'á'
-				verbo = ME + MI
-
-			else:
-				MI = 'ás'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'á'
-			verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			padrão_morfologia = choice.Menu(['extendido', 'contraído']).ask()
-			if padrão_morfologia == 'extendido':
-
-				if padrao_pessoa_morfologia == '3pessoa_do_singular':
-					ME = verbo[slice(-4)]
-					MI = 'á'
-					verbo = ME + MI
-
-				else:
-					ME = verbo[slice(-2)]
-					MI = 'emos'
-					verbo = ME + MI
-			else:
-				if padrao_pessoa_morfologia == '3pessoa_do_singular':
-					ME = verbo[slice(-4)]
-					MI = 'á'
-					verbo = ME + MI
-
-				else:
-					ME = verbo[slice(-4)]
-					MI = 'emos'
-					verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			padrão_morfologia = choice.Menu(['extendido', 'contraído']).ask()
-			if padrão_morfologia == 'extendido':
-
-				if padrao_pessoa_morfologia == '3pessoa_do_singular':
-					ME = verbo[slice(-4)]
-					MI = 'á'
-					verbo = ME + MI
-
-				else:
-					ME = verbo[slice(-2)]
-					MI = 'eis'
-					verbo = ME + MI
-			else:
-
-				if padrao_pessoa_morfologia == '3pessoa_do_singular':
-					ME = verbo[slice(-4)]
-					MI = 'á'
-					verbo = ME + MI
-
-				else:
-					ME = verbo[slice(-4)]
-					MI = 'eis'
-					verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-			MI = 'ão'
-			verbo = ME + MI
-
-
-
-	elif tipo_de_orientacao == 'pretérito_perfectivo_I':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'e'
-			verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'e'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'este'
-				verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'e'
-			verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'e'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'emos'
-				verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'e'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'estes'
-				verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'e'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'eram'
-				verbo = ME + 'ouv' + MI
-
-
-	elif tipo_de_orientacao == 'pretérito_perfectivo_II':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'era'
-			verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'udera'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'eras'
-				verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'era'
-			verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'era'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'éramos'
-				verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'era'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'éreis'
-				verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'era'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'eram'
-				verbo = ME + 'ouv' + MI
-
-	return verbo
-
-
-def formação_verbo_haver():
-	'''
-    '''
-
-	verbo = 'haver'
-
-	tipo_de_orientacao = OI_tipo_de_orientacao()
 	if tipo_de_orientacao == 'infinitivo':
-		verbo = verbo
-	elif tipo_de_orientacao == 'pretérito_imperfectivo':
-
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_preterito_imperfectivo()
+		MI = realizacao_transitoriedade_infinitivo(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,
+		                                           padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'pretérito_imperfectivo':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'futuro':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_futuro()
+		MI = realizacao_transitoriedade_futuro(padrao_de_morfologia, OI_numero,OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'passado_volitivo':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_passado_volitivo()
+		MI = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, OI_numero,OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 		verbo = ME + MI
-
 
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = 'endo'
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,padrao_pessoa_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'particípio':
@@ -6861,1325 +6365,771 @@ def formação_verbo_haver():
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'presente':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
+		if OI_numero == 'singular':
 			ME = verbo[slice(-4)]
-			MI = 'ei'
-			verbo = ME + MI
+			if OI_tipo_de_pessoa == '1pessoa' :
+				MI = 'ei'
 
+			elif OI_tipo_de_pessoa == '2pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'á'
+				else:
+					MI = 'ás'
 
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+			elif OI_tipo_de_pessoa == '3pessoa':
 				MI = 'á'
-				verbo = ME + MI
 
-			else:
-				MI = 'ás'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'á'
-			verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			padrão_morfologia = choice.Menu(['extendido', 'contraído']).ask()
-			if padrão_morfologia == 'extendido':
-
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa' :
 				if padrao_pessoa_morfologia == '3pessoa_do_singular':
 					ME = verbo[slice(-4)]
 					MI = 'á'
-					verbo = ME + MI
-
 				else:
 					ME = verbo[slice(-2)]
 					MI = 'emos'
-					verbo = ME + MI
-			else:
+
+			elif OI_tipo_de_pessoa == '2pessoa':
 				if padrao_pessoa_morfologia == '3pessoa_do_singular':
 					ME = verbo[slice(-4)]
 					MI = 'á'
-					verbo = ME + MI
-
-				else:
-					ME = verbo[slice(-4)]
-					MI = 'emos'
-					verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			padrão_morfologia = choice.Menu(['extendido', 'contraído']).ask()
-			if padrão_morfologia == 'extendido':
-
-				if padrao_pessoa_morfologia == '3pessoa_do_singular':
-					ME = verbo[slice(-4)]
-					MI = 'á'
-					verbo = ME + MI
-
 				else:
 					ME = verbo[slice(-2)]
 					MI = 'eis'
-					verbo = ME + MI
-			else:
 
-				if padrao_pessoa_morfologia == '3pessoa_do_singular':
-					ME = verbo[slice(-4)]
-					MI = 'á'
-					verbo = ME + MI
-
-				else:
-					ME = verbo[slice(-4)]
-					MI = 'eis'
-					verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-			MI = 'ão'
-			verbo = ME + MI
-
-
-
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
+				MI = 'ão'
+				
+		verbo = ME + MI
+	
 	elif tipo_de_orientacao == 'pretérito_perfectivo_I':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'e'
-			verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '1pessoa':
+				ME = verbo[slice(-4)]
 				MI = 'e'
-				verbo = ME + 'ouv' + MI
 
-			else:
-				MI = 'este'
-				verbo = ME + 'ouv' + MI
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'e'
+				else:
+					MI = 'este'
 
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'e'
-			verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
 				MI = 'e'
-				verbo = ME + 'ouv' + MI
 
-			else:
-				MI = 'emos'
-				verbo = ME + 'ouv' + MI
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa' :
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'e'
+				else:
+					MI = 'emos'
 
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'e'
+				else:
+					MI = 'estes'
 
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'e'
+				else:
+					MI = 'eram'
 
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'e'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'estes'
-				verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'e'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'eram'
-				verbo = ME + 'ouv' + MI
-
+		verbo = ME + 'ouv' + MI
 
 	elif tipo_de_orientacao == 'pretérito_perfectivo_II':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'era'
-			verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'udera'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'eras'
-				verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'era'
-			verbo = ME + 'ouv' + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '1pessoa' :
+				ME = verbo[slice(-4)]
 				MI = 'era'
-				verbo = ME + 'ouv' + MI
 
-			else:
-				MI = 'éramos'
-				verbo = ME + 'ouv' + MI
+			elif OI_tipo_de_pessoa == '2pessoa' :
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'udera'
+				else:
+					MI = 'eras'
 
 
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
 				MI = 'era'
-				verbo = ME + 'ouv' + MI
 
-			else:
-				MI = 'éreis'
-				verbo = ME + 'ouv' + MI
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa' :
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'era'
+				else:
+					MI = 'éramos'
 
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'era'
+				else:
+					MI = 'éreis'
 
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'era'
-				verbo = ME + 'ouv' + MI
-
-			else:
-				MI = 'eram'
-				verbo = ME + 'ouv' + MI
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'era'
+				else:
+					MI = 'eram'
+		verbo = ME + 'ouv' + MI
 
 	elif tipo_de_orientacao == 'subjuntivo_condicional':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural'
-		):
-			ME = verbo[slice(-4)]
-			MI = realizacao_transitoriedade_subjuntivo_condicional()
-			verbo = ME + 'ouv' + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'esse'
-				verbo = ME + 'ud' + MI
-
-			else:
-				MI = 'éssemos'
-				verbo = ME + 'ouv' + MI
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'esse'
+		if OI_numero == 'singular':
+			if (OI_tipo_de_pessoa == '1pessoa' or
+					OI_tipo_de_pessoa == '2pessoa' or
+					OI_tipo_de_pessoa == '3pessoa'):
+				ME = verbo[slice(-4)]
+				MI = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 				verbo = ME + 'ouv' + MI
 
-			else:
-				MI = 'ésseis'
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'esse'
+					verbo = ME + 'ud' + MI
+				else:
+					MI = 'éssemos'
+					verbo = ME + 'ouv' + MI
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'esse'
+				else:
+					MI = 'ésseis'
 				verbo = ME + 'ouv' + MI
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
+				MI = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,padrao_pessoa_morfologia)
+				verbo = ME + 'ouv' + MI
+
 	elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
+		if OI_numero == 'singular':
+			if (OI_tipo_de_pessoa == '1pessoa'  or
+					OI_tipo_de_pessoa == '3pessoa'):
+				ME = verbo[slice(-4)]
+				MI = 'a'
 
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular'):
-			ME = verbo[slice(-4)]
-			MI = 'a'
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+				else:
+					MI = 'as'
 			verbo = ME + 'aj' + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+				else:
+					MI = 'amos'
 				verbo = ME + 'aj' + MI
 
-			else:
-				MI = 'as'
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ais'
 				verbo = ME + 'aj' + MI
 
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+				else:
+					MI = 'am'
 				verbo = ME + 'aj' + MI
-
-			else:
-				MI = 'amos'
-				verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + 'aj' + MI
-
-			else:
-				MI = 'ais'
-				verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + 'aj' + MI
-
-			else:
-				MI = 'am'
-				verbo = ME + 'aj' + MI
-
-
 
 	elif tipo_de_orientacao == 'não_finito_concretizado':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_nao_finito_concretizado()
+		MI = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, OI_numero,
+		                                                        OI_tipo_de_pessoa,padrao_pessoa_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'imperativo_I':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '1pessoa' :
+				verbo = ('Imperativos não selecionam 1pessoa do singular')
 
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			return 'Imperativos não selecionam 1pessoa do singular'
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+					verbo = ME + 'aj' + MI
+				else:
+					MI = 'á'
+					verbo = ME + MI
 
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-4)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
 				MI = 'a'
 				verbo = ME + 'aj' + MI
 
-			else:
-				MI = 'á'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'a'
-			verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-			else:
-				MI = 'amos'
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa' :
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+				else:
+					MI = 'amos'
 				verbo = ME + 'aj' + MI
 
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-			MI = 'ei'
-			verbo = ME + 'av' + MI
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				MI = 'ei'
+				verbo = ME + 'av' + MI
 
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-			else:
-				MI = 'am'
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+				else:
+					MI = 'am'
 				verbo = ME + 'aj' + MI
 
 	elif tipo_de_orientacao == 'imperativo_II':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '1pessoa' :
+				verbo = ('Imperativos não selecionam 1pessoa do singular')
 
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			print('Imperativos não selecionam 1pessoa do singular')
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+				else:
+					MI = 'as'
+				verbo = ME + 'aj' + MI
 
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-4)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
 				MI = 'a'
 				verbo = ME + 'aj' + MI
 
-			else:
-				MI = 'as'
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa' :
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+					verbo = ME + MI
+				else:
+					MI = 'amos'
+					verbo = ME + 'aj' + MI
+
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+				else:
+					MI = 'ais'
 				verbo = ME + 'aj' + MI
 
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'a'
-			verbo = ME + 'aj' + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + MI
-			else:
-				MI = 'amos'
-				verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + 'aj' + MI
-			else:
-				MI = 'ais'
-				verbo = ME + 'aj' + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'a'
-				verbo = ME + 'aj' + MI
-			else:
-				MI = 'am'
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+				else:
+					MI = 'am'
 				verbo = ME + 'aj' + MI
 
 	elif tipo_de_orientacao == 'subjuntivo_optativo':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular'):
-			verbo = verbo
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-2)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+		ME = verbo[slice(-4)]
+		if OI_numero == 'singular':
+			if (OI_tipo_de_pessoa == '1pessoa'  or
+					OI_tipo_de_pessoa == '3pessoa'):
 				MI = 'er'
-				verbo = ME + MI
 
-			else:
-				MI = 'eres'
-				verbo = ME + MI
+			elif OI_tipo_de_pessoa == '2pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'er'
+				else:
+					MI = 'eres'
 
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa' :
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'er'
+				else:
+					MI = 'ermos'
 
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
+			elif OI_tipo_de_pessoa == '2pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'er'
+				else:
+					MI = 'erdes'
 
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'ermos'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'erdes'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'erem'
-				verbo = ME + MI
+			elif OI_tipo_de_pessoa == '3pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'er'
+				else:
+					MI = 'erem'
+		verbo = ME + 'ouv' + MI
 
 	return verbo
 
+# # # # # ##TESTE haver
+# OI_numeros = ['singular', "plural"]
+# OI_tipo_pessoas = ["1pessoa", '2pessoa', '3pessoa']
+# # # ###
+# # # # # #presente
+# # # print("A conjugação é:")
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'presente', '-ER', numero, None, tipo_pessoa))
+#
+# # # # # ###
+# # # print("A conjugação pretérito_perfectivo_I é:")
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'pretérito_perfectivo_I', '-ER', numero, None, tipo_pessoa))
+# # #
+# # # # # #####pretérito_imperfectivo
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'pretérito_imperfectivo', '-ER', numero, None, tipo_pessoa))
+# # # #
+# # # # # ### "pretérito_perfectivo_II"
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'pretérito_perfectivo_II', '-ER', numero, None, tipo_pessoa))
+# #
+# # # # # ###passado_volitivo
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'passado_volitivo', '-ER', numero, None, tipo_pessoa))
+# #
+# # # # # # futuro
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'futuro', '-ER', numero, None, tipo_pessoa))
+#
+# # # # # # subjuntivo_conjuntivo
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'subjuntivo_conjuntivo', '-ER', numero, None, tipo_pessoa))
+# # #
+# # # # # subjuntivo_condicional
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'subjuntivo_condicional', '-ER', numero, None, tipo_pessoa))
+# #
+# # # # # subjuntivo_optativo
+# # # #
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'subjuntivo_optativo', '-ER', numero, None, tipo_pessoa))
+# # #
+# # # # # imperativo_I
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'imperativo_I', '-ER', numero, None, tipo_pessoa))
+# #
+# # # # # # imperativo_II
+#
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'imperativo_II', '-ER', numero, None, tipo_pessoa))
+#
+# # # # # # # não_finito_concretizado
+#
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_haver('haver', 'não_finito_concretizado', '-ER', numero, None, tipo_pessoa))
+#
+# # # # # infinitivo
+# print(formacao_verbo_haver('haver', 'infinitivo', '-ER', numero, 'feminino', None))
+# # # #
+# # # # # # # gerúndio
+# print(formacao_verbo_haver('haver', 'gerúndio', '-ER', None, None, None))
+# # # # # #
+# # # # # # # particípio
+# generos = ['masculino', 'feminino']
+# for numero in OI_numeros:
+# 	for genero in generos:
+# 		print(formacao_verbo_haver('haver', 'particípio', '-ER', numero, genero, None))
 
 # VERBO PODER
-def formação_verbo_poder_não_finito():
+
+def formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                         OI_numero, genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia='Morfologia_padrão'):
 	'''
     '''
-
-	verbo = 'poder'
-	tipo_de_orientacao = OI_nao_finito()
-
-	if tipo_de_orientacao == 'subjuntivo_condicional':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural'
-		):
-			ME = verbo[slice(-4)]
-			MI = realizacao_transitoriedade_subjuntivo_condicional()
-			verbo = ME + 'ud' + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'esse'
-				verbo = ME + 'ud' + MI
-
-			else:
-				MI = 'éssemos'
-				verbo = ME + 'ud' + MI
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'esse'
-				verbo = ME + 'ud' + MI
-
-			else:
-				MI = 'ésseis'
-				verbo = ME + 'ud' + MI
-
-	elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular'):
-			ME = verbo[slice(-4)]
-			MI = 'ossa'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-
-			else:
-				MI = 'ossas'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-
-			else:
-				MI = 'ossamos'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-
-			else:
-				MI = 'ossais'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-
-			else:
-				MI = 'ossam'
-				verbo = ME + MI
-
-
-
-
-	elif tipo_de_orientacao == 'não_finito_concretizado':
-		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_nao_finito_concretizado()
-		verbo = ME + MI
-
-	elif tipo_de_orientacao == 'imperativo_I':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			return 'Imperativos não selecionam 1pessoa do singular'
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-4)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-
-			else:
-				MI = 'ode'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'ossa'
-			verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-			else:
-				MI = 'ossamos'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-			MI = 'odei'
-			verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-			else:
-				MI = 'ossam'
-				verbo = ME + MI
-
-	elif tipo_de_orientacao == 'imperativo_II':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			print('Imperativos não selecionam 1pessoa do singular')
-
-		if OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-4)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-
-			else:
-				MI = 'ossas'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'ossa'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-			else:
-				MI = 'ossamos'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-			else:
-				MI = 'ossais'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-			else:
-				MI = 'ossam'
-				verbo = ME + MI
-
-
-
-
-	elif tipo_de_orientacao == 'subjuntivo_optativo':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular'):
-			verbo = verbo
-
-		if OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-2)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-
-			else:
-				MI = 'eres'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'ermos'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'erdes'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'erem'
-				verbo = ME + MI
-
-	return verbo
-
-
-def formação_verbo_poder_finito():
-	'''
-    '''
-	verbo = 'poder'
-	tipo_de_orientacao = OI_finito()
-	if tipo_de_orientacao == 'pretérito_imperfectivo':
-		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_preterito_imperfectivo()
-		verbo = ME + MI
-
-	elif tipo_de_orientacao == 'futuro':
-		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_futuro()
-		verbo = ME + MI
-
-	elif tipo_de_orientacao == 'passado_volitivo':
-		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_passado_volitivo()
-		verbo = ME + MI
-
-
-	elif tipo_de_orientacao == 'presente':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			verbo = 'posso'
-
-
-		elif (OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular' or
-		      OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular' or
-		      OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural' or
-		      OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural' or
-		      OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural'):
-			ME = verbo[slice(-2)]
-			MI = realizacao_transitoriedade_presente()
-			verbo = ME + MI
-
-	elif tipo_de_orientacao == 'pretérito_perfectivo_I':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'ude'
-			verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ôde'
-				verbo = ME + MI
-
-			else:
-				MI = 'udeste'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'ôde'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ôde'
-				verbo = ME + MI
-
-			else:
-				MI = 'udemos'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ôde'
-				verbo = ME + MI
-
-			else:
-				MI = 'udestes'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ôde'
-				verbo = ME + MI
-
-			else:
-				MI = 'uderam'
-				verbo = ME + MI
-
-	elif tipo_de_orientacao == 'pretérito_perfectivo_II':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'udera'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'udera'
-				verbo = ME + MI
-
-			else:
-				MI = 'uderas'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'udera'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'udera'
-				verbo = ME + MI
-
-			else:
-				MI = 'udéramos'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'udera'
-				verbo = ME + MI
-
-			else:
-				MI = 'udéreis'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'udera'
-				verbo = ME + MI
-
-			else:
-				MI = 'uderam'
-				verbo = ME + MI
-
-	return verbo
-
-
-def formação_verbo_poder():
-	'''
-    '''
-	verbo = 'poder'
-	tipo_de_orientacao = OI_tipo_de_orientacao()
-
 	if tipo_de_orientacao == 'infinitivo':
-		verbo = verbo
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_infinitivo(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,padrao_pessoa_morfologia)
+		verbo = ME + MI
+
 	elif tipo_de_orientacao == 'pretérito_imperfectivo':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_preterito_imperfectivo()
+		MI = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'futuro':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_futuro()
+		MI = realizacao_transitoriedade_futuro(padrao_de_morfologia, OI_numero,OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'passado_volitivo':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_passado_volitivo()
+		MI = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, OI_numero,
+		                                                 OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 		verbo = ME + MI
-
 
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = 'endo'
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero,
+		                                         OI_numero, OI_tipo_de_pessoa,
+		                                         padrao_pessoa_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = 'ido'
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero,
+		                                           genero, OI_tipo_de_pessoa,
+		                                           padrao_pessoa_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'presente':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
+		
 		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			verbo = 'posso'
+			ME = verbo[slice(-3)]
+			MI = realizacao_transitoriedade_presente(padrao_de_morfologia,
+			                                         OI_numero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+			verbo = ME +'ss'+ MI
 
 
-		elif (OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular' or
-		      OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular' or
-		      OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural' or
-		      OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural' or
-		      OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural'):
+		else:
 			ME = verbo[slice(-2)]
-			MI = realizacao_transitoriedade_presente()
+			MI = realizacao_transitoriedade_presente(padrao_de_morfologia,
+			                                         OI_numero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 			verbo = ME + MI
-
-
-
-
+	
 	elif tipo_de_orientacao == 'pretérito_perfectivo_I':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
+		ME = verbo[slice(-4)]
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '1pessoa':
+				MI = 'ude'
 
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'ude'
-			verbo = ME + MI
+			elif OI_tipo_de_pessoa == '2pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ôde'
+				else:
+					MI = 'udeste'
 
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+			elif OI_tipo_de_pessoa == '3pessoa':
 				MI = 'ôde'
-				verbo = ME + MI
 
-			else:
-				MI = 'udeste'
-				verbo = ME + MI
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ôde'
+				else:
+					MI = 'udemos'
 
+			elif OI_tipo_de_pessoa == '2pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ôde'
+				else:
+					MI = 'udestes'
 
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'ôde'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ôde'
-				verbo = ME + MI
-
-			else:
-				MI = 'udemos'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ôde'
-				verbo = ME + MI
-
-			else:
-				MI = 'udestes'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ôde'
-				verbo = ME + MI
-
-			else:
-				MI = 'uderam'
-				verbo = ME + MI
+			elif OI_tipo_de_pessoa == '3pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ôde'
+				else:
+					MI = 'uderam'
+		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'pretérito_perfectivo_II':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'udera'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+		ME = verbo[slice(-4)]
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '1pessoa' :
 				MI = 'udera'
-				verbo = ME + MI
 
-			else:
-				MI = 'uderas'
-				verbo = ME + MI
+			elif OI_tipo_de_pessoa == '2pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'udera'
+				else:
+					MI = 'uderas'
 
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'udera'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+			elif OI_tipo_de_pessoa == '3pessoa':
 				MI = 'udera'
-				verbo = ME + MI
 
-			else:
-				MI = 'udéramos'
-				verbo = ME + MI
+		elif OI_numero =='plural':
+			if OI_tipo_de_pessoa == '1pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'udera'
+				else:
+					MI = 'udéramos'
 
+			elif OI_tipo_de_pessoa == '2pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'udera'
+				else:
+					MI = 'udéreis'
 
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'udera'
-				verbo = ME + MI
-
-			else:
-				MI = 'udéreis'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'udera'
-				verbo = ME + MI
-
-			else:
-				MI = 'uderam'
-				verbo = ME + MI
-
+			elif OI_tipo_de_pessoa == '3pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'udera'
+				else:
+					MI = 'uderam'
+		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'subjuntivo_condicional':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
+		ME = verbo[slice(-4)]
+		if OI_numero == 'singular':
+			if (OI_tipo_de_pessoa == '1pessoa' or
+					OI_tipo_de_pessoa == '2pessoa' or
+					OI_tipo_de_pessoa == '3pessoa'):
 
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural'
-		):
-			ME = verbo[slice(-4)]
-			MI = realizacao_transitoriedade_subjuntivo_condicional()
-			verbo = ME + 'ud' + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'esse'
+				MI = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,padrao_pessoa_morfologia)
 				verbo = ME + 'ud' + MI
 
-			else:
-				MI = 'éssemos'
-				verbo = ME + 'ud' + MI
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'esse'
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '3pessoa' :
+				MI = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, OI_numero,
+				                                                       OI_tipo_de_pessoa,
+				                                                       padrao_pessoa_morfologia)
 				verbo = ME + 'ud' + MI
 
-			else:
-				MI = 'ésseis'
+			elif OI_tipo_de_pessoa == '1pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'esse'
+				else:
+					MI = 'éssemos'
+				verbo = ME + 'ud' + MI
+
+			elif OI_tipo_de_pessoa == '2pessoa' :
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'esse'
+				else:
+					MI = 'ésseis'
 				verbo = ME + 'ud' + MI
 
 	elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
+		ME = verbo[slice(-4)]
 
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular'):
-			ME = verbo[slice(-4)]
-			MI = 'ossa'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+		if OI_numero == 'singular':
+			if (OI_tipo_de_pessoa == '1pessoa' or
+					OI_tipo_de_pessoa == '3pessoa'):
 				MI = 'ossa'
-				verbo = ME + MI
 
-			else:
-				MI = 'ossas'
-				verbo = ME + MI
+			elif OI_tipo_de_pessoa == '2pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ossas'
 
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ossamos'
 
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
+			elif OI_tipo_de_pessoa == '2pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ossais'
 
-			else:
-				MI = 'ossamos'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-
-			else:
-				MI = 'ossais'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-
-			else:
-				MI = 'ossam'
-				verbo = ME + MI
-
-
-
+			elif OI_tipo_de_pessoa == '3pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ossam'
+		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'não_finito_concretizado':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_nao_finito_concretizado()
+		MI = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,padrao_pessoa_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'imperativo_I':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
+		ME = verbo[slice(-4)]
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '1pessoa':
+				verbo = ('Imperativos não selecionam 1pessoa do singular')
 
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			return 'Imperativos não selecionam 1pessoa do singular'
+			elif OI_tipo_de_pessoa == '2pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ode'
+				verbo = ME + MI
 
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-4)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+			elif OI_tipo_de_pessoa == '3pessoa' :
 				MI = 'ossa'
 				verbo = ME + MI
 
-			else:
-				MI = 'ode'
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa' :
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ossamos'
 				verbo = ME + MI
 
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'ossa'
-			verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-			else:
-				MI = 'ossamos'
+			elif OI_tipo_de_pessoa == '2pessoa':
+				MI = 'odei'
 				verbo = ME + MI
 
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-			MI = 'odei'
-			verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-			else:
-				MI = 'ossam'
+			elif OI_tipo_de_pessoa == '3pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ossam'
 				verbo = ME + MI
 
 	elif tipo_de_orientacao == 'imperativo_II':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '1pessoa':
+				verbo = ('Imperativos não selecionam 1pessoa do singular')
 
-		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
-			print('Imperativos não selecionam 1pessoa do singular')
+			if OI_tipo_de_pessoa == '2pessoa':
 
-		if OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ossas'
+				verbo = ME + MI
 
-			ME = verbo[slice(-4)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
 				MI = 'ossa'
 				verbo = ME + MI
-
-			else:
-				MI = 'ossas'
+		elif OI_numero == 'plural':
+			if OI_tipo_de_pessoa == '1pessoa' :
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ossamos'
 				verbo = ME + MI
 
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular':
-			ME = verbo[slice(-4)]
-			MI = 'ossa'
-			verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-			else:
-				MI = 'ossamos'
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ossais'
 				verbo = ME + MI
 
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-4)]
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'ossa'
+				else:
+					MI = 'ossam'
 				verbo = ME + MI
-			else:
-				MI = 'ossais'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-4)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'ossa'
-				verbo = ME + MI
-			else:
-				MI = 'ossam'
-				verbo = ME + MI
-
 
 	elif tipo_de_orientacao == 'subjuntivo_optativo':
-		OI_tipo_de_pessoa = choice.Menu(['1pessoa', '2pessoa', '3pessoa']).ask()
-		OI_numero = choice.Menu(['singular', 'plural']).ask()
-
-		if (OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
-				OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular'):
-			verbo = verbo
-
-		if OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular':
-
-			ME = verbo[slice(-2)]
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-
-			else:
-				MI = 'eres'
-				verbo = ME + MI
-
-
-		elif OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'ermos'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'erdes'
-				verbo = ME + MI
-
-		elif OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural':
-			ME = verbo[slice(-2)]
-
-			if padrao_pessoa_morfologia == '3pessoa_do_singular':
-				MI = 'er'
-				verbo = ME + MI
-			else:
-				MI = 'erem'
-				verbo = ME + MI
+		ME = verbo[slice(-4)]
+		MI = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia,
+		                                                    OI_numero, OI_tipo_de_pessoa,padrao_pessoa_morfologia)
+		verbo = ME +'ud'+MI
 
 	return verbo
+
+
+# # # # # ##TESTE poder
+# OI_numeros = ['singular', "plural"]
+# OI_tipo_pessoas = ["1pessoa", '2pessoa', '3pessoa']
+# # # ###
+# # # # # #presente
+# # # print("A conjugação é:")
+#
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'presente', '-ER', numero, None, tipo_pessoa))
+#
+# # # # # # ###
+# # # print("A conjugação pretérito_perfectivo_I é:")
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'pretérito_perfectivo_I', '-ER', numero, None, tipo_pessoa))
+# # #
+# # # # # #####pretérito_imperfectivo
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'pretérito_imperfectivo', '-ER', numero, None, tipo_pessoa))
+# # # # #
+# # # # # ### "pretérito_perfectivo_II"
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'pretérito_perfectivo_II', '-ER', numero, None, tipo_pessoa))
+# # #
+# # # # # # ###passado_volitivo
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'passado_volitivo', '-ER', numero, None, tipo_pessoa))
+# #
+# # # # # # # futuro
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'futuro', '-ER', numero, None, tipo_pessoa))
+#
+# # # # # # subjuntivo_conjuntivo
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'subjuntivo_conjuntivo', '-ER', numero, None, tipo_pessoa))
+# # #
+# # # # # subjuntivo_condicional
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'subjuntivo_condicional', '-ER', numero, None, tipo_pessoa))
+# #
+# # # # # # subjuntivo_optativo
+# # # # #
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'subjuntivo_optativo', '-ER', numero, None, tipo_pessoa))
+# # #
+# # # # # # imperativo_I
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'imperativo_I', '-ER', numero, None, tipo_pessoa))
+# #
+# # # # # # # imperativo_II
+#
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'imperativo_II', '-ER', numero, None, tipo_pessoa))
+#
+# # # # # # # não_finito_concretizado
+#
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_poder('poder', 'não_finito_concretizado', '-ER', numero, None, tipo_pessoa))
+#
+# # # # # # infinitivo
+# print(formacao_verbo_poder('poder', 'infinitivo', '-ER', numero, 'feminino', None))
+# # # # #
+# # # # # # # # gerúndio
+# print(formacao_verbo_poder('poder', 'gerúndio', '-ER', None, None, None))
+# # # # # # #
+# # # # # # # # particípio
+# generos = ['masculino', 'feminino']
+# for numero in OI_numeros:
+# 	for genero in generos:
+# 		print(formacao_verbo_poder('poder', 'particípio', '-ER', numero, genero, None))
+#
+
+
+
+###parei aqui
 
 
 # VERBO FAZER
