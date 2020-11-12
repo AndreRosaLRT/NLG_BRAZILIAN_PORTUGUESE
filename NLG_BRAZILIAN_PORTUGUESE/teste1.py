@@ -490,8 +490,7 @@ def formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_num
         verbo = ME + MI
     elif tipo_de_orientacao == 'particípio':
 
-        MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-                                                   padrao_pessoa_morfologia)
+        MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,  padrao_pessoa_morfologia)
         verbo = ME + MI
 
     return verbo

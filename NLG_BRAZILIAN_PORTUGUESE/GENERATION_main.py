@@ -6203,8 +6203,8 @@ def formação_verbo_ser():
                 MI  = 'am'
                 verbo=ME +'ej'+ MI
                         
-                        
-    return verbo                       
+    return verbo
+
 
 #VERBO IR
 def formação_verbo_ir_não_finito():
