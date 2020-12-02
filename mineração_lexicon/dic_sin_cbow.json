@@ -40,14 +40,14 @@
         "contabilizar",
         "atingir",
         "estipular",
-        "acrescentar-se",
-        "valorizar-se",
-        "elevar-se",
-        "reduzir-se",
-        "atingir-se",
-        "cobrar-lhes"
+        "acrescentar",
+        "valorizar",
+        "elevar",
+        "reduzir",
+        "atingir",
+        "cobrar"
     ],
-    "alcan\u00e7ar": [
+    "alcançar": [
         "atingir",
         "conquistar",
         "representar",
@@ -57,19 +57,19 @@
         "superar",
         "suster",
         "canalizar",
-        "alcan\u00e3\u00a7ar"
+        "alcançar"
     ],
     "chegar": [
         "retornar",
-        "dirigir-se",
+        "dirigir",
         "rumar",
         "voltar",
         "assistir",
         "regressar",
         "aceder",
-        "antecipar-se",
-        "juntar-se",
-        "agarrar-se"
+        "antecipar",
+        "juntar",
+        "agarrar"
     ],
     "reportar": [
         "expor",
@@ -96,16 +96,11 @@
         "destacar"
     ],
     "ser": [
-        "ser-nos",
-        "ser-lhe",
-        "reve-lar-se",
-        "afigurar-se",
-        "tersido",
-        "revelar-se",
-        "ser-lhes",
-        "ver-se",
-        "ser-me",
-        "\u200b\u200bser"
+        "revelar",
+        "afigurar",
+        "revelar",
+        "ser",
+        "ver"
     ],
     "representar": [
         "substituir",
@@ -114,19 +109,19 @@
         "invocar",
         "atingir",
         "levar",
-        "alcan\u00e7ar",
+        "alcançar",
         "utilizar",
         "reintroduzir",
         "reivindicar"
     ],
     "acontecer": [
         "ocorrer",
-        "realizar-se",
-        "repetir-se",
-        "alterar-se",
-        "iniciar-se",
-        "seguir-se",
-        "espe-rar-se",
+        "realizar",
+        "repetir",
+        "alterar",
+        "iniciar",
+        "seguir",
+        "espe-rar",
         "infeccionar",
         "durar",
         "chover"
@@ -134,8 +129,8 @@
     "desmatar": [
         "tragar",
         "ventilar",
-        "regenerar-se",
-        "financi\u00e1-lo",
+        "regenerar",
+        "financiar",
         "desmontar",
         "urbanizar",
         "amainar",
@@ -144,40 +139,34 @@
         "exorcisar"
     ],
     "ocorrer": [
-        "realizar-se",
+        "realizar",
         "acontecer",
         "resultar",
         "acarretar",
-        "observar-se",
-        "efectuar-se",
-        "produzir-se",
+        "observar",
+        "efectuar",
+        "produzir",
         "ocasionar",
         "implicar",
-        "traduzir-se"
+        "traduzir"
     ],
     "existir": [
         "haver",
         "subsistir",
-        "solucionar-se",
-        "justificar-se",
+        "solucionar",
+        "justificar",
         "implicar",
         "ocorrer",
-        "exercer-se",
-        "realizar-se",
-        "julgar-se",
+        "exercer",
+        "realizar",
+        "julgar",
         "surgir"
     ],
     "ter": [
-        "ter-lhes",
-        "ter-lhe",
-        "t\u00ear",
-        "ter-me",
-        "ter-nos",
-        "terem",
-        "ter-se",
-        "haver-lhe",
-        "haverem",
-        "t\u00ea-lo"
+        "ter",
+        "ter",
+        "haver"
+
     ],
     "apresentar": [
         "apreciar",
@@ -187,33 +176,27 @@
         "examinar",
         "confirmar",
         "revelar",
-        "lan\u00e7ar",
-        "exp\u00f4r",
+        "lançar",
         "reportar"
     ],
     "possuir": [
-        "possu\u00edrem",
-        "obter-se",
-        "possuirem",
+        "obter",
         "constituir",
         "existir",
         "ostentar",
         "englobar",
         "haver",
-        "consider\u00e1-lo",
+        "considerar",
         "adquirir"
     ],
     "estar": [
         "ficar",
-        "sentir-se",
-        "estar-lhe",
-        "t\u00ea-los",
+        "sentir",
         "permanecer",
         "permancer",
-        "t\u00e3\u00aa-lo",
         "continuar",
-        "mostrar-se",
-        "manter-se"
+        "mostrar",
+        "manter"
     ],
     "acumular": [
         "conter",
@@ -246,9 +229,9 @@
         "ocasionar",
         "acarretar",
         "desencadear",
-        "produzir-se",
-        "causar-lhe",
+        "produzir",
+        "causar",
         "implicar",
-        "registar-se"
+        "registar"
     ]
 }

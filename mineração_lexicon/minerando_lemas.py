@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 # WORDNET
 #WORDNET
@@ -8,7 +9,7 @@ nltk.download('wordnet')
 nltk.download('omw')
 #importa wordnet
 from nltk.corpus import wordnet as wn
-wn.langs()
+# wn.langs()
 
 ##########WORDEMBEDDINGS
 
@@ -18,25 +19,23 @@ from gensim import models
 from gensim.models import KeyedVectors
 print('done')
 
-model_cbow = KeyedVectors.load_word2vec_format('./mineração_lexicon/cbow_s50.txt')
+model_cbow = KeyedVectors.load_word2vec_format('./mineração_lexicon/cbow_s50.txt', encoding="utf-8")
 print('Done')
 model_skip = KeyedVectors.load_word2vec_format('./mineração_lexicon/skip_s300.txt')
 print('Done')
 
-
 palavras_cbow = list(model_cbow.wv.vocab)
 palavras_skip = list(model_skip.wv.vocab)
 
-
 ####
-# OS VERBOS DE INTERESSE:
+# OS VERBOS DE INTERESSE(COM BASE NAS VERBALIZAÇÕES DO ROBÔ):
 arquivo = json.load(open('./mineração_lexicon/verbs.json'))
 #
 # type(arquivo)
 chaves = arquivo.keys()
 # type(chaves)
 chaves = list(chaves)
-
+chaves[0]
 lemas_verbos = []
 
 i = 0
@@ -45,34 +44,25 @@ for entrada in chaves:
     if verbo not in lemas_verbos:
         lemas_verbos.append(verbo)
     i += 1
-lemas_verbos[4] = 'alcançar'
-
-
+lemas_verbos[4] = "alcançar"
 
 
 ###########################
 ################################
 ##################################
+# wn.synsets('registrar', lang='por', pos= wn.VERB)
+# for synset in wn.synsets('registrar', lang= 'por'):
+#     print(synset.name(), synset.definition())
+#
+# for synset in wn.synsets('registrar', lang= 'por'):
+#     for lemma in synset.lemmas('por'):
+#         print(lemma.name())
 
-lemas_verbos[0]
+dict_sinon_wn = {}
 
-wn.synsets('registrar', lang='por', pos= wn.VERB)
-for synset in wn.synsets('registrar', lang= 'por'):
-    print(synset.name(), synset.definition())
-
-for synset in wn.synsets('registrar', lang= 'por'):
-    for lemma in synset.lemmas('por'):
-        print(lemma.name())
-
-
-
-
-dict_sinon_wn = {
-
-}
 for palavra in lemas_verbos:
     sinonimos = []
-    dict_sinon_wn.update({palavra:sinonimos})
+    dict_sinon_wn.update({palavra: sinonimos})
     i=0
     for synset in wn.synsets(palavra, lang='por', pos=wn.VERB):
         for lemma in synset.lemmas('por'):
@@ -83,61 +73,66 @@ for palavra in lemas_verbos:
     i+=1
 
 
+# Serializing json
+json_object = json.dumps(dict_sinon_wn, indent=4)
+
+# Writing to sample.json
+with open("C:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/mineração_lexicon/dic_sin_wn.json", "w", encoding="utf-8") as outfile:
+    outfile.write(json_object)
+
+
 ##############################################
 
 
 ###dicionario co base no cbow
-dict_sinon_cbow = {
+# dict_sinon_cbow = {}
+#
+# for palavra in lemas_verbos:
+#     sinonimos = []
+#     if palavra in model_cbow.vocab:
+#         dict_sinon_cbow.update({palavra: sinonimos})
+#     i=0
+#     for entrada in model_cbow.most_similar(palavra):
+#
+#         sinonimos.append(model_cbow.most_similar(palavra)[i][0])
+#         i+=1
+#     i+=1
+#
+#
+# # Serializing json
+# json_object = json.dumps(dict_sinon_cbow, indent=4)
+#
+# # Writing to sample.json
+# with open("./mineração_lexicon/dic_sin_cbow.json", "w", encoding="utf-8") as outfile:
+#     outfile.write(json_object)
+#
+# dict_sinon_cbow.items()
 
-}
-
-for palavra in lemas_verbos:
-    sinonimos = []
-    dict_sinon_cbow.update({palavra: sinonimos})
-    i=0
-    for entrada in model_cbow.most_similar(palavra):
-        sinonimos.append(model_cbow.most_similar(palavra)[i][0])
-        i+=1
-    i+=1
+dicionario_cbow = json.load(open('C:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/mineração_lexicon/dic_sin_cbow.json'))
 
 
-
-# Serializing json
-json_object = json.dumps(dict_sinon_cbow, indent=4)
-
-# Writing to sample.json
-with open("./mineração_lexicon/dic_sin_cbow.json", "w") as outfile:
-    outfile.write(json_object)
-
-dict_sinon_cbow.items()
 
 
 ###dicionario co base no skipgram
-dict_sinon_skip = {
-
-}
-
-
-1+1
+dict_sinon_skip = {}
 
 for palavra in lemas_verbos:
-    dict_sinon_skip.update({palavra: {}})
-    i=0
     sinonimos = []
-    for entrada in model_cbow.most_similar(palavra):
-        sinonimos.append(model_cbow.most_similar(palavra)[i][0])
-        i+=1
+    if palavra in model_skip.vocab:
+        dict_sinon_skip.update({palavra: sinonimos})
     i=0
-    for sin in sinonimos:
-        dict_sinon_skip[palavra].update({'sin_' + str(i): sin})
+    for entrada in model_skip.most_similar(palavra):
+        sinonimos.append(model_skip.most_similar(palavra)[i][0])
         i+=1
     i+=1
 
+model_skip.sinonym("registrar")
+model_skip.most_similar("registrar")[0][1]
 # Serializing json
-json_object = json.dumps(dict_sinon, indent=4)
+json_object = json.dumps(dict_sinon_skip, indent=4)
 
 # Writing to sample.json
-with open("dic_sin_cbow.json", "w") as outfile:
+with open("C:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/mineração_lexicon/dic_sin_skip.json", "w") as outfile:
     outfile.write(json_object)
 
 dict_sinon_skip.items()
@@ -162,7 +157,7 @@ dict_sinon_skip.items()
 wn.synsets('study') #no inglês como default
 
 #no português
-wn.synsets('correr', lang='por')
+wn.synsets('alcançar', lang='por')
 nltk.sent_tokenize()
 
 #com POS

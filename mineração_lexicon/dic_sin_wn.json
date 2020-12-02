@@ -1,0 +1,170 @@
+{
+    "registrar": [
+        "colocar_no_di\u00e1rio",
+        "colocar_no_registro",
+        "gravar",
+        "lan\u00e7ar",
+        "registrar",
+        "inscrever",
+        "recrutar"
+    ],
+    "contabilizar": [],
+    "somar": [
+        "acrescentar",
+        "adicionar",
+        "somar"
+    ],
+    "totalizar": [],
+    "alcan\u00c3\u00a7ar": [],
+    "chegar": [
+        "achar",
+        "chegar",
+        "concluir",
+        "decidir",
+        "deduzir",
+        "inferir",
+        "classificar-se",
+        "obter",
+        "vir"
+    ],
+    "reportar": [
+        "reportar",
+        "relatar"
+    ],
+    "observar": [
+        "notar",
+        "observar",
+        "perceber",
+        "ver",
+        "mirar",
+        "olhar",
+        "assistir",
+        "espionar",
+        "guardar"
+    ],
+    "ser": [
+        "lan\u00e7ado",
+        "ser",
+        "existir",
+        "estar"
+    ],
+    "representar": [
+        "representar",
+        "simbolizar",
+        "figurar",
+        "atuar",
+        "fazer",
+        "personificar",
+        "encarnar",
+        "incorporar",
+        "ilustrar"
+    ],
+    "acontecer": [
+        "acontecer",
+        "adquirir",
+        "tornar-se",
+        "mudar",
+        "ocorrer",
+        "suceder",
+        "terlugar",
+        "acaecer",
+        "transformar",
+        "transformar-se",
+        "virar"
+    ],
+    "desmatar": [],
+    "ocorrer": [
+        "acontecer",
+        "ocorrer",
+        "suceder",
+        "encontrar-se"
+    ],
+    "existir": [
+        "existir",
+        "ser"
+    ],
+    "ter": [
+        "dar_a_luz",
+        "dar_\u00e0_luz",
+        "parir",
+        "p\u00f4r_no_mundo",
+        "ter",
+        "padecer",
+        "contrair",
+        "sofrer",
+        "fruir",
+        "possuir",
+        "aguentar",
+        "compreender",
+        "conter",
+        "incluir",
+        "segurar"
+    ],
+    "apresentar": [
+        "apresentar",
+        "propor",
+        "introduzir",
+        "levantar",
+        "efetuar",
+        "executar",
+        "fazer",
+        "mostrar",
+        "exibir",
+        "expor",
+        "formar_em_parada",
+        "dar",
+        "entregar"
+    ],
+    "possuir": [
+        "fruir",
+        "possuir",
+        "ter",
+        "aguentar",
+        "compreender",
+        "conter",
+        "incluir",
+        "segurar"
+    ],
+    "estar": [
+        "estar",
+        "ficar",
+        "tornar",
+        "de",
+        "esfomear",
+        "faminto",
+        "fome",
+        "morrendo",
+        "permanecer",
+        "ser"
+    ],
+    "acumular": [
+        "acumular",
+        "amontoar",
+        "conglomerar",
+        "agavelar",
+        "empilhar",
+        "reunir",
+        "armazenar",
+        "guardar",
+        "acumular-se",
+        "amontoar-se",
+        "coleccionar",
+        "enrolar",
+        "juntar"
+    ],
+    "relatar": [
+        "narrar",
+        "relatar",
+        "descrever",
+        "reportar"
+    ],
+    "sofrer": [
+        "doer",
+        "sofrer",
+        "contrair",
+        "ter",
+        "padecer",
+        "experimentar",
+        "receber"
+    ]
+}
