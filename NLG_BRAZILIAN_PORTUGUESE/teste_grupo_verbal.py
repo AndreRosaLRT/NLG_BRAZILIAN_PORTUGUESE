@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import json
 #
 # dicionario = {
@@ -6,12 +8,12 @@ import json
 # 	"TIPO_DE_EXPERIENCIA_1": "Ser",
 # 	"funcao_no_grupo_verbal_1": "Auxiliar",
 # 	"verbo_1": "estar",
-# 	"tipo_de_orientacao_1": "pretérito_imperfectivo",
+# 	"tipo_de_orientacao_1": "pretÃ©rito_imperfectivo",
 # 	"padrao_de_morfologia_1": "-AR",
 # 	"OI_numero_1": "singular",
 # 	"genero_1": "None",
 # 	"OI_tipo_de_pessoa_1": "1pessoa",
-# 	"padrao_pessoa_morfologia_1": "Morfologia_padrão",
+# 	"padrao_pessoa_morfologia_1": "Morfologia_padrÃ£o",
 # 	"TIPO_DE_EXPERIENCIA_2": "None",
 # 	"funcao_no_grupo_verbal_2": "None",
 # 	"verbo_2": "None",
@@ -33,21 +35,21 @@ import json
 # 	"TIPO_DE_EXPERIENCIA_4": "Ser",
 # 	"funcao_no_grupo_verbal_4": "Auxiliar",
 # 	"verbo_4": "ser",
-# 	"tipo_de_orientacao_4": "gerúndio",
+# 	"tipo_de_orientacao_4": "gerÃºndio",
 # 	"padrao_de_morfologia_4": "-ER",
 # 	"OI_numero_4": "singular",
 # 	"genero_4": "None",
 # 	"OI_tipo_de_pessoa_4": "1pessoa",
-# 	"padrao_pessoa_morfologia_4": "Morfologia_padrão",
+# 	"padrao_pessoa_morfologia_4": "Morfologia_padrÃ£o",
 # 	"TIPO_DE_EXPERIENCIA_LEX": "Fazer",
 # 	"funcao_no_grupo_verbal_POS_FINAL": "Evento",
 # 	"verbo_LEX": "levar",
-# 	"tipo_de_orientacao_LEX": "particípio",
+# 	"tipo_de_orientacao_LEX": "particÃ­pio",
 # 	"padrao_de_morfologia_LEX": "-AR",
 # 	"OI_numero_LEX": "singular",
 # 	"genero_LEX": "masculino",
 # 	"OI_tipo_de_pessoa_LEX": "None",
-# 	"padrao_pessoa_morfologia_LEX": "Morfologia_padrão"
+# 	"padrao_pessoa_morfologia_LEX": "Morfologia_padrÃ£o"
 # }
 #
 # with open('parametros_GV.json', "w") as file:
@@ -56,8 +58,8 @@ import json
 parametros = json.load(open("./NLG_BRAZILIAN_PORTUGUESE/parametros_GV.json"))
 # parametros["GVs"][0]["TIPO_DE_EXPERIENCIA_GV"]
 
-dicionarioSinonimos=json.load(open("./mineração_lexicon/dic_sin_cbow.json"))
-##PARAMETROS DO JSON PARA A FUNÇÃO
+dicionarioSinonimos=json.load(open("./mineraÃ§Ã£o_lexicon/dic_sin_cbow.json"))
+##PARAMETROS DO JSON PARA A FUNÃ‡ÃƒO
 
 grupo_teste = grupo_verbal(parametros["GVs"][0]["TIPO_DE_EXPERIENCIA_GV"], parametros["GVs"][0]["AGENCIA"], parametros["GVs"][0]["TIPO_DE_EXPERIENCIA_1"], parametros["GVs"][0]["funcao_no_grupo_verbal_1"], parametros["GVs"][0]["verbo_1"], parametros["GVs"][0]["tipo_de_orientacao_1"], parametros["GVs"][0]["padrao_de_morfologia_1"], parametros["GVs"][0]["OI_numero_1"], parametros["GVs"][0]["genero_1"], parametros["GVs"][0]["OI_tipo_de_pessoa_1"], parametros["GVs"][0]["padrao_pessoa_morfologia_1"], parametros["GVs"][0]["TIPO_DE_EXPERIENCIA_2"], parametros["GVs"][0]["funcao_no_grupo_verbal_2"], parametros["GVs"][0]["verbo_2"], parametros["GVs"][0]["tipo_de_orientacao_2"], parametros["GVs"][0]["padrao_de_morfologia_2"], parametros["GVs"][0]["OI_numero_2"], parametros["GVs"][0]["genero_2"], parametros["GVs"][0]["OI_tipo_de_pessoa_2"], parametros["GVs"][0]["padrao_pessoa_morfologia_2"], parametros["GVs"][0]["TIPO_DE_EXPERIENCIA_3"], parametros["GVs"][0]["funcao_no_grupo_verbal_3"], parametros["GVs"][0]["verbo_3"], parametros["GVs"][0]["tipo_de_orientacao_3"], parametros["GVs"][0]["padrao_de_morfologia_3"], parametros["GVs"][0]["OI_numero_3"], parametros["GVs"][0]["genero_3"], parametros["GVs"][0]["OI_tipo_de_pessoa_3"], parametros["GVs"][0]["padrao_pessoa_morfologia_3"], parametros["GVs"][0]["TIPO_DE_EXPERIENCIA_4"], parametros["GVs"][0]["funcao_no_grupo_verbal_4"], parametros["GVs"][0]["verbo_4"], parametros["GVs"][0]["tipo_de_orientacao_4"], parametros["GVs"][0]["padrao_de_morfologia_4"], parametros["GVs"][0]["OI_numero_4"], parametros["GVs"][0]["genero_4"], parametros["GVs"][0]["OI_tipo_de_pessoa_4"], parametros["GVs"][0]["padrao_pessoa_morfologia_4"], parametros["GVs"][0]["TIPO_DE_EXPERIENCIA_LEX"], parametros["GVs"][0]["funcao_no_grupo_verbal_POS_FINAL"], parametros["GVs"][0]["verbo_LEX"], parametros["GVs"][0]["tipo_de_orientacao_LEX"], parametros["GVs"][0]["padrao_de_morfologia_LEX"], parametros["GVs"][0]["OI_numero_LEX"], parametros["GVs"][0]["genero_LEX"], parametros["GVs"][0]["OI_tipo_de_pessoa_LEX"], parametros["GVs"][0]["padrao_pessoa_morfologia_LEX"])
 print(grupo_teste)
@@ -174,174 +176,117 @@ for entrada in dicionarioSinonimos:
 
 
 #exemplos ativo
-for entrada in dicionarioSinonimos:
-	print(entrada)
-	for verbo in dicionarioSinonimos[entrada]:
-		padraoMorfologia = detecta_padrao_morfologia(verbo)
-		grupo_teste_4 = grupo_verbal(parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_GV"], parametros["GVs"][3]["AGENCIA"], parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_1"], parametros["GVs"][3]["funcao_no_grupo_verbal_1"], parametros["GVs"][3]["verbo_1"], parametros["GVs"][3]["tipo_de_orientacao_1"], parametros["GVs"][3]["padrao_de_morfologia_1"], parametros["GVs"][3]["OI_numero_1"], parametros["GVs"][3]["genero_1"], parametros["GVs"][3]["OI_tipo_de_pessoa_1"], parametros["GVs"][3]["padrao_pessoa_morfologia_1"], parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_2"], parametros["GVs"][3]["funcao_no_grupo_verbal_2"], parametros["GVs"][3]["verbo_2"], parametros["GVs"][3]["tipo_de_orientacao_2"], parametros["GVs"][3]["padrao_de_morfologia_2"], parametros["GVs"][3]["OI_numero_2"], parametros["GVs"][3]["genero_2"], parametros["GVs"][3]["OI_tipo_de_pessoa_2"], parametros["GVs"][3]["padrao_pessoa_morfologia_2"], parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_3"], parametros["GVs"][3]["funcao_no_grupo_verbal_3"], parametros["GVs"][3]["verbo_3"], parametros["GVs"][3]["tipo_de_orientacao_3"], parametros["GVs"][3]["padrao_de_morfologia_3"], parametros["GVs"][3]["OI_numero_3"], parametros["GVs"][3]["genero_3"], parametros["GVs"][3]["OI_tipo_de_pessoa_3"], parametros["GVs"][3]["padrao_pessoa_morfologia_3"], parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_4"], parametros["GVs"][3]["funcao_no_grupo_verbal_4"], parametros["GVs"][3]["verbo_4"], parametros["GVs"][3]["tipo_de_orientacao_4"], parametros["GVs"][3]["padrao_de_morfologia_4"], parametros["GVs"][3]["OI_numero_4"], parametros["GVs"][3]["genero_4"], parametros["GVs"][3]["OI_tipo_de_pessoa_4"], parametros["GVs"][3]["padrao_pessoa_morfologia_4"], parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_LEX"], parametros["GVs"][3]["funcao_no_grupo_verbal_POS_FINAL"], verbo, parametros["GVs"][3]["tipo_de_orientacao_LEX"], padraoMorfologia, parametros["GVs"][3]["OI_numero_LEX"], parametros["GVs"][3]["genero_LEX"], parametros["GVs"][3]["OI_tipo_de_pessoa_LEX"], parametros["GVs"][3]["padrao_pessoa_morfologia_LEX"])
-		print (grupo_teste_4)
+# for entrada in dicionarioSinonimos:
+# 	print(entrada)
+# 	for verbo in dicionarioSinonimos[entrada]:
+# 		padraoMorfologia = detecta_padrao_morfologia(verbo)
+# 		grupo_teste_4 = grupo_verbal(parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_GV"], parametros["GVs"][3]["AGENCIA"], parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_1"], parametros["GVs"][3]["funcao_no_grupo_verbal_1"], parametros["GVs"][3]["verbo_1"], parametros["GVs"][3]["tipo_de_orientacao_1"], parametros["GVs"][3]["padrao_de_morfologia_1"], parametros["GVs"][3]["OI_numero_1"], parametros["GVs"][3]["genero_1"], parametros["GVs"][3]["OI_tipo_de_pessoa_1"], parametros["GVs"][3]["padrao_pessoa_morfologia_1"], parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_2"], parametros["GVs"][3]["funcao_no_grupo_verbal_2"], parametros["GVs"][3]["verbo_2"], parametros["GVs"][3]["tipo_de_orientacao_2"], parametros["GVs"][3]["padrao_de_morfologia_2"], parametros["GVs"][3]["OI_numero_2"], parametros["GVs"][3]["genero_2"], parametros["GVs"][3]["OI_tipo_de_pessoa_2"], parametros["GVs"][3]["padrao_pessoa_morfologia_2"], parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_3"], parametros["GVs"][3]["funcao_no_grupo_verbal_3"], parametros["GVs"][3]["verbo_3"], parametros["GVs"][3]["tipo_de_orientacao_3"], parametros["GVs"][3]["padrao_de_morfologia_3"], parametros["GVs"][3]["OI_numero_3"], parametros["GVs"][3]["genero_3"], parametros["GVs"][3]["OI_tipo_de_pessoa_3"], parametros["GVs"][3]["padrao_pessoa_morfologia_3"], parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_4"], parametros["GVs"][3]["funcao_no_grupo_verbal_4"], parametros["GVs"][3]["verbo_4"], parametros["GVs"][3]["tipo_de_orientacao_4"], parametros["GVs"][3]["padrao_de_morfologia_4"], parametros["GVs"][3]["OI_numero_4"], parametros["GVs"][3]["genero_4"], parametros["GVs"][3]["OI_tipo_de_pessoa_4"], parametros["GVs"][3]["padrao_pessoa_morfologia_4"], parametros["GVs"][3]["TIPO_DE_EXPERIENCIA_LEX"], parametros["GVs"][3]["funcao_no_grupo_verbal_POS_FINAL"], verbo, parametros["GVs"][3]["tipo_de_orientacao_LEX"], padraoMorfologia, parametros["GVs"][3]["OI_numero_LEX"], parametros["GVs"][3]["genero_LEX"], parametros["GVs"][3]["OI_tipo_de_pessoa_LEX"], parametros["GVs"][3]["padrao_pessoa_morfologia_LEX"])
+# 		print (grupo_teste_4)
 
 
 
 
+##################################
 
 
 
+# # ##TESTE
+# OI_numeros = ['singular', "plural"]
+# OI_tipo_pessoas = ["1pessoa", '2pessoa', '3pessoa']
+# generos=["masculino","feminino"]
+# conjugacoes=["presente","pretÃ©rito_perfectivo_I","pretÃ©rito_perfectivo_II","pretÃ©rito_imperfectivo","passado_volitivo","futuro","subjuntivo_conjuntivo","subjuntivo_condicional","subjuntivo_optativo","imperativo_I","imperativo_II","nÃ£o_finito_concretizado","infinitivo","gerÃºndio","particÃ­pio"]
+# lemaTeste="levar"
+#
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		for conj in conjugacoes:
+# 				for genero in generos:
+# 					print(verbo_geral("Fazer",'Evento','levar',conj,numero,genero,tipo_pessoa))
+
+#presente
+# print("A conjugaÃ§Ã£o Ã©:")
+
+for lema in lemas:
+	print("LEMA: " + lema)
+	for numero in OI_numeros:
+		for tipo_pessoa in OI_tipo_pessoas:
+			print(verbo_geral("Fazer",'Evento',lema,"presente",numero,None,tipo_pessoa))
 
 
 
+# # ###
+# #presente
+# print("A conjugaÃ§Ã£o Ã©:")
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'presente', '-ER', numero, None, tipo_pessoa))
+#
+# ###
+# print("A conjugaÃ§Ã£o pretÃ©rito_perfectivo_I Ã©:")
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'pretÃ©rito_perfectivo_I', '-ER', numero, None, tipo_pessoa))
+#
+# #####pretÃ©rito_imperfectivo
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'pretÃ©rito_imperfectivo', '-ER', numero, None, tipo_pessoa))
+#
+# ### "pretÃ©rito_perfectivo_II"
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'pretÃ©rito_perfectivo_II', '-ER', numero, None, tipo_pessoa))
+#
+# ###passado_volitivo
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'passado_volitivo', '-ER', numero, None, tipo_pessoa))
+#
+# # futuro
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'futuro', '-ER', numero, None, tipo_pessoa))
+#
+# # subjuntivo_conjuntivo
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'subjuntivo_conjuntivo', '-ER', numero, None, tipo_pessoa))
+#
+# # subjuntivo_condicional
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'subjuntivo_condicional', '-ER', numero, None, tipo_pessoa))
+#
+# # subjuntivo_optativo
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'subjuntivo_optativo', '-ER', numero, None, tipo_pessoa))
+#
+# # imperativo_I
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'imperativo_I', '-ER', numero, None, tipo_pessoa))
+#
+# # imperativo_II
+#
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'imperativo_II', '-ER', numero, None, tipo_pessoa))
+#
+# # # nÃ£o_finito_concretizado
+# for numero in OI_numeros:
+# 	for tipo_pessoa in OI_tipo_pessoas:
+# 		print(formacao_verbo_ter('ter', 'nÃ£o_finito_concretizado', '-ER', numero, None, tipo_pessoa))
+# # infinitivo
+# print(formacao_verbo_ter('ter', 'infinitivo', '-ER', numero, 'feminino', None))
+#
+# # # gerÃºndio
+# print(formacao_verbo_ter('ter', 'gerÃºndio', '-ER', None, None, None))
+# #
+# # # particÃ­pio
+# generos = ['masculino', 'feminino']
+# for numero in OI_numeros:
+# 	for genero in generos:
+# 		print(formacao_verbo_ter('ter', 'particÃ­pio', '-ER', numero, genero, None))
 
 
-# class GrupoVerbal:
-# 	def __init__(self, TIPO_DE_EXPERIENCIA_GV, AGENCIA, TIPO_DE_EXPERIENCIA_1, funcao_no_grupo_verbal_1, verbo_1,
-#                  tipo_de_orientacao_1, padrao_de_morfologia_1, OI_numero_1, genero_1,
-#                  OI_tipo_de_pessoa_1, padrao_pessoa_morfologia_1, TIPO_DE_EXPERIENCIA_2, funcao_no_grupo_verbal_2,
-#                  verbo_2, tipo_de_orientacao_2, padrao_de_morfologia_2, OI_numero_2, genero_2, OI_tipo_de_pessoa_2,
-#                  padrao_pessoa_morfologia_2, TIPO_DE_EXPERIENCIA_3, funcao_no_grupo_verbal_3, verbo_3,
-#                  tipo_de_orientacao_3, padrao_de_morfologia_3, OI_numero_3, genero_3, OI_tipo_de_pessoa_3,
-#                  padrao_pessoa_morfologia_3, TIPO_DE_EXPERIENCIA_4, funcao_no_grupo_verbal_4, verbo_4,
-#                  tipo_de_orientacao_4, padrao_de_morfologia_4,
-#                  OI_numero_4, genero_4, OI_tipo_de_pessoa_4, padrao_pessoa_morfologia_4, TIPO_DE_EXPERIENCIA_LEX,
-#                  funcao_no_grupo_verbal_POS_FINAL, verbo_LEX, tipo_de_orientacao_LEX, padrao_de_morfologia_LEX,
-#                  OI_numero_LEX, genero_LEX, OI_tipo_de_pessoa_LEX, padrao_pessoa_morfologia_LEX):
-# 		self.TIPO_DE_EXPERIENCIA_GV = TIPO_DE_EXPERIENCIA_GV
-# 		self.AGENCIA = AGENCIA
-# 		self.TIPO_DE_EXPERIENCIA_1=TIPO_DE_EXPERIENCIA_1
-# 		self.funcao_no_grupo_verbal_1=funcao_no_grupo_verbal_1
-# 		self.verbo_1=verbo_1
-# 		self.tipo_de_orientacao_1=tipo_de_orientacao_1
-# 		self.padrao_de_morfologia_1=padrao_de_morfologia_1
-# 		self.OI_numero_1= OI_numero_1
-# 		self.genero_1= genero_1
-# 		self.OI_tipo_de_pessoa_1= OI_tipo_de_pessoa_1
-# 		self.verbo_2= verbo_2
-# 		self.tipo_de_orientacao_2= tipo_de_orientacao_2
-# 		self.padrao_de_morfologia_2= padrao_de_morfologia_2
-# 		self.OI_numero_2= OI_numero_2
-# 		self.genero_2= genero_2
-# 		self.OI_tipo_de_pessoa_2= OI_tipo_de_pessoa_2
-# 		self.padrao_pessoa_morfologia_2= padrao_pessoa_morfologia_2
-# 		self.TIPO_DE_EXPERIENCIA_3= TIPO_DE_EXPERIENCIA_3
-# 		self.funcao_no_grupo_verbal_3= funcao_no_grupo_verbal_3
-# 		self.verbo_3= verbo_3
-# 		self.tipo_de_orientacao_3=tipo_de_orientacao_3
-# 		self.padrao_de_morfologia_3= padrao_de_morfologia_3
-# 		self.OI_numero_3= OI_numero_3
-# 		self.genero_3= genero_3
-# 		self.OI_tipo_de_pessoa_3=OI_tipo_de_pessoa_3
-# 		self.padrao_pessoa_morfologia_3=padrao_pessoa_morfologia_3
-# 		self.TIPO_DE_EXPERIENCIA_4=TIPO_DE_EXPERIENCIA_4
-# 		self.funcao_no_grupo_verbal_4= funcao_no_grupo_verbal_4
-# 		self.verbo_4= verbo_4
-# 		self.tipo_de_orientacao_4= tipo_de_orientacao_4
-# 		self.padrao_de_morfologia_4= padrao_de_morfologia_4
-# 		self.OI_numero_4= OI_numero_4
-# 		self.genero_4= genero_4
-# 		self.OI_tipo_de_pessoa_4= OI_tipo_de_pessoa_4
-# 		self.padrao_pessoa_morfologia_4= padrao_pessoa_morfologia_4
-# 		self.TIPO_DE_EXPERIENCIA_LEX= TIPO_DE_EXPERIENCIA_LEX
-# 		self.funcao_no_grupo_verbal_POS_FINAL= funcao_no_grupo_verbal_POS_FINAL
-# 		self.verbo_LEX= verbo_LEX
-# 		self.tipo_de_orientacao_LEX= tipo_de_orientacao_LEX
-# 		self.padrao_de_morfologia_LEX= padrao_de_morfologia_LEX
-# 		self.OI_numero_LEX= OI_numero_LEX
-# 		self.genero_LEX= genero_LEX
-# 		self.OI_tipo_de_pessoa_LEX= OI_tipo_de_pessoa_LEX
-# 		self.padrao_pessoa_morfologia_LEX=padrao_pessoa_morfologia_LEX
-#
-# 	def grupo_verbal(self,TIPO_DE_EXPERIENCIA_GV, AGENCIA, TIPO_DE_EXPERIENCIA_1, funcao_no_grupo_verbal_1, verbo_1,
-# 	                 tipo_de_orientacao_1, padrao_de_morfologia_1, OI_numero_1, genero_1,
-# 	                 OI_tipo_de_pessoa_1, padrao_pessoa_morfologia_1, TIPO_DE_EXPERIENCIA_2, funcao_no_grupo_verbal_2,
-# 	                 verbo_2, tipo_de_orientacao_2, padrao_de_morfologia_2, OI_numero_2, genero_2, OI_tipo_de_pessoa_2,
-# 	                 padrao_pessoa_morfologia_2, TIPO_DE_EXPERIENCIA_3, funcao_no_grupo_verbal_3, verbo_3,
-# 	                 tipo_de_orientacao_3, padrao_de_morfologia_3, OI_numero_3, genero_3, OI_tipo_de_pessoa_3,
-# 	                 padrao_pessoa_morfologia_3, TIPO_DE_EXPERIENCIA_4, funcao_no_grupo_verbal_4, verbo_4,
-# 	                 tipo_de_orientacao_4, padrao_de_morfologia_4,
-# 	                 OI_numero_4, genero_4, OI_tipo_de_pessoa_4, padrao_pessoa_morfologia_4, TIPO_DE_EXPERIENCIA_LEX,
-# 	                 funcao_no_grupo_verbal_POS_FINAL, verbo_LEX, tipo_de_orientacao_LEX, padrao_de_morfologia_LEX,
-# 	                 OI_numero_LEX, genero_LEX, OI_tipo_de_pessoa_LEX, padrao_pessoa_morfologia_LEX):
-# 		'''()->str
-# 		Retorna a estrutura que realiza o grupo verbal, dadas escolhas de
-# 		tipo_pessoa DE EVENTO, AGÊNCIA, TEMPO SECUNDÁRIO, FINITUDE E ASPECTO.
-# 		>>>grupo_verbal()
-# 		 'ando'
-# 		>>>grupo_verbal()
-# 		 'estou andando'
-# 		>>>grupo_verbal()
-# 		 'andava'
-# 		'''
-#
-# 		if TIPO_DE_EXPERIENCIA_GV == 'Ser' or TIPO_DE_EXPERIENCIA_GV == 'Fazer' or TIPO_DE_EXPERIENCIA_GV == 'Sentir':
-#
-# 			if AGENCIA == 'agenciado_ativa' or AGENCIA == 'não_agenciado':
-#
-# 				verbo1 = verbo_geral(TIPO_DE_EXPERIENCIA_1, funcao_no_grupo_verbal_1, verbo_1,
-# 				                     tipo_de_orientacao_1, padrao_de_morfologia_1, OI_numero_1, genero_1,
-# 				                     OI_tipo_de_pessoa_1, padrao_pessoa_morfologia_1)
-# 				verbo2 = verbo_geral(TIPO_DE_EXPERIENCIA_2,
-# 				                     funcao_no_grupo_verbal_2, verbo_2, tipo_de_orientacao_2, padrao_de_morfologia_2,
-# 				                     OI_numero_2,
-# 				                     genero_2, OI_tipo_de_pessoa_2, padrao_pessoa_morfologia_2)
-# 				verbo3 = verbo_geral(TIPO_DE_EXPERIENCIA_3,
-# 				                     funcao_no_grupo_verbal_3, verbo_3, tipo_de_orientacao_3, padrao_de_morfologia_3,
-# 				                     OI_numero_3,
-# 				                     genero_3, OI_tipo_de_pessoa_3, padrao_pessoa_morfologia_3)
-# 				verbo4 = verbo_geral(TIPO_DE_EXPERIENCIA_4,
-# 				                     funcao_no_grupo_verbal_4, verbo_4, tipo_de_orientacao_4, padrao_de_morfologia_4,
-# 				                     OI_numero_4,
-# 				                     genero_4, OI_tipo_de_pessoa_4, padrao_pessoa_morfologia_4)
-# 				Evento = verbo_geral(TIPO_DE_EXPERIENCIA_LEX, funcao_no_grupo_verbal_POS_FINAL,
-# 				                     verbo_LEX, tipo_de_orientacao_LEX, padrao_de_morfologia_LEX,
-# 				                     OI_numero_LEX, genero_LEX, OI_tipo_de_pessoa_LEX
-# 				                     , padrao_pessoa_morfologia_LEX)
-#
-# 				grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + verbo4 + ' ' + Evento
-#
-# 			else:
-# 				tipo_de_orientacao_LEX = 'particípio'
-# 				verbo_4 = 'ser'
-# 				verbo1 = verbo_geral(TIPO_DE_EXPERIENCIA_1,
-# 				                     funcao_no_grupo_verbal_1,
-# 				                     verbo_1, tipo_de_orientacao_1, padrao_de_morfologia_1, OI_numero_1,
-# 				                     genero_1, OI_tipo_de_pessoa_1, padrao_pessoa_morfologia_1)
-# 				verbo2 = verbo_geral(TIPO_DE_EXPERIENCIA_2,
-# 				                     funcao_no_grupo_verbal_2, verbo_2, tipo_de_orientacao_2, padrao_de_morfologia_2,
-# 				                     OI_numero_2,
-# 				                     genero_2, OI_tipo_de_pessoa_2, padrao_pessoa_morfologia_2)
-# 				verbo3 = verbo_geral(TIPO_DE_EXPERIENCIA_3,
-# 				                     funcao_no_grupo_verbal_3, verbo_3, tipo_de_orientacao_3, padrao_de_morfologia_3,
-# 				                     OI_numero_3,
-# 				                     genero_3, OI_tipo_de_pessoa_3, padrao_pessoa_morfologia_3)
-#
-# 				verbos_passiva = realizacao_de_AGENCIA_passiva(verbo_4, tipo_de_orientacao_4, padrao_de_morfologia_4,
-# 				                                               OI_numero_4, genero_4, OI_tipo_de_pessoa_4,
-# 				                                               padrao_pessoa_morfologia_4, TIPO_DE_EXPERIENCIA_LEX,
-# 				                                               funcao_no_grupo_verbal_POS_FINAL, verbo_LEX,
-# 				                                               tipo_de_orientacao_LEX, padrao_de_morfologia_LEX,
-# 				                                               OI_numero_LEX, genero_LEX, OI_tipo_de_pessoa_LEX,
-# 				                                               padrao_pessoa_morfologia_LEX)
-# 				grupo_verbal = verbo1 + ' ' + verbo2 + ' ' + verbo3 + ' ' + verbos_passiva
-# 		return (re.sub(' +', ' ', grupo_verbal).strip())
-#
-# GrupoTeste = GrupoVerbal('Fazer', 'agenciado_passiva', None, None, None,
-#                   None, None, None, None,
-#                   None, None, None, None,
-#                   None, None, None, None, None, None,
-#                   None, None, None, None,
-#                   None, None, None, None, None,
-#                   None, 'Ser', 'Auxiliar', 'ser','pretérito_perfectivo_I','-ER',
-#               'singular',None,'1pessoa','Morfologia_padrão','Fazer','Evento',
-#               'levar','particípio','-AR','singular','masculino',None,'Morfologia_padrão')
-#
-#
-# Grupo_teste_2 = GrupoVerbal.grupo_verbal('x','Fazer', 'agenciado_passiva', None, None, None,
-#                   None, None, None, None,
-#                   None, None, None, None,
-#                   None, None, None, None, None, None,
-#                   None, None, None, None,
-#                   None, None, None, None, None,
-#                   None, 'Ser', 'Auxiliar', 'ser','pretérito_perfectivo_I','-ER',
-#               'singular',None,'3pessoa','Morfologia_padrão','Fazer','Evento',
-#               'registrar','particípio','-AR','singular','masculino',None,'Morfologia_padrão')
-#
-#

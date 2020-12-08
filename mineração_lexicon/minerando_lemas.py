@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+
+
+
+
 import json
 # WORDNET
 #WORDNET
@@ -74,7 +80,7 @@ for palavra in lemas_verbos:
 
 
 # Serializing json
-json_object = json.dumps(dict_sinon_wn, indent=4)
+json_object = json.dumps(dict, indent=4)
 
 # Writing to sample.json
 with open("C:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/mineração_lexicon/dic_sin_wn.json", "w", encoding="utf-8") as outfile:
