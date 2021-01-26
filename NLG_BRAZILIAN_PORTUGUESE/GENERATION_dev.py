@@ -9119,7 +9119,7 @@ def num_cardinal_1dig_extenso(unidadeExtenso,genero):
 			numerativo = unidadeExtenso
 
 	return numerativo
-num_cardinal_1dig_extenso('zero','feminino')
+# num_cardinal_1dig_extenso('zero','feminino')
 
 def num_cardinal_2dig_extenso(dezenaExtenso,unidadeExtenso,genero):
 	if dezenaExtenso == "zero":
@@ -9156,7 +9156,7 @@ def num_cardinal_2dig_extenso(dezenaExtenso,unidadeExtenso,genero):
 
 	return numerativo
 
-num_cardinal_2dig_extenso('zero','zero','feminino')
+# num_cardinal_2dig_extenso('zero','zero','feminino')
 
 def num_cardinal_3dig_extenso(centenaExtenso,dezenaExtenso,unidadeExtenso,genero):
 	if centenaExtenso == "zero":
@@ -9193,7 +9193,7 @@ def num_cardinal_3dig_extenso(centenaExtenso,dezenaExtenso,unidadeExtenso,genero
 
 	return numerativo
 
-num_cardinal_3dig_extenso('duzentos','zero','zero', 'feminino')
+# num_cardinal_3dig_extenso('duzentos','zero','zero', 'feminino')
 
 def num_cardinal_4dig_extenso(milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,genero):  # Número com 4 dígitos
 	if milharExtenso == "zero":
@@ -9215,7 +9215,7 @@ def num_cardinal_4dig_extenso(milharExtenso,centenaExtenso,dezenaExtenso,unidade
 
 	return numerativo
 
-num_cardinal_4dig_extenso('zero','trezentos', 'zero', 'três', 'feminino')
+# num_cardinal_4dig_extenso('zero','trezentos', 'zero', 'três', 'feminino')
 
 # tipoRealCard = choice.Menu(['extenso', 'numérico']).ask()
 
@@ -9231,7 +9231,7 @@ def num_cardinal(tipoRealCard, cardNumerico, milharExtenso,
 
 	return numCardinal
 
-num_cardinal("extenso", None, 'zero','duzentos', 'zero', 'zero', 'feminino')
+# num_cardinal("extenso", None, 'zero','duzentos', 'zero', 'zero', 'feminino')
 # 
 # funcaoNumerativo = choice.Menu(['quant_precisa_absoluta(cardinais)',
 # 		                                 'quant_precisa_div/multi(fração/multiplicativos)',
@@ -9240,45 +9240,45 @@ num_cardinal("extenso", None, 'zero','duzentos', 'zero', 'zero', 'feminino')
 # 		                                 'ordem_lugar_preciso(ordinal)',
 # 		                                 'ordem_lugar_impreciso(posição_relativa'
 # 		                                 ]).ask()
-print("""
-                    1: 'algum'
-                    2: 'nenhum'
-                    3: 'todo'
-                    4: 'muito'
-                    5: 'pouco'
-                    6: 'vário'
-                    7: 'tanto'
-                    8: 'outro'
-                    9: 'quanto'
-                    10: 'alguma'
-                    11: 'nenhuma'
-                    12: 'toda'
-                    13: 'muita'
-                    14: 'pouca'
-                    15: 'vária'
-                    16: 'tanta'
-                    17:'outra'
-                    18: 'quanta'
-                    19:'alguns'
-                    20:'nenhuns'
-                    21:'todos'
-                    22:'muitos'
-                    23:'poucos'
-                    24:'vários'
-                    25:'tantos'
-                    26:'outros'
-                    27:'quantos'
-                    28:'algumas'
-                    29:'nenhumas'
-                    30:'todas'
-                    31:'muitas'
-                    32:'poucas'
-                    33:'várias'
-                    34:'tantas'
-                    35:'outras'
-                    36:'quantas'
-
-                               Escolha uma opção:""")
+# print("""
+#                     1: 'algum'
+#                     2: 'nenhum'
+#                     3: 'todo'
+#                     4: 'muito'
+#                     5: 'pouco'
+#                     6: 'vário'
+#                     7: 'tanto'
+#                     8: 'outro'
+#                     9: 'quanto'
+#                     10: 'alguma'
+#                     11: 'nenhuma'
+#                     12: 'toda'
+#                     13: 'muita'
+#                     14: 'pouca'
+#                     15: 'vária'
+#                     16: 'tanta'
+#                     17:'outra'
+#                     18: 'quanta'
+#                     19:'alguns'
+#                     20:'nenhuns'
+#                     21:'todos'
+#                     22:'muitos'
+#                     23:'poucos'
+#                     24:'vários'
+#                     25:'tantos'
+#                     26:'outros'
+#                     27:'quantos'
+#                     28:'algumas'
+#                     29:'nenhumas'
+#                     30:'todas'
+#                     31:'muitas'
+#                     32:'poucas'
+#                     33:'várias'
+#                     34:'tantas'
+#                     35:'outras'
+#                     36:'quantas'
+#
+#                                Escolha uma opção:""")
 
 
 def Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
@@ -9299,13 +9299,13 @@ def Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
 		Numerativo = numIdefinito
 
 	return Numerativo
-
-# ordinal
-Numerativo('ordem_lugar_preciso(ordinal)','5','masculino',None,None,
-			   None,None,None,None,None)
-#cardinal
-Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
-			   "zero","duzentos","zero","zero",None)
+#
+# # ordinal
+# Numerativo('ordem_lugar_preciso(ordinal)','5','masculino',None,None,
+# 			   None,None,None,None,None)
+# #cardinal
+# Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
+# 			   "zero","duzentos","zero","zero",None)
 #
 # def NumerativoIndefinidoSwitcher():
 # 	i = int(input())
@@ -9357,37 +9357,31 @@ Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
 # # ###A palavra nominal que realiza o Ente no GRUPO NOMINAL- Flexiona para nos eixos:
 # # #     Gênero, Número, Grau. Por enquanto, vou trabalhar apenas com Gênero e número.(ORDEM DA PALAVRA AINDA)
 # # # COMECEI APENAS COM SUBSTANTIVOS QUE SÃO REGULARES NAS SUAS FLEXÕES: gato:gatos:gatas:
-# #
-# # def detecção_experiência_do_substantivo():  ##dado o substantivo flexionado##
-# # 	'''(str,str,str)->
-# #
-# #     Retorna o morfema que realiza a experiência em um substantivo, dados
-# #     o substantivo flexionado, o gênero e o número.
-# #
-# #     >>>detecção_experiência_do_substantivo ('', 'masculino', 'plural')
-# #     'gat'
-# #     '''
-# # 	raiz_experiencial_substantivo = ''
-# # 	substantivo = input('Qual é o substantivo?')
-# # 	gênero = choice.Menu(['masculino', 'feminino']).ask()
-# # 	número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 	if gênero == 'masculino' and número == 'singular':
-# # 		raiz_experiencial_substantivo = (substantivo[slice(-1)])
-# # 		return raiz_experiencial_substantivo
-# #
-# # 	elif gênero == 'feminino' and número == 'singular':
-# # 		raiz_experiencial_substantivo = (substantivo[slice(-1)])
-# # 		return raiz_experiencial_substantivo
-# #
-# # 	elif gênero == 'masculino' and número == 'plural':
-# # 		raiz_experiencial_substantivo = (substantivo[slice(-2)])
-# # 		return raiz_experiencial_substantivo
-# #
-# # 	elif gênero == 'feminino' and número == 'plural':
-# # 		raiz_experiencial_substantivo = (substantivo[slice(-2)])
-# # 		return raiz_experiencial_substantivo
-# #
+
+def detectaExpSubstantivo(substantivo,genero,numero):  ##dado o substantivo flexionado##
+	'''(str,str,str)->
+
+    Retorna o morfema que realiza a experiência em um substantivo, dados
+    o substantivo flexionado, o gênero e o numero.
+
+    >>>detectaExpSubstantivo('','masculino','plural')
+    'gat'
+    '''
+
+
+	if genero == 'masculino' and numero == 'singular':
+		raizSubs = (substantivo[slice(-1)])
+
+	elif genero == 'feminino' and numero == 'singular':
+		raizSubs = (substantivo[slice(-1)])
+
+	elif genero == 'masculino' and numero == 'plural':
+		raizSubs = (substantivo[slice(-2)])
+
+	elif genero == 'feminino' and numero == 'plural':
+		raizSubs = (substantivo[slice(-2)])
+	return raizSubs
+# detectaExpSubstantivo('gatos','masculino','plural')
 # #
 # # # OS LEMAS QUE SERVIRÃO PARA  FUNÇÃO QUE SEGUE VIRÃO DA ANOTAÇÃO NA ONTOLOGIA:
 # # #        o que na ontologia tiver anotado como Thing, vai servir como um
@@ -9395,462 +9389,424 @@ Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
 # # #        vai ser importado automaticamente ou se vou ter de inserir manualmente
 # # #        )
 # #
+genero = choice.Menu(['masculino/feminino', 'não-binário']).ask()
+lemaSubs = input('Qual é o substantivo lematizado?')
+
+
+def realizaExpSubstantivo(lemaSubs,genero):  ##dado o substantivo_lematizado- por enquanto, apenas para
+	##substantivos regulares, com foco em masculino-feminino, singular plural. Tenho que considerar desenvolver
+	#    com relação aos diferentes tipos de radicais (primitivo, derivado, composto, simples...)
+	'''(str)-> str
+
+    Retorna o morfema que realiza a experiência em um substantivo, dado
+    o substantivo lematizado.
+
+    >>>realizaExpSubstantivo()
+    'gat'
+    '''
+	if genero == 'masculino' or genero =='feminino':
+		morfExpSubs = lemaSubs[slice(-1)]
+
+	elif genero == 'não-binário':
+		morfExpSubs = lemaSubs
+
+	return morfExpSubs
+
+# realizaExpSubstantivo('gata','masculino')
 # #
-# # def realizacao_experiência_do_substantivo():  ##dado o substantivo_lematizado- por enquanto, apenas para
-# # 	##substantivos regulares, com foco em masculino-feminino, singular plural. Tenho que considerar desenvolver
-# # 	#    com relação aos diferentes tipos de radicais (primitivo, derivado, composto, simples...)
-# # 	'''(str)-> str
-# #
-# #     Retorna o morfema que realiza a experiência em um substantivo, dado
-# #     o substantivo lematizado.
-# #
-# #     >>>realizacao_experiência_do_substantivo ()
-# #     'gat'
-# #     '''
-# # 	flexão_gênero_potencial = choice.Menu(['masculino/feminino', 'não_binário']).ask()
-# # 	substantivo_lematizado = input('Qual é o substantivo lematizado?')
-# #
-# # 	if flexão_gênero_potencial == 'masculino/feminino':
-# # 		morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
-# #
-# # 	elif flexão_gênero_potencial == 'não_binário':
-# # 		morfema_experiencial_do_substantivo = substantivo_lematizado
-# #
-# # 	return morfema_experiencial_do_substantivo
-# #
-# #
-# # def realizacao_flexões_substantivos():
-# # 	'''(str,str,str)->
-# #
-# #     Retorna os morfemas que realizam as flexões de gênero e número dados
-# #     a experiência do substantivo e os gênero e números desejados.
-# #
-# #     >>>realizacao_flexões_substantivos ('', '', '')
-# #     'os'
-# #     '''
-# # 	gênero = choice.Menu(['masculino', 'feminino', 'não_binário']).ask()
-# # 	número = choice.Menu(['singular', 'plural']).ask()
-# # 	if gênero == 'masculino' and número == 'singular':
-# # 		morfema_flexão_substantivo = 'o'
-# # 	elif gênero == 'feminino' and número == 'singular':
-# # 		morfema_flexão_substantivo = 'a'
-# # 	elif gênero == 'masculino' and número == 'plural':
-# # 		morfema_flexão_substantivo = 'os'
-# # 	elif gênero == 'feminino' and número == 'plural':
-# # 		morfema_flexão_substantivo = 'as'
-# # 	elif gênero == 'não_binário' and número == 'singular':
-# # 		morfema_flexão_substantivo = ''
-# # 	elif gênero == 'não_binário' and número == 'plural':
-# # 		morfema_flexão_substantivo = 's'
-# #
-# # 	return morfema_flexão_substantivo
-# #
+
+def realizacao_flexoes_substantivos(genero,numero):
+	'''(str,str,str)->
+
+    Retorna os morfemas que realizam as flexões de genero e numero dados
+    a experiência do substantivo e os genero e numeros desejados.
+
+	genero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
+	numero = choice.Menu(['singular', 'plural']).ask()
+    >>>realizacao_flexoes_substantivos()
+    'os'
+    '''
+
+	if genero == 'masculino' and numero == 'singular':
+		morfema_flexao_substantivo = 'o'
+	elif genero == 'feminino' and numero == 'singular':
+		morfema_flexao_substantivo = 'a'
+	elif genero == 'masculino' and numero == 'plural':
+		morfema_flexao_substantivo = 'os'
+	elif genero == 'feminino' and numero == 'plural':
+		morfema_flexao_substantivo = 'as'
+	elif genero == 'não-binário' and numero == 'singular':
+		morfema_flexao_substantivo = ''
+	elif genero == 'não-binário' and numero == 'plural':
+		morfema_flexao_substantivo = 's'
+
+	return morfema_flexao_substantivo
+# realizacao_flexoes_substantivos("masculino",'plural')
 # #
 # # ###Com relação aos substantivos comuns tenho que ver a abordagem que vou tomar
 # # # com relação aos substantivos não binários, ou inerentemente masculinos ou femininos. Me parece
 # # # que o sistema se organiza a realizar o gênero em alguns casos na ordem da palavra, e em
 # # # outros casos na ordem do grupo (mesa: não parece ter uma contrapartida masculina)
 # #
-# #
-# # def formação_da_estrutura_do_substantivo_comum():
-# # 	'''(str, str)-str
-# #
-# #     Retorna a realizacao de um substantivo comum dados a experiência_do_substantivo
-# #     e as flexões_desejadas.
-# #
-# #     >>>formação_da_estrutura_do_substantivo_comum ()
-# #
-# #     '''
-# # 	substantivo_lematizado = input('Qual é o substantivo lematizado?')
-# #
-# # 	if substantivo_lematizado[-1:] == 'm':
-# # 		print('Qual o número')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		if número == 'singular':
-# #
-# # 			substantivo_comum = substantivo_lematizado
-# #
-# # 		elif número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
-# # 			morfema_flexão_substantivo = 'ns'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 	elif substantivo_lematizado[-2:] == 'or':
-# # 		print('Qual o gênero')
-# # 		flexão_gênero_potencial = choice.Menu(['masculino', 'feminino']).ask()
-# # 		print('Qual o número')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		if flexão_gênero_potencial == 'masculino' and número == 'singular':
-# #
-# # 			substantivo_comum = substantivo_lematizado
-# #
-# # 		elif flexão_gênero_potencial == 'feminino' and número == 'singular':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = 'a'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 		elif flexão_gênero_potencial == 'masculino' and número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = 'es'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 		elif flexão_gênero_potencial == 'feminino' and número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = 'as'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# #
-# # 		elif flexão_gênero_potencial == 'não_binário' and número == 'singular':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = ''
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 		elif flexão_gênero_potencial == 'não_binário' and número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = 's'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# # 	elif substantivo_lematizado[-2:] == 'ão':
-# # 		print('Qual o gênero')
-# # 		flexão_gênero_potencial = choice.Menu(['masculino', 'feminino', 'não_binário']).ask()
-# # 		print('Qual o número')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# # 		if (flexão_gênero_potencial == 'masculino' and número == 'singular'
-# # 				or flexão_gênero_potencial == 'não_binário' and número == 'singular'):
-# # 			substantivo_comum = substantivo_lematizado
-# # 		elif flexão_gênero_potencial == 'feminino' and número == 'singular':
-# # 			print('Escolha o tipo_pessoa de feminino:')
-# # 			tipo_feminino = choice.Menu(['oa', 'ona', 'ã', 'esa', 'casos_exceção']).ask()
-# # 			if (tipo_feminino == 'oa' or tipo_feminino == 'ona' or tipo_feminino == 'ã' or
-# # 					tipo_feminino == 'esa'):
-# # 				morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-# # 				substantivo_comum = morfema_experiencial_do_substantivo + tipo_feminino
-# # 			else:
-# # 				substantivo_comum = input('Dê entrada manual do substantivo comum')
-# #
-# # 		elif (flexão_gênero_potencial == 'masculino' and número == 'plural'
-# # 		      or flexão_gênero_potencial == 'não_binário' and número == 'plural'):
-# # 			print('Escolha o tipo_pessoa de plural:')
-# # 			tipo_ão = choice.Menu(['ãos', 'ões', 'ães']).ask()
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + tipo_ão
-# # 		elif flexão_gênero_potencial == 'feminino' and número == 'plural':
-# # 			print('Escolha o tipo_pessoa de feminino:')
-# # 			tipo_feminino = choice.Menu(['oa', 'ona', 'ã', 'esa', 'casos_exceção']).ask()
-# # 			if (tipo_feminino == 'oa' or tipo_feminino == 'ona' or tipo_feminino == 'ã' or
-# # 					tipo_feminino == 'esa'):
-# # 				morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-# # 				substantivo_comum = morfema_experiencial_do_substantivo + tipo_feminino + 's'
-# # 			else:
-# # 				substantivo_comum = input('Dê entrada manual do substantivo comum')
-# #
-# # 	elif substantivo_lematizado[-1:] == 'x':
-# # 		substantivo_comum = substantivo_lematizado
-# #
-# # 	elif substantivo_lematizado[-1:] == 's':
-# # 		tonicidade = choice.Menu(['oxítona', 'paroxítona', 'proparoxítona']).ask()
-# #
-# # 		if tonicidade == 'paroxítona':
-# # 			substantivo_comum = substantivo_lematizado
-# # 		elif tonicidade == 'oxítona':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_número = 'es'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_número
-# #
-# #
-# # 	elif (substantivo_lematizado[-1:] == 'r' or substantivo_lematizado[-1:] == 'z'):
-# # 		print('Qual o gênero')
-# # 		flexão_gênero_potencial = choice.Menu(['masculino', 'feminino', 'não_binário']).ask()
-# # 		print('Qual o número')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		if flexão_gênero_potencial == 'masculino' and número == 'singular':
-# #
-# # 			substantivo_comum = substantivo_lematizado
-# #
-# # 		elif flexão_gênero_potencial == 'feminino' and número == 'singular':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = 'a'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# #
-# # 		elif flexão_gênero_potencial == 'masculino' and número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = 'es'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 		elif flexão_gênero_potencial == 'feminino' and número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = 'as'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# #
-# # 		elif flexão_gênero_potencial == 'não_binário' and número == 'singular':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = ''
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 		elif flexão_gênero_potencial == 'não_binário' and número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = 'es'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 	elif substantivo_lematizado[-2:] == 'al':
-# # 		print('Qual o número')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		if número == 'singular':
-# #
-# # 			substantivo_comum = substantivo_lematizado
-# #
-# # 		elif número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-# # 			morfema_flexão_substantivo = 'ais'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 	elif substantivo_lematizado[-2:] == 'el':
-# # 		print('Qual o número')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		if número == 'singular':
-# #
-# # 			substantivo_comum = substantivo_lematizado
-# #
-# # 		elif número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-# # 			morfema_flexão_substantivo = 'éis'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 	elif substantivo_lematizado[-2:] == 'il':
-# # 		print('Qual o número')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		if número == 'singular':
-# #
-# # 			substantivo_comum = substantivo_lematizado
-# #
-# # 		elif número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-# # 			morfema_flexão_substantivo = 'is'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# #
-# # 	elif substantivo_lematizado[-2:] == 'ol':
-# # 		print('Qual o número')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		if número == 'singular':
-# #
-# # 			substantivo_comum = substantivo_lematizado
-# #
-# # 		elif número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-# # 			morfema_flexão_substantivo = 'óis'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# #
-# # 	elif substantivo_lematizado[-2:] == 'ul':
-# # 		print('Qual o número')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		if número == 'singular':
-# #
-# # 			substantivo_comum = substantivo_lematizado
-# #
-# # 		elif número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-# # 			morfema_flexão_substantivo = 'úis'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# #
-# # 	else:
-# # 		print('Qual o gênero')
-# # 		flexão_gênero_potencial = choice.Menu(['masculino', 'feminino', 'não_binário']).ask()
-# # 		print('Qual o número')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		if flexão_gênero_potencial == 'masculino' and número == 'singular':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
-# # 			morfema_flexão_substantivo = 'o'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 		elif flexão_gênero_potencial == 'feminino' and número == 'singular':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
-# # 			morfema_flexão_substantivo = 'a'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 		elif flexão_gênero_potencial == 'masculino' and número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
-# # 			morfema_flexão_substantivo = 'os'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 		elif flexão_gênero_potencial == 'feminino' and número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
-# # 			morfema_flexão_substantivo = 'as'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# #
-# # 		elif flexão_gênero_potencial == 'não_binário' and número == 'singular':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = ''
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 		elif flexão_gênero_potencial == 'não_binário' and número == 'plural':
-# # 			morfema_experiencial_do_substantivo = substantivo_lematizado
-# # 			morfema_flexão_substantivo = 's'
-# # 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexão_substantivo
-# #
-# # 	return substantivo_comum
-# #
-# #
+# print('Escolha o tipo_pessoa de feminino:')
+# tipo_feminino_ÃO = choice.Menu(['oa', 'ona', 'ã', 'esa', 'casos_exceção']).ask()
+#
+# print('Escolha o tipo_pessoa de plural:')
+# tipo_masc_ÃO = choice.Menu(['ãos', 'ões', 'ães']).ask()
+
+# terminado em 's':;;;tonicidade = choice.Menu(['oxítona', 'paroxítona', 'proparoxítona']).ask()
+
+def formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado,numero,
+											   genero, tipo_feminino_ÃO,
+											   tipo_masc_ÃO,tonicidade):
+	'''(str, str)-str
+
+    Retorna a realizacao de um substantivo comum dados a experiência_do_substantivo
+    e as flexões_desejadas.
+
+    >>>formacao_da_estrutura_do_substantivo_comum ()
+
+    '''
+	
+	if substantivo_lematizado[-1:] == 'm':
+		
+
+		if numero == 'singular':
+
+			substantivo_comum = substantivo_lematizado
+
+		elif numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
+			morfema_flexao_substantivo = 'ns'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+	elif substantivo_lematizado[-2:] == 'or':
+		
+		if genero == 'masculino' and numero == 'singular':
+
+			substantivo_comum = substantivo_lematizado
+
+		elif genero == 'feminino' and numero == 'singular':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = 'a'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'masculino' and numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = 'es'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'feminino' and numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = 'as'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'não-binário' and numero == 'singular':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = ''
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'não-binário' and numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = 's'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+	elif substantivo_lematizado[-2:] == 'ão':
+		
+		if (genero == 'masculino' and numero == 'singular'
+				or genero == 'não-binário' and numero == 'singular'):
+			substantivo_comum = substantivo_lematizado
+
+		elif genero == 'feminino' and numero == 'singular':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
+			substantivo_comum = morfema_experiencial_do_substantivo + tipo_feminino_ÃO
+
+		elif (genero == 'masculino' and numero == 'plural'
+		      or genero == 'não-binário' and numero == 'plural'):
+
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
+			substantivo_comum = morfema_experiencial_do_substantivo + tipo_masc_ÃO+'s'
+
+		elif genero == 'feminino' and numero == 'plural':
+
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
+			substantivo_comum = morfema_experiencial_do_substantivo + tipo_feminino_ÃO+ 's'
+
+	elif substantivo_lematizado[-1:] == 'x':
+		substantivo_comum = substantivo_lematizado
+
+	elif substantivo_lematizado[-1:] == 's':
+		if tonicidade == 'paroxítona':
+			substantivo_comum = substantivo_lematizado
+		elif tonicidade == 'oxítona':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_numero = 'es'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_numero
+
+	elif (substantivo_lematizado[-1:] == 'r' or substantivo_lematizado[-1:] == 'z'):
+		
+		if genero == 'masculino' and numero == 'singular':
+			substantivo_comum = substantivo_lematizado
+
+		elif genero == 'feminino' and numero == 'singular':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = 'a'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'masculino' and numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = 'es'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'feminino' and numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = 'as'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'não-binário' and numero == 'singular':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = ''
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'não-binário' and numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = 'es'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+	elif substantivo_lematizado[-2:] == 'al':
+		if numero == 'singular':
+			substantivo_comum = substantivo_lematizado
+
+		elif numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
+			morfema_flexao_substantivo = 'ais'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+	elif substantivo_lematizado[-2:] == 'el':
+
+		if numero == 'singular':
+			substantivo_comum = substantivo_lematizado
+
+		elif numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
+			morfema_flexao_substantivo = 'éis'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+	elif substantivo_lematizado[-2:] == 'il':
+
+		if numero == 'singular':
+			substantivo_comum = substantivo_lematizado
+
+		elif numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
+			morfema_flexao_substantivo = 'is'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+	elif substantivo_lematizado[-2:] == 'ol':
+
+		if numero == 'singular':
+			substantivo_comum = substantivo_lematizado
+
+		elif numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
+			morfema_flexao_substantivo = 'óis'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+	elif substantivo_lematizado[-2:] == 'ul':
+
+		if numero == 'singular':
+			substantivo_comum = substantivo_lematizado
+
+		elif numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
+			morfema_flexao_substantivo = 'úis'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+	else:
+
+		if genero == 'masculino' and numero == 'singular':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
+			morfema_flexao_substantivo = 'o'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'feminino' and numero == 'singular':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
+			morfema_flexao_substantivo = 'a'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'masculino' and numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
+			morfema_flexao_substantivo = 'os'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'feminino' and numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
+			morfema_flexao_substantivo = 'as'
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'não-binário' and numero == 'singular':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = ''
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+		elif genero == 'não-binário' and numero == 'plural':
+			morfema_experiencial_do_substantivo = substantivo_lematizado
+			morfema_flexao_substantivo = 's'
+
+			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+
+	return substantivo_comum
+
+# formacao_da_estrutura_do_substantivo_comum("ancião",'plural',"masculino", None,
+# 											   "ão",None)
+# formacao_da_estrutura_do_substantivo_comum("artesão",'singular',"feminino", "ã",
+# 											   None,None)
+
+# formacao_da_estrutura_do_substantivo_comum("carro","plural",
+# 											   "não-binário", None,
+# 											   None,None)
+# formacao_da_estrutura_do_substantivo_comum("varal","plural",
+# 											   "não-binário", None,
+# 											   None,None)
 # # # ADJETIVOS
+
+def deteccao_experiencia_do_adjetivo(adjetivo,genero,numero):  ##dado o adjetivo flexionado##
+	'''(str,str,str)->
+
+    Retorna o morfema que realiza a experiência em um adjetivo, dados
+    o adjetivo flexionado, o gênero e o número.
+
+    >>>deteccao_experiencia_do_adjetivo()
+    'esportiv'
+    '''
+
+	if numero == 'singular':
+		if genero == 'masculino':
+			raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
+			
+		elif genero == 'feminino':
+			raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
+	elif numero == 'plural':
+		if genero == 'masculino':
+			raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
+	
+		elif genero == 'feminino':
+			raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
+	
+	return raiz_experiencial_adjetivo
+# deteccao_experiencia_do_adjetivo("esperto","masculino","singular")
 # #
-# # def detecção_experiência_do_adjetivo():  ##dado o adjetivo flexionado##
-# # 	'''(str,str,str)->
-# #
-# #     Retorna o morfema que realiza a experiência em um adjetivo, dados
-# #     o adjetivo flexionado, o gênero e o número.
-# #
-# #     >>>detecção_experiência_do_adjetivo ('', 'masculino', 'plural')
-# #     'esportiv'
-# #     '''
-# # 	raiz_experiencial_adjetivo = ''
-# # 	adjetivo = input('Qual é o adjetivo?')
-# # 	gênero = choice.Menu(['masculino', 'feminino']).ask()
-# # 	número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 	if gênero == 'masculino' and número == 'singular':
-# # 		raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
-# # 		return raiz_experiencial_adjetivo
-# #
-# # 	elif gênero == 'feminino' and número == 'singular':
-# # 		raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
-# # 		return raiz_experiencial_adjetivo
-# #
-# # 	elif gênero == 'masculino' and número == 'plural':
-# # 		raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
-# # 		return raiz_experiencial_adjetivo
-# #
-# # 	elif gênero == 'feminino' and número == 'plural':
-# # 		raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
-# # 		return raiz_experiencial_adjetivo
-# #
-# #
-# # def realizacao_experiência_do_adjetivo():
-# # 	'''(str)-> str
-# #
-# #     Retorna o morfema que realiza a experiência em um adjetivo, dado
-# #     o adjetivo lematizado.
-# #
-# #     >>>realizacao_experiência_do_adjetivo ()
-# #     'gat'
-# #     '''
-# # 	flexão_gênero_potencial = choice.Menu(['masculino/feminino', 'não_binário']).ask()
-# # 	adjetivo_lematizado = input('Qual é o adjetivo lematizado?')
-# #
-# # 	if flexão_gênero_potencial == 'masculino/feminino':
-# # 		morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-# #
-# # 	elif flexão_gênero_potencial == 'não_binário':
-# # 		morfema_experiencial_do_adjetivo = adjetivo_lematizado
-# #
-# # 	return morfema_experiencial_do_adjetivo
-# #
-# #
-# # def realizacao_flexões_adjetivos():
-# # 	'''(str,str,str)->
-# #
-# #     Retorna os morfemas que realizam as flexões de gênero e número dados
-# #     a experiência do adjetivo e os gênero e números desejados.
-# #
-# #     >>>realizacao_flexões_adjetivos ('', '', '')
-# #     'os'
-# #     '''
-# #
-# # 	gênero = choice.Menu(['masculino', 'feminino', 'não_binário']).ask()
-# # 	número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 	if gênero == 'masculino' and número == 'singular':
-# # 		morfema_flexão_adjetivo = 'o'
-# #
-# #
-# # 	elif gênero == 'feminino' and número == 'singular':
-# # 		morfema_flexão_adjetivo = 'a'
-# #
-# #
-# # 	elif gênero == 'masculino' and número == 'plural':
-# # 		morfema_flexão_adjetivo = 'os'
-# #
-# #
-# # 	elif gênero == 'feminino' and número == 'plural':
-# # 		morfema_flexão_adjetivo = 'as'
-# #
-# #
-# # 	elif gênero == 'não_binário' and número == 'singular':
-# # 		morfema_flexão_adjetivo = ''
-# #
-# # 	elif gênero == 'não_binário' and número == 'plural':
-# # 		morfema_flexão_adjetivo = 's'
-# #
-# # 	return morfema_flexão_adjetivo
-# #
-# #
-# # def adjetivo_modificador():
-# # 	'''(str, str)-str
-# #
-# #     Retorna a realizacao de um adjetivo comum dados a experiência_do_adjetivo
-# #     e as flexões_desejadas.
-# #
-# #     >>>estrutura_do_adjetivo ()
-# #
-# #     '''
-# # 	print('Há realizacao de adjetivo com funções de modificação (class, epítetos)?')
-# # 	real_modificadores = choice.Menu(['sim', 'NA']).ask()
-# #
-# # 	if real_modificadores == 'NA':
-# #
-# # 		modificador = ''
-# #
-# # 	else:
-# #
-# # 		adjetivo_lematizado = input('Qual é o adjetivo lematizado?')
-# # 		flexão_gênero_potencial = choice.Menu(['masculino', 'feminino', 'não_binário']).ask()
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		if flexão_gênero_potencial == 'masculino' and número == 'singular':
-# # 			morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-# # 			morfema_flexão_adjetivo = 'o'
-# # 			modificador = morfema_experiencial_do_adjetivo + morfema_flexão_adjetivo
-# #
-# # 		elif flexão_gênero_potencial == 'feminino' and número == 'singular':
-# # 			morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-# # 			morfema_flexão_adjetivo = 'a'
-# # 			modificador = morfema_experiencial_do_adjetivo + morfema_flexão_adjetivo
-# #
-# # 		elif flexão_gênero_potencial == 'masculino' and número == 'plural':
-# # 			morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-# # 			morfema_flexão_adjetivo = 'os'
-# # 			modificador = morfema_experiencial_do_adjetivo + morfema_flexão_adjetivo
-# #
-# # 		elif flexão_gênero_potencial == 'feminino' and número == 'plural':
-# # 			morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-# # 			morfema_flexão_adjetivo = 'as'
-# # 			modificador = morfema_experiencial_do_adjetivo + morfema_flexão_adjetivo
-# #
-# #
-# # 		elif flexão_gênero_potencial == 'não_binário' and número == 'singular':
-# # 			morfema_experiencial_do_adjetivo = adjetivo_lematizado
-# # 			morfema_flexão_adjetivo = ''
-# # 			modificador = morfema_experiencial_do_adjetivo + morfema_flexão_adjetivo
-# #
-# # 		elif flexão_gênero_potencial == 'não_binário' and número == 'plural':
-# # 			morfema_experiencial_do_adjetivo = adjetivo_lematizado
-# # 			morfema_flexão_adjetivo = 's'
-# # 			modificador = morfema_experiencial_do_adjetivo + morfema_flexão_adjetivo
-# #
-# # 	return modificador
-# #
+
+
+def realizacao_experiencia_do_adjetivo(adjetivo_lematizado,genero):
+	'''(str)-> str
+	genero = choice.Menu(['masculino/feminino', 'não-binário']).ask()
+	adjetivo_lematizado = 
+    
+    Retorna o morfema que realiza a experiência em um adjetivo, dado
+    o adjetivo lematizado.
+
+    >>>realizacao_experiencia_do_adjetivo()
+    'gat'
+    '''
+
+	if genero == 'masculino/feminino':
+		morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+
+	elif genero == 'não-binário':
+		morfema_experiencial_do_adjetivo = adjetivo_lematizado
+
+	return morfema_experiencial_do_adjetivo
+
+realizacao_experiencia_do_adjetivo("esperto","masculino/feminino")
+
+
+def realizacao_flexoes_adjetivos(genero,numero):
+	'''(str,str,str)->
+
+    Retorna os morfemas que realizam as flexões de gênero e número dados
+    a experiência do adjetivo e os gênero e números desejados.
+	
+	genero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
+	numero = choice.Menu(['singular', 'plural']).ask()
+    >>>realizacao_flexoes_adjetivos()
+    'os'
+    '''
+	if numero == 'singular':
+		if genero == 'masculino':
+			morfema_flexao_adjetivo = 'o'
+	
+		elif genero == 'feminino':
+			morfema_flexao_adjetivo = 'a'
+		elif genero == 'não-binário':
+			morfema_flexao_adjetivo = ''
+
+	elif numero == 'plural':
+		if genero == 'masculino' :
+			morfema_flexao_adjetivo = 'os'
+
+		elif genero == 'feminino' and numero == 'plural':
+			morfema_flexao_adjetivo = 'as'
+		
+		elif genero == 'não-binário':
+			morfema_flexao_adjetivo = 's'
+
+	return morfema_flexao_adjetivo
+
+
+def adjetivo_modificador(adjModificacao,adjetivo_lematizado,genero,numero):
+	'''(str, str)-str
+
+    Retorna a realizacao de um adjetivo comum dados a experiência_do_adjetivo
+    e as flexões_desejadas.
+    
+    print('Há realizacao de adjetivo com funções de modificação (class, epítetos)?')
+	real_modificadores = choice.Menu(['sim', 'NA']).ask()
+	
+	adjetivo_lematizado = input('Qual é o adjetivo lematizado?')
+	genero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
+	numero = choice.Menu(['singular', 'plural']).ask()
+
+    >>>estrutura_do_adjetivo ()
+
+    '''
+
+	if adjModificacao == 'NA':
+		modificador = ''
+
+	else:
+		if numero == 'singular':
+			if genero == 'masculino':
+				morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+				morfema_flexao_adjetivo = 'o'
+				genero
+
+			elif genero == 'feminino':
+				morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+				morfema_flexao_adjetivo = 'a'
+				genero
+
+			elif genero == 'não-binário':
+				morfema_experiencial_do_adjetivo = adjetivo_lematizado
+				morfema_flexao_adjetivo = ''
+				genero
+		elif numero == 'plural':
+			if genero == 'masculino':
+				morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+				morfema_flexao_adjetivo = 'os'
+				genero
+
+			elif genero == 'feminino':
+				morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+				morfema_flexao_adjetivo = 'as'
+				genero
+			elif genero == 'não-binário':
+				morfema_experiencial_do_adjetivo = adjetivo_lematizado
+				morfema_flexao_adjetivo = 's'
+
+		modificador = morfema_experiencial_do_adjetivo + morfema_flexao_adjetivo
+
+	return modificador
+# adjetivo_modificador("sim",'esperto','feminino','singular')
 # #
 # # # PRONOMES#
 # #
@@ -9926,7 +9882,7 @@ Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
 # # 		morfologia_do_pronome = choice.Menu(['padrão', 'não_padrão']).ask()
 # #
 # # 		if morfologia_do_pronome == 'padrão':
-# # 			gênero = choice.Menu(['masculino', 'feminino', 'não_binário']).ask()
+# # 			gênero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
 # #
 # # 			if gênero == 'masculino':
 # # 				pronome_pessoal_oblíquo = 'o'
@@ -9954,7 +9910,7 @@ Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
 # # 		morfologia_do_pronome = choice.Menu(['padrão', 'não_padrão']).ask()
 # #
 # # 		if morfologia_do_pronome == 'padrão':
-# # 			gênero = choice.Menu(['masculino', 'feminino', 'não_binário']).ask()
+# # 			gênero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
 # #
 # # 			if gênero == 'masculino':
 # # 				pronome_pessoal_oblíquo = 'os'
@@ -9984,7 +9940,7 @@ Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
 # #
 # # 	elif pessoa_da_interlocução == 'não_interlocutor' and número == 'singular' and tonicidade == 'tônico':
 # #
-# # 		gênero = choice.Menu(['masculino', 'feminino', 'não_binário']).ask()
+# # 		gênero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
 # #
 # # 		if gênero == 'masculino':
 # # 			pronome_pessoal_oblíquo = 'ele'
@@ -9993,7 +9949,7 @@ Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
 # # 			pronome_pessoal_oblíquo = 'ela'
 # #
 # #
-# # 		elif gênero == 'não_binário':
+# # 		elif gênero == 'não-binário':
 # # 			pronome_pessoal_oblíquo = 'si'
 # #
 # # 	elif pessoa_da_interlocução == 'falante' and número == 'plural' and tonicidade == 'tônico':
@@ -10010,7 +9966,7 @@ Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
 # #
 # # 	elif pessoa_da_interlocução == 'não_interlocutor' and número == 'plural' and tonicidade == 'tônico':
 # #
-# # 		gênero = choice.Menu(['masculino', 'feminino', 'não_binário']).ask()
+# # 		gênero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
 # #
 # # 		if gênero == 'masculino':
 # # 			pronome_pessoal_oblíquo = 'eles'
@@ -10019,7 +9975,7 @@ Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
 # # 			pronome_pessoal_oblíquo = 'elas'
 # #
 # #
-# # 		elif gênero == 'não_binário':
+# # 		elif gênero == 'não-binário':
 # # 			pronome_pessoal_oblíquo = 'si'
 # #
 # # 	return pronome_pessoal_oblíquo
