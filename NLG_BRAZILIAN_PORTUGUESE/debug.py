@@ -1,72 +1,134 @@
+# -*- coding: utf-8 -*-
 
-def formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero,
-                                       genero, OI_tipo_de_pessoa,
-                                       padrao_pessoa_morfologia='Morfologia_padrão'):
-	'''
+def verbo_geral(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,
+                tipo_de_orientacao, OI_numero, genero, OI_tipo_de_pessoa,
+                padrao_pessoa_morfologia="Morfologia_padrÃ£o"):
+    '''(str)->str
+    Retorna a estrutura que realiza os verbos no portuguÃªs.
     '''
+    classe_do_verbo = def_classe_de_verbo(funcao_no_grupo_verbal)
+    padrao_de_morfologia = detecta_padrao_morfologia(verbo)
+    if classe_do_verbo == 'lexical':
+        if (TIPO_DE_EXPERIENCIA == 'Ser' or
+                TIPO_DE_EXPERIENCIA == 'Fazer' or
+                TIPO_DE_EXPERIENCIA == 'Sentir'):
 
-	if verbo == 'estar':
-		verbo = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                     OI_numero,
-		                                     genero, OI_tipo_de_pessoa,
-		                                     padrao_pessoa_morfologia='Morfologia_padrão')
+            if verbo == 'estar':
+                verbo = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero,
+                                             genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 
-	elif verbo == 'ter':
-		verbo = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                   OI_numero,
-		                                   genero, OI_tipo_de_pessoa,
-		                                   padrao_pessoa_morfologia='Morfologia_padrão')
+            elif verbo == 'ter':
+                verbo = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                           OI_numero, genero, OI_tipo_de_pessoa,
+                                           padrao_pessoa_morfologia)
+            elif verbo == 'ser':
+                verbo = formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero, genero,
+                                           OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+            elif verbo == 'ir':
+                verbo = formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero,
+                                          genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+            elif verbo == 'haver':
+                verbo = formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                             OI_numero, genero, OI_tipo_de_pessoa,
+                                             padrao_pessoa_morfologia)
+            elif verbo == 'agredir':
+                verbo = formacao_verbo_agredir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                               OI_numero, genero, OI_tipo_de_pessoa,
+                                               padrao_pessoa_morfologia)
+            elif verbo == 'aferir':
+                verbo = formacao_verbo_aferir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                              OI_numero, genero, OI_tipo_de_pessoa,
+                                              padrao_pessoa_morfologia)
+            elif verbo == 'medir':
+                verbo = formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                             OI_numero, genero, OI_tipo_de_pessoa,
+                                             padrao_pessoa_morfologia)
+            elif verbo == 'saber':
+                verbo = formacao_verbo_saber(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                             OI_numero, genero, OI_tipo_de_pessoa,
+                                             padrao_pessoa_morfologia)
+            elif (verbo == 'vir' or verbo == 'intervir'):
+                verbo = formacao_verbo_vir_intervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                                    OI_numero, genero, OI_tipo_de_pessoa,
+                                                    padrao_pessoa_morfologia)
+            elif verbo == 'poder':
+                verbo = formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                             OI_numero, genero, OI_tipo_de_pessoa,
+                                             padrao_pessoa_morfologia)
+            elif verbo == 'fazer':
+                verbo = formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                             OI_numero, genero, OI_tipo_de_pessoa,
+                                             padrao_pessoa_morfologia)
 
-	elif verbo == 'haver':
-		verbo = formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                     OI_numero,
-		                                     genero, OI_tipo_de_pessoa,
-		                                     padrao_pessoa_morfologia='Morfologia_padrão')
+            else:
+                if verbo[-3:] == 'car':
+                    verbo = formacao_verbo_CAR(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                               OI_numero, genero, OI_tipo_de_pessoa,
+                                               padrao_pessoa_morfologia)
+        elif verbo[-3:] == 'gar':
+            verbo = formacao_verbo_GAR(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                       OI_numero, genero, OI_tipo_de_pessoa,
+                                       padrao_pessoa_morfologia)
+        elif verbo[-3:] == 'Ã§ar':
+            verbo = formacao_verbo_Ã‡AR(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                       OI_numero, genero, OI_tipo_de_pessoa,
+                                       padrao_pessoa_morfologia)
+        elif verbo[-3:] == 'gar':
+            verbo = formacao_verbo_GAR(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                       OI_numero, genero, OI_tipo_de_pessoa,
+                                       padrao_pessoa_morfologia)
+        elif verbo[-3:] == 'cer':
+            verbo = formacao_verbo_CER(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                       OI_numero, genero, OI_tipo_de_pessoa,
+                                       padrao_pessoa_morfologia)
 
-	elif verbo == 'ir':
-		verbo = formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                  OI_numero,
-		                                  genero, OI_tipo_de_pessoa,
-		                                  padrao_pessoa_morfologia='Morfologia_padrão')
+        elif verbo[-5:] == 'dizer':
+            verbo = formacao_verbo_dizer(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero,
+                                         genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+        else:
+            verbo = formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, OI_numero,
+                                                   genero, OI_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)
+    #######
+    elif classe_do_verbo == 'modal':
+        if (TIPO_DE_EXPERIENCIA == 'Ser' or
+                TIPO_DE_EXPERIENCIA == 'Fazer' or
+                TIPO_DE_EXPERIENCIA == 'Sentir'):
 
-	elif verbo == 'vir':
-		verbo = formacao_verbo_vir_invervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                            OI_numero,
-		                                            genero, OI_tipo_de_pessoa,
-		                                            padrao_pessoa_morfologia='Morfologia_padrão')
+            if verbo == 'dever':
+                ME = verbo[slice(-2)]
+                MI = realizacao_transitoriedade_do_verbo(tipo_de_orientacao, padrao_de_morfologia, OI_numero, genero,
+                                                         OI_tipo_de_pessoa,
+                                                         padrao_pessoa_morfologia="Morfologia_padrÃ£o")
+                verbo = ME + MI
 
-	elif verbo == 'ser':
-		verbo = formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                   OI_numero,
-		                                   genero, OI_tipo_de_pessoa,
-		                                   padrao_pessoa_morfologia='Morfologia_padrão')
+            elif verbo == 'poder':
+                verbo = formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                             OI_numero, genero, OI_tipo_de_pessoa,
+                                             padrao_pessoa_morfologia='Morfologia_padrÃ£o')
 
-	elif verbo == None:
-		verbo = ''
-	else:
-		OE_experiencia_do_verbo = experiencia_do_verbo(verbo)
-		OI_orientacao_interpessoal_do_verbo = realizacao_transitoriedade_do_verbo(tipo_de_orientacao,
-		                                                                          padrao_de_morfologia,
-		                                                                          OI_numero,
-		                                                                          genero, OI_tipo_de_pessoa,
-		                                                                          padrao_pessoa_morfologia)
-		verbo = OE_experiencia_do_verbo + OI_orientacao_interpessoal_do_verbo
-	return verbo
-formacao_da_estrutura_do_verbo('ser','presente','-ER','singular',None,'1pessoa')
-formacao_da_estrutura_do_verbo('expor','presente','-OR','singular',None,'1pessoa')
+            elif verbo == 'haver':
+                verbo = formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                             OI_numero, genero, OI_tipo_de_pessoa,
+                                             padrao_pessoa_morfologia='Morfologia_padrÃ£o')
 
-# ###########################################################################
-# #########################################################################
+            elif verbo == 'ter':
+
+                verbo = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
+                                           OI_numero, genero, OI_tipo_de_pessoa,
+                                           padrao_pessoa_morfologia='Morfologia_padrÃ£o') + ' ' + 'que'
+    # elif verbo == 'ter de':
+    # 	verbo = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
+    # 	                           OI_numero, genero, OI_tipo_de_pessoa,
+    # 	                           padrao_pessoa_morfologia='Morfologia_padrÃ£o') + ' ' + 'de'
+
+    elif classe_do_verbo == 'auxiliar':
+        verbo = formacao_da_estrutura_do_verbo_AUX(verbo, tipo_de_orientacao, OI_numero,
+                                                   genero, OI_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)
+    else:
+        verbo = ''
+    return verbo
 
 
-formacao_da_estrutura_do_verbo('ser','presente','-AR','singular',None,'1pessoa')
-formacao_da_estrutura_do_verbo('andar','pretérito_perfectivo_I','-AR','singular',None,'3pessoa')
-formacao_da_estrutura_do_verbo('comer','pretérito_imperfectivo','-ER','plural',None,'1pessoa')
-formacao_da_estrutura_do_verbo('expor','presente','-OR','singular',None,'1pessoa')
-# formacao_da_estrutura_do_verbo('expor','gerúndio','-OR',None,None,None)
-# formacao_da_estrutura_do_verbo('cortar', 'particípio', '-AR', 'singular', 'feminino', None)
-#
-# TIPO_DE_EXPERIENCIA = ['Ser','Fazer', 'Sentir']
-#  funcao_no_grupo_verbal = choice.Menu(['Evento', 'Auxiliar', 'Modal', 'Evento+Núcleo',
-# 	                                      'Auxiliar+Núcleo', 'Modal+Núcleo']).ask()
-#
+verbo_geral("Fazer", 'Evento', 'enternecer', 'pretÃ©rito_perfectivo_I', 'singular', None, '1pessoa')
