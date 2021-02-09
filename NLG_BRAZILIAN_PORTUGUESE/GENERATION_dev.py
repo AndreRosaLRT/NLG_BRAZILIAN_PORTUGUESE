@@ -9389,8 +9389,8 @@ def detectaExpSubstantivo(substantivo,genero,numero):  ##dado o substantivo flex
 # # #        vai ser importado automaticamente ou se vou ter de inserir manualmente
 # # #        )
 # #
-genero = choice.Menu(['masculino/feminino', 'não-binário']).ask()
-lemaSubs = input('Qual é o substantivo lematizado?')
+# genero = choice.Menu(['masculino/feminino', 'não-binário']).ask()
+# lemaSubs = input('Qual é o substantivo lematizado?')
 
 
 def realizaExpSubstantivo(lemaSubs,genero):  ##dado o substantivo_lematizado- por enquanto, apenas para
@@ -9458,13 +9458,13 @@ def realizacao_flexoes_substantivos(genero,numero):
 
 def formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado,numero,
 											   genero, tipo_feminino_ÃO,
-											   tipo_masc_ÃO,tonicidade):
+											   tipo_masc_ÃO,acentTonica):
 	'''(str, str)-str
 
     Retorna a realizacao de um substantivo comum dados a experiência_do_substantivo
     e as flexões_desejadas.
 
-    >>>formacao_da_estrutura_do_substantivo_comum ()
+    >>>formacao_da_estrutura_do_substantivo_comum(,
 
     '''
 	
@@ -9535,9 +9535,9 @@ def formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado,numero,
 		substantivo_comum = substantivo_lematizado
 
 	elif substantivo_lematizado[-1:] == 's':
-		if tonicidade == 'paroxítona':
+		if acentTonica == 'paroxítona':
 			substantivo_comum = substantivo_lematizado
-		elif tonicidade == 'oxítona':
+		elif acentTonica == 'oxítona':
 			morfema_experiencial_do_substantivo = substantivo_lematizado
 			morfema_numero = 'es'
 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_numero
@@ -9717,7 +9717,7 @@ def realizacao_experiencia_do_adjetivo(adjetivo_lematizado,genero):
 
 	return morfema_experiencial_do_adjetivo
 
-realizacao_experiencia_do_adjetivo("esperto","masculino/feminino")
+# realizacao_experiencia_do_adjetivo("esperto","masculino/feminino")
 
 
 def realizacao_flexoes_adjetivos(genero,numero):
@@ -9812,212 +9812,206 @@ def adjetivo_modificador(adjModificacao,adjetivo_lematizado,genero,numero):
 # #
 # # # PEGUEI OS PRONOMES BÁSICOS# QUANDO CHEGAR NA ORAÇÃO, A MORFOLOGIA DOS VERBOS
 # # # FICA UM POUCO SUBVERSIVA
-# #
-# # def realizacao_pronominal_casoreto():
-# # 	'''(str)->str
-# #     Retorna o pronome adequado dado uma pessoa da intelocução.
-# #
-# #     >>>realizacao_pronominal_casoreto ('','')
-# #     'eu'
-# #     '''
-# # 	pessoa_da_interlocução = choice.Menu(['falante', 'ouvinte', 'não_interlocutor']).ask()
-# # 	número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 	if pessoa_da_interlocução == 'falante' and número == 'singular':
-# # 		pronome_pessoal_reto = 'eu'
-# # 		return pronome_pessoal_reto
-# #
-# # 	elif pessoa_da_interlocução == 'ouvinte' and número == 'singular':
-# # 		morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 		if morfologia_do_pronome == 'padrão':
-# # 			pronome_pessoal_reto = 'tu'
-# # 		else:
-# # 			pronome_pessoal_reto = 'você'
-# #
-# # 	elif pessoa_da_interlocução == 'não_interlocutor' and número == 'singular':
-# # 		gênero = choice.Menu(['masculino', 'feminino']).ask()
-# # 		if gênero == 'masculino':
-# # 			pronome_pessoal_reto = 'ele'
-# #
-# # 		else:
-# # 			pronome_pessoal_reto = 'ela'
-# #
-# # 	elif pessoa_da_interlocução == 'falante' and número == 'plural':
-# # 		pronome_pessoal_reto = 'nós'
-# #
-# # 	elif pessoa_da_interlocução == 'ouvinte' and número == 'plural':
-# # 		morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 		if morfologia_do_pronome == 'padrão':
-# # 			pronome_pessoal_reto = 'vós'
-# # 		else:
-# # 			pronome_pessoal_reto = 'vocês'
-# #
-# # 	elif pessoa_da_interlocução == 'não_interlocutor' and número == 'plural':
-# # 		gênero = choice.Menu(['masculino', 'feminino']).ask()
-# # 		if gênero == 'masculino':
-# # 			pronome_pessoal_reto = 'eles'
-# # 		else:
-# # 			pronome_pessoal_reto = 'elas'
-# #
-# # 	return pronome_pessoal_reto
-# #
-# #
-# # def realizacao_pronome_caso_oblíquo():
-# # 	'''(str)->str
-# #     Retorna o pronome oblíquo adequado dado uma pessoa da intelocução.
-# #
-# #     >>>realizacao_pronominal_caso_oblíquo ()
-# #     'me'
-# #     '''
-# # 	tonicidade = choice.Menu(['átono', 'tônico']).ask()
-# # 	pessoa_da_interlocução = choice.Menu(['falante', 'ouvinte', 'não_interlocutor']).ask()
-# # 	número = choice.Menu(['singular', 'plural']).ask()
-# # 	if pessoa_da_interlocução == 'falante' and número == 'singular' and tonicidade == 'átono':
-# # 		pronome_pessoal_oblíquo = 'me'
-# #
-# # 	elif pessoa_da_interlocução == 'ouvinte' and número == 'singular' and tonicidade == 'átono':
-# # 		pronome_pessoal_oblíquo = 'te'
-# #
-# # 	elif pessoa_da_interlocução == 'não_interlocutor' and número == 'singular' and tonicidade == 'átono':
-# # 		morfologia_do_pronome = choice.Menu(['padrão', 'não_padrão']).ask()
-# #
-# # 		if morfologia_do_pronome == 'padrão':
-# # 			gênero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
-# #
-# # 			if gênero == 'masculino':
-# # 				pronome_pessoal_oblíquo = 'o'
-# #
-# # 			elif gênero == 'feminino':
-# # 				pronome_pessoal_oblíquo = 'a'
-# #
-# # 			else:
-# # 				pronome_pessoal_oblíquo = choice.Menu(['se', 'lhe']).ask()
-# # 		elif morfologia_do_pronome == 'não_padrão':
-# # 			gênero = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 			if gênero == 'masculino':
-# # 				pronome_pessoal_oblíquo = 'ele'
-# # 			else:
-# # 				pronome_pessoal_oblíquo = 'ela'
-# #
-# # 	elif pessoa_da_interlocução == 'falante' and número == 'plural' and tonicidade == 'átono':
-# # 		pronome_pessoal_oblíquo = 'nos'
-# #
-# # 	elif pessoa_da_interlocução == 'ouvinte' and número == 'plural' and tonicidade == 'átono':
-# # 		pronome_pessoal_oblíquo = 'vos'
-# #
-# # 	elif pessoa_da_interlocução == 'não_interlocutor' and número == 'plural' and tonicidade == 'átono':
-# # 		morfologia_do_pronome = choice.Menu(['padrão', 'não_padrão']).ask()
-# #
-# # 		if morfologia_do_pronome == 'padrão':
-# # 			gênero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
-# #
-# # 			if gênero == 'masculino':
-# # 				pronome_pessoal_oblíquo = 'os'
-# #
-# # 			elif gênero == 'feminino':
-# # 				pronome_pessoal_oblíquo = 'as'
-# #
-# # 			else:
-# # 				pronome_pessoal_oblíquo = choice.Menu(['se', 'lhes']).ask()
-# # 		elif morfologia_do_pronome == 'não_padrão':
-# # 			gênero = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 			if gênero == 'masculino':
-# # 				pronome_pessoal_oblíquo = 'eles'
-# # 			else:
-# # 				pronome_pessoal_oblíquo = 'elas'
-# #
-# # 	elif pessoa_da_interlocução == 'falante' and número == 'singular' and tonicidade == 'tônico':
-# # 		pronome_pessoal_oblíquo = 'mim'
-# #
-# # 	elif pessoa_da_interlocução == 'ouvinte' and número == 'singular' and tonicidade == 'tônico':
-# # 		morfologia_do_pronome = choice.Menu(['padrão', 'não_padrão']).ask()
-# # 		if morfologia_do_pronome == 'padrão':
-# # 			pronome_pessoal_oblíquo = 'ti'
-# # 		else:
-# # 			pronome_pessoal_oblíquo = 'você'
-# #
-# # 	elif pessoa_da_interlocução == 'não_interlocutor' and número == 'singular' and tonicidade == 'tônico':
-# #
-# # 		gênero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
-# #
-# # 		if gênero == 'masculino':
-# # 			pronome_pessoal_oblíquo = 'ele'
-# #
-# # 		elif gênero == 'feminino':
-# # 			pronome_pessoal_oblíquo = 'ela'
-# #
-# #
-# # 		elif gênero == 'não-binário':
-# # 			pronome_pessoal_oblíquo = 'si'
-# #
-# # 	elif pessoa_da_interlocução == 'falante' and número == 'plural' and tonicidade == 'tônico':
-# # 		pronome_pessoal_oblíquo = 'nós'
-# #
-# # 	elif pessoa_da_interlocução == 'ouvinte' and número == 'plural' and tonicidade == 'tônico':
-# # 		morfologia_do_pronome = choice.Menu(['padrão', 'não_padrão']).ask()
-# #
-# # 		if morfologia_do_pronome == 'padrão':
-# # 			pronome_pessoal_oblíquo = 'vós'
-# # 		else:
-# # 			pronome_pessoal_oblíquo = 'vocês'
-# #
-# #
-# # 	elif pessoa_da_interlocução == 'não_interlocutor' and número == 'plural' and tonicidade == 'tônico':
-# #
-# # 		gênero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
-# #
-# # 		if gênero == 'masculino':
-# # 			pronome_pessoal_oblíquo = 'eles'
-# #
-# # 		elif gênero == 'feminino':
-# # 			pronome_pessoal_oblíquo = 'elas'
-# #
-# #
-# # 		elif gênero == 'não-binário':
-# # 			pronome_pessoal_oblíquo = 'si'
-# #
-# # 	return pronome_pessoal_oblíquo
-# #
-# #
-# # def pronome_relativo():
-# # 	'''
-# #     '''
-# # 	modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
-# #
-# # 	if modo_inserção == 'inserção_manual':
-# # 		pronome_relativo = input('Escreva o pronome desejado:')
-# #
-# # 	elif modo_inserção == 'inserção_menu':
-# #
-# # 		print('Qual tipo_pessoa de relativo?')
-# # 		tipo_pronome_relativo = choice.Menu(['variável', 'invariável']).ask()
-# # 		if tipo_pronome_relativo == 'variável':
-# #
-# # 			print('Qual o gênero?')
-# # 			gênero = choice.Menu(['masculino', 'feminino']).ask()
-# # 			print('Qual o número?')
-# # 			número = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 			if gênero == 'masculino' and número == 'singular':
-# # 				pronome_relativo = choice.Menu(['o qual', 'cujo', 'quanto', 'pelo quai']).ask()
-# #
-# # 			elif gênero == 'masculino' and número == 'plural':
-# # 				pronome_relativo = choice.Menu(['os quais', 'cujos', 'quantos', 'pelos quais']).ask()
-# #
-# # 			elif gênero == 'feminino' and número == 'singular':
-# # 				pronome_relativo = choice.Menu(['a qual', 'cuja', 'quanta', 'pela qual']).ask()
-# #
-# # 			elif gênero == 'feminino' and número == 'plural':
-# # 				pronome_relativo = choice.Menu(['as quais', 'cujas', 'quantas', 'pelas quais']).ask()
-# #
-# # 		elif tipo_pronome_relativo == 'invariável':
-# # 			pronome_relativo = choice.Menu(['quem', 'que',
-# # 			                                'a quem', 'a que', 'porque', 'como']).ask()
-# #
-# # 	return pronome_relativo
-# #
+
+def realizacao_pronominal_casoreto(pessoa_da_interlocucao,genero,numero,morfologia_do_pronome="de_terceira_pessoa"):
+	'''(str)->str
+    Retorna o pronome adequado dado uma pessoa da intelocução.
+	pessoa_da_interlocucao = choice.Menu(['falante', 'ouvinte', 'não_interlocutor']).ask()
+	numero = choice.Menu(['singular', 'plural']).ask()
+	morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()	
+    >>>realizacao_pronominal_casoreto ('','')
+    'eu'
+    '''
+	
+	if pessoa_da_interlocucao == 'falante' and numero == 'singular':
+		pronome_pessoal_reto = 'eu'
+		
+
+	elif pessoa_da_interlocucao == 'ouvinte' and numero == 'singular':
+		
+		if morfologia_do_pronome == 'padrão':
+			pronome_pessoal_reto = 'tu'
+		else:
+			pronome_pessoal_reto = 'você'
+
+	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular':
+		if genero == 'masculino':
+			pronome_pessoal_reto = 'ele'
+		else:
+			pronome_pessoal_reto = 'ela'
+
+	elif pessoa_da_interlocucao == 'falante' and numero == 'plural':
+		pronome_pessoal_reto = 'nós'
+
+	elif pessoa_da_interlocucao == 'ouvinte' and numero == 'plural':
+		
+		if morfologia_do_pronome == 'padrão':
+			pronome_pessoal_reto = 'vós'
+		else:
+			pronome_pessoal_reto = 'vocês'
+
+	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural':
+		
+		if genero == 'masculino':
+			pronome_pessoal_reto = 'eles'
+		else:
+			pronome_pessoal_reto = 'elas'
+
+	return pronome_pessoal_reto
+
+
+# realizacao_pronominal_casoreto("não_interlocutor", "feminino", "singular", morfologia_do_pronome="de_terceira_pessoa")
+
+
+def realizacao_pronome_caso_obliquo(transitividade_verbo,tonicidade,pessoa_da_interlocucao,numero,genero,morfologia_do_pronome,reflexivo=False):
+	'''(str)->str
+    Retorna o pronome oblíquo adequado dado uma pessoa da intelocução.
+	tonicidade = choice.Menu(['átono', 'tônico']).ask()
+	pessoa_da_interlocucao = choice.Menu(['falante', 'ouvinte', 'não_interlocutor']).ask()
+	numero = choice.Menu(['singular', 'plural']).ask()
+	morfologia_do_pronome = choice.Menu(['padrão', 'não_padrão']).ask()
+	transitividade_verbo =choice.Menu(['direto','direto_preposicionado, 'indireto']).ask()
+    >>>realizacao_pronominal_caso_oblíquo ()
+    'me'
+    '''
+
+	if pessoa_da_interlocucao == 'falante' and numero == 'singular' and tonicidade == 'átono' and transitividade_verbo == "direto":
+		pronome_pessoal_obliquo = 'me'
+
+	elif pessoa_da_interlocucao == 'ouvinte' and numero == 'singular' and tonicidade == 'átono':
+		pronome_pessoal_obliquo = 'te'
+
+	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular' and tonicidade == 'átono':
+
+		if morfologia_do_pronome == 'padrão':
+			if genero == 'masculino':
+				pronome_pessoal_obliquo = 'o'
+
+			elif genero == 'feminino':
+				pronome_pessoal_obliquo = 'a'
+		elif morfologia_do_pronome == 'não_padrão':
+			if genero == 'masculino':
+				pronome_pessoal_obliquo = 'ele'
+			else:
+				pronome_pessoal_obliquo = 'ela'
+		else:
+			if reflexivo==True:
+				pronome_pessoal_obliquo = 'se'
+
+	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular' and tonicidade == 'átono' and transitividade_verbo == "indireto":
+		pronome_pessoal_obliquo = 'lhe'
+
+
+	elif pessoa_da_interlocucao == 'falante' and numero == 'plural' and tonicidade == 'átono':
+		pronome_pessoal_obliquo = 'nos'
+
+	elif pessoa_da_interlocucao == 'ouvinte' and numero == 'plural' and tonicidade == 'átono':
+		pronome_pessoal_obliquo = 'vos'
+
+	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural' and tonicidade == 'átono':
+		if morfologia_do_pronome == 'padrão':
+
+			if genero == 'masculino':
+				pronome_pessoal_obliquo = 'os'
+
+			elif genero == 'feminino':
+				pronome_pessoal_obliquo = 'as'
+		else:
+			if reflexivo == True:
+				pronome_pessoal_obliquo = 'se'
+
+	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural' and tonicidade == 'átono' and transitividade_verbo == "indireto":
+				pronome_pessoal_obliquo = 'lhes'
+
+		elif morfologia_do_pronome == 'não_padrão':
+
+			if genero == 'masculino':
+				pronome_pessoal_obliquo = 'eles'
+			else:
+				pronome_pessoal_obliquo = 'elas'
+	if transitividade_verbo == 'indireto':
+		if pessoa_da_interlocucao == 'falante' and numero == 'singular' and tonicidade == 'tônico':
+			pronome_pessoal_obliquo = 'mim'
+
+		elif pessoa_da_interlocucao == 'ouvinte' and numero == 'singular' and tonicidade == 'tônico':
+
+			if morfologia_do_pronome == 'padrão':
+				pronome_pessoal_obliquo = 'ti'
+			else:
+				pronome_pessoal_obliquo = 'você'
+
+		elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular' and tonicidade == 'tônico':
+			if morfologia_do_pronome == 'não_padrão':
+				if genero == 'masculino':
+					pronome_pessoal_obliquo = 'ele'
+
+				elif genero == 'feminino':
+					pronome_pessoal_obliquo = 'ela'
+			else:
+				pronome_pessoal_obliquo = 'si'
+
+		elif pessoa_da_interlocucao == 'falante' and numero == 'plural' and tonicidade == 'tônico':
+			pronome_pessoal_obliquo = 'nós'
+
+		elif pessoa_da_interlocucao == 'ouvinte' and numero == 'plural' and tonicidade == 'tônico':
+
+			if morfologia_do_pronome == 'padrão':
+				pronome_pessoal_obliquo = 'vós'
+			else:
+				pronome_pessoal_obliquo = 'vocês'
+
+		elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural' and tonicidade == 'tônico':
+
+			if morfologia_do_pronome == 'não_padrão':
+				if genero == 'masculino':
+					pronome_pessoal_obliquo = 'eles'
+
+				elif genero == 'feminino':
+					pronome_pessoal_obliquo = 'elas'
+			else:
+				pronome_pessoal_obliquo = 'si'
+
+	return pronome_pessoal_obliquo
+# realizacao_pronome_caso_obliquo("indireto",'tônico',"não_interlocutor",'singular','feminino',"padrão")
+
+##TENHO QUE VER SE FAZ SENTIDO MUDAR ESTA(inserir parâmetros??)
+# def pronome_relativo():
+# 	'''
+#     '''
+# 	modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
+#
+# 	if modo_inserção == 'inserção_manual':
+# 		pronome_relativo = input('Escreva o pronome desejado:')
+#
+# 	elif modo_inserção == 'inserção_menu':
+#
+# 		print('Qual tipo_pessoa de relativo?')
+# 		tipo_pronome_relativo = choice.Menu(['variável', 'invariável']).ask()
+# 		if tipo_pronome_relativo == 'variável':
+#
+# 			print('Qual o gênero?')
+# 			gênero = choice.Menu(['masculino', 'feminino']).ask()
+# 			print('Qual o número?')
+# 			número = choice.Menu(['singular', 'plural']).ask()
+#
+# 			if gênero == 'masculino' and número == 'singular':
+# 				pronome_relativo = choice.Menu(['o qual', 'cujo', 'quanto', 'pelo qual']).ask()
+#
+# 			elif gênero == 'masculino' and número == 'plural':
+# 				pronome_relativo = choice.Menu(['os quais', 'cujos', 'quantos', 'pelos quais']).ask()
+#
+# 			elif gênero == 'feminino' and número == 'singular':
+# 				pronome_relativo = choice.Menu(['a qual', 'cuja', 'quanta', 'pela qual']).ask()
+#
+# 			elif gênero == 'feminino' and número == 'plural':
+# 				pronome_relativo = choice.Menu(['as quais', 'cujas', 'quantas', 'pelas quais']).ask()
+#
+# 		elif tipo_pronome_relativo == 'invariável':
+# 			pronome_relativo = choice.Menu(['quem', 'que',
+# 			                                'a quem', 'a que', 'porque', 'como']).ask()
+#
+# 	return pronome_relativo
+
 # #
 # # ##PRECISO IMPLEMENTAR LETRA MAIÚSCULA NO CASO DE INICIO DE FRASE.
 # # # SUBSTANTIVOS PRÓPRIOS VIRÃO DA LISTA DE NOMES PRÓPRIOS ANOTADOS NA GUM
@@ -10035,1228 +10029,517 @@ def adjetivo_modificador(adjModificacao,adjetivo_lematizado,genero,numero):
 # #
 # # ####DÊIXIS DO GN
 # #
-# #
-# # def estrutura_lógica_dêixis():
-# # 	'''
-# #     '''
-# #
-# # 	estrutura_lógica_dêixis = input("""
-# #
-# #             1: α(Dêitico_ñ_seletivo_específico) # ex.: O,A
-# #             2: α(Dêitico_ñ_seletivo_ñ_específico) #ex.: Um,uns
-# #             3: α(Dêitico_prox) #Este
-# #             4: α(Dêitico_pess) #Meu
-# #             5: β(Dêitico_prox)^α(Dêitico_pess) # ex.: Este meu
-# #             6: β(Dêitico_ñ_seletivo_específico)^α(Dêitico_pess) # ex.: O meu
-# #             7: β(Dêitico_ñ_seletivo_ñ_específico)^α(Dêitico_pess) # ex.: Um meu
-# #
-# #
-# #
-# #
-# #
-# #             Selecione uma opção:""")
-# #
-# # 	if estrutura_lógica_dêixis == '1':
-# #
-# # 		estrutura_lógica_dêixis = 'α(Dêitico_ñ_seletivo_específico)'
-# #
-# # 	elif estrutura_lógica_dêixis == '2':
-# #
-# # 		estrutura_lógica_dêixis = 'α(Dêitico_ñ_seletivo_ñ_específico)'
-# #
-# # 	elif estrutura_lógica_dêixis == '3':
-# #
-# # 		estrutura_lógica_dêixis = 'α(Dêitico_prox)'
-# #
-# # 	elif estrutura_lógica_dêixis == '4':
-# #
-# # 		estrutura_lógica_dêixis = 'α(Dêitico_pess)'
-# #
-# # 	elif estrutura_lógica_dêixis == '5':
-# #
-# # 		estrutura_lógica_dêixis = 'β(Dêitico_prox)^α(Dêitico_pess)'
-# #
-# # 	elif estrutura_lógica_dêixis == '6':
-# #
-# # 		estrutura_lógica_dêixis = 'β(Dêitico_ñ_seletivo_específico)^α(Dêitico_pess)'
-# #
-# # 	elif estrutura_lógica_dêixis == '7':
-# #
-# # 		estrutura_lógica_dêixis = 'β(Dêitico_ñ_seletivo_ñ_específico)^α(Dêitico_pess)'
-# #
-# # 	return estrutura_lógica_dêixis
-# #
+
+def estrutura_logica_deixis():
+	'''
+    '''
+
+	estrutura_lógica_det_dêixis = input("""
+
+            1: α(Dêitico_ñ_seletivo_específico) # ex.: O,A
+            2: α(Dêitico_ñ_seletivo_ñ_específico) #ex.: Um,uns
+            3: α(Dêitico_prox) #Este
+            4: α(Dêitico_pess) #Meu
+            5: β(Dêitico_prox)^α(Dêitico_pess) # ex.: Este meu
+            6: β(Dêitico_ñ_seletivo_específico)^α(Dêitico_pess) # ex.: O meu
+            7: β(Dêitico_ñ_seletivo_ñ_específico)^α(Dêitico_pess) # ex.: Um meu
+
+
+
+
+
+            Selecione uma opção:""")
+
+	if estrutura_lógica_det_dêixis == '1':
+
+		estrutura_lógica_det_dêixis = 'α(Dêitico_ñ_seletivo_específico)'
+
+	elif estrutura_lógica_det_dêixis == '2':
+
+		estrutura_lógica_det_dêixis = 'α(Dêitico_ñ_seletivo_ñ_específico)'
+
+	elif estrutura_lógica_det_dêixis == '3':
+
+		estrutura_lógica_det_dêixis = 'α(Dêitico_prox)'
+
+	elif estrutura_lógica_det_dêixis == '4':
+
+		estrutura_lógica_det_dêixis = 'α(Dêitico_pess)'
+
+	elif estrutura_lógica_det_dêixis == '5':
+
+		estrutura_lógica_det_dêixis = 'β(Dêitico_prox)^α(Dêitico_pess)'
+
+	elif estrutura_lógica_det_dêixis == '6':
+
+		estrutura_lógica_det_dêixis = 'β(Dêitico_ñ_seletivo_específico)^α(Dêitico_pess)'
+
+	elif estrutura_lógica_det_dêixis == '7':
+
+		estrutura_lógica_det_dêixis = 'β(Dêitico_ñ_seletivo_ñ_específico)^α(Dêitico_pess)'
+
+	return estrutura_lógica_det_dêixis
+
 # #
 # # # a fazer: verificar as opções que coloquei para os diferentes tipos de dêixis:
 # # # não preciso talvez colocar todas as opções de especificidade em cada um deles
 # # # pra não ter a possibilidade de dar erro nas escolhas.
-# # def Dêitico_ñ_seletivo_específico():
-# # 	'''
-# #     '''
+def Dêitico_ñ_seletivo_específico(DETERMINAÇÃO_espeficifidade,ORIENTAÇÃO,número, gênero):
+	'''
+	print('Selecione a especificidade:')
+	DETERMINAÇÃO_espeficifidade = choice.Menu(
+		['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)',
+		 'genérico(contável)']).ask()
+
+	print('Selecione a orientação:')
+	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
+	                          'orientação_específica_proximidade_e_pessoa']).ask()
+	                          print('Selecione número:')
+	número = choice.Menu(['singular', 'plural']).ask()
+	print('Selecione o gênero')
+	gênero = choice.Menu(['masculino', 'feminino']).ask()
+    '''
+
+	if (DETERMINAÇÃO_espeficifidade == 'específico'  and ORIENTAÇÃO == 'NA'):
+
+		if número == 'plural' and gênero == 'masculino':
+			determinante = 'os'
+		elif número == 'plural' and gênero == 'feminino':
+			determinante = 'as'
+		elif número == 'singular' and gênero == 'masculino':
+			determinante = 'o'
+		elif número == 'singular' and gênero == 'feminino':
+			determinante = 'a'
+
+	return determinante
+# Dêitico_ñ_seletivo_específico('específico', 'NA','plural', 'feminino')
 # #
-# # 	print('Selecione a especificidade:')
-# # 	DETERMINAÇÃO_espeficifidade = choice.Menu(
-# # 		['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)',
-# # 		 'genérico(contável)']).ask()
-# #
-# # 	print('Selecione a orientação:')
-# # 	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
-# # 	                          'orientação_específica_proximidade_e_pessoa']).ask()
-# #
-# # 	if (DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'NA' or
-# # 			DETERMINAÇÃO_espeficifidade == 'genérico(=todos,quaisquer)' and ORIENTAÇÃO == 'NA'):
-# #
-# # 		print('Selecione número:')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# # 		print('Selecione o gênero')
-# # 		gênero = choice.Menu(['masculino', 'feminino']).ask()
-# # 		if número == 'plural' and gênero == 'masculino':
-# # 			determinante = 'os'
-# #
-# #
-# #
-# # 		elif número == 'plural' and gênero == 'feminino':
-# # 			determinante = 'as'
-# #
-# #
-# #
-# # 		elif número == 'singular' and gênero == 'masculino':
-# # 			determinante = 'o'
-# #
-# #
-# # 		elif número == 'singular' and gênero == 'feminino':
-# # 			determinante = 'a'
-# #
-# # 	return determinante
-# #
-# #
-# # def Dêitico_ñ_seletivo_ñ_específico():
-# # 	'''
-# #     '''
-# # 	print('Selecione a especificidade:')
-# # 	DETERMINAÇÃO_espeficifidade = choice.Menu(
-# # 		['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)',
-# # 		 'genérico(contável)']).ask()
-# #
-# # 	print('Selecione a orientação:')
-# # 	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
-# # 	                          'orientação_específica_proximidade_e_pessoa']).ask()
-# #
-# # 	if DETERMINAÇÃO_espeficifidade == 'não_específico' and ORIENTAÇÃO == 'NA':
-# # 		print('Selecione número:')
-# # 		número = choice.Menu(['singular', 'plural']).ask()
-# # 		print('Selecione o gênero')
-# # 		gênero = choice.Menu(['masculino', 'feminino']).ask()
-# # 		if número == 'singular' and gênero == 'masculino':
-# # 			determinante = 'um'
-# #
-# #
-# # 		elif número == 'plural' and gênero == 'masculino':
-# # 			determinante = 'uns'
-# #
-# #
-# # 		elif número == 'singular' and gênero == 'feminino':
-# # 			determinante = 'uma'
-# #
-# #
-# # 		elif número == 'plural' and gênero == 'feminino':
-# # 			determinante = 'umas'
-# #
-# # 	return determinante
-# #
+def Dêitico_ñ_seletivo_ñ_específico(DETERMINAÇÃO_espeficifidade,ORIENTAÇÃO,número,gênero):
+	'''
+	print('Selecione a especificidade:')
+	DETERMINAÇÃO_espeficifidade = choice.Menu(
+		['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)',
+		 'genérico(contável)']).ask()
+
+	print('Selecione a orientação:')
+	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
+	                          'orientação_específica_proximidade_e_pessoa']).ask()
+
+	print('Selecione número:')
+		número = choice.Menu(['singular', 'plural']).ask()
+		print('Selecione o gênero')
+		gênero = choice.Menu(['masculino', 'feminino']).ask()
+    '''
+
+	if DETERMINAÇÃO_espeficifidade == 'não_específico' and ORIENTAÇÃO == 'NA':
+		if número == 'singular' and gênero == 'masculino':
+			determinante = 'um'
+		elif número == 'plural' and gênero == 'masculino':
+			determinante = 'uns'
+		elif número == 'singular' and gênero == 'feminino':
+			determinante = 'uma'
+		elif número == 'plural' and gênero == 'feminino':
+			determinante = 'umas'
+	return determinante
+# Dêitico_ñ_seletivo_ñ_específico('não_específico','NA','plural','masculino')
 # # 	####
 # #
-# #
-# # def Dêitico_prox():
-# # 	'''
-# #     '''
-# # 	print('Selecione a especificidade:')
-# # 	DETERMINAÇÃO_espeficifidade = choice.Menu(['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)',
-# # 	                                           'genérico(de_massa)', 'genérico(contável)']).ask()
-# # 	print('Selecione a orientação:')
-# # 	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa',
-# # 	                          'orientação_específica_proximidade',
-# # 	                          'orientação_específica_proximidade_e_pessoa']).ask()
-# #
-# # 	if DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_proximidade':
-# # 		print('Selecione a pessoa da interlocução:')
-# # 		pessoa_da_interlocução_proximidade = choice.Menu(
-# # 			['próximo_ao_falante', 'próximo_ao_ouvinte', 'próximo_ao_não_interlocutor']).ask()
-# # 		if pessoa_da_interlocução_proximidade == 'próximo_ao_falante':
-# # 			print('Selecione número:')
-# # 			número = choice.Menu(['singular', 'plural']).ask()
-# # 			print('Selecione o gênero')
-# # 			gênero = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 			if número == 'singular' and gênero == 'masculino':
-# # 				determinante = 'este'
-# # 			elif número == 'plural' and gênero == 'masculino':
-# # 				determinante = 'estes'
-# # 			elif número == 'singular' and gênero == 'feminino':
-# # 				determinante = 'esta'
-# # 			elif número == 'plural' and gênero == 'feminino':
-# # 				determinante = 'estas'
-# # 		elif pessoa_da_interlocução_proximidade == 'próximo_ao_ouvinte':
-# # 			print('Selecione número:')
-# # 			número = choice.Menu(['singular', 'plural']).ask()
-# # 			print('Selecione o gênero')
-# # 			gênero = choice.Menu(['masculino', 'feminino']).ask()
-# # 			if número == 'singular' and gênero == 'masculino':
-# # 				determinante = 'esse'
-# # 			elif número == 'plural' and gênero == 'masculino':
-# # 				determinante = 'esses'
-# # 			elif número == 'singular' and gênero == 'feminino':
-# # 				determinante = 'essa'
-# # 			elif número == 'plural' and gênero == 'feminino':
-# # 				determinante = 'essas'
-# # 		elif pessoa_da_interlocução_proximidade == 'próximo_ao_não_interlocutor':
-# # 			print('Selecione número:')
-# # 			número = choice.Menu(['singular', 'plural']).ask()
-# # 			print('Selecione o gênero')
-# # 			gênero = choice.Menu(['masculino', 'feminino']).ask()
-# # 			if número == 'singular' and gênero == 'masculino':
-# # 				determinante = 'aquele'
-# # 			elif número == 'plural' and gênero == 'masculino':
-# # 				determinante = 'aqueles'
-# # 			elif número == 'singular' and gênero == 'feminino':
-# # 				determinante = 'aquela'
-# # 			elif número == 'plural' and gênero == 'feminino':
-# # 				determinante = 'aquelas'
-# #
-# # 	return determinante
-# #
-# #
-# # def Dêitico_pess():
-# # 	'''
-# #     '''
-# # 	print('Selecione a especificidade:')
-# # 	DETERMINAÇÃO_espeficifidade = choice.Menu(['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)',
-# # 	                                           'genérico(de_massa)', 'genérico(contável)']).ask()
-# #
-# # 	print('Selecione a orientação:')
-# # 	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
-# # 	                          'orientação_específica_proximidade_e_pessoa']).ask()
-# # 	if DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_pessoa':
-# # 		print('Selecione a pessoa da interlocução do possuidor')
-# # 		pessoa_da_interlocução_possuidor = choice.Menu(['1s', '2s', '3s', '1p', '2p', '3p']).ask()
-# # 		if pessoa_da_interlocução_possuidor == '1s':
-# # 			print('Selecione número do objeto possuído:')
-# # 			número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
-# # 			print('Selecione o gênero do objeto possuído')
-# # 			gênero_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
-# # 			if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'meu'
-# # 			elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'meus'
-# # 			elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'minha'
-# # 			elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'minhas'
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2s':
-# # 			print('Selecione número do objeto possuído:')
-# # 			número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
-# # 			print('Selecione o gênero do objeto possuído')
-# # 			gênero_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
-# # 			if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'teu'
-# # 				else:
-# # 					determinante = 'seu'
-# #
-# # 			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'teus'
-# # 				else:
-# # 					determinante = 'seus'
-# #
-# # 			elif número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'tua'
-# # 				else:
-# # 					determinante = 'sua'
-# #
-# # 			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'tuas'
-# # 				else:
-# # 					determinante = 'suas'
-# #
-# #
-# # 		elif (pessoa_da_interlocução_possuidor == '3s' or
-# # 		      pessoa_da_interlocução_possuidor == '3p'):
-# #
-# # 			print('Selecione número do objeto possuído:')
-# # 			número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 			print('Selecione o gênero do objeto possuído')
-# # 			gênero_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 			if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'seu'
-# #
-# # 			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'seus'
-# #
-# #
-# # 			elif número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'sua'
-# #
-# # 			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'suas'
-# #
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '1p':
-# # 			print('Selecione número do objeto possuído:')
-# # 			número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 			print('Selecione o gênero do objeto possuído')
-# # 			gênero_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 			if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'nosso'
-# # 			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'nossos'
-# # 			elif número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'nossa'
-# # 			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'nossas'
-# #
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2p':
-# # 			print('Selecione número do objeto  possuído:')
-# # 			número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 			print('Selecione o gênero do objeto possuído')
-# # 			gênero_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 			if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'vosso'
-# # 				else:
-# # 					determinante = 'seu'
-# #
-# # 			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'vossos'
-# # 				else:
-# # 					determinante = 'seus'
-# #
-# # 			elif número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'vossa'
-# # 				else:
-# # 					determinante = 'sua'
-# #
-# # 			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'vossas'
-# # 				else:
-# # 					determinante = 'suas'
-# #
-# # 	return determinante
-# #
-# #
-# # def Dêitico_ñ_seletivo_específico_e_Dêitico_pess():
-# # 	'''
-# #     '''
-# #
-# # 	print('Selecione a especificidade:')
-# # 	DETERMINAÇÃO_espeficifidade = choice.Menu(
-# # 		['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)',
-# # 		 'genérico(contável)']).ask()
-# #
-# # 	print('Selecione a orientação:')
-# # 	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
-# # 	                          'orientação_específica_proximidade_e_pessoa']).ask()
-# #
-# # 	if DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_pessoa':
-# #
-# # 		print('Selecione a pessoa da interlocução do possuidor')
-# # 		pessoa_da_interlocução_possuidor = choice.Menu(['1s', '2s', '3s', '1p', '2p', '3p']).ask()
-# #
-# # 		print('Selecione número do objeto possuído:')
-# # 		número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		print('Selecione o gênero do objeto possuído')
-# # 		gênero_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 		if pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 			determinante = 'o meu'
-# # 		elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 			determinante = 'os meus'
-# # 		elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 			determinante = 'a minha'
-# # 		elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 			determinante = 'as minhas'
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'o teu'
-# # 			else:
-# # 				determinante = 'o seu'
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'os teus'
-# # 			else:
-# # 				determinante = 'os seus'
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'a tua'
-# # 			else:
-# # 				determinante = 'a sua'
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'as tuas'
-# # 			else:
-# # 				determinante = 'as suas'
-# #
-# # 		elif (
-# # 				pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino' or
-# # 				pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino'):
-# # 			determinante = 'o seu'
-# # 		elif (
-# # 				pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino' or
-# # 				pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino'):
-# # 			determinante = 'os seus'
-# # 		elif (
-# # 				pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino' or
-# # 				pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino'):
-# # 			determinante = 'a sua'
-# # 		elif (
-# # 				pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino' or
-# # 				pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino'):
-# # 			determinante = 'as suas'
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 			determinante = 'o nosso'
-# # 		elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 			determinante = 'os nossos'
-# # 		elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 			determinante = 'a nossa'
-# # 		elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 			determinante = 'as nossas'
-# #
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'o vosso'
-# # 			else:
-# # 				determinante = 'o seu'
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'os vossos'
-# # 			else:
-# # 				determinante = 'os seus'
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'a vossa'
-# # 			else:
-# # 				determinante = 'a sua'
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'as vossas'
-# # 			else:
-# # 				determinante = 'as suas'
-# #
-# # 	return determinante
-# #
-# #
-# # def Dêitico_ñ_seletivo_ñ_específico_e_Dêitico_pess():
-# # 	'''
-# #     '''
-# #
-# # 	print('Selecione a especificidade:')
-# # 	DETERMINAÇÃO_espeficifidade = choice.Menu(
-# # 		['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)', 'genérico(de_massa)',
-# # 		 'genérico(contável)']).ask()
-# #
-# # 	print('Selecione a orientação:')
-# # 	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
-# # 	                          'orientação_específica_proximidade_e_pessoa']).ask()
-# #
-# # 	if DETERMINAÇÃO_espeficifidade == 'não_específico' and ORIENTAÇÃO == 'orientação_específica_pessoa':
-# #
-# # 		print('Selecione a pessoa da interlocução do possuidor')
-# # 		pessoa_da_interlocução_possuidor = choice.Menu(['1s', '2s', '3s', '1p', '2p', '3p']).ask()
-# #
-# # 		print('Selecione número do objeto possuído:')
-# # 		número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 		print('Selecione o gênero do objeto possuído')
-# # 		gênero_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 		if pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 			determinante = 'um meu'
-# # 			return determinante
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 			determinante = 'uns meus'
-# # 			return determinante
-# # 		elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 			determinante = 'uma minha'
-# # 			return determinante
-# # 		elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 			determinante = 'umas minhas'
-# # 			return determinante
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'um teu'
-# # 				return determinante
-# # 			else:
-# # 				determinante = 'um seu'
-# # 				return determinante
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'uns teus'
-# # 				return determinante
-# # 			else:
-# # 				determinante = 'uns seus'
-# # 				return determinante
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'uma tua'
-# # 				return determinante
-# # 			else:
-# # 				determinante = 'uma sua'
-# # 				return determinante
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'umas tuas'
-# # 				return determinante
-# # 			else:
-# # 				determinante = 'umas suas'
-# # 				return determinante
-# #
-# # 		elif (
-# # 				pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino' or
-# # 				pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino'):
-# # 			determinante = 'um seu'
-# # 			return determinante
-# # 		elif (
-# # 				pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino' or
-# # 				pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino'):
-# # 			determinante = 'uns seus'
-# # 			return determinante
-# # 		elif (
-# # 				pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino' or
-# # 				pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino'):
-# # 			determinante = 'uma sua'
-# # 			return determinante
-# # 		elif (
-# # 				pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino' or
-# # 				pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino'):
-# # 			determinante = 'umas suas'
-# # 			return determinante
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 			determinante = 'um nosso'
-# # 		elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 			determinante = 'uns nossos'
-# # 			return determinante
-# # 		elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 			determinante = 'uma nossa'
-# # 			return determinante
-# # 		elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 			determinante = 'umas nossas'
-# # 			return determinante
-# #
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'um vosso'
-# # 				return determinante
-# # 			else:
-# # 				determinante = 'um seu'
-# # 				return determinante
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'uns vossos'
-# # 				return determinante
-# # 			else:
-# # 				determinante = 'uns seus'
-# # 				return determinante
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'uma vossa'
-# # 				return determinante
-# # 			else:
-# # 				determinante = 'uma sua'
-# # 				return determinante
-# #
-# # 		elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 			print('Selecione a morfologia do pronome:')
-# # 			morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 			if morfologia_do_pronome == 'padrão':
-# # 				determinante = 'umas vossas'
-# # 				return determinante
-# # 			else:
-# # 				determinante = 'umas suas'
-# # 				return determinante
-# #
-# #
-# # def Dêitico_prox_e_Dêitico_pess():
-# # 	'''
-# #     '''
-# # 	print('Selecione a especificidade:')
-# # 	DETERMINAÇÃO_espeficifidade = choice.Menu(['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)',
-# # 	                                           'genérico(de_massa)', 'genérico(contável)']).ask()
-# # 	print('Selecione a orientação:')
-# # 	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
-# # 	                          'orientação_específica_proximidade_e_pessoa']).ask()
-# #
-# # 	if DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_proximidade_e_pessoa':
-# #
-# # 		print('Selecione a pessoa da interlocução:')
-# # 		pessoa_da_interlocução_proximidade = choice.Menu(['próximo_ao_falante', 'próximo_ao_ouvinte',
-# # 		                                                  'próximo_ao_não_interlocutor']).ask()
-# #
-# # 		if pessoa_da_interlocução_proximidade == 'próximo_ao_falante':
-# #
-# # 			print('Selecione a pessoa da interlocução do possuidor')
-# # 			pessoa_da_interlocução_possuidor = choice.Menu(['1s', '2s', '3s', '1p', '2p', '3p']).ask()
-# #
-# # 			print('Selecione número do objeto possuído:')
-# # 			número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 			print('Selecione o gênero do objeto possuído')
-# # 			gênero_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 			if pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' \
-# # 					and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'este meu'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' \
-# # 					and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'estes meus'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' \
-# # 					and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'esta minha'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' \
-# # 					and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'estas minhas'
-# # 				return determinante
-# #
-# # 			elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'singular' \
-# # 					and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'este teu'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'este seu'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'plural' \
-# # 					and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'estes teus'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'estes seus'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'singular' \
-# # 					and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'esta tua'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'esta sua'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução_possuidor == '2s' and número_obj_possuído == 'plural' \
-# # 					and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'estas tuas'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'estas suas'
-# # 					return determinante
-# #
-# # 			elif (
-# # 					pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino' or
-# # 					pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino'):
-# # 				determinante = 'este seu'
-# # 				return determinante
-# # 			elif (
-# # 					pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino' or
-# # 					pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino'):
-# # 				determinante = 'estes seus' \
-# # 				return determinante
-# # 			elif (
-# # 					pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino' or
-# # 					pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino'):
-# # 				determinante = 'esta sua'
-# # 				return determinante
-# # 			elif (
-# # 					pessoa_da_interlocução_possuidor == '3s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino' or
-# # 					pessoa_da_interlocução_possuidor == '3p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino'):
-# # 				determinante = 'estas suas'
-# # 				return determinante
-# #
-# # 			elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'este nosso'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'estes nossos'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'esta nossa'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução_possuidor == '1p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'estas nossas'
-# # 				return determinante
-# #
-# # 			elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'este vosso'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'este seu'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'estes vossos'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'estes seus'
-# # 					return determinante \
-# #  \
-# # 			elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'esta vossa'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'esta sua'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução_possuidor == '2p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'estas vossas'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'estas suas'
-# # 					return determinante
-# #
-# #
-# # 		elif pessoa_da_interlocução_proximidade == 'próximo_ao_ouvinte':
-# #
-# # 			print('Selecione a pessoa da interlocução do possuidor')
-# # 			pessoa_da_interlocução_possuidor = choice.Menu(['1s', '2s', '3s', '1p', '2p', '3p']).ask()
-# #
-# # 			print('Selecione número do objeto possuído:')
-# # 			número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 			print('Selecione o gênero_obj_possuído do objeto possuído')
-# # 			gênero_obj_possuído_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 			if pessoa_da_interlocução == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'esse meu'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'esses meus'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'essa minha'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'essas minhas'
-# # 				return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'esse teu'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'esse seu'
-# # 					return determinante \
-# #  \
-# # 			elif pessoa_da_interlocução == '2s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'esses teus'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'esses seus'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'essa tua'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'essa sua'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'essas tuas'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'essas suas'
-# # 					return determinante
-# #
-# # 			elif (
-# # 					pessoa_da_interlocução == '3s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino' or
-# # 					pessoa_da_interlocução == '3p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino'):
-# # 				determinante = 'esse seu'
-# # 				return determinante
-# # 			elif (
-# # 					pessoa_da_interlocução == '3s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino' or
-# # 					pessoa_da_interlocução == '3p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino'):
-# # 				determinante = 'esses seus'
-# # 				return determinante
-# # 			elif (
-# # 					pessoa_da_interlocução == '3s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino' or
-# # 					pessoa_da_interlocução == '3p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino'):
-# # 				determinante = 'essa sua'
-# # 				return determinante
-# # 			elif (
-# # 					pessoa_da_interlocução == '3s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino' or
-# # 					pessoa_da_interlocução == '3p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino'):
-# # 				determinante = 'essas suas'
-# # 				return determinante
-# #
-# # 			elif pessoa_da_interlocução == '1p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'esse nosso'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'esses nossos'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'essa nossa'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'essas nossas'
-# # 				return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'esse vosso'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'esse seu'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'esses vossos'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'esses seus'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'essa vossa'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'essa sua'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'essas vossas'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'essas suas'
-# # 					return determinante
-# #
-# # 		elif pessoa_da_interlocução_proximidade == 'próximo_ao_não_interlocutor':
-# #
-# # 			print('Selecione a pessoa da interlocução do possuidor')
-# # 			pessoa_da_interlocução_possuidor = choice.Menu(['1s', '2s', '3s', '1p', '2p', '3p']).ask()
-# #
-# # 			print('Selecione número do objeto possuído:')
-# # 			número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
-# #
-# # 			print('Selecione o gênero_obj_possuído do objeto possuído') \
-# # 			gênero_obj_possuído_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
-# #
-# # 			if pessoa_da_interlocução == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'aquele meu'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'aqueles meus'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'aquela minha'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'aquelas minhas'
-# # 				return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'aquele teu'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'aquele seu'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'aqueles teus'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'aqueles seus'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'aquela tua'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'aquela sua'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'aquelas tuas'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'aquelas suas'
-# # 					return determinante
-# #
-# # 			elif (
-# # 					pessoa_da_interlocução == '3s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino' or
-# # 					pessoa_da_interlocução == '3p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino'):
-# # 				determinante = 'aquele seu'
-# # 				return determinante
-# # 			elif (
-# # 					pessoa_da_interlocução == '3s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino' or
-# # 					pessoa_da_interlocução == '3p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino'):
-# # 				determinante = 'aqueles seus'
-# # 				return determinante
-# # 			elif (
-# # 					pessoa_da_interlocução == '3s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino' or
-# # 					pessoa_da_interlocução == '3p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino'):
-# # 				determinante = 'aquela sua'
-# # 				return determinante
-# # 			elif (
-# # 					pessoa_da_interlocução == '3s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino' or
-# # 					pessoa_da_interlocução == '3p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino'):
-# # 				determinante = 'aquelas suas'
-# # 				return determinante
-# #
-# # 			elif pessoa_da_interlocução == '1p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'aquele nosso'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				determinante = 'aqueles nossos'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'aquela nossa'
-# # 				return determinante
-# # 			elif pessoa_da_interlocução == '1p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				determinante = 'aquelas nossas'
-# # 				return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'aquele vosso'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'aquele seu'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão': \
-# # 					determinante = 'aqueles vossos'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'aqueles seus'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2p' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'aquela vossa'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'aquela sua'
-# # 					return determinante
-# #
-# # 			elif pessoa_da_interlocução == '2p' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
-# # 				print('Selecione a morfologia do pronome:')
-# # 				morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-# # 				if morfologia_do_pronome == 'padrão':
-# # 					determinante = 'aquelas vossas'
-# # 					return determinante
-# # 				else:
-# # 					determinante = 'aquelas suas'
-# # 					return determinante
-# #
-# # 		elif DETERMINAÇÃO_espeficifidade == 'genérico(contável)' and ORIENTAÇÃO == 'NA':
-# #
-# # 			determinante = ''  # Neste caso, o grupo nominal é realizado no plural
-# # 			return determinante
-# #
-# # 		elif DETERMINAÇÃO_espeficifidade == 'genérico(de_massa)' and ORIENTAÇÃO == 'NA':
-# #
-# # 			determinante = ''  # Neste caso, o grupo nominal é realizado no singular
-# # 			return determinante
-# #
-# #
-# # def Dêixis_geral():
-# # 	'''
-# #     '''
-# # 	print('Há determinante?')
-# # 	real_determinante = choice.Menu(['sim', 'NA']).ask()
-# #
-# # 	if real_determinante == 'sim':
-# #
-# # 		print('Qual a sub-estrutura lógica da Dêixis?')
-# # 		estrutura_lógica = estrutura_lógica_dêixis()
-# #
-# # 		if (estrutura_lógica == 'α(Dêitico_ñ_seletivo_específico)' or
-# # 				estrutura_lógica == 'α(Dêitico_ñ_seletivo_específico)'):
-# #
-# # 			Determinante = Dêitico_ñ_seletivo_específico()
-# #
-# # 		elif estrutura_lógica == 'α(Dêitico_ñ_seletivo_ñ_específico)':
-# # 			Determinante = Dêitico_ñ_seletivo_ñ_específico()
-# #
-# # 		elif estrutura_lógica == 'α(Dêitico_prox)':
-# # 			Determinante = Dêitico_prox()
-# #
-# # 		elif estrutura_lógica == 'α(Dêitico_pess)':
-# # 			Determinante = Dêitico_pess()
-# #
-# # 		elif estrutura_lógica == 'β(Dêitico_ñ_seletivo_específico)^α(Dêitico_pess)':
-# # 			Determinante = Dêitico_ñ_seletivo_específico_e_Dêitico_pess()
-# #
-# # 		elif estrutura_lógica == 'β(Dêitico_ñ_seletivo_ñ_específico)^α(Dêitico_pess)':
-# # 			Determiante = Dêitico_ñ_seletivo_ñ_específico_e_Dêitico_pess()
-# #
-# # 		elif estrutura_lógica == 'β(Dêitico_prox)^α(Dêitico_pess)':
-# # 			Determinante = Dêitico_prox_e_Dêitico_pess()
-# #
-# # 	else:
-# #
-# # 		Determinante = ''
-# #
-# # 	return Determinante
-# #
-# #
-# # def Dêitico_genérico():
-# # 	print('Selecione tipo_pessoa de dêixis genérica:')
-# # 	DETERMINAÇÃO_espeficifidade = choice.Menu(['genérico(contável)', 'genérico(de_massa)']).ask()
-# #
-# # 	if (DETERMINAÇÃO_espeficifidade == 'genérico(de_massa)' or
-# # 			DETERMINAÇÃO_espeficifidade == 'genérico(contável)'):
-# # 		determinante = ''  # Neste caso, o grupo nominal CONTÁVEL é realizado no plural e o DE MASSA no singular
-# #
-# # 	return determinante
-# #
-# #
-# # def Ente():
-# # 	'''
-# #     '''
-# # 	print('Qual o tipo_pessoa de Ente?')
-# # 	tipo_de_Ente = choice.Menu(['consciente', 'não_consciente', 'NA']).ask()
-# #
-# # 	if tipo_de_Ente == 'NA':
-# # 		Ente = ''
-# # 		return Ente
-# #
-# # 	elif tipo_de_Ente == 'não_consciente':
-# # 		print('Qual tipo_pessoa de não_consciente?')
-# # 		tipo_de_não_consciente = choice.Menu(['material', 'semiótico']).ask()
-# #
-# # 		if tipo_de_não_consciente == 'material':
-# # 			print('Qual tipo_pessoa de material?')
-# # 			tipo_de_não_consciente_material = choice.Menu(
-# # 				['animal', 'objeto_material', 'substância_material', 'abstração_material']).ask()
-# #
-# # 			if (tipo_de_não_consciente_material == 'animal' or
-# # 					tipo_de_não_consciente_material == 'objeto_material' or
-# # 					tipo_de_não_consciente_material == 'substância_material' or \
-# # 					tipo_de_não_consciente_material == 'abstração_material'):
-# # 				print('Qual a classe de palavra que realiza o Ente?')
-# # 				classe_palavra_Ente = choice.Menu(
-# # 					['substantivo_comum', 'substantivo_próprio', 'pronome_caso_reto', 'pronome_caso_oblíquo']).ask()
-# #
-# # 				if classe_palavra_Ente == 'substantivo_comum':
-# # 					Ente = formação_da_estrutura_do_substantivo_comum()
-# #
-# # 				elif classe_palavra_Ente == 'substantivo_próprio':
-# # 					Ente = nome_próprio()
-# # 				elif classe_palavra_Ente == 'pronome_caso_reto':
-# # 					Ente = realizacao_pronominal_casoreto()
-# # 				elif classe_palavra_Ente == 'pronome_caso_oblíquo':
-# # 					Ente = realizacao_pronome_caso_oblíquo()
-# #
-# # 		elif tipo_de_não_consciente == 'semiótico':
-# # 			print('Qual tipo_pessoa de semiótico?')
-# # 			tipo_de_não_consciente_semiótico = choice.Menu(
-# # 				['instituição', 'objeto_semiótico', 'abstração_semiótica']).ask()
-# #
-# # 			if (tipo_de_não_consciente_semiótico == 'instituição' or
-# # 					tipo_de_não_consciente_semiótico == 'objeto_semiótico' or
-# # 					tipo_de_não_consciente_semiótico == 'abstração_semiótica'):
-# # 				print('Qual a classe de palavra que realiza o Ente?')
-# # 				classe_palavra_Ente = choice.Menu(
-# # 					['substantivo_comum', 'substantivo_próprio', 'pronome_caso_reto', 'pronome_caso_oblíquo']).ask()
-# #
-# # 				if classe_palavra_Ente == 'substantivo_comum':
-# # 					Ente = formação_da_estrutura_do_substantivo_comum()
-# #
-# # 				elif classe_palavra_Ente == 'substantivo_próprio':
-# # 					Ente = nome_próprio()
-# # 				elif classe_palavra_Ente == 'pronome_caso_reto':
-# # 					Ente = realizacao_pronominal_casoreto()
-# # 				elif classe_palavra_Ente == 'pronome_caso_oblíquo':
-# # 					Ente = realizacao_pronome_caso_oblíquo()
-# #
-# #
-# # 	elif tipo_de_Ente == 'consciente':
-# # 		print('Qual a classe de palavra que realiza o Ente?')
-# # 		classe_palavra_Ente = choice.Menu(
-# # 			['substantivo_comum', 'substantivo_próprio', 'pronome_caso_reto', 'pronome_caso_oblíquo']).ask() \
-# #  \
-# # 		if classe_palavra_Ente == 'substantivo_comum':
-# # 			Ente = formação_da_estrutura_do_substantivo_comum() \
-# #  \
-# # 		elif classe_palavra_Ente == 'pronome_caso_reto':
-# # 			Ente = realizacao_pronominal_casoreto()
-# #
-# # 		elif classe_palavra_Ente == 'substantivo_próprio':
-# # 			Ente = nome_próprio()
-# # 		elif classe_palavra_Ente == 'pronome_caso_oblíquo':
-# # 			Ente = realizacao_pronome_caso_oblíquo()
-# #
-# # 	return Ente
-# #
+
+def Dêitico_prox(DETERMINAÇÃO_espeficifidade,ORIENTAÇÃO,pessoa_da_interlocução_proximidade,número,gênero):
+	'''
+	print('Selecione a especificidade:')
+	DETERMINAÇÃO_espeficifidade = choice.Menu(['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)',
+	                                           'genérico(de_massa)', 'genérico(contável)']).ask()
+	print('Selecione a orientação:')
+	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa',
+	                          'orientação_específica_proximidade',
+	                          'orientação_específica_proximidade_e_pessoa']).ask()
+	print('Selecione a pessoa da interlocução:')
+		pessoa_da_interlocução_proximidade = choice.Menu(
+			['próximo_ao_falante', 'próximo_ao_ouvinte', 'próximo_ao_não_interlocutor']).ask()
+	print('Selecione número:')
+			número = choice.Menu(['singular', 'plural']).ask()
+			print('Selecione o gênero')
+			gênero = choice.Menu(['masculino', 'feminino']).ask()
+    '''
+
+
+	if DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_proximidade':
+
+		if pessoa_da_interlocução_proximidade == 'próximo_ao_falante':
+
+			if número == 'singular' and gênero == 'masculino':
+				determinante = 'este'
+			elif número == 'plural' and gênero == 'masculino':
+				determinante = 'estes'
+			elif número == 'singular' and gênero == 'feminino':
+				determinante = 'esta'
+			elif número == 'plural' and gênero == 'feminino':
+				determinante = 'estas'
+
+		elif pessoa_da_interlocução_proximidade == 'próximo_ao_ouvinte':
+
+			if número == 'singular' and gênero == 'masculino':
+				determinante = 'esse'
+			elif número == 'plural' and gênero == 'masculino':
+				determinante = 'esses'
+			elif número == 'singular' and gênero == 'feminino':
+				determinante = 'essa'
+			elif número == 'plural' and gênero == 'feminino':
+				determinante = 'essas'
+
+		elif pessoa_da_interlocução_proximidade == 'próximo_ao_não_interlocutor':
+
+			if número == 'singular' and gênero == 'masculino':
+				determinante = 'aquele'
+			elif número == 'plural' and gênero == 'masculino':
+				determinante = 'aqueles'
+			elif número == 'singular' and gênero == 'feminino':
+				determinante = 'aquela'
+			elif número == 'plural' and gênero == 'feminino':
+				determinante = 'aquelas'
+
+	return determinante
+# Dêitico_prox('específico','orientação_específica_proximidade','próximo_ao_não_interlocutor','plural','masculino')
+
+def Dêitico_pess(DETERMINAÇÃO_espeficifidade,ORIENTAÇÃO,pessoa_da_interlocução_possuidor,
+				 número_obj_possuído,gênero_obj_possuído,morfologia_do_pronome='morfologia_terceira_pessoa'):
+	'''
+	print('Selecione a especificidade:')
+	DETERMINAÇÃO_espeficifidade = choice.Menu(['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)',
+	                                           'genérico(de_massa)', 'genérico(contável)']).ask()
+
+	print('Selecione a orientação:')
+	ORIENTAÇÃO = choice.Menu(['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
+	                          'orientação_específica_proximidade_e_pessoa']).ask
+
+	print('Selecione a pessoa da interlocução do possuidor')
+		pessoa_da_interlocução_possuidor = choice.Menu(['1s', '2s', '3s', '1p', '2p', '3p']).ask()
+
+	print('Selecione número do objeto possuído:')
+			número_obj_possuído = choice.Menu(['singular', 'plural']).ask()
+			print('Selecione o gênero do objeto possuído')
+			gênero_obj_possuído = choice.Menu(['masculino', 'feminino']).ask()
+	print('Selecione a morfologia do pronome:')
+				morfologia_do_pronome = choice.Menu(['padrão', 'terceira_pessoa']).ask()
+    '''
+
+	if DETERMINAÇÃO_espeficifidade == 'específico' and ORIENTAÇÃO == 'orientação_específica_pessoa':
+
+		if pessoa_da_interlocução_possuidor == '1s':
+
+			if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
+				determinante = 'meu'
+			elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
+				determinante = 'meus'
+			elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
+				determinante = 'minha'
+			elif pessoa_da_interlocução_possuidor == '1s' and número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
+				determinante = 'minhas'
+
+		elif pessoa_da_interlocução_possuidor == '2s':
+
+			if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
+
+				if morfologia_do_pronome == 'padrão':
+					determinante = 'teu'
+				else:
+					determinante = 'seu'
+
+			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
+
+				if morfologia_do_pronome == 'padrão':
+					determinante = 'teus'
+				else:
+					determinante = 'seus'
+
+			elif número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
+
+				if morfologia_do_pronome == 'padrão':
+					determinante = 'tua'
+				else:
+					determinante = 'sua'
+
+			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
+
+				if morfologia_do_pronome == 'padrão':
+					determinante = 'tuas'
+				else:
+					determinante = 'suas'
+
+		elif (pessoa_da_interlocução_possuidor == '3s' or
+		      pessoa_da_interlocução_possuidor == '3p'):
+
+			if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
+				determinante = 'seu'
+
+			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
+				determinante = 'seus'
+
+			elif número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
+				determinante = 'sua'
+
+			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
+				determinante = 'suas'
+
+		elif pessoa_da_interlocução_possuidor == '1p':
+
+			if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
+				determinante = 'nosso'
+			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
+				determinante = 'nossos'
+			elif número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
+				determinante = 'nossa'
+			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
+				determinante = 'nossas'
+
+		elif pessoa_da_interlocução_possuidor == '2p':
+
+			if número_obj_possuído == 'singular' and gênero_obj_possuído == 'masculino':
+
+				if morfologia_do_pronome == 'padrão':
+					determinante = 'vosso'
+				else:
+					determinante = 'seu'
+
+			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'masculino':
+
+				if morfologia_do_pronome == 'padrão':
+					determinante = 'vossos'
+				else:
+					determinante = 'seus'
+
+			elif número_obj_possuído == 'singular' and gênero_obj_possuído == 'feminino':
+
+				if morfologia_do_pronome == 'padrão':
+					determinante = 'vossa'
+				else:
+					determinante = 'sua'
+
+			elif número_obj_possuído == 'plural' and gênero_obj_possuído == 'feminino':
+
+				if morfologia_do_pronome == 'padrão':
+					determinante = 'vossas'
+				else:
+					determinante = 'suas'
+
+	return determinante
+# Dêitico_pess('específico','orientação_específica_pessoa','2p','plural','feminino','padrão')
+
+
+# ##talvez não use 
+# def Dêitico_genérico(DETERMINAÇÃO_espeficifidade):
+# 	
+# 	'''
+# 	
+# 	DETERMINAÇÃO_espeficifidade = choice.Menu(['genérico(contável)', 'genérico(de_massa)']).ask()
+# 	
+# 	:return: 
+# 	'''
+# 	
+# 
+# 	if (DETERMINAÇÃO_espeficifidade == 'genérico(de_massa)' or
+# 			DETERMINAÇÃO_espeficifidade == 'genérico(contável)'):
+# 		determinante = ''  # Neste caso, o grupo nominal CONTÁVEL é realizado no plural e o DE MASSA no singular
+# 
+# 	return determinante
+# #
+
+def Dêixis_geral(DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
+				 gênero_beta,número_beta,morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha,
+				 ORIENTAÇÃO_alpha,gênero_alpha,número_alpha,morfologia_do_pronome_alpha,
+				 pessoa_da_interlocução_possuidor,número_obj_possuído,
+				 gênero_obj_possuído,pessoa_da_interlocução_proximidade):
+	'''
+	estrutura_lógica_det_det = choice.Menu(["alpha", "beta^alpha]).ask()
+
+
+    '''
+	if DETERMINAÇÃO_espeficifidade_alpha == 'específico':
+		if ORIENTAÇÃO_alpha == 'orientação_específica_proximidade':
+			alpha = Dêitico_prox(DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha,
+										pessoa_da_interlocução_proximidade, número_alpha, gênero_alpha)
+		elif ORIENTAÇÃO_alpha == 'orientação_específica_pessoa':
+			alpha = Dêitico_pess(DETERMINAÇÃO_espeficifidade_alpha,ORIENTAÇÃO_alpha,pessoa_da_interlocução_possuidor,
+			 número_obj_possuído,gênero_obj_possuído,morfologia_do_pronome_alpha)
+		else:
+			alpha = Dêitico_ñ_seletivo_específico(DETERMINAÇÃO_espeficifidade_alpha,
+														 ORIENTAÇÃO_alpha,número_alpha, gênero_alpha)
+	elif DETERMINAÇÃO_espeficifidade_alpha == 'não_específico':
+		alpha = Dêitico_ñ_seletivo_ñ_específico(DETERMINAÇÃO_espeficifidade_alpha,
+													   ORIENTAÇÃO_alpha, número_alpha, gênero_alpha)
+
+	else:
+
+		alpha = ''
+
+	if DETERMINAÇÃO_espeficifidade_beta =='específico':
+
+		if ORIENTAÇÃO_beta == 'orientação_específica_proximidade':
+			beta = Dêitico_prox(DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta,
+								pessoa_da_interlocução_proximidade,
+								número_beta, gênero_beta)
+		elif ORIENTAÇÃO_beta == 'orientação_específica_pessoa':
+			beta = Dêitico_pess(DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta,
+										pessoa_da_interlocução_possuidor,
+										número_obj_possuído, gênero_obj_possuído, morfologia_do_pronome_beta)
+		else:
+			beta = Dêitico_ñ_seletivo_específico(DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta, número_beta,
+														 gênero_beta)
+	elif DETERMINAÇÃO_espeficifidade_beta == 'não_específico':
+		beta = Dêitico_ñ_seletivo_ñ_específico(DETERMINAÇÃO_espeficifidade_beta,
+													   ORIENTAÇÃO_beta, número_beta, gênero_beta)
+
+	else:
+		beta = ''
+		
+	 
+	
+	if beta !='':
+		return beta + ' ' + alpha
+	else:
+		return (re.sub(' +', '',( beta + ' ' + alpha) ))
+	
+
+
+Dêixis_geral( None,None,
+				 None,None,None,'específico','orientação_específica_proximidade',
+			 'masculino','singular','morfologia_terceira_pessoa','1s','singular','masculino','próximo_ao_falante')
+
+Dêixis_geral(None,None,
+				 None,None,None, 'específico',
+				 'NA','masculino','singular','morfologia_terceira_pessoa',
+				 None,None,
+				 None,None)
+
+Dêixis_geral('específico','orientação_específica_proximidade','masculino','singular','morfologia_terceira_pessoa',
+			 'específico','orientação_específica_pessoa',
+			 'masculino','singular','morfologia_terceira_pessoa','1s','singular','masculino','próximo_ao_falante')
+#
+#
+# print('Qual o tipo_pessoa de Ente?')
+# tipo_de_Ente = choice.Menu(['consciente', 'não_consciente', 'NA']).ask()
+#
+# print('Qual tipo_pessoa de não_consciente?')
+# tipo_de_nao_consciente = choice.Menu(['material', 'semiótico']).ask()
+#
+# print('Qual tipo_pessoa de material?')
+# tipo_de_nao_consciente_material = choice.Menu(
+# 	['animal', 'objeto_material', 'substância_material', 'abstração_material']).ask()
+#
+# print('Qual a classe de palavra que realiza o Ente?')
+# classe_palavra_Ente = choice.Menu(
+# 	['substantivo_comum', 'substantivo_próprio', 'pronome_caso_reto', 'pronome_caso_oblíquo']).ask()
+# print('Qual tipo_pessoa de semiótico?')
+# tipo_de_nao_consciente_semiotico = choice.Menu(
+# 	['instituição', 'objeto_semiótico', 'abstração_semiótica']).ask()
+def Ente(tipo_de_Ente,tipo_de_nao_consciente,tipo_de_nao_consciente_material,
+		 tipo_de_nao_consciente_semiotico,classe_palavra_Ente,substantivo_lematizado,numero,
+		genero, tipo_feminino_ÃO, tipo_masc_ÃO,acentTonica,nomeProprio,pessoa_da_interlocucao,
+		 transitividade_verbo,tonicidade,morfologia_do_pronome,reflexivo):
+	'''
+
+
+    '''
+
+	if tipo_de_Ente == 'NA':
+		Ente = ''
+
+
+	elif tipo_de_Ente == 'não_consciente':
+		
+		if tipo_de_nao_consciente == 'material':
+			if (tipo_de_nao_consciente_material == 'animal' or
+					tipo_de_nao_consciente_material == 'objeto_material' or
+					tipo_de_nao_consciente_material == 'substância_material' or \
+					tipo_de_nao_consciente_material == 'abstração_material'):
+				
+				if classe_palavra_Ente == 'substantivo_comum':
+					Ente = formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado, numero, genero,
+																	  tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica)
+
+				elif classe_palavra_Ente == 'substantivo_próprio':
+					Ente = nomeProprio
+				elif classe_palavra_Ente == 'pronome_caso_reto':
+					Ente = realizacao_pronominal_casoreto(pessoa_da_interlocucao,genero,
+														  numero,morfologia_do_pronome)
+				elif classe_palavra_Ente == 'pronome_caso_oblíquo':
+					Ente = realizacao_pronome_caso_obliquo(transitividade_verbo,tonicidade,
+														   pessoa_da_interlocucao,numero,genero,
+														   morfologia_do_pronome,reflexivo)
+		elif tipo_de_nao_consciente == 'semiótico':
+
+			if (tipo_de_nao_consciente_semiotico == 'instituição' or
+					tipo_de_nao_consciente_semiotico == 'objeto_semiótico' or
+					tipo_de_nao_consciente_semiotico == 'abstração_semiótica'):
+
+				if classe_palavra_Ente == 'substantivo_comum':
+					Ente = formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado, numero, genero,
+																	  tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica)
+				elif classe_palavra_Ente == 'substantivo_próprio':
+					Ente = nomeProprio
+				elif classe_palavra_Ente == 'pronome_caso_reto':
+					Ente = realizacao_pronominal_casoreto(pessoa_da_interlocucao, genero,
+														  numero, morfologia_do_pronome)
+				elif classe_palavra_Ente == 'pronome_caso_oblíquo':
+					Ente = realizacao_pronome_caso_obliquo(transitividade_verbo, tonicidade,
+														   pessoa_da_interlocucao, numero, genero,
+														   morfologia_do_pronome, reflexivo)
+
+	elif tipo_de_Ente == 'consciente':
+		if classe_palavra_Ente == 'substantivo_comum':
+			Ente = formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado, numero, genero,
+															  tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica)
+
+		elif classe_palavra_Ente == 'substantivo_próprio':
+			Ente = nomeProprio
+		elif classe_palavra_Ente == 'pronome_caso_reto':
+			Ente = realizacao_pronominal_casoreto(pessoa_da_interlocucao, genero,
+												  numero, morfologia_do_pronome)
+		elif classe_palavra_Ente == 'pronome_caso_oblíquo':
+			Ente = realizacao_pronome_caso_obliquo(transitividade_verbo, tonicidade,
+												   pessoa_da_interlocucao, numero, genero,
+												   morfologia_do_pronome, reflexivo)
+	return Ente
+#
+# Ente("não_consciente", "semiótico", 'instituição',
+# 	 'substantivo_comum', "gato", "plural",
+# 	 "feminino",None, None,None,None,None,
+# 		 None,None,None,None,None)
+#
+# Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
+#      'pronome_caso_reto', None, "plural",
+#      "feminino",None, None,None,None,"não_interlocutor",
+#      None,None,None,None)
+# Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
+#      'pronome_caso_reto', None, "plural",
+#      "feminino",None, None,None,None,"falante",
+#      None,None,None,None)
+
 # #
 # # ###No caso do Ente, ainda tenho que modelar as opções de Ente realizados por substantivos compostos (devido ao padrão de
 # # # morfologia das flexões
 # #
-# #
-# # #####ESTRUTURA DO GRUPO NOMINAL:
-# #
-# # ##
-# #
-# # def qualificador():
-# # 	print('Há Qualificador no gn?')
-# # 	tem_qualificador = choice.Menu(['sim', 'NA']).ask()
-# #
-# # 	if tem_qualificador == 'sim':
-# # 		realizacao_qualificador = choice.Menu(['frase-preposicional', 'oração']).ask()
-# # 		if realizacao_qualificador == 'frase-preposicional':
-# # 			Qualificador = frase_preposicional()
-# # 		else:
-# # 			Qualificador = "que" + oraçãoProjetada()
-# # 	else:
-# # 		Qualificador = ''
-# # 	return Qualificador
-# #
-# #
+#PAREI AQUI
+#####ESTRUTURA DO GRUPO NOMINAL:
+
+##
+
+def qualificador():
+	print('Há Qualificador no gn?')
+	tem_qualificador = choice.Menu(['sim', 'NA']).ask()
+
+	if tem_qualificador == 'sim':
+		realizacao_qualificador = choice.Menu(['frase-preposicional', 'oração']).ask()
+		if realizacao_qualificador == 'frase-preposicional':
+			Qualificador = frase_preposicional()
+		else:
+			Qualificador = "que" + oraçãoProjetada()
+	else:
+		Qualificador = ''
+	return Qualificador
+
+
 # # def estrutura_GN_downraked():
 # # 	GN_downranked = estrutura_GN()
 # #
