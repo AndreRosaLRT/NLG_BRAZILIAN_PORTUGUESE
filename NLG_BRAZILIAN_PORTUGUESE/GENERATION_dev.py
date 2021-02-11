@@ -9282,7 +9282,7 @@ def num_cardinal(tipoRealCard, cardNumerico, milharExtenso,
 
 
 def Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
-			   milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIdefinito):
+			   milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido):
 	'''
     '''
 	if funcaoNumerativo == 'ordem_lugar_preciso(ordinal)':
@@ -9296,8 +9296,9 @@ def Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
 		Numerativo = num_cardinal(tipoRealCard, cardinal, milharExtenso,centenaExtenso,
 								  dezenaExtenso,unidadeExtenso,genero)
 	elif funcaoNumerativo == 'quant_imprecisa_pron_indef_numer':
-		Numerativo = numIdefinito
-
+		Numerativo = numIndefinido
+	else:
+		Numerativo=''
 	return Numerativo
 #
 # # ordinal
@@ -9770,7 +9771,7 @@ def adjetivo_modificador(adjModificacao,adjetivo_lematizado,genero,numero):
 
     '''
 
-	if adjModificacao == 'NA':
+	if adjModificacao == None:
 		modificador = ''
 
 	else:
@@ -10392,9 +10393,7 @@ def Dêixis_geral(DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
 
 	else:
 		beta = ''
-		
-	 
-	
+
 	if beta !='':
 		return beta + ' ' + alpha
 	else:
@@ -10433,6 +10432,8 @@ Dêixis_geral('específico','orientação_específica_proximidade','masculino','
 # print('Qual tipo_pessoa de semiótico?')
 # tipo_de_nao_consciente_semiotico = choice.Menu(
 # 	['instituição', 'objeto_semiótico', 'abstração_semiótica']).ask()
+
+
 def Ente(tipo_de_Ente,tipo_de_nao_consciente,tipo_de_nao_consciente_material,
 		 tipo_de_nao_consciente_semiotico,classe_palavra_Ente,substantivo_lematizado,numero,
 		genero, tipo_feminino_ÃO, tipo_masc_ÃO,acentTonica,nomeProprio,pessoa_da_interlocucao,
@@ -10501,230 +10502,419 @@ def Ente(tipo_de_Ente,tipo_de_nao_consciente,tipo_de_nao_consciente_material,
 												   pessoa_da_interlocucao, numero, genero,
 												   morfologia_do_pronome, reflexivo)
 	return Ente
-#
-# Ente("não_consciente", "semiótico", 'instituição',
-# 	 'substantivo_comum', "gato", "plural",
-# 	 "feminino",None, None,None,None,None,
-# 		 None,None,None,None,None)
-#
-# Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
-#      'pronome_caso_reto', None, "plural",
-#      "feminino",None, None,None,None,"não_interlocutor",
-#      None,None,None,None)
-# Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
-#      'pronome_caso_reto', None, "plural",
-#      "feminino",None, None,None,None,"falante",
-#      None,None,None,None)
+
+
+Ente('não_consciente','material','animal',
+		 None,'substantivo_comum','gato','singular',
+		'feminino', None, None,None,None,None,
+		 None,None,None,None)
+Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
+     'pronome_caso_reto', None, "plural",
+     "feminino",None, None,None,None,"não_interlocutor",
+     None,None,None,None)
+Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
+     'pronome_caso_reto', None, "plural",
+     "feminino",None, None,None,None,"falante",
+     None,None,None,None)
 
 # #
 # # ###No caso do Ente, ainda tenho que modelar as opções de Ente realizados por substantivos compostos (devido ao padrão de
 # # # morfologia das flexões
 # #
-#PAREI AQUI
+
 #####ESTRUTURA DO GRUPO NOMINAL:
 
 ##
+# print('Há Qualificador no gn?')
+# tem_qualificador = choice.Menu(['sim', 'NA']).ask()
+# realizacao_qualificador = choice.Menu(['frase-preposicional', 'oração']).ask()
 
-def qualificador():
-	print('Há Qualificador no gn?')
-	tem_qualificador = choice.Menu(['sim', 'NA']).ask()
 
-	if tem_qualificador == 'sim':
-		realizacao_qualificador = choice.Menu(['frase-preposicional', 'oração']).ask()
-		if realizacao_qualificador == 'frase-preposicional':
-			Qualificador = frase_preposicional()
-		else:
-			Qualificador = "que" + oraçãoProjetada()
+def qualificador(indicePreposicao=None,dissocEnteNucleo=None,DETERMINAÇÃO_espeficifidade_beta=None,ORIENTAÇÃO_beta=None,
+				 gênero_beta=None,número_beta=None,morfologia_do_pronome_beta=None,
+				 DETERMINAÇÃO_espeficifidade_alpha=None,ORIENTAÇÃO_alpha=None,gênero_alpha=None,
+				 número_alpha=None,morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
+				 número_obj_possuído=None, gênero_obj_possuído=None,pessoa_da_interlocução_proximidade=None,#
+				 funcaoNumerativo=None,cardinal=None,genero=None,tipo_precisa=None,tipoRealCard=None,
+			  	 milharExtenso=None,centenaExtenso=None,dezenaExtenso=None,unidadeExtenso=None,numIndefinido=None,
+				 tipo_de_Ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
+				 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente=None, substantivo_lematizado=None, numero=None,
+				 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+				 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,#
+				 temQualificador=None,tipoQualificador=None,epitetoModificacao=None,adjetivo_epiteto=None,
+				 classificadorModificacao=None,adjetivo_classificador=None,contracao=None):
+
+
+	if temQualificador == 'sim':
+		if tipoQualificador == 'frase-preposicional':
+			Qualificador = frase_preposicional(indicePreposicao, dissocEnteNucleo, temQualificador, tipoQualificador,
+						DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta,
+						gênero_beta, número_beta, morfologia_do_pronome_beta,
+						DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha, gênero_alpha,
+						número_alpha, morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+						número_obj_possuído, gênero_obj_possuído, pessoa_da_interlocução_proximidade,  #
+						funcaoNumerativo, cardinal, genero, tipo_precisa, tipoRealCard,
+						milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso,
+						numIndefinido,
+						tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+						tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado,
+						numero,
+						tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio,
+						pessoa_da_interlocucao,
+						transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,  #
+						epitetoModificacao, adjetivo_epiteto, classificadorModificacao,
+						adjetivo_classificador, contracao)
+		# else:
+		# 	Qualificador = "que" + oraçãoProjetada()
 	else:
 		Qualificador = ''
-	return Qualificador
+	return re.sub(' +',' ', Qualificador).strip()
 
+qualificador(indicePreposicao=10,dissocEnteNucleo=None,temQualificador='sim',tipoQualificador='frase-preposicional',
+					DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+			 gênero_alpha='masculino',
+			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+			 pessoa_da_interlocução_possuidor='1s',
+			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+			 tipo_de_nao_consciente_material='animal',
+			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+			 substantivo_lematizado='gato', numero='plural',
+			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração')
 
-# # def estrutura_GN_downraked():
-# # 	GN_downranked = estrutura_GN()
+def estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=None,DETERMINAÇÃO_espeficifidade_beta=None,ORIENTAÇÃO_beta=None,
+				 gênero_beta=None,número_beta=None,morfologia_do_pronome_beta=None,
+				 DETERMINAÇÃO_espeficifidade_alpha=None,ORIENTAÇÃO_alpha=None,gênero_alpha=None,
+				 número_alpha=None,morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
+				 número_obj_possuído=None, gênero_obj_possuído=None,pessoa_da_interlocução_proximidade=None,#
+				 funcaoNumerativo=None,cardinal=None,genero=None,tipo_precisa=None,tipoRealCard=None,
+			  	 milharExtenso=None,centenaExtenso=None,dezenaExtenso=None,unidadeExtenso=None,numIndefinido=None,
+				 tipo_de_Ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
+				 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente=None, substantivo_lematizado=None, numero=None,
+				 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+				 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,#
+				 epitetoModificacao=None,adjetivo_epiteto=None,classificadorModificacao=None,adjetivo_classificador=None):
+	GN_downranked = estrutura_GN(dissocEnteNucleo,temQualificador,tipoQualificador,indicePreposicao,DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
+				 gênero_beta,número_beta,morfologia_do_pronome_beta,
+				 DETERMINAÇÃO_espeficifidade_alpha,ORIENTAÇÃO_alpha,gênero_alpha,
+				 número_alpha,morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+				 número_obj_possuído, gênero_obj_possuído,pessoa_da_interlocução_proximidade,#
+				 funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
+			  	 milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido,
+				 tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+				 tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado, numero,
+				 tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio, pessoa_da_interlocucao,
+				 transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,#
+				 epitetoModificacao,adjetivo_epiteto,classificadorModificacao,adjetivo_classificador)
+
+	return re.sub(' +',' ',GN_downranked).strip()
+estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
+			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+			 gênero_alpha='masculino',
+			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+			 pessoa_da_interlocução_possuidor='1s',
+			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+			 tipo_de_nao_consciente_material='animal',
+			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+			 substantivo_lematizado='gato', numero='plural',
+			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+			 classificadorModificacao=None,adjetivo_classificador=None)
 # #
-# # 	return GN_downranked
-# #
-# #
+# #parei aqui
 # # ####NO CASO A SEGUIR, PODE ACONTECER DE UM GRUPO NOMINAL DESCER DE ORDEM E REALIZAR, POR SUA VEZ,
 # # ##ALGUMA FUNÇÃO DENTRO NO GN DO QUAL FAZ PARTE('XÍCARA DE CAFÉ',no qual 'xícara' é um grupo nominal
 # # # com função de Numerativo no GN DE PRIMEIRO NÍVEL)
-# # def estrutura_GN():
-# # 	print('Há dissociação entre Ente e Núcleo do GN?')
-# # 	dissociação_Ente_Núcleo = choice.Menu(['sim', 'não']).ask()
-# #
-# # 	if dissociação_Ente_Núcleo == 'não':
-# #
-# # 		Determinante = Dêixis_geral()
-# # 		numerativo = Numerativo()
-# # 		ente = Ente()
-# # 		Classificador = adjetivo_modificador() \
-# # 		Epíteto = adjetivo_modificador()
-# # 		Qualificador = qualificador()
-# #
-# # 		GN = Determinante + ' ' + numerativo + ' ' + ente + ' ' + Classificador + ' ' + Epíteto + ' ' + Qualificador
-# #
-# # 	else:
-# #
-# # 		Núcleo_lógico = estrutura_GN_downraked()
-# # 		print('Selecione o Qualificador/Ente:')
-# # 		Qualificador = qualificador()
-# # 		GN = Núcleo_lógico + ' ' + Qualificador
-# # 	return GN
-# #
+# 	print('Há dissociação entre Ente e Núcleo do GN?')
+# 	dissocEnteNucleo = choice.Menu(['sim', 'não']).ask()
+
+def estrutura_GN(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=None,DETERMINAÇÃO_espeficifidade_beta=None,ORIENTAÇÃO_beta=None,
+				 gênero_beta=None,número_beta=None,morfologia_do_pronome_beta=None,
+				 DETERMINAÇÃO_espeficifidade_alpha=None,ORIENTAÇÃO_alpha=None,gênero_alpha=None,
+				 número_alpha=None,morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
+				 número_obj_possuído=None, gênero_obj_possuído=None,pessoa_da_interlocução_proximidade=None,#
+				 funcaoNumerativo=None,cardinal=None,genero=None,tipo_precisa=None,tipoRealCard=None,
+			  	 milharExtenso=None,centenaExtenso=None,dezenaExtenso=None,unidadeExtenso=None,numIndefinido=None,
+				 tipo_de_Ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
+				 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente=None, substantivo_lematizado=None, numero=None,
+				 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+				 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,#
+				 epitetoModificacao=None,adjetivo_epiteto=None,classificadorModificacao=None,adjetivo_classificador=None):
+
+
+	if dissocEnteNucleo == None:
+
+		Determinante = Dêixis_geral(DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
+				 gênero_beta,número_beta,morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha,
+				 ORIENTAÇÃO_alpha,gênero_alpha,número_alpha,morfologia_do_pronome_alpha,
+				 pessoa_da_interlocução_possuidor,número_obj_possuído,
+				 gênero_obj_possuído,pessoa_da_interlocução_proximidade)
+		
+		numerativo = Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
+			   milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido)
+		
+		ente = Ente(tipo_de_Ente,tipo_de_nao_consciente,tipo_de_nao_consciente_material,
+		 tipo_de_nao_consciente_semiotico,classe_palavra_Ente,substantivo_lematizado,numero,
+		genero, tipo_feminino_ÃO, tipo_masc_ÃO,acentTonica,nomeProprio,pessoa_da_interlocucao,
+		 transitividade_verbo,tonicidade,morfologia_do_pronome,reflexivo)
+		
+		Classificador = adjetivo_modificador(classificadorModificacao,adjetivo_classificador,genero,numero)
+		
+		Epíteto = adjetivo_modificador(epitetoModificacao,adjetivo_epiteto,genero,numero)
+		
+		Qualificador = qualificador(temQualificador,tipoQualificador,indicePreposicao,DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
+				 gênero_beta,número_beta,morfologia_do_pronome_beta,
+				 DETERMINAÇÃO_espeficifidade_alpha,ORIENTAÇÃO_alpha,gênero_alpha,
+				 número_alpha,morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+				 número_obj_possuído, gênero_obj_possuído,pessoa_da_interlocução_proximidade,#
+				 funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
+			  	 milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido,
+				 tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+				 tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado, numero,
+				 tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio, pessoa_da_interlocucao,
+				 transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,#
+				 epitetoModificacao,adjetivo_epiteto,classificadorModificacao,adjetivo_classificador)
+
+		GN = Determinante + ' ' + numerativo + ' ' + ente + ' ' + Classificador + ' ' + Epíteto + ' ' + Qualificador
+
+	else:
+
+		Núcleo_lógico = estrutura_GN_downraked(dissocEnteNucleo,DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
+				 gênero_beta,número_beta,morfologia_do_pronome_beta,
+				 DETERMINAÇÃO_espeficifidade_alpha,ORIENTAÇÃO_alpha,gênero_alpha,
+				 número_alpha,morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+				 número_obj_possuído, gênero_obj_possuído,pessoa_da_interlocução_proximidade,#
+				 funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
+			  	 milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido,
+				 tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+				 tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado, numero,
+				 tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio, pessoa_da_interlocucao,
+				 transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,#
+				 epitetoModificacao,adjetivo_epiteto,classificadorModificacao,adjetivo_classificador)
+
+		Qualificador = qualificador(temQualificador,tipoQualificador,indicePreposicao,DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
+				 gênero_beta,número_beta,morfologia_do_pronome_beta,
+				 DETERMINAÇÃO_espeficifidade_alpha,ORIENTAÇÃO_alpha,gênero_alpha,
+				 número_alpha,morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+				 número_obj_possuído, gênero_obj_possuído,pessoa_da_interlocução_proximidade,#
+				 funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
+			  	 milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido,
+				 tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+				 tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado, numero,
+				 tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio, pessoa_da_interlocucao,
+				 transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,#
+				 epitetoModificacao,adjetivo_epiteto,classificadorModificacao,adjetivo_classificador)
+		GN = Núcleo_lógico + ' ' + Qualificador
+	return  (re.sub(' +', ' ', GN).strip())
+
+estrutura_GN(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
+			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+			 gênero_alpha='masculino',
+			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+			 pessoa_da_interlocução_possuidor='1s',
+			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+			 tipo_de_nao_consciente_material='animal',
+			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+			 substantivo_lematizado='gato', numero='plural',
+			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+			 classificadorModificacao=None,adjetivo_classificador=None)
 # #
 # # ########PREPOSIÇÃO
-# # def preposição_switcher():
-# # 	i = int(input())
-# #
-# # 	switcherModo = {
-# # 		1: 'a',
-# # 		2: 'ante',
-# # 		3: 'após',
-# # 		4: 'até',
-# # 		5: 'com',
-# # 		6: 'contra',
-# # 		7: 'de',
-# # 		8: 'desde',
-# # 		9: 'em',
-# # 		10: 'entre',
-# # 		11: 'para',
-# # 		12: 'por',
-# # 		13: 'perante',
-# # 		14: 'sem',
-# # 		15: 'sob',
-# # 		16: 'sobre',
-# # 		17: 'trás',
-# # 	}
-# #
-# # 	preposição = switcherModo.get(i, 'Seleção nao disponível')
-# # 	return preposição
-# #
-# #
-# # def Preposição():
-# # 	'''
-# #     '''
-# # 	modo_inserção = choice.Menu(['inserção_manual',
-# # 	                             'inserção_menu']).ask()
-# #
-# # 	if modo_inserção == 'inserção_manual':
-# # 		preposição = input('Escreva a Preposição desejada:')
-# #
-# # 	else:
-# # 		print("""
-# #                1:a
-# #                2:ante
-# #                3:após
-# #                4:até
-# #                5:com
-# #                6:contra
-# #                7:de
-# #                8:desde
-# #                9:em
-# #                10:entre
-# #                11:para
-# #                12:por
-# #                13:perante
-# #                14:sem
-# #                15:sob
-# #                16:sobre
-# #                17:trás
-# #                    Escolha uma opção:""")
-# #
-# # 		preposição = preposição_switcher()
-# #
-# # 	return preposição
-# #
-# #
-# # def frase_preposicional():
-# # 	'''
-# #     '''
-# # 	preposição = Preposição()
-# # 	grupo_nominal = (re.sub(' +', ' ', estrutura_GN_downraked())).strip()
-# #
-# # 	if preposição == 'por':
-# # 		if grupo_nominal[:2] == 'o ':
-# # 			frase_prep = 'pel' + grupo_nominal
-# # 		elif grupo_nominal[:2] == 'a ':
-# # 			frase_prep = 'pel' + grupo_nominal
-# # 		else:
-# # 			frase_prep = preposição + ' ' + grupo_nominal
-# # 	elif preposição == 'a':
-# # 		if grupo_nominal[:2] == 'a ':
-# # 			frase_prep = 'à' + grupo_nominal[(-(len(grupo_nominal) - 1)):]
-# # 		elif grupo_nominal[:2] == 'o ':
-# # 			frase_prep = preposição + grupo_nominal
-# # 		elif grupo_nominal[:5] == 'aquel':
-# # 			frase_prep = 'à' + grupo_nominal[(-(len(grupo_nominal) - 1)):]
-# # 		else:
-# # 			frase_prep = preposição + ' ' + grupo_nominal
-# # 	elif preposição == 'de':
-# # 		if (grupo_nominal[:2] == 'o ' or
-# # 				grupo_nominal[:2] == 'a ' or
-# # 				grupo_nominal[:3] == 'est' or
-# # 				grupo_nominal[:3] == 'ist' or
-# # 				grupo_nominal[:3] == 'ess' or
-# # 				grupo_nominal[:3] == 'iss' or
-# # 				grupo_nominal[:5] == 'aquel' or
-# # 				grupo_nominal[:5] == 'aquil'):
-# # 			frase_prep = (preposição[slice(-1)]) + grupo_nominal
-# # 		elif (grupo_nominal[:2] == 'um' or
-# # 		      grupo_nominal[:2] == 'un' or
-# # 		      grupo_nominal[:2] == 'el' or
-# # 		      grupo_nominal[:4] == 'outr'):
-# # 			print("Com ou sem contração")
-# # 			contração = choice.Menu(['+contração', '-contração']).ask()
-# # 			if contração == '+contração':
-# # 				frase_prep = (preposição[slice(-1)]) + grupo_nominal
-# # 			else:
-# # 				frase_prep = preposição + ' ' + grupo_nominal
-# # 		else:
-# # 			frase_prep = preposição + ' ' + grupo_nominal
-# # 	elif preposição == 'em':
-# # 		if (
-# # 				grupo_nominal[:2] == 'o ' or
-# # 				grupo_nominal[:2] == 'a ' or
-# # 				grupo_nominal[:2] == 'el' or
-# # 				grupo_nominal[:3] == 'est' or
-# # 				grupo_nominal[:3] == 'ist' or
-# # 				grupo_nominal[:3] == 'ess' or
-# # 				grupo_nominal[:3] == 'iss' or \
-# # 				grupo_nominal[:5] == 'aquel' or
-# # 				grupo_nominal[:5] == 'aquil'
-# # 		): \
-# # 			frase_prep = 'n' + grupo_nominal
-# # 		else:
-# # 			if (
-# # 					grupo_nominal[:2] == 'um' or
-# # 					grupo_nominal[:2] == 'un' or
-# # 					grupo_nominal[:4] == 'outr'
-# # 			):
-# # 				print("Com ou sem contração?")
-# # 				contração = choice.Menu(['+contração', '-contração']).ask()
-# # 				if contração == '+contração':
-# # 					frase_prep = 'n' + grupo_nominal
-# # 				else:
-# # 					frase_prep = preposição + ' ' + grupo_nominal
-# #
-# # 	elif preposição == 'para':
-# # 		if (
-# # 				grupo_nominal[:2] == 'o ' or
-# # 				grupo_nominal[:2] == 'a '
-# # 		):
-# #
-# # 			print("Com ou sem contração") \
-# # 			contração = choice.Menu(['+contração', '-contração']).ask()
-# # 			if contração == '+contração':
-# # 				frase_prep = 'pr' + grupo_nominal
-# # 			else:
-# # 				frase_prep = preposição + ' ' + grupo_nominal
-# # 		else:
-# # 			frase_prep = preposição + ' ' + grupo_nominal
-# # 	else:
-# # 		frase_prep = preposição + ' ' + grupo_nominal
-# # 	return frase_prep
-# #
-# #
+# preposicoes = ['a','ante','após','até','com','contra',
+# 				   'de','desde','em','entre','para','por','perante','sem',
+# 				   'sob','sobre','trás']
+
+
+
+def preposicao(indice):
+	opcoes = ['a', 'ante', 'após', 'até', 'com', 'contra',
+				   'de', 'desde', 'em', 'entre', 'para', 'por', 'perante', 'sem',
+				   'sob', 'sobre', 'trás']
+	nums = [x for x in range(len(opcoes))]
+	preposicoes = dict(zip(nums, opcoes))
+
+	preposicao=preposicoes[indice]
+	return preposicao
+# preposicao(0)
+# preposicao(11)
+
+
+# print("Com ou sem contração")
+# contracao = choice.Menu(['+contração', '-contração']).ask()
+
+def frase_preposicional(indicePreposicao=None, dissocEnteNucleo=None, temQualificador=None, tipoQualificador=None,
+						DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+						gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+						DETERMINAÇÃO_espeficifidade_alpha=None, ORIENTAÇÃO_alpha=None, gênero_alpha=None,
+						número_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
+						número_obj_possuído=None, gênero_obj_possuído=None, pessoa_da_interlocução_proximidade=None,  #
+						funcaoNumerativo=None, cardinal=None, genero=None, tipo_precisa=None, tipoRealCard=None,
+						milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None,
+						numIndefinido=None,
+						tipo_de_Ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
+						tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente=None, substantivo_lematizado=None,
+						numero=None,
+						tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,
+						pessoa_da_interlocucao=None,
+						transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+						epitetoModificacao=None, adjetivo_epiteto=None, classificadorModificacao=None,
+						adjetivo_classificador=None, contracao=None):
+	'''
+    '''
+	prep = preposicao(indicePreposicao)
+	grupo_nominal = (re.sub(' +', ' ',estrutura_GN_downraked(dissocEnteNucleo,temQualificador,tipoQualificador,indicePreposicao,DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
+				 gênero_beta,número_beta,morfologia_do_pronome_beta,
+				 DETERMINAÇÃO_espeficifidade_alpha,ORIENTAÇÃO_alpha,gênero_alpha,
+				 número_alpha,morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+				 número_obj_possuído, gênero_obj_possuído,pessoa_da_interlocução_proximidade,#
+				 funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
+			  	 milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido,
+				 tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+				 tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado, numero,
+				 tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio, pessoa_da_interlocucao,
+				 transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,#
+				 epitetoModificacao,adjetivo_epiteto,classificadorModificacao,adjetivo_classificador))).strip()
+
+	if prep == 'por':
+		if grupo_nominal[:2] == 'o ':
+			frase_prep = 'pel' + grupo_nominal
+		elif grupo_nominal[:2] == 'a ':
+			frase_prep = 'pel' + grupo_nominal
+		else:
+			frase_prep = prep + ' ' + grupo_nominal
+	elif prep == 'a':
+		if grupo_nominal[:2] == 'a ':
+			frase_prep = 'à' + grupo_nominal[(-(len(grupo_nominal) - 1)):]
+		elif grupo_nominal[:2] == 'o ':
+			frase_prep = prep + grupo_nominal
+		elif grupo_nominal[:5] == 'aquel':
+			frase_prep = 'à' + grupo_nominal[(-(len(grupo_nominal) - 1)):]
+		else:
+			frase_prep = prep + ' ' + grupo_nominal
+	elif prep == 'de':
+		if (grupo_nominal[:2] == 'o ' or
+				grupo_nominal[:2] == 'a ' or
+				grupo_nominal[:3] == 'est' or
+				grupo_nominal[:3] == 'ist' or
+				grupo_nominal[:3] == 'ess' or
+				grupo_nominal[:3] == 'iss' or
+				grupo_nominal[:5] == 'aquel' or
+				grupo_nominal[:5] == 'aquil'):
+			frase_prep = (prep[slice(-1)]) + grupo_nominal
+		elif (grupo_nominal[:2] == 'um' or
+		      grupo_nominal[:2] == 'un' or
+		      grupo_nominal[:2] == 'el' or
+		      grupo_nominal[:4] == 'outr'):
+			
+			if contracao == '+contração':
+				frase_prep = (prep[slice(-1)]) + grupo_nominal
+			else:
+				frase_prep = prep + ' ' + grupo_nominal
+		else:
+			frase_prep = prep + ' ' + grupo_nominal
+	elif prep == 'em':
+		if (
+				grupo_nominal[:2] == 'o ' or
+				grupo_nominal[:2] == 'a ' or
+				grupo_nominal[:2] == 'el' or
+				grupo_nominal[:3] == 'est' or
+				grupo_nominal[:3] == 'ist' or
+				grupo_nominal[:3] == 'ess' or
+				grupo_nominal[:3] == 'iss' or
+				grupo_nominal[:5] == 'aquel' or
+				grupo_nominal[:5] == 'aquil'
+		):
+			frase_prep = 'n' + grupo_nominal
+		else:
+			if (
+					grupo_nominal[:2] == 'um' or
+					grupo_nominal[:2] == 'un' or
+					grupo_nominal[:4] == 'outr'
+			):
+
+				if contracao == '+contração':
+					frase_prep = 'n' + grupo_nominal
+				else:
+					frase_prep = prep + ' ' + grupo_nominal
+
+	elif prep == 'para':
+		if (
+				grupo_nominal[:2] == 'o ' or
+				grupo_nominal[:2] == 'a '
+		):
+			if contracao == '+contração':
+				frase_prep = 'pr' + grupo_nominal
+			else:
+				frase_prep = prep + ' ' + grupo_nominal
+		else:
+			frase_prep = prep + ' ' + grupo_nominal
+	else:
+		frase_prep = prep + ' ' + grupo_nominal
+	return frase_prep
+for i in range(12):
+	frase = frase_preposicional(indicePreposicao=i,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,
+					DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+			 gênero_alpha='masculino',
+			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+			 pessoa_da_interlocução_possuidor='1s',
+			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+			 tipo_de_nao_consciente_material='animal',
+			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+			 substantivo_lematizado='gato', numero='plural',
+			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração')
+	print(frase)
+estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
+			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+			 gênero_alpha='masculino',
+			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+			 pessoa_da_interlocução_possuidor='1s',
+			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+			 tipo_de_nao_consciente_material='animal',
+			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+			 substantivo_lematizado='gato', numero='plural',
+			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+			 classificadorModificacao=None,adjetivo_classificador=None)
+
 # # ############ORDEM DA ORAÇÃO
 # #
 # # def circunstância():
