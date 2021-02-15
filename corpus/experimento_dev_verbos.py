@@ -1,38 +1,14 @@
 # -*- coding: utf-8 -*-
-##importando os verbos do corpus de dev(sygmorph)
 
 
+##PRELIMINARES
 import pandas as pd
 import json
-
-verbos = pd.read_excel("./corpus/corpora_train_dev_test/verbos_dev_2.xls")
-
-
-# verbos.head()
-lemas = list(verbos.iloc[:]["lema"])
-
-
-##TRATAR VALORES NaN
-
 import numpy as np
 import sklearn
 from sklearn.impute import SimpleImputer
-imputer = SimpleImputer(missing_values = np.nan, strategy='constant', fill_value=None,verbose=0)
-imputer = imputer.fit(verbos)
-verbos = imputer.transform(verbos)
-
-#
-# pessoa_genero = list(set(verbos[:,3]))
-# modo = list(set(verbos[:,5]))
-# numero=list(set(verbos[:,4]))
-# tempo=list(set(verbos[:,6]))
-# aspecto=list(set(verbos[:,7]))
-#
-# concatenaAtributos = []
-# for i in range(len(verbos)):
-# 	concatenaAtributos.append(str(verbos[i,3]) + '_'+verbos[i,4] + '_'+verbos[i,5] + '_' + verbos[i,6]+'_'+verbos[i,7])
-# concatenaAtributos=list(set(concatenaAtributos))
-
+from NLG_BRAZILIAN_PORTUGUESE.GENERATION_dev import *
+###FUNCAO EXPERIMENTO
 def experimento_verbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,pessoa_genero, numero, modo, tempo, aspecto):
 
 	if numero == 'PL':
@@ -98,32 +74,30 @@ def experimento_verbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,pessoa_
 	elif pessoa_genero+'_'+numero + '_' +modo + '_' + tempo + '_' + aspecto == 'NFIN_missing_value_missing_value_missing_value_missing_value':
 		tipo_de_orientacao = 'infinitivo'
 	verbo = verbo_geral(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,
-		            tipo_de_orientacao, OI_numero, genero, OI_tipo_de_pessoa)
+                tipo_de_orientacao, OI_numero, genero, OI_tipo_de_pessoa)
 
 	return verbo
 
-
-
+##EXEMPLOS
 # verbo_geral('Fazer', 'Evento', 'desfazer','infinitivo',)
-#
-#
-# # experimento_verbo("Fazer",'Evento','assoprar','NFIN')
-# experimento_verbo("Fazer",'Evento',"derruir",3,'SG','IND','PST','IPFV')
+# #
+# experimento_verbo("Fazer",'Evento',"andar",'PRS','missing_value','missing_value','missing_value','missing_value')
+# experimento_verbo("Fazer",'Evento',"fazer",1,'PL','IND','PST','PFV')
 # experimento_verbo("Sentir",'Evento',"expedir",2,'PL','SBJV','PST','IPFV')
-# experimento_verbo("Fazer",'Evento',"estralar",2,'PL','IND','PST','PFV')
+# experimento_verbo("Fazer",'Evento',"extrair",3,'PL','SBJV','PST','IPFV')
+# verbo_geral("Fazer",'Evento',"extrair",'subjuntivo_condicional', 'plural', None, '3pessoa')
 
 
 
-
-
-#
-# verbo =  verbos[1,1]
-# pessoa_genero = verbos[1,3]
-# modo = verbos[:,5]
-# numero=verbos[:,4]
-# tempo=verbos[:,6]
-# aspecto=verbos[:,7]
-
+###################EXPERIMENTO CORPUS DE DESENVOLVIMENTO#################
+##importando os verbos do corpus de dev(sygmorph)
+verbos = pd.read_excel("./corpus/corpora_train_dev_test/verbos_dev_2.xls")
+lemas = list(verbos.iloc[:]["lema"])
+##TRATAR VALORES NaN
+imputer = SimpleImputer(missing_values = np.nan, strategy='constant', fill_value='missing_value',verbose=0)
+imputer = imputer.fit(verbos)
+verbos = imputer.transform(verbos)
+###
 lista_conjugados=[]
 for i in range(len(verbos)):
 	verbo = verbos[i, 0]
@@ -158,8 +132,6 @@ json_object=json.dumps(acertos, ensure_ascii=False)
 # Writing to sample.json
 with open("./corpus/corpora_train_dev_test/acertos_conjugação_dev.json", "w",) as outfile:
     outfile.write(json_object)
-
-
 json_object=json.dumps(erros, ensure_ascii=False)
 # Writing to sample.json
 with open("./corpus/corpora_train_dev_test/erros_conjugação_dev.json", "w",) as outfile:
@@ -167,24 +139,58 @@ with open("./corpus/corpora_train_dev_test/erros_conjugação_dev.json", "w",) a
 #
 
 
+###EXPERIMENTO CORPUS TESTE
+
+verbos_TESTE = pd.read_excel("./corpus/corpora_train_dev_test/verbos_test_1.xls")
+lemas_TESTE = list(verbos_TESTE.iloc[:]["lema"])
+
+##TRATAR VALORES NaN
+imputer = SimpleImputer(missing_values = np.nan, strategy='constant', fill_value='missing_value',verbose=0)
+imputer = imputer.fit(verbos_TESTE)
+verbos_TESTE = imputer.transform(verbos_TESTE)
+
+lista_conjugados_TESTE=[]
+for i in range(len(verbos_TESTE)):
+	verbo = verbos_TESTE[i, 0]
+	pessoa_genero = verbos_TESTE[i, 3]
+	modo = verbos_TESTE[i, 5]
+	numero = verbos_TESTE[i, 4]
+	tempo = verbos_TESTE[i, 6]
+	aspecto = verbos_TESTE[i, 7]
+	verbo_conj = experimento_verbo("Fazer",'Evento',verbo,pessoa_genero,numero,modo,tempo,aspecto)
+	lista_conjugados_TESTE.append(verbo_conj)
+
+contador_TESTE = 0
+contador_erros_TESTE = 0
+contador_acertos_TESTE = 0
+erros_TESTE = []
+acertos_TESTE=[]
+
+for conj in lista_conjugados_TESTE:
+	if conj not in verbos_TESTE[:,1]:
+		erros_TESTE.append(conj)
+		contador_erros_TESTE+=1
+	else:
+		acertos_TESTE.append(conj)
+		contador_acertos_TESTE+=1
+	contador_TESTE+=1
+
+porcertangem_acerto_TESTE = contador_acertos_TESTE/1000
+porcertangem_acerto_TESTE*100
+# Serializing json
+
+json_object=json.dumps(acertos_TESTE, ensure_ascii=False)
+# Writing to sample.json
+with open("./corpus/corpora_train_dev_test/acertos_conjugação_TESTE.json", "w",) as outfile:
+    outfile.write(json_object)
+
+
+json_object=json.dumps(erros_TESTE, ensure_ascii=False)
+# Writing to sample.json
+with open("./corpus/corpora_train_dev_test/erros_conjugação_TESTE.json", "w",) as outfile:
+    outfile.write(json_object)
+
 #
-# #presente
-# # print("A conjugação é:")
-# dict_presente = {}
-# for lema in lemas:
-# 	conjugacao = []
-# 	dict_presente.update({lema:conjugacao})
-# 	for numero in OI_numeros:
-# 		for tipo_pessoa in OI_tipo_pessoas:
-# 			verbo = verbo_geral("Fazer",'Evento',lema,"presente",numero,None,tipo_pessoa)
-# 			conjugacao.append(verbo)
-#
-# # Serializing json
-# json_object = json.dumps(dict_presente, indent=4)
-#
-# # Writing to sample.json
-# with open("./corpus/corpora_train_dev_test/dicionario_presente.json", "w", encoding="utf-8") as outfile:
-#     outfile.write(json_object)
 
 ##EXEMPLO TESTE NO DAMATA
 import json
@@ -226,6 +232,12 @@ with codecs.open(path + "/teste_DAMATA.json", "w",encoding='utf-8' ) as outfile:
 	json.dump(json_object,outfile, ensure_ascii=False)
 
 	outfile.write(json_object)
+
+
+
+
+
+
 
 
 

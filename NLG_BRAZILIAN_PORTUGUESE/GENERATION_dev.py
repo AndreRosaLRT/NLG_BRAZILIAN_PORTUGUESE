@@ -25,219 +25,137 @@ import re
 from nltk import unify
 
 
-def adverbio_modo_switcher(i):
-	#    i = int(input())
+def adverbio_modo(indice=None):
+	opcoes = ['bem','mal','assim','adrede',
+			  'melhor','pior','depressa','devagar',
+			  'acinte','debalde','cuidadosamente','calmamente',
+			  'tristemente']
+	nums = [x for x in range(len(opcoes))]
+	adverbios = dict(zip(nums, opcoes))
+	adverbio = adverbios[indice]
+	return adverbio
+# adverbio_modo(1)
 
-	switcher_modo = {
-		1: 'bem',
-		2: 'mal',
-		3: 'assim',
-		4: 'adrede',
-		5: 'melhor',
-		6: 'pior',
-		7: 'depressa',
-		8: 'devagar',
-		9: 'acinte',
-		10: 'debalde',
-		11: 'cuidadosamente',
-		12: 'calmamente',
-		13: 'tristemente'
-	}
+def adverbio_intensidade(indice=None):
+	opcoes = ['muito','demais','todo','pouco',
+		'tão','quão','demasiado','bastante','imenso','demais',
+		'mais','menos','quanto','quase','tanto',
+		'assaz','tudo','nada']
+	nums = [x for x in range(len(opcoes))]
+	adverbios = dict(zip(nums, opcoes))
+	adverbio = adverbios[indice]
+	return adverbio
+# adverbio_intensidade(1)
+def adverbio_lugar(indice=None):
+	opcoes = ['aí','aqui','acolá','cá',
+		'lá','ali','adiante','abaixo','embaixo',
+		'acima','adentro','dentro']
+	nums = [x for x in range(len(opcoes))]
+	adverbios = dict(zip(nums, opcoes))
+	adverbio = adverbios[indice]
+	return adverbio
+# adverbio_lugar(1)
 
-	return switcher_modo.get(i, 'Seleção não disponível')
+def adverbio_tempo(indice=None):
+	opcoes = ['ainda', 'agora',
+			  'amanhã', 'à noite', 'anteontem',
+			  'antes', 'à tarde', 'às vezes', 'atualmente',
+			  'breve', 'cedo', 'depois','de manhã','de repente',
+			  'de vez em quando','hoje','hoje em dia',
+			  'já', 'logo', 'nunca','ontem','ora',
+			  'outrora','quando','sempre','tarde','jamais']
+	nums = [x for x in range(len(opcoes))]
+	adverbios = dict(zip(nums, opcoes))
+	adverbio = adverbios[indice]
+	return adverbio
 
+# adverbio_tempo(1)
+def adverbio_negacao(indice=None):
+	opcoes = ['não', 'nem', 'tampouco', 'nunca', 'jamais' ]
+	nums = [x for x in range(len(opcoes))]
+	adverbios = dict(zip(nums, opcoes))
+	adverbio = adverbios[indice]
+	return adverbio
 
-# adverbio_modo_switcher(2)
+# adverbio_negacao(4)
 
-def adverbio_intensidade_switcher(i):
-	#    i = int(input())
+def adverbio_relativo(indice=None):
+	opcoes = ['de onde', 'quando', 'onde',
+	                     'de quando', 'que', 'por onde']
+	nums = [x for x in range(len(opcoes))]
+	adverbios = dict(zip(nums, opcoes))
+	adverbio = adverbios[indice]
+	return adverbio
 
-	switcher_intensidade = {
-		1: 'muito',
-		2: 'demais',
-		3: 'todo',
-		4: 'pouco',
-		5: 'tão',
-		6: 'quão',
-		7: 'demasiado',
-		8: 'bastante',
-		9: 'imenso',
-		10: 'demais',
-		11: 'mais',
-		12: 'menos',
-		13: 'quanto',
-		14: 'quase',
-		15: 'tanto',
-		16: 'assaz',
-		17: 'tudo',
-		18: 'nada'
-	}
-	return switcher_intensidade.get(i, 'Seleção não disponível')
-
-
-# adverbio_intensidade_switcher (17)
-
-def adverbio_lugar_switcher(i):
-	#    i = int(input())
-
-	switcher_lugar = {
-
-		1: 'aí',
-		2: 'aqui',
-		3: 'acolá',
-		4: 'cá',
-		5: 'lá',
-		6: 'ali',
-		7: 'adiante',
-		8: 'abaixo',
-		9: 'embaixo',
-		10: 'acima',
-		11: 'adentro',
-		12: 'dentro'
-	}
-
-	return switcher_lugar.get(i, 'Seleção não disponível')
+# adverbio_relativo(4)
 
 
-# adverbio_lugar_switcher(5)
+def adverbio_afirmacao(indice=None):
+	opcoes = ['sim','deveras',
+	            'indubitavelmente','decididamente',
+	              'certamente', 'realmente',
+	              'decerto', 'certo',
+	               'efetivamente']
+	nums = [x for x in range(len(opcoes))]
+	adverbios = dict(zip(nums, opcoes))
+	adverbio = adverbios[indice]
+	return adverbio
 
-def adverbio_tempo_switcher(i):
-	#    i = int(input())
+adverbio_afirmacao(4)
 
-	switcher_tempo = {
-		1: 'ainda',
-		2: 'agora',
-		3: 'amanhã',
-		4: 'à noite',
-		5: 'anteontem',
-		6: 'antes',
-		7: 'à tarde',
-		8: 'às vezes',
-		9: 'atualmente',
-		10: 'breve',
-		11: 'cedo',
-		12: 'depois',
-		13: 'de manhã',
-		14: 'de repente',
-		15: 'de vez em quando',
-		16: 'hoje',
-		17: 'hoje em dia',
-		18: 'já',
-		19: 'logo',
-		20: 'nunca',
-		21: 'ontem',
-		22: 'ora',
-		23: 'outrora',
-		24: 'quando',
-		25: 'sempre',
-		26: 'tarde',
-		27: 'jamais',
-	}
-	return switcher_tempo.get(i, 'Seleção não disponível')
+def adverbio_duvida(indice=None):
+	opcoes = ['possivelmente','provavelmente',
+	          'acaso','porventura',
+	           'quiçá','será','talvez',
+	           'casualmente']
+	nums = [x for x in range(len(opcoes))]
+	adverbios = dict(zip(nums, opcoes))
+	adverbio = adverbios[indice]
+	return adverbio
 
+# adverbio_duvida(4)
 
-# adverbio_tempo_switcher(4)
-
-def adverbio_negacao_switcher(i):
-	#    i = int(input())
-
-	switcher_negacao = {1: 'não', 2: 'nem', 3: 'tampouco', 4: 'nunca', 5: 'jamais'}
-	return switcher_negacao.get(i, 'Seleção não disponível')
-
-
-# adverbio_negacao_switcher(4)
-
-def adverbio_relativo_switcher(i):
-	#    i = int(input())
-
-	switcher_relativo = {1: 'de onde', 2: 'quando', 3: 'onde',
-	                     4: 'de quando', 5: 'que', 6: 'por onde'}
-	return switcher_relativo.get(i, 'Seleção não disponível')
-
-
-# adverbio_relativo_switcher(3)
-
-
-def adverbio_afirmacao_switcher(i):
-	#    i = int(input())
-
-	switcher_afirmacao = {1: 'sim',
-	                      2: 'deveras',
-	                      3: 'indubitavelmente',
-	                      4: 'decididamente',
-	                      5: 'certamente',
-	                      6: 'realmente',
-	                      7: 'decerto',
-	                      8: 'certo',
-	                      9: 'efetivamente'
-	                      }
-	return switcher_afirmacao.get(i, 'Seleção não disponível')
-
-
-# adverbio_afirmacao_switcher(5)
-
-
-def adverbio_duvida_switcher(i):
-	#    i = int(input())
-
-	switcher_duvida = {1: 'possivelmente',
-	                   2: 'provavelmente',
-	                   3: 'acaso',
-	                   4: 'porventura',
-	                   5: 'quiçá',
-	                   6: 'será',
-	                   7: 'talvez',
-	                   8: 'casualmente'}
-	return switcher_duvida.get(i, 'Seleção não disponível')
-
-
-# adverbio_duvida_switcher(3)
-def adverbio(modo_insercao, tipo_de_adverbio, i):
+def adverbio(tipo_de_adverbio, indice):
 	"""
     HHHH
     """
 	#    modo_insercao = choice.Menu(['insercao_manual','insercao_menu']).ask()
 
-	if modo_insercao == 'insercao_manual':
-		tipo_de_adverbio = "NA"
-		i = "NA"
-		adverbio = input('Escreva o advérbio desejado:')
+	if tipo_de_adverbio == 'Modo':
 
-	elif modo_insercao == 'insercao_menu' and tipo_de_adverbio == 'Modo':
+		adverbio = adverbio_modo(indice)
 
-		adverbio = adverbio_modo_switcher(i)
+	elif tipo_de_adverbio == 'Intensidade':
 
-	elif modo_insercao == 'insercao_menu' and tipo_de_adverbio == 'Intensidade':
+		adverbio = adverbio_intensidade(indice)
 
-		adverbio = adverbio_intensidade_switcher(i)
+	elif tipo_de_adverbio == 'Lugar':
 
-	elif modo_insercao == 'insercao_menu' and tipo_de_adverbio == 'Lugar':
+		adverbio = adverbio_lugar(indice)
 
-		adverbio = adverbio_lugar_switcher(i)
+	elif tipo_de_adverbio == 'Tempo':
 
-	elif modo_insercao == 'insercao_menu' and tipo_de_adverbio == 'Tempo':
+		adverbio = adverbio_tempo(indice)
 
-		adverbio = adverbio_tempo_switcher(i)
+	elif tipo_de_adverbio == 'Negacao':
 
-	elif modo_insercao == 'insercao_menu' and tipo_de_adverbio == 'Negacao':
+		adverbio = adverbio_negacao(indice)
 
-		adverbio = adverbio_negacao_switcher(i)
+	elif tipo_de_adverbio == 'Afirmacao':
+		adverbio = adverbio_afirmacao(indice)
 
-	elif modo_insercao == 'insercao_menu' and tipo_de_adverbio == 'Afirmacao':
-		adverbio = adverbio_afirmacao_switcher(i)
+	elif tipo_de_adverbio == 'Duvida':
 
-	elif modo_insercao == 'insercao_menu' and tipo_de_adverbio == 'Duvida':
+		adverbio = adverbio_duvida(indice)
 
-		adverbio = adverbio_duvida_switcher(i)
+	elif tipo_de_adverbio == 'Adv_relativo':
 
-	elif modo_insercao == 'insercao_menu' and tipo_de_adverbio == 'Adv_relativo':
-
-		adverbio = adverbio_relativo_switcher(i)
+		adverbio = adverbio_relativo(indice)
 
 	return adverbio
 
 
-# adverbio("insercao_menu", "Modo", 2)
+# adverbio( "Modo", 2)
 
 ###ADVÉRBIO    FIM####
 
@@ -714,6 +632,14 @@ def realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, OI_n
 	return MI
 
 
+X=['-AR','-ER','-IR','-OR']
+Y=['plural','singular']
+Z=['1pessoa','2pessoa','3pessoa']
+for i in X:
+	for j in Y:
+		for p in Z:
+			transito = realizacao_transitoriedade_preterito_perfectivo_I(i,j,p)
+			print(transito)
 #
 # realizacao_transitoriedade_preterito_perfectivo_I('-IR', 'singular', '1pessoa')
 
@@ -764,7 +690,7 @@ def realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, OI_n
 	elif padrao_de_morfologia == '-ER' and OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular' and padrao_pessoa_morfologia == 'Morfologia_padrão':
 		MI = 'ias'
 	elif padrao_de_morfologia == '-IR' and OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular' and padrao_pessoa_morfologia == 'Morfologia_padrão':
-		MI = 'ías'
+		MI = 'ias'
 
 	elif padrao_de_morfologia == '-OR' and OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'singular' and padrao_pessoa_morfologia == '3pessoa_do_singular':
 		MI = 'unha'
@@ -841,13 +767,12 @@ def realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, OI_n
 # realizacao_transitoriedade_preterito_imperfectivo('-ER', 'plural', '1pessoa')
 
 
-def realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,
-                                                       padrao_pessoa_morfologia="Morfologia_padrão"):
+def realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,padrao_pessoa_morfologia="Morfologia_padrão"):
 	'''(str)->str
     Retorna o morfema que realiza a transitoriedade de um verbo no pretérito_perfectivo_II, dados
     a o padrão de morfologia, tipo_pessoa de pessoa, e número.
 
-    >>>realizacao_transitoriedade_preterito_perfectivo_I()
+
     'ei'
     '''
 	if (padrao_de_morfologia == '-AR' and OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
@@ -916,9 +841,15 @@ def realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, OI_
 		MI = 'useram'
 	return MI
 
-
-# realizacao_transitoriedade_preterito_perfectivo_II('-OR','plural','3pessoa')
-
+#
+# X=['-AR','-ER','-IR','-OR']
+# Y=['plural','singular']
+# Z=['1pessoa','2pessoa','3pessoa']
+# for i in X:
+# 	for j in Y:
+# 		for p in Z:
+# 			transito = realizacao_transitoriedade_preterito_perfectivo_II(i,j,p)
+# 			print(transito)
 
 def realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,
                                                 padrao_pessoa_morfologia="Morfologia_padrão"):
@@ -926,7 +857,7 @@ def realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, OI_numero,
     Retorna o morfema que realiza a transitoriedade de um verbo no passado volitivo, dados
     a o padrão de morfologia, tipo_pessoa de pessoa, e número.
 
-    >>>realizacao_transitoriedade_preterito_perfectivo_I()
+
     'ei'
     '''
 
@@ -1393,7 +1324,7 @@ def realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, OI_n
 
 	elif (padrao_de_morfologia == '-IR' and OI_tipo_de_pessoa == '2pessoa' and OI_numero == 'plural'):
 		if padrao_pessoa_morfologia == '3pessoa_do_singular':
-			MI = 'onha'
+			MI = 'isse'
 		else:
 			MI = 'ísseis'
 
@@ -1419,7 +1350,7 @@ def realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, OI_n
 		if padrao_pessoa_morfologia == '3pessoa_do_singular':
 			MI = 'isse'
 		else:
-			MI = 'issem'
+			MI = 'íssem'
 
 	elif (padrao_de_morfologia == '-OR' and OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural'):
 		if padrao_pessoa_morfologia == '3pessoa_do_singular':
@@ -2066,7 +1997,7 @@ def realizacao_transitoriedade_do_verbo(tipo_de_orientacao, padrao_de_morfologia
 
 	elif tipo_de_orientacao == 'pretérito_perfectivo_II':
 		MI = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,
-		                                                        padrao_pessoa_morfologia)
+                                                       	padrao_pessoa_morfologia)
 
 	elif tipo_de_orientacao == 'pretérito_imperfectivo':
 		MI = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,
@@ -2118,7 +2049,12 @@ def realizacao_transitoriedade_do_verbo(tipo_de_orientacao, padrao_de_morfologia
 # # realizacao_transitoriedade_gerundio('-AR')
 # realizacao_transitoriedade_do_verbo('gerúndio','-AR',None,None,None)
 # realizacao_transitoriedade_do_verbo('presente','-AR','singular',None,'1pessoa')
-# realizacao_transitoriedade_do_verbo('pretérito_perfectivo_I','-IR','plural',None,'1pessoa')
+# for i in X:
+# 	for j in Y:
+# 		for k in Z:
+#
+# 			transito = realizacao_transitoriedade_do_verbo('pretérito_perfectivo_II',i,j,None,k)
+# 			print(transito)
 # realizacao_transitoriedade_do_verbo('pretérito_imperfectivo','-ER','plural',None,'2pessoa')
 # realizacao_transitoriedade_do_verbo('imperativo_I','-AR','singular',None,'2pessoa')
 # realizacao_transitoriedade_do_verbo('imperativo_II','-AR','singular',None,'2pessoa')
@@ -8406,43 +8342,47 @@ def formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, OI_numero,
     '''
 	padrao_de_morfologia=detecta_padrao_morfologia(verbo)
 	if verbo == 'estar':
-		verbo = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia,
+		verbo_conj = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia,
 		                                     OI_numero,
 		                                     genero, OI_tipo_de_pessoa,
 		                                     padrao_pessoa_morfologia='Morfologia_padrão')
 
 	elif verbo == 'ter':
-		verbo = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
+		verbo_conj = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
 		                                   OI_numero,
 		                                   genero, OI_tipo_de_pessoa,
 		                                   padrao_pessoa_morfologia='Morfologia_padrão')
 
 	elif verbo == 'haver':
-		verbo = formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
+		verbo_conj = formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
 		                                     OI_numero,
 		                                     genero, OI_tipo_de_pessoa,
 		                                     padrao_pessoa_morfologia='Morfologia_padrão')
 
 	elif verbo == 'ir':
-		verbo = formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+		verbo_conj = formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia,
 		                                  OI_numero,
 		                                  genero, OI_tipo_de_pessoa,
 		                                  padrao_pessoa_morfologia='Morfologia_padrão')
 
 	elif verbo == 'vir':
-		verbo = formacao_verbo_vir_invervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+		verbo_conj = formacao_verbo_vir_invervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
 		                                            OI_numero,
 		                                            genero, OI_tipo_de_pessoa,
 		                                            padrao_pessoa_morfologia='Morfologia_padrão')
 
 	elif verbo == 'ser':
-		verbo = formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia,
+		verbo_conj = formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia,
 		                                   OI_numero,
 		                                   genero, OI_tipo_de_pessoa,
 		                                   padrao_pessoa_morfologia='Morfologia_padrão')
+	elif verbo[-5:] == 'fazer':
+		verbo_conj = formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia,
+									 OI_numero, genero, OI_tipo_de_pessoa,
+									 padrao_pessoa_morfologia)
 
 	elif verbo == None:
-		verbo = ''
+		verbo_conj = ''
 	else:
 
 		OE_experiencia_do_verbo = experiencia_do_verbo(verbo)
@@ -8451,10 +8391,19 @@ def formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, OI_numero,
 																				  OI_numero,
 																				  genero, OI_tipo_de_pessoa,
 																				  padrao_pessoa_morfologia)
-		verbo = OE_experiencia_do_verbo + OI_orientacao_interpessoal_do_verbo
-	return verbo
-formacao_da_estrutura_do_verbo('ser','presente','singular',None,'1pessoa')
-formacao_da_estrutura_do_verbo('dizer','presente','singular',None,'1pessoa')
+		verbo_conj = OE_experiencia_do_verbo + OI_orientacao_interpessoal_do_verbo
+	return verbo_conj
+# formacao_da_estrutura_do_verbo('ser','presente','singular',None,'1pessoa')
+#
+# X=['-AR','-ER','-IR','-OR']
+# Y=['plural','singular']
+# Z=['1pessoa','2pessoa','3pessoa']
+#
+# for j in Y:
+# 	for p in Z:
+# 		transito = formacao_da_estrutura_do_verbo('fazer','pretérito_perfectivo_I',j,None,p)
+# 		print(transito)
+# formacao_da_estrutura_do_verbo('fazer','pretérito_perfectivo_I','singular',None,'1pessoa')
 
 # ###########################################################################
 # #########################################################################
@@ -8630,7 +8579,8 @@ def verbo_geral(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,
 # verbo=verbo_geral("Fazer",'Evento','usufruir','imperativo_I','singular',None,'2pessoa')
 # # verbo_geral("Fazer",'Evento','espaçar','imperativo_I','plural',None,'3pessoa')
 # # formacao_verbo_ÇAR('espaçar', 'imperativo_I', '-AR','plural',None,'3pessoa')
-# verbo_geral("Fazer",'Evento','desfazer','pretérito_perfectivo_I','singular',None,'1pessoa')
+
+# verbo_geral("Fazer",'Evento','desfazer','pretérito_perfectivo_II','plural',None,'1pessoa')
 # # # verbo_geral("Fazer",'Evento','ficar','pretérito_perfectivo_I','singular',None,'1pessoa')
 # verbo_geral("Fazer",'Evento','abraçar','presente','singular',None,'1pessoa')
 # verbo_geral('Ser','Auxiliar','ter','passado_volitivo','singular',None,'1pessoa')
@@ -9241,8 +9191,8 @@ def num_cardinal(tipoRealCard, cardNumerico, milharExtenso,
 # 		                                 'ordem_lugar_impreciso(posição_relativa'
 # 		                                 ]).ask()
 # print("""
-#                     1: 'algum'
-#                     2: 'nenhum'
+#                     'algum'
+#                     'nenhum'
 #                     3: 'todo'
 #                     4: 'muito'
 #                     5: 'pouco'
@@ -9251,12 +9201,12 @@ def num_cardinal(tipoRealCard, cardNumerico, milharExtenso,
 #                     8: 'outro'
 #                     9: 'quanto'
 #                     10: 'alguma'
-#                     11: 'nenhuma'
-#                     12: 'toda'
+#                     1'nenhuma'
+#                     1'toda'
 #                     13: 'muita'
 #                     14: 'pouca'
 #                     15: 'vária'
-#                     16: 'tanta'
+#                     1'tanta'
 #                     17:'outra'
 #                     18: 'quanta'
 #                     19:'alguns'
@@ -9312,8 +9262,8 @@ def Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
 # 	i = int(input())
 #
 # 	switcherNumInd = {
-# 		1: 'algum',
-# 		2: 'nenhum',
+# 		'algum',
+# 		'nenhum',
 # 		3: 'todo', \
 # 		4: 'muito',
 # 		5: 'pouco',
@@ -9322,8 +9272,8 @@ def Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
 # 		8: 'outro',
 # 		9: 'quanto',
 # 		10: 'alguma',
-# 		11: 'nenhuma',
-# 		12: 'toda',
+# 		1'nenhuma',
+# 		1'toda',
 # 		13: 'muita',
 # 		14: 'pouca',
 # 		15: 'vária',
@@ -9332,8 +9282,8 @@ def Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
 # 		18: 'quanta',
 # 		19: 'alguns',
 # 		20: 'nenhuns',
-# 		21: 'todos',
-# 		22: 'muitos',
+# 		2'todos',
+# 		2'muitos',
 # 		23: 'poucos',
 # 		24: 'vários',
 # 		25: 'tantos',
@@ -9342,8 +9292,8 @@ def Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
 # 		28: 'algumas',
 # 		29: 'nenhumas',
 # 		30: 'todas',
-# 		31: 'muitas',
-# 		32: 'poucas',
+# 		3'muitas',
+# 		3'poucas',
 # 		33: 'várias',
 # 		34: 'tantas',
 # 		35: 'outras',
@@ -9902,7 +9852,6 @@ def realizacao_pronome_caso_obliquo(transitividade_verbo,tonicidade,pessoa_da_in
 	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular' and tonicidade == 'átono' and transitividade_verbo == "indireto":
 		pronome_pessoal_obliquo = 'lhe'
 
-
 	elif pessoa_da_interlocucao == 'falante' and numero == 'plural' and tonicidade == 'átono':
 		pronome_pessoal_obliquo = 'nos'
 
@@ -9922,24 +9871,24 @@ def realizacao_pronome_caso_obliquo(transitividade_verbo,tonicidade,pessoa_da_in
 				pronome_pessoal_obliquo = 'se'
 
 	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural' and tonicidade == 'átono' and transitividade_verbo == "indireto":
-				pronome_pessoal_obliquo = 'lhes'
+		pronome_pessoal_obliquo = 'lhes'
 
-		elif morfologia_do_pronome == 'não_padrão':
+		if morfologia_do_pronome == 'não_padrão':
 
 			if genero == 'masculino':
 				pronome_pessoal_obliquo = 'eles'
 			else:
 				pronome_pessoal_obliquo = 'elas'
-	if transitividade_verbo == 'indireto':
-		if pessoa_da_interlocucao == 'falante' and numero == 'singular' and tonicidade == 'tônico':
-			pronome_pessoal_obliquo = 'mim'
+		if transitividade_verbo == 'indireto':
+			if pessoa_da_interlocucao == 'falante' and numero == 'singular' and tonicidade == 'tônico':
+				pronome_pessoal_obliquo = 'mim'
 
-		elif pessoa_da_interlocucao == 'ouvinte' and numero == 'singular' and tonicidade == 'tônico':
+			elif pessoa_da_interlocucao == 'ouvinte' and numero == 'singular' and tonicidade == 'tônico':
 
-			if morfologia_do_pronome == 'padrão':
-				pronome_pessoal_obliquo = 'ti'
-			else:
-				pronome_pessoal_obliquo = 'você'
+				if morfologia_do_pronome == 'padrão':
+					pronome_pessoal_obliquo = 'ti'
+				else:
+					pronome_pessoal_obliquo = 'você'
 
 		elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular' and tonicidade == 'tônico':
 			if morfologia_do_pronome == 'não_padrão':
@@ -10037,8 +9986,8 @@ def estrutura_logica_deixis():
 
 	estrutura_lógica_det_dêixis = input("""
 
-            1: α(Dêitico_ñ_seletivo_específico) # ex.: O,A
-            2: α(Dêitico_ñ_seletivo_ñ_específico) #ex.: Um,uns
+            α(Dêitico_ñ_seletivo_específico) # ex.: O,A
+            α(Dêitico_ñ_seletivo_ñ_específico) #ex.: Um,uns
             3: α(Dêitico_prox) #Este
             4: α(Dêitico_pess) #Meu
             5: β(Dêitico_prox)^α(Dêitico_pess) # ex.: Este meu
@@ -10400,21 +10349,21 @@ def Dêixis_geral(DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
 		return (re.sub(' +', '',( beta + ' ' + alpha) ))
 	
 
-
-Dêixis_geral( None,None,
-				 None,None,None,'específico','orientação_específica_proximidade',
-			 'masculino','singular','morfologia_terceira_pessoa','1s','singular','masculino','próximo_ao_falante')
-
-Dêixis_geral(None,None,
-				 None,None,None, 'específico',
-				 'NA','masculino','singular','morfologia_terceira_pessoa',
-				 None,None,
-				 None,None)
-
-Dêixis_geral('específico','orientação_específica_proximidade','masculino','singular','morfologia_terceira_pessoa',
-			 'específico','orientação_específica_pessoa',
-			 'masculino','singular','morfologia_terceira_pessoa','1s','singular','masculino','próximo_ao_falante')
 #
+# Dêixis_geral( None,None,
+# 				 None,None,None,'específico','orientação_específica_proximidade',
+# 			 'masculino','singular','morfologia_terceira_pessoa','1s','singular','masculino','próximo_ao_falante')
+#
+# Dêixis_geral(None,None,
+# 				 None,None,None, 'específico',
+# 				 'NA','masculino','singular','morfologia_terceira_pessoa',
+# 				 None,None,
+# 				 None,None)
+#
+# Dêixis_geral('específico','orientação_específica_proximidade','masculino','singular','morfologia_terceira_pessoa',
+# 			 'específico','orientação_específica_pessoa',
+# 			 'masculino','singular','morfologia_terceira_pessoa','1s','singular','masculino','próximo_ao_falante')
+# #
 #
 # print('Qual o tipo_pessoa de Ente?')
 # tipo_de_Ente = choice.Menu(['consciente', 'não_consciente', 'NA']).ask()
@@ -10503,19 +10452,19 @@ def Ente(tipo_de_Ente,tipo_de_nao_consciente,tipo_de_nao_consciente_material,
 												   morfologia_do_pronome, reflexivo)
 	return Ente
 
-
-Ente('não_consciente','material','animal',
-		 None,'substantivo_comum','gato','singular',
-		'feminino', None, None,None,None,None,
-		 None,None,None,None)
-Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
-     'pronome_caso_reto', None, "plural",
-     "feminino",None, None,None,None,"não_interlocutor",
-     None,None,None,None)
-Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
-     'pronome_caso_reto', None, "plural",
-     "feminino",None, None,None,None,"falante",
-     None,None,None,None)
+#
+# Ente('não_consciente','material','animal',
+# 		 None,'substantivo_comum','gato','singular',
+# 		'feminino', None, None,None,None,None,
+# 		 None,None,None,None)
+# Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
+#      'pronome_caso_reto', None, "plural",
+#      "feminino",None, None,None,None,"não_interlocutor",
+#      None,None,None,None)
+# Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
+#      'pronome_caso_reto', None, "plural",
+#      "feminino",None, None,None,None,"falante",
+#      None,None,None,None)
 
 # #
 # # ###No caso do Ente, ainda tenho que modelar as opções de Ente realizados por substantivos compostos (devido ao padrão de
@@ -10569,26 +10518,26 @@ def qualificador(indicePreposicao=None,dissocEnteNucleo=None,DETERMINAÇÃO_espe
 	else:
 		Qualificador = ''
 	return re.sub(' +',' ', Qualificador).strip()
-
-qualificador(indicePreposicao=10,dissocEnteNucleo=None,temQualificador='sim',tipoQualificador='frase-preposicional',
-					DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-			 gênero_alpha='masculino',
-			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-			 pessoa_da_interlocução_possuidor='1s',
-			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
-			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
-			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
-			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
-			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-			 tipo_de_nao_consciente_material='animal',
-			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
-			 substantivo_lematizado='gato', numero='plural',
-			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
-			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
-			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração')
+#
+# qualificador(indicePreposicao=10,dissocEnteNucleo=None,temQualificador='sim',tipoQualificador='frase-preposicional',
+# 					DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+# 			 gênero_alpha='masculino',
+# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+# 			 pessoa_da_interlocução_possuidor='1s',
+# 			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+# 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+# 			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 			 tipo_de_nao_consciente_material='animal',
+# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+# 			 substantivo_lematizado='gato', numero='plural',
+# 			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+# 			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+# 			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração')
 
 def estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=None,DETERMINAÇÃO_espeficifidade_beta=None,ORIENTAÇÃO_beta=None,
 				 gênero_beta=None,número_beta=None,morfologia_do_pronome_beta=None,
@@ -10616,25 +10565,25 @@ def estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualif
 				 epitetoModificacao,adjetivo_epiteto,classificadorModificacao,adjetivo_classificador)
 
 	return re.sub(' +',' ',GN_downranked).strip()
-estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
-			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-			 gênero_alpha='masculino',
-			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-			 pessoa_da_interlocução_possuidor='1s',
-			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
-			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
-			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
-			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
-			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-			 tipo_de_nao_consciente_material='animal',
-			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
-			 substantivo_lematizado='gato', numero='plural',
-			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
-			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
-			 classificadorModificacao=None,adjetivo_classificador=None)
+# estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
+# 			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+# 			 gênero_alpha='masculino',
+# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+# 			 pessoa_da_interlocução_possuidor='1s',
+# 			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+# 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+# 			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 			 tipo_de_nao_consciente_material='animal',
+# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+# 			 substantivo_lematizado='gato', numero='plural',
+# 			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+# 			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+# 			 classificadorModificacao=None,adjetivo_classificador=None)
 # #
 # #parei aqui
 # # ####NO CASO A SEGUIR, PODE ACONTECER DE UM GRUPO NOMINAL DESCER DE ORDEM E REALIZAR, POR SUA VEZ,
@@ -10721,26 +10670,26 @@ def estrutura_GN(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=Non
 				 epitetoModificacao,adjetivo_epiteto,classificadorModificacao,adjetivo_classificador)
 		GN = Núcleo_lógico + ' ' + Qualificador
 	return  (re.sub(' +', ' ', GN).strip())
-
-estrutura_GN(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
-			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-			 gênero_alpha='masculino',
-			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-			 pessoa_da_interlocução_possuidor='1s',
-			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
-			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
-			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
-			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
-			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-			 tipo_de_nao_consciente_material='animal',
-			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
-			 substantivo_lematizado='gato', numero='plural',
-			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
-			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
-			 classificadorModificacao=None,adjetivo_classificador=None)
+#
+# estrutura_GN(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
+# 			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+# 			 gênero_alpha='masculino',
+# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+# 			 pessoa_da_interlocução_possuidor='1s',
+# 			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+# 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+# 			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 			 tipo_de_nao_consciente_material='animal',
+# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+# 			 substantivo_lematizado='gato', numero='plural',
+# 			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+# 			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+# 			 classificadorModificacao=None,adjetivo_classificador=None)
 # #
 # # ########PREPOSIÇÃO
 # preposicoes = ['a','ante','após','até','com','contra',
@@ -10874,71 +10823,133 @@ def frase_preposicional(indicePreposicao=None, dissocEnteNucleo=None, temQualifi
 	else:
 		frase_prep = prep + ' ' + grupo_nominal
 	return frase_prep
-for i in range(12):
-	frase = frase_preposicional(indicePreposicao=i,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,
-					DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-			 gênero_alpha='masculino',
-			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-			 pessoa_da_interlocução_possuidor='1s',
-			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
-			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
-			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
-			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
-			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-			 tipo_de_nao_consciente_material='animal',
-			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
-			 substantivo_lematizado='gato', numero='plural',
-			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
-			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
-			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração')
-	print(frase)
-estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
-			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-			 gênero_alpha='masculino',
-			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-			 pessoa_da_interlocução_possuidor='1s',
-			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
-			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
-			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
-			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
-			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-			 tipo_de_nao_consciente_material='animal',
-			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
-			 substantivo_lematizado='gato', numero='plural',
-			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
-			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
-			 classificadorModificacao=None,adjetivo_classificador=None)
+
+# for i in range(12):
+# 	frase = frase_preposicional(indicePreposicao=i,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,
+# 					DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+# 			 gênero_alpha='masculino',
+# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+# 			 pessoa_da_interlocução_possuidor='1s',
+# 			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+# 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+# 			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 			 tipo_de_nao_consciente_material='animal',
+# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+# 			 substantivo_lematizado='gato', numero='plural',
+# 			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+# 			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+# 			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração')
+# 	print(frase)
+# estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
+# 			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+# 			 gênero_alpha='masculino',
+# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+# 			 pessoa_da_interlocução_possuidor='1s',
+# 			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+# 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+# 			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 			 tipo_de_nao_consciente_material='animal',
+# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+# 			 substantivo_lematizado='gato', numero='plural',
+# 			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+# 			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+# 			 classificadorModificacao=None,adjetivo_classificador=None)
 
 # # ############ORDEM DA ORAÇÃO
-# #
-# # def circunstância():
-# # 	'''
-# #     '''
-# # 	print('Há circunstância?')
-# # 	circunstância = choice.Menu(['sim', 'não']).ask()
-# #
-# # 	if circunstância == 'não':
-# # 		Circunstância = ''
-# # 	else:
-# # 		print('Selecione o tipo_pessoa de grupo que realiza a circunstância:')
-# # 		realizacao_circunstância = choice.Menu(['grupo_nominal', 'frase_preposicional', 'grupo_adverbial']).ask()
-# #
-# # 		if realizacao_circunstância == 'grupo_nominal':
-# # 			Circunstância = estrutura_GN()
-# # 		elif realizacao_circunstância == 'frase_preposicional':
-# # 			Circunstância = frase_preposicional()
-# # 		elif realizacao_circunstância == 'grupo_adverbial':
-# # 			Circunstância = advérbio()
-# #
-# # 	return Circunstância
-# #
-# #
+# print('Há circunstância?')
+# temCircunstancia = choice.Menu(['sim', 'não']).ask()
+# print('Selecione o tipo_pessoa de grupo que realiza a circunstância:')
+# realizacaoCircunstancia = choice.Menu(['grupo_nominal', 'frase_preposicional', 'grupo_adverbial']).ask()
+
+def circunstancia(temCircunstancia=None,realizacaoCircunstancia=None,
+				  indicePreposicao=None, dissocEnteNucleo=None, temQualificador=None, tipoQualificador=None,
+				  DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+				  gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+				  DETERMINAÇÃO_espeficifidade_alpha=None, ORIENTAÇÃO_alpha=None, gênero_alpha=None,
+				  número_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
+				  número_obj_possuído=None, gênero_obj_possuído=None, pessoa_da_interlocução_proximidade=None,  #
+				  funcaoNumerativo=None, cardinal=None, genero=None, tipo_precisa=None, tipoRealCard=None,
+				  milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None,
+				  numIndefinido=None,
+				  tipo_de_Ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
+				  tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente=None, substantivo_lematizado=None,
+				  numero=None,
+				  tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,
+				  pessoa_da_interlocucao=None,
+				  transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+				  epitetoModificacao=None, adjetivo_epiteto=None, classificadorModificacao=None,
+				  adjetivo_classificador=None, contracao=None,tipo_de_adverbio=None, indice=None
+				  ):
+	'''
+    '''
+
+	if temCircunstancia == None:
+		Circunstancia = ''
+	else:
+		if realizacaoCircunstancia == 'grupo_nominal':
+			Circunstancia = estrutura_GN_downraked(dissocEnteNucleo,temQualificador,tipoQualificador,indicePreposicao,DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
+				 gênero_beta,número_beta,morfologia_do_pronome_beta,
+				 DETERMINAÇÃO_espeficifidade_alpha,ORIENTAÇÃO_alpha,gênero_alpha,
+				 número_alpha,morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+				 número_obj_possuído, gênero_obj_possuído,pessoa_da_interlocução_proximidade,#
+				 funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
+			  	 milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido,
+				 tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+				 tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado, numero,
+				 tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio, pessoa_da_interlocucao,
+				 transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,#
+				 epitetoModificacao,adjetivo_epiteto,classificadorModificacao,adjetivo_classificador)
+		elif realizacaoCircunstancia == 'frase_preposicional':
+			Circunstancia = frase_preposicional(indicePreposicao, dissocEnteNucleo, temQualificador, tipoQualificador,
+						DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta,
+						gênero_beta, número_beta, morfologia_do_pronome_beta,
+						DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha, gênero_alpha,
+						número_alpha, morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+						número_obj_possuído, gênero_obj_possuído, pessoa_da_interlocução_proximidade,  #
+						funcaoNumerativo, cardinal, genero, tipo_precisa, tipoRealCard,
+						milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso,
+						numIndefinido,tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+						tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado,
+						numero,tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio,
+						pessoa_da_interlocucao,transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,  #
+						epitetoModificacao, adjetivo_epiteto, classificadorModificacao,
+						adjetivo_classificador, contracao)
+		elif realizacaoCircunstancia == 'grupo_adverbial':
+			Circunstancia = adverbio(tipo_de_adverbio, indice)
+
+	return re.sub(' +',' ',Circunstancia).strip()
+#
+# circunstancia(temCircunstancia='sim',realizacaoCircunstancia='frase_preposicional',
+# 			  indicePreposicao=9,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,
+# 				DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+# 			 gênero_alpha='masculino',
+# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+# 			 pessoa_da_interlocução_possuidor='1s',
+# 			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+# 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+# 			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 			 tipo_de_nao_consciente_material='animal',
+# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+# 			 substantivo_lematizado='gato', numero='plural',
+# 			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+# 			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+# 			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração'
+# 			,tipo_de_adverbio=None, indice=None)
 # # ##SISTEMAS DA ORAÇÃO
 # #
 # #
