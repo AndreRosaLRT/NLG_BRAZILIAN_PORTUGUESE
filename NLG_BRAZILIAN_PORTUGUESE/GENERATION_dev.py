@@ -630,16 +630,16 @@ def realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, OI_n
 	elif padrao_de_morfologia == '-OR' and OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'plural' and padrao_pessoa_morfologia == 'Morfologia_padrão':
 		MI = 'useram'
 	return MI
-
-
-X=['-AR','-ER','-IR','-OR']
-Y=['plural','singular']
-Z=['1pessoa','2pessoa','3pessoa']
-for i in X:
-	for j in Y:
-		for p in Z:
-			transito = realizacao_transitoriedade_preterito_perfectivo_I(i,j,p)
-			print(transito)
+#
+# realizacao_transitoriedade_preterito_perfectivo_I('-ER','singular','1pessoa')
+# X=['-AR','-ER','-IR','-OR']
+# Y=['plural','singular']
+# Z=['1pessoa','2pessoa','3pessoa']
+# for i in X:
+# 	for j in Y:
+# 		for p in Z:
+# 			transito = realizacao_transitoriedade_preterito_perfectivo_I(i,j,p)
+# 			print(transito)
 #
 # realizacao_transitoriedade_preterito_perfectivo_I('-IR', 'singular', '1pessoa')
 
@@ -655,7 +655,7 @@ def realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, OI_n
     Retorna o morfema que realiza a transitoriedade de um verbo no pretérito imperfectivo, dados
     a o padrão de morfologia, tipo_pessoa de pessoa, e numero.
 
-    >>>realizacao_transitoriedade_preterito_perfectivo_I()
+    >>
     'ei'
     '''
 	if (
@@ -665,11 +665,10 @@ def realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, OI_n
 
 	elif (
 			padrao_de_morfologia == '-ER' and OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' and padrao_pessoa_morfologia == 'Morfologia_padrão' or
-			padrao_de_morfologia == '-ER' and OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular' and padrao_pessoa_morfologia == 'Morfologia_padrão'):
-		MI = 'ia'
-	elif (padrao_de_morfologia == '-IR' and OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' and padrao_pessoa_morfologia == 'Morfologia_padrão' or
+			padrao_de_morfologia == '-ER' and OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular' and padrao_pessoa_morfologia == 'Morfologia_padrão'
+			or padrao_de_morfologia == '-IR' and OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' and padrao_pessoa_morfologia == 'Morfologia_padrão' or
 		padrao_de_morfologia == '-IR' and OI_tipo_de_pessoa == '3pessoa' and OI_numero == 'singular' and padrao_pessoa_morfologia == 'Morfologia_padrão'):
-		MI = 'ía'
+		MI = 'ia'
 
 	elif (
 			padrao_de_morfologia == '-OR' and OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' and padrao_pessoa_morfologia == 'Morfologia_padrão' or
@@ -764,7 +763,7 @@ def realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, OI_n
 	return MI
 
 
-# realizacao_transitoriedade_preterito_imperfectivo('-ER', 'plural', '1pessoa')
+realizacao_transitoriedade_preterito_imperfectivo('-IR', 'singular', '1pessoa')
 
 
 def realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,padrao_pessoa_morfologia="Morfologia_padrão"):
@@ -2055,7 +2054,7 @@ def realizacao_transitoriedade_do_verbo(tipo_de_orientacao, padrao_de_morfologia
 #
 # 			transito = realizacao_transitoriedade_do_verbo('pretérito_perfectivo_II',i,j,None,k)
 # 			print(transito)
-# realizacao_transitoriedade_do_verbo('pretérito_imperfectivo','-ER','plural',None,'2pessoa')
+# realizacao_transitoriedade_do_verbo('pretérito_perfectivo_I','-AR','singular',None,'1pessoa')
 # realizacao_transitoriedade_do_verbo('imperativo_I','-AR','singular',None,'2pessoa')
 # realizacao_transitoriedade_do_verbo('imperativo_II','-AR','singular',None,'2pessoa')
 # realizacao_transitoriedade_imperativo_I('AR','singular','1pessoa')
@@ -8393,46 +8392,12 @@ def formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, OI_numero,
 																				  padrao_pessoa_morfologia)
 		verbo_conj = OE_experiencia_do_verbo + OI_orientacao_interpessoal_do_verbo
 	return verbo_conj
-# formacao_da_estrutura_do_verbo('ser','presente','singular',None,'1pessoa')
 #
-# X=['-AR','-ER','-IR','-OR']
-# Y=['plural','singular']
-# Z=['1pessoa','2pessoa','3pessoa']
-#
-# for j in Y:
-# 	for p in Z:
-# 		transito = formacao_da_estrutura_do_verbo('fazer','pretérito_perfectivo_I',j,None,p)
-# 		print(transito)
-# formacao_da_estrutura_do_verbo('fazer','pretérito_perfectivo_I','singular',None,'1pessoa')
-
-# ###########################################################################
-# #########################################################################
-
-#
-# formacao_da_estrutura_do_verbo('ser','presente','-AR','singular',None,'1pessoa')
-# formacao_da_estrutura_do_verbo('andar','pretérito_perfectivo_I','-AR','singular',None,'3pessoa')
-# formacao_da_estrutura_do_verbo('comer','pretérito_imperfectivo','-ER','plural',None,'1pessoa')
-# formacao_da_estrutura_do_verbo('expor','presente','-OR','singular',None,'1pessoa')
-# formacao_da_estrutura_do_verbo('expor','gerúndio','-OR',None,None,None)
-# formacao_da_estrutura_do_verbo('cortar', 'particípio', '-AR', 'singular', 'feminino', None)
-#
-# TIPO_DE_EXPERIENCIA = ['Ser','Fazer', 'Sentir']
-#  funcao_no_grupo_verbal = choice.Menu(['Evento', 'Auxiliar', 'Modal', 'Evento+Núcleo',
-# 	                                      'Auxiliar+Núcleo', 'Modal+Núcleo']).ask()
-#
-#
-# formacao_da_estrutura_do_verbo('ser','presente','-AR','singular',None,'1pessoa')
-# formacao_da_estrutura_do_verbo('andar','pretérito_perfectivo_I','-AR','singular',None,'3pessoa')
-# formacao_da_estrutura_do_verbo('comer','pretérito_imperfectivo','-ER','plural',None,'1pessoa')
-# formacao_da_estrutura_do_verbo('expor','presente','-OR','singular',None,'1pessoa')
-# # formacao_da_estrutura_do_verbo('expor','gerúndio','-OR',None,None,None)
-# formacao_da_estrutura_do_verbo('cortar', 'particípio', '-AR', 'singular', 'feminino', None)
-#
-# TIPO_DE_EXPERIENCIA = ['Ser','Fazer', 'Sentir']
-#  funcao_no_grupo_verbal = choice.Menu(['Evento', 'Auxiliar', 'Modal', 'Evento+Núcleo',
-# 	                                      'Auxiliar+Núcleo', 'Modal+Núcleo']).ask()
-#
-
+# formacao_da_estrutura_do_verbo('andar','pretérito_perfectivo_I','singular',None,'3pessoa')
+# formacao_da_estrutura_do_verbo('comer','pretérito_imperfectivo','plural',None,'1pessoa')
+# formacao_da_estrutura_do_verbo('expor','presente','singular',None,'1pessoa')
+# formacao_da_estrutura_do_verbo('expor','gerúndio',None,None,None)
+# formacao_da_estrutura_do_verbo('cortar', 'particípio',  'singular', 'feminino', None)
 
 def verbo_geral(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,
                 tipo_de_orientacao, OI_numero, genero, OI_tipo_de_pessoa,

@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/portuguese-covered-test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/verbos_dev.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/verbos_dev_2.xls" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/corpora_train_dev_test/verbos_dev_2.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/verbos_test_1.xls" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/corpora_train_dev_test/verbos_test_1.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corpus/experimento_dev_verbos.py" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/experimento_dev_verbos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verbos_web_dev.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +38,7 @@
     <setting file="file://$PROJECT_DIR$/corpus/scraping_verbos.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1lTW8rtfPkdVNdmbaWSqRvVh02Q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,7 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Desktop/CURSOS/UDEMY/APRENDIZADO DE MÁQUINA" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -176,12 +176,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>2885</line>
+          <line>2884</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>4020</line>
+          <line>4019</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -191,28 +191,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>8616</line>
+          <line>8581</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>4606</line>
+          <line>4605</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>739</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>5008</line>
+          <line>5007</line>
           <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>8396</line>
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>

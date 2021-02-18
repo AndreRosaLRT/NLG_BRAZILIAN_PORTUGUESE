@@ -2,6 +2,7 @@
 
 
 ##PRELIMINARES
+import os
 import pandas as pd
 import json
 import numpy as np
@@ -9,8 +10,9 @@ import sklearn
 from sklearn.impute import SimpleImputer
 from NLG_BRAZILIAN_PORTUGUESE.GENERATION_dev import *
 ###FUNCAO EXPERIMENTO
-def experimento_verbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,pessoa_genero, numero, modo, tempo, aspecto):
 
+def flexionarVerbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal,
+					  verbo,pessoa_genero, numero, modo, tempo, aspecto):
 	if numero == 'PL':
 		OI_numero = 'plural'
 	elif numero == 'SG':
@@ -18,15 +20,15 @@ def experimento_verbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,pessoa_
 	else:
 		OI_numero = None
 
-	if pessoa_genero == 1:
+	if pessoa_genero == '1':
 		OI_tipo_de_pessoa = '1pessoa'
 		genero = None
 
-	elif pessoa_genero == 2:
+	elif pessoa_genero == '2':
 		OI_tipo_de_pessoa = '2pessoa'
 		genero = None
 
-	elif pessoa_genero == 3:
+	elif pessoa_genero == '3':
 		OI_tipo_de_pessoa = '3pessoa'
 		genero = None
 
@@ -49,29 +51,29 @@ def experimento_verbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,pessoa_
 		tipo_de_orientacao = 'pretérito_perfectivo_II'
 	elif modo + '_' + tempo + '_' + aspecto == 'IND_PST_IPFV':
 		tipo_de_orientacao = 'pretérito_imperfectivo'
-	elif modo + '_' + tempo + '_' + aspecto == 'IND_FUT_missing_value':
+	elif modo + '_' + tempo + '_' + aspecto == 'IND_FUT_vazio':
 		tipo_de_orientacao = 'futuro'
-	elif modo + '_' + tempo + '_' + aspecto == 'IND_PRS_missing_value':
+	elif modo + '_' + tempo + '_' + aspecto == 'IND_PRS_vazio':
 		tipo_de_orientacao = 'presente'
-	elif modo + '_' + tempo + '_' + aspecto == 'SBJV_PRS_missing_value':
+	elif modo + '_' + tempo + '_' + aspecto == 'SBJV_PRS_vazio':
 		tipo_de_orientacao = 'subjuntivo_conjuntivo'
 	elif modo + '_' + tempo + '_' + aspecto == 'SBJV_PST_IPFV':
 		tipo_de_orientacao = 'subjuntivo_condicional'
-	elif modo + '_' + tempo + '_' + aspecto == 'SBJV_FUT_missing_value':
+	elif modo + '_' + tempo + '_' + aspecto == 'SBJV_FUT_vazio':
 		tipo_de_orientacao = 'subjuntivo_optativo'
-	elif modo + '_' + tempo + '_' + aspecto == 'PST_missing_value_missing_value':
+	elif modo + '_' + tempo + '_' + aspecto == 'PST_vazio_vazio':
 		tipo_de_orientacao = 'particípio'
-	elif modo + '_' + tempo + '_' + aspecto == 'IMP_POS_missing_value':
+	elif modo + '_' + tempo + '_' + aspecto == 'IMP_POS_vazio':
 		tipo_de_orientacao = 'imperativo_I'
-	elif modo + '_' + tempo + '_' + aspecto == 'IMP_NEG_missing_value':
+	elif modo + '_' + tempo + '_' + aspecto == 'IMP_NEG_vazio':
 		tipo_de_orientacao = 'imperativo_II'
-	elif modo + '_' + tempo + '_' + aspecto == 'COND_missing_value_missing_value':
+	elif modo + '_' + tempo + '_' + aspecto == 'COND_vazio_vazio':
 		tipo_de_orientacao = 'passado_volitivo'
-	elif modo + '_' + tempo + '_' + aspecto == 'NFIN_missing_value_missing_value':
+	elif modo + '_' + tempo + '_' + aspecto == 'NFIN_vazio_vazio':
 		tipo_de_orientacao = 'não_finito_concretizado'
-	elif pessoa_genero + '_' + numero + '_' + modo + '_' + tempo + '_' + aspecto == 'PRS_missing_value_missing_value_missing_value_missing_value':
+	elif pessoa_genero + '_' + numero + '_' + modo + '_' + tempo + '_' + aspecto == 'PRS_vazio_vazio_vazio_vazio':
 		tipo_de_orientacao = 'gerúndio'
-	elif pessoa_genero+'_'+numero + '_' +modo + '_' + tempo + '_' + aspecto == 'NFIN_missing_value_missing_value_missing_value_missing_value':
+	elif pessoa_genero+'_'+numero + '_' +modo + '_' + tempo + '_' + aspecto == 'NFIN_vazio_vazio_vazio_vazio':
 		tipo_de_orientacao = 'infinitivo'
 	verbo = verbo_geral(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,
                 tipo_de_orientacao, OI_numero, genero, OI_tipo_de_pessoa)
@@ -79,25 +81,46 @@ def experimento_verbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,pessoa_
 	return verbo
 
 ##EXEMPLOS
-# verbo_geral('Fazer', 'Evento', 'desfazer','infinitivo',)
-# #
-# experimento_verbo("Fazer",'Evento',"andar",'PRS','missing_value','missing_value','missing_value','missing_value')
-# experimento_verbo("Fazer",'Evento',"fazer",1,'PL','IND','PST','PFV')
-# experimento_verbo("Sentir",'Evento',"expedir",2,'PL','SBJV','PST','IPFV')
-# experimento_verbo("Fazer",'Evento',"extrair",3,'PL','SBJV','PST','IPFV')
+
+# #urgir           urgia      V             3     SG  IND   PST    IPFV
+# flexionarVerbo("Fazer", 'Evento', "urgir", '3', 'SG', 'IND', 'PST','IPFV')
+# flexionarVerbo("Fazer", 'Evento', "sentir", '1', 'PL', 'SBJV', 'PRS', 'vazio')
+# flexionarVerbo("Sentir", 'Evento', "expedir", '2', 'PL', 'SBJV', 'PST', 'IPFV')
+# flexionarVerbo("Fazer", 'Evento', "assentir", '1', 'SG', 'SBJV', 'PST', 'IPFV')
 # verbo_geral("Fazer",'Evento',"extrair",'subjuntivo_condicional', 'plural', None, '3pessoa')
-
-
+# flexionarVerbo("Fazer", 'Evento', 'clorar', '1', 'PL', 'IND', 'PST',  'PRF')
 
 ###################EXPERIMENTO CORPUS DE DESENVOLVIMENTO#################
+# !git clone https://github.com/sigmorphon/conll2017.git
+
 ##importando os verbos do corpus de dev(sygmorph)
-verbos = pd.read_excel("./corpus/corpora_train_dev_test/verbos_dev_2.xls")
-lemas = list(verbos.iloc[:]["lema"])
+#####################usando o git clone para importar os dados()
+path=os.getcwd()
+
+verbos = pd.read_csv(path+'\\conll2017\\all\\task1\\portuguese-dev',sep='[\s+ ;]',names=['lema','verbo_conjugado','classe','pessoa_genero','numero','modo','tempo','aspecto'],
+engine='python', encoding='utf-8')
+
+##############
+#
+# verbos = pd.read_excel("./corpus/corpora_train_dev_test/verbos_dev_2.xls")
+# lemas = list(verbos.iloc[:]["lema"])
 ##TRATAR VALORES NaN
-imputer = SimpleImputer(missing_values = np.nan, strategy='constant', fill_value='missing_value',verbose=0)
+imputer = SimpleImputer(missing_values =None, strategy='constant', fill_value='vazio',verbose=0)
 imputer = imputer.fit(verbos)
 verbos = imputer.transform(verbos)
 ###
+####tratamento de grafia em pt de portugal:
+for i in range(len(verbos[:,0])):
+	if verbos[i,0][-2:] == 'ôr':
+		experiencia_do_verbo(verbos[i, 0])
+		verbos[i, 0] =experiencia_do_verbo(verbos[i, 0]) +'or'
+
+for i in range(len(verbos[:, 1])):
+	if verbos[i, 1][-4:] == 'ámos':
+		rad = verbos[i, 1][slice(len(verbos[i, 1]) - 4)]
+		verbos[i, 1]=rad+'amos'
+
+
 lista_conjugados=[]
 for i in range(len(verbos)):
 	verbo = verbos[i, 0]
@@ -106,8 +129,9 @@ for i in range(len(verbos)):
 	numero = verbos[i, 4]
 	tempo = verbos[i, 6]
 	aspecto = verbos[i, 7]
-	verbo_conj = experimento_verbo("Fazer",'Evento',verbo,pessoa_genero,numero,modo,tempo,aspecto)
+	verbo_conj = flexionarVerbo("Fazer", 'Evento', verbo, pessoa_genero, numero, modo, tempo, aspecto)
 	lista_conjugados.append(verbo_conj)
+
 
 contador = 0
 contador_erros = 0
@@ -140,14 +164,33 @@ with open("./corpus/corpora_train_dev_test/erros_conjugação_dev.json", "w",) a
 
 
 ###EXPERIMENTO CORPUS TESTE
-
-verbos_TESTE = pd.read_excel("./corpus/corpora_train_dev_test/verbos_test_1.xls")
-lemas_TESTE = list(verbos_TESTE.iloc[:]["lema"])
+verbos_TESTE = pd.read_csv('D:\\Users\\andre\\Documents\\GitHub\\NLG_BRAZILIAN_PORTUGUESE_19-11\\conll2017\\answers\\task1\\portuguese-uncovered-test',sep='[\s+ ;]',names=['lema','verbo_conjugado','classe','pessoa_genero','numero','modo','tempo','aspecto'],
+engine='python', encoding='utf-8')
+#
+# verbos_TESTE = pd.read_excel("./corpus/corpora_train_dev_test/verbos_test_1.xls")
+# verbos_TESTE['pessoa'] = verbos_TESTE['pessoa'].astype(str)
+# lemas_TESTE = list(verbos_TESTE.iloc[:]["lema"])
 
 ##TRATAR VALORES NaN
-imputer = SimpleImputer(missing_values = np.nan, strategy='constant', fill_value='missing_value',verbose=0)
+# imputer = SimpleImputer(missing_values = np.nan, strategy='constant', fill_value='vazio',verbose=0)
+
+imputer = SimpleImputer(missing_values = None, strategy='constant', fill_value='vazio',verbose=0)
 imputer = imputer.fit(verbos_TESTE)
 verbos_TESTE = imputer.transform(verbos_TESTE)
+####tratamento de grafia em pt de portugal:
+# verbos_TESTE.query('lema == "fluir"')
+
+
+for i in range(len(verbos_TESTE[:,0])):
+	if verbos_TESTE[i,0][-2:] == 'ôr':
+		experiencia_do_verbo(verbos_TESTE[i, 0])
+		verbos_TESTE[i, 0] =experiencia_do_verbo(verbos_TESTE[i, 0]) +'or'
+
+for i in range(len(verbos_TESTE[:, 1])):
+	if verbos_TESTE[i, 1][-4:] == 'ámos':
+		rad = verbos_TESTE[i, 1][slice(len(verbos_TESTE[i, 1]) - 4)]
+		verbos_TESTE[i, 1]=rad+'amos'
+
 
 lista_conjugados_TESTE=[]
 for i in range(len(verbos_TESTE)):
@@ -157,7 +200,7 @@ for i in range(len(verbos_TESTE)):
 	numero = verbos_TESTE[i, 4]
 	tempo = verbos_TESTE[i, 6]
 	aspecto = verbos_TESTE[i, 7]
-	verbo_conj = experimento_verbo("Fazer",'Evento',verbo,pessoa_genero,numero,modo,tempo,aspecto)
+	verbo_conj = flexionarVerbo("Fazer", 'Evento', verbo, pessoa_genero, numero, modo, tempo, aspecto)
 	lista_conjugados_TESTE.append(verbo_conj)
 
 contador_TESTE = 0
@@ -165,6 +208,9 @@ contador_erros_TESTE = 0
 contador_acertos_TESTE = 0
 erros_TESTE = []
 acertos_TESTE=[]
+
+verficar2=verbos_TESTE[:,1]
+acertos2=acertos_TESTE
 
 for conj in lista_conjugados_TESTE:
 	if conj not in verbos_TESTE[:,1]:
@@ -232,11 +278,6 @@ with codecs.open(path + "/teste_DAMATA.json", "w",encoding='utf-8' ) as outfile:
 	json.dump(json_object,outfile, ensure_ascii=False)
 
 	outfile.write(json_object)
-
-
-
-
-
 
 
 
