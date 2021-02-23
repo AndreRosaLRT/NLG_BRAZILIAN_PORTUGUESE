@@ -641,6 +641,7 @@ def realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, OI_n
 # 			transito = realizacao_transitoriedade_preterito_perfectivo_I(i,j,p)
 # 			print(transito)
 #
+
 # realizacao_transitoriedade_preterito_perfectivo_I('-IR', 'singular', '1pessoa')
 
 
@@ -1840,7 +1841,7 @@ def realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, OI_numero, OI
 			padrao_de_morfologia == '-IR' and OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular' or
 			padrao_de_morfologia == '-OR' and OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular'
 	):
-		MI = 'Morfologias de imperativo não selecionam 1pessoa do singular, pois não se direcionam exclusivamente ao falante. Selecione uma opção válida'
+		MI = ''
 
 	return MI
 
@@ -8339,61 +8340,70 @@ def formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, OI_numero,
                                        padrao_pessoa_morfologia='Morfologia_padrão'):
 	'''
     '''
-	padrao_de_morfologia=detecta_padrao_morfologia(verbo)
-	if verbo == 'estar':
-		verbo_conj = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                     OI_numero,
-		                                     genero, OI_tipo_de_pessoa,
-		                                     padrao_pessoa_morfologia='Morfologia_padrão')
-
-	elif verbo == 'ter':
-		verbo_conj = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                   OI_numero,
-		                                   genero, OI_tipo_de_pessoa,
-		                                   padrao_pessoa_morfologia='Morfologia_padrão')
-
-	elif verbo == 'haver':
-		verbo_conj = formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                     OI_numero,
-		                                     genero, OI_tipo_de_pessoa,
-		                                     padrao_pessoa_morfologia='Morfologia_padrão')
-
-	elif verbo == 'ir':
-		verbo_conj = formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                  OI_numero,
-		                                  genero, OI_tipo_de_pessoa,
-		                                  padrao_pessoa_morfologia='Morfologia_padrão')
-
-	elif verbo == 'vir':
-		verbo_conj = formacao_verbo_vir_invervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                            OI_numero,
-		                                            genero, OI_tipo_de_pessoa,
-		                                            padrao_pessoa_morfologia='Morfologia_padrão')
-
-	elif verbo == 'ser':
-		verbo_conj = formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia,
-		                                   OI_numero,
-		                                   genero, OI_tipo_de_pessoa,
-		                                   padrao_pessoa_morfologia='Morfologia_padrão')
-	elif verbo[-5:] == 'fazer':
-		verbo_conj = formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia,
-									 OI_numero, genero, OI_tipo_de_pessoa,
-									 padrao_pessoa_morfologia)
-
-	elif verbo == None:
-		verbo_conj = ''
+	padrao_de_morfologia = detecta_padrao_morfologia(verbo)
+	if  tipo_de_orientacao == 'imperativo_I' or tipo_de_orientacao == 'imperativo_II':
+		if OI_numero == 'singular' and OI_tipo_de_pessoa == '1pessoa':
+			verbo_conj='-'
 	else:
+		verbo_conj = 'teste'
+	return  verbo_conj
 
-		OE_experiencia_do_verbo = experiencia_do_verbo(verbo)
-		OI_orientacao_interpessoal_do_verbo = realizacao_transitoriedade_do_verbo(tipo_de_orientacao,
-																				  padrao_de_morfologia,
-																				  OI_numero,
-																				  genero, OI_tipo_de_pessoa,
-																				  padrao_pessoa_morfologia)
-		verbo_conj = OE_experiencia_do_verbo + OI_orientacao_interpessoal_do_verbo
-	return verbo_conj
+formacao_da_estrutura_do_verbo('andar', 'imperativo_I', 'singular', None, '2pessoa')
 #
-# formacao_da_estrutura_do_verbo('andar','pretérito_perfectivo_I','singular',None,'3pessoa')
+# 	if verbo == 'estar':
+# 			verbo_conj = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia,
+# 												 OI_numero,
+# 												 genero, OI_tipo_de_pessoa,
+# 												 padrao_pessoa_morfologia='Morfologia_padrão')
+#
+# 		elif verbo == 'ter':
+# 			verbo_conj = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
+# 											   OI_numero,
+# 											   genero, OI_tipo_de_pessoa,
+# 											   padrao_pessoa_morfologia='Morfologia_padrão')
+#
+# 		elif verbo == 'haver':
+# 			verbo_conj = formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
+# 												 OI_numero,
+# 												 genero, OI_tipo_de_pessoa,
+# 												 padrao_pessoa_morfologia='Morfologia_padrão')
+#
+# 		elif verbo == 'ir':
+# 			verbo_conj = formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+# 											  OI_numero,
+# 											  genero, OI_tipo_de_pessoa,
+# 											  padrao_pessoa_morfologia='Morfologia_padrão')
+#
+# 		elif verbo == 'vir':
+# 			verbo_conj = formacao_verbo_vir_invervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+# 														OI_numero,
+# 														genero, OI_tipo_de_pessoa,
+# 														padrao_pessoa_morfologia='Morfologia_padrão')
+#
+# 		elif verbo == 'ser':
+# 			verbo_conj = formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia,
+# 											   OI_numero,
+# 											   genero, OI_tipo_de_pessoa,
+# 											   padrao_pessoa_morfologia='Morfologia_padrão')
+# 		elif verbo[-5:] == 'fazer':
+# 			verbo_conj = formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia,
+# 										 OI_numero, genero, OI_tipo_de_pessoa,
+# 										 padrao_pessoa_morfologia)
+#
+# 		elif verbo == None:
+# 			verbo_conj = ''
+# 		else:
+#
+# 			OE_experiencia_do_verbo = experiencia_do_verbo(verbo)
+# 			OI_orientacao_interpessoal_do_verbo = realizacao_transitoriedade_do_verbo(tipo_de_orientacao,
+# 																					  padrao_de_morfologia,
+# 																					  OI_numero,
+# 																					  genero, OI_tipo_de_pessoa,
+# 																					  padrao_pessoa_morfologia)
+# 			verbo_conj = OE_experiencia_do_verbo + OI_orientacao_interpessoal_do_verbo
+# 	return verbo_conj
+# #
+formacao_da_estrutura_do_verbo('andar','imperativo_I','singular',None,'2pessoa')
 # formacao_da_estrutura_do_verbo('comer','pretérito_imperfectivo','plural',None,'1pessoa')
 # formacao_da_estrutura_do_verbo('expor','presente','singular',None,'1pessoa')
 # formacao_da_estrutura_do_verbo('expor','gerúndio',None,None,None)

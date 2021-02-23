@@ -87,7 +87,7 @@ def flexionarVerbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal,
 # flexionarVerbo("Fazer", 'Evento', "sentir", '1', 'PL', 'SBJV', 'PRS', 'vazio')
 # flexionarVerbo("Sentir", 'Evento', "expedir", '2', 'PL', 'SBJV', 'PST', 'IPFV')
 # flexionarVerbo("Fazer", 'Evento', "assentir", '1', 'SG', 'SBJV', 'PST', 'IPFV')
-# verbo_geral("Fazer",'Evento',"extrair",'subjuntivo_condicional', 'plural', None, '3pessoa')
+verbo_geral("Fazer",'Evento',"extrair",'subjuntivo_condicional', 'plural', None, '3pessoa')
 # flexionarVerbo("Fazer", 'Evento', 'clorar', '1', 'PL', 'IND', 'PST',  'PRF')
 
 ###################EXPERIMENTO CORPUS DE DESENVOLVIMENTO#################

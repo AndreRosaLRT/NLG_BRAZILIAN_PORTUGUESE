@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/verbos_test_1.xls" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/corpora_train_dev_test/verbos_test_1.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corpus/experimento_dev_verbos.py" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/experimento_dev_verbos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verbos_web_dev.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +36,7 @@
     <setting file="file://$PROJECT_DIR$/corpus/experimento_dev_verbos.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/corpus/scraping_verbos.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1lTW8rtfPkdVNdmbaWSqRvVh02Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -57,8 +58,8 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.teste">
-    <configuration name="debug" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.minerando_lemas_e_EXPERIMENTOSAPLICACAO">
+    <configuration name="TESTE" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLG_BRAZILIAN_PORTUGUESE_19-11" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,11 +67,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/debug.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TESTE.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -92,6 +93,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/corpus/experimento_dev_verbos.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="minerando_lemas_e_EXPERIMENTOSAPLICACAO" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NLG_BRAZILIAN_PORTUGUESE_19-11" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mineração_lexicon" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,10 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.minerando_lemas_e_EXPERIMENTOSAPLICACAO" />
+        <item itemvalue="Python.TESTE" />
         <item itemvalue="Python.teste" />
         <item itemvalue="Python.experimento_dev_verbos" />
         <item itemvalue="Python tests.Doctests in GENERATION_dev" />
-        <item itemvalue="Python.debug" />
       </list>
     </recent_temporary>
   </component>
@@ -174,67 +197,74 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>2884</line>
+          <line>2885</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>4019</line>
+          <line>4020</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/debug.py</url>
           <line>133</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>8581</line>
+          <line>8582</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>4605</line>
+          <line>4606</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>5007</line>
+          <line>5008</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
           <line>13</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
           <line>92</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
           <line>93</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
           <line>95</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
           <line>96</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
           <line>91</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>
