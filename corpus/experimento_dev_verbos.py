@@ -11,7 +11,7 @@ from sklearn.impute import SimpleImputer
 from NLG_BRAZILIAN_PORTUGUESE.GENERATION_dev import *
 ###FUNCAO EXPERIMENTO
 
-def flexionarVerbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal,
+def experimentoFlexionarVerbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal,
 					  verbo,pessoa_genero, numero, modo, tempo, aspecto):
 	if numero == 'PL':
 		OI_numero = 'plural'
@@ -82,15 +82,24 @@ def flexionarVerbo(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal,
 
 ##EXEMPLOS
 
-# #urgir           urgia      V             3     SG  IND   PST    IPFV
-# flexionarVerbo("Fazer", 'Evento', "urgir", '3', 'SG', 'IND', 'PST','IPFV')
-# flexionarVerbo("Fazer", 'Evento', "sentir", '1', 'PL', 'SBJV', 'PRS', 'vazio')
-# flexionarVerbo("Sentir", 'Evento', "expedir", '2', 'PL', 'SBJV', 'PST', 'IPFV')
-# flexionarVerbo("Fazer", 'Evento', "assentir", '1', 'SG', 'SBJV', 'PST', 'IPFV')
-verbo_geral("Fazer",'Evento',"extrair",'subjuntivo_condicional', 'plural', None, '3pessoa')
-# flexionarVerbo("Fazer", 'Evento', 'clorar', '1', 'PL', 'IND', 'PST',  'PRF')
+# # #urgir           urgia      V             3     SG  IND   PST    IPFV
+# experimentoFlexionarVerbo("Fazer", 'Evento', "urgir", '3', 'SG', 'IND', 'PST','IPFV')
+# experimentoFlexionarVerbo("Ser", 'Evento', "ser", '3', 'SG', 'IND', 'PST','PFV')
+#
+# experimentoFlexionarVerbo("Fazer", 'Evento', "identificar", '1', 'SG', 'IMP', 'POS', 'vazio')
+# verbo_geral("Fazer", 'Evento', "identificar","imperativo_I", 'singular', None, '1pessoa')
 
-###################EXPERIMENTO CORPUS DE DESENVOLVIMENTO#################
+
+# experimentoFlexionarVerbo("Sentir", 'Evento', "expedir", '2', 'PL', 'SBJV', 'PST', 'IPFV')
+# experimentoFlexionarVerbo("Fazer", 'Evento', "assentir", '1', 'SG', 'SBJV', 'PST', 'IPFV')
+# verbo_geral("Fazer",'Evento',"sentir",'subjuntivo_conjuntivo', 'plural', None, '1pessoa')
+# experimentoFlexionarVerbo("Fazer", 'Evento', 'desmatar', '1', 'SG', 'IND', 'PST',  'PRF')
+# experimentoFlexionarVerbo('Sentir', 'Evento','desmatar','MASC', 'SG', 'PST', 'vazio', 'vazio')
+#
+# experimentoFlexionarVerbo("Fazer", 'Evento', "somar", '3', 'PL', 'IND', 'PRS', 'vazio')
+# experimentoFlexionarVerbo("Fazer", 'Evento', "acumular", 'PRS', 'vazio', 'vazio', 'vazio', 'vazio')
+# # experimentoFlexionarVerbo("Fazer", 'Evento', "acumular", pessoa_genero, numero, modo, tempo, aspecto)
+# ###################EXPERIMENTO CORPUS DE DESENVOLVIMENTO#################
 # !git clone https://github.com/sigmorphon/conll2017.git
 
 ##importando os verbos do corpus de dev(sygmorph)
@@ -129,7 +138,7 @@ for i in range(len(verbos)):
 	numero = verbos[i, 4]
 	tempo = verbos[i, 6]
 	aspecto = verbos[i, 7]
-	verbo_conj = flexionarVerbo("Fazer", 'Evento', verbo, pessoa_genero, numero, modo, tempo, aspecto)
+	verbo_conj = experimentoFlexionarVerbo("Fazer", 'Evento', verbo, pessoa_genero, numero, modo, tempo, aspecto)
 	lista_conjugados.append(verbo_conj)
 
 
@@ -156,6 +165,7 @@ json_object=json.dumps(acertos, ensure_ascii=False)
 # Writing to sample.json
 with open("./corpus/corpora_train_dev_test/acertos_conjugação_dev.json", "w",) as outfile:
     outfile.write(json_object)
+
 json_object=json.dumps(erros, ensure_ascii=False)
 # Writing to sample.json
 with open("./corpus/corpora_train_dev_test/erros_conjugação_dev.json", "w",) as outfile:
@@ -200,7 +210,7 @@ for i in range(len(verbos_TESTE)):
 	numero = verbos_TESTE[i, 4]
 	tempo = verbos_TESTE[i, 6]
 	aspecto = verbos_TESTE[i, 7]
-	verbo_conj = flexionarVerbo("Fazer", 'Evento', verbo, pessoa_genero, numero, modo, tempo, aspecto)
+	verbo_conj = experimentoFlexionarVerbo("Fazer", 'Evento', verbo, pessoa_genero, numero, modo, tempo, aspecto)
 	lista_conjugados_TESTE.append(verbo_conj)
 
 contador_TESTE = 0
@@ -274,6 +284,7 @@ json_object = json.dumps(lista_oracao,  ensure_ascii=False,indent=4)
 
 # Writing to sample.json
 path = r'D:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/corpus/corpora_train_dev_test'
+
 with codecs.open(path + "/teste_DAMATA.json", "w",encoding='utf-8' ) as outfile:
 	json.dump(json_object,outfile, ensure_ascii=False)
 

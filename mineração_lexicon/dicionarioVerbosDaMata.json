@@ -1,0 +1,2354 @@
+{
+  "desmatar": {
+    "presente": [
+      "desmato",
+      "desmatas",
+      "desmata",
+      "desmatamos",
+      "desmatais",
+      "desmatam"
+    ],
+    "pretérito_perfectivo_I": [
+      "desmatei",
+      "desmataste",
+      "desmatou",
+      "desmatamos",
+      "desmatastes",
+      "desmataram"
+    ],
+    "pretérito_perfectivo_II": [
+      "desmatara",
+      "desmataras",
+      "desmatara",
+      "desmatáramos",
+      "desmatáreis",
+      "desmataram"
+    ],
+    "pretérito_imperfectivo": [
+      "desmatava",
+      "desmatavas",
+      "desmatava",
+      "desmatávamos",
+      "desmatáveis",
+      "desmatavam"
+    ],
+    "passado_volitivo": [
+      "desmataria",
+      "desmatarias",
+      "desmataria",
+      "desmataríamos",
+      "desmataríeis",
+      "desmatariam"
+    ],
+    "futuro": [
+      "desmatarei",
+      "desmatarás",
+      "desmatará",
+      "desmataremos",
+      "desmatareis",
+      "desmatarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "desmate",
+      "desmates",
+      "desmate",
+      "desmatemos",
+      "desmateis",
+      "desmatem"
+    ],
+    "subjuntivo_condicional": [
+      "desmatasse",
+      "desmatasses",
+      "desmatasse",
+      "desmatássemos",
+      "desmatásseis",
+      "desmatassem"
+    ],
+    "subjuntivo_optativo": [
+      "desmatar",
+      "desmatares",
+      "desmatar",
+      "desmatarmos",
+      "desmatardes",
+      "desmatarem"
+    ],
+    "não_finito_concretizado": [
+      "desmatar",
+      "desmatares",
+      "desmatar",
+      "desmatarmos",
+      "desmatardes",
+      "desmatarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "desmata",
+      "desmate",
+      "desmatemos",
+      "desmatai",
+      "desmatem"
+    ],
+    "imperativo_II": [
+      "-",
+      "desmates",
+      "desmate",
+      "desmatemos",
+      "desmateis",
+      "desmatem"
+    ]
+  },
+  "registrar": {
+    "presente": [
+      "registro",
+      "registras",
+      "registra",
+      "registramos",
+      "registrais",
+      "registram"
+    ],
+    "pretérito_perfectivo_I": [
+      "registrei",
+      "registraste",
+      "registrou",
+      "registramos",
+      "registrastes",
+      "registraram"
+    ],
+    "pretérito_perfectivo_II": [
+      "registrara",
+      "registraras",
+      "registrara",
+      "registráramos",
+      "registráreis",
+      "registraram"
+    ],
+    "pretérito_imperfectivo": [
+      "registrava",
+      "registravas",
+      "registrava",
+      "registrávamos",
+      "registráveis",
+      "registravam"
+    ],
+    "passado_volitivo": [
+      "registraria",
+      "registrarias",
+      "registraria",
+      "registraríamos",
+      "registraríeis",
+      "registrariam"
+    ],
+    "futuro": [
+      "registrarei",
+      "registrarás",
+      "registrará",
+      "registraremos",
+      "registrareis",
+      "registrarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "registre",
+      "registres",
+      "registre",
+      "registremos",
+      "registreis",
+      "registrem"
+    ],
+    "subjuntivo_condicional": [
+      "registrasse",
+      "registrasses",
+      "registrasse",
+      "registrássemos",
+      "registrásseis",
+      "registrassem"
+    ],
+    "subjuntivo_optativo": [
+      "registrar",
+      "registrares",
+      "registrar",
+      "registrarmos",
+      "registrardes",
+      "registrarem"
+    ],
+    "não_finito_concretizado": [
+      "registrar",
+      "registrares",
+      "registrar",
+      "registrarmos",
+      "registrardes",
+      "registrarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "registra",
+      "registre",
+      "registremos",
+      "registrai",
+      "registrem"
+    ],
+    "imperativo_II": [
+      "-",
+      "registres",
+      "registre",
+      "registremos",
+      "registreis",
+      "registrem"
+    ]
+  },
+  "detectar": {
+    "presente": [
+      "detecto",
+      "detectas",
+      "detecta",
+      "detectamos",
+      "detectais",
+      "detectam"
+    ],
+    "pretérito_perfectivo_I": [
+      "detectei",
+      "detectaste",
+      "detectou",
+      "detectamos",
+      "detectastes",
+      "detectaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "detectara",
+      "detectaras",
+      "detectara",
+      "detectáramos",
+      "detectáreis",
+      "detectaram"
+    ],
+    "pretérito_imperfectivo": [
+      "detectava",
+      "detectavas",
+      "detectava",
+      "detectávamos",
+      "detectáveis",
+      "detectavam"
+    ],
+    "passado_volitivo": [
+      "detectaria",
+      "detectarias",
+      "detectaria",
+      "detectaríamos",
+      "detectaríeis",
+      "detectariam"
+    ],
+    "futuro": [
+      "detectarei",
+      "detectarás",
+      "detectará",
+      "detectaremos",
+      "detectareis",
+      "detectarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "detecte",
+      "detectes",
+      "detecte",
+      "detectemos",
+      "detecteis",
+      "detectem"
+    ],
+    "subjuntivo_condicional": [
+      "detectasse",
+      "detectasses",
+      "detectasse",
+      "detectássemos",
+      "detectásseis",
+      "detectassem"
+    ],
+    "subjuntivo_optativo": [
+      "detectar",
+      "detectares",
+      "detectar",
+      "detectarmos",
+      "detectardes",
+      "detectarem"
+    ],
+    "não_finito_concretizado": [
+      "detectar",
+      "detectares",
+      "detectar",
+      "detectarmos",
+      "detectardes",
+      "detectarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "detecta",
+      "detecte",
+      "detectemos",
+      "detectai",
+      "detectem"
+    ],
+    "imperativo_II": [
+      "-",
+      "detectes",
+      "detecte",
+      "detectemos",
+      "detecteis",
+      "detectem"
+    ]
+  },
+  "identificar": {
+    "presente": [
+      "identifico",
+      "identificas",
+      "identifica",
+      "identificamos",
+      "identificais",
+      "identificam"
+    ],
+    "pretérito_perfectivo_I": [
+      "identifiquei",
+      "identificaste",
+      "identificou",
+      "identificamos",
+      "identificastes",
+      "identificaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "identificara",
+      "identificaras",
+      "identificara",
+      "identificáramos",
+      "identificáreis",
+      "identificaram"
+    ],
+    "pretérito_imperfectivo": [
+      "identificava",
+      "identificavas",
+      "identificava",
+      "identificávamos",
+      "identificáveis",
+      "identificavam"
+    ],
+    "passado_volitivo": [
+      "identificaria",
+      "identificarias",
+      "identificaria",
+      "identificaríamos",
+      "identificaríeis",
+      "identificariam"
+    ],
+    "futuro": [
+      "identificarei",
+      "identificarás",
+      "identificará",
+      "identificaremos",
+      "identificareis",
+      "identificarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "identifique",
+      "identifiques",
+      "identifique",
+      "identifiquemos",
+      "identifiqueis",
+      "identifiquem"
+    ],
+    "subjuntivo_condicional": [
+      "identificasse",
+      "identificasses",
+      "identificasse",
+      "identificássemos",
+      "identificásseis",
+      "identificassem"
+    ],
+    "subjuntivo_optativo": [
+      "identificar",
+      "identificares",
+      "identificar",
+      "identificarmos",
+      "identificardes",
+      "identificarem"
+    ],
+    "não_finito_concretizado": [
+      "identificar",
+      "identificares",
+      "identificar",
+      "identificarmos",
+      "identificardes",
+      "identificarem"
+    ],
+    "imperativo_I": [
+      "",
+      "identifica",
+      "identifique",
+      "identifiquemos",
+      "identificai",
+      "identifiquem"
+    ],
+    "imperativo_II": [
+      "",
+      "identifiques",
+      "identifique",
+      "identifiquemos",
+      "identifiqueis",
+      "identifiquem"
+    ]
+  },
+  "atingir": {
+    "presente": [
+      "atingo",
+      "atinges",
+      "atinge",
+      "atingimos",
+      "atingis",
+      "atingem"
+    ],
+    "pretérito_perfectivo_I": [
+      "atingi",
+      "atingiste",
+      "atingiu",
+      "atingimos",
+      "atingistes",
+      "atingiram"
+    ],
+    "pretérito_perfectivo_II": [
+      "atingira",
+      "atingiras",
+      "atingira",
+      "atingíramos",
+      "atingíreis",
+      "atingiram"
+    ],
+    "pretérito_imperfectivo": [
+      "atingia",
+      "atingias",
+      "atingia",
+      "atingíamos",
+      "atingíeis",
+      "atingíam"
+    ],
+    "passado_volitivo": [
+      "atingiria",
+      "atingirias",
+      "atingiria",
+      "atingiríamos",
+      "atingiríeis",
+      "atingiriam"
+    ],
+    "futuro": [
+      "atingirei",
+      "atingirás",
+      "atingirá",
+      "atingiremos",
+      "atingireis",
+      "atingirão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "atinga",
+      "atingas",
+      "atinga",
+      "atingamos",
+      "atingais",
+      "atingam"
+    ],
+    "subjuntivo_condicional": [
+      "atingisse",
+      "atingisses",
+      "atingisse",
+      "atingíssemos",
+      "atingísseis",
+      "atingíssem"
+    ],
+    "subjuntivo_optativo": [
+      "atingir",
+      "atingires",
+      "atingir",
+      "atingirmos",
+      "atingirdes",
+      "atingirem"
+    ],
+    "não_finito_concretizado": [
+      "atingir",
+      "atingires",
+      "atingir",
+      "atingirmos",
+      "atingirdes",
+      "atingirem"
+    ],
+    "imperativo_I": [
+      "-",
+      "atinge",
+      "atinga",
+      "atingamos",
+      "atingi",
+      "atingam"
+    ],
+    "imperativo_II": [
+      "-",
+      "atingas",
+      "atinga",
+      "atingamos",
+      "atingais",
+      "atingam"
+    ]
+  },
+  "contabilizar": {
+    "presente": [
+      "contabilizo",
+      "contabilizas",
+      "contabiliza",
+      "contabilizamos",
+      "contabilizais",
+      "contabilizam"
+    ],
+    "pretérito_perfectivo_I": [
+      "contabilizei",
+      "contabilizaste",
+      "contabilizou",
+      "contabilizamos",
+      "contabilizastes",
+      "contabilizaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "contabilizara",
+      "contabilizaras",
+      "contabilizara",
+      "contabilizáramos",
+      "contabilizáreis",
+      "contabilizaram"
+    ],
+    "pretérito_imperfectivo": [
+      "contabilizava",
+      "contabilizavas",
+      "contabilizava",
+      "contabilizávamos",
+      "contabilizáveis",
+      "contabilizavam"
+    ],
+    "passado_volitivo": [
+      "contabilizaria",
+      "contabilizarias",
+      "contabilizaria",
+      "contabilizaríamos",
+      "contabilizaríeis",
+      "contabilizariam"
+    ],
+    "futuro": [
+      "contabilizarei",
+      "contabilizarás",
+      "contabilizará",
+      "contabilizaremos",
+      "contabilizareis",
+      "contabilizarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "contabilize",
+      "contabilizes",
+      "contabilize",
+      "contabilizemos",
+      "contabilizeis",
+      "contabilizem"
+    ],
+    "subjuntivo_condicional": [
+      "contabilizasse",
+      "contabilizasses",
+      "contabilizasse",
+      "contabilizássemos",
+      "contabilizásseis",
+      "contabilizassem"
+    ],
+    "subjuntivo_optativo": [
+      "contabilizar",
+      "contabilizares",
+      "contabilizar",
+      "contabilizarmos",
+      "contabilizardes",
+      "contabilizarem"
+    ],
+    "não_finito_concretizado": [
+      "contabilizar",
+      "contabilizares",
+      "contabilizar",
+      "contabilizarmos",
+      "contabilizardes",
+      "contabilizarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "contabiliza",
+      "contabilize",
+      "contabilizemos",
+      "contabilizai",
+      "contabilizem"
+    ],
+    "imperativo_II": [
+      "-",
+      "contabilizes",
+      "contabilize",
+      "contabilizemos",
+      "contabilizeis",
+      "contabilizem"
+    ]
+  },
+  "somar": {
+    "presente": [
+      "somo",
+      "somas",
+      "soma",
+      "somamos",
+      "somais",
+      "somam"
+    ],
+    "pretérito_perfectivo_I": [
+      "somei",
+      "somaste",
+      "somou",
+      "somamos",
+      "somastes",
+      "somaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "somara",
+      "somaras",
+      "somara",
+      "somáramos",
+      "somáreis",
+      "somaram"
+    ],
+    "pretérito_imperfectivo": [
+      "somava",
+      "somavas",
+      "somava",
+      "somávamos",
+      "somáveis",
+      "somavam"
+    ],
+    "passado_volitivo": [
+      "somaria",
+      "somarias",
+      "somaria",
+      "somaríamos",
+      "somaríeis",
+      "somariam"
+    ],
+    "futuro": [
+      "somarei",
+      "somarás",
+      "somará",
+      "somaremos",
+      "somareis",
+      "somarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "some",
+      "somes",
+      "some",
+      "somemos",
+      "someis",
+      "somem"
+    ],
+    "subjuntivo_condicional": [
+      "somasse",
+      "somasses",
+      "somasse",
+      "somássemos",
+      "somásseis",
+      "somassem"
+    ],
+    "subjuntivo_optativo": [
+      "somar",
+      "somares",
+      "somar",
+      "somarmos",
+      "somardes",
+      "somarem"
+    ],
+    "não_finito_concretizado": [
+      "somar",
+      "somares",
+      "somar",
+      "somarmos",
+      "somardes",
+      "somarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "soma",
+      "some",
+      "somemos",
+      "somai",
+      "somem"
+    ],
+    "imperativo_II": [
+      "-",
+      "somes",
+      "some",
+      "somemos",
+      "someis",
+      "somem"
+    ]
+  },
+  "totalizar": {
+    "presente": [
+      "totalizo",
+      "totalizas",
+      "totaliza",
+      "totalizamos",
+      "totalizais",
+      "totalizam"
+    ],
+    "pretérito_perfectivo_I": [
+      "totalizei",
+      "totalizaste",
+      "totalizou",
+      "totalizamos",
+      "totalizastes",
+      "totalizaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "totalizara",
+      "totalizaras",
+      "totalizara",
+      "totalizáramos",
+      "totalizáreis",
+      "totalizaram"
+    ],
+    "pretérito_imperfectivo": [
+      "totalizava",
+      "totalizavas",
+      "totalizava",
+      "totalizávamos",
+      "totalizáveis",
+      "totalizavam"
+    ],
+    "passado_volitivo": [
+      "totalizaria",
+      "totalizarias",
+      "totalizaria",
+      "totalizaríamos",
+      "totalizaríeis",
+      "totalizariam"
+    ],
+    "futuro": [
+      "totalizarei",
+      "totalizarás",
+      "totalizará",
+      "totalizaremos",
+      "totalizareis",
+      "totalizarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "totalize",
+      "totalizes",
+      "totalize",
+      "totalizemos",
+      "totalizeis",
+      "totalizem"
+    ],
+    "subjuntivo_condicional": [
+      "totalizasse",
+      "totalizasses",
+      "totalizasse",
+      "totalizássemos",
+      "totalizásseis",
+      "totalizassem"
+    ],
+    "subjuntivo_optativo": [
+      "totalizar",
+      "totalizares",
+      "totalizar",
+      "totalizarmos",
+      "totalizardes",
+      "totalizarem"
+    ],
+    "não_finito_concretizado": [
+      "totalizar",
+      "totalizares",
+      "totalizar",
+      "totalizarmos",
+      "totalizardes",
+      "totalizarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "totaliza",
+      "totalize",
+      "totalizemos",
+      "totalizai",
+      "totalizem"
+    ],
+    "imperativo_II": [
+      "-",
+      "totalizes",
+      "totalize",
+      "totalizemos",
+      "totalizeis",
+      "totalizem"
+    ]
+  },
+  "alcançar": {
+    "presente": [
+      "alcanço",
+      "alcanças",
+      "alcança",
+      "alcançamos",
+      "alcançais",
+      "alcançam"
+    ],
+    "pretérito_perfectivo_I": [
+      "alcancei",
+      "alcançaste",
+      "alcançou",
+      "alcançamos",
+      "alcançastes",
+      "alcançaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "alcançara",
+      "alcançaras",
+      "alcançara",
+      "alcançáramos",
+      "alcançáreis",
+      "alcançaram"
+    ],
+    "pretérito_imperfectivo": [
+      "alcançava",
+      "alcançavas",
+      "alcançava",
+      "alcançávamos",
+      "alcançáveis",
+      "alcançavam"
+    ],
+    "passado_volitivo": [
+      "alcançaria",
+      "alcançarias",
+      "alcançaria",
+      "alcançaríamos",
+      "alcançaríeis",
+      "alcançariam"
+    ],
+    "futuro": [
+      "alcançarei",
+      "alcançarás",
+      "alcançará",
+      "alcançaremos",
+      "alcançareis",
+      "alcançarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "alcance",
+      "alcances",
+      "alcance",
+      "alcancemos",
+      "alcanceis",
+      "alcancem"
+    ],
+    "subjuntivo_condicional": [
+      "alcançasse",
+      "alcançasses",
+      "alcançasse",
+      "alcançássemos",
+      "alcançásseis",
+      "alcançassem"
+    ],
+    "subjuntivo_optativo": [
+      "alcançar",
+      "alcançares",
+      "alcançar",
+      "alcançarmos",
+      "alcançardes",
+      "alcançarem"
+    ],
+    "não_finito_concretizado": [
+      "alcançar",
+      "alcançares",
+      "alcançar",
+      "alcançarmos",
+      "alcançardes",
+      "alcançarem"
+    ],
+    "imperativo_I": [
+      "alcanc",
+      "alcança",
+      "alcance",
+      "alcancemos",
+      "alcançai",
+      "alcancem"
+    ],
+    "imperativo_II": [
+      "alcanc",
+      "alcances",
+      "alcance",
+      "alcancemos",
+      "alcanceis",
+      "alcancem"
+    ]
+  },
+  "chegar": {
+    "presente": [
+      "chego",
+      "chegas",
+      "chega",
+      "chegamos",
+      "chegais",
+      "chegam"
+    ],
+    "pretérito_perfectivo_I": [
+      "cheguei",
+      "chegaste",
+      "chegou",
+      "chegamos",
+      "chegastes",
+      "chegaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "chegara",
+      "chegaras",
+      "chegara",
+      "chegáramos",
+      "chegáreis",
+      "chegaram"
+    ],
+    "pretérito_imperfectivo": [
+      "chegava",
+      "chegavas",
+      "chegava",
+      "chegávamos",
+      "chegáveis",
+      "chegavam"
+    ],
+    "passado_volitivo": [
+      "chegaria",
+      "chegarias",
+      "chegaria",
+      "chegaríamos",
+      "chegaríeis",
+      "chegariam"
+    ],
+    "futuro": [
+      "chegarei",
+      "chegarás",
+      "chegará",
+      "chegaremos",
+      "chegareis",
+      "chegarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "chegue",
+      "chegues",
+      "chegue",
+      "cheguemos",
+      "chegueis",
+      "cheguem"
+    ],
+    "subjuntivo_condicional": [
+      "chegasse",
+      "chegasses",
+      "chegasse",
+      "chegássemos",
+      "chegásseis",
+      "chegassem"
+    ],
+    "subjuntivo_optativo": [
+      "chegar",
+      "chegares",
+      "chegar",
+      "chegarmos",
+      "chegardes",
+      "chegarem"
+    ],
+    "não_finito_concretizado": [
+      "chegar",
+      "chegares",
+      "chegar",
+      "chegarmos",
+      "chegardes",
+      "chegarem"
+    ],
+    "imperativo_I": [
+      "chegu",
+      "chega",
+      "chegue",
+      "cheguemos",
+      "chegai",
+      "cheguem"
+    ],
+    "imperativo_II": [
+      "chegu",
+      "chegues",
+      "chegue",
+      "cheguemos",
+      "chegueis",
+      "cheguem"
+    ]
+  },
+  "reportar": {
+    "presente": [
+      "reporto",
+      "reportas",
+      "reporta",
+      "reportamos",
+      "reportais",
+      "reportam"
+    ],
+    "pretérito_perfectivo_I": [
+      "reportei",
+      "reportaste",
+      "reportou",
+      "reportamos",
+      "reportastes",
+      "reportaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "reportara",
+      "reportaras",
+      "reportara",
+      "reportáramos",
+      "reportáreis",
+      "reportaram"
+    ],
+    "pretérito_imperfectivo": [
+      "reportava",
+      "reportavas",
+      "reportava",
+      "reportávamos",
+      "reportáveis",
+      "reportavam"
+    ],
+    "passado_volitivo": [
+      "reportaria",
+      "reportarias",
+      "reportaria",
+      "reportaríamos",
+      "reportaríeis",
+      "reportariam"
+    ],
+    "futuro": [
+      "reportarei",
+      "reportarás",
+      "reportará",
+      "reportaremos",
+      "reportareis",
+      "reportarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "reporte",
+      "reportes",
+      "reporte",
+      "reportemos",
+      "reporteis",
+      "reportem"
+    ],
+    "subjuntivo_condicional": [
+      "reportasse",
+      "reportasses",
+      "reportasse",
+      "reportássemos",
+      "reportásseis",
+      "reportassem"
+    ],
+    "subjuntivo_optativo": [
+      "reportar",
+      "reportares",
+      "reportar",
+      "reportarmos",
+      "reportardes",
+      "reportarem"
+    ],
+    "não_finito_concretizado": [
+      "reportar",
+      "reportares",
+      "reportar",
+      "reportarmos",
+      "reportardes",
+      "reportarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "reporta",
+      "reporte",
+      "reportemos",
+      "reportai",
+      "reportem"
+    ],
+    "imperativo_II": [
+      "-",
+      "reportes",
+      "reporte",
+      "reportemos",
+      "reporteis",
+      "reportem"
+    ]
+  },
+  "observar": {
+    "presente": [
+      "observo",
+      "observas",
+      "observa",
+      "observamos",
+      "observais",
+      "observam"
+    ],
+    "pretérito_perfectivo_I": [
+      "observei",
+      "observaste",
+      "observou",
+      "observamos",
+      "observastes",
+      "observaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "observara",
+      "observaras",
+      "observara",
+      "observáramos",
+      "observáreis",
+      "observaram"
+    ],
+    "pretérito_imperfectivo": [
+      "observava",
+      "observavas",
+      "observava",
+      "observávamos",
+      "observáveis",
+      "observavam"
+    ],
+    "passado_volitivo": [
+      "observaria",
+      "observarias",
+      "observaria",
+      "observaríamos",
+      "observaríeis",
+      "observariam"
+    ],
+    "futuro": [
+      "observarei",
+      "observarás",
+      "observará",
+      "observaremos",
+      "observareis",
+      "observarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "observe",
+      "observes",
+      "observe",
+      "observemos",
+      "observeis",
+      "observem"
+    ],
+    "subjuntivo_condicional": [
+      "observasse",
+      "observasses",
+      "observasse",
+      "observássemos",
+      "observásseis",
+      "observassem"
+    ],
+    "subjuntivo_optativo": [
+      "observar",
+      "observares",
+      "observar",
+      "observarmos",
+      "observardes",
+      "observarem"
+    ],
+    "não_finito_concretizado": [
+      "observar",
+      "observares",
+      "observar",
+      "observarmos",
+      "observardes",
+      "observarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "observa",
+      "observe",
+      "observemos",
+      "observai",
+      "observem"
+    ],
+    "imperativo_II": [
+      "-",
+      "observes",
+      "observe",
+      "observemos",
+      "observeis",
+      "observem"
+    ]
+  },
+  "ser": {
+    "presente": [
+      "sou",
+      "és",
+      "é",
+      "somos",
+      "sois",
+      "são"
+    ],
+    "pretérito_perfectivo_I": [
+      "fui",
+      "foste",
+      "foi",
+      "fomos",
+      "fostes",
+      "foram"
+    ],
+    "pretérito_perfectivo_II": [
+      "fora",
+      "foras",
+      "fora",
+      "fôramos",
+      "fôreis",
+      "foram"
+    ],
+    "pretérito_imperfectivo": [
+      "era",
+      "eras",
+      "era",
+      "éramos",
+      "éreis",
+      "eram"
+    ],
+    "passado_volitivo": [
+      "seria",
+      "serias",
+      "seria",
+      "seríamos",
+      "seríeis",
+      "seriam"
+    ],
+    "futuro": [
+      "serei",
+      "serás",
+      "será",
+      "seremos",
+      "sereis",
+      "serão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "seja",
+      "sejas",
+      "seja",
+      "sejamos",
+      "sejais",
+      "sejam"
+    ],
+    "subjuntivo_condicional": [
+      "fosse",
+      "fosses",
+      "fosse",
+      "fôssemos",
+      "fôsseis",
+      "fossem"
+    ],
+    "subjuntivo_optativo": [
+      "for",
+      "fores",
+      "for",
+      "formos",
+      "fordes",
+      "forem"
+    ],
+    "não_finito_concretizado": [
+      "ser",
+      "seres",
+      "ser",
+      "sermos",
+      "serdes",
+      "serem"
+    ],
+    "imperativo_I": [
+      "Imperativos não selecionam 1pessoa do singular",
+      "sê",
+      "seja",
+      "sejamos",
+      "sede",
+      "sejam"
+    ],
+    "imperativo_II": [
+      "Imperativos não selecionam 1pessoa do singular",
+      "sejas",
+      "seja",
+      "sejamos",
+      "sejais",
+      "sejam"
+    ]
+  },
+  "representar": {
+    "presente": [
+      "represento",
+      "representas",
+      "representa",
+      "representamos",
+      "representais",
+      "representam"
+    ],
+    "pretérito_perfectivo_I": [
+      "representei",
+      "representaste",
+      "representou",
+      "representamos",
+      "representastes",
+      "representaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "representara",
+      "representaras",
+      "representara",
+      "representáramos",
+      "representáreis",
+      "representaram"
+    ],
+    "pretérito_imperfectivo": [
+      "representava",
+      "representavas",
+      "representava",
+      "representávamos",
+      "representáveis",
+      "representavam"
+    ],
+    "passado_volitivo": [
+      "representaria",
+      "representarias",
+      "representaria",
+      "representaríamos",
+      "representaríeis",
+      "representariam"
+    ],
+    "futuro": [
+      "representarei",
+      "representarás",
+      "representará",
+      "representaremos",
+      "representareis",
+      "representarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "represente",
+      "representes",
+      "represente",
+      "representemos",
+      "representeis",
+      "representem"
+    ],
+    "subjuntivo_condicional": [
+      "representasse",
+      "representasses",
+      "representasse",
+      "representássemos",
+      "representásseis",
+      "representassem"
+    ],
+    "subjuntivo_optativo": [
+      "representar",
+      "representares",
+      "representar",
+      "representarmos",
+      "representardes",
+      "representarem"
+    ],
+    "não_finito_concretizado": [
+      "representar",
+      "representares",
+      "representar",
+      "representarmos",
+      "representardes",
+      "representarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "representa",
+      "represente",
+      "representemos",
+      "representai",
+      "representem"
+    ],
+    "imperativo_II": [
+      "-",
+      "representes",
+      "represente",
+      "representemos",
+      "representeis",
+      "representem"
+    ]
+  },
+  "acontecer": {
+    "presente": [
+      "aconteço",
+      "aconteces",
+      "acontece",
+      "aconteçemos",
+      "aconteceis",
+      "acontecem"
+    ],
+    "pretérito_perfectivo_I": [
+      "aconteci",
+      "aconteceste",
+      "aconteceu",
+      "acontecemos",
+      "acontecestes",
+      "aconteceram"
+    ],
+    "pretérito_perfectivo_II": [
+      "acontecera",
+      "aconteceras",
+      "acontecera",
+      "acontecêramos",
+      "acontecêreis",
+      "aconteceram"
+    ],
+    "pretérito_imperfectivo": [
+      "acontecia",
+      "acontecias",
+      "acontecia",
+      "acontecíamos",
+      "acontecíeis",
+      "aconteciam"
+    ],
+    "passado_volitivo": [
+      "aconteceria",
+      "acontecerias",
+      "aconteceria",
+      "aconteceríamos",
+      "aconteceríeis",
+      "aconteceriam"
+    ],
+    "futuro": [
+      "acontecerei",
+      "acontecerás",
+      "acontecerá",
+      "aconteceremos",
+      "acontecereis",
+      "acontecerão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "aconteça",
+      "aconteças",
+      "aconteça",
+      "aconteçamos",
+      "aconteçais",
+      "aconteçam"
+    ],
+    "subjuntivo_condicional": [
+      "acontecesse",
+      "acontecesses",
+      "acontecesse",
+      "acontecêssemos",
+      "acontecêsseis",
+      "acontecessem"
+    ],
+    "subjuntivo_optativo": [
+      "acontecer",
+      "aconteceres",
+      "acontecer",
+      "acontecermos",
+      "acontecerdes",
+      "acontecerem"
+    ],
+    "não_finito_concretizado": [
+      "acontecer",
+      "aconteceres",
+      "acontecer",
+      "acontecermos",
+      "acontecerdes",
+      "acontecerem"
+    ],
+    "imperativo_I": [
+      "aconteç",
+      "acontece",
+      "aconteça",
+      "aconteçamos",
+      "acontecei",
+      "aconteçam"
+    ],
+    "imperativo_II": [
+      "aconteç",
+      "aconteças",
+      "aconteça",
+      "aconteçamos",
+      "aconteçais",
+      "aconteçam"
+    ]
+  },
+  "ocorrer": {
+    "presente": [
+      "ocorro",
+      "ocorres",
+      "ocorre",
+      "ocorremos",
+      "ocorreis",
+      "ocorrem"
+    ],
+    "pretérito_perfectivo_I": [
+      "ocorri",
+      "ocorreste",
+      "ocorreu",
+      "ocorremos",
+      "ocorrestes",
+      "ocorreram"
+    ],
+    "pretérito_perfectivo_II": [
+      "ocorrera",
+      "ocorreras",
+      "ocorrera",
+      "ocorrêramos",
+      "ocorrêreis",
+      "ocorreram"
+    ],
+    "pretérito_imperfectivo": [
+      "ocorria",
+      "ocorrias",
+      "ocorria",
+      "ocorríamos",
+      "ocorríeis",
+      "ocorriam"
+    ],
+    "passado_volitivo": [
+      "ocorreria",
+      "ocorrerias",
+      "ocorreria",
+      "ocorreríamos",
+      "ocorreríeis",
+      "ocorreriam"
+    ],
+    "futuro": [
+      "ocorrerei",
+      "ocorrerás",
+      "ocorrerá",
+      "ocorreremos",
+      "ocorrereis",
+      "ocorrerão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "ocorra",
+      "ocorras",
+      "ocorra",
+      "ocorramos",
+      "ocorrais",
+      "ocorram"
+    ],
+    "subjuntivo_condicional": [
+      "ocorresse",
+      "ocorresses",
+      "ocorresse",
+      "ocorrêssemos",
+      "ocorrêsseis",
+      "ocorressem"
+    ],
+    "subjuntivo_optativo": [
+      "ocorrer",
+      "ocorreres",
+      "ocorrer",
+      "ocorrermos",
+      "ocorrerdes",
+      "ocorrerem"
+    ],
+    "não_finito_concretizado": [
+      "ocorrer",
+      "ocorreres",
+      "ocorrer",
+      "ocorrermos",
+      "ocorrerdes",
+      "ocorrerem"
+    ],
+    "imperativo_I": [
+      "-",
+      "ocorre",
+      "ocorra",
+      "ocorramos",
+      "ocorrei",
+      "ocorram"
+    ],
+    "imperativo_II": [
+      "-",
+      "ocorras",
+      "ocorra",
+      "ocorramos",
+      "ocorrais",
+      "ocorram"
+    ]
+  },
+  "existir": {
+    "presente": [
+      "existo",
+      "existes",
+      "existe",
+      "existimos",
+      "existis",
+      "existem"
+    ],
+    "pretérito_perfectivo_I": [
+      "existi",
+      "exististe",
+      "existiu",
+      "existimos",
+      "exististes",
+      "existiram"
+    ],
+    "pretérito_perfectivo_II": [
+      "existira",
+      "existiras",
+      "existira",
+      "existíramos",
+      "existíreis",
+      "existiram"
+    ],
+    "pretérito_imperfectivo": [
+      "existia",
+      "existias",
+      "existia",
+      "existíamos",
+      "existíeis",
+      "existíam"
+    ],
+    "passado_volitivo": [
+      "existiria",
+      "existirias",
+      "existiria",
+      "existiríamos",
+      "existiríeis",
+      "existiriam"
+    ],
+    "futuro": [
+      "existirei",
+      "existirás",
+      "existirá",
+      "existiremos",
+      "existireis",
+      "existirão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "exista",
+      "existas",
+      "exista",
+      "existamos",
+      "existais",
+      "existam"
+    ],
+    "subjuntivo_condicional": [
+      "existisse",
+      "existisses",
+      "existisse",
+      "existíssemos",
+      "existísseis",
+      "existíssem"
+    ],
+    "subjuntivo_optativo": [
+      "existir",
+      "existires",
+      "existir",
+      "existirmos",
+      "existirdes",
+      "existirem"
+    ],
+    "não_finito_concretizado": [
+      "existir",
+      "existires",
+      "existir",
+      "existirmos",
+      "existirdes",
+      "existirem"
+    ],
+    "imperativo_I": [
+      "-",
+      "existe",
+      "exista",
+      "existamos",
+      "existi",
+      "existam"
+    ],
+    "imperativo_II": [
+      "-",
+      "existas",
+      "exista",
+      "existamos",
+      "existais",
+      "existam"
+    ]
+  },
+  "ter": {
+    "presente": [
+      "tenho",
+      "tens",
+      "tem",
+      "temos",
+      "tendes",
+      "têm"
+    ],
+    "pretérito_perfectivo_I": [
+      "tive",
+      "tiveste",
+      "teve",
+      "tivemos",
+      "tivestes",
+      "tiveram"
+    ],
+    "pretérito_perfectivo_II": [
+      "tivera",
+      "tiveras",
+      "tivera",
+      "tivéramos",
+      "tivéreis",
+      "tiveram"
+    ],
+    "pretérito_imperfectivo": [
+      "tinha",
+      "tinhas",
+      "tinha",
+      "tínhamos",
+      "tínheis",
+      "tinham"
+    ],
+    "passado_volitivo": [
+      "teria",
+      "terias",
+      "teria",
+      "teríamos",
+      "teríeis",
+      "teriam"
+    ],
+    "futuro": [
+      "terei",
+      "terás",
+      "terá",
+      "teremos",
+      "tereis",
+      "terão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "tenha",
+      "tenhas",
+      "tenha",
+      "tenhamos",
+      "tenhais",
+      "tenham"
+    ],
+    "subjuntivo_condicional": [
+      "tivesse",
+      "tivesses",
+      "tivesse",
+      "tivéssemos",
+      "tivésseis",
+      "tivessem"
+    ],
+    "subjuntivo_optativo": [
+      "ter",
+      "teres",
+      "ter",
+      "termos",
+      "terdes",
+      "terem"
+    ],
+    "não_finito_concretizado": [
+      "ter",
+      "teres",
+      "ter",
+      "termos",
+      "terdes",
+      "terem"
+    ],
+    "imperativo_I": [
+      "Imperativos não selecionam 1pessoa do singular",
+      "tem",
+      "tenha",
+      "tenhamos",
+      "tende",
+      "tenham"
+    ],
+    "imperativo_II": [
+      "Imperativos não selecionam 1pessoa do singular",
+      "tenhas",
+      "tenha",
+      "tenhamos",
+      "tenhais",
+      "tenham"
+    ]
+  },
+  "apresentar": {
+    "presente": [
+      "apresento",
+      "apresentas",
+      "apresenta",
+      "apresentamos",
+      "apresentais",
+      "apresentam"
+    ],
+    "pretérito_perfectivo_I": [
+      "apresentei",
+      "apresentaste",
+      "apresentou",
+      "apresentamos",
+      "apresentastes",
+      "apresentaram"
+    ],
+    "pretérito_perfectivo_II": [
+      "apresentara",
+      "apresentaras",
+      "apresentara",
+      "apresentáramos",
+      "apresentáreis",
+      "apresentaram"
+    ],
+    "pretérito_imperfectivo": [
+      "apresentava",
+      "apresentavas",
+      "apresentava",
+      "apresentávamos",
+      "apresentáveis",
+      "apresentavam"
+    ],
+    "passado_volitivo": [
+      "apresentaria",
+      "apresentarias",
+      "apresentaria",
+      "apresentaríamos",
+      "apresentaríeis",
+      "apresentariam"
+    ],
+    "futuro": [
+      "apresentarei",
+      "apresentarás",
+      "apresentará",
+      "apresentaremos",
+      "apresentareis",
+      "apresentarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "apresente",
+      "apresentes",
+      "apresente",
+      "apresentemos",
+      "apresenteis",
+      "apresentem"
+    ],
+    "subjuntivo_condicional": [
+      "apresentasse",
+      "apresentasses",
+      "apresentasse",
+      "apresentássemos",
+      "apresentásseis",
+      "apresentassem"
+    ],
+    "subjuntivo_optativo": [
+      "apresentar",
+      "apresentares",
+      "apresentar",
+      "apresentarmos",
+      "apresentardes",
+      "apresentarem"
+    ],
+    "não_finito_concretizado": [
+      "apresentar",
+      "apresentares",
+      "apresentar",
+      "apresentarmos",
+      "apresentardes",
+      "apresentarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "apresenta",
+      "apresente",
+      "apresentemos",
+      "apresentai",
+      "apresentem"
+    ],
+    "imperativo_II": [
+      "-",
+      "apresentes",
+      "apresente",
+      "apresentemos",
+      "apresenteis",
+      "apresentem"
+    ]
+  },
+  "possuir": {
+    "presente": [
+      "possuo",
+      "possues",
+      "possue",
+      "possuimos",
+      "possuis",
+      "possuem"
+    ],
+    "pretérito_perfectivo_I": [
+      "possui",
+      "possuiste",
+      "possuiu",
+      "possuimos",
+      "possuistes",
+      "possuiram"
+    ],
+    "pretérito_perfectivo_II": [
+      "possuira",
+      "possuiras",
+      "possuira",
+      "possuíramos",
+      "possuíreis",
+      "possuiram"
+    ],
+    "pretérito_imperfectivo": [
+      "possuia",
+      "possuias",
+      "possuia",
+      "possuíamos",
+      "possuíeis",
+      "possuíam"
+    ],
+    "passado_volitivo": [
+      "possuiria",
+      "possuirias",
+      "possuiria",
+      "possuiríamos",
+      "possuiríeis",
+      "possuiriam"
+    ],
+    "futuro": [
+      "possuirei",
+      "possuirás",
+      "possuirá",
+      "possuiremos",
+      "possuireis",
+      "possuirão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "possua",
+      "possuas",
+      "possua",
+      "possuamos",
+      "possuais",
+      "possuam"
+    ],
+    "subjuntivo_condicional": [
+      "possuisse",
+      "possuisses",
+      "possuisse",
+      "possuíssemos",
+      "possuísseis",
+      "possuíssem"
+    ],
+    "subjuntivo_optativo": [
+      "possuir",
+      "possuires",
+      "possuir",
+      "possuirmos",
+      "possuirdes",
+      "possuirem"
+    ],
+    "não_finito_concretizado": [
+      "possuir",
+      "possuires",
+      "possuir",
+      "possuirmos",
+      "possuirdes",
+      "possuirem"
+    ],
+    "imperativo_I": [
+      "-",
+      "possue",
+      "possua",
+      "possuamos",
+      "possui",
+      "possuam"
+    ],
+    "imperativo_II": [
+      "-",
+      "possuas",
+      "possua",
+      "possuamos",
+      "possuais",
+      "possuam"
+    ]
+  },
+  "estar": {
+    "presente": [
+      "estou",
+      "estás",
+      "está",
+      "estamos",
+      "estais",
+      "estão"
+    ],
+    "pretérito_perfectivo_I": [
+      "estive",
+      "estiveste",
+      "esteve",
+      "estivemos",
+      "estivestes",
+      "estiveram"
+    ],
+    "pretérito_perfectivo_II": [
+      "estivera",
+      "estiveras",
+      "estivera",
+      "estivéramos",
+      "estivéreis",
+      "estiveram"
+    ],
+    "pretérito_imperfectivo": [
+      "estava",
+      "estavas",
+      "estava",
+      "estávamos",
+      "estáveis",
+      "estavam"
+    ],
+    "passado_volitivo": [
+      "estaria",
+      "estarias",
+      "estaria",
+      "estaríamos",
+      "estaríeis",
+      "estariam"
+    ],
+    "futuro": [
+      "estarei",
+      "estarás",
+      "estará",
+      "estaremos",
+      "estareis",
+      "estarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "esteja",
+      "estejas",
+      "esteja",
+      "estejamos",
+      "estejais",
+      "estejam"
+    ],
+    "subjuntivo_condicional": [
+      "estivesse",
+      "estivesses",
+      "estivesse",
+      "estivéssemos",
+      "estivésseis",
+      "estivessem"
+    ],
+    "subjuntivo_optativo": [
+      "estiver",
+      "estiveres",
+      "estiver",
+      "estivermos",
+      "estiverdes",
+      "estiverem"
+    ],
+    "não_finito_concretizado": [
+      "estar",
+      "estares",
+      "estar",
+      "estarmos",
+      "estardes",
+      "estarem"
+    ],
+    "imperativo_I": [
+      "Imperativos não selecionam 1pessoa do singular",
+      "está",
+      "esteja",
+      "estejamos",
+      "estai",
+      "estejam"
+    ],
+    "imperativo_II": [
+      "Imperativos não selecionam 1pessoa do singular",
+      "estejas",
+      "esteja",
+      "estejamos",
+      "estejais",
+      "estejam"
+    ]
+  },
+  "acumular": {
+    "presente": [
+      "acumulo",
+      "acumulas",
+      "acumula",
+      "acumulamos",
+      "acumulais",
+      "acumulam"
+    ],
+    "pretérito_perfectivo_I": [
+      "acumulei",
+      "acumulaste",
+      "acumulou",
+      "acumulamos",
+      "acumulastes",
+      "acumularam"
+    ],
+    "pretérito_perfectivo_II": [
+      "acumulara",
+      "acumularas",
+      "acumulara",
+      "acumuláramos",
+      "acumuláreis",
+      "acumularam"
+    ],
+    "pretérito_imperfectivo": [
+      "acumulava",
+      "acumulavas",
+      "acumulava",
+      "acumulávamos",
+      "acumuláveis",
+      "acumulavam"
+    ],
+    "passado_volitivo": [
+      "acumularia",
+      "acumularias",
+      "acumularia",
+      "acumularíamos",
+      "acumularíeis",
+      "acumulariam"
+    ],
+    "futuro": [
+      "acumularei",
+      "acumularás",
+      "acumulará",
+      "acumularemos",
+      "acumulareis",
+      "acumularão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "acumule",
+      "acumules",
+      "acumule",
+      "acumulemos",
+      "acumuleis",
+      "acumulem"
+    ],
+    "subjuntivo_condicional": [
+      "acumulasse",
+      "acumulasses",
+      "acumulasse",
+      "acumulássemos",
+      "acumulásseis",
+      "acumulassem"
+    ],
+    "subjuntivo_optativo": [
+      "acumular",
+      "acumulares",
+      "acumular",
+      "acumularmos",
+      "acumulardes",
+      "acumularem"
+    ],
+    "não_finito_concretizado": [
+      "acumular",
+      "acumulares",
+      "acumular",
+      "acumularmos",
+      "acumulardes",
+      "acumularem"
+    ],
+    "imperativo_I": [
+      "-",
+      "acumula",
+      "acumule",
+      "acumulemos",
+      "acumulai",
+      "acumulem"
+    ],
+    "imperativo_II": [
+      "-",
+      "acumules",
+      "acumule",
+      "acumulemos",
+      "acumuleis",
+      "acumulem"
+    ]
+  },
+  "relatar": {
+    "presente": [
+      "relato",
+      "relatas",
+      "relata",
+      "relatamos",
+      "relatais",
+      "relatam"
+    ],
+    "pretérito_perfectivo_I": [
+      "relatei",
+      "relataste",
+      "relatou",
+      "relatamos",
+      "relatastes",
+      "relataram"
+    ],
+    "pretérito_perfectivo_II": [
+      "relatara",
+      "relataras",
+      "relatara",
+      "relatáramos",
+      "relatáreis",
+      "relataram"
+    ],
+    "pretérito_imperfectivo": [
+      "relatava",
+      "relatavas",
+      "relatava",
+      "relatávamos",
+      "relatáveis",
+      "relatavam"
+    ],
+    "passado_volitivo": [
+      "relataria",
+      "relatarias",
+      "relataria",
+      "relataríamos",
+      "relataríeis",
+      "relatariam"
+    ],
+    "futuro": [
+      "relatarei",
+      "relatarás",
+      "relatará",
+      "relataremos",
+      "relatareis",
+      "relatarão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "relate",
+      "relates",
+      "relate",
+      "relatemos",
+      "relateis",
+      "relatem"
+    ],
+    "subjuntivo_condicional": [
+      "relatasse",
+      "relatasses",
+      "relatasse",
+      "relatássemos",
+      "relatásseis",
+      "relatassem"
+    ],
+    "subjuntivo_optativo": [
+      "relatar",
+      "relatares",
+      "relatar",
+      "relatarmos",
+      "relatardes",
+      "relatarem"
+    ],
+    "não_finito_concretizado": [
+      "relatar",
+      "relatares",
+      "relatar",
+      "relatarmos",
+      "relatardes",
+      "relatarem"
+    ],
+    "imperativo_I": [
+      "-",
+      "relata",
+      "relate",
+      "relatemos",
+      "relatai",
+      "relatem"
+    ],
+    "imperativo_II": [
+      "-",
+      "relates",
+      "relate",
+      "relatemos",
+      "relateis",
+      "relatem"
+    ]
+  },
+  "sofrer": {
+    "presente": [
+      "sofro",
+      "sofres",
+      "sofre",
+      "sofremos",
+      "sofreis",
+      "sofrem"
+    ],
+    "pretérito_perfectivo_I": [
+      "sofri",
+      "sofreste",
+      "sofreu",
+      "sofremos",
+      "sofrestes",
+      "sofreram"
+    ],
+    "pretérito_perfectivo_II": [
+      "sofrera",
+      "sofreras",
+      "sofrera",
+      "sofrêramos",
+      "sofrêreis",
+      "sofreram"
+    ],
+    "pretérito_imperfectivo": [
+      "sofria",
+      "sofrias",
+      "sofria",
+      "sofríamos",
+      "sofríeis",
+      "sofriam"
+    ],
+    "passado_volitivo": [
+      "sofreria",
+      "sofrerias",
+      "sofreria",
+      "sofreríamos",
+      "sofreríeis",
+      "sofreriam"
+    ],
+    "futuro": [
+      "sofrerei",
+      "sofrerás",
+      "sofrerá",
+      "sofreremos",
+      "sofrereis",
+      "sofrerão"
+    ],
+    "subjuntivo_conjuntivo": [
+      "sofra",
+      "sofras",
+      "sofra",
+      "soframos",
+      "sofrais",
+      "sofram"
+    ],
+    "subjuntivo_condicional": [
+      "sofresse",
+      "sofresses",
+      "sofresse",
+      "sofrêssemos",
+      "sofrêsseis",
+      "sofressem"
+    ],
+    "subjuntivo_optativo": [
+      "sofrer",
+      "sofreres",
+      "sofrer",
+      "sofrermos",
+      "sofrerdes",
+      "sofrerem"
+    ],
+    "não_finito_concretizado": [
+      "sofrer",
+      "sofreres",
+      "sofrer",
+      "sofrermos",
+      "sofrerdes",
+      "sofrerem"
+    ],
+    "imperativo_I": [
+      "-",
+      "sofre",
+      "sofra",
+      "soframos",
+      "sofrei",
+      "sofram"
+    ],
+    "imperativo_II": [
+      "-",
+      "sofras",
+      "sofra",
+      "soframos",
+      "sofrais",
+      "sofram"
+    ]
+  }
+}

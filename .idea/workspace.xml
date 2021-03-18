@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/erros_conjugação_dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/corpora_train_dev_test/erros_conjugação_dev.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corpus/experimento_dev_verbos.py" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/experimento_dev_verbos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/verbs.json" beforeDir="false" afterPath="$PROJECT_DIR$/mineração_lexicon/verbs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +49,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Desktop/CURSOS/UDEMY/APRENDIZADO DE MÁQUINA" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/PROJETO_INPE_COVID_EXPERIMENTO_ANDRE" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -163,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.minerando_lemas_e_EXPERIMENTOSAPLICACAO" />
-        <item itemvalue="Python.TESTE" />
-        <item itemvalue="Python.teste" />
-        <item itemvalue="Python.experimento_dev_verbos" />
         <item itemvalue="Python tests.Doctests in GENERATION_dev" />
+        <item itemvalue="Python.teste" />
+        <item itemvalue="Python.minerando_lemas_e_EXPERIMENTOSAPLICACAO" />
+        <item itemvalue="Python.experimento_dev_verbos" />
+        <item itemvalue="Python.TESTE" />
       </list>
     </recent_temporary>
   </component>
@@ -198,34 +199,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>2885</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>4020</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/debug.py</url>
           <line>133</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>8582</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>4606</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>5008</line>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>

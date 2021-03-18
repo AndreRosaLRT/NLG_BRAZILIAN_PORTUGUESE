@@ -1,9 +1,31 @@
 {
+   "VP[aspect=perfective,tense=past,voice=passive,number=singular,gender=male] desmatar":[
+    "desmatado"
+  ],
+   "VP[aspect=perfective,tense=past,voice=passive,number=plural,gender=male] desmatar":[
+    "desmatados"
+  ],
+  "VP[aspect=perfective,tense=past,voice=passive,number=singular,gender=female] desmatar":[
+    "desmatada"
+  ],
+   "VP[aspect=perfective,tense=past,voice=passive,number=plural,gender=female] desmatar":[
+    "desmatadas"
+  ],
+
   "VP[aspect=simple,tense=present,voice=active,person=3rd,number=singular] registrar":[
     "registra"
   ],
   "VP[aspect=simple,tense=past,voice=active,person=3rd,number=singular] registrar":[
     "registrou"
+  ],
+   "VP[aspect=simple,tense=past,voice=active,person=3rd,number=singular] detectar":[
+    "detectou"
+  ],
+  "VP[aspect=simple,tense=past,voice=active,person=3rd,number=singular] identificar":[
+    "identificou"
+  ],
+  "VP[aspect=simple,tense=past,voice=active,person=3rd,number=singular] atingir":[
+    "atingiu"
   ],
   "VP[aspect=simple,tense=present,voice=passive,person=3rd,number=singular,gender=male] registrar":[
     "é registrado"
@@ -19,6 +41,9 @@
   ],
   "VP[aspect=simple,tense=past,voice=passive,person=3rd,number=singular,gender=male] registrar":[
     "foi registrado"
+  ],
+  "VP[aspect=simple,tense=past,voice=passive,person=3rd,number=singular,gender=male] atingir":[
+    "foi atingido"
   ],
   "VP[aspect=simple,tense=past,voice=passive,person=3rd,number=plural,gender=male] registrar":[
     "foram registrados"

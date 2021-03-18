@@ -1667,7 +1667,7 @@ def realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, OI_numero, OI_
 					padrao_de_morfologia == '-ER' or
 					padrao_de_morfologia == '-IR' or
 					padrao_de_morfologia == '-OR'):
-				MI = 'Não há transitoriedade para imperativo_I na 1pessoa singular'
+				MI = ''
 
 		elif OI_tipo_de_pessoa == '2pessoa':
 			if padrao_de_morfologia == '-AR':
@@ -1943,29 +1943,29 @@ def realizacao_transitoriedade_participio(padrao_de_morfologia,OI_numero, genero
 #
 #
 
-# 
+#
 # realizacao_transitoriedade_participio('-AR', 'plural', 'masculino')
 # realizacao_transitoriedade_participio('-AR', 'singular', 'masculino')
 # realizacao_transitoriedade_participio('-AR', 'plural', 'feminino')
 # realizacao_transitoriedade_participio('-AR', 'singular', 'feminino')
-# 
-# 
+#
+#
 # realizacao_transitoriedade_participio('-ER', 'plural', 'masculino')
 # realizacao_transitoriedade_participio('-ER', 'singular', 'masculino')
 # realizacao_transitoriedade_participio('-ER', 'plural', 'feminino')
 # realizacao_transitoriedade_participio('-ER', 'singular', 'feminino')
-# 
+#
 # realizacao_transitoriedade_participio('-IR', 'plural', 'masculino')
 # realizacao_transitoriedade_participio('-IR', 'singular', 'masculino')
 # realizacao_transitoriedade_participio('-IR', 'plural', 'feminino')
 # realizacao_transitoriedade_participio('-IR', 'singular', 'feminino')
-# 
-# 
+#
+#
 # realizacao_transitoriedade_participio('-OR', 'plural', 'masculino')
 # realizacao_transitoriedade_participio('-OR', 'singular', 'masculino')
 # realizacao_transitoriedade_participio('-OR', 'plural', 'feminino')
 # realizacao_transitoriedade_participio('-OR', 'singular', 'feminino')
-# 
+#
 
 
 
@@ -2273,7 +2273,6 @@ def formacao_verbo_ÇAR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_nume
 
 
 ###VERBOS TERMINADOS EM : 'Car'
-
 def formacao_verbo_CAR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero,
 						   genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia='Morfologia_padrão'):
 
@@ -2325,18 +2324,29 @@ def formacao_verbo_CAR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numer
 		MI = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, OI_numero,
 															OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 	elif tipo_de_orientacao == 'imperativo_I':
-		if (OI_tipo_de_pessoa=='3pessoa' or
-			OI_tipo_de_pessoa == '1pessoa'):
-			ME = verbo[slice(-3)]+'qu'
-		else:
-			ME=verbo[slice(-2)]
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-3)] + 'qu'
+			elif OI_tipo_de_pessoa == '1pessoa':
+				ME = ''
+			else:
+				ME = verbo[slice(-2)]
+		elif OI_numero == 'plural':
+			if (OI_tipo_de_pessoa == '3pessoa' or OI_tipo_de_pessoa == '1pessoa'):
+				ME = verbo[slice(-3)] + 'qu'
+			else:
+				ME = verbo[slice(-2)]
 		MI = realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, OI_numero,
-															OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+													 OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+
+
 	elif tipo_de_orientacao == 'imperativo_II':
-		ME = verbo[slice(-3)]+'qu'
+		if OI_numero == 'singular' and OI_tipo_de_pessoa == '1pessoa':
+			ME = ''
+		else:
+			ME = verbo[slice(-3)] + 'qu'
 		MI = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, OI_numero,
 													  OI_tipo_de_pessoa, padrao_pessoa_morfologia)
-
 	elif tipo_de_orientacao == 'não_finito_concretizado':
 		ME = verbo[slice(-2)]
 		MI = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, OI_numero,
@@ -2360,7 +2370,7 @@ def formacao_verbo_CAR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numer
 
 	return verbo
 
-# formacao_verbo_CAR('focar','presente','-AR','singular',None,'2pessoa','Morfologia_padrão')
+# formacao_verbo_CAR('identificar','imperativo_I','-AR','singular',None,'2pessoa')
 # formacao_verbo_CAR('focar','subjuntivo_conjuntivo','-AR','singular',None,'1pessoa')
 # formacao_verbo_CAR('focar','imperativo_I','-AR','plural',None,'3pessoa')
 # formacao_verbo_CAR('focar','imperativo_II','-AR','singular',None,'2pessoa')
@@ -2738,7 +2748,7 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_nume
 # verbo=formacao_verbo_RUIR('construir', 'subjuntivo_optativo', '-IR','plural' ,None, '3pessoa')
 # verbo=formacao_verbo_RUIR('usufruir', 'subjuntivo_condicional', '-IR','plural' ,None, '3pessoa')
 #
-# verbo=formacao_verbo_RUIR('construir', 'imperativo_I', '-IR','plural' ,None, '2pessoa')
+formacao_verbo_RUIR('construir', 'imperativo_I', '-IR','singular' ,None, '1pessoa')
 # verbo=formacao_verbo_RUIR('usufruir', 'imperativo_I', '-IR','plural' ,None, '2pessoa')
 #
 #
@@ -2757,7 +2767,7 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_nume
 
 def formacao_verbo_agredir(verbo, tipo_de_orientacao,padrao_de_morfologia, OI_numero,
                            genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia='Morfologia_padrão'):
-	
+
 	if tipo_de_orientacao == 'presente':
 		if OI_numero == 'singular':
 			if OI_tipo_de_pessoa == '1pessoa':
@@ -2929,7 +2939,7 @@ def formacao_verbo_agredir(verbo, tipo_de_orientacao,padrao_de_morfologia, OI_nu
 		verbo = ME + MI
 
 	return verbo
-# 
+#
 # formacao_verbo_agredir('agredir','particípio','plural','masculino',None)
 # formacao_verbo_agredir('agredir','particípio','plural','masculino',None)
 # formacao_verbo_agredir('agredir','particípio','singular','masculino',None)
@@ -3305,14 +3315,193 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao,padrao_de_morfologia,  OI_num
 	return verbo
 
 
-#
-# formacao_verbo_medir('medir','presente','singular',None,'2pessoa')
-# formacao_verbo_medir('medir','presente','singular',None,'3pessoa')
-# formacao_verbo_medir('medir','presente','singular',None,'1pessoa')
-# formacao_verbo_medir('medir', 'infinitivo',  'singular', 'masculino', None)
-# formacao_verbo_medir('medir','particípio','singular','feminino',None)
-# formacao_verbo_medir('medir','gerúndio',None,None,None)
+# formacao_verbo_medir('medir','presente','-IR','singular',None,'2pessoa')
 
+
+# VERBO sentir
+
+def formacao_verbo_sentir(verbo, tipo_de_orientacao,padrao_de_morfologia,  OI_numero,
+                         genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia='Morfologia_padrão'):
+	if tipo_de_orientacao == 'presente':
+
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '1pessoa':
+				ME = verbo[slice(-5)]+ 'int'
+				MI = 'o'
+				verbo = ME + MI
+
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-2)]
+
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'e'
+					verbo = ME + MI
+				else:
+					MI = 'es'
+					verbo = ME + MI
+
+			elif OI_tipo_de_pessoa == '3pessoa':
+				ME = verbo[slice(-2)]
+				MI = 'e'
+				verbo = ME + MI
+
+		elif OI_numero == 'plural':
+			ME = verbo[slice(-2)]
+			if OI_tipo_de_pessoa == '1pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'e'
+					verbo = ME + MI
+				else:
+					MI = 'imos'
+					verbo = ME + MI
+
+			elif OI_tipo_de_pessoa == '2pessoa':
+				MI = 'is'
+				verbo = ME + MI
+
+			elif OI_tipo_de_pessoa == '3pessoa':
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'e'
+					verbo = ME + MI
+				else:
+					MI = 'em'
+					verbo = ME + MI
+
+	elif tipo_de_orientacao == 'pretérito_imperfectivo':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, OI_numero,
+		                                                       OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'pretérito_perfectivo_I':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, OI_numero,
+		                                                       OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'pretérito_perfectivo_II':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, OI_numero,
+		                                                        OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'passado_volitivo':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, OI_numero,
+		                                                 OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'futuro':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_futuro(padrao_de_morfologia, OI_numero,
+		                                       OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	if tipo_de_orientacao == 'subjuntivo_conjuntivo':
+		ME = verbo[slice(-5)] + 'int'
+		MI = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, OI_numero,
+		                                                      OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'subjuntivo_condicional':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_subjuntivo_condicionalsubjuntivo_condicional(padrao_de_morfologia, OI_numero,
+		                                                       OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'subjuntivo_optativo':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, OI_numero,
+		                                                    OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'imperativo_I':
+
+		if OI_numero == 'singular':
+			if OI_tipo_de_pessoa == '1pessoa':
+				print('Imperativos não selecionam 1pessoa do singular')
+
+			elif OI_tipo_de_pessoa == '2pessoa':
+
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					ME = verbo[slice(-5)] + "int"
+					MI = 'a'
+					verbo = ME + MI
+
+				else:
+					ME = verbo[slice(-2)]
+					MI = 'e'
+					verbo = ME + MI
+			else:
+				ME = verbo[slice(-4)] + "int"
+				MI = 'a'
+				verbo = ME + MI
+
+		elif OI_numero == 'plural':
+
+			if OI_tipo_de_pessoa == '1pessoa':
+				ME = verbo[slice(-4)] + 'int'
+
+				if padrao_pessoa_morfologia == '3pessoa_do_singular':
+					MI = 'a'
+					verbo = ME + MI
+				else:
+					MI = 'amos'
+					verbo = ME + MI
+
+			elif OI_tipo_de_pessoa == '2pessoa':
+				ME = verbo[slice(-2)]
+				MI = 'i'
+				verbo = ME + MI
+
+		elif OI_tipo_de_pessoa == '3pessoa':
+			ME = verbo[slice(-5)] + 'int'
+
+			if padrao_pessoa_morfologia == '3pessoa_do_singular':
+				MI = 'a'
+				verbo = ME + MI
+			else:
+				MI = 'am'
+				verbo = ME + MI
+
+	elif tipo_de_orientacao == 'imperativo_II':
+		ME = verbo[slice(-5)] + 'int'
+		MI = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, OI_numero,
+		                                              OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'não_finito_concretizado':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, OI_numero,
+		                                                        OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'infinitivo':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_infinitivo(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,
+		                                           padrao_pessoa_morfologia)
+		verbo = ME + MI
+
+	elif tipo_de_orientacao == 'gerúndio':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
+		                                         padrao_pessoa_morfologia)
+		verbo = ME + MI
+	elif tipo_de_orientacao == 'particípio':
+		ME = verbo[slice(-2)]
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
+		                                           padrao_pessoa_morfologia)
+		verbo = ME + MI
+	return verbo
+
+
+#
+# formacao_verbo_sentir('sentir','subjuntivo_conjuntivo','-IR','plural',None,'1pessoa')
+# formacao_verbo_sentir('sentir','presente','-IR','singular',None,'3pessoa')
+# formacao_verbo_sentir('sentir','presente','-IR','singular',None,'1pessoa')
+# formacao_verbo_sentir('sentir', 'infinitivo','-IR',  'singular', 'masculino', None)
+# formacao_verbo_sentir('sentir','particípio','-IR','singular','feminino',None)
+# formacao_verbo_sentir('sentir','gerúndio','-IR',None,None,None)
 
 # VERBO SABER
 def formacao_verbo_saber(verbo, tipo_de_orientacao,padrao_de_morfologia, OI_numero,
@@ -5062,7 +5251,6 @@ def formacao_verbo_trazer(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_nu
 
 
 
-	
 
 
 
@@ -5073,7 +5261,8 @@ def formacao_verbo_trazer(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_nu
 
 
 
-	
+
+
 
 
 
@@ -5464,10 +5653,10 @@ def formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
 		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
 		                                           padrao_pessoa_morfologia)
 		verbo = ME + MI
-	
+
 	return verbo
 
-# 
+#
 # ##TESTE ter
 # OI_numeros = ['singular', "plural"]
 # OI_tipo_pessoas = ["1pessoa", '2pessoa', '3pessoa']
@@ -5911,7 +6100,7 @@ def formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numer
 				else:
 					MI = 'am'
 				verbo = ME + 'ej' + MI
-	
+
 	return verbo
 
 # # ##TESTE ser
@@ -7067,9 +7256,9 @@ def formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
 			elif OI_tipo_de_pessoa == '3pessoa':
 				ME = verbo[slice(-4)]
 				MI = 'ão'
-				
+
 		verbo = ME + MI
-	
+
 	elif tipo_de_orientacao == 'pretérito_perfectivo_I':
 		if OI_numero == 'singular':
 			if OI_tipo_de_pessoa == '1pessoa':
@@ -7470,7 +7659,7 @@ def formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'presente':
-		
+
 		if OI_tipo_de_pessoa == '1pessoa' and OI_numero == 'singular':
 			ME = verbo[slice(-3)]
 			MI = realizacao_transitoriedade_presente(padrao_de_morfologia,
@@ -7483,7 +7672,7 @@ def formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
 			MI = realizacao_transitoriedade_presente(padrao_de_morfologia,
 			                                         OI_numero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 			verbo = ME + MI
-	
+
 	elif tipo_de_orientacao == 'pretérito_perfectivo_I':
 		ME = verbo[slice(-4)]
 		if OI_numero == 'singular':
@@ -7718,7 +7907,7 @@ def formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
 # # ###
 # # # # # #presente
 # # # print("A conjugação é:")
-# 
+#
 # for numero in OI_numeros:
 # 	for tipo_pessoa in OI_tipo_pessoas:
 # 		print(formacao_verbo_poder('poder', 'presente', '-ER', numero, None, tipo_pessoa))
@@ -7793,7 +7982,7 @@ def formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
 # for numero in OI_numeros:
 # 	for genero in generos:
 # 		print(formacao_verbo_poder('poder', 'particípio', '-ER', numero, genero, None))
-# 
+#
 
 
 
@@ -8138,12 +8327,12 @@ def formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_num
 		ME = verbo[slice(-2)]
 		MI = realizacao_transitoriedade_infinitivo(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,padrao_pessoa_morfologia)
 		verbo = ME + MI
-	
+
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
 		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 		verbo = ME + MI
-	
+
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-4)]
 		if OI_numero == 'singular':
@@ -8341,73 +8530,70 @@ def formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, OI_numero,
 	'''
     '''
 	padrao_de_morfologia = detecta_padrao_morfologia(verbo)
-	if  tipo_de_orientacao == 'imperativo_I' or tipo_de_orientacao == 'imperativo_II':
-		if OI_numero == 'singular' and OI_tipo_de_pessoa == '1pessoa':
+	if  (tipo_de_orientacao == 'imperativo_I' and OI_numero == 'singular' and OI_tipo_de_pessoa == '1pessoa' or
+		tipo_de_orientacao == 'imperativo_II' and OI_numero == 'singular' and OI_tipo_de_pessoa == '1pessoa'):
 			verbo_conj='-'
 	else:
-		verbo_conj = 'teste'
-	return  verbo_conj
+		if verbo == 'estar':
+				verbo_conj = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia,
+													 OI_numero,
+													 genero, OI_tipo_de_pessoa,
+													 padrao_pessoa_morfologia='Morfologia_padrão')
 
-formacao_da_estrutura_do_verbo('andar', 'imperativo_I', 'singular', None, '2pessoa')
+		elif verbo == 'ter':
+			verbo_conj = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
+											   OI_numero,
+											   genero, OI_tipo_de_pessoa,
+											   padrao_pessoa_morfologia='Morfologia_padrão')
+
+		elif verbo == 'haver':
+			verbo_conj = formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
+												 OI_numero,
+												 genero, OI_tipo_de_pessoa,
+												 padrao_pessoa_morfologia='Morfologia_padrão')
+
+		elif verbo == 'ir':
+			verbo_conj = formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+											  OI_numero,
+											  genero, OI_tipo_de_pessoa,
+											  padrao_pessoa_morfologia='Morfologia_padrão')
+
+		elif verbo == 'vir':
+			verbo_conj = formacao_verbo_vir_invervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+														OI_numero,
+														genero, OI_tipo_de_pessoa,
+														padrao_pessoa_morfologia='Morfologia_padrão')
+
+		elif verbo == 'ser':
+			verbo_conj = formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia,
+											   OI_numero,
+											   genero, OI_tipo_de_pessoa,
+											   padrao_pessoa_morfologia='Morfologia_padrão')
+		elif verbo[-5:] == 'fazer':
+			verbo_conj = formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia,
+										 OI_numero, genero, OI_tipo_de_pessoa,
+										 padrao_pessoa_morfologia)
+
+		elif verbo == None:
+			verbo_conj = ''
+		else:
+
+			OE_experiencia_do_verbo = experiencia_do_verbo(verbo)
+			OI_orientacao_interpessoal_do_verbo = realizacao_transitoriedade_do_verbo(tipo_de_orientacao,
+																					  padrao_de_morfologia,
+																					  OI_numero,
+																					  genero, OI_tipo_de_pessoa,
+																					  padrao_pessoa_morfologia)
+			verbo_conj = OE_experiencia_do_verbo + OI_orientacao_interpessoal_do_verbo
+	return verbo_conj
 #
-# 	if verbo == 'estar':
-# 			verbo_conj = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia,
-# 												 OI_numero,
-# 												 genero, OI_tipo_de_pessoa,
-# 												 padrao_pessoa_morfologia='Morfologia_padrão')
-#
-# 		elif verbo == 'ter':
-# 			verbo_conj = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
-# 											   OI_numero,
-# 											   genero, OI_tipo_de_pessoa,
-# 											   padrao_pessoa_morfologia='Morfologia_padrão')
-#
-# 		elif verbo == 'haver':
-# 			verbo_conj = formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
-# 												 OI_numero,
-# 												 genero, OI_tipo_de_pessoa,
-# 												 padrao_pessoa_morfologia='Morfologia_padrão')
-#
-# 		elif verbo == 'ir':
-# 			verbo_conj = formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia,
-# 											  OI_numero,
-# 											  genero, OI_tipo_de_pessoa,
-# 											  padrao_pessoa_morfologia='Morfologia_padrão')
-#
-# 		elif verbo == 'vir':
-# 			verbo_conj = formacao_verbo_vir_invervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
-# 														OI_numero,
-# 														genero, OI_tipo_de_pessoa,
-# 														padrao_pessoa_morfologia='Morfologia_padrão')
-#
-# 		elif verbo == 'ser':
-# 			verbo_conj = formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia,
-# 											   OI_numero,
-# 											   genero, OI_tipo_de_pessoa,
-# 											   padrao_pessoa_morfologia='Morfologia_padrão')
-# 		elif verbo[-5:] == 'fazer':
-# 			verbo_conj = formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia,
-# 										 OI_numero, genero, OI_tipo_de_pessoa,
-# 										 padrao_pessoa_morfologia)
-#
-# 		elif verbo == None:
-# 			verbo_conj = ''
-# 		else:
-#
-# 			OE_experiencia_do_verbo = experiencia_do_verbo(verbo)
-# 			OI_orientacao_interpessoal_do_verbo = realizacao_transitoriedade_do_verbo(tipo_de_orientacao,
-# 																					  padrao_de_morfologia,
-# 																					  OI_numero,
-# 																					  genero, OI_tipo_de_pessoa,
-# 																					  padrao_pessoa_morfologia)
-# 			verbo_conj = OE_experiencia_do_verbo + OI_orientacao_interpessoal_do_verbo
-# 	return verbo_conj
-# #
-formacao_da_estrutura_do_verbo('andar','imperativo_I','singular',None,'2pessoa')
+# formacao_da_estrutura_do_verbo('andar','imperativo_I','singular',None,'3pessoa')
 # formacao_da_estrutura_do_verbo('comer','pretérito_imperfectivo','plural',None,'1pessoa')
 # formacao_da_estrutura_do_verbo('expor','presente','singular',None,'1pessoa')
 # formacao_da_estrutura_do_verbo('expor','gerúndio',None,None,None)
 # formacao_da_estrutura_do_verbo('cortar', 'particípio',  'singular', 'feminino', None)
+verbo = formacao_verbo_sentir('sentir', 'subjuntivo_conjuntivo', '-IR', 'plural',
+								  None, '1pessoa')
 
 def verbo_geral(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,
                 tipo_de_orientacao, OI_numero, genero, OI_tipo_de_pessoa,
@@ -8424,7 +8610,9 @@ def verbo_geral(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,
 			if verbo == 'estar':
 				verbo = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero,
 									 genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
-
+			elif verbo == 'sentir':
+				verbo = formacao_verbo_sentir(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero,
+								  genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 			elif verbo == 'trazer':
 				verbo = formacao_verbo_trazer(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero,
 								  genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
@@ -8548,7 +8736,8 @@ def verbo_geral(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,
 
 
 #EXEMPLOS
-# verbo_geral("Fazer",'Evento','trazer','pretérito_perfectivo_I','singular',None,'3pessoa')
+verbo_geral("Fazer",'Evento','trazer','pretérito_perfectivo_I','singular',None,'3pessoa')
+verbo_geral("Fazer", 'Evento', "identificar","imperativo_I", 'singular', None, '1pessoa')
 
 #
 # verbo=verbo_geral("Fazer",'Evento','usufruir','imperativo_I','singular',None,'2pessoa')
@@ -8634,8 +8823,8 @@ def realizacao_de_AGENCIA_passiva(verbo_AUX, tipo_de_orientacao_AUX, OI_numero_A
 #
 # print('Selecione o tipo_pessoa de OI não-orientação desejada')
 # 						não_orientado = choice.Menu(['infinitivo', 'gerúndio'])
-					
-					
+
+
 					#############
 
 
@@ -8650,9 +8839,9 @@ def grupo_verbal(TIPO_DE_EXPERIENCIA_GV, AGENCIA, TIPO_DE_EXPERIENCIA_1, funcao_
                  OI_tipo_de_pessoa_1,padrao_pessoa_morfologia_1, TIPO_DE_EXPERIENCIA_2, funcao_no_grupo_verbal_2,
                  verbo_2, tipo_de_orientacao_2,  OI_numero_2, genero_2, OI_tipo_de_pessoa_2,padrao_pessoa_morfologia_2, TIPO_DE_EXPERIENCIA_3, funcao_no_grupo_verbal_3, verbo_3,
                  tipo_de_orientacao_3,  OI_numero_3, genero_3, OI_tipo_de_pessoa_3,padrao_pessoa_morfologia_3, TIPO_DE_EXPERIENCIA_4, funcao_no_grupo_verbal_4, verbo_4,
-                 tipo_de_orientacao_4, 
+                 tipo_de_orientacao_4,
                  OI_numero_4, genero_4, OI_tipo_de_pessoa_4, padrao_pessoa_morfologia_4,TIPO_DE_EXPERIENCIA_LEX,
-                 funcao_no_grupo_verbal_POS_FINAL, verbo_LEX, tipo_de_orientacao_LEX, 
+                 funcao_no_grupo_verbal_POS_FINAL, verbo_LEX, tipo_de_orientacao_LEX,
                  OI_numero_LEX, genero_LEX, OI_tipo_de_pessoa_LEX, padrao_pessoa_morfologia_LEX='Morfologia_padrão'):
 	'''()->str
 	Retorna a estrutura que realiza o grupo verbal, dadas escolhas de
@@ -8673,19 +8862,19 @@ def grupo_verbal(TIPO_DE_EXPERIENCIA_GV, AGENCIA, TIPO_DE_EXPERIENCIA_1, funcao_
                  tipo_de_orientacao_1,  OI_numero_1, genero_1,
                  OI_tipo_de_pessoa_1, padrao_pessoa_morfologia_1)
 			verbo2 = verbo_geral(TIPO_DE_EXPERIENCIA_2,
-			                     funcao_no_grupo_verbal_2, verbo_2, tipo_de_orientacao_2, 
+			                     funcao_no_grupo_verbal_2, verbo_2, tipo_de_orientacao_2,
 			                     OI_numero_2,
 			                     genero_2, OI_tipo_de_pessoa_2, padrao_pessoa_morfologia_2)
 			verbo3 = verbo_geral(TIPO_DE_EXPERIENCIA_3,
-			                     funcao_no_grupo_verbal_3, verbo_3, tipo_de_orientacao_3, 
+			                     funcao_no_grupo_verbal_3, verbo_3, tipo_de_orientacao_3,
 			                     OI_numero_3,
 			                     genero_3, OI_tipo_de_pessoa_3, padrao_pessoa_morfologia_3)
 			verbo4 = verbo_geral(TIPO_DE_EXPERIENCIA_4,
-			                     funcao_no_grupo_verbal_4, verbo_4, tipo_de_orientacao_4, 
+			                     funcao_no_grupo_verbal_4, verbo_4, tipo_de_orientacao_4,
 			                     OI_numero_4,
 			                     genero_4, OI_tipo_de_pessoa_4, padrao_pessoa_morfologia_4)
 			Evento = verbo_geral(TIPO_DE_EXPERIENCIA_LEX, funcao_no_grupo_verbal_POS_FINAL,
-			                     verbo_LEX, tipo_de_orientacao_LEX, 
+			                     verbo_LEX, tipo_de_orientacao_LEX,
 			                     OI_numero_LEX, genero_LEX, OI_tipo_de_pessoa_LEX
 			                     , padrao_pessoa_morfologia_LEX)
 
@@ -8699,15 +8888,15 @@ def grupo_verbal(TIPO_DE_EXPERIENCIA_GV, AGENCIA, TIPO_DE_EXPERIENCIA_1, funcao_
 			                     verbo_1, tipo_de_orientacao_1,  OI_numero_1,
 			                     genero_1, OI_tipo_de_pessoa_1, padrao_pessoa_morfologia_1)
 			verbo2 = verbo_geral(TIPO_DE_EXPERIENCIA_2,
-			                     funcao_no_grupo_verbal_2, verbo_2, tipo_de_orientacao_2, 
+			                     funcao_no_grupo_verbal_2, verbo_2, tipo_de_orientacao_2,
 			                     OI_numero_2,
 			                     genero_2, OI_tipo_de_pessoa_2, padrao_pessoa_morfologia_2)
 			verbo3 = verbo_geral(TIPO_DE_EXPERIENCIA_3,
-			                     funcao_no_grupo_verbal_3, verbo_3, tipo_de_orientacao_3, 
+			                     funcao_no_grupo_verbal_3, verbo_3, tipo_de_orientacao_3,
 			                     OI_numero_3,
 			                     genero_3, OI_tipo_de_pessoa_3, padrao_pessoa_morfologia_3)
 
-			verbos_passiva = realizacao_de_AGENCIA_passiva(verbo_4,tipo_de_orientacao_4, 
+			verbos_passiva = realizacao_de_AGENCIA_passiva(verbo_4,tipo_de_orientacao_4,
 			                                               OI_numero_4, genero_4, OI_tipo_de_pessoa_4,
 			                                               padrao_pessoa_morfologia_4, TIPO_DE_EXPERIENCIA_LEX,
 			                                               funcao_no_grupo_verbal_POS_FINAL, verbo_LEX,
@@ -9157,7 +9346,7 @@ def num_cardinal(tipoRealCard, cardNumerico, milharExtenso,
 	return numCardinal
 
 # num_cardinal("extenso", None, 'zero','duzentos', 'zero', 'zero', 'feminino')
-# 
+#
 # funcaoNumerativo = choice.Menu(['quant_precisa_absoluta(cardinais)',
 # 		                                 'quant_precisa_div/multi(fração/multiplicativos)',
 # 		                                 'quant_imprecisa_pron_indef_numer',
@@ -9393,9 +9582,9 @@ def formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado,numero,
     >>>formacao_da_estrutura_do_substantivo_comum(,
 
     '''
-	
+
 	if substantivo_lematizado[-1:] == 'm':
-		
+
 
 		if numero == 'singular':
 
@@ -9407,7 +9596,7 @@ def formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado,numero,
 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
 	elif substantivo_lematizado[-2:] == 'or':
-		
+
 		if genero == 'masculino' and numero == 'singular':
 
 			substantivo_comum = substantivo_lematizado
@@ -9437,7 +9626,7 @@ def formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado,numero,
 			morfema_flexao_substantivo = 's'
 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 	elif substantivo_lematizado[-2:] == 'ão':
-		
+
 		if (genero == 'masculino' and numero == 'singular'
 				or genero == 'não-binário' and numero == 'singular'):
 			substantivo_comum = substantivo_lematizado
@@ -9469,7 +9658,7 @@ def formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado,numero,
 			substantivo_comum = morfema_experiencial_do_substantivo + morfema_numero
 
 	elif (substantivo_lematizado[-1:] == 'r' or substantivo_lematizado[-1:] == 'z'):
-		
+
 		if genero == 'masculino' and numero == 'singular':
 			substantivo_comum = substantivo_lematizado
 
@@ -9608,16 +9797,16 @@ def deteccao_experiencia_do_adjetivo(adjetivo,genero,numero):  ##dado o adjetivo
 	if numero == 'singular':
 		if genero == 'masculino':
 			raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
-			
+
 		elif genero == 'feminino':
 			raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
 	elif numero == 'plural':
 		if genero == 'masculino':
 			raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
-	
+
 		elif genero == 'feminino':
 			raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
-	
+
 	return raiz_experiencial_adjetivo
 # deteccao_experiencia_do_adjetivo("esperto","masculino","singular")
 # #
@@ -9626,8 +9815,8 @@ def deteccao_experiencia_do_adjetivo(adjetivo,genero,numero):  ##dado o adjetivo
 def realizacao_experiencia_do_adjetivo(adjetivo_lematizado,genero):
 	'''(str)-> str
 	genero = choice.Menu(['masculino/feminino', 'não-binário']).ask()
-	adjetivo_lematizado = 
-    
+	adjetivo_lematizado =
+
     Retorna o morfema que realiza a experiência em um adjetivo, dado
     o adjetivo lematizado.
 
@@ -9651,7 +9840,7 @@ def realizacao_flexoes_adjetivos(genero,numero):
 
     Retorna os morfemas que realizam as flexões de gênero e número dados
     a experiência do adjetivo e os gênero e números desejados.
-	
+
 	genero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
 	numero = choice.Menu(['singular', 'plural']).ask()
     >>>realizacao_flexoes_adjetivos()
@@ -9660,7 +9849,7 @@ def realizacao_flexoes_adjetivos(genero,numero):
 	if numero == 'singular':
 		if genero == 'masculino':
 			morfema_flexao_adjetivo = 'o'
-	
+
 		elif genero == 'feminino':
 			morfema_flexao_adjetivo = 'a'
 		elif genero == 'não-binário':
@@ -9672,7 +9861,7 @@ def realizacao_flexoes_adjetivos(genero,numero):
 
 		elif genero == 'feminino' and numero == 'plural':
 			morfema_flexao_adjetivo = 'as'
-		
+
 		elif genero == 'não-binário':
 			morfema_flexao_adjetivo = 's'
 
@@ -9684,10 +9873,10 @@ def adjetivo_modificador(adjModificacao,adjetivo_lematizado,genero,numero):
 
     Retorna a realizacao de um adjetivo comum dados a experiência_do_adjetivo
     e as flexões_desejadas.
-    
+
     print('Há realizacao de adjetivo com funções de modificação (class, epítetos)?')
 	real_modificadores = choice.Menu(['sim', 'NA']).ask()
-	
+
 	adjetivo_lematizado = input('Qual é o adjetivo lematizado?')
 	genero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
 	numero = choice.Menu(['singular', 'plural']).ask()
@@ -9744,17 +9933,17 @@ def realizacao_pronominal_casoreto(pessoa_da_interlocucao,genero,numero,morfolog
     Retorna o pronome adequado dado uma pessoa da intelocução.
 	pessoa_da_interlocucao = choice.Menu(['falante', 'ouvinte', 'não_interlocutor']).ask()
 	numero = choice.Menu(['singular', 'plural']).ask()
-	morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()	
+	morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
     >>>realizacao_pronominal_casoreto ('','')
     'eu'
     '''
-	
+
 	if pessoa_da_interlocucao == 'falante' and numero == 'singular':
 		pronome_pessoal_reto = 'eu'
-		
+
 
 	elif pessoa_da_interlocucao == 'ouvinte' and numero == 'singular':
-		
+
 		if morfologia_do_pronome == 'padrão':
 			pronome_pessoal_reto = 'tu'
 		else:
@@ -9770,14 +9959,14 @@ def realizacao_pronominal_casoreto(pessoa_da_interlocucao,genero,numero,morfolog
 		pronome_pessoal_reto = 'nós'
 
 	elif pessoa_da_interlocucao == 'ouvinte' and numero == 'plural':
-		
+
 		if morfologia_do_pronome == 'padrão':
 			pronome_pessoal_reto = 'vós'
 		else:
 			pronome_pessoal_reto = 'vocês'
 
 	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural':
-		
+
 		if genero == 'masculino':
 			pronome_pessoal_reto = 'eles'
 		else:
@@ -10252,21 +10441,21 @@ def Dêitico_pess(DETERMINAÇÃO_espeficifidade,ORIENTAÇÃO,pessoa_da_interlocu
 # Dêitico_pess('específico','orientação_específica_pessoa','2p','plural','feminino','padrão')
 
 
-# ##talvez não use 
+# ##talvez não use
 # def Dêitico_genérico(DETERMINAÇÃO_espeficifidade):
-# 	
+#
 # 	'''
-# 	
+#
 # 	DETERMINAÇÃO_espeficifidade = choice.Menu(['genérico(contável)', 'genérico(de_massa)']).ask()
-# 	
-# 	:return: 
+#
+# 	:return:
 # 	'''
-# 	
-# 
+#
+#
 # 	if (DETERMINAÇÃO_espeficifidade == 'genérico(de_massa)' or
 # 			DETERMINAÇÃO_espeficifidade == 'genérico(contável)'):
 # 		determinante = ''  # Neste caso, o grupo nominal CONTÁVEL é realizado no plural e o DE MASSA no singular
-# 
+#
 # 	return determinante
 # #
 
@@ -10322,7 +10511,7 @@ def Dêixis_geral(DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
 		return beta + ' ' + alpha
 	else:
 		return (re.sub(' +', '',( beta + ' ' + alpha) ))
-	
+
 
 #
 # Dêixis_geral( None,None,
@@ -10372,13 +10561,13 @@ def Ente(tipo_de_Ente,tipo_de_nao_consciente,tipo_de_nao_consciente_material,
 
 
 	elif tipo_de_Ente == 'não_consciente':
-		
+
 		if tipo_de_nao_consciente == 'material':
 			if (tipo_de_nao_consciente_material == 'animal' or
 					tipo_de_nao_consciente_material == 'objeto_material' or
 					tipo_de_nao_consciente_material == 'substância_material' or \
 					tipo_de_nao_consciente_material == 'abstração_material'):
-				
+
 				if classe_palavra_Ente == 'substantivo_comum':
 					Ente = formacao_da_estrutura_do_substantivo_comum(substantivo_lematizado, numero, genero,
 																	  tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica)
@@ -10588,19 +10777,19 @@ def estrutura_GN(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=Non
 				 ORIENTAÇÃO_alpha,gênero_alpha,número_alpha,morfologia_do_pronome_alpha,
 				 pessoa_da_interlocução_possuidor,número_obj_possuído,
 				 gênero_obj_possuído,pessoa_da_interlocução_proximidade)
-		
+
 		numerativo = Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
 			   milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido)
-		
+
 		ente = Ente(tipo_de_Ente,tipo_de_nao_consciente,tipo_de_nao_consciente_material,
 		 tipo_de_nao_consciente_semiotico,classe_palavra_Ente,substantivo_lematizado,numero,
 		genero, tipo_feminino_ÃO, tipo_masc_ÃO,acentTonica,nomeProprio,pessoa_da_interlocucao,
 		 transitividade_verbo,tonicidade,morfologia_do_pronome,reflexivo)
-		
+
 		Classificador = adjetivo_modificador(classificadorModificacao,adjetivo_classificador,genero,numero)
-		
+
 		Epíteto = adjetivo_modificador(epitetoModificacao,adjetivo_epiteto,genero,numero)
-		
+
 		Qualificador = qualificador(temQualificador,tipoQualificador,indicePreposicao,DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
 				 gênero_beta,número_beta,morfologia_do_pronome_beta,
 				 DETERMINAÇÃO_espeficifidade_alpha,ORIENTAÇÃO_alpha,gênero_alpha,
@@ -10752,7 +10941,7 @@ def frase_preposicional(indicePreposicao=None, dissocEnteNucleo=None, temQualifi
 		      grupo_nominal[:2] == 'un' or
 		      grupo_nominal[:2] == 'el' or
 		      grupo_nominal[:4] == 'outr'):
-			
+
 			if contracao == '+contração':
 				frase_prep = (prep[slice(-1)]) + grupo_nominal
 			else:
