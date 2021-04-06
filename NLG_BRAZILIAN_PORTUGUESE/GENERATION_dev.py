@@ -117,7 +117,6 @@ def adverbio_duvida(indice=None):
 
 def adverbio(tipo_de_adverbio, indice):
 	"""
-    HHHH
     """
 	#    modo_insercao = choice.Menu(['insercao_manual','insercao_menu']).ask()
 
@@ -8945,223 +8944,180 @@ def grupo_verbal(TIPO_DE_EXPERIENCIA_GV, AGENCIA, TIPO_DE_EXPERIENCIA_1, funcao_
 
 ###########################################
 #
-#
-# def grupo_conjuntivo():
-# 	'''
-#     '''
-#
-# 	modo_insercao = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
-#
-# 	if modo_insercao == 'inserção_manual':
-# 		conjuncao = input('Escreva a conjunção desejada:')
-#
-# 	elif modo_insercao == 'inserção_menu':
-#
-# 		print('Qual o tipo_pessoa de conjunção?')
+
+def adverbio_modo(indice=None):
+	opcoes = ['bem','mal','assim','adrede',
+			  'melhor','pior','depressa','devagar',
+			  'acinte','debalde','cuidadosamente','calmamente',
+			  'tristemente']
+	nums = [x for x in range(len(opcoes))]
+	adverbios = dict(zip(nums, opcoes))
+	adverbio = adverbios[indice]
+	return adverbio
+
+#####
+# modo_insercao = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
+# print('Qual o tipo_pessoa de conjunção?')
 # 		tipo_de_conjuncao = choice.Menu(['paratática(linker)', 'hipotática(binder)']).ask()
-#
-# 		if tipo_de_conjuncao == 'paratática(linker)':
-# 			print('Qual o tipo_pessoa da conjunção paratática(linker)?')
-# 			tipo_de_paratática = choice.Menu(['Aditiva', 'Adversativa', 'Conclusiva',
+# print('Qual o tipo_pessoa da conjunção paratática(linker)?')
+# 			tipo_de_paratatica = ['Aditiva', 'Adversativa', 'Conclusiva',
 # 			                                  'Alternativa',
-# 			                                  'Explicativa']).ask()
-# 			if tipo_de_paratática == 'Aditiva':
-# 				conjuncao = choice.Menu(['e', 'mas ainda', 'mas também', 'nem']).ask()
+# 			                                  'Explicativa']
 #
-# 			elif tipo_de_paratática == 'Adversativa':
-# 				conjuncao = choice.Menu(['contudo', 'entretanto', 'mas',
-# 				                         'não obstante', 'no entanto',
-# 				                         'porém', 'todavia']).ask()
-#
-# 			elif tipo_de_paratática == 'Alternativa':  # PRECISO VER COMO IMPLEMENTAR UM COMPLEXO COM ESTE TIPO
-# 				conjuncao = choice.Menu(['já', 'ou', 'ora',
-# 				                         'quer']).ask()
-#
-# 			elif tipo_de_paratática == 'Conclusiva':
-# 				conjuncao = choice.Menu(['assim', 'então', 'logo',
-# 				                         'por conseguinte', 'por isso',
-# 				                         'portanto']).ask()
-#
-# 			elif tipo_de_paratática == 'Explicativa':
-# 				conjuncao = choice.Menu(['pois', 'porquanto', 'porque',
-# 				                         'que']).ask()
-#
-# 		elif tipo_de_conjuncao == 'hipotática(binder)':
-# 			print('Qual o tipo_pessoa da conjunção hipotática(binder)?')
-# 			tipo_de_hipotática = choice.Menu(['Causal', 'Concessiva', 'Condicional',
+# tipo_de_hipotática = choice.Menu(['Causal', 'Concessiva', 'Condicional',
 # 			                                  'Conformativa', 'Final', 'Proporcional',
 # 			                                  'Temporal', 'Comparativa', 'Consecutiva',
 # 			                                  'Integrante', 'Relativa']).ask()
+
+
+def grupo_conjuntivo(tipo_insercao='inserção_menu',
+					 conj_extenso=None,tipo_de_conjuncao=None, indice=None):
+	"""
+
+	:param tipo_insercao:'inserção_manual', 'inserção_menu'
+	:param conj_extenso: 'inserida manualmente'
+	:param tipo_de_conjuncao: 'paratática_adversativa','paratática_alternativa','paratática_conclusiva','paratática_explicativa'
+	'hipotática_causal','hipotática_concessiva','hipotática_condicional','hipotática_conformativa','hipotática_proporcional','hipotática_temporal','hipotática_comparativa','hipotática_consecutiva'
+	'hipotática_integrante','hipotática_relativa'
+	:return:
+	"""
+
+
+	if tipo_insercao == 'inserção_manual':
+		conjuncao = conj_extenso
+
+	elif tipo_insercao == 'inserção_menu':
+
+		if tipo_de_conjuncao == 'paratática_aditiva':
+			opçoes = ['e', 'mas ainda', 'mas também', 'nem']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'paratática_adversativa':
+			opcoes = ['contudo', 'entretanto', 'mas',
+									 'não obstante', 'no entanto',
+									 'porém', 'todavia']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'paratática_alternativa':  # PRECISO VER COMO IMPLEMENTAR UM COMPLEXO COM ESTE TIPO
+			opcoes = ['já', 'ou', 'ora','quer']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'paratática_conclusiva':
+			opcoes = ['assim', 'então', 'logo',
+									 'por conseguinte', 'por isso',
+									 'portanto']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'paratática_explicativa':
+			opcoes = ['pois', 'porquanto', 'porque','que']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'hipotática_causal':
+			opcoes = ['porque', 'pois', 'porquanto',
+					  'como', 'pois que', 'por isso que',
+					  'á que', 'uma vez que', 'visto que',
+					  'visto como', 'que']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'hipotática_concessiva':
+			opcoes = ['embora', 'conquanto', 'ainda que',
+									 'mesmo que', 'posto que', 'bem que',
+									 'se bem que', 'apesar de que', 'nem que',
+									 'que']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'hipotática_condicional':
+			opcoes =['se', 'caso', 'quando',
+									 'conquanto que', 'salvo se', 'sem que',
+									 'dado que', 'desde que', 'a menos que',
+									 'a não ser que']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'hipotática_conformativa':
+			opcoes = ['conforme', 'como','segundo', 'consoante']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+		elif tipo_de_conjuncao == 'Final':
+			opcoes = ['para que',
+					  'a fim de que', 'porque',
+					  'que']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+
+		elif tipo_de_conjuncao == 'hipotática_proporcional':
+			opcoes = ['à medida que', 'ao passo que', 'à proporção que',
+					  'enquanto', 'quanto mais',
+					  'quanto menos']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+
+		elif tipo_de_conjuncao == 'hipotática_temporal':
+			opcoes = ['quando', 'antes que',
+					  'depois que', 'até que', 'logo que',
+					  'sempre que', 'assim que', 'desde que',
+					  'todas as vezes que', 'cada vez que', 'apenas',
+					  'mal', 'desde que']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'hipotática_comparativa':
+			opcoes = ['mais que', 'mais do que',
+					  'menos que', 'maior que', 'menor que',
+					  'melhor que', 'pior que',
+					  'menos do que', 'maior do que',
+					  'menor do que', 'melhor do que',
+					  'pior do que']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'hipotática_consecutiva':
+			opcoes = ['De modo que', 'De maneira que']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'hipotática_integrante':
+			opcoes = ['que', 'se']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+		elif tipo_de_conjuncao == 'hipotática_relativa':
+			opcoes = ['porque', 'pois', 'porquanto',
+					  'como', 'pois que', 'por isso que',
+					  'á que', 'uma vez que', 'visto que',
+					  'visto como', 'que']
+			nums = [x for x in range(len(opcoes))]
+			conjuncoes = dict(zip(nums, opcoes))
+			conjuncao = conjuncoes[indice]
+
+	return conjuncao
+
+# grupo_conjuntivo(tipo_insercao='inserção_menu', conj_extenso=None,tipo_de_conjuncao="hipotática_relativa",indice=2)
 #
-# 			if tipo_de_hipotática == 'Causal':
-# 				conjuncao = choice.Menu(['porque', 'pois', 'porquanto',
-# 				                         'como', 'pois que', 'por isso que',
-# 				                         'á que', 'uma vez que', 'visto que',
-# 				                         'visto como', 'que']).ask()
-#
-#
-# 			elif tipo_de_hipotática == 'Concessiva':
-# 				conjuncao = choice.Menu(['embora', 'conquanto', 'ainda que',
-# 				                         'mesmo que', 'posto que', 'bem que',
-# 				                         'se bem que', 'apesar de que', 'nem que',
-# 				                         'que']).ask()
-#
-#
-# 			elif tipo_de_hipotática == 'Condicional':
-# 				conjuncao = choice.Menu(['se', 'caso', 'quando',
-# 				                         'conquanto que', 'salvo se', 'sem que',
-# 				                         'dado que', 'desde que', 'a menos que',
-# 				                         'a não ser que']).ask()
-#
-#
-# 			elif tipo_de_hipotática == 'Conformativa':
-# 				conjuncao = choice.Menu(['conforme', 'como', ''
-# 				                                             'segundo', 'consoante']).ask()
-#
-# 			elif tipo_de_hipotática == 'Final':
-# 				conjuncao = choice.Menu(['para que',
-# 				                         'a fim de que', 'porque',
-# 				                         'que']).ask()
-#
-#
-# 			elif tipo_de_hipotática == 'Proporcional':
-# 				conjuncao = choice.Menu(['à medida que', 'ao passo que', 'à proporção que',
-# 				                         'enquanto', 'quanto mais',
-# 				                         'quanto menos']).ask()
-#
-#
-# 			elif tipo_de_hipotática == 'Temporal':
-# 				conjuncao = choice.Menu(['quando', 'antes que',
-# 				                         'depois que', 'até que', 'logo que',
-# 				                         'sempre que', 'assim que', 'desde que',
-# 				                         'todas as vezes que', 'cada vez que', 'apenas',
-# 				                         'mal', 'desde que']).ask()
-#
-# 			elif tipo_de_hipotática == 'Comparativa':
-# 				conjuncao = choice.Menu(['mais que', 'mais do que',
-# 				                         'menos que', 'maior que', 'menor que',
-# 				                         'melhor que', 'pior que',
-# 				                         'menos do que', 'maior do que',
-# 				                         'menor do que', 'melhor do que',
-# 				                         'pior do que']).ask()
-#
-# 			elif tipo_de_hipotática == 'Consecutiva':
-# 				conjuncao = choice.Menu(['De modo que', 'De maneira que']).ask()
-#
-# 			elif tipo_de_hipotática == 'Integrante':
-# 				conjuncao = choice.Menu(['que', 'se']).ask()
-#
-# 			elif tipo_de_hipotática == 'Relativa':
-# 				conjuncao = choice.Menu(['porque', 'pois', 'porquanto',
-# 				                         'como', 'pois que', 'por isso que',
-# 				                         'á que', 'uma vez que', 'visto que',
-# 				                         'visto como', 'que']).ask()
-#
-# 	return conjuncao
-#
-#
-# # def conjunção_continuativa():
-# # 	'''
-# #     '''
-# # 	print('Qual o modo de inserção da conjunção?')
-# # 	modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
-# #
-# # 	if modo_inserção == 'inserção_manual':
-# # 		conjunção_continuativa = input('Escreva o continuativo desejado:')
-# #
-# # 	elif modo_inserção == 'inserção_menu':
-# # 		print('Escolha um continuativo:')
-# # 		conjunção_continuativa = input("""
-# #                                  1:e
-# #                                  2:é
-# #                                  3:ah
-# #                                  4:mas
-# #                                  5:sim
-# #                                  6:bem
-# #                                  7:não
-# #                                  8:agora
-# #                                  9:então
-# #                                  10:pois é
-# #                                  11:tipo_pessoa
-# #                                  12:tipo_pessoa assim
-# #                                  13:ó
-# #                                  14:daí
-# #                                  15:aí
-# #                                  16:aí então
-# #                                  17:quer
-# #                                  18:dizer
-# #                                  19:assim
-# #                                  20:em
-# #                                  21:seguida
-# #                                  22:por fim
-# #                                  23:porque
-# #                                  24:porém
-# #                                  25:também
-# #                                  26:é que
-# #                                  27:olha
-# #
-# #
-# #
-# #                                Escolha uma opção:""")
-# #
-# # 		if conjunção_continuativa == '1':
-# # 			conjunção_continuativa = 'e'
-# # 		elif conjunção_continuativa == '2':
-# # 			conjunção_continuativa = 'é'
-# # 		elif conjunção_continuativa == '3':
-# # 			conjunção_continuativa = 'ah'
-# # 		elif conjunção_continuativa == '4':
-# # 			conjunção_continuativa = 'mas'
-# # 		elif conjunção_continuativa == '5':
-# # 			conjunção_continuativa = 'sim'
-# # 		elif conjunção_continuativa == '6':
-# # 			conjunção_continuativa = 'bem'
-# # 		elif conjunção_continuativa == '7':
-# # 			conjunção_continuativa = 'não'
-# # 		elif conjunção_continuativa == '8':
-# # 			conjunção_continuativa = 'agora'
-# # 		elif conjunção_continuativa == '9':
-# # 			conjunção_continuativa = 'então'
-# # 		elif conjunção_continuativa == '10':
-# # 			conjunção_continuativa = 'pois é'
-# # 		elif conjunção_continuativa == '11':
-# # 			conjunção_continuativa = 'tipo'
-# # 		elif conjunção_continuativa == '12':
-# # 			conjunção_continuativa = 'tipo_pessoa assim '
-# # 		elif conjunção_continuativa == '13':
-# # 			conjunção_continuativa = 'ó'
-# # 		elif conjunção_continuativa == '14':
-# # 			conjunção_continuativa = 'daí'
-# # 		elif conjunção_continuativa == '15':
-# # 			conjunção_continuativa = 'aí'
-# # 		elif conjunção_continuativa == '16':
-# # 			conjunção_continuativa = 'aí então '
-# # 		elif conjunção_continuativa == '17':
-# # 			conjunção_continuativa = 'quer'
-# # 		elif conjunção_continuativa == '18':
-# # 			conjunção_continuativa = 'dizer'
-# # 		elif conjunção_continuativa == '19':
-# # 			conjunção_continuativa = 'assim'
-# # 		elif conjunção_continuativa == '20':
-# # 			conjunção_continuativa = 'em'
-# # 		elif conjunção_continuativa == '21':
-# # 			conjunção_continuativa = 'seguida'
-# # 		elif conjunção_continuativa == '22':
-# # 			conjunção_continuativa = 'por fim'
-# # 		elif conjunção_continuativa == '23':
-# # 			conjunção_continuativa = 'porque'
-# # 		elif conjunção_continuativa == '24':
-# # 			conjunção_continuativa = 'porém'
-# # 		elif conjunção_continuativa == '25':
-# # 			conjunção_continuativa = 'também'
-# #
-# # 		elif conjunção_continuativa == '26':
-# # 			conjunção_continuativa = 'é que'
-# # 		elif conjunção_continuativa == '27':
-# # 			conjunção_continuativa = 'olha'
-# #
-# # 	return conjunção_continuativa
-# #
 # #
 # # ###ESSE TRECHO QUE SEGUE É PRA GUARDAR PRO CASO DE PRECISAR FICAR MAIS ESPECÍFICO NO GRUPO_VERBAL
 # # #
@@ -10089,58 +10045,88 @@ def realizacao_pronome_caso_obliquo(transitividade_verbo,tonicidade,pessoa_da_in
 # realizacao_pronome_caso_obliquo("indireto",'tônico',"não_interlocutor",'singular','feminino',"padrão")
 
 ##TENHO QUE VER SE FAZ SENTIDO MUDAR ESTA(inserir parâmetros??)
-# def pronome_relativo():
-# 	'''
-#     '''
-# 	modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
+	modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
+	print('Qual tipo_pessoa de relativo?')
+	tipo_pronome_relativo = choice.Menu(['variável', 'invariável']).ask()
+
+
+def pronome_relativo(tipo_insercao="inserção_menu",pron_extenso=None,tipo_pronome_relativo=None,
+					 genero=None,numero=None, indice=None):
+	"""
+
+	:param tipo_insercao: 'inserção_manual', 'inserção_menu'
+	:param pron_extenso: entre o pronome
+	:param tipo_pronome_relativo: 'variável', 'invariável'
+	:param genero: 'masculino','feminino'
+	:param numero: 'singular','plural'
+	:param indice: entre um integer com índice
+	:return:
+	"""
+	if tipo_insercao == 'inserção_manual':
+		pronome_relativo = pron_extenso
+
+	elif tipo_insercao == 'inserção_menu':
+
+		if tipo_pronome_relativo == 'variável':
+			if numero == "plural":
+				if genero == 'masculino':
+					opcoes = ['os quais', 'cujos', 'quantos', 'pelos quais']
+					nums = [x for x in range(len(opcoes))]
+					relativos = dict(zip(nums, opcoes))
+					pronome_relativo = relativos[indice]
+
+				elif genero == 'feminino':
+					opcoes = ['as quais', 'cujas', 'quantas', 'pelas quais']
+					nums = [x for x in range(len(opcoes))]
+					relativos = dict(zip(nums, opcoes))
+					pronome_relativo = relativos[indice]
+
+			elif numero == "singular":
+				if genero == 'masculino':
+					opcoes = ['o qual', 'cujo', 'quanto', 'pelo qual']
+					nums = [x for x in range(len(opcoes))]
+					relativos = dict(zip(nums, opcoes))
+					pronome_relativo = relativos[indice]
+
+				elif genero == 'feminino':
+					opcoes = ['a qual', 'cuja', 'quanta', 'pela qual']
+					nums = [x for x in range(len(opcoes))]
+					relativos = dict(zip(nums, opcoes))
+					pronome_relativo = relativos[indice]
+
+		elif tipo_pronome_relativo == 'invariável':
+			opcoes = ['quem', 'que',
+					  'a quem', 'a que', 'porque', 'como']
+			nums = [x for x in range(len(opcoes))]
+			relativos = dict(zip(nums, opcoes))
+			pronome_relativo = relativos[indice]
+
+	return pronome_relativo
+# pronome_relativo(tipo_insercao="inserção_menu",pron_extenso=None,tipo_pronome_relativo='variável',genero='masculino',numero='singular', indice=3)
+# pronome_relativo(tipo_insercao="inserção_menu",pron_extenso=None,tipo_pronome_relativo='variável',genero='masculino',numero='plural', indice=3)
 #
-# 	if modo_inserção == 'inserção_manual':
-# 		pronome_relativo = input('Escreva o pronome desejado:')
-#
-# 	elif modo_inserção == 'inserção_menu':
-#
-# 		print('Qual tipo_pessoa de relativo?')
-# 		tipo_pronome_relativo = choice.Menu(['variável', 'invariável']).ask()
-# 		if tipo_pronome_relativo == 'variável':
-#
-# 			print('Qual o gênero?')
-# 			gênero = choice.Menu(['masculino', 'feminino']).ask()
-# 			print('Qual o número?')
-# 			número = choice.Menu(['singular', 'plural']).ask()
-#
-# 			if gênero == 'masculino' and número == 'singular':
-# 				pronome_relativo = choice.Menu(['o qual', 'cujo', 'quanto', 'pelo qual']).ask()
-#
-# 			elif gênero == 'masculino' and número == 'plural':
-# 				pronome_relativo = choice.Menu(['os quais', 'cujos', 'quantos', 'pelos quais']).ask()
-#
-# 			elif gênero == 'feminino' and número == 'singular':
-# 				pronome_relativo = choice.Menu(['a qual', 'cuja', 'quanta', 'pela qual']).ask()
-#
-# 			elif gênero == 'feminino' and número == 'plural':
-# 				pronome_relativo = choice.Menu(['as quais', 'cujas', 'quantas', 'pelas quais']).ask()
-#
-# 		elif tipo_pronome_relativo == 'invariável':
-# 			pronome_relativo = choice.Menu(['quem', 'que',
-# 			                                'a quem', 'a que', 'porque', 'como']).ask()
-#
-# 	return pronome_relativo
+# pronome_relativo(tipo_insercao="inserção_menu",pron_extenso=None,tipo_pronome_relativo='invariável',indice=3)
 
 # #
 # # ##PRECISO IMPLEMENTAR LETRA MAIÚSCULA NO CASO DE INICIO DE FRASE.
 # # # SUBSTANTIVOS PRÓPRIOS VIRÃO DA LISTA DE NOMES PRÓPRIOS ANOTADOS NA GUM
 # # # Por enquanto, vou deixar um input
 # #
-# #
-# # def nome_próprio():
-# # 	'''(str)->str
-# #     Retorna o nome próprio. #Futuramente parte das listas de léxicos
-# #     advindas da anotação na GUM.
-# #     '''
-# # 	nome_próprio = input('Qual é o nome próprio?')
-# # 	return nome_próprio.capitalize()
-# #
-# #
+
+def nome_proprio(nome=None):
+	'''(str)->str
+    Retorna o nome próprio. #Futuramente parte das listas de léxicos
+    advindas da anotação na GUM.
+    '''
+	resul = nome
+	try:
+		return resul.capitalize()
+	except:
+		resul=''
+		return resul
+
+# nome_proprio('andre')
+
 # # ####DÊIXIS DO GN
 # #
 
@@ -10987,7 +10973,7 @@ def frase_preposicional(indicePreposicao=None, dissocEnteNucleo=None, temQualifi
 	else:
 		frase_prep = prep + ' ' + grupo_nominal
 	return frase_prep
-
+#
 # for i in range(12):
 # 	frase = frase_preposicional(indicePreposicao=i,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,
 # 					DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
@@ -11001,33 +10987,33 @@ def frase_preposicional(indicePreposicao=None, dissocEnteNucleo=None, temQualifi
 # 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
 # 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
 # 			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-# 			 tipo_de_nao_consciente_material='animal',
+# 			 tipo_de_nao_consciente_material='objeto_material',
 # 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
-# 			 substantivo_lematizado='gato', numero='plural',
+# 			 substantivo_lematizado='prédio', numero='plural',
 # 			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
 # 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-# 			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+# 			 epitetoModificacao='sim',adjetivo_epiteto='alto',
 # 			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração')
 # 	print(frase)
-# estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
-# 			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-# 			 gênero_alpha='masculino',
-# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-# 			 pessoa_da_interlocução_possuidor='1s',
-# 			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
-# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
-# 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
-# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
-# 			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-# 			 tipo_de_nao_consciente_material='animal',
-# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
-# 			 substantivo_lematizado='gato', numero='plural',
-# 			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
-# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-# 			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
-# 			 classificadorModificacao=None,adjetivo_classificador=None)
+estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
+			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+			 gênero_alpha='masculino',
+			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+			 pessoa_da_interlocução_possuidor='1s',
+			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+			 tipo_de_nao_consciente_material='animal',
+			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+			 substantivo_lematizado='gato', numero='plural',
+			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
+			 classificadorModificacao=None,adjetivo_classificador=None)
 
 # # ############ORDEM DA ORAÇÃO
 # print('Há circunstância?')
@@ -11337,93 +11323,291 @@ def TIPO_AVALIACAO_MODAL(AVALIACAO=None,POLARIDADE=None):
 ##para o sistema de modo, AINDA não considerei o subsistema de VALIDAÇÃO. (será implementado)
 
 def MODO(RESPONSABILIDADE=None,PRESSUPOSICAO_DO_SUJEITO=None,TIPO_MODO=None):
-	'''
-    '''
+	"""
+
+	:param RESPONSABILIDADE: SUJ_responsável','SUJ_distante_impessoal',
+	                        'SUJ_distante_não_responsável', 'SUJ_-sujeitabilidade'
+	:param PRESSUPOSICAO_DO_SUJEITO:'recuperado_explícito', 'recuperado_implícito',
+	                                'não_recuperável', 'recuperação_NA'
+	:param TIPO_MODO: 'MOD_declarativo_+perguntafinito', 'MOD_declarativo_-perguntafinito',
+	                   'MOD_interrogativo_elemental','MOD_interrogativo_polar',
+	                   'MOD_imperativo'
+	:return:
+	"""
 	MODO = SUJEITABILIDADE(RESPONSABILIDADE,PRESSUPOSICAO_DO_SUJEITO) + '_' + TIPO_DE_MODO(TIPO_MODO)
 	return MODO
 
-
+# MODO(RESPONSABILIDADE="SUJ_responsável",PRESSUPOSICAO_DO_SUJEITO="recuperado_explícito",TIPO_MODO="MOD_declarativo_-perguntafinito")
 # # # A DÊIXIS: VER, POIS ELA É DECIDIDA DESDE A ORDEM DA PALAVRA...
 # #
 # #
 # # # TEMA
 # #
-# #
-# # def TEMA_TEXTUAL():
-# # 	'''
-# #     '''
-# # 	print('Há TEMA TEXTUAL?')
-# # 	Tema_textual = choice.Menu(['sim', 'não']).ask()
-# # 	if Tema_textual == 'não':
-# # 		TEMA_TEXTUAL = ''
-# # 	else:
-# # 		print('Há TEMA TEXTUAL continuativo?')
-# # 		tem_continuativo = choice.Menu(['sim', 'não']).ask()
-# # 		if tem_continuativo == 'não':
-# # 			TEMA_CONTINUATIVO = ''
-# # 		else:
-# # 			TEMA_CONTINUATIVO = conjunção_continuativa() + ','
-# # 		print('Há TEMA TEXTUAL conjuntivo?')
-# # 		tem_conjuntivo = choice.Menu(['sim', 'não']).ask()
-# # 		if tem_conjuntivo == 'não':
-# # 			TEMA_CONJUNTIVO = ''
-# # 		else:
-# # 			TEMA_CONJUNTIVO = grupo_conjuntivo()
-# # 		print('Há TEMA TEXTUAL relativo?')
-# # 		tem_relativo = choice.Menu(['sim', 'não']).ask()
-# # 		if tem_relativo == 'não':
-# # 			TEMA_RELATIVO = ''
-# # 		elif tem_relativo == 'sim':
-# # 			print('Qual a tipo_pessoa de relativo?')
-# # 			tipo_de_relativo = choice.Menu(['nominal', 'adverbial']).ask()
-# # 			if tipo_de_relativo == 'nominal':
-# # 				TEMA_RELATIVO = pronome_relativo()
-# # 			elif tipo_de_relativo == 'adverbial':
-# # 				TEMA_RELATIVO = choice.Menu(['de onde', 'quando',
-# # 				                             'onde', 'de quando', 'que', 'por onde']).ask()
-# #
-# # 		TEMA_TEXTUAL = TEMA_CONTINUATIVO + TEMA_CONJUNTIVO + TEMA_RELATIVO
-# #
-# # 	return TEMA_TEXTUAL
-# #
-# #
-# # def TEMA_INTERPESSOAL():
-# # 	'''
-# #     '''
-# #
-# # 	print('Há TEMA INTERPESSOAL?')
-# #
-# # 	Tema_interpessoal = choice.Menu(['sim', 'não']).ask()
-# # 	if Tema_interpessoal == 'não':
-# # 		TEMA_INTERPESSOAL = ''
-# #
-# # 	elif Tema_interpessoal == 'sim':  ###POR ENQUANTO, TRABALHANDO COM A realizacao DE APENAS 1 TEMA INTERPESSOAL
-# #
-# # 		TIPO_TEMA_INTERPESSOAL = choice.Menu(['TI_avaliação_modo', 'TI_avaliação_comentário',
-# # 		                                      'TI_encenação_troca', 'TI_encenação_papel_falante', 'TI_polaridade',
-# # 		                                      'TI_encenação_papel_ouvinte',
-# # 		                                      'TI_NA']).ask()
-# #
-# # 		if (TIPO_TEMA_INTERPESSOAL == 'TI_avaliação_modo' or TIPO_TEMA_INTERPESSOAL == 'TI_avaliação_comentário' or
-# # 				TIPO_TEMA_INTERPESSOAL == 'TI_polaridade'):
-# #
-# # 			tipo_realizacao = choice.Menu(['grupo_adverbial', 'frase_preposicional']).ask()
-# # 			if tipo_realizacao == 'grupo_adverbial':
-# # 				TEMA_INTERPESSOAL = advérbio() \
-# # 			else:
-# # 				TEMA_INTERPESSOAL = frase_preposicional()
-# #
-# # 		elif TIPO_TEMA_INTERPESSOAL == 'TI_encenação_troca':
-# # 			TEMA_INTERPESSOAL = elemento_qu()
-# #
-# # 		elif TIPO_TEMA_INTERPESSOAL == 'TI_encenação_papel_falante':
-# # 			TEMA_INTERPESSOAL = partícula_modal()
-# # 		elif TIPO_TEMA_INTERPESSOAL == 'TI_encenação_papel_ouvinte':
-# # 			TEMA_INTERPESSOAL = nome_próprio()  ##talvez um pronome, mas por enquanto vou deixar so o nome
-# #
-# # 	return TEMA_INTERPESSOAL
-# #
-# #
+Tema_textual = choice.Menu(['+', '-']).ask()
+print('Há TEMA TEXTUAL continuativo?')
+		tem_continuativo = choice.Menu(['sim', 'não']).ask()
+print('Há TEMA TEXTUAL continuativo?')
+		tem_continuativo = choice.Menu(['sim', 'não']).ask()
+		if tem_continuativo == 'não':
+			TEMA_CONTINUATIVO = ''
+		else:
+			TEMA_CONTINUATIVO = conjunção_continuativa() + ','
+		print('Há TEMA TEXTUAL conjuntivo?')
+		tem_conjuntivo = choice.Menu(['sim', 'não']).ask()
+		if tem_conjuntivo == 'não':
+			TEMA_CONJUNTIVO = ''
+		else:
+			TEMA_CONJUNTIVO = grupo_conjuntivo()
+		print('Há TEMA TEXTUAL relativo?')
+		tem_relativo = choice.Menu(['sim', 'não']).ask()
+		if tem_relativo == 'não':
+			TEMA_RELATIVO = ''
+		elif tem_relativo == 'sim':
+			print('Qual a tipo_pessoa de relativo?')
+			tipo_de_relativo = choice.Menu(['nominal', 'adverbial']).ask()
+			if tipo_de_relativo == 'nominal':
+				TEMA_RELATIVO = pronome_relativo()
+			elif tipo_de_relativo == 'adverbial':
+				TEMA_RELATIVO = choice.Menu(['de onde', 'quando',
+				                             'onde', 'de quando', 'que', 'por onde']).ask()
+
+
+def conjuncao_continuativa(tipo_insercao="inserção_menu",indice=None,conj_extenso=None):
+	"""
+
+	:param tipo_insercao: "inserção_menu", "inserção_extenso"
+	:param indice:  0"e",1"é",2"ah",3'mas',4'sim',5'bem',6'não',7'agora',8'então',9'pois é',10'assim'
+				 ,11'ó',12'daí',13'aí' ,14'aí então',15'quer dizer',16'assim',17'em seguida',18'por fim'
+				  ,19'porque',20'porém',21'também',22'é que',23'olha'
+	:param conj_extenso:
+	:return:
+	"""
+	if tipo_insercao == "inserção_menu":
+		opcoes = [ "e","é","ah",'mas','sim','bem','não','agora','então','pois é','assim'
+				 ,'ó','daí','aí' ,'aí então','quer dizer','assim','em seguida','por fim'
+				  ,'porque','porém','também','é que','olha']
+
+		nums = [x for x in range(len(opcoes))]
+		conjuncoes = dict(zip(nums, opcoes))
+		conjuncao = conjuncoes[indice]
+	else:
+		conjuncao=conj_extenso
+	return conjuncao
+# conjuncao_continuativa(tipo_insercao="inserção_menu",indice=23,conj_extenso=None)
+
+print('Qual a tipo_pessoa de relativo?')
+tipo_de_relativo = choice.Menu(['nominal', 'adverbial']).ask()
+if tipo_de_relativo == 'nominal':
+	TEMA_RELATIVO = pronome_relativo()
+elif tipo_de_relativo == 'adverbial':
+	TEMA_RELATIVO = choice.Menu(['de onde', 'quando',
+								 'onde', 'de quando', 'que', 'por onde']).ask()
+
+
+def TEMA_TEXTUAL(temTemaTextual='-', tipo_insercao_Cont="inserção_menu",conj_extenso_Cont=None,indiceCont=None,
+				 tipo_insercao_Conj="inserção_menu",tipo_de_conjuncao_Conj=None, conj_extensoConj=None,indiceConj=None,
+				 tipo_insercao_Rel='inserção_menu', pron_extenso_Rel=None,tipo_de_relativo=None,
+				 tipo_pronome_relativo=None, genero=None, numero=None, indiceRel=None, indiceRelAdv=None):
+
+	if temTemaTextual == '-':
+		TEMA_TEXTUAL = ''
+	else:
+		TEMA_CONTINUATIVO = conjuncao_continuativa(tipo_insercao_Cont,indiceCont,conj_extenso_Cont)
+		TEMA_CONJUNTIVO = grupo_conjuntivo(tipo_insercao_Conj, conj_extensoConj, tipo_de_conjuncao_Conj, indiceConj)
+		if tipo_de_relativo == 'nominal':
+			TEMA_RELATIVO = pronome_relativo(tipo_insercao_Rel,pron_extenso_Rel,tipo_pronome_relativo,genero,numero, indiceRel)
+		else:
+			opcoes = ['de onde', 'quando',
+					  'onde', 'de quando', 'que', 'por onde']
+
+			nums = [x for x in range(len(opcoes))]
+			relativos = dict(zip(nums, opcoes))
+			TEMA_RELATIVO = relativos[indiceRelAdv]
+
+
+		TEMA_TEXTUAL = TEMA_CONTINUATIVO +' '+ TEMA_CONJUNTIVO +' '+ TEMA_RELATIVO
+
+	return TEMA_TEXTUAL
+#
+# TEMA_TEXTUAL(temTemaTextual='+', tipo_insercao_Cont="inserção_menu",conj_extenso_Cont=None,indiceCont=2,
+# 				 tipo_insercao_Conj="inserção_menu",tipo_de_conjuncao_Conj='paratática_alternativa', conj_extensoConj=None,indiceConj=1,
+# 				 tipo_insercao_Rel='inserção_menu', pron_extenso_Rel=None,tipo_de_relativo='nominal',
+# 				 tipo_pronome_relativo='variável', genero='masculino', numero='singular', indiceRel=2, indiceRelAdv=1)
+
+
+
+###
+TIPO_TEMA_INTERPESSOAL = choice.Menu(['TI_avaliação_modo', 'TI_avaliação_comentário',
+		                                      'TI_encenação_troca', 'TI_encenação_papel_falante', 'TI_polaridade',
+		                                      'TI_encenação_papel_ouvinte',
+		                                      'TI_NA']).ask()
+tipo_realizacao = choice.Menu(['grupo_adverbial', 'frase_preposicional']).ask()
+
+
+def TEMA_INTERPESSOAL(temInterpessoal='-',
+
+					  TIPO_TEMA_INTERPESSOAL=None, tipo_realizacao=None,
+					  tipo_de_adverbio=None, indiceAdv=None,
+
+					  indicePreposicao=None, dissocEnteNucleo=None, temQualificador=None, tipoQualificador=None,
+					  DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+					  gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+					  DETERMINAÇÃO_espeficifidade_alpha=None, ORIENTAÇÃO_alpha=None, gênero_alpha=None,
+					  número_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
+					  número_obj_possuído=None, gênero_obj_possuído=None, pessoa_da_interlocução_proximidade=None,  #
+					  funcaoNumerativo=None, cardinal=None, genero=None, tipo_precisa=None, tipoRealCard=None,
+					  milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None,
+					  numIndefinido=None, tipo_de_Ente=None, tipo_de_nao_consciente=None,
+					  tipo_de_nao_consciente_material=None,
+					  tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente=None, substantivo_lematizado=None,
+					  numero=None, tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,
+					  pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+					  morfologia_do_pronome=None, reflexivo=None,  #
+					  epitetoModificacao=None, adjetivo_epiteto=None, classificadorModificacao=None,
+					  adjetivo_classificador=None, contracao=None,
+
+					  indiceElemQu=None,
+
+					  indicePartModal=None,
+
+					  nome_proprio=None
+					  ):
+	"""
+
+	:param temInterpessoal:
+	:param TIPO_TEMA_INTERPESSOAL:
+	:param tipo_realizacao:
+	:param tipo_de_adverbio:
+	:param indiceAdv:
+	:param indicePreposicao:
+	:param dissocEnteNucleo:
+	:param temQualificador:
+	:param tipoQualificador:
+	:param DETERMINAÇÃO_espeficifidade_beta:
+	:param ORIENTAÇÃO_beta:
+	:param gênero_beta:
+	:param número_beta:
+	:param morfologia_do_pronome_beta:
+	:param DETERMINAÇÃO_espeficifidade_alpha:
+	:param ORIENTAÇÃO_alpha:
+	:param gênero_alpha:
+	:param número_alpha:
+	:param morfologia_do_pronome_alpha:
+	:param pessoa_da_interlocução_possuidor:
+	:param número_obj_possuído:
+	:param gênero_obj_possuído:
+	:param pessoa_da_interlocução_proximidade:
+	:param funcaoNumerativo:
+	:param cardinal:
+	:param genero:
+	:param tipo_precisa:
+	:param tipoRealCard:
+	:param milharExtenso:
+	:param centenaExtenso:
+	:param dezenaExtenso:
+	:param unidadeExtenso:
+	:param numIndefinido:
+	:param tipo_de_Ente:
+	:param tipo_de_nao_consciente:
+	:param tipo_de_nao_consciente_material:
+	:param tipo_de_nao_consciente_semiotico:
+	:param classe_palavra_Ente:
+	:param substantivo_lematizado:
+	:param numero:
+	:param tipo_feminino_ÃO:
+	:param tipo_masc_ÃO:
+	:param acentTonica:
+	:param nomeProprio:
+	:param pessoa_da_interlocucao:
+	:param transitividade_verbo:
+	:param tonicidade:
+	:param morfologia_do_pronome:
+	:param reflexivo:
+	:param epitetoModificacao:
+	:param adjetivo_epiteto:
+	:param classificadorModificacao:
+	:param adjetivo_classificador:
+	:param contracao:
+	:param indiceElemQu:
+	:param indicePartModal:
+	:param nome_proprio:
+	:return:
+	"""
+
+
+	if temInterpessoal == '-':
+		TEMA_INTERPESSOAL = ''
+
+	else: ###POR ENQUANTO, TRABALHANDO COM A realizacao DE APENAS 1 TEMA INTERPESSOAL
+
+		if (TIPO_TEMA_INTERPESSOAL == 'TI_avaliação_modo' or TIPO_TEMA_INTERPESSOAL == 'TI_avaliação_comentário' or
+				TIPO_TEMA_INTERPESSOAL == 'TI_polaridade'):
+
+			if tipo_realizacao == 'grupo_adverbial':
+				TEMA_INTERPESSOAL = adverbio(tipo_de_adverbio, indiceAdv)
+			else:
+				TEMA_INTERPESSOAL = frase_preposicional(indicePreposicao , dissocEnteNucleo , temQualificador , tipoQualificador ,
+						DETERMINAÇÃO_espeficifidade_beta , ORIENTAÇÃO_beta ,
+						gênero_beta , número_beta , morfologia_do_pronome_beta ,
+						DETERMINAÇÃO_espeficifidade_alpha , ORIENTAÇÃO_alpha , gênero_alpha ,
+						número_alpha , morfologia_do_pronome_alpha , pessoa_da_interlocução_possuidor ,
+						número_obj_possuído , gênero_obj_possuído , pessoa_da_interlocução_proximidade ,  #
+						funcaoNumerativo , cardinal , genero , tipo_precisa , tipoRealCard ,
+						milharExtenso , centenaExtenso , dezenaExtenso , unidadeExtenso ,
+						numIndefinido ,tipo_de_Ente , tipo_de_nao_consciente , tipo_de_nao_consciente_material ,
+						tipo_de_nao_consciente_semiotico , classe_palavra_Ente , substantivo_lematizado ,
+						numero ,tipo_feminino_ÃO , tipo_masc_ÃO , acentTonica , nomeProprio ,
+						pessoa_da_interlocucao ,transitividade_verbo , tonicidade , morfologia_do_pronome , reflexivo ,  #
+						epitetoModificacao , adjetivo_epiteto , classificadorModificacao ,
+						adjetivo_classificador , contracao)
+
+		elif TIPO_TEMA_INTERPESSOAL == 'TI_encenação_troca':
+			TEMA_INTERPESSOAL = elemento_qu(indiceElemQu)
+
+		elif TIPO_TEMA_INTERPESSOAL == 'TI_encenação_papel_falante':
+			TEMA_INTERPESSOAL = particula_modal(indicePartModal)
+		elif TIPO_TEMA_INTERPESSOAL == 'TI_encenação_papel_ouvinte':
+			TEMA_INTERPESSOAL = nome_proprio(nome_proprio)  ##talvez um pronome, mas por enquanto vou deixar so o nome
+
+	return TEMA_INTERPESSOAL
+
+#
+# TEMA_INTERPESSOAL( temInterpessoal='+',
+# 				TIPO_TEMA_INTERPESSOAL="TI_avaliação_modo",
+#
+# 				tipo_realizacao="frase",
+#
+# 				tipo_de_adverbio=None, indiceAdv=None,
+#
+# 				indicePreposicao = 1, dissocEnteNucleo = None, temQualificador = None, tipoQualificador = None,
+# 				DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+# 				 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+# 				 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+# 				 gênero_alpha='masculino',
+# 				 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+# 				 pessoa_da_interlocução_possuidor='1s',
+# 				 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+# 				 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+# 				 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+# 				 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+# 				 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 				 tipo_de_nao_consciente_material='objeto_material',
+# 				 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+# 				 substantivo_lematizado='prédio', numero='plural',
+# 				 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+# 				 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+# 				 epitetoModificacao='sim',adjetivo_epiteto='alto',
+# 				 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração'
+#
+# 				  # indiceElemQu=None,
+# 				  #
+# 				  # indicePartModal=None,
+# 				  #
+# 				  # nome_proprio=None
+# 				  )
+
+
+#PAREI AQUI 06-04
 # # def TEMA_IDEACIONAL():
 # # 	'''
 # #     ''' \
@@ -11533,132 +11717,43 @@ def MODO(RESPONSABILIDADE=None,PRESSUPOSICAO_DO_SUJEITO=None,TIPO_MODO=None):
 # # 	return TEMA_IDEACIONAL
 # #
 # #
-# # def conjunção_continuativa():
-# # 	'''
-# #     '''
-# # 	print('Qual o modo de inserção da conjunção?')
-# # 	modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
-# #
-# # 	if modo_inserção == 'inserção_manual':
-# # 		conjunção_continuativa = input('Escreva o continuativo desejado:')
-# #
-# # 	elif modo_inserção == 'inserção_menu':
-# # 		print('Escolha um continuativo:') \
-# # 		conjunção_continuativa = input("""
-# #                                  1:e
-# #                                  2:é
-# #                                  3:ah
-# #                                  4:mas
-# #                                  5:sim
-# #                                  6:bem
-# #                                  7:não
-# #                                  8:agora
-# #                                  9:então
-# #                                  10:pois é
-# #                                  11:tipo_pessoa
-# #                                  12:tipo_pessoa assim
-# #                                  13:ó
-# #                                  14:daí
-# #                                  15:aí
-# #                                  16:aí então
-# #                                  17:quer
-# #                                  18:dizer
-# #                                  19:assim
-# #                                  20:em
-# #                                  21:seguida
-# #                                  22:por fim
-# #                                  23:porque
-# #                                  24:porém
-# #                                  25:também
-# #                                  26:é que
-# #                                  27:olha
-# #
-# #
-# #
-# #                                Escolha uma opção:""")
-# #
-# # 		if conjunção_continuativa == '1':
-# # 			conjunção_continuativa = 'e'
-# # 		elif conjunção_continuativa == '2':
-# # 			conjunção_continuativa = 'é'
-# # 		elif conjunção_continuativa == '3':
-# # 			conjunção_continuativa = 'ah'
-# # 		elif conjunção_continuativa == '4':
-# # 			conjunção_continuativa = 'mas'
-# # 		elif conjunção_continuativa == '5':
-# # 			conjunção_continuativa = 'sim'
-# # 		elif conjunção_continuativa == '6':
-# # 			conjunção_continuativa = 'bem' \
-# # 		elif conjunção_continuativa == '7':
-# # 			conjunção_continuativa = 'não'
-# # 		elif conjunção_continuativa == '8':
-# # 			conjunção_continuativa = 'agora'
-# # 		elif conjunção_continuativa == '9':
-# # 			conjunção_continuativa = 'então'
-# # 		elif conjunção_continuativa == '10':
-# # 			conjunção_continuativa = 'pois é'
-# # 		elif conjunção_continuativa == '11':
-# # 			conjunção_continuativa = 'tipo'
-# # 		elif conjunção_continuativa == '12':
-# # 			conjunção_continuativa = 'tipo_pessoa assim '
-# # 		elif conjunção_continuativa == '13':
-# # 			conjunção_continuativa = 'ó'
-# # 		elif conjunção_continuativa == '14':
-# # 			conjunção_continuativa = 'daí'
-# # 		elif conjunção_continuativa == '15':
-# # 			conjunção_continuativa = 'aí'
-# # 		elif conjunção_continuativa == '16':
-# # 			conjunção_continuativa = 'aí então '
-# # 		elif conjunção_continuativa == '17':
-# # 			conjunção_continuativa = 'quer'
-# # 		elif conjunção_continuativa == '18':
-# # 			conjunção_continuativa = 'dizer'
-# # 		elif conjunção_continuativa == '19':
-# # 			conjunção_continuativa = 'assim'
-# # 		elif conjunção_continuativa == '20':
-# # 			conjunção_continuativa = 'em'
-# # 		elif conjunção_continuativa == '21':
-# # 			conjunção_continuativa = 'seguida'
-# # 		elif conjunção_continuativa == '22':
-# # 			conjunção_continuativa = 'por fim'
-# # 		elif conjunção_continuativa == '23':
-# # 			conjunção_continuativa = 'porque'
-# # 		elif conjunção_continuativa == '24':
-# # 			conjunção_continuativa = 'porém'
-# # 		elif conjunção_continuativa == '25':
-# # 			conjunção_continuativa = 'também'
-# #
-# # 		elif conjunção_continuativa == '26':
-# # 			conjunção_continuativa = 'é que'
-# # 		elif conjunção_continuativa == '27':
-# # 			conjunção_continuativa = 'olha'
-# #
-# # 	return conjunção_continuativa
-# #
-# #
-# # def elemento_qu():
-# # 	'''
-# #     '''
-# # 	elemento_qu = choice.Menu(['o que', 'quem', 'qual', 'quanto',
-# # 	                           'quantos', 'quando', 'como', 'onde',
-# # 	                           'de quem', 'por quê', 'pra quê', 'por que']).ask()
-# #
-# # 	return elemento_qu
-# #
-# #
-# # def partícula_modal():
-# # 	'''
-# #     '''
-# # 	modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
-# #
-# # 	if modo_inserção == 'inserção_manual':
-# # 		partícula_modal = input('Escreva partícula modal desejada:')
-# #
-# # 	elif modo_inserção == 'inserção_menu':
-# # 		partícula_modal = choice.Menu(['né', 'ué', 'ó', 'uai', 'é']).ask()  ##HÁ MAIS PARTÍCULAS....
-# #
-# # 	return partícula_modal
-# #
+
+def elemento_qu(indice=None):
+	'''
+    '''
+	try:
+		opcoes=['o que', 'quem', 'qual', 'quanto',
+								   'quantos', 'quando', 'como', 'onde',
+								   'de quem', 'por quê', 'pra quê', 'por que']
+		nums = [x for x in range(len(opcoes))]
+		elementos = dict(zip(nums, opcoes))
+		elemento_qu = elementos[indice]
+
+	except:
+		elemento_qu=''
+
+	return elemento_qu
+
+# elemento_qu()
+# elemento_qu(56)
+# elemento_qu(3)
+
+
+def particula_modal(indice=None):
+	'''
+    '''
+	try:
+		opcoes = ['né', 'ué', 'ó', 'uai', 'é'] ##HÁ MAIS PARTÍCULAS....
+		nums = [x for x in range(len(opcoes))]
+		particulas = dict(zip(nums, opcoes))
+		particula_modal = particulas[indice]
+
+	except:
+		particula_modal=''
+	return particula_modal
+#
+# particula_modal(1)
+# particula_modal()
 # #
 # # ## NO CASO DO SISTEMA DE AVALIAÇÃO_MODAL EU NÃO CONTEMPLEI AINDA  O SISTEMA, POR ENQUANTO VOU ME
 # # # ATER APENAS AO SUBSISTEMA DE POLARIDADE.
