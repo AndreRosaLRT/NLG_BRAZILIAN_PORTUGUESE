@@ -11092,166 +11092,118 @@ def circunstancia(temCircunstancia=None,realizacaoCircunstancia=None,
 			Circunstancia = adverbio(tipo_de_adverbio, indice)
 
 	return re.sub(' +',' ',Circunstancia).strip()
-#
-# circunstancia(temCircunstancia='sim',realizacaoCircunstancia='frase_preposicional',
-# 			  indicePreposicao=9,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,
-# 				DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-# 			 gênero_alpha='masculino',
-# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-# 			 pessoa_da_interlocução_possuidor='1s',
-# 			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
-# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
-# 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
-# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
-# 			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-# 			 tipo_de_nao_consciente_material='animal',
-# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
-# 			 substantivo_lematizado='gato', numero='plural',
-# 			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
-# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-# 			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
-# 			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração'
-# 			,tipo_de_adverbio=None, indice=None)
+
+circunstancia(temCircunstancia='sim',realizacaoCircunstancia='frase_preposicional',
+			  indicePreposicao=9,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,
+				DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+			 gênero_alpha='masculino',
+			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+			 pessoa_da_interlocução_possuidor='1s',
+			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+			 tipo_de_nao_consciente_material='animal',
+			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+			 substantivo_lematizado='prédio', numero='plural',
+			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+			 epitetoModificacao='sim',adjetivo_epiteto='alto',
+			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração'
+			,tipo_de_adverbio=None, indice=None)
 # # ##SISTEMAS DA ORAÇÃO
 # #
-# #
-# # def AGENCIAMENTO():
-# # 	## no caso de materiais meteorológicas, o Meio conflui
-# # 	# com o Processo (por isso :AG_processo_sem_alcance,AG_processo+alcance );
-# # 	# pode haver escopo (Ex.: choveu uma chuva grossa)
-# # 	print('Qual o tipo_pessoa de Agenciamento?')
-# # 	AGENCIAMENTO = choice.Menu(['AG_médio_sem_alcance',
-# #
-# # 	                            'AG_médio_com_alcance',
-# # 	                            'AG_efetivo_operativo',
-# # 	                            'AG_efetivo_receptivo_agentivo',
-# # 	                            'AG_efetivo_receptivo_não_agentivo',
-# # 	                            'AG_processo_sem_alcance',
-# # 	                            'AG_processo+alcance']).ask()
-# #
-# # 	return AGENCIAMENTO
-# #
-# #
-# # ###tipos de processo oração
-# # # Material
-# # ##VERIFICAR SE EXISTE DESCRIÇÃO DO PROCESSO MATERIAL (POR ENQUANTO, USANDO O SISTEMA DO INGLÊS)
-# #
-# # # def PROCESSO_MATERIAL():
-# # #    Processo_material = choice.Menu(['PR_material_transformativo_transitivo',
-# # #                                     'PR_material_criativo_transitivo',
-# # #                                     'PR_material_transformativo_intransitivo',
-# # #                                     'PR_material_criativo_intransitivo']).ask()
-# # #
-# # #    return Processo_material
-# #
+
+def AGENCIAMENTO(AGENCIAMENTO=None):
+	## no caso de materiais meteorológicas, o Meio conflui
+	# com o Processo (por isso :AG_processo_sem_alcance,AG_processo+alcance );
+	# pode haver escopo (Ex.: choveu uma chuva grossa)
+	"""
+
+	:param AGENCIAMENTO: ['AG_médio_sem_alcance',
+	                            'AG_médio_com_alcance',
+	                            'AG_efetivo_operativo',
+	                            'AG_efetivo_receptivo_agentivo',
+	                            'AG_efetivo_receptivo_não_agentivo',
+	                            'AG_processo_sem_alcance',
+	                            'AG_processo+alcance']).ask()
+	:return: AGENCIAMENTO
+	"""
+
+
+	return AGENCIAMENTO
+AGENCIAMENTO("AG_médio_com_alcance")
 # #
 # # ###tipos de processo oração
 # # # Material
 # # ##VERIFICAR SE EXISTE DESCRIÇÃO DO PROCESSO MATERIAL (POR ENQUANTO, USANDO O SISTEMA DO INGLÊS)
-# #
-# # def PROCESSO_MATERIAL():
-# # 	print('Qual o tipo_pessoa de ação realizada pelo processo?')
-# # 	TIPO_DE_AÇÃO = choice.Menu(['transformativo', 'criativo']).ask()
-# #
-# # 	print('Qual o tipo_pessoa de impacto?')
-# # 	IMPACTO = choice.Menu(['IMPA_transitivo', 'IMPA_intransitivo', 'IMPA_NA']).ask()
-# # 	Processo_material = 'PR_material_' + TIPO_DE_AÇÃO + '_' + IMPACTO
-# #
-# # 	return Processo_material
-# #
+
+# def PROCESSO_MATERIAL():
+#    Processo_material = choice.Menu(['PR_material_transformativo_transitivo',
+#                                     'PR_material_criativo_transitivo',
+#                                     'PR_material_transformativo_intransitivo',
+#                                     'PR_material_criativo_intransitivo']).ask()
+#
+#    return Processo_material
+
+
+###tipos de processo oração
+# Material
+##VERIFICAR SE EXISTE DESCRIÇÃO DO PROCESSO MATERIAL (POR ENQUANTO, USANDO O SISTEMA DO INGLÊS)
+
+def PROCESSO_MATERIAL(TIPO_DE_ACAO=None,IMPACTO=None):
+
+	"""
+	print('Qual o tipo_pessoa de ação realizada pelo processo?')
+	TIPO_DE_ACAO = 'transformativo', 'criativo'
+
+	print('Qual o tipo_pessoa de impacto?')
+	IMPACTO ='IMPA_transitivo', 'IMPA_intransitivo', 'IMPA_NA'
+	:return: Processo_material
+	"""
+
+	Processo_material = 'PR_material_' + TIPO_DE_ACAO + '_' + IMPACTO
+
+	return Processo_material
+# PROCESSO_MATERIAL(TIPO_DE_ACAO="transformativo",IMPACTO="IMPA_transitivo")
 # #
 # # #
 # # #
 # # #
 # #
 # # # relacional
-# #
-# # ##def atribuição_de_relação():
-# # ##    '''
-# # ##    '''
-# # ##    atribuição_de_relação = choice.Menu(['atribuição_proj_ment_cognitiva',
-# # ##                                         'atribuição_proj_ment_desiderativa',
-# # ##                                         'atribuição_proj_verbal',
-# # ##                                         'atribuição_expan_elaboração',
-# # ##                                         'atribuição_expan_intencificação',
-# # ##                                         'sem_atribuição_de_relação']).ask()
-# # ##    return atribuição_de_relação
-# # ##
-# # #
-# # #
-# # #
-# # #
-# # #
-# # #
-# # # def processo_relacional():
-# # #    '''
-# # #    '''
-# # #    atribuição_relação = atribuição_de_relação()
-# # #
-# # #    tipo_de_relacional = choice.Menu (['PR_relacional_intensivo_atributivo',
-# # #                                       'PR_relacional_intensivo_identificativo',
-# # #                                       'PR_relacional_possessivo_atributivo',
-# # #                                       'PR_relacional_possessivo_identificativo',
-# # #                                       'PR_relacional_circunstancial_atributivo',
-# # #                                       'PR_relacional_circunstancial_identificativo']).ask()
-# # #
-# # #    relacional =  tipo_de_relacional + '_' +  atribuição_relação
-# # #
-# # #    return relacional
-# # #
-# # #
-# # #
-# #
-# #
-# # #    if (atribuição_relação == 'atribuição_proj_ment_cognitiva' and tipo_de_relacional == 'intensiva_atributiva'or
-# # #        atribuição_relação == 'atribuição_proj_ment_cognitiva' and tipo_de_relacional == 'intensiva_identificativa' or
-# # #        atribuição_relação == 'atribuição_proj_ment_cognitiva' and tipo_de_relacional == 'possessiva_atributiva' or
-# # #        atribuição_relação == 'atribuição_proj_ment_cognitiva' and tipo_de_relacional == 'possessiva_identificativa' or
-# # #        atribuição_relação == 'atribuição_proj_ment_cognitiva' and tipo_de_relacional == 'circunstancial_atributiva' or
-# # #        atribuição_relação == 'atribuição_proj_ment_cognitiva' and tipo_de_relacional == 'circunstancial_identificativa' or
-# # #
-# # #        atribuição_relação == 'atribuição_proj_ment_desiderativa' and tipo_de_relacional == 'intensiva_atributiva' or
-# # #        atribuição_relação == 'atribuição_proj_ment_desiderativa' and tipo_de_relacional == 'intensiva_identificativa' or
-# # #        atribuição_relação == 'atribuição_proj_ment_desiderativa' and tipo_de_relacional == 'possessiva_atributiva' or
-# # #        atribuição_relação == 'atribuição_proj_ment_desiderativa' and tipo_de_relacional == 'possessiva_identificativa' or
-# # #        atribuição_relação == 'atribuição_proj_ment_desiderativa' and tipo_de_relacional == 'circunstancial_atributiva' or
-# # #        atribuição_relação == 'atribuição_proj_ment_desiderativa' and tipo_de_relacional == 'circunstancial_identificativa'or
-# # #
-# # #        atribuição_relação == 'atribuição_proj_verbal' and tipo_de_relacional == 'intensiva_atributiva' or
-# # #        atribuição_relação == 'atribuição_proj_verbal' and tipo_de_relacional == 'intensiva_identificativa' or
-# # #        atribuição_relação == 'atribuição_proj_verbal' and tipo_de_relacional == 'possessiva_atributiva' or
-# # #        atribuição_relação == 'atribuição_proj_verbal' and tipo_de_relacional == 'possessiva_identificativa' or
-# # #        atribuição_relação == 'atribuição_proj_verbal' and tipo_de_relacional == 'circunstancial_atributiva' or
-# # #        atribuição_relação == 'atribuição_proj_verbal' and tipo_de_relacional == 'circunstancial_identificativa'or
-# # #
-# # #        atribuição_relação == 'atribuição_expan_elaboração' and tipo_de_relacional == 'intensiva_atributiva' or
-# # #        atribuição_relação == 'atribuição_expan_elaboração' and tipo_de_relacional == 'intensiva_identificativa' or
-# # #        atribuição_relação == 'atribuição_expan_elaboração' and tipo_de_relacional == 'possessiva_atributiva' or
-# # #        atribuição_relação == 'atribuição_expan_elaboração' and tipo_de_relacional == 'possessiva_identificativa' or
-# # #        atribuição_relação == 'atribuição_expan_elaboração' and tipo_de_relacional == 'circunstancial_atributiva' or
-# # #        atribuição_relação == 'atribuição_expan_elaboração' and tipo_de_relacional == 'circunstancial_identificativa'or
-# # #
-# # #        atribuição_relação == 'atribuição_expan_intencificação' and tipo_de_relacional == 'intensiva_atributiva' or
-# # #        atribuição_relação == 'atribuição_expan_intencificação' and tipo_de_relacional == 'intensiva_identificativa' or
-# # #        atribuição_relação == 'atribuição_expan_intencificação' and tipo_de_relacional == 'possessiva_atributiva' or
-# # #        atribuição_relação == 'atribuição_expan_intencificação' and tipo_de_relacional == 'possessiva_identificativa' or
-# # #        atribuição_relação == 'atribuição_expan_intencificação' and tipo_de_relacional == 'circunstancial_atributiva' or
-# # #        atribuição_relação == 'atribuição_expan_intencificação' and tipo_de_relacional == 'circunstancial_identificativa'or
-# # #
-# # #        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'intensiva_atributiva' or
-# # #        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'intensiva_identificativa' or
-# # #        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'possessiva_atributiva' or
-# # #        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'possessiva_identificativa' or
-# # #        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'circunstancial_atributiva' or
-# # #        atribuição_relação == 'não_atribuição' and tipo_de_relacional == 'circunstancial_identificativa'):
-# # #
-# # #        relacional = atribuição_relação + ' ' + tipo_de_relacional
-# # #
-# # #    return relacional
-# # #
-# # #
+
+
+def processo_relacional(atribuicao_relacao=None,tipo_de_relacional=None):
+   """
+
+   :param atribuicao_relacao: atribuição_proj_ment_cognitiva',
+                                        'atribuição_proj_ment_desiderativa',
+                                        'atribuição_proj_verbal',
+                                        'atribuição_expan_elaboração',
+                                        'atribuição_expan_intencificação',
+                                        'sem_atribuição_de_relação'
+   :param tipo_de_relacional: 'PR_relacional_intensivo_atributivo',
+                                      'PR_relacional_intensivo_identificativo',
+                                      'PR_relacional_possessivo_atributivo',
+                                      'PR_relacional_possessivo_identificativo',
+                                      'PR_relacional_circunstancial_atributivo',
+                                      'PR_relacional_circunstancial_identificativo'
+   :return: relacional
+   """
+
+
+   relacional =  tipo_de_relacional + '_' +  atribuicao_relacao
+
+   return relacional
+
+# processo_relacional("atribuição_proj_ment_cognitiva","PR_relacional_intensivo_atributivo")
+
+
+
 # #
 # #
 # # # TRANSITIVIDADE
@@ -11269,130 +11221,128 @@ def circunstancia(temCircunstancia=None,realizacaoCircunstancia=None,
 # # # coloquei aqui apenas responsabilidade e pressuposição pois
 # # # pessoa e número já é decidido na ordem da palavra 9tenho que ver o impacto teórico que
 # # ##isso tem..não sei se preciso repetir as escolhas)
-# #
-# # def SUJEITABILIDADE():
-# # 	'''
-# #     '''
-# # 	print('Qual o tipo_pessoa de Sujeito?')
-# # 	RESPONSABILIDADE = choice.Menu(['SUJ_responsável',
-# # 	                                'SUJ_distante_impessoal',
-# # 	                                'SUJ_distante_não_responsável', 'SUJ_-sujeitabilidade']).ask()
-# #
-# # 	PRESSUPOSIÇÃO_DO_SUJEITO = choice.Menu(['recuperado_explícito', \
-# # 	                                        'recuperado_implícito',
-# # 	                                        'não_recuperável', 'recuperação_NA']).ask()
-# #
-# # 	SUJEITABILIDADE = RESPONSABILIDADE + '_' + PRESSUPOSIÇÃO_DO_SUJEITO
-# #
-# # 	return SUJEITABILIDADE
-# #
-# #
-# # def TIPO_DE_MODO():
-# # 	'''
-# #     '''
-# # 	print('Qual o tipo_pessoa de modo da oração?')
-# # 	tipo_de_modo = choice.Menu(['MOD_declarativo_+perguntafinito',
-# # 	                            'MOD_declarativo_-perguntafinito',
-# # 	                            'MOD_interrogativo_elemental',
-# # 	                            'MOD_interrogativo_polar',
-# # 	                            'MOD_imperativo']).ask()
-# #
-# # 	return tipo_de_modo
-# #
+
+def SUJEITABILIDADE(RESPONSABILIDADE=None,PRESSUPOSICAO_DO_SUJEITO=None):
+	"""
+
+	:param RESPONSABILIDADE: SUJ_responsável','SUJ_distante_impessoal',
+	                        'SUJ_distante_não_responsável', 'SUJ_-sujeitabilidade'
+	:param PRESSUPOSICAO_DO_SUJEITO:'recuperado_explícito', 'recuperado_implícito',
+	                                'não_recuperável', 'recuperação_NA'
+	:return: SUJEITABILIDADE
+	"""
+
+	SUJEITABILIDADE = RESPONSABILIDADE + '_' + PRESSUPOSICAO_DO_SUJEITO
+
+	return SUJEITABILIDADE
+
+# SUJEITABILIDADE(RESPONSABILIDADE="SUJ_responsável",PRESSUPOSICAO_DO_SUJEITO="recuperado_explícito")
+def TIPO_DE_MODO(TIPO_MODO):
+	"""
+
+	:param TIPO_MODO: 'MOD_declarativo_+perguntafinito', 'MOD_declarativo_-perguntafinito',
+	                   'MOD_interrogativo_elemental','MOD_interrogativo_polar',
+	                   'MOD_imperativo'
+	:return:
+	"""
+	return TIPO_MODO
+# TIPO_DE_MODO("MOD_declarativo_-perguntafinito")
 # #
 # # ########
 # #
 # #
 # # ######
-# #
-# # def AVALIAÇÃO_MODAL():
-# # 	'''
-# #     '''
-# #
-# # 	AVALIAÇÃO = choice.Menu(['+', '-']).ask()
-# #
-# # 	if AVALIAÇÃO == '-':
-# # 		AVALIAÇÃO_MODAL = ''
-# #
-# # 	else:
-# # 		POLARIDADE = choice.Menu(['positiva', 'negativa']).ask()
-# # 		##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada.
-# # 		# Por enquanto vou modelar apenas a realizacao/ou não do adjunto-polaridade 'não'.
-# #
-# # 		if POLARIDADE == 'positiva':
-# # 			Adjunto_polaridade = ''
-# #
-# # 		elif POLARIDADE == 'negativa':
-# # 			Adjunto_polaridade = 'não'
-# #
-# # 	return Adjunto_polaridade
-# #
-# #
-# # ###
-# # def TIPO_POLARIDADE():
-# # 	'''
-# #     '''
-# # 	print('Qual o tipo_pessoa de polaridade?')
-# # 	tipo_polaridade = choice.Menu(['positiva', 'negativa']).ask()
-# # 	##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada.
-# # 	# Por enquanto vou modelar apenas a realizacao/ou não do adjunto-polaridade 'não'.
-# #
-# # 	return tipo_polaridade
-# #
-# #
-# # def POLARIDADE():
-# # 	'''
-# #     '''
-# # 	print('Qual o tipo_pessoa de polaridade?')
-# # 	tipo_polaridade = choice.Menu(['positiva', 'negativa']).ask()
-# # 	##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada (em que estruturas?).
-# # 	# Por enquanto vou modelar apenas a realizacao/ou não do adjunto-polaridade 'não'.
-# #
-# # 	if tipo_polaridade == 'positiva':
-# # 		Adjunto_polaridade = ''
-# #
-# # 	elif tipo_polaridade == 'negativa':
-# # 		Adjunto_polaridade = 'não'
-# #
-# # 	return Adjunto_polaridade
-# #
+
+
+def AVALIACAO_MODAL(AVALIACAO=None,POLARIDADE=None):
+	"""
+
+	:param POLARIDADE: positiva', 'negativa'
+	##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada.
+		# Por enquanto vou modelar apenas a realizacao/ou não do adjunto-polaridade 'não'.
+	:param AVALIACAO: '+', '-'
+	:return: AVALIACAO_MODAL
+	"""
+
+	if AVALIACAO == '-':
+		AVALIACAO_MODAL = ''
+
+	else:
+		if POLARIDADE == 'positiva':
+			AVALIACAO_MODAL = ''
+
+		elif POLARIDADE == 'negativa':
+			AVALIACAO_MODAL = 'não'
+
+	return AVALIACAO_MODAL
+
+AVALIACAO_MODAL(AVALIACAO='+',POLARIDADE='negativa')
+###
+def TIPO_POLARIDADE(tipo_polaridade=None):
+	"""
+
+	:param tipo_polaridade: 'positiva', 'negativa'
+	:return: tipo_polaridade
+	"""
+
+	return tipo_polaridade
+
+
+def POLARIDADE(tipo_polaridade=None):
+	"""
+
+	:param tipo_polaridade: 'positiva', 'negativa'
+	:return: Adjunto_polaridade
+	"""
+
+	if tipo_polaridade == 'positiva':
+		Adjunto_polaridade = ''
+
+	elif tipo_polaridade == 'negativa':
+		Adjunto_polaridade = 'não'
+
+	return Adjunto_polaridade
+# POLARIDADE('positiva')
+# POLARIDADE('negativa')
+
 # #
 # # ##############
 # #
 # # ## Preciso resolver como vou abordar a questão deste sistema: por enquanto vou mexer apenas com
 # # # polaridade, e ir incrementando as combinações.
-# # #
-# # # def TIPO_AVALIAÇÃO_MODAL ():
-# # #    '''
-# # #    '''
-# # #    AVALIAÇÃO = choice.Menu (['+', '-']).ask()
-# # #
-# # #    if AVALIAÇÃO == '-':
-# # #        AVALIAÇÃO_MODAL = 'AvM_sem_avaliação_modal'
-# # #
-# # #    else:
-# # #        POLARIDADE = choice.Menu (['positiva','negativa']).ask()
-# # #        ##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada.
-# # #        #Por enquanto vou modelar apenas a realizacao/ou não do adjunto-polaridade 'não'.
-# # #
-# # #        if POLARIDADE == 'positiva':
-# # #            Adjunto_polaridade == 'AvM_polaridade_positiva'
-# # #
-# # #        elif POLARIDADE == 'negativa':
-# # #            Adjunto_polaridade == 'AvM_polaridade_negativa'
-# # #
-# #
-# # ##para o sistema de modo, AINDA não considerei o subsistema de VALIDAÇÃO. (será implementado)
-# #
-# # def MODO():
-# # 	'''
-# #     '''
-# #
-# # 	print('Faça as escolhas de MODO da oração:')
-# # 	MODO = SUJEITABILIDADE() + '_' + TIPO_DE_MODO()
-# # 	return MODO
-# #
-# #
+
+def TIPO_AVALIACAO_MODAL(AVALIACAO=None,POLARIDADE=None):
+	"""
+	:param AVALIACAO: "+". "-"
+	:param POLARIDADE: "positiva", "negativa"
+	:return: tipo_de_avaliacao_modal
+	"""
+
+	if AVALIACAO == '-':
+		tipo_de_avaliacao_modal = 'AvM_sem_avaliação_modal'
+
+	else:
+		if POLARIDADE == 'positiva':
+			tipo_de_avaliacao_modal = 'AvM_polaridade_positiva'
+
+		elif POLARIDADE == 'negativa':
+			tipo_de_avaliacao_modal = 'AvM_polaridade_negativa'
+
+	return tipo_de_avaliacao_modal
+# TIPO_AVALIACAO_MODAL(AVALIACAO="-")
+# TIPO_AVALIACAO_MODAL(AVALIACAO="+",POLARIDADE="negativa")
+# TIPO_AVALIACAO_MODAL(AVALIACAO="+",POLARIDADE="positiva")
+
+
+##para o sistema de modo, AINDA não considerei o subsistema de VALIDAÇÃO. (será implementado)
+
+def MODO(RESPONSABILIDADE=None,PRESSUPOSICAO_DO_SUJEITO=None,TIPO_MODO=None):
+	'''
+    '''
+	MODO = SUJEITABILIDADE(RESPONSABILIDADE,PRESSUPOSICAO_DO_SUJEITO) + '_' + TIPO_DE_MODO(TIPO_MODO)
+	return MODO
+
+
 # # # A DÊIXIS: VER, POIS ELA É DECIDIDA DESDE A ORDEM DA PALAVRA...
 # #
 # #
@@ -14511,3 +14461,206 @@ def circunstancia(temCircunstancia=None,realizacaoCircunstancia=None,
 # # 		         + ' ' + Processo + ' ' + Existente + ' ' + Circunstância + '?'
 # #
 # # 	return (re.sub(' +', ' ', oração).strip().capitalize())
+
+#
+# def flexionarVerbo(experience='none', functionInGroup='none',
+#                    lemma='none', person='none', gender='none', number='none',
+#                    mood='none', tense='none', aspect='none'):
+#     if number == 'Plur':
+#         OI_numero = 'plural'
+#     elif number == 'Sing':
+#         OI_numero = 'singular'
+#     else:
+#         OI_numero = None
+#
+#     if person == '1':
+#         OI_tipo_de_pessoa = '1pessoa'
+#
+#     elif person == '2':
+#         OI_tipo_de_pessoa = '2pessoa'
+#
+#     elif person == '3':
+#         OI_tipo_de_pessoa = '3pessoa'
+#     else:
+#         OI_tipo_de_pessoa = None
+#
+#     if gender == 'Masc':
+#         genero = 'masculino'
+#
+#     elif gender == 'Fem':
+#         genero = 'feminino'
+#
+#     else:
+#         genero = None
+#
+#     ####
+#     if mood + '_' + tense + '_' + aspect == 'Ind_Past_Perf':
+#         tipo_de_orientacao = 'pretérito_perfectivo_I'
+#     elif mood + '_' + tense + '_' + aspect == 'Ind_Past_Perf':
+#         tipo_de_orientacao = 'pretérito_perfectivo_II'
+#     elif mood + '_' + tense + '_' + aspect == 'Ind_Past_Imp':
+#         tipo_de_orientacao = 'pretérito_imperfectivo'
+#     elif mood + '_' + tense + '_' + aspect == 'Ind_Fut_none':
+#         tipo_de_orientacao = 'futuro'
+#     elif mood + '_' + tense + '_' + aspect == 'Ind_Pres_none':
+#         tipo_de_orientacao = 'presente'
+#     elif mood + '_' + tense + '_' + aspect == 'Sub_Pres_none':
+#         tipo_de_orientacao = 'subjuntivo_conjuntivo'
+#     elif mood + '_' + tense + '_' + aspect == 'Sub_Past_Imp':
+#         tipo_de_orientacao = 'subjuntivo_condicional'
+#     elif mood + '_' + tense + '_' + aspect == 'Sub_Fut_none':
+#         tipo_de_orientacao = 'subjuntivo_optativo'
+#     elif mood + '_' + tense + '_' + aspect == 'none_Past_Perf':
+#         tipo_de_orientacao = 'particípio'
+#     elif mood == 'Imp_POS':
+#         tipo_de_orientacao = 'imperativo_I'
+#     elif mood == 'Imp_NEG':
+#         tipo_de_orientacao = 'imperativo_II'
+#     elif mood + '_' + tense + '_' + aspect == 'Cnd_Past_none':
+#         tipo_de_orientacao = 'passado_volitivo'
+#     elif mood + '_' + tense + '_' + aspect == 'none_Inf_none':
+#         tipo_de_orientacao = 'não_finito_concretizado'
+#     elif person + '_' + gender + '_' + number + '_' + mood + '_' + tense + '_' + aspect == 'none_none_none_none_Pres_Prog':
+#         tipo_de_orientacao = 'gerúndio'
+#     elif person + '_' + gender + '_' + number + '_' + mood + '_' + tense + '_' + aspect == 'none_none_none_none_Inf_none':
+#         tipo_de_orientacao = 'infinitivo'
+#     verb = verbo_geral(experience, functionInGroup, lemma, tipo_de_orientacao, OI_numero, genero, OI_tipo_de_pessoa)
+#     return verb
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# flexionarVerbo(experience="Fazer", functionInGroup='Evento', lemma="registrar", person='none', gender='none',
+#                number='none', mood='none', tense='Pres', aspect='Prog')
+#
+# flexionarVerbo(experience="Fazer", functionInGroup='Evento', lemma="registrar", person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+#
+# flexionarVerbo(experience="Fazer", functionInGroup='Evento', lemma="registrar", person='1', gender='none',
+#                number='Plur', mood='none', tense='Inf', aspect='none')
+#
+# #
+# # ######verbos exemplos para o robô
+# # TEVE
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='ter', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+#
+# # REGISTROU
+# flexionarVerbo(experience="Fazer", functionInGroup='Evento', lemma="registrar", person='3', gender='none',
+#                number='Sing', mood='Ind', tense='Past', aspect='Perf')
+#
+# # DIVULGOU
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='reportar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # DIVULGOU
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='divulgar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # identificou
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='identificar', person='3', gender='none',
+#                number='Sing', mood='Ind', tense='Past', aspect='Perf')
+# # #mostrou
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='mostrar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # #foram (auxiliar)
+# flexionarVerbo(experience='Ser', functionInGroup='Auxiliar', lemma='ser', person='3', gender='none', number='Plur',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # #desmatados
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='desmatar', person='none', gender='Masc',
+#                number='Plur', mood='none', tense='Past', aspect='Perf')
+# # #foi (EVENTO)
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='ser', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+#
+# # #teve
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='ter', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# #
+# # #atingido
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='atingir', person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+# #
+# # #foi (auxiliar)
+# flexionarVerbo(experience='Ser', functionInGroup='Auxiliar', lemma='ser', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# #
+# # #devastada
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='devastar', person='none', gender='Fem',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+# #
+# # #devastado
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='devastar', person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+# # #deixa
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='deixar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Pres', aspect='none')
+# # #SOMANDO
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='somar', person='none', gender='none', number='none',
+#                mood='none', tense='Pres', aspect='Prog')
+# # #somam
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='somar', person='3', gender='none', number='Plur',
+#                mood='Ind', tense='Pres', aspect='none')
+# # soma
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='somar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Pres', aspect='none')
+# # somaram
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='somar', person='3', gender='none', number='Plur',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # TEM
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='ter', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Pres', aspect='none')
+# # acumulando
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='acumular', person='none', gender='none',
+#                number='none', mood='none', tense='Pres', aspect='Prog')
+#
+# # #ACUMULOU
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='acumular', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # ACUMULA
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='acumular', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Pres', aspect='none')
+# # atingindo
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='atingir', person='none', gender='none', number='none',
+#                mood='none', tense='Pres', aspect='Prog')
+# #
+# # 'analisado'
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='analisar', person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+#
+# # 'desmatados'
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='desmatar', person='none', gender='Masc',
+#                number='Plur', mood='none', tense='Past', aspect='Perf')
+#
+# # 'desmatado'
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='desmatar', person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+#
+# # 'desmatada'
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='desmatar', person='none', gender='Fem',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+# # AFETADO
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='afetar', person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+# # GERADO
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='gerar', person='none', gender='Masc', number='Sing',
+#                mood='none', tense='Past', aspect='Perf')
+#
+# # RASTREOU
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='rastrear', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+#
+# # alertou
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='alertar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
