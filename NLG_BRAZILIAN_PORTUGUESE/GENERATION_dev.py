@@ -22,6 +22,8 @@ import re
 ###ADVÉRBIO    INÍCIO####
 
 ###########ORDEM DA PALAVRA
+from builtins import zip
+
 from nltk import unify
 
 
@@ -10045,10 +10047,10 @@ def realizacao_pronome_caso_obliquo(transitividade_verbo,tonicidade,pessoa_da_in
 # realizacao_pronome_caso_obliquo("indireto",'tônico',"não_interlocutor",'singular','feminino',"padrão")
 
 ##TENHO QUE VER SE FAZ SENTIDO MUDAR ESTA(inserir parâmetros??)
-	modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
-	print('Qual tipo_pessoa de relativo?')
-	tipo_pronome_relativo = choice.Menu(['variável', 'invariável']).ask()
-
+	# modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
+	# print('Qual tipo_pessoa de relativo?')
+	# tipo_pronome_relativo = choice.Menu(['variável', 'invariável']).ask()
+	#
 
 def pronome_relativo(tipo_insercao="inserção_menu",pron_extenso=None,tipo_pronome_relativo=None,
 					 genero=None,numero=None, indice=None):
@@ -10735,7 +10737,7 @@ def estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualif
 # 			 epitetoModificacao='sim',adjetivo_epiteto='bonito',
 # 			 classificadorModificacao=None,adjetivo_classificador=None)
 # #
-# #parei aqui
+
 # # ####NO CASO A SEGUIR, PODE ACONTECER DE UM GRUPO NOMINAL DESCER DE ORDEM E REALIZAR, POR SUA VEZ,
 # # ##ALGUMA FUNÇÃO DENTRO NO GN DO QUAL FAZ PARTE('XÍCARA DE CAFÉ',no qual 'xícara' é um grupo nominal
 # # # com função de Numerativo no GN DE PRIMEIRO NÍVEL)
@@ -11078,82 +11080,102 @@ def circunstancia(temCircunstancia=None,realizacaoCircunstancia=None,
 			Circunstancia = adverbio(tipo_de_adverbio, indice)
 
 	return re.sub(' +',' ',Circunstancia).strip()
-
-circunstancia(temCircunstancia='sim',realizacaoCircunstancia='frase_preposicional',
-			  indicePreposicao=9,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,
-				DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-			 gênero_alpha='masculino',
-			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-			 pessoa_da_interlocução_possuidor='1s',
-			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
-			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
-			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
-			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
-			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-			 tipo_de_nao_consciente_material='animal',
-			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
-			 substantivo_lematizado='prédio', numero='plural',
-			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
-			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-			 epitetoModificacao='sim',adjetivo_epiteto='alto',
-			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração'
-			,tipo_de_adverbio=None, indice=None)
+#
+# circunstancia(temCircunstancia='sim',realizacaoCircunstancia='frase_preposicional',
+# 			  indicePreposicao=9,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,
+# 				DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
+# 			 gênero_alpha='masculino',
+# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+# 			 pessoa_da_interlocução_possuidor='1s',
+# 			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
+# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
+# 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
+# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+# 			 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 			 tipo_de_nao_consciente_material='animal',
+# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum',
+# 			 substantivo_lematizado='prédio', numero='plural',
+# 			 tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None,
+# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
+# 			 epitetoModificacao='sim',adjetivo_epiteto='alto',
+# 			 classificadorModificacao=None,adjetivo_classificador=None,contracao='-contração'
+# 			,tipo_de_adverbio=None, indice=None)
 # # ##SISTEMAS DA ORAÇÃO
 # #
 
-def AGENCIAMENTO(AGENCIAMENTO=None):
+def AGENCIAMENTO(indice):
 	## no caso de materiais meteorológicas, o Meio conflui
 	# com o Processo (por isso :AG_processo_sem_alcance,AG_processo+alcance );
 	# pode haver escopo (Ex.: choveu uma chuva grossa)
 	"""
 
-	:param AGENCIAMENTO: ['AG_médio_sem_alcance',
-	                            'AG_médio_com_alcance',
-	                            'AG_efetivo_operativo',
-	                            'AG_efetivo_receptivo_agentivo',
-	                            'AG_efetivo_receptivo_não_agentivo',
-	                            'AG_processo_sem_alcance',
-	                            'AG_processo+alcance']).ask()
+	:param AGENCIAMENTO= [0:'AG_médio_sem_alcance',1:'AG_médio_com_alcance',
+	                     2:'AG_efetivo_operativo',3:'AG_efetivo_receptivo_agentivo',
+	                     4:'AG_efetivo_receptivo_não_agentivo',5:'AG_processo_sem_alcance',
+	                      6:'AG_processo+alcance']
 	:return: AGENCIAMENTO
 	"""
-
-
+	try:
+		opcoes = ['AG_médio_sem_alcance',
+		 'AG_médio_com_alcance',
+		 'AG_efetivo_operativo',
+		 'AG_efetivo_receptivo_agentivo',
+		 'AG_efetivo_receptivo_não_agentivo',
+		 'AG_processo_sem_alcance',
+		 'AG_processo+alcance']
+		nums = [x for x in range(len(opcoes))]
+		tipos = dict(zip(nums, opcoes))
+		AGENCIAMENTO = tipos[indice]
+	except:
+		AGENCIAMENTO=None
 	return AGENCIAMENTO
-AGENCIAMENTO("AG_médio_com_alcance")
+AGENCIAMENTO(2)
 # #
 # # ###tipos de processo oração
 # # # Material
 # # ##VERIFICAR SE EXISTE DESCRIÇÃO DO PROCESSO MATERIAL (POR ENQUANTO, USANDO O SISTEMA DO INGLÊS)
 
-# def PROCESSO_MATERIAL():
-#    Processo_material = choice.Menu(['PR_material_transformativo_transitivo',
-#                                     'PR_material_criativo_transitivo',
-#                                     'PR_material_transformativo_intransitivo',
-#                                     'PR_material_criativo_intransitivo']).ask()
-#
-#    return Processo_material
+def Processo_Material(indice=None):
+	"""
 
+	:param indice: 0:'PR_material_transformativo_IMPA_transitivo',
+			  1:'PR_material_criativo_IMPA_transitivo',
+			  2:'PR_material_transformativo_IMPA_intransitivo',
+			  3:'PR_material_criativo_IMPA_intransitivo'
+	:return: Processo_material
+	"""
+	opcoes = ['PR_material_transformativo_IMPA_transitivo',
+			  'PR_material_criativo_IMPA_transitivo',
+			  'PR_material_transformativo_IMPA_intransitivo',
+			  'PR_material_criativo_IMPA_intransitivo']
+	nums = [x for x in range(len(opcoes))]
+	tipos = dict(zip(nums, opcoes))
+	Processo_material = tipos[indice]
+
+	return Processo_material
+# for i in range(4):
+# 	print(PROCESSO_MATERIAL(i))
 
 ###tipos de processo oração
 # Material
 ##VERIFICAR SE EXISTE DESCRIÇÃO DO PROCESSO MATERIAL (POR ENQUANTO, USANDO O SISTEMA DO INGLÊS)
 
-def PROCESSO_MATERIAL(TIPO_DE_ACAO=None,IMPACTO=None):
-
-	"""
-	print('Qual o tipo_pessoa de ação realizada pelo processo?')
-	TIPO_DE_ACAO = 'transformativo', 'criativo'
-
-	print('Qual o tipo_pessoa de impacto?')
-	IMPACTO ='IMPA_transitivo', 'IMPA_intransitivo', 'IMPA_NA'
-	:return: Processo_material
-	"""
-
-	Processo_material = 'PR_material_' + TIPO_DE_ACAO + '_' + IMPACTO
-
-	return Processo_material
+# def PROCESSO_MATERIAL(TIPO_DE_ACAO=None,IMPACTO=None):
+#
+# 	"""
+# 	print('Qual o tipo_pessoa de ação realizada pelo processo?')
+# 	TIPO_DE_ACAO = 'transformativo', 'criativo'
+#
+# 	print('Qual o tipo_pessoa de impacto?')
+# 	IMPACTO ='IMPA_transitivo', 'IMPA_intransitivo', 'IMPA_NA'
+# 	:return: Processo_material
+# 	"""
+#
+# 	Processo_material = 'PR_material_' + TIPO_DE_ACAO + '_' + IMPACTO
+#
+# 	return Processo_material
 # PROCESSO_MATERIAL(TIPO_DE_ACAO="transformativo",IMPACTO="IMPA_transitivo")
 # #
 # # #
@@ -11163,30 +11185,48 @@ def PROCESSO_MATERIAL(TIPO_DE_ACAO=None,IMPACTO=None):
 # # # relacional
 
 
-def processo_relacional(atribuicao_relacao=None,tipo_de_relacional=None):
+def Processo_Relacional(indiceRel=None,indiceAtrib=None):
    """
-
-   :param atribuicao_relacao: atribuição_proj_ment_cognitiva',
+	:param tipo_de_relacional: 'PR_relacional_intensivo_atributivo',
+                                      'PR_relacional_intensivo_identificativo',
+                                      'PR_relacional_possessivo_atributivo',
+                                      'PR_relacional_possessivo_identificativo',
+                                      'PR_relacional_circunstancial_atributivo',
+                                      'PR_relacional_circunstancial_identificativo
+	:param atribuicao_relacao: 'atribuição_proj_ment_cognitiva',
                                         'atribuição_proj_ment_desiderativa',
                                         'atribuição_proj_verbal',
                                         'atribuição_expan_elaboração',
                                         'atribuição_expan_intencificação',
                                         'sem_atribuição_de_relação'
-   :param tipo_de_relacional: 'PR_relacional_intensivo_atributivo',
-                                      'PR_relacional_intensivo_identificativo',
-                                      'PR_relacional_possessivo_atributivo',
-                                      'PR_relacional_possessivo_identificativo',
-                                      'PR_relacional_circunstancial_atributivo',
-                                      'PR_relacional_circunstancial_identificativo'
-   :return: relacional
+
+	:return: relacional
    """
+   opcoesRelacional = ['PR_relacional_intensivo_atributivo',
+					   'PR_relacional_intensivo_identificativo',
+					   'PR_relacional_possessivo_atributivo',
+					   'PR_relacional_possessivo_identificativo',
+					   'PR_relacional_circunstancial_atributivo',
+					   'PR_relacional_circunstancial_identificativo']
+   numsRel = [x for x in range(len(opcoesRelacional))]
+   tiposRel = dict(zip(numsRel, opcoesRelacional))
+   tipoRel = tiposRel[indiceRel]
 
+   opcoesAtribuicao = ['atribuição_proj_ment_cognitiva',
+			 'atribuição_proj_ment_desiderativa',
+			 'atribuição_proj_verbal',
+			 'atribuição_expan_elaboração',
+			 'atribuição_expan_intencificação',
+			 'sem_atribuição_de_relação']
+   numsAtribuicao = [x for x in range(len(opcoesAtribuicao))]
+   tiposAtrobuicao = dict(zip(numsAtribuicao,opcoesAtribuicao))
+   tipoAtrib = tiposAtrobuicao[indiceAtrib]
 
-   relacional =  tipo_de_relacional + '_' +  atribuicao_relacao
+   relacional =  tipoRel + '_' +  tipoAtrib
 
    return relacional
 
-# processo_relacional("atribuição_proj_ment_cognitiva","PR_relacional_intensivo_atributivo")
+# processo_relacional(0,1)
 
 
 
@@ -11208,25 +11248,36 @@ def processo_relacional(atribuicao_relacao=None,tipo_de_relacional=None):
 # # # pessoa e número já é decidido na ordem da palavra 9tenho que ver o impacto teórico que
 # # ##isso tem..não sei se preciso repetir as escolhas)
 
-def SUJEITABILIDADE(RESPONSABILIDADE=None,PRESSUPOSICAO_DO_SUJEITO=None):
+def SUJEITABILIDADE(indiceRespo=None,indicePress=None):
 	"""
 
-	:param RESPONSABILIDADE: SUJ_responsável','SUJ_distante_impessoal',
-	                        'SUJ_distante_não_responsável', 'SUJ_-sujeitabilidade'
-	:param PRESSUPOSICAO_DO_SUJEITO:'recuperado_explícito', 'recuperado_implícito',
-	                                'não_recuperável', 'recuperação_NA'
+	:param RESPONSABILIDADE=0:'SUJ_responsável',1:'SUJ_distante_impessoal',
+	                        2:'SUJ_distante_não_responsável', 3:'SUJ_-sujeitabilidade'
+	:param PRESSUPOSICAO_DO_SUJEITO = 0:'recuperado_explícito', 1:'recuperado_implícito',
+	                                2:'não_recuperável', 3:'recuperação_NA'
 	:return: SUJEITABILIDADE
 	"""
+	opcoesRespo = ['SUJ_responsável', 'SUJ_distante_impessoal',
+				   'SUJ_distante_não_responsável', 'SUJ_-sujeitabilidade']
+	numsRespo = [x for x in range(len(opcoesRespo))]
+	tiposRespon = dict(zip(numsRespo, opcoesRespo))
+	tipoRespon = tiposRespon[indiceRespo]
 
-	SUJEITABILIDADE = RESPONSABILIDADE + '_' + PRESSUPOSICAO_DO_SUJEITO
+	opcoesPress = ['recuperado_explícito', 'recuperado_implícito',
+				   'não_recuperável', 'recuperação_NA']
+	numsPress = [x for x in range(len(opcoesPress))]
+	tiposPress = dict(zip(numsPress,opcoesPress))
+	tipoPress = tiposPress[indicePress]
+	SUJEITABILIDADE = tipoRespon + '_' + tipoPress
 
 	return SUJEITABILIDADE
 
-# SUJEITABILIDADE(RESPONSABILIDADE="SUJ_responsável",PRESSUPOSICAO_DO_SUJEITO="recuperado_explícito")
+SUJEITABILIDADE(0,1)
+
 def TIPO_DE_MODO(TIPO_MODO):
 	"""
 
-	:param TIPO_MODO: 'MOD_declarativo_+perguntafinito', 'MOD_declarativo_-perguntafinito',
+	:param TIPO_MODO= 'MOD_declarativo_+perguntafinito', 'MOD_declarativo_-perguntafinito',
 	                   'MOD_interrogativo_elemental','MOD_interrogativo_polar',
 	                   'MOD_imperativo'
 	:return:
@@ -11243,10 +11294,10 @@ def TIPO_DE_MODO(TIPO_MODO):
 def AVALIACAO_MODAL(AVALIACAO=None,POLARIDADE=None):
 	"""
 
-	:param POLARIDADE: positiva', 'negativa'
+	:param POLARIDADE= positiva', 'negativa'
 	##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada.
 		# Por enquanto vou modelar apenas a realizacao/ou não do adjunto-polaridade 'não'.
-	:param AVALIACAO: '+', '-'
+	:param AVALIACAO= '+', '-'
 	:return: AVALIACAO_MODAL
 	"""
 
@@ -11262,7 +11313,7 @@ def AVALIACAO_MODAL(AVALIACAO=None,POLARIDADE=None):
 
 	return AVALIACAO_MODAL
 
-AVALIACAO_MODAL(AVALIACAO='+',POLARIDADE='negativa')
+# AVALIACAO_MODAL(AVALIACAO='+',POLARIDADE='negativa')
 ###
 def TIPO_POLARIDADE(tipo_polaridade=None):
 	"""
@@ -11277,7 +11328,7 @@ def TIPO_POLARIDADE(tipo_polaridade=None):
 def POLARIDADE(tipo_polaridade=None):
 	"""
 
-	:param tipo_polaridade: 'positiva', 'negativa'
+	:param tipo_polaridade= 'positiva', 'negativa'
 	:return: Adjunto_polaridade
 	"""
 
@@ -11299,8 +11350,8 @@ def POLARIDADE(tipo_polaridade=None):
 
 def TIPO_AVALIACAO_MODAL(AVALIACAO=None,POLARIDADE=None):
 	"""
-	:param AVALIACAO: "+". "-"
-	:param POLARIDADE: "positiva", "negativa"
+	:param AVALIACAO= "+". "-"
+	:param POLARIDADE= "positiva", "negativa"
 	:return: tipo_de_avaliacao_modal
 	"""
 
@@ -11325,11 +11376,11 @@ def TIPO_AVALIACAO_MODAL(AVALIACAO=None,POLARIDADE=None):
 def MODO(RESPONSABILIDADE=None,PRESSUPOSICAO_DO_SUJEITO=None,TIPO_MODO=None):
 	"""
 
-	:param RESPONSABILIDADE: SUJ_responsável','SUJ_distante_impessoal',
+	:param RESPONSABILIDADE= SUJ_responsável','SUJ_distante_impessoal',
 	                        'SUJ_distante_não_responsável', 'SUJ_-sujeitabilidade'
-	:param PRESSUPOSICAO_DO_SUJEITO:'recuperado_explícito', 'recuperado_implícito',
+	:param PRESSUPOSICAO_DO_SUJEITO='recuperado_explícito', 'recuperado_implícito',
 	                                'não_recuperável', 'recuperação_NA'
-	:param TIPO_MODO: 'MOD_declarativo_+perguntafinito', 'MOD_declarativo_-perguntafinito',
+	:param TIPO_MODO= 'MOD_declarativo_+perguntafinito', 'MOD_declarativo_-perguntafinito',
 	                   'MOD_interrogativo_elemental','MOD_interrogativo_polar',
 	                   'MOD_imperativo'
 	:return:
@@ -11343,44 +11394,44 @@ def MODO(RESPONSABILIDADE=None,PRESSUPOSICAO_DO_SUJEITO=None,TIPO_MODO=None):
 # #
 # # # TEMA
 # #
-Tema_textual = choice.Menu(['+', '-']).ask()
-print('Há TEMA TEXTUAL continuativo?')
-		tem_continuativo = choice.Menu(['sim', 'não']).ask()
-print('Há TEMA TEXTUAL continuativo?')
-		tem_continuativo = choice.Menu(['sim', 'não']).ask()
-		if tem_continuativo == 'não':
-			TEMA_CONTINUATIVO = ''
-		else:
-			TEMA_CONTINUATIVO = conjunção_continuativa() + ','
-		print('Há TEMA TEXTUAL conjuntivo?')
-		tem_conjuntivo = choice.Menu(['sim', 'não']).ask()
-		if tem_conjuntivo == 'não':
-			TEMA_CONJUNTIVO = ''
-		else:
-			TEMA_CONJUNTIVO = grupo_conjuntivo()
-		print('Há TEMA TEXTUAL relativo?')
-		tem_relativo = choice.Menu(['sim', 'não']).ask()
-		if tem_relativo == 'não':
-			TEMA_RELATIVO = ''
-		elif tem_relativo == 'sim':
-			print('Qual a tipo_pessoa de relativo?')
-			tipo_de_relativo = choice.Menu(['nominal', 'adverbial']).ask()
-			if tipo_de_relativo == 'nominal':
-				TEMA_RELATIVO = pronome_relativo()
-			elif tipo_de_relativo == 'adverbial':
-				TEMA_RELATIVO = choice.Menu(['de onde', 'quando',
-				                             'onde', 'de quando', 'que', 'por onde']).ask()
+# Tema_textual = choice.Menu(['+', '-']).ask()
+# print('Há TEMA TEXTUAL continuativo?')
+# 		tem_continuativo = choice.Menu(['sim', 'não']).ask()
+# print('Há TEMA TEXTUAL continuativo?')
+# 		tem_continuativo = choice.Menu(['sim', 'não']).ask()
+# 		if tem_continuativo == 'não':
+# 			TEMA_CONTINUATIVO = ''
+# 		else:
+# 			TEMA_CONTINUATIVO = conjunção_continuativa() + ','
+# 		print('Há TEMA TEXTUAL conjuntivo?')
+# 		tem_conjuntivo = choice.Menu(['sim', 'não']).ask()
+# 		if tem_conjuntivo == 'não':
+# 			TEMA_CONJUNTIVO = ''
+# 		else:
+# 			TEMA_CONJUNTIVO = grupo_conjuntivo()
+# 		print('Há TEMA TEXTUAL relativo?')
+# 		tem_relativo = choice.Menu(['sim', 'não']).ask()
+# 		if tem_relativo == 'não':
+# 			TEMA_RELATIVO = ''
+# 		elif tem_relativo == 'sim':
+# 			print('Qual a tipo_pessoa de relativo?')
+# 			tipo_de_relativo = choice.Menu(['nominal', 'adverbial']).ask()
+# 			if tipo_de_relativo == 'nominal':
+# 				TEMA_RELATIVO = pronome_relativo()
+# 			elif tipo_de_relativo == 'adverbial':
+# 				TEMA_RELATIVO = choice.Menu(['de onde', 'quando',
+# 				                             'onde', 'de quando', 'que', 'por onde']).ask()
 
 
 def conjuncao_continuativa(tipo_insercao="inserção_menu",indice=None,conj_extenso=None):
 	"""
 
-	:param tipo_insercao: "inserção_menu", "inserção_extenso"
-	:param indice:  0"e",1"é",2"ah",3'mas',4'sim',5'bem',6'não',7'agora',8'então',9'pois é',10'assim'
-				 ,11'ó',12'daí',13'aí' ,14'aí então',15'quer dizer',16'assim',17'em seguida',18'por fim'
-				  ,19'porque',20'porém',21'também',22'é que',23'olha'
-	:param conj_extenso:
-	:return:
+	:param tipo_insercao= "inserção_menu", "inserção_extenso"
+	:param indice=  0:"e",1:"é",2:"ah",3:'mas',4:'sim',5:'bem',6:'não',7:'agora',8:'então',9:'pois é',10:'assim'
+				 ,11:'ó',12:'daí',13:'aí' ,14:'aí então',15:'quer dizer',16:'assim',17:'em seguida',18:'por fim'
+				  ,19:'porque',20:'porém',21:'também',22:'é que',23:'olha'
+	:param conj_extenso = entre o elemento por extenso
+	:return:conjuncao
 	"""
 	if tipo_insercao == "inserção_menu":
 		opcoes = [ "e","é","ah",'mas','sim','bem','não','agora','então','pois é','assim'
@@ -11394,15 +11445,15 @@ def conjuncao_continuativa(tipo_insercao="inserção_menu",indice=None,conj_exte
 		conjuncao=conj_extenso
 	return conjuncao
 # conjuncao_continuativa(tipo_insercao="inserção_menu",indice=23,conj_extenso=None)
-
-print('Qual a tipo_pessoa de relativo?')
-tipo_de_relativo = choice.Menu(['nominal', 'adverbial']).ask()
-if tipo_de_relativo == 'nominal':
-	TEMA_RELATIVO = pronome_relativo()
-elif tipo_de_relativo == 'adverbial':
-	TEMA_RELATIVO = choice.Menu(['de onde', 'quando',
-								 'onde', 'de quando', 'que', 'por onde']).ask()
-
+#
+# print('Qual a tipo_pessoa de relativo?')
+# tipo_de_relativo = choice.Menu(['nominal', 'adverbial']).ask()
+# if tipo_de_relativo == 'nominal':
+# 	TEMA_RELATIVO = pronome_relativo()
+# elif tipo_de_relativo == 'adverbial':
+# 	TEMA_RELATIVO = choice.Menu(['de onde', 'quando',
+# 								 'onde', 'de quando', 'que', 'por onde']).ask()
+#
 
 def TEMA_TEXTUAL(temTemaTextual='-', tipo_insercao_Cont="inserção_menu",conj_extenso_Cont=None,indiceCont=None,
 				 tipo_insercao_Conj="inserção_menu",tipo_de_conjuncao_Conj=None, conj_extensoConj=None,indiceConj=None,
@@ -11436,12 +11487,12 @@ def TEMA_TEXTUAL(temTemaTextual='-', tipo_insercao_Cont="inserção_menu",conj_e
 
 
 
-###
-TIPO_TEMA_INTERPESSOAL = choice.Menu(['TI_avaliação_modo', 'TI_avaliação_comentário',
-		                                      'TI_encenação_troca', 'TI_encenação_papel_falante', 'TI_polaridade',
-		                                      'TI_encenação_papel_ouvinte',
-		                                      'TI_NA']).ask()
-tipo_realizacao = choice.Menu(['grupo_adverbial', 'frase_preposicional']).ask()
+###tema interpessoal
+# TIPO_TEMA_INTERPESSOAL = choice.Menu(['TI_avaliação_modo', 'TI_avaliação_comentário',
+# 		                                      'TI_encenação_troca', 'TI_encenação_papel_falante', 'TI_polaridade',
+# 		                                      'TI_encenação_papel_ouvinte',
+# 		                                      'TI_NA']).ask()
+# tipo_realizacao = choice.Menu(['grupo_adverbial', 'frase_preposicional']).ask()
 
 
 def TEMA_INTERPESSOAL(temInterpessoal='-',
@@ -11606,117 +11657,134 @@ def TEMA_INTERPESSOAL(temInterpessoal='-',
 # 				  # nome_proprio=None
 # 				  )
 
+####TEMA IDEACIONAL
+# print('Qual a ORIENTAÇÃO MODAL do tema?')
+# 	ORIENTAÇÃO_MODAL = choice.Menu(['orientado', 'não_orientado']).ask()
+#
+# 	print('Qual a ORIENTAÇÃO TRANSITIVA do tema?')
+# 	ORIENTACAO_TRANSITIVA = choice.Menu(['direcional', 'não_direcional']).ask()
+#
+# 	print('Qual a SELEÇÃO TEMÁTICA do tema?')
+# 	SELEÇÃO_TEMÁTICA = choice.Menu(['default', 'proeminente']).ask()
+# print('Qual o tipo_pessoa de TEMA DEFAULT?')
+# 		TEMA_DEFAULT = choice.Menu(['imperativo',
+# 		                            'indicativo']).ask()
+#
+# print('Qual o tipo_pessoa de TEMA DEFAULT INDICATIVO?')
+# 			TEMA_DEFAULT_indicativo = choice.Menu(['declarativo',
+# 			                                       'interrogativo_polar',
+# 			                                       'interrogativo_sujeito_elemental']).ask()
+# print('Há TEMA IDENTIFICATIVO?')
+# 			TEMA_IDENTIFICATIVO = choice.Menu(['NA',
+# 			                                   'equativo_codificação',
+# 			                                   'equativo_decodificação']).ask()
+# TEMA_ÂNGULO = choice.Menu(['TID_fonte', 'TID_ponto_de_vista']).ask()
+# TEMA_ELEMENTAL = choice.Menu(['TID_complemento_elemental', 'TID_adjunto_elemental']).ask()
+# TEMA_PROEMINENTE = choice.Menu(['TID_perspectiva_intensificação',
+# 		                                'TID_perspectiva_outro',
+# 		                                'TID_intensivo_absoluto',
+# 		                                'TID_intensivo_relativo_papel_transitivo_nuclear_participante',
+# 		                                'TID_intensivo_relativo_papel_transitivo_nuclear_processo',
+# 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_expansão_elaboração',
+# 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_expansão_extensão',
+# 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto',
+# 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto_estensivo_reprisado',
+# 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto_estensivo_recuperável',
+# 		                                'TID_intensivo_relativo_predicação_default_local',
+# 		                                'TID_intensivo_relativo_predicação_proeminente_local'
+#
+# 		                                ]).ask()
 
-#PAREI AQUI 06-04
-# # def TEMA_IDEACIONAL():
-# # 	'''
-# #     ''' \
-# #  \
-# # 	print('Qual a ORIENTAÇÃO MODAL do tema?')
-# # 	ORIENTAÇÃO_MODAL = choice.Menu(['orientado', 'não_orientado']).ask()
-# #
-# # 	print('Qual a ORIENTAÇÃO TRANSITIVA do tema?')
-# # 	ORIENTAÇÃO_TRANSITIVA = choice.Menu(['direcional', 'não_direcional']).ask()
-# #
-# # 	print('Qual a SELEÇÃO TEMÁTICA do tema?')
-# # 	SELEÇÃO_TEMÁTICA = choice.Menu(['default', 'proeminente']).ask()
-# #
-# # 	if ORIENTAÇÃO_MODAL == 'orientado' and ORIENTAÇÃO_TRANSITIVA == 'direcional' and SELEÇÃO_TEMÁTICA == 'default':
-# # 		print('Qual o tipo_pessoa de TEMA DEFAULT?')
-# # 		TEMA_DEFAULT = choice.Menu(['imperativo',
-# # 		                            'indicativo']).ask()
-# #
-# # 		if TEMA_DEFAULT == 'imperativo':
-# # 			TEMA_IDEACIONAL = 'TID_default_imperativo'
-# #
-# # 		elif TEMA_DEFAULT == 'indicativo':
-# # 			print('Qual o tipo_pessoa de TEMA DEFAULT INDICATIVO?')
-# # 			TEMA_DEFAULT_indicativo = choice.Menu(['declarativo',
-# # 			                                       'interrogativo_polar',
-# # 			                                       'interrogativo_sujeito_elemental']).ask()
-# #
-# # 			print('Há TEMA IDENTIFICATIVO?')
-# # 			TEMA_IDENTIFICATIVO = choice.Menu(['NA',
-# # 			                                   'equativo_codificação',
-# # 			                                   'equativo_decodificação']).ask()
-# #
-# # 			if TEMA_DEFAULT_indicativo == 'declarativo' and TEMA_IDENTIFICATIVO == 'NA':
-# #
-# # 				TEMA_IDEACIONAL = 'TID_default_indicativo_declarativo_TIdentif_NA'
-# #
-# # 			elif TEMA_DEFAULT_indicativo == 'interrogativo_polar' and TEMA_IDENTIFICATIVO == 'NA':
-# #
-# # 				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_polar_TIdentif_NA'
-# #
-# # 			elif TEMA_DEFAULT_indicativo == 'interrogativo_sujeito_elemental' and TEMA_IDENTIFICATIVO == 'NA':
-# #
-# # 				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_NA'
-# #
-# # 			elif TEMA_DEFAULT_indicativo == 'declarativo' and TEMA_IDENTIFICATIVO == 'equativo_decodificação': \
-# #  \
-# # 				TEMA_IDEACIONAL = 'TID_default_indicativo_declarativo_TIdentif_equativo_decodificação'
-# #
-# # 			elif TEMA_DEFAULT_indicativo == 'interrogativo_polar' and TEMA_IDENTIFICATIVO == 'equativo_decodificação':
-# #
-# # 				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_decodificação'
-# #
-# # 			elif TEMA_DEFAULT_indicativo == 'interrogativo_sujeito_elemental' and TEMA_IDENTIFICATIVO == 'equativo_decodificação':
-# #
-# # 				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_decodificação'
-# #
-# #
-# # 			elif TEMA_DEFAULT_indicativo == 'declarativo' and TEMA_IDENTIFICATIVO == 'equativo_codificação':
-# #
-# # 				TEMA_IDEACIONAL = 'TID_default_indicativo_declarativo_TIdentif_equativo_codificação'
-# #
-# # 			elif TEMA_DEFAULT_indicativo == 'interrogativo_polar' and TEMA_IDENTIFICATIVO == 'equativo_codificação':
-# #
-# # 				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_codificação'
-# #
-# # 			elif TEMA_DEFAULT_indicativo == 'interrogativo_sujeito_elemental' and TEMA_IDENTIFICATIVO == 'equativo_codificação':
-# #
-# # 				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_codificação'
-# #
-# #
-# # 	elif ORIENTAÇÃO_MODAL == 'não_orientado' and ORIENTAÇÃO_TRANSITIVA == 'direcional' and SELEÇÃO_TEMÁTICA == 'proeminente':
-# #
-# # 		TEMA_ÂNGULO = choice.Menu(['TID_fonte', 'TID_ponto_de_vista']).ask()
-# #
-# # 		TEMA_IDEACIONAL = TEMA_ÂNGULO
-# #
-# #
-# #
-# # 	elif ORIENTAÇÃO_MODAL == 'orientado' and ORIENTAÇÃO_TRANSITIVA == 'não_direcional' and SELEÇÃO_TEMÁTICA == 'default':
-# #
-# # 		TEMA_ELEMENTAL = choice.Menu(['TID_complemento_elemental', 'TID_adjunto_elemental']).ask()
-# #
-# # 		TEMA_IDEACIONAL = TEMA_ELEMENTAL
-# #
-# #
-# #
-# # 	elif ORIENTAÇÃO_MODAL == 'não_orientado' and ORIENTAÇÃO_TRANSITIVA == 'não_direcional' and SELEÇÃO_TEMÁTICA == 'proeminente':
-# # 		print('Qual tipo_pessoa de TEMA PROEMINENTE?')
-# #
-# # 		TEMA_PROEMINENTE = choice.Menu(['TID_perspectiva_intensificação', \
-# # 		                                'TID_perspectiva_outro',
-# # 		                                'TID_intensivo_absoluto',
-# # 		                                'TID_intensivo_relativo_papel_transitivo_nuclear_participante',
-# # 		                                'TID_intensivo_relativo_papel_transitivo_nuclear_processo',
-# # 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_expansão_elaboração',
-# # 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_expansão_extensão',
-# # 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto',
-# # 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto_estensivo_reprisado',
-# # 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto_estensivo_recuperável',
-# # 		                                'TID_intensivo_relativo_predicação_default_local',
-# # 		                                'TID_intensivo_relativo_predicação_proeminente_local'
-# #
-# # 		                                ]).ask()
-# #
-# # 		TEMA_IDEACIONAL = TEMA_PROEMINENTE
-# #
-# # 	return TEMA_IDEACIONAL
-# #
-# #
+def TEMA_IDEACIONAL(ORIENTACAO_MODAL=None,ORIENTACAO_TRANSITIVA=None,SELECAO_TEMATICA=None,
+					TEMA_DEFAULT=None,
+					TEMA_DEFAULT_indicativo=None,
+					TEMA_IDENTIFICATIVO=None,
+					TEMA_ANGULO=None,
+					TEMA_ELEMENTAL=None,
+					TEMA_PROEMINENTE=None):
+	"""
+
+	:param ORIENTACAO_MODAL: 'orientado', 'não_orientado'
+	:param ORIENTACAO_TRANSITIVA: 'direcional', 'não_direcional'
+	:param SELECAO_TEMATICA: 'default', 'proeminente'
+	:param TEMA_DEFAULT: 'imperativo','indicativo'
+	:param TEMA_DEFAULT_indicativo: 'declarativo',interrogativo_polar',interrogativo_sujeito_elemental'
+	:param TEMA_IDENTIFICATIVO: 'NA','equativo_codificação','equativo_decodificação'
+	:param TEMA_ANGULO: 'TID_fonte', 'TID_ponto_de_vista'
+	:param TEMA_ELEMENTAL:'TID_complemento_elemental', 'TID_adjunto_elemental'
+	:param TEMA_PROEMINENTE:'TID_perspectiva_intensificação','TID_perspectiva_outro','TID_intensivo_absoluto',
+	'TID_intensivo_relativo_papel_transitivo_nuclear_participante','TID_intensivo_relativo_papel_transitivo_nuclear_processo',
+	TID_intensivo_relativo_papel_transitivo_circunstancial_expansão_elaboração', 'TID_intensivo_relativo_papel_transitivo_circunstancial_expansão_extensão',
+	'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto', 'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto_estensivo_reprisado',
+	'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto_estensivo_recuperável','TID_intensivo_relativo_predicação_default_local',
+	'TID_intensivo_relativo_predicação_proeminente_local'
+	:return:
+	"""
+
+	if ORIENTACAO_MODAL == 'orientado' and ORIENTACAO_TRANSITIVA == 'direcional' and SELECAO_TEMATICA == 'default':
+
+		if TEMA_DEFAULT == 'imperativo':
+			TEMA_IDEACIONAL = 'TID_default_imperativo'
+
+		elif TEMA_DEFAULT == 'indicativo':
+		
+			if TEMA_DEFAULT_indicativo == 'declarativo' and TEMA_IDENTIFICATIVO == 'NA':
+
+				TEMA_IDEACIONAL = 'TID_default_indicativo_declarativo_TIdentif_NA'
+
+			elif TEMA_DEFAULT_indicativo == 'interrogativo_polar' and TEMA_IDENTIFICATIVO == 'NA':
+
+				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_polar_TIdentif_NA'
+
+			elif TEMA_DEFAULT_indicativo == 'interrogativo_sujeito_elemental' and TEMA_IDENTIFICATIVO == 'NA':
+
+				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_NA'
+
+			elif TEMA_DEFAULT_indicativo == 'declarativo' and TEMA_IDENTIFICATIVO == 'equativo_decodificação':
+				TEMA_IDEACIONAL = 'TID_default_indicativo_declarativo_TIdentif_equativo_decodificação'
+
+			elif TEMA_DEFAULT_indicativo == 'interrogativo_polar' and TEMA_IDENTIFICATIVO == 'equativo_decodificação':
+
+				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_decodificação'
+
+			elif TEMA_DEFAULT_indicativo == 'interrogativo_sujeito_elemental' and TEMA_IDENTIFICATIVO == 'equativo_decodificação':
+
+				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_decodificação'
+
+
+			elif TEMA_DEFAULT_indicativo == 'declarativo' and TEMA_IDENTIFICATIVO == 'equativo_codificação':
+
+				TEMA_IDEACIONAL = 'TID_default_indicativo_declarativo_TIdentif_equativo_codificação'
+
+			elif TEMA_DEFAULT_indicativo == 'interrogativo_polar' and TEMA_IDENTIFICATIVO == 'equativo_codificação':
+
+				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_codificação'
+
+			elif TEMA_DEFAULT_indicativo == 'interrogativo_sujeito_elemental' and TEMA_IDENTIFICATIVO == 'equativo_codificação':
+
+				TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_codificação'
+
+
+	elif ORIENTACAO_MODAL == 'não_orientado' and ORIENTACAO_TRANSITIVA == 'direcional' and SELECAO_TEMATICA == 'proeminente':
+		TEMA_IDEACIONAL = TEMA_ANGULO
+
+	elif ORIENTACAO_MODAL == 'orientado' and ORIENTACAO_TRANSITIVA == 'não_direcional' and SELECAO_TEMATICA == 'default':
+		TEMA_IDEACIONAL = TEMA_ELEMENTAL
+
+	elif ORIENTACAO_MODAL == 'não_orientado' and ORIENTACAO_TRANSITIVA == 'não_direcional' and SELECAO_TEMATICA == 'proeminente':
+		print('Qual tipo_pessoa de TEMA PROEMINENTE?')
+
+		TEMA_IDEACIONAL = TEMA_PROEMINENTE
+
+	return TEMA_IDEACIONAL
+# TEMA_IDEACIONAL(ORIENTACAO_MODAL='orientado',ORIENTACAO_TRANSITIVA='direcional',SELECAO_TEMATICA='default',
+# 					TEMA_DEFAULT='indicativo',
+# 					TEMA_DEFAULT_indicativo='declarativo',
+# 					TEMA_IDENTIFICATIVO='NA',
+# 					TEMA_ANGULO=None,
+# 					TEMA_ELEMENTAL=None,
+# 					TEMA_PROEMINENTE=None)
+
 
 def elemento_qu(indice=None):
 	'''
@@ -11760,77 +11828,78 @@ def particula_modal(indice=None):
 # #
 # # ####FORMAÇÃO DA ORAÇÃO
 # #
-# #
-# # def atribuição_de_relação():
-# # 	'''
-# #     '''
-# # 	atribuição_de_relação = choice.Menu(['atribuição_proj_ment_cognitiva',
-# # 	                                     'atribuição_proj_ment_desiderativa',
-# # 	                                     'atribuição_proj_verbal',
-# # 	                                     'atribuição_expan_elaboração',
-# # 	                                     'atribuição_expan_intencificação'
-# # 	                                     ]).ask()
-# # 	return atribuição_de_relação
-# #
-# #
-# # def PROCESSO_RELACIONAL():
-# # 	'''
-# #     '''
-# # 	tipo_de_relacional = choice.Menu(['PR_relacional_intensivo_atributivo',
-# # 	                                  'PR_relacional_intensivo_identificativo',
-# # 	                                  'PR_relacional_possessivo_atributivo',
-# # 	                                  'PR_relacional_circunstancial_atributivo',
-# # 	                                  'PR_relacional_possessivo_identificativo',
-# # 	                                  'PR_relacional_circunstancial_identificativo']).ask()
-# #
-# # 	return tipo_de_relacional
-# #
-# #
-# # def TRANSITIVIDADE(): \
-# # 	'''
-# #     '''
-# # 	print('Qual o tipo_pessoa de Processo?')
-# # 	TIPO_DE_PROCESSO = choice.Menu(['Material', 'Relacional', \
-# # 	                                'Mental', 'Verbal',
-# # 	                                'Existencial']).ask()
-# #
-# # 	if TIPO_DE_PROCESSO == 'Material':
-# # 		print('Selecione as opções do sistema da Oração Material')
-# # 		Processo = PROCESSO_MATERIAL()
-# # 		Agenciamento = AGENCIAMENTO()
-# #
-# # 		TRANSITIVIDADE = Processo + '_' + Agenciamento
-# #
-# # 	elif TIPO_DE_PROCESSO == 'Relacional':
-# # 		print('Selecione as opções do sistema da Oração Relacional')
-# # 		Processo = PROCESSO_RELACIONAL()
-# # 		Agenciamento = AGENCIAMENTO()
-# #
-# # 		TRANSITIVIDADE = Processo + '_' + Agenciamento
-# #
-# # 	elif TIPO_DE_PROCESSO == 'Existencial':
-# # 		print('Selecione as opções do sistema da Oração Existencial')
-# # 		Processo = 'PR_Existencial'
-# # 		Agenciamento = AGENCIAMENTO()
-# #
-# # 		TRANSITIVIDADE = Processo + '_' + Agenciamento
-# #
-# # 	elif TIPO_DE_PROCESSO == 'Verbal':
-# # 		print('Selecione as opções do sistema da Oração Verbal')
-# # 		Processo = 'PR_Verbal'
-# # 		Agenciamento = AGENCIAMENTO()
-# #
-# # 		TRANSITIVIDADE = Processo + '_' + Agenciamento
-# #
-# # 	elif TIPO_DE_PROCESSO == 'Mental':
-# # 		print('Selecione as opções do sistema da Oração mental')
-# # 		Processo = 'PR_Mental'
-# # 		Agenciamento = AGENCIAMENTO() \
-# #  \
-# # 		TRANSITIVIDADE = Processo + '_' + Agenciamento
-# #
-# # 	return TRANSITIVIDADE
-# #
+#
+# def atribuicao_de_relacao(indice):
+# 	"""
+#
+# 	:param indice: 0:'atribuição_proj_ment_cognitiva',1:'atribuição_proj_ment_desiderativa',
+# 				  2:'atribuição_proj_verbal',3:'atribuição_expan_elaboração',
+# 				   4:'atribuição_expan_intencificação'
+# 	:return: atribuicao_de_relação
+# 	"""
+# 	try:
+# 		opcoes = ['atribuição_proj_ment_cognitiva','atribuição_proj_ment_desiderativa',
+# 				  'atribuição_proj_verbal','atribuição_expan_elaboração',
+# 				   'atribuição_expan_intencificação']
+# 		nums = [x for x in range(len(opcoes))]
+# 		atribuicoes = dict(zip(nums, opcoes))
+# 		atribuicao_de_relação = atribuicoes[indice]
+# 	except:
+# 		atribuicao_de_relação=None
+# 	return atribuicao_de_relação
+# # atribuição_de_relação(0)
+#
+# def PROCESSO_RELACIONAL(indice):
+# 	"""
+#
+# 	:param indice: 0:'PR_relacional_intensivo_atributivo',1:'PR_relacional_intensivo_identificativo',
+# 	           2:'PR_relacional_possessivo_atributivo',3:'PR_relacional_circunstancial_atributivo',
+# 	           4:'PR_relacional_possessivo_identificativo',5:'PR_relacional_circunstancial_identificativo'
+# 	:return: tipo_de_relacional
+# 	"""
+# 	opcoes = ['PR_relacional_intensivo_atributivo','PR_relacional_intensivo_identificativo',
+# 	           'PR_relacional_possessivo_atributivo','PR_relacional_circunstancial_atributivo',
+# 	           'PR_relacional_possessivo_identificativo','PR_relacional_circunstancial_identificativo']
+# 	nums = [x for x in range(len(opcoes))]
+# 	tipos = dict(zip(nums,opcoes))
+# 	tipo_de_relacional = tipos[indice]
+# 	return tipo_de_relacional
+
+####
+# print('Qual o tipo_pessoa de Processo?')
+# 	TIPO_DE_PROCESSO = choice.Menu(['Material', 'Relacional',
+# 	                                'Mental', 'Verbal',
+# 	                                'Existencial']).ask()
+# print('Selecione as opções do sistema da Oração Material')
+
+def TRANSITIVIDADE(TIPO_DE_PROCESSO=None,indiceMat=None,indiceAgen=None,
+				   indiceRel=None,indiceAtrib=None):
+
+	if TIPO_DE_PROCESSO == 'Material':
+		Processo = Processo_Material(indiceMat)
+		Agenciamento = AGENCIAMENTO(indiceAgen)
+
+	elif TIPO_DE_PROCESSO == 'Relacional':
+		Processo = PROCESSO_RELACIONAL(indiceRel,indiceAtrib)
+		Agenciamento = AGENCIAMENTO(indiceAgen)
+	elif TIPO_DE_PROCESSO == 'Existencial':
+		Processo = 'PR_Existencial'
+		Agenciamento = AGENCIAMENTO(indiceAgen)
+
+	elif TIPO_DE_PROCESSO == 'Verbal':
+		print('Selecione as opções do sistema da Oração Verbal')
+		Processo = 'PR_Verbal'
+		Agenciamento = AGENCIAMENTO(indiceAgen)
+
+	elif TIPO_DE_PROCESSO == 'Mental':
+		Processo = 'PR_Mental'
+		Agenciamento = AGENCIAMENTO(indiceAgen)
+
+	TRANSITIVIDADE = Processo + '_' + Agenciamento
+	return TRANSITIVIDADE
+#
+# TRANSITIVIDADE(TIPO_DE_PROCESSO='Material', indiceMat=0, indiceAgen=2,indiceRel=None, indiceAtrib=None)
+# TRANSITIVIDADE(TIPO_DE_PROCESSO='Verbal', indiceAgen=2)
 # #
 # # def oraçãoProjetada():
 # # 	oração = oração_gerar()
