@@ -1,4 +1,6 @@
 import re
+from GENERATION_dev import estrutura_GN
+
 def Preposição():
     '''
     '''
@@ -33,17 +35,6 @@ def Preposição():
 
         preposição = switcherModo.get(i, 'Seleção nao disponível')
     return preposição
-
-
-
-
-
-
-
-
-
-
-
 
 def teste_material():
     '''(str,str,str)->str
@@ -497,3 +488,5 @@ def formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_num
 
 verbo = 'dizer'
 verbo[slice(-3)]
+
+
