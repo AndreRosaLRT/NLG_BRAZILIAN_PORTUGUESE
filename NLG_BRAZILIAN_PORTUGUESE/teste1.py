@@ -1,5 +1,5 @@
 import re
-from GENERATION_dev import estrutura_GN
+from GENERATION_dev import *
 
 def Preposição():
     '''

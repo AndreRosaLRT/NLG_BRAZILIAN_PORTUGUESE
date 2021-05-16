@@ -9257,8 +9257,8 @@ def ordinal(cardinal,genero):
 		ordinal = num + 'ª'
 	return ordinal
 
-print(ordinal(4,'masculino'))
-'4º'
+# print(ordinal(4,'masculino'))
+
 
 # #
 def porcento(cardinal):
@@ -10893,7 +10893,7 @@ def estrutura_GN(dissocEnteNucleo=None, temQualificador=None, tipoQualificador=N
 
 		GN = Núcleo_lógico + ' ' + Qualificador
 	return  (re.sub(' +', ' ', GN).strip())
-#
+# #
 # estrutura_GN(DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='NA',
 # 			 gênero_alpha='masculino',número_alpha='singular', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
 # 			 pessoa_da_interlocução_possuidor='1s', número_obj_possuído='plural', gênero_obj_possuído='masculino',
@@ -10913,6 +10913,28 @@ def estrutura_GN(dissocEnteNucleo=None, temQualificador=None, tipoQualificador=N
 # 				 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='pronome_caso_reto', substantivo_lematizado=None,
 # 				 numero='singular', tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,
 # 				 pessoa_da_interlocucao='falante', transitividade_verbo=None, tonicidade=None, morfologia_do_pronome="Morfologia_padrão",
+# 				 reflexivo=None, epitetoModificacao=None, adjetivo_epiteto=None, classificadorModificacao=None,
+# 				 adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None,contracao=None)
+#
+# estrutura_GN(DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='NA',
+# 			 gênero_alpha='masculino',número_alpha='singular', morfologia_do_pronome_alpha=None,
+# 			 pessoa_da_interlocução_possuidor=None, número_obj_possuído=None, gênero_obj_possuído=None,
+# 			 genero='não-binário', tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 			 tipo_de_nao_consciente_material='instituição',classe_palavra_Ente='substantivo_comum',
+# 			 substantivo_lematizado='desmatamento', numero='singular')
+
+# estrutura_GN(dissocEnteNucleo=None, temQualificador=None, tipoQualificador=None, indicePreposicao=None,
+# 				 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None, gênero_beta=None, número_beta=None,
+# 				 morfologia_do_pronome_beta=None, DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='NA',
+# 				 gênero_alpha='masculino', número_alpha='singular', morfologia_do_pronome_alpha=None,
+# 				 pessoa_da_interlocução_possuidor=None, número_obj_possuído=None, gênero_obj_possuído=None,
+# 				 pessoa_da_interlocução_proximidade=None, funcaoNumerativo=None, cardinal=None, genero='não-binário',
+# 				 tipo_precisa=None, tipoRealCard=None, milharExtenso=None, centenaExtenso=None,
+# 				 dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+# 				 tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material', tipo_de_nao_consciente_material='abstração_material',
+# 				 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum', substantivo_lematizado='jogo',
+# 				 numero='singular', tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,
+# 				 pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None, morfologia_do_pronome="Morfologia_padrão",
 # 				 reflexivo=None, epitetoModificacao=None, adjetivo_epiteto=None, classificadorModificacao=None,
 # 				 adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None,contracao=None)
 # # ########PREPOSIÇÃO
@@ -10956,84 +10978,87 @@ def frase_preposicional(indicePreposicao=None, dissocEnteNucleo=None, temQualifi
 						adjetivo_classificador=None,generoAdjetivo=None, numeroAdjetivo=None, contracao=None):
 	'''
     '''
-	prep = preposicao(indicePreposicao)
-	grupo_nominal = (re.sub(' +', ' ',
-					estrutura_GN_downraked(
-						dissocEnteNucleo, temQualificador, tipoQualificador, indicePreposicao,
-						DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta, gênero_beta, número_beta,
-						morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha,
-						gênero_alpha, número_alpha, morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
-						número_obj_possuído, gênero_obj_possuído, pessoa_da_interlocução_proximidade, funcaoNumerativo,
-						cardinal, genero, tipo_precisa, tipoRealCard, milharExtenso, centenaExtenso, dezenaExtenso,
-						unidadeExtenso, numIndefinido, tipo_de_Ente, tipo_de_nao_consciente,
-						tipo_de_nao_consciente_material, tipo_de_nao_consciente_semiotico, classe_palavra_Ente,
-						substantivo_lematizado, numero, tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio,
-						pessoa_da_interlocucao, transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,
-						epitetoModificacao, adjetivo_epiteto, classificadorModificacao, adjetivo_classificador,
-						generoAdjetivo, numeroAdjetivo, contracao))).strip()
+	try:
+		prep = preposicao(indicePreposicao)
+		grupo_nominal = (re.sub(' +', ' ',
+						estrutura_GN_downraked(
+							dissocEnteNucleo, temQualificador, tipoQualificador, indicePreposicao,
+							DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta, gênero_beta, número_beta,
+							morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha,
+							gênero_alpha, número_alpha, morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+							número_obj_possuído, gênero_obj_possuído, pessoa_da_interlocução_proximidade, funcaoNumerativo,
+							cardinal, genero, tipo_precisa, tipoRealCard, milharExtenso, centenaExtenso, dezenaExtenso,
+							unidadeExtenso, numIndefinido, tipo_de_Ente, tipo_de_nao_consciente,
+							tipo_de_nao_consciente_material, tipo_de_nao_consciente_semiotico, classe_palavra_Ente,
+							substantivo_lematizado, numero, tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio,
+							pessoa_da_interlocucao, transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,
+							epitetoModificacao, adjetivo_epiteto, classificadorModificacao, adjetivo_classificador,
+							generoAdjetivo, numeroAdjetivo, contracao))).strip()
 
-	if prep == 'por':
-		if grupo_nominal[:2] == 'o ':
-			frase_prep = 'pel' + grupo_nominal
-		elif grupo_nominal[:2] == 'a ':
-			frase_prep = 'pel' + grupo_nominal
-		else:
-			frase_prep = prep + ' ' + grupo_nominal
-	elif prep == 'a':
-		if grupo_nominal[:2] == 'a ':
-			E = 'à' + grupo_nominal[(-(len(grupo_nominal) - 1)):]
-		elif grupo_nominal[:2] == 'o ':
-			frase_prep = prep + grupo_nominal
-		elif grupo_nominal[:5] == 'aquel':
-			frase_prep = 'à' + grupo_nominal[(-(len(grupo_nominal) - 1)):]
-		else:
-			frase_prep = prep + ' ' + grupo_nominal
-	elif prep == 'de':
-		if (grupo_nominal[:2] == 'o ' or grupo_nominal[:2] == 'a ' or grupo_nominal[:3] == 'est' or
-				grupo_nominal[:3] == 'ist' or grupo_nominal[:3] == 'ess' or grupo_nominal[:3] == 'iss'
-				or grupo_nominal[:5] == 'aquel' or grupo_nominal[:5] == 'aquil'):
-			frase_prep = (prep[slice(-1)]) + grupo_nominal
-		elif (grupo_nominal[:2] == 'um' or  grupo_nominal[:2] == 'un' or
-		      grupo_nominal[:2] == 'el' or grupo_nominal[:4] == 'outr'):
-
-			if contracao == '+contração':
-				frase_prep = (prep[slice(-1)]) + grupo_nominal
+		if prep == 'por':
+			if grupo_nominal[:2] == 'o ':
+				frase_prep = 'pel' + grupo_nominal
+			elif grupo_nominal[:2] == 'a ':
+				frase_prep = 'pel' + grupo_nominal
 			else:
 				frase_prep = prep + ' ' + grupo_nominal
-		else:
-			frase_prep = prep + ' ' + grupo_nominal
-	elif prep == 'em':
-		if (
-				grupo_nominal[:2] == 'o ' or grupo_nominal[:2] == 'a ' or
-				grupo_nominal[:2] == 'el' or grupo_nominal[:3] == 'est' or
-				grupo_nominal[:3] == 'ist' or grupo_nominal[:3] == 'ess' or
-				grupo_nominal[:3] == 'iss' or grupo_nominal[:5] == 'aquel' or
-				grupo_nominal[:5] == 'aquil'
-		):
-			frase_prep = 'n' + grupo_nominal
-		else:
-			if (
-					grupo_nominal[:2] == 'um' or grupo_nominal[:2] == 'un' or
-					grupo_nominal[:4] == 'outr'
-			):
+		elif prep == 'a':
+			if grupo_nominal[:2] == 'a ':
+				E = 'à' + grupo_nominal[(-(len(grupo_nominal) - 1)):]
+			elif grupo_nominal[:2] == 'o ':
+				frase_prep = prep + grupo_nominal
+			elif grupo_nominal[:5] == 'aquel':
+				frase_prep = 'à' + grupo_nominal[(-(len(grupo_nominal) - 1)):]
+			else:
+				frase_prep = prep + ' ' + grupo_nominal
+		elif prep == 'de':
+			if (grupo_nominal[:2] == 'o ' or grupo_nominal[:2] == 'a ' or grupo_nominal[:3] == 'est' or
+					grupo_nominal[:3] == 'ist' or grupo_nominal[:3] == 'ess' or grupo_nominal[:3] == 'iss'
+					or grupo_nominal[:5] == 'aquel' or grupo_nominal[:5] == 'aquil'):
+				frase_prep = (prep[slice(-1)]) + grupo_nominal
+			elif (grupo_nominal[:2] == 'um' or  grupo_nominal[:2] == 'un' or
+				  grupo_nominal[:2] == 'el' or grupo_nominal[:4] == 'outr'):
 
 				if contracao == '+contração':
-					frase_prep = 'n' + grupo_nominal
+					frase_prep = (prep[slice(-1)]) + grupo_nominal
 				else:
 					frase_prep = prep + ' ' + grupo_nominal
+			else:
+				frase_prep = prep + ' ' + grupo_nominal
+		elif prep == 'em':
+			if (
+					grupo_nominal[:2] == 'o ' or grupo_nominal[:2] == 'a ' or
+					grupo_nominal[:2] == 'el' or grupo_nominal[:3] == 'est' or
+					grupo_nominal[:3] == 'ist' or grupo_nominal[:3] == 'ess' or
+					grupo_nominal[:3] == 'iss' or grupo_nominal[:5] == 'aquel' or
+					grupo_nominal[:5] == 'aquil'
+			):
+				frase_prep = 'n' + grupo_nominal
+			else:
+				if (
+						grupo_nominal[:2] == 'um' or grupo_nominal[:2] == 'un' or
+						grupo_nominal[:4] == 'outr'
+				):
 
-	elif prep == 'para':
-		if (
-				grupo_nominal[:2] == 'o ' or grupo_nominal[:2] == 'a '
-		):
-			if contracao == '+contração':
-				frase_prep = 'pr' + grupo_nominal
+					if contracao == '+contração':
+						frase_prep = 'n' + grupo_nominal
+					else:
+						frase_prep = prep + ' ' + grupo_nominal
+
+		elif prep == 'para':
+			if (
+					grupo_nominal[:2] == 'o ' or grupo_nominal[:2] == 'a '
+			):
+				if contracao == '+contração':
+					frase_prep = 'pr' + grupo_nominal
+				else:
+					frase_prep = prep + ' ' + grupo_nominal
 			else:
 				frase_prep = prep + ' ' + grupo_nominal
 		else:
 			frase_prep = prep + ' ' + grupo_nominal
-	else:
-		frase_prep = prep + ' ' + grupo_nominal
+	except:
+		frase_prep = ''
 	return frase_prep
 #
 # for i in range(12):
@@ -11188,10 +11213,10 @@ def circunstancia(temCircunstancia=None,realizacaoCircunstancia=None,
 											tipo_de_adverbio3, ind3,
 											tipo_de_adverbio4, ind4,
 											tipo_de_adverbio5, ind5)
-			
+
 
 	return re.sub(' +',' ',Circunstancia).strip()
-circunstancia(temCircunstancia='+',realizacaoCircunstancia='grupo_adverbial', indicePreposicao=9,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None, DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None, gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None, DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade', gênero_alpha='masculino', número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa', pessoa_da_interlocução_possuidor='1s', número_obj_possuído='plural', gênero_obj_possuído='masculino', pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',   funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None, milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None, tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material', tipo_de_nao_consciente_material='animal', tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum', substantivo_lematizado='prédio', numero='plural', tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,   epitetoModificacao='sim',adjetivo_epiteto='alto', classificadorModificacao=None,adjetivo_classificador=None,generoAdjetivo='masculino' , numeroAdjetivo='plural',contracao='-contração' ,tipo_de_adverbio1='Modo', ind1=10)
+circunstancia(temCircunstancia='+',realizacaoCircunstancia='grupo_adverbial', indicePreposicao=None,dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None, DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None, gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None, DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade', gênero_alpha='masculino', número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa', pessoa_da_interlocução_possuidor='1s', número_obj_possuído='plural', gênero_obj_possuído='masculino', pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',   funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None, milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None, tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material', tipo_de_nao_consciente_material='animal', tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='substantivo_comum', substantivo_lematizado='prédio', numero='plural', tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,   epitetoModificacao='sim',adjetivo_epiteto='alto', classificadorModificacao=None,adjetivo_classificador=None,generoAdjetivo='masculino' , numeroAdjetivo='plural',contracao='-contração' ,tipo_de_adverbio1='Modo', ind1=10)
 
 
 
@@ -11408,8 +11433,8 @@ def POLARIDADE(tipo_polaridade=None):
 		Adjunto_polaridade = 'não'
 
 	return Adjunto_polaridade
-POLARIDADE('positiva')
-POLARIDADE('negativa')
+# POLARIDADE('positiva')
+# POLARIDADE('negativa')
 
 # #
 # # ##############
@@ -11536,13 +11561,13 @@ def TEMA_TEXTUAL(temTemaTextual=None, tipo_insercao_Cont="inserção_menu",conj_
 		if temTemaTextual == '+':
 			TEMA_CONTINUATIVO = conjuncao_continuativa(tipo_insercao_Cont,indiceCont,conj_extenso_Cont)
 			TEMA_CONJUNTIVO = grupo_conjuntivo(tipo_insercao_Conj, conj_extensoConj, tipo_de_conjuncao_Conj, indiceConj)
-	
+
 			if tipo_de_relativo == 'nominal':
 				TEMA_RELATIVO = pronome_relativo(tipo_insercao_Rel,pron_extenso_Rel,tipo_pronome_relativo,genero,numero, indiceRelativo)
 			elif tipo_de_relativo == 'adverbial':
 				opcoes = ['de onde', 'quando',
 						  'onde', 'de quando', 'que', 'por onde']
-	
+
 				nums = [x for x in range(len(opcoes))]
 				relativos = dict(zip(nums, opcoes))
 				TEMA_RELATIVO = relativos[indiceRelativoAdv]
@@ -11598,7 +11623,7 @@ def TEMA_INTERPESSOAL(TIPO_TEMA_INTERPESSOAL=None,tipoRealizacao=None,
 					  tipo_de_adverbio3=None, ind3=None,
 					  tipo_de_adverbio4=None, ind4=None,
 					  tipo_de_adverbio5=None, ind5=None,
-					  
+
 					#frase prepos
 					  indicePreposicao=None, dissocEnteNucleo=None, temQualificador=None,
 					  tipoQualificador=None, DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
@@ -11616,7 +11641,7 @@ def TEMA_INTERPESSOAL(TIPO_TEMA_INTERPESSOAL=None,tipoRealizacao=None,
 					  morfologia_do_pronome=None, reflexivo=None, epitetoModificacao=None,
 					  adjetivo_epiteto=None, classificadorModificacao=None,
 					  adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None, contracao=None,
-					
+
 					#
 					  indiceElemQu=None, indicePartModal=None,
 					  nome_proprio=None):
@@ -11751,7 +11776,7 @@ def TEMA_IDEACIONAL(ORIENTACAO_MODAL=None,ORIENTACAO_TRANSITIVA=None,
 			TEMA_IDEACIONAL = 'TID_default_imperativo'
 
 		elif TEMA_DEFAULT == 'indicativo':
-		
+
 			if TEMA_DEFAULT_indicativo == 'declarativo'\
 					and TEMA_IDENTIFICATIVO == 'NA':
 
@@ -11914,12 +11939,12 @@ def TRANSITIVIDADE(TIPO_DE_PROCESSO=None,indiceMat=None,
 # #
 # TRANSITIVIDADE(TIPO_DE_PROCESSO='Material', indiceMat=0,
 # 			   indiceAgen=2,indiceRel=None, indiceAtrib=None)
-TRANSITIVIDADE(TIPO_DE_PROCESSO='Mental', indiceMat=None, indiceAgen=1,indiceRel=None, indiceAtrib=None)
+# TRANSITIVIDADE(TIPO_DE_PROCESSO='Mental', indiceMat=None, indiceAgen=1,indiceRel=None, indiceAtrib=None)
 # # TRANSITIVIDADE(TIPO_DE_PROCESSO='Verbal', indiceAgen=2)
 # # #
-# # def oraçãoProjetada():
-# # 	oração = gerar_oracao()
-# # 	return oração
+# def oracaoProjetada():
+# 	oracao = gerar_oracao()
+# 	return oracao
 # #
 # #
 # # def oraçãoDownranked():
@@ -11937,268 +11962,41 @@ TRANSITIVIDADE(TIPO_DE_PROCESSO='Mental', indiceMat=None, indiceAgen=1,indiceRel
 # print('Médio sem alcance: Não-fenomenalização = comportamento-passivo')
 # TIPO_NAO_FENOMENALIZACAO= choice.Menu(['comportamento-passivo']).ask()
 ##terminar de ver a questão do tema interpessoal
-def gerar_oracao(
-		##TRANSITIVIDADE
-		TIPO_DE_PROCESSO=None, indiceMat=None, indiceAgen=None,
-		indiceRel=None, indiceAtrib=None,
-		# MODO
+
+def oracaoMental(
+	##TRANSITIVIDADE
+		TIPO_DE_PROCESSO=None, indiceMat=None, indiceAgen=None, indiceRel=None, indiceAtrib=None,
+	# MODO
 		RESPONSABILIDADE=None, PRESSUPOSICAO_DO_SUJEITO=None, TIPO_MODO=None,
-		# TEMA IDEACIONAL
-		ORIENTACAO_MODAL=None, ORIENTACAO_TRANSITIVA=None, SELECAO_TEMATICA=None,
-		TEMA_DEFAULT=None, TEMA_DEFAULT_indicativo=None, TEMA_IDENTIFICATIVO=None,
-		TEMA_ANGULO=None, TEMA_ELEMENTAL=None, TEMA_PROEMINENTE=None,
-		#TEMA INTERPESSOAL
-		TIPO_TEMA_INTERPESSOAL=None, tipoRealizacao=None,
-			# realizado por grupo adverbial
-		tipo_de_adverbio1=None, ind1=None,
-		tipo_de_adverbio2=None, ind2=None,
-		tipo_de_adverbio3=None, ind3=None,
-		tipo_de_adverbio4=None, ind4=None,
-		tipo_de_adverbio5=None, ind5=None,
+	# TEMA IDEACIONAL
+		ORIENTACAO_MODAL=None, ORIENTACAO_TRANSITIVA=None, SELECAO_TEMATICA=None, TEMA_DEFAULT=None, TEMA_DEFAULT_indicativo=None, TEMA_IDENTIFICATIVO=None, TEMA_ANGULO=None, TEMA_ELEMENTAL=None, TEMA_PROEMINENTE=None,
+	##Processo Mental
+		FENOMENALIZACAO=None, TIPO_DE_MENTAL=None,
 
-		# realziado por frase prepos
-		indicePreposicao=None, dissocEnteNucleo=None, temQualificador=None,
-		tipoQualificador=None, DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-		gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-		DETERMINAÇÃO_espeficifidade_alpha=None, ORIENTAÇÃO_alpha=None, gênero_alpha=None,
-		número_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
-		número_obj_possuído=None, gênero_obj_possuído=None, pessoa_da_interlocução_proximidade=None,
-		funcaoNumerativo=None, cardinal=None, genero=None, tipo_precisa=None, tipoRealCard=None,
-		milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None,
-		numIndefinido=None, tipo_de_Ente=None, tipo_de_nao_consciente=None,
-		tipo_de_nao_consciente_material=None, tipo_de_nao_consciente_semiotico=None,
-		classe_palavra_Ente=None, substantivo_lematizado=None, numero=None,
-		tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,
-		pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
-		morfologia_do_pronome=None, reflexivo=None, epitetoModificacao=None,
-		adjetivo_epiteto=None, classificadorModificacao=None,
-		adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None, contracao=None,
-
-		#
-		indiceElemQu=None, indicePartModal=None,
-		nome_proprio=None,
-	
-	#TEMA TEXTUAL
-		temTemaTextual='-', tipo_insercao_Cont="inserção_menu",conj_extenso_Cont=None,indiceCont=None,
-		tipo_insercao_Conj="inserção_menu",tipo_de_conjuncao_Conj=None, conj_extensoConj=None,indiceConj=None,
-		tipo_insercao_Rel='inserção_menu', pron_extenso_Rel=None,tipo_de_relativo=None,
-		tipo_pronome_relativo=None, generoTemaTextual=None, numeroTemaTextual=None, indiceRelativo=None,
-		indiceRelativoAdv=None,
-
-		##Processo Mental
-		 FENOMENALIZACAO=None, TIPO_DE_MENTAL=None,TIPO_NAO_FENOMENALIZACAO=None,
-		
-		##PARTICIPANTES
-		P1_dissocEnteNucleo=None, P1_temQualificador=None, P1_tipoQualificador=None, P1_indicePreposicao=None,
-		P1_DETERMINAÇÃO_espeficifidade_beta=None, P1_ORIENTAÇÃO_beta=None,
-		P1_gênero_beta=None, P1_número_beta=None, P1_morfologia_do_pronome_beta=None,
-		P1_DETERMINAÇÃO_espeficifidade_alpha=None, P1_ORIENTAÇÃO_alpha=None, P1_gênero_alpha=None,
-		P1_número_alpha=None, P1_morfologia_do_pronome_alpha=None, P1_pessoa_da_interlocução_possuidor=None,
-		P1_número_obj_possuído=None, P1_gênero_obj_possuído=None, P1_pessoa_da_interlocução_proximidade=None,
-		P1_funcaoNumerativo=None, P1_cardinal=None, P1_genero=None, P1_tipo_precisa=None, P1_tipoRealCard=None,
-		P1_milharExtenso=None, P1_centenaExtenso=None, P1_dezenaExtenso=None, P1_unidadeExtenso=None,
-		P1_numIndefinido=None,
-		P1_tipo_de_Ente=None, P1_tipo_de_nao_consciente=None, P1_tipo_de_nao_consciente_material=None,
-		P1_tipo_de_nao_consciente_semiotico=None, P1_classe_palavra_Ente=None, P1_substantivo_lematizado=None,
-		P1_numero=None,
-		P1_tipo_feminino_ÃO=None, P1_tipo_masc_ÃO=None, P1_acentTonica=None, P1_nomeProprio=None,
-		P1_pessoa_da_interlocucao=None,
-		P1_transitividade_verbo=None, P1_tonicidade=None, P1_morfologia_do_pronome=None, P1_reflexivo=None,
-		P1_epitetoModificacao=None, P1_adjetivo_epiteto=None, P1_classificadorModificacao=None,
-		P1_adjetivo_classificador=None,P1_generoAdjetivo=None, P1_numeroAdjetivo=None,P1_contracao=None,
-##PARTICIPANTES REALIZADOS POR FP
-		PART_FP_indicePreposicao=None, PART_FP_dissocEnteNucleo=None, PART_FP_temQualificador=None, PART_FP_tipoQualificador=None,
-		PART_FP_DETERMINAÇÃO_espeficifidade_beta=None, PART_FP_ORIENTAÇÃO_beta=None,
-		PART_FP_gênero_beta=None, PART_FP_número_beta=None, PART_FP_morfologia_do_pronome_beta=None,
-		PART_FP_DETERMINAÇÃO_espeficifidade_alpha=None, PART_FP_ORIENTAÇÃO_alpha=None, PART_FP_gênero_alpha=None,
-		PART_FP_número_alpha=None, PART_FP_morfologia_do_pronome_alpha=None, PART_FP_pessoa_da_interlocução_possuidor=None,
-		PART_FP_número_obj_possuído=None, PART_FP_gênero_obj_possuído=None, PART_FP_pessoa_da_interlocução_proximidade=None,  #
-		PART_FP_funcaoNumerativo=None, PART_FP_cardinal=None, PART_FP_genero=None, PART_FP_tipo_precisa=None, PART_FP_tipoRealCard=None,
-		PART_FP_milharExtenso=None, PART_FP_centenaExtenso=None, PART_FP_dezenaExtenso=None, PART_FP_unidadeExtenso=None,
-		PART_FP_numIndefinido=None,
-		PART_FP_tipo_de_Ente=None, PART_FP_tipo_de_nao_consciente=None, PART_FP_tipo_de_nao_consciente_material=None,
-		PART_FP_tipo_de_nao_consciente_semiotico=None, PART_FP_classe_palavra_Ente=None, PART_FP_substantivo_lematizado=None,
-		PART_FP_numero=None, PART_FP_tipo_feminino_ÃO=None, PART_FP_tipo_masc_ÃO=None, PART_FP_acentTonica=None, PART_FP_nomeProprio=None,
-		PART_FP_pessoa_da_interlocucao=None, PART_FP_transitividade_verbo=None, PART_FP_tonicidade=None,
-		PART_FP_morfologia_do_pronome=None, PART_FP_reflexivo=None,
-		PART_FP_EpitetoModificacao=None, PART_FP_adjetivo_epiteto=None, PART_FP_classificadorModificacao=None,
-		PART_FP_adjetivo_classificador=None, PART_FP_generoAdjetivo=None, PART_FP_numeroAdjetivo=None,
-		PART_FP_contracao=None,
-
-	##Processo
-		TIPO_DE_EXPERIENCIA_GV=None, AGENCIA=None, TIPO_DE_EXPERIENCIA_1=None,
-		funcao_no_grupo_verbal_1=None, verbo_1=None,
-		tipo_de_orientacao_1=None, OI_numero_1=None, genero_1=None,
-		OI_tipo_de_pessoa_1=None, padrao_pessoa_morfologia_1=None, TIPO_DE_EXPERIENCIA_2=None,
-		funcao_no_grupo_verbal_2=None, verbo_2=None, tipo_de_orientacao_2=None, OI_numero_2=None,
-		genero_2=None, OI_tipo_de_pessoa_2=None, padrao_pessoa_morfologia_2=None, TIPO_DE_EXPERIENCIA_3=None,
-		funcao_no_grupo_verbal_3=None, verbo_3=None,
-		tipo_de_orientacao_3=None, OI_numero_3=None, genero_3=None, OI_tipo_de_pessoa_3=None,
-		padrao_pessoa_morfologia_3=None, TIPO_DE_EXPERIENCIA_4=None, funcao_no_grupo_verbal_4=None,
-		verbo_4=None, tipo_de_orientacao_4=None, OI_numero_4=None, genero_4=None,
-		OI_tipo_de_pessoa_4=None, padrao_pessoa_morfologia_4=None, TIPO_DE_EXPERIENCIA_LEX=None,
-		funcao_no_grupo_verbal_POS_FINAL=None, verbo_LEX=None, tipo_de_orientacao_LEX=None,
-		OI_numero_LEX=None, genero_LEX=None, OI_tipo_de_pessoa_LEX=None,
-		padrao_pessoa_morfologia_LEX='Morfologia_padrão',
-	#POLARIDADE
+		##Processo
+		TIPO_DE_EXPERIENCIA_GV=None, AGENCIA=None, TIPO_DE_EXPERIENCIA_1=None, funcao_no_grupo_verbal_1=None, verbo_1=None, tipo_de_orientacao_1=None, OI_numero_1=None, genero_1=None, OI_tipo_de_pessoa_1=None, padrao_pessoa_morfologia_1=None, TIPO_DE_EXPERIENCIA_2=None, funcao_no_grupo_verbal_2=None, verbo_2=None, tipo_de_orientacao_2=None, OI_numero_2=None, genero_2=None, OI_tipo_de_pessoa_2=None, padrao_pessoa_morfologia_2=None, TIPO_DE_EXPERIENCIA_3=None, funcao_no_grupo_verbal_3=None, verbo_3=None, tipo_de_orientacao_3=None, OI_numero_3=None, genero_3=None, OI_tipo_de_pessoa_3=None, padrao_pessoa_morfologia_3=None, TIPO_DE_EXPERIENCIA_4=None, funcao_no_grupo_verbal_4=None, verbo_4=None, tipo_de_orientacao_4=None, OI_numero_4=None, genero_4=None, OI_tipo_de_pessoa_4=None, padrao_pessoa_morfologia_4=None, TIPO_DE_EXPERIENCIA_LEX=None, funcao_no_grupo_verbal_POS_FINAL=None, verbo_LEX=None, tipo_de_orientacao_LEX=None, OI_numero_LEX=None, genero_LEX=None, OI_tipo_de_pessoa_LEX=None, padrao_pessoa_morfologia_LEX='Morfologia_padrão',
+		# POLARIDADE
 		tipo_polaridade=None,
-	##CIRCUNSTANCIA
-		temCircunstancia=None, realizacaoCircunstancia=None,
-		CIRC_indicePreposicao=None, CIRC_dissocEnteNucleo=None, CIRC_temQualificador=None, CIRC_tipoQualificador=None,
-		CIRC_DETERMINAÇÃO_espeficifidade_beta=None, CIRC_ORIENTAÇÃO_beta=None,
-		CIRC_gênero_beta=None, CIRC_número_beta=None, CIRC_morfologia_do_pronome_beta=None,
-		CIRC_DETERMINAÇÃO_espeficifidade_alpha=None, CIRC_ORIENTAÇÃO_alpha=None, CIRC_gênero_alpha=None,
-		CIRC_número_alpha=None, CIRC_morfologia_do_pronome_alpha=None, CIRC_pessoa_da_interlocução_possuidor=None,
-		CIRC_número_obj_possuído=None, CIRC_gênero_obj_possuído=None, CIRC_pessoa_da_interlocução_proximidade=None,  #
-		CIRC_funcaoNumerativo=None, CIRC_cardinal=None, CIRC_genero=None, CIRC_tipo_precisa=None, CIRC_tipoRealCard=None,
-		CIRC_milharExtenso=None, CIRC_centenaExtenso=None, CIRC_dezenaExtenso=None, CIRC_unidadeExtenso=None,
-		CIRC_numIndefinido=None,
-		CIRC_tipo_de_Ente=None, CIRC_tipo_de_nao_consciente=None, CIRC_tipo_de_nao_consciente_material=None,
-		CIRC_tipo_de_nao_consciente_semiotico=None, CIRC_classe_palavra_Ente=None, CIRC_substantivo_lematizado=None,
-		CIRC_numero=None, CIRC_tipo_feminino_ÃO=None, CIRC_tipo_masc_ÃO=None, CIRC_acentTonica=None, CIRC_nomeProprio=None,
-		CIRC_pessoa_da_interlocucao=None, CIRC_transitividade_verbo=None, CIRC_tonicidade=None,
-		CIRC_morfologia_do_pronome=None, CIRC_reflexivo=None,
-		CIRC_EpitetoModificacao=None, CIRC_adjetivo_epiteto=None, CIRC_classificadorModificacao=None,
-		CIRC_adjetivo_classificador=None,CIRC_generoAdjetivo=None, CIRC_numeroAdjetivo=None,
-		CIRC_contracao=None,
-		CIRC_tipo_de_adverbio1=None, CIRC_ind1=None,
-				  CIRC_tipo_de_adverbio2=None, CIRC_ind2=None,
-				  CIRC_tipo_de_adverbio3=None, CIRC_ind3=None,
-				  CIRC_tipo_de_adverbio4=None, CIRC_ind4=None,
-				  CIRC_tipo_de_adverbio5=None, CIRC_ind5=None
-
+		##PARTICIPANTES
+		# P1
+		P1_dissocEnteNucleo=None, P1_temQualificador=None, P1_tipoQualificador=None, P1_indicePreposicao=None, P1_DETERMINAÇÃO_espeficifidade_beta=None, P1_ORIENTAÇÃO_beta=None, P1_gênero_beta=None, P1_número_beta=None, P1_morfologia_do_pronome_beta=None, P1_DETERMINAÇÃO_espeficifidade_alpha=None, P1_ORIENTAÇÃO_alpha=None, P1_gênero_alpha=None, P1_número_alpha=None, P1_morfologia_do_pronome_alpha=None, P1_pessoa_da_interlocução_possuidor=None, P1_número_obj_possuído=None, P1_gênero_obj_possuído=None, P1_pessoa_da_interlocução_proximidade=None, P1_funcaoNumerativo=None, P1_cardinal=None, P1_genero=None, P1_tipo_precisa=None, P1_tipoRealCard=None, P1_milharExtenso=None, P1_centenaExtenso=None, P1_dezenaExtenso=None, P1_unidadeExtenso=None, P1_numIndefinido=None, P1_tipo_de_Ente=None, P1_tipo_de_nao_consciente=None, P1_tipo_de_nao_consciente_material=None, P1_tipo_de_nao_consciente_semiotico=None, P1_classe_palavra_Ente=None, P1_substantivo_lematizado=None, P1_numero=None, P1_tipo_feminino_ÃO=None, P1_tipo_masc_ÃO=None, P1_acentTonica=None, P1_nomeProprio=None, P1_pessoa_da_interlocucao=None, P1_transitividade_verbo=None, P1_tonicidade=None, P1_morfologia_do_pronome=None, P1_reflexivo=None, P1_epitetoModificacao=None, P1_adjetivo_epiteto=None, P1_classificadorModificacao=None, P1_adjetivo_classificador=None, P1_generoAdjetivo=None, P1_numeroAdjetivo=None, P1_contracao=None,
+		# P2
+		P2_dissocEnteNucleo=None, P2_temQualificador=None, P2_tipoQualificador=None, P2_indicePreposicao=None, P2_DETERMINAÇÃO_espeficifidade_beta=None, P2_ORIENTAÇÃO_beta=None, P2_gênero_beta=None, P2_número_beta=None, P2_morfologia_do_pronome_beta=None, P2_DETERMINAÇÃO_espeficifidade_alpha=None, P2_ORIENTAÇÃO_alpha=None, P2_gênero_alpha=None, P2_número_alpha=None, P2_morfologia_do_pronome_alpha=None, P2_pessoa_da_interlocução_possuidor=None, P2_número_obj_possuído=None, P2_gênero_obj_possuído=None, P2_pessoa_da_interlocução_proximidade=None, P2_funcaoNumerativo=None, P2_cardinal=None, P2_genero=None, P2_tipo_precisa=None, P2_tipoRealCard=None, P2_milharExtenso=None, P2_centenaExtenso=None, P2_dezenaExtenso=None, P2_unidadeExtenso=None, P2_numIndefinido=None, P2_tipo_de_Ente=None, P2_tipo_de_nao_consciente=None, P2_tipo_de_nao_consciente_material=None, P2_tipo_de_nao_consciente_semiotico=None, P2_classe_palavra_Ente=None, P2_substantivo_lematizado=None, P2_numero=None, P2_tipo_feminino_ÃO=None, P2_tipo_masc_ÃO=None, P2_acentTonica=None, P2_nomeProprio=None, P2_pessoa_da_interlocucao=None, P2_transitividade_verbo=None, P2_tonicidade=None, P2_morfologia_do_pronome=None, P2_reflexivo=None, P2_epitetoModificacao=None, P2_adjetivo_epiteto=None, P2_classificadorModificacao=None, P2_adjetivo_classificador=None, P2_generoAdjetivo=None, P2_numeroAdjetivo=None, P2_contracao=None,
+		##PARTICIPANTES REALIZADOS POR FP
+		PART_FP_indicePreposicao=None, PART_FP_dissocEnteNucleo=None, PART_FP_temQualificador=None, PART_FP_tipoQualificador=None, PART_FP_DETERMINAÇÃO_espeficifidade_beta=None, PART_FP_ORIENTAÇÃO_beta=None, PART_FP_gênero_beta=None, PART_FP_número_beta=None, PART_FP_morfologia_do_pronome_beta=None, PART_FP_DETERMINAÇÃO_espeficifidade_alpha=None, PART_FP_ORIENTAÇÃO_alpha=None, PART_FP_gênero_alpha=None, PART_FP_número_alpha=None, PART_FP_morfologia_do_pronome_alpha=None, PART_FP_pessoa_da_interlocução_possuidor=None, PART_FP_número_obj_possuído=None, PART_FP_gênero_obj_possuído=None, PART_FP_pessoa_da_interlocução_proximidade=None,  PART_FP_funcaoNumerativo=None, PART_FP_cardinal=None, PART_FP_genero=None, PART_FP_tipo_precisa=None, PART_FP_tipoRealCard=None, PART_FP_milharExtenso=None, PART_FP_centenaExtenso=None, PART_FP_dezenaExtenso=None, PART_FP_unidadeExtenso=None, PART_FP_numIndefinido=None, PART_FP_tipo_de_Ente=None, PART_FP_tipo_de_nao_consciente=None, PART_FP_tipo_de_nao_consciente_material=None, PART_FP_tipo_de_nao_consciente_semiotico=None, PART_FP_classe_palavra_Ente=None, PART_FP_substantivo_lematizado=None, PART_FP_numero=None, PART_FP_tipo_feminino_ÃO=None, PART_FP_tipo_masc_ÃO=None, PART_FP_acentTonica=None, PART_FP_nomeProprio=None, PART_FP_pessoa_da_interlocucao=None, PART_FP_transitividade_verbo=None, PART_FP_tonicidade=None, PART_FP_morfologia_do_pronome=None, PART_FP_reflexivo=None, PART_FP_EpitetoModificacao=None, PART_FP_adjetivo_epiteto=None, PART_FP_classificadorModificacao=None, PART_FP_adjetivo_classificador=None, PART_FP_generoAdjetivo=None, PART_FP_numeroAdjetivo=None, PART_FP_contracao=None
 
 ):
-	'''(str,str,str)->str
-    Retorna a formação estrutural na lexicogramática
-     (oração) de uma figura específica da semântica
-
-    >>> gerar_oracao()
-    'eu bebi água'
-    '''
-	Transitividade = TRANSITIVIDADE(TIPO_DE_PROCESSO,indiceMat,indiceAgen,
-				   indiceRel,indiceAtrib)
+	Transitividade = TRANSITIVIDADE(TIPO_DE_PROCESSO, indiceMat, indiceAgen,
+					   indiceRel,indiceAtrib)
 	Modo = MODO(RESPONSABILIDADE,PRESSUPOSICAO_DO_SUJEITO,TIPO_MODO)
-	Tema_id = TEMA_IDEACIONAL(ORIENTACAO_MODAL,ORIENTACAO_TRANSITIVA,SELECAO_TEMATICA,
-					TEMA_DEFAULT,
-					TEMA_DEFAULT_indicativo,
-					TEMA_IDENTIFICATIVO,
-					TEMA_ANGULO,
-					TEMA_ELEMENTAL,
-					TEMA_PROEMINENTE)
-	Tema_interpessoal = TEMA_INTERPESSOAL(TIPO_TEMA_INTERPESSOAL, tipoRealizacao,
-										  # grupo adverbial
-										  tipo_de_adverbio1, ind1,
-										  tipo_de_adverbio2, ind2,
-										  tipo_de_adverbio3, ind3,
-										  tipo_de_adverbio4, ind4,
-										  tipo_de_adverbio5, ind5,
 
-										  # frase prepos
-										  indicePreposicao, dissocEnteNucleo, temQualificador,
-										  tipoQualificador, DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta,
-										  gênero_beta, número_beta, morfologia_do_pronome_beta,
-										  DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha, gênero_alpha,
-										  número_alpha, morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
-										  número_obj_possuído, gênero_obj_possuído, pessoa_da_interlocução_proximidade,
-										  funcaoNumerativo, cardinal, genero, tipo_precisa, tipoRealCard,
-										  milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso,
-										  numIndefinido, tipo_de_Ente, tipo_de_nao_consciente,
-										  tipo_de_nao_consciente_material, tipo_de_nao_consciente_semiotico,
-										  classe_palavra_Ente, substantivo_lematizado, numero,
-										  tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio,
-										  pessoa_da_interlocucao, transitividade_verbo, tonicidade,
-										  morfologia_do_pronome, reflexivo, epitetoModificacao,
-										  adjetivo_epiteto, classificadorModificacao,
-										  adjetivo_classificador, generoAdjetivo, numeroAdjetivo, contracao,
-										  #
-										  indiceElemQu, indicePartModal,
-										  nome_proprio)
-	Tema_textual = TEMA_TEXTUAL(temTemaTextual, tipo_insercao_Cont, conj_extenso_Cont, indiceCont,
-								tipo_insercao_Conj, tipo_de_conjuncao_Conj, conj_extensoConj, indiceConj,
-								tipo_insercao_Rel, pron_extenso_Rel, tipo_de_relativo,
-								tipo_pronome_relativo, generoTemaTextual, numeroTemaTextual, indiceRelativo,
-								indiceRelativoAdv)
+	Tema_id = TEMA_IDEACIONAL(ORIENTACAO_MODAL,ORIENTACAO_TRANSITIVA,SELECAO_TEMATICA, TEMA_DEFAULT, TEMA_DEFAULT_indicativo, TEMA_IDENTIFICATIVO, TEMA_ANGULO, TEMA_ELEMENTAL, TEMA_PROEMINENTE)
 	Polaridade = POLARIDADE(tipo_polaridade)
-	Processo = grupo_verbal(TIPO_DE_EXPERIENCIA_GV, AGENCIA, TIPO_DE_EXPERIENCIA_1,
-							funcao_no_grupo_verbal_1, verbo_1,
-							tipo_de_orientacao_1, OI_numero_1, genero_1,
-							OI_tipo_de_pessoa_1, padrao_pessoa_morfologia_1, TIPO_DE_EXPERIENCIA_2,
-							funcao_no_grupo_verbal_2, verbo_2, tipo_de_orientacao_2, OI_numero_2,
-							genero_2, OI_tipo_de_pessoa_2, padrao_pessoa_morfologia_2,
-							TIPO_DE_EXPERIENCIA_3, funcao_no_grupo_verbal_3, verbo_3,
-							tipo_de_orientacao_3, OI_numero_3, genero_3, OI_tipo_de_pessoa_3,
-							padrao_pessoa_morfologia_3, TIPO_DE_EXPERIENCIA_4, funcao_no_grupo_verbal_4,
-							verbo_4, tipo_de_orientacao_4, OI_numero_4, genero_4,
-							OI_tipo_de_pessoa_4, padrao_pessoa_morfologia_4, TIPO_DE_EXPERIENCIA_LEX,
-							funcao_no_grupo_verbal_POS_FINAL, verbo_LEX, tipo_de_orientacao_LEX,
-							OI_numero_LEX, genero_LEX, OI_tipo_de_pessoa_LEX, padrao_pessoa_morfologia_LEX)
-	Circunstancia = circunstancia(temCircunstancia, realizacaoCircunstancia,
-								  CIRC_indicePreposicao, CIRC_dissocEnteNucleo, CIRC_temQualificador,
-								  CIRC_tipoQualificador,
-								  CIRC_DETERMINAÇÃO_espeficifidade_beta, CIRC_ORIENTAÇÃO_beta,
-								  CIRC_gênero_beta, CIRC_número_beta, CIRC_morfologia_do_pronome_beta,
-								  CIRC_DETERMINAÇÃO_espeficifidade_alpha, CIRC_ORIENTAÇÃO_alpha,
-								  CIRC_gênero_alpha,
-								  CIRC_número_alpha, CIRC_morfologia_do_pronome_alpha,
-								  CIRC_pessoa_da_interlocução_possuidor,
-								  CIRC_número_obj_possuído, CIRC_gênero_obj_possuído,
-								  CIRC_pessoa_da_interlocução_proximidade,  #
-								  CIRC_funcaoNumerativo, CIRC_cardinal, CIRC_genero, CIRC_tipo_precisa,
-								  CIRC_tipoRealCard,
-								  CIRC_milharExtenso, CIRC_centenaExtenso, CIRC_dezenaExtenso,
-								  CIRC_unidadeExtenso,
-								  CIRC_numIndefinido,
-								  CIRC_tipo_de_Ente, CIRC_tipo_de_nao_consciente,
-								  CIRC_tipo_de_nao_consciente_material,
-								  CIRC_tipo_de_nao_consciente_semiotico, CIRC_classe_palavra_Ente,
-								  CIRC_substantivo_lematizado,
-								  CIRC_numero, CIRC_tipo_feminino_ÃO, CIRC_tipo_masc_ÃO,
-								  CIRC_acentTonica, CIRC_nomeProprio,
-								  CIRC_pessoa_da_interlocucao, CIRC_transitividade_verbo,
-								  CIRC_tonicidade, CIRC_morfologia_do_pronome, CIRC_reflexivo,
-								  CIRC_EpitetoModificacao, CIRC_adjetivo_epiteto,
-								  CIRC_classificadorModificacao,
-								  CIRC_adjetivo_classificador, CIRC_generoAdjetivo, CIRC_numeroAdjetivo,
-								  CIRC_contracao,
-								  CIRC_tipo_de_adverbio1, CIRC_ind1,
-								  CIRC_tipo_de_adverbio2, CIRC_ind2,
-								  CIRC_tipo_de_adverbio3, CIRC_ind3,
-								  CIRC_tipo_de_adverbio4, CIRC_ind4,
-								  CIRC_tipo_de_adverbio5, CIRC_ind5)
+	Processo = grupo_verbal(TIPO_DE_EXPERIENCIA_GV, AGENCIA, TIPO_DE_EXPERIENCIA_1, funcao_no_grupo_verbal_1, verbo_1, tipo_de_orientacao_1, OI_numero_1, genero_1, OI_tipo_de_pessoa_1, padrao_pessoa_morfologia_1, TIPO_DE_EXPERIENCIA_2, funcao_no_grupo_verbal_2, verbo_2, tipo_de_orientacao_2, OI_numero_2, genero_2, OI_tipo_de_pessoa_2, padrao_pessoa_morfologia_2, TIPO_DE_EXPERIENCIA_3, funcao_no_grupo_verbal_3, verbo_3, tipo_de_orientacao_3, OI_numero_3, genero_3, OI_tipo_de_pessoa_3, padrao_pessoa_morfologia_3, TIPO_DE_EXPERIENCIA_4, funcao_no_grupo_verbal_4, verbo_4, tipo_de_orientacao_4, OI_numero_4, genero_4, OI_tipo_de_pessoa_4, padrao_pessoa_morfologia_4, TIPO_DE_EXPERIENCIA_LEX, funcao_no_grupo_verbal_POS_FINAL, verbo_LEX, tipo_de_orientacao_LEX, OI_numero_LEX, genero_LEX, OI_tipo_de_pessoa_LEX, padrao_pessoa_morfologia_LEX)
 	# ORAÇÃO MENTAL
 	if Transitividade == 'PR_Mental_AG_médio_sem_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		Experienciador = estrutura_GN(P1_dissocEnteNucleo, P1_temQualificador, P1_tipoQualificador,
-									  P1_indicePreposicao,
-									  P1_DETERMINAÇÃO_espeficifidade_beta, P1_ORIENTAÇÃO_beta,
-									  P1_gênero_beta, P1_número_beta,
-									  P1_morfologia_do_pronome_beta,
-									  P1_DETERMINAÇÃO_espeficifidade_alpha, P1_ORIENTAÇÃO_alpha,
-									  P1_gênero_alpha,
-									  P1_número_alpha, P1_morfologia_do_pronome_alpha,
-									  P1_pessoa_da_interlocução_possuidor,
-									  P1_número_obj_possuído, P1_gênero_obj_possuído,
-									  P1_pessoa_da_interlocução_proximidade,
-									  P1_funcaoNumerativo, P1_cardinal, P1_genero,
-									  P1_tipo_precisa, P1_tipoRealCard,
-									  P1_milharExtenso, P1_centenaExtenso, P1_dezenaExtenso,
-									  P1_unidadeExtenso,
-									  P1_numIndefinido,
-									  P1_tipo_de_Ente, P1_tipo_de_nao_consciente,
-									  P1_tipo_de_nao_consciente_material,
-									  P1_tipo_de_nao_consciente_semiotico, P1_classe_palavra_Ente,
-									  P1_substantivo_lematizado,
-									  P1_numero,
-									  P1_tipo_feminino_ÃO, P1_tipo_masc_ÃO, P1_acentTonica,
-									  P1_nomeProprio,
-									  P1_pessoa_da_interlocucao,
-									  P1_transitividade_verbo, P1_tonicidade,
-									  P1_morfologia_do_pronome, P1_reflexivo,
-									  P1_epitetoModificacao, P1_adjetivo_epiteto,
-									  P1_classificadorModificacao,
-									  P1_adjetivo_classificador, P1_generoAdjetivo,
-									  P1_numeroAdjetivo, P1_contracao)
-		if FENOMENALIZACAO == 'não-fenomenalização' and TIPO_NAO_FENOMENALIZACAO== 'comportamento-passivo':
+		Experienciador = estrutura_GN(P1_dissocEnteNucleo, P1_temQualificador, P1_tipoQualificador, P1_indicePreposicao, P1_DETERMINAÇÃO_espeficifidade_beta, P1_ORIENTAÇÃO_beta, P1_gênero_beta, P1_número_beta, P1_morfologia_do_pronome_beta, P1_DETERMINAÇÃO_espeficifidade_alpha, P1_ORIENTAÇÃO_alpha, P1_gênero_alpha, P1_número_alpha, P1_morfologia_do_pronome_alpha, P1_pessoa_da_interlocução_possuidor, P1_número_obj_possuído, P1_gênero_obj_possuído, P1_pessoa_da_interlocução_proximidade, P1_funcaoNumerativo, P1_cardinal, P1_genero, P1_tipo_precisa, P1_tipoRealCard, P1_milharExtenso, P1_centenaExtenso, P1_dezenaExtenso, P1_unidadeExtenso, P1_numIndefinido, P1_tipo_de_Ente, P1_tipo_de_nao_consciente, P1_tipo_de_nao_consciente_material, P1_tipo_de_nao_consciente_semiotico, P1_classe_palavra_Ente, P1_substantivo_lematizado, P1_numero, P1_tipo_feminino_ÃO, P1_tipo_masc_ÃO, P1_acentTonica, P1_nomeProprio, P1_pessoa_da_interlocucao, P1_transitividade_verbo, P1_tonicidade, P1_morfologia_do_pronome, P1_reflexivo, P1_epitetoModificacao, P1_adjetivo_epiteto, P1_classificadorModificacao, P1_adjetivo_classificador, P1_generoAdjetivo, P1_numeroAdjetivo, P1_contracao)
+		if FENOMENALIZACAO == 'não-fenomenalização_comportamento-passivo':
 
 			if (TIPO_DE_MENTAL == 'superior_cognitivo' or
 					TIPO_DE_MENTAL == 'superior_desiderativo' or
@@ -12208,2819 +12006,2825 @@ def gerar_oracao(
 					# 'Eu ouvi perfeitamente' - verificar se esse caso se configura como um sem alcance
 					# pois apesar de não esta instanciado, há o potencial de fenômeno
 			):
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Circunstancia + '.'
+				oração =  Experienciador + ' ' + Polaridade + ' ' + Processo  + '.'
 
 
-	elif Transitividade == 'PR_Mental_AG_médio_com_alcance'and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		Experienciador = estrutura_GN(P1_dissocEnteNucleo, P1_temQualificador, P1_tipoQualificador,
-									  P1_indicePreposicao,
-									  P1_DETERMINAÇÃO_espeficifidade_beta, P1_ORIENTAÇÃO_beta,
-									  P1_gênero_beta, P1_número_beta,
-									  P1_morfologia_do_pronome_beta,
-									  P1_DETERMINAÇÃO_espeficifidade_alpha, P1_ORIENTAÇÃO_alpha,
-									  P1_gênero_alpha,
-									  P1_número_alpha, P1_morfologia_do_pronome_alpha,
-									  P1_pessoa_da_interlocução_possuidor,
-									  P1_número_obj_possuído, P1_gênero_obj_possuído,
-									  P1_pessoa_da_interlocução_proximidade,
-									  P1_funcaoNumerativo, P1_cardinal, P1_genero,
-									  P1_tipo_precisa, P1_tipoRealCard,
-									  P1_milharExtenso, P1_centenaExtenso, P1_dezenaExtenso,
-									  P1_unidadeExtenso,
-									  P1_numIndefinido,
-									  P1_tipo_de_Ente, P1_tipo_de_nao_consciente,
-									  P1_tipo_de_nao_consciente_material,
-									  P1_tipo_de_nao_consciente_semiotico, P1_classe_palavra_Ente,
-									  P1_substantivo_lematizado,
-									  P1_numero,
-									  P1_tipo_feminino_ÃO, P1_tipo_masc_ÃO, P1_acentTonica,
-									  P1_nomeProprio,
-									  P1_pessoa_da_interlocucao,
-									  P1_transitividade_verbo, P1_tonicidade,
-									  P1_morfologia_do_pronome, P1_reflexivo,
-									  P1_epitetoModificacao, P1_adjetivo_epiteto,
-									  P1_classificadorModificacao,
-									  P1_adjetivo_classificador, P1_generoAdjetivo,
-									  P1_numeroAdjetivo, P1_contracao)
-		if FENOMENALIZACAO == 'não-fenomenalização' and TIPO_NAO_FENOMENALIZACAO == 'assunto':
-			if (TIPO_DE_MENTAL == 'superior_cognitivo' or TIPO_DE_MENTAL == 'superior_cognitivo' or
-				TIPO_DE_MENTAL == 'inferior_emotivo' or
-				TIPO_DE_MENTAL == 'inferior_emotivo'):
-				#parei aqui
-				Assunto = frase_preposicional(PART_FP_indicePreposicao, PART_FP_dissocEnteNucleo,
-											  PART_FP_temQualificador, PART_FP_tipoQualificador,
-											  PART_FP_DETERMINAÇÃO_espeficifidade_beta,
-											  PART_FP_ORIENTAÇÃO_beta,
-											  PART_FP_gênero_beta, PART_FP_número_beta,
-											  PART_FP_morfologia_do_pronome_beta,
-											  PART_FP_DETERMINAÇÃO_espeficifidade_alpha,
-											  PART_FP_ORIENTAÇÃO_alpha, PART_FP_gênero_alpha,
-											  PART_FP_número_alpha, PART_FP_morfologia_do_pronome_alpha,
-											  PART_FP_pessoa_da_interlocução_possuidor,
-											  PART_FP_número_obj_possuído, PART_FP_gênero_obj_possuído,
-											  PART_FP_pessoa_da_interlocução_proximidade,  #
-											  PART_FP_funcaoNumerativo, PART_FP_cardinal, PART_FP_genero,
-											  PART_FP_tipo_precisa, PART_FP_tipoRealCard,
-											  PART_FP_milharExtenso, PART_FP_centenaExtenso,
-											  PART_FP_dezenaExtenso, PART_FP_unidadeExtenso,
-											  PART_FP_numIndefinido,
-											  PART_FP_tipo_de_Ente, PART_FP_tipo_de_nao_consciente,
-											  PART_FP_tipo_de_nao_consciente_material,
-											  PART_FP_tipo_de_nao_consciente_semiotico,
-											  PART_FP_classe_palavra_Ente, PART_FP_substantivo_lematizado,
-											  PART_FP_numero, PART_FP_tipo_feminino_ÃO,
-											  PART_FP_tipo_masc_ÃO, PART_FP_acentTonica,
-											  PART_FP_nomeProprio,
-											  PART_FP_pessoa_da_interlocucao, PART_FP_transitividade_verbo,
-											  PART_FP_tonicidade,
-											  PART_FP_morfologia_do_pronome, PART_FP_reflexivo,
-											  PART_FP_EpitetoModificacao, PART_FP_adjetivo_epiteto,
-											  PART_FP_classificadorModificacao,
-											  PART_FP_adjetivo_classificador, PART_FP_generoAdjetivo,
-											  PART_FP_numeroAdjetivo,
-											  PART_FP_contracao)
+	elif Transitividade == 'PR_Mental_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+		Experienciador = estrutura_GN(P1_dissocEnteNucleo, P1_temQualificador, P1_tipoQualificador, P1_indicePreposicao, P1_DETERMINAÇÃO_espeficifidade_beta, P1_ORIENTAÇÃO_beta, P1_gênero_beta, P1_número_beta, P1_morfologia_do_pronome_beta, P1_DETERMINAÇÃO_espeficifidade_alpha, P1_ORIENTAÇÃO_alpha, P1_gênero_alpha, P1_número_alpha, P1_morfologia_do_pronome_alpha, P1_pessoa_da_interlocução_possuidor, P1_número_obj_possuído, P1_gênero_obj_possuído, P1_pessoa_da_interlocução_proximidade, P1_funcaoNumerativo, P1_cardinal, P1_genero, P1_tipo_precisa, P1_tipoRealCard, P1_milharExtenso, P1_centenaExtenso, P1_dezenaExtenso, P1_unidadeExtenso, P1_numIndefinido, P1_tipo_de_Ente, P1_tipo_de_nao_consciente, P1_tipo_de_nao_consciente_material, P1_tipo_de_nao_consciente_semiotico, P1_classe_palavra_Ente, P1_substantivo_lematizado, P1_numero, P1_tipo_feminino_ÃO, P1_tipo_masc_ÃO, P1_acentTonica, P1_nomeProprio, P1_pessoa_da_interlocucao, P1_transitividade_verbo, P1_tonicidade, P1_morfologia_do_pronome, P1_reflexivo, P1_epitetoModificacao, P1_adjetivo_epiteto, P1_classificadorModificacao, P1_adjetivo_classificador, P1_generoAdjetivo, P1_numeroAdjetivo, P1_contracao)
+		if FENOMENALIZACAO == 'não-fenomenalização_assunto':
+			if (TIPO_DE_MENTAL == 'superior_cognitivo' or TIPO_DE_MENTAL == 'superior_desiderativo' or
+					TIPO_DE_MENTAL == 'inferior_emotivo' or TIPO_DE_MENTAL == 'inferior_perceptivo'):
+				Assunto = frase_preposicional(PART_FP_indicePreposicao, PART_FP_dissocEnteNucleo, PART_FP_temQualificador, PART_FP_tipoQualificador, PART_FP_DETERMINAÇÃO_espeficifidade_beta, PART_FP_ORIENTAÇÃO_beta, PART_FP_gênero_beta, PART_FP_número_beta, PART_FP_morfologia_do_pronome_beta, PART_FP_DETERMINAÇÃO_espeficifidade_alpha, PART_FP_ORIENTAÇÃO_alpha, PART_FP_gênero_alpha, PART_FP_número_alpha, PART_FP_morfologia_do_pronome_alpha, PART_FP_pessoa_da_interlocução_possuidor, PART_FP_número_obj_possuído, PART_FP_gênero_obj_possuído, PART_FP_pessoa_da_interlocução_proximidade, PART_FP_funcaoNumerativo, PART_FP_cardinal, PART_FP_genero, PART_FP_tipo_precisa, PART_FP_tipoRealCard, PART_FP_milharExtenso, PART_FP_centenaExtenso, PART_FP_dezenaExtenso, PART_FP_unidadeExtenso, PART_FP_numIndefinido, PART_FP_tipo_de_Ente, PART_FP_tipo_de_nao_consciente, PART_FP_tipo_de_nao_consciente_material, PART_FP_tipo_de_nao_consciente_semiotico, PART_FP_classe_palavra_Ente, PART_FP_substantivo_lematizado, PART_FP_numero, PART_FP_tipo_feminino_ÃO, PART_FP_tipo_masc_ÃO, PART_FP_acentTonica, PART_FP_nomeProprio, PART_FP_pessoa_da_interlocucao, PART_FP_transitividade_verbo, PART_FP_tonicidade, PART_FP_morfologia_do_pronome, PART_FP_reflexivo, PART_FP_EpitetoModificacao, PART_FP_adjetivo_epiteto, PART_FP_classificadorModificacao, PART_FP_adjetivo_classificador, PART_FP_generoAdjetivo, PART_FP_numeroAdjetivo, PART_FP_contracao
+											 )
 
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Assunto + ' ' + Circunstancia + '.'
-				# Ex.: Eu sei de futebol.
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Assunto  + '.'
+		# Ex.: Eu sei de futebol.
 
 
+		# 'Médio com alcance = mental emanente.'
+		# TIPO_FENOMENALIZACAO= choice.Menu(['hiperfenômeno', 'fenômeno_simples']
+		# print('Qual tipo_pessoa de Processo superior?')
+		# TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
+		elif FENOMENALIZACAO == 'fenomenalização_fenômeno-simples':
+			if (TIPO_DE_MENTAL == 'superior_cognitivo' or TIPO_DE_MENTAL == 'superior_desiderativo'):
+
+				Fenomeno = estrutura_GN(P2_dissocEnteNucleo, P2_temQualificador, P2_tipoQualificador, P2_indicePreposicao, P2_DETERMINAÇÃO_espeficifidade_beta, P2_ORIENTAÇÃO_beta, P2_gênero_beta, P2_número_beta, P2_morfologia_do_pronome_beta, P2_DETERMINAÇÃO_espeficifidade_alpha, P2_ORIENTAÇÃO_alpha, P2_gênero_alpha, P2_número_alpha, P2_morfologia_do_pronome_alpha, P2_pessoa_da_interlocução_possuidor, P2_número_obj_possuído, P2_gênero_obj_possuído, P2_pessoa_da_interlocução_proximidade, P2_funcaoNumerativo, P2_cardinal, P2_genero, P2_tipo_precisa, P2_tipoRealCard, P2_milharExtenso, P2_centenaExtenso, P2_dezenaExtenso, P2_unidadeExtenso, P2_numIndefinido, P2_tipo_de_Ente, P2_tipo_de_nao_consciente, P2_tipo_de_nao_consciente_material, P2_tipo_de_nao_consciente_semiotico, P2_classe_palavra_Ente, P2_substantivo_lematizado, P2_numero, P2_tipo_feminino_ÃO, P2_tipo_masc_ÃO, P2_acentTonica, P2_nomeProprio, P2_pessoa_da_interlocucao, P2_transitividade_verbo, P2_tonicidade, P2_morfologia_do_pronome, P2_reflexivo, P2_epitetoModificacao, P2_adjetivo_epiteto, P2_classificadorModificacao, P2_adjetivo_classificador, P2_generoAdjetivo, P2_numeroAdjetivo, P2_contracao)
+
+				oração =  Experienciador + ' ' + Polaridade   + ' ' + Processo + ' ' + Fenomeno + '.'
+			# Ex.: Eu imaginei o jogo
+			elif (TIPO_DE_MENTAL == 'inferior_emotivo' or TIPO_DE_MENTAL == 'inferior_desiderativo'):
+				# APESAR DE PARECER REDUNDANTE, EM UMA PRÓXIMA FASE, CADA UMA DESTAS ITERAÇÕES
+				# VAI TER OS LEXEMAS REPRESENTATIVOS DE CADA TIPO DE PROCESSO MENTAL
+				# print('Qual tipo_pessoa de Processo inferior?')
+				# TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+				# print('Selecione verbo lematizado cognitivo ou desiderativo:')
+
+				Fenomeno = estrutura_GN(P2_dissocEnteNucleo, P2_temQualificador, P2_tipoQualificador, P2_indicePreposicao, P2_DETERMINAÇÃO_espeficifidade_beta, P2_ORIENTAÇÃO_beta, P2_gênero_beta, P2_número_beta, P2_morfologia_do_pronome_beta, P2_DETERMINAÇÃO_espeficifidade_alpha, P2_ORIENTAÇÃO_alpha, P2_gênero_alpha, P2_número_alpha, P2_morfologia_do_pronome_alpha, P2_pessoa_da_interlocução_possuidor, P2_número_obj_possuído, P2_gênero_obj_possuído, P2_pessoa_da_interlocução_proximidade, P2_funcaoNumerativo, P2_cardinal, P2_genero, P2_tipo_precisa, P2_tipoRealCard, P2_milharExtenso, P2_centenaExtenso, P2_dezenaExtenso, P2_unidadeExtenso, P2_numIndefinido, P2_tipo_de_Ente, P2_tipo_de_nao_consciente, P2_tipo_de_nao_consciente_material, P2_tipo_de_nao_consciente_semiotico, P2_classe_palavra_Ente, P2_substantivo_lematizado, P2_numero, P2_tipo_feminino_ÃO, P2_tipo_masc_ÃO, P2_acentTonica, P2_nomeProprio, P2_pessoa_da_interlocucao, P2_transitividade_verbo, P2_tonicidade, P2_morfologia_do_pronome, P2_reflexivo, P2_epitetoModificacao, P2_adjetivo_epiteto, P2_classificadorModificacao, P2_adjetivo_classificador, P2_generoAdjetivo, P2_numeroAdjetivo, P2_contracao)
+
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Fenomeno +  '.'
+
+		elif FENOMENALIZACAO == 'hiperfenômeno_criativo_pensamento':
+			if TIPO_DE_MENTAL == 'superior_cognitivo':
+				# 'pensar', 'saber', 'sonhar'
+				Pensamento = oracaoProjetada()
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Pensamento + '.'
+
+		elif FENOMENALIZACAO == 'hiperfenômeno_criativo_desejo':
+			if TIPO_DE_MENTAL == 'superior_desiderativo':
+				# print('Qual tipo_pessoa de hiperfenômeno?')
+				# print('Projeção = hiperfenômeno: criativo')
+			# TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar'])
+				Desejo = oracaooProjetada()
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Desejo + '.'
+		elif FENOMENALIZACAO == 'hiperfenômeno_reativo_metafenômeno_oração_mudada_ordem':
+			if TIPO_DE_MENTAL == 'inferior_emotivo':
+				Metafenomeno = oracaoProjetada()
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Metafenomeno + '.'
+		elif FENOMENALIZACAO == 'hiperfenômeno_reativo_metafenômeno_oração_que':
+			if TIPO_DE_MENTAL == 'inferior_emotivo':
+				Metafenomeno = 'que' + ' ' + oracaoProjetada()
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Metafenomeno + '.'
+		elif FENOMENALIZACAO == 'hiperfenômeno_reativo_metafenômeno_GN+oração_qualificadora':
+			if TIPO_DE_MENTAL == 'inferior_emotivo':
+				# print('Selecione o GN com oração qualificadora:')
+				Metafenomeno = estrutura_GN(P2_dissocEnteNucleo, P2_temQualificador, P2_tipoQualificador, P2_indicePreposicao, P2_DETERMINAÇÃO_espeficifidade_beta, P2_ORIENTAÇÃO_beta, P2_gênero_beta, P2_número_beta, P2_morfologia_do_pronome_beta, P2_DETERMINAÇÃO_espeficifidade_alpha, P2_ORIENTAÇÃO_alpha, P2_gênero_alpha, P2_número_alpha, P2_morfologia_do_pronome_alpha, P2_pessoa_da_interlocução_possuidor, P2_número_obj_possuído, P2_gênero_obj_possuído, P2_pessoa_da_interlocução_proximidade, P2_funcaoNumerativo, P2_cardinal, P2_genero, P2_tipo_precisa, P2_tipoRealCard, P2_milharExtenso, P2_centenaExtenso, P2_dezenaExtenso, P2_unidadeExtenso, P2_numIndefinido, P2_tipo_de_Ente, P2_tipo_de_nao_consciente, P2_tipo_de_nao_consciente_material, P2_tipo_de_nao_consciente_semiotico, P2_classe_palavra_Ente, P2_substantivo_lematizado, P2_numero, P2_tipo_feminino_ÃO, P2_tipo_masc_ÃO, P2_acentTonica, P2_nomeProprio, P2_pessoa_da_interlocucao, P2_transitividade_verbo, P2_tonicidade, P2_morfologia_do_pronome, P2_reflexivo, P2_epitetoModificacao, P2_adjetivo_epiteto, P2_classificadorModificacao, P2_adjetivo_classificador, P2_generoAdjetivo, P2_numeroAdjetivo, P2_contracao)
+
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Metafenomeno + '.'
+
+		elif FENOMENALIZACAO == 'reativo_macrofenômeno_não_finito_concretizado':
+			if TIPO_DE_MENTAL == 'inferior_perceptivo':
+				Macrofenomeno = oracaoProjetada()
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Macrofenomeno + '.'
+		elif (FENOMENALIZACAO == 'reativo_macrofenômeno_não-finito_concretizado' or
+			FENOMENALIZACAO == 'reativo_macrofenômeno_não-orientado_gerúndio'):
+			if TIPO_DE_MENTAL == 'inferior_perceptivo':
+				Macrofenomeno = oracaoProjetada()
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Macrofenomeno + '.'
+
+		elif FENOMENALIZACAO == 'reativo_macrofenômeno_oração_que' :
+			if TIPO_DE_MENTAL == 'inferior_perceptivo':
+				Macrofenomeno = 'que' + ' ' + oracaoProjetada()
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Macrofenomeno + '.'
+
+		elif FENOMENALIZACAO == 'reativo_macrofenômeno_GN+oração_qualificadora':
+			if TIPO_DE_MENTAL == 'inferior_perceptivo':
+				Macrofenomeno = estrutura_GN(P2_dissocEnteNucleo, P2_temQualificador, P2_tipoQualificador, P2_indicePreposicao, P2_DETERMINAÇÃO_espeficifidade_beta, P2_ORIENTAÇÃO_beta, P2_gênero_beta, P2_número_beta, P2_morfologia_do_pronome_beta, P2_DETERMINAÇÃO_espeficifidade_alpha, P2_ORIENTAÇÃO_alpha, P2_gênero_alpha, P2_número_alpha, P2_morfologia_do_pronome_alpha, P2_pessoa_da_interlocução_possuidor, P2_número_obj_possuído, P2_gênero_obj_possuído, P2_pessoa_da_interlocução_proximidade, P2_funcaoNumerativo, P2_cardinal, P2_genero, P2_tipo_precisa, P2_tipoRealCard, P2_milharExtenso, P2_centenaExtenso, P2_dezenaExtenso, P2_unidadeExtenso, P2_numIndefinido, P2_tipo_de_Ente, P2_tipo_de_nao_consciente, P2_tipo_de_nao_consciente_material, P2_tipo_de_nao_consciente_semiotico, P2_classe_palavra_Ente, P2_substantivo_lematizado, P2_numero, P2_tipo_feminino_ÃO, P2_tipo_masc_ÃO, P2_acentTonica, P2_nomeProprio, P2_pessoa_da_interlocucao, P2_transitividade_verbo, P2_tonicidade, P2_morfologia_do_pronome, P2_reflexivo, P2_epitetoModificacao, P2_adjetivo_epiteto, P2_classificadorModificacao, P2_adjetivo_classificador, P2_generoAdjetivo, P2_numeroAdjetivo, P2_contracao)
+				oração = Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Macrofenomeno + '.'
+
+	elif (Transitividade == 'PR_Mental_AG_efetivo_operativo'
+		  and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito'
+		  and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA'):
+		if FENOMENALIZACAO == 'fenomenalização_hiperfenômeno':
+			if TIPO_DE_MENTAL =="superior_cognitivo":
+
+		elif FENOMENALIZACAO == "fenomenalização_fenômeno_simples":
+			if TIPO_DE_MENTAL == "superior_cognitivo" or TIPO_DE_MENTAL == "superior_desiderativo":
+				# print('Selecione verbo lematizado cognitivo ou desiderativo:')
+
+				FenomenoAgente = estrutura_GN(P1_dissocEnteNucleo, P1_temQualificador, P1_tipoQualificador, P1_indicePreposicao, P1_DETERMINAÇÃO_espeficifidade_beta, P1_ORIENTAÇÃO_beta, P1_gênero_beta, P1_número_beta, P1_morfologia_do_pronome_beta, P1_DETERMINAÇÃO_espeficifidade_alpha, P1_ORIENTAÇÃO_alpha, P1_gênero_alpha, P1_número_alpha, P1_morfologia_do_pronome_alpha, P1_pessoa_da_interlocução_possuidor, P1_número_obj_possuído, P1_gênero_obj_possuído, P1_pessoa_da_interlocução_proximidade, P1_funcaoNumerativo, P1_cardinal, P1_genero, P1_tipo_precisa, P1_tipoRealCard, P1_milharExtenso, P1_centenaExtenso, P1_dezenaExtenso, P1_unidadeExtenso, P1_numIndefinido, P1_tipo_de_Ente, P1_tipo_de_nao_consciente, P1_tipo_de_nao_consciente_material, P1_tipo_de_nao_consciente_semiotico, P1_classe_palavra_Ente, P1_substantivo_lematizado, P1_numero, P1_tipo_feminino_ÃO, P1_tipo_masc_ÃO, P1_acentTonica, P1_nomeProprio, P1_pessoa_da_interlocucao, P1_transitividade_verbo, P1_tonicidade, P1_morfologia_do_pronome, P1_reflexivo, P1_epitetoModificacao, P1_adjetivo_epiteto, P1_classificadorModificacao, P1_adjetivo_classificador, P1_generoAdjetivo, P1_numeroAdjetivo, P1_contracao
+)
+				oração = FenomenoAgente + ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
+		# PAREI AQUI: VOU TER DE PENSAR NO IMPINGENTE REALIXADO POR FRASE PREPOSICIONAL
+
+		elif FENOMENALIZACAO == "não-fenomenalização":
+			if TIPO_DE_MENTAL =="superior_"
 
 
-					Assunto = circunstancia()
+	# 		print('Efetivo operativo = mental impingente.')
+	# 		print('Selecione o tipo_pessoa de processo mental:')
+	# 		TIPO_DE_PROCESSO = choice.Menu(['superior', 'inferior']).ask()
+	# 		print('Qual a FENOMENALIZAÇÃO?')
+	# 		FENOMENALIZAÇÃO = choice.Menu(['não-fenomenalização', 'fenomenalização']).ask()
+			if FENOMENALIZACAO == 'fenomenalização':
+				print('Qual tipo_pessoa de fenomenalização?')
+				TIPO_FENOMENALIZACAO= choice.Menu(['hiperfenômeno', 'fenômeno_simples']).ask()
+				if TIPO_DE_MENTAL == 'superior' and TIPO_FENOMENALIZACAO== 'fenômeno_simples':
+					print('Qual tipo_pessoa de Processo superior?')
+					TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
+	# 				if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
+						print('Selecione verbo lematizado cognitivo ou desiderativo:')
+						print('Qual o Processo?')
+						Processo = grupo_verbal()
+						print('Qual o Experienciador (Ente:Humanizado)?')
+						Experienciador = estrutura_GN()
+						print('Qual o Fenômeno Agente?')
+						FenômenoAgente = estrutura_GN()
+						Polaridade = POLARIDADE()
+						Circunstância = circunstância()
 
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' + Processo + ' ' + Assunto + ' ' + Circunstancia + '.'
-		return (re.sub(' +', ' ', oração).strip().capitalize())
+						oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + FenômenoAgente + ' ' + Polaridade \
+						         + ' ' + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
+	# 			elif TIPO_DE_MENTAL == 'superior' and TIPO_FENOMENALIZACAO== 'hiperfenômeno':
+	# 				print('Qual tipo_pessoa de Processo superior?')
+	# 				TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask() \
+	# 				if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
+	# 					print('Qual tipo_pessoa de hiperfenômeno?')
+	# 					print('Projeção = hiperfenômeno: criativo')
+	# 					TIPO_HIPERFENÔMENO = choice.Menu(['criativo']).ask()
+	#
+	# 					if TIPO_HIPERFENÔMENO == 'criativo':
+	# 						TIPO_criativo = choice.Menu(['pensamento', 'desejo']).ask()
+	# 						if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
+	# 							TIPO_DE_COGNITIVO = choice.Menu(['pensar', 'saber', 'sonhar']).ask()
+	# 							if TIPO_DE_COGNITIVO == 'pensar' or TIPO_DE_COGNITIVO == 'saber' or TIPO_DE_COGNITIVO == 'sonhar':
+	# 								print('Selecione o verbo lexical correspondente ao tipo_pessoa de cognitivo:')
+	# 								print('Qual o Processo?')
+	# 								Processo = grupo_verbal()
+	# 								print('Qual o Experienciador (Ente:Humanizado)?')
+	# 								Experienciador = estrutura_GN()
+	# 								print('Qual o Pensamento Agente? Selecione orientado-finito')
+	# 								PensamentoAgente = oraçãoProjetada()
+	# 								Polaridade = POLARIDADE()
+	# 								Circunstância = circunstância()
+	# 								oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + ' ' + 'que' + ' ' + PensamentoAgente
+	# 								+ ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.' \
+	# 								# Ex.:PROBABILIDADE BAIXA DE OCORRÊNCIA: Que você não viria ocorreu me
+	#
+	# 						elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
+	# 							TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar']).ask()
+	# 							if TIPO_DE_DESIDERATIVO == 'querer' or TIPO_DE_DESIDERATIVO == 'esperar':
+	# 								print('Selecione o verbo lexical correspondente ao tipo_pessoa de desiderativo:')
+	# 								print('Qual o Processo?')
+	# 								Processo = grupo_verbal()
+	# 								print('Qual o Experienciador (Ente:Humanizado)?')
+	# 								Experienciador = estrutura_GN()
+	# 								print('Qual o Desejo Agente?')
+	# 								print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
+	# 								DesejoAgente = oraçãoProjetada()
+	# 								Polaridade = POLARIDADE()
+	# 								Circunstância = circunstância()
+	# 								oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + ' ' + 'que' + ' ' + DesejoAgente \
+	# 								         + ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
+	# 								# Ex.:PROBABILIDADE BAIXA DE OCORRÊNCIA: Que você não viria ocorreu me
+	#
+	# 			elif TIPO_DE_MENTAL == 'inferior' and TIPO_FENOMENALIZACAO== 'fenômeno_simples':
+	# 				print('Qual tipo_pessoa de Processo inferior?')
+	# 				TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+	# 				if TIPO_INFERIOR == 'emotivo' or TIPO_INFERIOR == 'perceptivo':
+	# 					print('Selecione verbo lematizado cognitivo ou desiderativo:')
+	# 					print('Qual o Processo?')
+	# 					Processo = grupo_verbal()
+	# 					print('Qual o Experienciador (Ente:Animalizado)?')
+	# 					Experienciador = estrutura_GN()
+	# 					print('Qual o Fenômeno/Agente?')
+	# 					FenômenoAgente = estrutura_GN()
+	# 					Polaridade = POLARIDADE()
+	# 					Circunstância = circunstância()
+	#
+	# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + FenômenoAgente + ' ' + Polaridade \
+	# 					         + ' ' + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
+	# 					# Ex.: Seus modos entristecem me
+	#
+	# 			elif TIPO_DE_MENTAL == 'inferior' and TIPO_FENOMENALIZACAO== 'hiperfenômeno':
+	# 				print('Qual tipo_pessoa de Processo inferior?')
+	# 				TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
+	# 				print('Qual tipo_pessoa de hiperfenômeno?')
+	# 				TIPO_HIPERFENÔMENO = choice.Menu(['reativo']).ask()
+	# 				if TIPO_INFERIOR == 'emotivo' and TIPO_HIPERFENÔMENO == 'reativo':
+	# 					print('Qual o tipo_pessoa de reativo?')
+	# 					TIPO_reativo = choice.Menu(['metafenômeno']).ask()
+	# 					if TIPO_reativo == 'metafenômeno':
+	# 						TIPO_DE_EMOTIVO = choice.Menu(['gostar', 'agradar']).ask()
+	# 						print('Selecione o verbo lexical correspondente ao tipo_pessoa de emotivo:')
+	# 						print('Qual o Processo?')
+	# 						Processo = grupo_verbal()
+	# 						print('Qual o Experienciador (Ente:Humanizado)?')
+	# 						Experienciador = estrutura_GN()
+	# 						print('Qual o metafenômeno? Metafenômenos têm natureza abstrata')
+	# 						realizacao_metafenômeno = choice.Menu(['oração_mudada_ordem', 'oração_que', \
+	# 						                                       'GN+oração_qualificadora']).ask() \
+	# 						if realizacao_metafenômeno == 'oração_mudada_ordem':
+	# 							print('Selecione as orientações desejadas:')
+	# 							MetafenômenoAgente = oraçãoProjetada()
+	#
+	# 						elif realizacao_metafenômeno == 'oração_que':
+	# 							print('Selecione orientações desejadas')
+	# 							MetafenômenoAgente = 'que' + ' ' + oraçãoProjetada()
+	# 						else:
+	# 							print('Selecione o GN com oração qualificadora:')
+	# 							MetafenômenoAgente = estrutura_GN()
+	#
+	# 						Polaridade = POLARIDADE()
+	# 						Circunstância = circunstância()
+	# 						oração = Tema_interpessoal + ' ' + Tema_textual + ' ' \
+	# 						         + MetafenômenoAgente + ' ' + Polaridade + ' ' \
+	# 						         + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
+	#
+	# 				elif TIPO_INFERIOR == 'perceptivo' and TIPO_HIPERFENÔMENO == 'reativo':
+	# 					print('Qual o tipo_pessoa de reativo?')
+	# 					TIPO_reativo = choice.Menu(['macrofenômeno']).ask()
+	# 					if TIPO_reativo == 'macrofenômeno':
+	# 						print('Qual o Processo?')
+	# 					Processo = grupo_verbal()
+	# 					print('Qual o Experienciador (Ente:Humanizado)?')
+	# 					Experienciador = estrutura_GN()
+	# 					print('Qual o macrofenômeno? Macrofenômenos têm natureza concreta')
+	# 					realizacao_macrofenômeno = choice.Menu(
+	# 						['não_finito_concretizado', 'não-orientado_gerúndio', 'oração_que',
+	# 						 'GN+oração_qualificadora']).ask()
+	# 					if realizacao_macrofenômeno == 'não_finito_concretizado':
+	# 						print('Selecione grupo verbal não-finito_concretizado')
+	# 						MacrofenômenoAgente = oraçãoProjetada()
+	#
+	# 					elif realizacao_macrofenômeno == 'não-orientado_gerúndio':
+	# 						print('Selecione grupo verbal não-orientado_gerúndio')
+	# 						MacrofenômenoAgente = oraçãoProjetada()
+	# 					elif realizacao_macrofenômeno == 'oração_que':
+	# 						print('Selecione orientações desejadas')
+	# 						MacrofenômenoAgente = 'que' + ' ' + oraçãoProjetada()
+	# 					else:
+	# 						print('Selecione o GN com oração qualificadora:')
+	# 						Macrofenômeno = estrutura_GN() \
+	#  \
+	# 					Polaridade = POLARIDADE()
+	# 					Circunstância = circunstância() \
+	# 					oração = Tema_interpessoal + ' ' + Tema_textual \
+	# 					         + ' ' + MacrofenômenoAgente + ' ' + Polaridade + ' ' \
+	# 					         + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
+	#
+	return (re.sub(' +', ' ', oração).strip().capitalize())
 
 #
-# TRANSITIVIDADE('Mental', None, 0, None, None)
-# MODO(0, 0, 1)
-# TEMA_IDEACIONAL('orientado', 'direcional', 'default', 'indicativo', 'declarativo','NA', None,None, None)
-# TEMA_INTERPESSOAL("TI_avaliação_comentário", 'frase_preposicional', None, None, None, None, None, None, None, None, None,None, 4, None, None, None, None,None, None, None, None, None, None, None, None, None,None, None, None, None, None, None, 'não-binário', None, None, None, None, None, None, None, 'não_consciente', None, None,'abstração_semiótica', 'substantivo_comum','certeza', 'singular', None, None, None, None, None, None,None, None,None, None, None, None, None, None, None, None, None, None, None)
-# TEMA_TEXTUAL('+', "inserção_menu", None,3, "inserção_menu", None, None, None, 'inserção_menu', None, None, None, None, None, None,None)
-# grupo_verbal('Fazer', 'não_agenciado', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 'Ser', 'Auxiliar', 'ter', 'presente', 'singular', None, '1pessoa', 'Morfologia_padrão', 'Fazer', 'Evento', 'pensar', 'particípio', 'singular', 'masculino', None, 'Morfologia_padrão')
-# estrutura_GN(None,None,None,None,None,None, None, None,None,None,None,None, None,None, None,None,None,None, None,None,None, None,None,None, None,None,None,None, 'consciente', None, None, None, 'pronome_caso_reto', None, 'singular', None, None, None, None, 'falante', None, None, "Morfologia_padrão", None, None, None, None, None,None, None,None)
-##
-gerar_oracao(
-	# transitividade
-	'Mental', None,
-	1, None, None,
-
-	# modo
-	0, 0, 1,
-	# TEMA IDEACIONAL
-	'orientado', 'direcional',
-	'default', 'indicativo',
-	'declarativo', 'NA',
-	None, None, None,
-	# tema_interpessoal
-	"TI_avaliação_comentário", 'frase_preposicional',
-	# grupo adverbial
-	None, None,
-	None, None,
-	None, None,
-	None, None,
-	None, None,
-
-	# frase prepos
-	4, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, 'não-binário', None, None,
-	None, None, None, None,
-	None, 'não_consciente', None,
-	None, 'abstração_semiótica',
-	'substantivo_comum', 'certeza', 'singular',
-	None, None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None,
-	None, None, None, None,
-
-	#
-	None, None,
-	None,
-
-	# tema textual
-	'+', "inserção_menu", None, 3,
-	"inserção_menu", None,
-	None, None,
-	'inserção_menu', None, None,
-	None, None, None,
-	None, None,
-	##Processo Mental
-	'não-fenomenalização', 'superior_cognitivo',
-	'assunto',
-
-	##PARTICIPANTES
-	None, None, None, None,
-	None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None, None, None,
-	None, None, None, None,
-	None,
-	'consciente', None, None,
-	None, 'pronome_caso_reto',
-	None, 'singular',
-	None, None, None, None,
-	'falante',
-	None, None, "Morfologia_padrão", None,
-	None, None, None,
-	None, None, None, None,
-#realizados por frase preposicional
-	6, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None,None,
-	None, None, None,
-	None,None,'não-binário',None,None,
-	None, None, None, None,
-	None,'não_consciente','material',
-	'abstração_material', None,
-	'substantivo_comum','futebol', 'singular',
-	None, None, None,None,
-	None, None, None,
-	None, None, None,
-	None, None,
-	None, None, None, None,
-	# Processo
-	'Fazer', 'não_agenciado', None, None, None, None, None, None,
-	None, None, None, None, None, None, None, None, None,
-	None, None, None, None, None, None, None, None, None, None, None,
-	None, None, None, None, None,
-	'Morfologia_padrão', 'Fazer', 'Evento', 'saber', 'presente', 'singular',
-	None, '1pessoa', 'Morfologia_padrão',
-	# POLARIDADE
-	'positiva',
-	##CIRCUNSTANCIA
-	'sim', 'grupo_adverbial', 9, None, None, None,
-	None, None, None, None, None, 'específico',
-	'orientação_específica_proximidade', 'masculino',
-	'plural', 'morfologia_terceira_pessoa', '1s', 'plural',
-	'masculino', 'próximo_ao_não_interlocutor', None, None,
-	'masculino', None, None, None, None, None, None, None,
-	'não_consciente', 'material', 'animal', None, 'substantivo_comum',
-	'prédio', 'plural', None, None, None, None, None, None, None, None, None,
-	'sim', 'alto', None, None, 'masculino', 'plural', '-contração',
-	'Modo', 12,
-	None, None, None, None, None, None, None, None)
-
-
-
-		elif FENOMENALIZACAO == 'fenomenalização':
-			print('Médio com alcance = mental emanente.')
-			print('Qual tipo_pessoa de fenomenalização?')
-			TIPO_FENOMENALIZACAO= choice.Menu(['hiperfenômeno', 'fenômeno_simples']).ask()
-			if TIPO_DE_MENTAL == 'superior' and TIPO_FENOMENALIZACAO== 'fenômeno_simples':
-				print('Qual tipo_pessoa de Processo superior?')
-				TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
-				if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
-					print('Selecione verbo lematizado cognitivo ou desiderativo:')
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual o Experienciador (Ente:Humanizado)?')
-					Experienciador = estrutura_GN()
-					print('Qual o Fenômeno?')
-					Fenômeno = estrutura_GN()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Fenômeno + ' ' + Circunstancia + '.'
-			elif TIPO_DE_MENTAL == 'superior' and TIPO_FENOMENALIZACAO== 'hiperfenômeno':
-				print('Qual tipo_pessoa de Processo superior?')
-				TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
-				if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
-					print('Qual tipo_pessoa de hiperfenômeno?')
-					print('Projeção = hiperfenômeno: criativo')
-					TIPO_HIPERFENÔMENO = choice.Menu(['criativo']).ask()
-
-					if TIPO_HIPERFENÔMENO == 'criativo':
-						TIPO_criativo = choice.Menu(['pensamento', 'desejo']).ask()
-						if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
-							TIPO_DE_COGNITIVO = choice.Menu(['pensar', 'saber', 'sonhar']).ask()
-							if TIPO_DE_COGNITIVO == 'pensar' or TIPO_DE_COGNITIVO == 'saber' or TIPO_DE_COGNITIVO == 'sonhar':
-								print('Selecione o verbo lexical correspondente ao tipo_pessoa de cognitivo:') \
-								print('Qual o Processo?')
-								Processo = grupo_verbal()
-								print('Qual o Experienciador (Ente:Humanizado)?')
-								Experienciador = estrutura_GN()
-								print('Qual o hiperfenômeno projetado? Selecione orientado-finito')
-								Pensamento = oraçãoProjetada()
-								Polaridade = POLARIDADE()
-								Circunstância = circunstância()
-								oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador \
-								         + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Pensamento + ' ' + Circunstancia + '.'
-						elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
-							TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar']).ask()
-							if TIPO_DE_DESIDERATIVO == 'querer' or TIPO_DE_DESIDERATIVO == 'esperar':
-								print('Selecione o verbo lexical correspondente ao tipo_pessoa de desiderativo:')
-								print('Qual o Processo?')
-								Processo = grupo_verbal()
-								print('Qual o Experienciador (Ente:Humanizado)?')
-								Experienciador = estrutura_GN()
-								print('Qual o hiperfenômeno projetado?')
-								print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
-								Desejo = oraçãoProjetada()
-								Polaridade = POLARIDADE()
-								Circunstância = circunstância()
-								oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador \
-								         + ' ' + Polaridade + ' ' + Processo + ' ' + 'que' + ' ' + Desejo \
-								         + ' ' + Circunstancia + '.'
-
-			elif TIPO_DE_MENTAL == 'inferior' and TIPO_FENOMENALIZACAO== 'fenômeno_simples':
-				print('Qual tipo_pessoa de Processo inferior?')
-				TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
-				if TIPO_INFERIOR == 'emotivo' or TIPO_INFERIOR == 'perceptivo':
-					print('Selecione verbo lematizado cognitivo ou desiderativo:')
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual o Experienciador (Ente:Animalizado)?')
-					Experienciador = estrutura_GN()
-					print('Qual o Fenômeno?')
-					Fenômeno = estrutura_GN() \
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Fenômeno + ' ' + Circunstancia + '.'
-
-			elif TIPO_DE_MENTAL == 'inferior' and TIPO_FENOMENALIZACAO== 'hiperfenômeno':
-				print('Qual tipo_pessoa de Processo inferior?')
-				TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
-				print('Qual tipo_pessoa de hiperfenômeno?')
-				TIPO_HIPERFENÔMENO = choice.Menu(['reativo']).ask()
-				if TIPO_INFERIOR == 'emotivo' and TIPO_HIPERFENÔMENO == 'reativo':
-					print('Qual o tipo_pessoa de reativo?')
-					TIPO_reativo = choice.Menu(['metafenômeno']).ask()
-					if TIPO_reativo == 'metafenômeno':
-						TIPO_DE_EMOTIVO = choice.Menu(['gostar', 'agradar']).ask()
-						print('Selecione o verbo lexical correspondente ao tipo_pessoa de emotivo:') \
-						print('Qual o Processo?')
-						Processo = grupo_verbal()
-						print('Qual o Experienciador (Ente:Humanizado)?')
-						Experienciador = estrutura_GN()
-						print('Qual o metafenômeno? Metafenômenos têm natureza abstrata')
-						realizacao_metafenômeno = choice.Menu(['oração_mudada_ordem', 'oração_que',
-						                                       'GN+oração_qualificadora']).ask()
-						if realizacao_metafenômeno == 'oração_mudada_ordem':
-							print('Selecione as orientações desejadas:')
-							Metafenômeno = oraçãoProjetada()
-
-						elif realizacao_metafenômeno == 'oração_que':
-							print('Selecione orientações desejadas') \
-							Metafenômeno = 'que' + ' ' + oraçãoProjetada()
-						else:
-							print('Selecione o GN com oração qualificadora:')
-							Metafenômeno = estrutura_GN()
-
-						Polaridade = POLARIDADE()
-						Circunstância = circunstância()
-						oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade \
-						         + ' ' + Processo + ' ' + Metafenômeno + ' ' + Circunstancia + '.'
-
-				elif TIPO_INFERIOR == 'perceptivo' and TIPO_HIPERFENÔMENO == 'reativo':
-					print('Qual o tipo_pessoa de reativo?')
-					TIPO_reativo = choice.Menu(['macrofenômeno']).ask()
-					if TIPO_reativo == 'macrofenômeno':
-						print('Qual o Processo?')
-						Processo = grupo_verbal()
-						print('Qual o Experienciador (Ente:Humanizado)?')
-						Experienciador = estrutura_GN()
-						print('Qual o macrofenômeno? Macrofenômenos têm natureza concreta')
-						realizacao_macrofenômeno = choice.Menu(
-							['não_finito_concretizado', 'não-orientado_gerúndio', 'oração_que',
-							 'GN+oração_qualificadora']).ask()
-						if realizacao_macrofenômeno == 'não_finito_concretizado':
-							print('Selecione grupo verbal não-finito_concretizado')
-							Macrofenômeno = oraçãoProjetada()
-
-						elif realizacao_macrofenômeno == 'não-orientado_gerúndio':
-							print('Selecione grupo verbal não-orientado_gerúndio')
-							Macrofenômeno = oraçãoProjetada()
-						elif realizacao_macrofenômeno == 'oração_que':
-							print('Selecione orientações desejadas')
-							Macrofenômeno = 'que' + ' ' + oraçãoProjetada()
-						else:
-							print('Selecione o GN com oração qualificadora:')
-							Macrofenômeno = estrutura_GN()
-
-						Polaridade = POLARIDADE()
-						Circunstância = circunstância()
-						oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Experienciador + ' ' + Polaridade + ' ' \
-						         + Processo + ' ' + Macrofenômeno + ' ' + Circunstancia + '.'
-
-	elif Transitividade == 'PR_Mental_AG_efetivo_operativo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		Tema_textual = TEMA_TEXTUAL()
-		print('Efetivo operativo = mental impingente.')
-		print('Selecione o tipo_pessoa de processo mental:')
-		TIPO_DE_PROCESSO = choice.Menu(['superior', 'inferior']).ask()
-		print('Qual a FENOMENALIZAÇÃO?')
-		FENOMENALIZAÇÃO = choice.Menu(['não-fenomenalização', 'fenomenalização']).ask()
-		if FENOMENALIZACAO == 'fenomenalização':
-			print('Qual tipo_pessoa de fenomenalização?')
-			TIPO_FENOMENALIZACAO= choice.Menu(['hiperfenômeno', 'fenômeno_simples']).ask()
-			if TIPO_DE_MENTAL == 'superior' and TIPO_FENOMENALIZACAO== 'fenômeno_simples':
-				print('Qual tipo_pessoa de Processo superior?')
-				TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask()
-				if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
-					print('Selecione verbo lematizado cognitivo ou desiderativo:')
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual o Experienciador (Ente:Humanizado)?')
-					Experienciador = estrutura_GN()
-					print('Qual o Fenômeno Agente?')
-					FenômenoAgente = estrutura_GN()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + FenômenoAgente + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
-			elif TIPO_DE_MENTAL == 'superior' and TIPO_FENOMENALIZACAO== 'hiperfenômeno':
-				print('Qual tipo_pessoa de Processo superior?')
-				TIPO_SUPERIOR = choice.Menu(['cognitivo', 'desiderativo', ]).ask() \
-				if TIPO_SUPERIOR == 'cognitivo' or TIPO_SUPERIOR == 'desiderativo':
-					print('Qual tipo_pessoa de hiperfenômeno?')
-					print('Projeção = hiperfenômeno: criativo')
-					TIPO_HIPERFENÔMENO = choice.Menu(['criativo']).ask()
-
-					if TIPO_HIPERFENÔMENO == 'criativo':
-						TIPO_criativo = choice.Menu(['pensamento', 'desejo']).ask()
-						if TIPO_SUPERIOR == 'cognitivo' and TIPO_criativo == 'pensamento':
-							TIPO_DE_COGNITIVO = choice.Menu(['pensar', 'saber', 'sonhar']).ask()
-							if TIPO_DE_COGNITIVO == 'pensar' or TIPO_DE_COGNITIVO == 'saber' or TIPO_DE_COGNITIVO == 'sonhar':
-								print('Selecione o verbo lexical correspondente ao tipo_pessoa de cognitivo:')
-								print('Qual o Processo?')
-								Processo = grupo_verbal()
-								print('Qual o Experienciador (Ente:Humanizado)?')
-								Experienciador = estrutura_GN()
-								print('Qual o Pensamento Agente? Selecione orientado-finito')
-								PensamentoAgente = oraçãoProjetada()
-								Polaridade = POLARIDADE()
-								Circunstância = circunstância()
-								oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + ' ' + 'que' + ' ' + PensamentoAgente
-								+ ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.' \
-								# Ex.:PROBABILIDADE BAIXA DE OCORRÊNCIA: Que você não viria ocorreu me
-
-						elif TIPO_SUPERIOR == 'desiderativo' and TIPO_criativo == 'desejo':
-							TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar']).ask()
-							if TIPO_DE_DESIDERATIVO == 'querer' or TIPO_DE_DESIDERATIVO == 'esperar':
-								print('Selecione o verbo lexical correspondente ao tipo_pessoa de desiderativo:')
-								print('Qual o Processo?')
-								Processo = grupo_verbal()
-								print('Qual o Experienciador (Ente:Humanizado)?')
-								Experienciador = estrutura_GN()
-								print('Qual o Desejo Agente?')
-								print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
-								DesejoAgente = oraçãoProjetada()
-								Polaridade = POLARIDADE()
-								Circunstância = circunstância()
-								oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + ' ' + 'que' + ' ' + DesejoAgente \
-								         + ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
-								# Ex.:PROBABILIDADE BAIXA DE OCORRÊNCIA: Que você não viria ocorreu me
-
-			elif TIPO_DE_MENTAL == 'inferior' and TIPO_FENOMENALIZACAO== 'fenômeno_simples':
-				print('Qual tipo_pessoa de Processo inferior?')
-				TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
-				if TIPO_INFERIOR == 'emotivo' or TIPO_INFERIOR == 'perceptivo':
-					print('Selecione verbo lematizado cognitivo ou desiderativo:')
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual o Experienciador (Ente:Animalizado)?')
-					Experienciador = estrutura_GN()
-					print('Qual o Fenômeno/Agente?')
-					FenômenoAgente = estrutura_GN()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + FenômenoAgente + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
-					# Ex.: Seus modos entristecem me
-
-			elif TIPO_DE_MENTAL == 'inferior' and TIPO_FENOMENALIZACAO== 'hiperfenômeno':
-				print('Qual tipo_pessoa de Processo inferior?')
-				TIPO_INFERIOR = choice.Menu(['emotivo', 'perceptivo']).ask()
-				print('Qual tipo_pessoa de hiperfenômeno?')
-				TIPO_HIPERFENÔMENO = choice.Menu(['reativo']).ask()
-				if TIPO_INFERIOR == 'emotivo' and TIPO_HIPERFENÔMENO == 'reativo':
-					print('Qual o tipo_pessoa de reativo?')
-					TIPO_reativo = choice.Menu(['metafenômeno']).ask()
-					if TIPO_reativo == 'metafenômeno':
-						TIPO_DE_EMOTIVO = choice.Menu(['gostar', 'agradar']).ask()
-						print('Selecione o verbo lexical correspondente ao tipo_pessoa de emotivo:')
-						print('Qual o Processo?')
-						Processo = grupo_verbal()
-						print('Qual o Experienciador (Ente:Humanizado)?')
-						Experienciador = estrutura_GN()
-						print('Qual o metafenômeno? Metafenômenos têm natureza abstrata')
-						realizacao_metafenômeno = choice.Menu(['oração_mudada_ordem', 'oração_que', \
-						                                       'GN+oração_qualificadora']).ask() \
-						if realizacao_metafenômeno == 'oração_mudada_ordem':
-							print('Selecione as orientações desejadas:')
-							MetafenômenoAgente = oraçãoProjetada()
-
-						elif realizacao_metafenômeno == 'oração_que':
-							print('Selecione orientações desejadas')
-							MetafenômenoAgente = 'que' + ' ' + oraçãoProjetada()
-						else:
-							print('Selecione o GN com oração qualificadora:')
-							MetafenômenoAgente = estrutura_GN()
-
-						Polaridade = POLARIDADE()
-						Circunstância = circunstância()
-						oração = Tema_interpessoal + ' ' + Tema_textual + ' ' \
-						         + MetafenômenoAgente + ' ' + Polaridade + ' ' \
-						         + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
-
-				elif TIPO_INFERIOR == 'perceptivo' and TIPO_HIPERFENÔMENO == 'reativo':
-					print('Qual o tipo_pessoa de reativo?')
-					TIPO_reativo = choice.Menu(['macrofenômeno']).ask()
-					if TIPO_reativo == 'macrofenômeno':
-						print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual o Experienciador (Ente:Humanizado)?')
-					Experienciador = estrutura_GN()
-					print('Qual o macrofenômeno? Macrofenômenos têm natureza concreta')
-					realizacao_macrofenômeno = choice.Menu(
-						['não_finito_concretizado', 'não-orientado_gerúndio', 'oração_que',
-						 'GN+oração_qualificadora']).ask()
-					if realizacao_macrofenômeno == 'não_finito_concretizado':
-						print('Selecione grupo verbal não-finito_concretizado')
-						MacrofenômenoAgente = oraçãoProjetada()
-
-					elif realizacao_macrofenômeno == 'não-orientado_gerúndio':
-						print('Selecione grupo verbal não-orientado_gerúndio')
-						MacrofenômenoAgente = oraçãoProjetada()
-					elif realizacao_macrofenômeno == 'oração_que':
-						print('Selecione orientações desejadas')
-						MacrofenômenoAgente = 'que' + ' ' + oraçãoProjetada()
-					else:
-						print('Selecione o GN com oração qualificadora:')
-						Macrofenômeno = estrutura_GN() \
- \
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância() \
-					oração = Tema_interpessoal + ' ' + Tema_textual \
-					         + ' ' + MacrofenômenoAgente + ' ' + Polaridade + ' ' \
-					         + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
-
-
-	##ORAÇÃO verbal
-
-	elif Transitividade == 'PR_Verbal_AG_médio_sem_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		Tema_textual = TEMA_TEXTUAL()
-		print('Qual a Ordem do Dizente?')
-		ORDEM_DO_DIZENTE = choice.Menu(['atividade', 'semioticidade']).ask()
-		if ORDEM_DO_DIZENTE == 'atividade':
-			TIPO_ATIVIDADE = 'fala'
-
-			if TIPO_ATIVIDADE == 'fala':
-
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual é o Dizente?')
-				Dizente = estrutura_GN()
-				print('Há Receptor?')
-				print('Selecione a Receptividade') \
-				RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-				if RECEPTIVIDADE == '+receptor':
-					Receptor = frase_preposicional()
-				else:
-					Receptor = ''
-				Polaridade = POLARIDADE() \
-				Circunstância = circunstância()
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo \
-				         + ' ' + Receptor + ' ' + Circunstancia + '.'
-				# Ex.: Eu conversei até anoitecer; Eu falei muito ontem; Nós discutimos...
-
-
-		elif ORDEM_DO_DIZENTE == 'semioticidade':
-			print('Semioticidade em Médio sem alcance = não_projeção')
-			TIPO_SEMIOTICIDADE = choice.Menu(['não_projeção']).ask()
-
-			if TIPO_SEMIOTICIDADE == 'não_projeção':
-				print('Não-projeção + médio sem alcance = -verbiagem')
-				TIPO_NÃO_PROJEÇÃO = '-verbiagem'
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual é o Dizente?')
-				Dizente = estrutura_GN()
-				print('Há Receptor?')
-				print('Selecione a Receptividade')
-				RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-				if RECEPTIVIDADE == '+receptor':
-					Receptor = frase_preposicional()
-				else:
-					Receptor = ''
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Circunstancia + '.'
-
-	elif Transitividade == 'PR_Verbal_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		Tema_textual = TEMA_TEXTUAL()
-		print('Qual a Ordem do Dizente?')
-		ORDEM_DO_DIZENTE = choice.Menu(['semioticidade']).ask()
-		print('Selecione a Receptividade')
-		RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-
-		if ORDEM_DO_DIZENTE == 'semioticidade':
-			print('Selecione o tipo_pessoa de Semioticidade')
-
-			TIPO_SEMIOTICIDADE = choice.Menu(['projeção', 'não_projeção']).ask()
-			if TIPO_SEMIOTICIDADE == 'projeção':
-				print('Selecione o tipo_pessoa de projeção')
-				TIPO_PROJEÇÃO = choice.Menu(['citativa', 'relativa']).ask()
-				if TIPO_PROJEÇÃO == 'citativa':
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual é o Dizente?')
-					Dizente = estrutura_GN()
-					print('Há Receptor?')
-					print('Selecione a Receptividade')
-					RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-					if RECEPTIVIDADE == '+receptor':
-						Receptor = frase_preposicional()
-					else:
-						Receptor = ''
-					Polaridade = POLARIDADE()
-					print('Qual a oração projetada?')
-					Circunstância = circunstância()
-					Oração_projetada = oraçãoProjetada()
-
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo \
-					         + ' ' + Receptor + '"' + Oração_projetada + '" ' + ' ' + Circunstancia + '.'
-					# Ex.: Eu disse a ele "Eu comi o bolo".
-
-				elif TIPO_PROJEÇÃO == 'relativa':
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual é o Dizente?')
-					Dizente = estrutura_GN()
-					print('Há Receptor?')
-					print('Selecione a Receptividade')
-					RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-					if RECEPTIVIDADE == '+receptor':
-						Receptor = frase_preposicional()
-					else:
-						Receptor = ''
-					Polaridade = POLARIDADE()
-					print('Qual a oração projetada?')
-					Oração_projetada = oraçãoProjetada()
-					Circunstância = circunstância()
-
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo \
-					         + ' ' + Receptor + ' ' + 'que' + ' ' + '"' + Oração_projetada + '" ' + ' ' + Circunstancia + '.'
-					# Ex.: Eu disse a ele que "Eu comi o bolo".
-
-			elif TIPO_SEMIOTICIDADE == 'não_projeção':
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual é o Dizente?')
-				Dizente = estrutura_GN()
-				print('Qual é a Verbiagem?')
-				Verbiagem = estrutura_GN()
-				print('Há Receptor?')
-				print('Selecione a Receptividade')
-				RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
-				if RECEPTIVIDADE == '+receptor':
-					Receptor = frase_preposicional()
-				else:
-					Receptor = ''
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo \
-				         + ' ' + Verbiagem + ' ' + Receptor + ' ' + Circunstancia + '.'
-
-	elif Transitividade == 'PR_Verbal_AG_efetivo_operativo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		Tema_textual = TEMA_TEXTUAL()
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		Polaridade = POLARIDADE()
-		print('Qual é o Dizente?')
-		Dizente = estrutura_GN()
-		Circunstância = circunstância()
-
-		print('O Alvo é realizado por grupo nominal ou frase preposicional?')
-		realizacao_alvo = choice.Menu(['GN', 'FP']).ask()
-		if realizacao_alvo == 'GN':
-			print('Qual é o Alvo?')
-			Alvo = estrutura_GN()
-			print('Qual a localização do alvo na oração (em relação ao Processo)?')
-			localização_alvo = choice.Menu(['ante_processo', 'pós_processo']).ask()
-			if localização_alvo == 'ante_processo':
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' \
-				         + Alvo + ' ' + Processo + ' ' + Circunstancia + '.'
-			else:
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Alvo + ' ' + Circunstancia + '.' \
-		else:
-			print('Qual é o Alvo?')
-			Alvo = frase_preposicional()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Alvo + ' ' + Circunstancia + '.'
-
-
-	elif Transitividade == 'PR_Verbal_AG_efetivo_receptivo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		Tema_textual = TEMA_TEXTUAL()
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		Polaridade = POLARIDADE()
-		print('Qual é o Dizente?')
-		Dizente = frase_preposicional()
-		print('Qual é o Alvo?')
-		Alvo = estrutura_GN()
-		Circunstância = circunstância()
-
-		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Alvo + ' ' + Polaridade + ' ' + Processo \
-		         + ' ' + Dizente + ' ' + Circunstancia + '.'
-
-	###MATERIAL
-
-	elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		Tema_textual = TEMA_TEXTUAL()
-
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Ator?')
-		Ator = estrutura_GN()
-		print('Qual é a Meta?')
-		Meta = estrutura_GN()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-
-		print('Há Participante Iniciador na oração?')
-		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-		if INICIADOR == '+iniciador':
-			Iniciador = estrutura_GN() + grupo_verbal()  ####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
-		else:
-			Iniciador = ''
-
-		print('Há resultado do processo?')
-		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'extensão', 'intensificação']).ask() \
- \
-		if TIPO_DE_RESULTADO == 'elaboração':
-
-			print('há Resultado_elaboração atributo ou papel?')
-			RESULTADO_QUALITATIVO = choice.Menu(['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
-			if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
-					RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
-				realizacao_atributo = choice.Menu(['adjetivo', 'frase_preposicional']).ask()
-				if realizacao_atributo == 'adjetivo':
-					Atributo = adjetivo()
-				elif realizacao_atributo == 'frase_preposicional':
-					Atributo = frase_preposicional()
-			elif RESULTADO_QUALITATIVO == '-resultado':
-				Atributo = ''
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Meta + ' ' + Atributo + ' ' + Circunstancia + '.'
-
-		elif TIPO_DE_RESULTADO == 'extensão':
-			print('Há Participante Beneficiário na oração?')
-			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
-			if RECEPÇÃO == '+beneficiário':
-				Beneficiário = frase_preposicional()
-			elif RECEPÇÃO == '-beneficiário':
-				Beneficiário = ''
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Meta + '  ' + Beneficiário + ' ' + Circunstancia + '.'
-
-	elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Ator?')
-		Ator = estrutura_GN()
-		print('Qual é a Meta?')
-		Meta = estrutura_GN()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-
-		print('Há Participante Iniciador na oração?')
-		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-		if INICIADOR == '+iniciador':
-			Iniciador = estrutura_GN()
-		else:
-			Iniciador = ''
-
-		print(
-			'Há Participante Cliente na oração?')  # Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
-		CLIENTE = choice.Menu(['+cliente', '-cliente']).ask()
-
-		if CLIENTE == '+cliente':
-			Cliente = frase_preposicional()
-		else:
-			Cliente = ''
-
-		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-		         + ' ' + Meta + ' ' + Cliente + ' ' + Circunstancia + '.'
-
-	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Ator?')
-		Ator = estrutura_GN()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-		print('Há Participante Iniciador na oração?')
-		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-		if INICIADOR == '+iniciador':
-			Iniciador = estrutura_GN() + grupo_verbal()
-		else:
-			Iniciador = ''
-		print('Há Participante Beneficiário na oração?')
-		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
-		if RECEPÇÃO == '+beneficiário':
-			Beneficiário = frase_preposicional()
-		elif RECEPÇÃO == '-beneficiário':
-			Beneficiário = ''
-		print('Há resultado do processo?')
-		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
-		if TIPO_DE_RESULTADO == 'elaboração':
-			print('Qual é o Escopo?')
-			tipo_Escopo = choice.Menu(['escopo(processo)', 'escopo(entidade)']).ask()
-			if tipo_Escopo == 'escopo(processo)':
-				Escopo = estrutura_GN()
-			elif tipo_Escopo == 'escopo(entidade)':
-				Escopo = estrutura_GN()  # por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Escopo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
-
-		elif TIPO_DE_RESULTADO == 'intensificação':
-			print('Qual é o Escopo?')
-			tipo_Escopo = choice.Menu(['escopo(processo)', 'escopo(entidade)']).ask()
-			if tipo_Escopo == 'escopo(processo)':
-				Escopo = estrutura_GN()
-			elif tipo_Escopo == 'escopo(entidade)':
-				Escopo = estrutura_GN()  # por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
-			print('Há resultado locativo?')
-			realizacao_locativo = choice.Menu(['sim', 'não']).ask()
-			if realizacao_locativo == 'sim':
-				Resultado_locativo = frase_preposicional()
-			else:
-				Resultado_locativo = ''
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Escopo + ' ' + Resultado_locativo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
-
-
-	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA': \
- \
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Ator?')
-		Ator = estrutura_GN()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-		print('Há Participante Beneficiário na oração?')
-		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
-		if RECEPÇÃO == '+beneficiário':
-			Beneficiário = frase_preposicional()
-		elif RECEPÇÃO == '-beneficiário':
-			Beneficiário = ''
-		print('Há resultado do processo?')
-		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
-		if TIPO_DE_RESULTADO == 'elaboração':
-			print('Orações médio_sem_alcance  selecionam -escopo')
-			Escopo = ''
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Beneficiário + '' + Circunstancia + '.'
-
-
-		elif TIPO_DE_RESULTADO == 'intensificação':
-			print('Orações médio_sem_alcance selecionam -escopo')
-			print('Há Participante Beneficiário na oração?')
-			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
-			if RECEPÇÃO == '+beneficiário':
-				Beneficiário = frase_preposicional()
-			elif RECEPÇÃO == '-beneficiário':
-				Beneficiário = ''
-			print('Há resultado locativo?')
-			realizacao_locativo = choice.Menu(['sim', 'não']).ask()
-			if realizacao_locativo == 'sim':
-				Resultado_locativo = frase_preposicional()
-			else:
-				Resultado_locativo = ''
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Resultado_locativo + ' ' + Circunstancia + ' ' + Beneficiário + '.'
-
-
-	##MATERIAL METEOROLÓGICA
-	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_NA' \
-			and Modo == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		Polaridade = POLARIDADE()
-		print('Há Participante Iniciador na oração?')
-		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-		if INICIADOR == '+iniciador':
-			Iniciador = estrutura_GN()
-		else:
-			Iniciador = ''
-		print('Há Participante Beneficiário na oração?')
-		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
-		if RECEPÇÃO == '+beneficiário':
-			Beneficiário = frase_preposicional()
-		elif RECEPÇÃO == '-beneficiário':
-			Beneficiário = ''
-		tipo_intransitiva = choice.Menu(['impessoal(fenômeno_natural)', 'pessoal']).ask()
-		print('Qual o tipo_pessoa de inTransitividade?')
-		if tipo_intransitiva == 'impessoal(fenômeno_natural)':
-			print('Há escopo?')
-			escopo_intransitiva = choice.Menu(['+escopo', '-escopo']).ask()
-			if escopo_intransitiva == '+escopo':
-				print('Qual estrutura realiza o escopo?')
-				realizacao_escopo = choice.Menu(['frase_preposicional', 'grupo_nominal']).ask()
-				if realizacao_escopo == 'frase_preposicional':
-					Escopo = frase_preposicional()
-				elif realizacao_escopo == 'grupo_nominal':
-					Escopo = estrutura_GN()
-			elif escopo_intransitiva == '-escopo':
-				Escopo = ''
-
-		Circunstância = circunstância()
-
-		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Polaridade + ' ' + Processo \
-		         + ' ' + Escopo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
-
-
-	elif Transitividade == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		Tema_textual = TEMA_TEXTUAL() \
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Ator?')
-		Ator = estrutura_GN()
-		Polaridade = POLARIDADE()
-
-		print('Há Participante Iniciador na oração?')
-		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-		if INICIADOR == '+iniciador':
-			Iniciador = estrutura_GN() + grupo_verbal()
-		else:
-			Iniciador = ''
-		print('Há Participante Beneficiário na oração?')
-		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
-		if RECEPÇÃO == '+beneficiário':
-			Beneficiário = frase_preposicional()
-		elif RECEPÇÃO == '-beneficiário':
-			Beneficiário = ''
-		Circunstância = circunstância()
-		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-		         + ' ' + Processo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
-
-		##########COMEÇO DE AGENCIAMENTO PASSIVA
-		# (E CONSEQUENTEMENTE MUDANÇA NO TEMA IDEACIONAL: COMPLEMENTO ELEMENTAL)
-
-	#  elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_receptivo' \
-	#          and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-	#          and Tema_id == 'TID_complemento_elemental':
-	#      Tema_interpessoal = TEMA_INTERPESSOAL()
-	#      Tema_textual=TEMA_TEXTUAL()
-	#
-	#      print ('Qual o Processo?')
-	#      Processo = grupo_verbal() ##selecionar agenciado_passivo
-	#      print('Qual é a Meta?')
-	#      Meta = estrutura_GN()
-	#      Polaridade = POLARIDADE ()
-	#      Circunstância = circunstância()
-	#      print('Há Participante Beneficiário na oração?')
-	#      RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
-	#      if RECEPÇÃO == '+beneficiário':
-	#          Beneficiário = frase_preposicional()
-	#      elif RECEPÇÃO == '-beneficiário':
-	#          Beneficiário = ''
-	#      print ('Há Participante Iniciador na oração?')
-	#      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
-	#      if INICIADOR == '+iniciador':
-	#          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
-	#      else:
-	#          Iniciador = ''
-	#
-	#      print ('O Ator/Agente é realizado na oração?')
-	#      realizacao_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
-	#      if realizacao_Ator == '+ator/agente':
-	#          print('Qual é o Ator/Agente?')
-	#          Ator = frase_preposicional()
-	#      elif realizacao_Ator == '-ator/agente':
-	#          Ator = ''
-	#      print ('Há resultado do processo?')
-	#      TIPO_DE_RESULTADO = choice.Menu(['elaboração','extensão','intensificação']).ask()
-	#
-	#      if TIPO_DE_RESULTADO == 'elaboração':
-	#
-	#          print ('há Resultado_elaboração atributo ou papel?')
-	#          RESULTADO_QUALITATIVO = choice.Menu (['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
-	#          if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
-	#              RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
-	#              realizacao_atributo = choice.Menu(['adjetivo','frase_preposicional']).ask()
-	#              if realizacao_atributo == 'adjetivo':
-	#                  Atributo = adjetivo ()
-	#              elif realizacao_atributo == 'frase_preposicional':
-	#                  Atributo = frase_preposicional()
-	#          elif RESULTADO_QUALITATIVO == '-resultado':
-	#              Atributo = ''
-	#
-	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade \
-	#                   + ' ' + Processo +' '+ Atributo+ ' ' + Ator +' ' +Beneficiário+' '+ Circunstancia +'.'
-	#
-	#      elif TIPO_DE_RESULTADO == 'extensão':
-	#          print ('Há Participante Beneficiário na oração?')
-	#          RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
-	#          if RECEPÇÃO == '+beneficiário':
-	#              Beneficiário = frase_preposicional()
-	#          elif RECEPÇÃO == '-beneficiário':
-	#              Beneficiário = ''
-	#
-	#
-	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade \
-	#                   + ' ' + Processo  +'  '+ Beneficiário + ' ' + Ator +' '+Beneficiário+' '+ Circunstancia +'.'
-	#
-	# ##
-	#
-	#  elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo' \
-	#          and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-	#          and Tema_id == 'TID_complemento_elemental':
-	#
-	#      Tema_interpessoal = TEMA_INTERPESSOAL()
-	#      Tema_textual=TEMA_TEXTUAL()
-	#
-	#      print ('Qual o Processo?')
-	#      Processo = grupo_verbal() ##selecionar agenciado_passivo
-	#      print('Qual é a Meta?')
-	#      Meta = estrutura_GN()
-	#      Polaridade = POLARIDADE ()
-	#      print('Há Participante Beneficiário na oração?')
-	#      RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
-	#      if RECEPÇÃO == '+beneficiário':
-	#          Beneficiário = frase_preposicional()
-	#      elif RECEPÇÃO == '-beneficiário':
-	#          Beneficiário = ''
-	#      Circunstância = circunstância()
-	#
-	#
-	#      print ('Há Participante Iniciador na oração?')
-	#      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
-	#      if INICIADOR == '+iniciador':
-	#          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
-	#      else:
-	#          Iniciador = ''
-	#
-	#      print ('O Ator/Agente é realizado na oração?')
-	#      realizacao_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
-	#      if realizacao_Ator == '+ator/agente':
-	#          print('Qual é o Ator/Agente?')
-	#          Ator = frase_preposicional()
-	#      elif realizacao_Ator == '-ator/agente':
-	#          Ator = ''
-	#
-	#
-	#      print ('Há Participante Cliente na oração?') #Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
-	#      CLIENTE = choice.Menu (['+cliente','-cliente']).ask()
-	#
-	#      if CLIENTE == '+cliente':
-	#          Cliente = frase_preposicional()
-	#      elif CLIENTE == '-cliente':
-	#          Cliente='' \
-	#
-	#      oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' \
-	#               + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +' ' + Beneficiário+' '+Circunstância +'.'
-
-	###RELACIONAl
-	###### INTENSIVA ATRIBUTIVA (SEM ATRIBUIDOR)
-	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso não são reversíveis)
-		## Selecionam sem_atribuição_de relação no sistema de ATRIBUIÇÃO DE RELAÇÃO
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-
-		print('Qual o tipo_pessoa de especificação de associação?')
-		tipo_especificação_associação = choice.Menu(['entidade', 'qualidade']).ask()
-		print('Qual a fase da atribuição?')
-		fase_atribuição = choice.Menu(['neutra',
-		                               'faseada']).ask()  ##Me parece que neste caso há diferenças em termos de verbo lexical que realiza o Processo (e tempo verbal em alguns casos)
-		###não vou especializar os tipos de fase.
-		print('Qual o domínio da atribuição')
-		domínio_atribuição = choice.Menu(['material', 'semiótico']).ask()
-
-		if (
-				tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
-				tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
-				tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
-				tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Portador?')
-			Portador = estrutura_GN() \
-			print('Qual o Atributo?')
-			Atributo = estrutura_GN()
-
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Atributo + ' ' + Circunstancia + '.'
-
-		elif (
-				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
-				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
-				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
-				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Portador?') \
-			Portador = estrutura_GN()
-			print('Qual o Atributo?')
-			Atributo = adjetivo()  ## O que diferencia os dois tipos é o que realiza o Atributo. Neste caso
-			# o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo.
-			##Tenho que ver ainda casos metafóricos ex,:'o caso é de grande importância')
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Atributo + ' ' + Circunstancia + '.'
-
-
-	###### INTENSIVA ATRIBUTIVA (COM ATRIBUIDOR)
-	##Nesse caso, a oração é Effective (Tem Agente) e pode ser operativa ou receptiva
-	# (há a possibilidade de Agente de segunda, terceira.....ordem)
-
-	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_operativo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		print('Qual o tipo_pessoa de atribuição de relação?')
-		tipo_atribuição_relação = atribuição_de_relação()
-		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
-		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
-		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-
-		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
-		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
-		    tipo_atribuição_relação == 'atribuição_proj_verbal',
-		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
-		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Atribuidor?')
-			Atribuidor = estrutura_GN()
-			print('Qual o Portador?')
-			Portador = estrutura_GN()
-			print('Qual o Atributo?')
-			Atributo = estrutura_GN()  ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
-
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Atribuidor + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Portador + ' ' + Atributo + ' ' + Circunstancia + '.'
-
-	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_receptivo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		print('Qual o tipo_pessoa de atribuição de relação?')
-		tipo_atribuição_relação = atribuição_de_relação()
-		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
-		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
-		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ESTRUTURA DE ELEMENTOS NA ORAÇÃO
-
-		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
-		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
-		    tipo_atribuição_relação == 'atribuição_proj_verbal',
-		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
-		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Atribuidor?')
-			Atribuidor = frase_preposicional()
-			print('Qual o Portador?')
-			Portador = estrutura_GN()
-			print('Qual o Atributo?')
-			Atributo = estrutura_GN()  ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
-
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo
-			+ ' ' + Atributo + ' ' + Atribuidor + ' ' + Circunstancia + '.'
-
-
-	####INTENSIVA_IDENTIFICATIVA (sem DESIGNADOR)
-
-	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_equativo_decodificação':
-		print('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito '
-		      'deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-		direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-		if direcionalidade_voz == 'meio_operativa':
-			print('Neste caso, o Símbolo/Identificado conflui com o Sujeito(geralmente'
-			      'o elemento em posição temática)')
-			# (confluência do Símbolo/Identificado) =
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '.'
-
-		elif direcionalidade_voz == 'meio_receptiva':
-			print('Neste caso, o Valor/Identificador conflui com o Sujeito')
-			##NESTE CASO, confluência de Valor/Sujeito
-
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL() \
- \
-					print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Símbolo + ' ' + Circunstancia + '.'
-
-	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_equativo_codificação':
-
-		print(
-			'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-		direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-		if direcionalidade_voz == 'meio_operativa':
-			print('Neste caso, o Símbolo/Identificado conflui com o Sujeito(geralmente o elemento em posição temática)')
-
-			# (confluência do Símbolo/Identificador/Sujeito) =
-			# (Valor/Identificado/complemento)
-
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Valor + ' ' + Circunstancia + '.'
-
-		elif direcionalidade_voz == 'meio_receptiva':
-			print('Neste caso, o Valor conflui com o Sujeito')
-			##NESTE CASO, confluência de Valor/Identificado/Sujeito
-			##(Símbolo/Identificador/Complemento)
-
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Símbolo + ' ' + Circunstancia + '.'
-
-	####INTENSIVA_IDENTIFICATIVA (COM DESIGNADOR = AGENTE)
-
-	#    ###TRUE_Efetiva_operativa
-	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_operativo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		print('Qual o tipo_pessoa de atribuição de relação?')
-		tipo_atribuição_relação = atribuição_de_relação()
-		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
-		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas) \
-		# POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-
-		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
-		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
-		    tipo_atribuição_relação == 'atribuição_proj_verbal',
-		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
-		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual é o Designador?')
-			Designador = estrutura_GN()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()  ##ou frase preposicional?
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Designador + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Símbolo + ' ' + Valor + ' ' + Circunstancia + '.'
-			###rever possíveis estruturas para este tipo_pessoa de oração(pode haver 2 processos?)
-
-	###TRUE_Efetiva_receptiva
-
-	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_receptivo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		print('Qual o tipo_pessoa de atribuição de relação?')
-		tipo_atribuição_relação = atribuição_de_relação()
-		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
-		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
-		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-
-		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
-		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
-		    tipo_atribuição_relação == 'atribuição_proj_verbal',
-		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
-		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual é o Designador?')
-			Designador = frase_preposicional()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()  ##ou frase preposicional?
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-			#
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Valor + ' ' + Designador + ' ' + Circunstancia + '.'
-	####NOS DOIS TIPOS DE ORAÇÃO ANTERIORES É PRECISO VERIFICAR: possibilidade de realizacao de cada participante;
-	#        #ordem na estrutura; etc (vou fazer isso de acordo com o que for encontrando no corpus, por enquanto estao comentadas)
-
-	# POSSESSIVO ATRIBUTIV0
-
-	if Transitividade == 'PR_relacional_possessivo_atributivo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-		TIPO_ATRIBUIÇÃO_POSSESSIVO = choice.Menu(['posse_atributo', 'posse_processo']).ask()
-
-		if TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_atributo':
-
-			realizacao_atributo = choice.Menu(['grupo_nominal_possessivo', 'frase_preposicional']).ask()
-
-			if realizacao_atributo == 'grupo_nominal_possessivo':
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual o Portador/Posse?')
-				Portador_Posse = estrutura_GN()
-				print('Qual é o Atributo/Possuidor?')
-				Atributo_Possuidor = estrutura_GN()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '.'
-
-			elif realizacao_atributo == 'frase_preposicional':
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual o Portador/Posse?')
-				Portador_Posse = estrutura_GN()
-				print('Qual é o Atributo/Possuidor?')
-				Atributo_Possuidor = frase_preposicional()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '.'
-
-
-		elif TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_processo':
-
-			##VERBO TER/POSSUIR/
-
-			tipo_possuidor = choice.Menu(['possuidor_portador', 'possuidor_atributo']).ask() \
- \
-			if tipo_possuidor == 'possuidor_portador':
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual o Portador/Possuidor?')
-				Portador_Possuidor = estrutura_GN()
-				print('Qual é o Atributo/Posse?')
-				Atributo_Posse = estrutura_GN()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Possuidor + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Atributo_Posse + ' ' + Circunstancia + '.'
-
-
-			###VERBOS PERTENCER A/...
-
-			elif tipo_possuidor == 'possuidor_atributo':
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual o Portador/Possuidor?')
-				Portador_Posse = estrutura_GN()
-				print('Qual é o Atributo/Posse?')
-				Atributo_Possuidor = frase_preposicional()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '.'
-
-		# POSSESSIVO IDENTIFICATIVO
-
-
-	elif Transitividade == 'PR_relacional_possessivo_identificativo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-		TIPO_IDENTIFICATIVO_POSSESSIVO = choice.Menu(['posse_participante', 'posse_processo']).ask()
-
-		if TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_participante':
-
-			print(
-				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-			if direcionalidade_voz == 'meio_operativa':
-				print('Neste caso, o Símbolo conflui com o Sujeito/Possuído/Identificado')
-
-				print(
-					'Escolha o tipo_pessoa de realizacao do Valor:')
-				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-
-				if realizacao_Valor == 'grupo_nominal':
-
-					Tema_textual = TEMA_TEXTUAL()
-					Tema_interpessoal = TEMA_INTERPESSOAL()
-
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual é o Símbolo(Token)/Possuído?')
-					Símbolo_Possuído = estrutura_GN()
-					print('Qual o Valor(Value)/Possuidor?')
-					Valor_Possuidor = estrutura_GN()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					# Ex.: O piano é seu
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuído + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Valor_Possuidor + ' ' + Circunstancia + '.'
-
-				elif realizacao_Valor == 'frase_preposicional':
-
-					Tema_textual = TEMA_TEXTUAL()
-					Tema_interpessoal = TEMA_INTERPESSOAL()
-
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual é o Símbolo(Token)?')
-					Símbolo_Possuído = estrutura_GN()
-					print('Qual o Valor(Value)?')
-					Valor_Possuidor = frase_preposicional()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					# Ex.: O piano é do André
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuído + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Valor_Possuidor + ' ' + Circunstancia + '.'
-
-
-			elif direcionalidade_voz == 'meio_receptiva':
-				print('Neste caso, o Valor conflui com Sujeito/Identificado/Possuidor')
-
-				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-
-				if realizacao_Valor == 'grupo_nominal':
-
-					Tema_textual = TEMA_TEXTUAL()
-					Tema_interpessoal = TEMA_INTERPESSOAL()
-
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual é o Símbolo(Token)/Possuído?')
-					Símbolo_Possuído = estrutura_GN()
-					print('Qual o Valor(Value)/Possuidor?')
-					Valor_Possuidor = estrutura_GN()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					# Ex.: O seu é o piano
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuidor + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Símbolo_Possuído + ' ' + Circunstancia + '.'
-
-				elif realizacao_Valor == 'frase_preposicional':
-
-					Tema_textual = TEMA_TEXTUAL()
-					Tema_interpessoal = TEMA_INTERPESSOAL()
-
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual é o Símbolo(Token)?')
-					Símbolo_Possuído = estrutura_GN()
-					print('Qual o Valor(Value)?')
-					Valor_Possuidor = estrutura_GN()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					# Ex.: O do André é o piano
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuidor + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Símbolo_Possuído + ' ' + Circunstancia + '.'
-
-		elif TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_processo':
-			## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste de, providenciar
-			##NÃO SEI SE ESTA PARTE DO SISTEMA FUNCIONA BEM NO PORTUGUÊS
-
-			print(
-				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-			if direcionalidade_voz == 'meio_operativa':
-				print('Neste caso, o Símbolo conflui com o Sujeito/Possuidor/Identificado')
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-
-				print(
-					'Qual o Processo? ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste, providenciar')
-				Processo = grupo_verbal()
-				print('Qual é o Símbolo(Token)/Possuidor?')
-				Símbolo_Possuidor = estrutura_GN()
-				print('Qual o Valor(Value)/Possuído?')
-				Valor_Possuído = estrutura_GN()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				# Ex.: O produto contém plástico, Eles merecem a aposentadoria
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuidor + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Valor_Possuído + ' ' + Circunstancia + '.'
-
-
-
-			elif direcionalidade_voz == 'meio_receptiva':
-				print('Neste caso, o Valor conflui com Sujeito/Identificado/Possuído')
-
-				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-
-				if realizacao_Valor == 'grupo_nominal':
-					Tema_textual = TEMA_TEXTUAL()
-					Tema_interpessoal = TEMA_INTERPESSOAL()
-
-					print('Qual o Processo?')
-					Processo = grupo_verbal()  ##na passiva
-					print('Qual o Valor(Value)/Possuído?')
-					Valor_Possuído = estrutura_GN()
-					print('Qual é o Símbolo(Token)/Possuidor?')
-					Símbolo_Possuidor = frase_preposicional()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					# Ex.: O seu é o piano
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuído + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Símbolo_Possuidor + ' ' + Circunstancia + '.'
-
-
-	#####RELACIONAL CIRCUNSTANCIAL
-
-	elif Transitividade == 'PR_relacional_circunstancial_atributivo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-		print('Qual o tipo_pessoa de realizacao da Relacional Circunstancial?')
-		TIPO_ATRIBUTIVO_CIRCUNSTANCIAL = choice.Menu(['atributo_circunstancial', 'processo_circunstancial']).ask()
-
-		if TIPO_ATRIBUTIVO_CIRCUNSTANCIAL == 'atributo_circunstancial':
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Portador')
-			Portador = estrutura_GN()
-			print('Qual é o Atributo Circunstancial?')
-			Atributo_Circunstancial = circunstância()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			# Ex.: O livro é sobre a IIGuerra
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Atributo_Circunstancial + ' ' + Circunstancia + '.'
-
-		elif TIPO_ATRIBUTIVO_CIRCUNSTANCIAL == 'processo_circunstancial':
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Portador')
-			Portador = estrutura_GN()
-			print('Qual é o Atributo Circunstancial?')
-			Atributo = estrutura_GN()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			# Ex.: O livro retrata a IIGuerra
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Atributo + ' ' + Circunstancia + '.'
-
-	elif Transitividade == 'PR_relacional_circunstancial_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-		print('O significado circunstancial é realixado no participante ou no processo?')
-		TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL = choice.Menu(
-			['participante_circunstancial', 'processo_circunstancial']).ask()
-
-		if TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'participante_circunstancial':
-
-			print(
-				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-			if direcionalidade_voz == 'meio_operativa':
-				print('Neste caso, há confluência Símbolo/Sujeito/Identificado')
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual é o Símbolo(Token)?')
-				Símbolo = circunstância()
-				print('Qual o Valor(Value)?')
-				Valor = estrutura_GN()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				# Ex.: Amanhá é dia 10
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo \
-				         + ' ' + Valor + ' ' + Circunstancia + '.'
-
-
-			elif direcionalidade_voz == 'meio_receptiva':
-				print('Neste caso, há confluência Valor/Sujeito/Identificado')
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual é o Símbolo(Token)?')
-				Símbolo = circunstância()
-				print('Qual o Valor(Value)?')
-				Valor = estrutura_GN()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				# Ex.:dia 10 é Amanhá
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '.'
-
-
-		elif TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'processo_circunstancial':
-
-			print(
-				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-			if direcionalidade_voz == 'meio_operativa':
-				print('Neste caso, há confluência Símbolo/Sujeito/Identificado')
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual é o Símbolo(Token)?')
-				Símbolo = circunstância()
-				print('Qual o Valor(Value)?')
-				Valor = circunstância()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				# Ex.: A feira dura o dia
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '.'
-
-
-			elif direcionalidade_voz == 'meio_receptiva':
-				print('Neste caso, há confluência Valor/Sujeito/Identificado')
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-
-				print('Qual o Processo?')
-				Processo = grupo_verbal()  ## reiterações-verbo na passiva
-				print('Qual o Valor(Value)?')
-				Valor = circunstância()
-				print('Qual é o Símbolo(Token)?')
-				Símbolo = circunstância()
-
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				# Ex.: O dia inteiro é ocupado pela feira
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '.'
-
-	##ORAÇÃO EXISTENCIAL
-
-	elif Transitividade == 'PR_Existencial_AG_NA' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		Tema_textual = TEMA_TEXTUAL()
-
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Existente?')
-		Existente = estrutura_GN()
-		Circunstância = circunstância()
-
-		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Processo + ' ' + Existente + ' ' + Circunstancia + '.'
-
-	#
-	##
-	###
-	######
-	####### ORAÇÕES INTERROGATIVAS POLARES
-
-	##ORAÇÃO MATERIAL MODO INTERROGATIVO POLAR
-
-	elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		Tema_textual = TEMA_TEXTUAL()
-
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Ator?')
-		Ator = estrutura_GN()
-		print('Qual é a Meta?')
-		Meta = estrutura_GN()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-
-		print('Há Participante Iniciador na oração?')
-		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-		if INICIADOR == '+iniciador':
-			Iniciador = estrutura_GN() + grupo_verbal()  ####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
-		else:
-			Iniciador = ''
-
-		print('Há resultado do processo?')
-		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'extensão', 'intensificação']).ask()
-
-		if TIPO_DE_RESULTADO == 'elaboração':
-
-			print('há Resultado_elaboração atributo ou papel?')
-			RESULTADO_QUALITATIVO = choice.Menu(['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
-			if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
-					RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
-				realizacao_atributo = choice.Menu(['adjetivo', 'frase_preposicional']).ask()
-				if realizacao_atributo == 'adjetivo':
-					Atributo = adjetivo()
-				elif realizacao_atributo == 'frase_preposicional':
-					Atributo = frase_preposicional()
-			elif RESULTADO_QUALITATIVO == '-resultado':
-				Atributo = ''
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Meta + ' ' + Atributo + ' ' + Circunstancia + '?'
-
-
-
-		elif TIPO_DE_RESULTADO == 'extensão':
-			print('Há Participante Beneficiário na oração?')
-			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
-			if RECEPÇÃO == '+beneficiário':
-				Beneficiário = frase_preposicional()
-			elif RECEPÇÃO == '-beneficiário':
-				Beneficiário = ''
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Meta + '  ' + Beneficiário + ' ' + Circunstancia + '?'
-
-
-	elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Ator?')
-		Ator = estrutura_GN()
-		print('Qual é a Meta?')
-		Meta = estrutura_GN()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-
-		print('Há Participante Iniciador na oração?')
-		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-		if INICIADOR == '+iniciador':
-			Iniciador = estrutura_GN()
-		else:
-			Iniciador = ''
-
-		print(
-			'Há Participante Cliente na oração?')  # Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
-		CLIENTE = choice.Menu(['+cliente', '-cliente']).ask()
-
-		if CLIENTE == '+cliente':
-			Cliente = frase_preposicional()
-		else:
-			Cliente = ''
-
-		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-		         + ' ' + Processo + ' ' + Meta + ' ' + Cliente + ' ' + Circunstancia + '?'
-
-
-	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Ator?')
-		Ator = estrutura_GN()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-
-		print('Há Participante Iniciador na oração?')
-		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-		if INICIADOR == '+iniciador':
-			Iniciador = estrutura_GN() + grupo_verbal()
-		else:
-			Iniciador = ''
-
-		print('Há resultado do processo?')
-		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
-		if TIPO_DE_RESULTADO == 'elaboração':
-			print('Qual é o Escopo?')
-			tipo_Escopo = choice.Menu(['escopo(processo)', 'escopo(entidade)']).ask()
-			if tipo_Escopo == 'escopo(processo)':
-				Escopo = estrutura_GN()
-			elif tipo_Escopo == 'escopo(entidade)':
-				Escopo = estrutura_GN()  # por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Escopo + ' ' + Circunstancia + '?'
-
-		elif TIPO_DE_RESULTADO == 'intensificação':
-			print('Qual é o Escopo?')
-			tipo_Escopo = choice.Menu(['escopo(processo)', 'escopo(entidade)']).ask()
-			if tipo_Escopo == 'escopo(processo)':
-				Escopo = estrutura_GN()
-			elif tipo_Escopo == 'escopo(entidade)':
-				Escopo = estrutura_GN()  # por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
-			print('Há resultado locativo?')
-			realizacao_locativo = choice.Menu(['sim', 'não']).ask()
-			if realizacao_locativo == 'sim':
-				Resultado_locativo = frase_preposicional()
-			else:
-				Resultado_locativo = ''
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Escopo + ' ' + Resultado_locativo + ' ' + Circunstancia + '?'
-
-
-	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Ator?')
-		Ator = estrutura_GN()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-		print('Há resultado do processo?')
-		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
-		if TIPO_DE_RESULTADO == 'elaboração':
-			print('Orações médio_sem_alcance  selecionam -escopo')
-			Escopo = ''
-
-		elif TIPO_DE_RESULTADO == 'intensificação':
-			print('Orações médio_sem_alcance selecionam -escopo')
-
-			print('Há resultado locativo?')
-			realizacao_locativo = choice.Menu(['sim', 'não']).ask()
-			if realizacao_locativo == 'sim':
-				Resultado_locativo = frase_preposicional()
-			else:
-				Resultado_locativo = ''
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Resultado_locativo + ' ' + Circunstancia + '?'
-
-
-	##ORAÇÃO METEOROLÓGICA MODO INTERROGATIVO POLAR
-	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_NA' \
-			and Modo == 'sujeitabilidade_recuperação_NA_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-
-		tipo_intransitiva = choice.Menu(['impessoal(fenômeno_natural)', 'pessoal']).ask()
-		print('Qual o tipo_pessoa de inTransitividade?')
-		if tipo_intransitiva == 'impessoal(fenômeno_natural)':
-			print('Há escopo?')
-			escopo_intransitiva = choice.Menu(['+escopo', '-escopo']).ask()
-			if escopo_intransitiva == '+escopo':
-				print('Qual estrutura realiza o escopo?')
-				realizacao_escopo = choice.Menu(['frase_preposicional', 'grupo_nominal']).ask()
-				if realizacao_escopo == 'frase_preposicional':
-					Escopo = frase_preposicional()
-				elif realizacao_escopo == 'grupo_nominal':
-					Escopo = estrutura_GN()
-			elif escopo_intransitiva == '-escopo':
-				Escopo = ''
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-
-		print('Há Participante Iniciador na oração?')
-		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-		if INICIADOR == '+iniciador':
-			Iniciador = estrutura_GN()
-		else:
-			Iniciador = ''
-		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Polaridade + ' ' + Processo \
-		         + ' ' + Escopo + ' ' + Circunstancia + '?'
-
-
-	elif Transitividade == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Ator?')
-		Ator = estrutura_GN()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-		print('Há Participante Iniciador na oração?')
-		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-		if INICIADOR == '+iniciador':
-			Iniciador = estrutura_GN() + grupo_verbal()
-		else:
-			Iniciador = ''
-
-		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-		         + ' ' + Processo + ' ' + Circunstancia + '?'
-
-		##########COMEÇO DE AGENCIAMENTO PASSIVA(E CONSEQUENTEMENTE NO TEMA IDEACIONAL)
-
-	#  elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_receptivo' \
-	#          and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar'\
-	#          and Tema_id == 'TID_complemento_elemental':
-	#      Tema_interpessoal = TEMA_INTERPESSOAL()
-	#      Tema_textual=TEMA_TEXTUAL()
-	#
-	#      print ('Qual o Processo?')
-	#      Processo = grupo_verbal() ##selecionar agenciado_passivo
-	#      print('Qual é a Meta?')
-	#      Meta = estrutura_GN()
-	#      Polaridade = POLARIDADE ()
-	#      Circunstância = circunstância()
-	#      print ('Há Participante Iniciador na oração?')
-	#      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
-	#      if INICIADOR == '+iniciador':
-	#          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
-	#      else:
-	#          Iniciador = ''
-	#
-	#      print ('O Ator/Agente é realizado na oração?')
-	#      realizacao_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
-	#      if realizacao_Ator == '+ator/agente':
-	#          print('Qual é o Ator/Agente?')
-	#          Ator = frase_preposicional()
-	#      elif realizacao_Ator == '-ator/agente':
-	#          Ator = ''
-	#
-	#
-	#      print ('Há resultado do processo?')
-	#      TIPO_DE_RESULTADO = choice.Menu(['elaboração','extensão','intensificação']).ask()
-	#
-	#      if TIPO_DE_RESULTADO == 'elaboração':
-	#
-	#          print ('há Resultado_elaboração atributo ou papel?')
-	#          RESULTADO_QUALITATIVO = choice.Menu (['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
-	#          if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
-	#              RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
-	#              realizacao_atributo = choice.Menu(['adjetivo','frase_preposicional']).ask()
-	#              if realizacao_atributo == 'adjetivo':
-	#                  Atributo = adjetivo ()
-	#              elif realizacao_atributo == 'frase_preposicional':
-	#                  Atributo = frase_preposicional()
-	#          elif RESULTADO_QUALITATIVO == '-resultado':
-	#              Atributo = ''
-	#
-	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta \
-	#                   + ' ' + Polaridade + ' ' + Processo +' '+ Atributo+ ' ' + Ator +' ' + Circunstancia +'?'
-	#
-	#      elif TIPO_DE_RESULTADO == 'extensão':
-	#          print ('Há Participante Beneficiário na oração?')
-	#          RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
-	#          if RECEPÇÃO == '+beneficiário':
-	#              Beneficiário = frase_preposicional()
-	#          elif RECEPÇÃO == '-beneficiário':
-	#              Beneficiário = ''
-	#
-	#
-	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' \
-	#                   + Meta + ' ' + Polaridade + ' ' + Processo  +'  '+ Beneficiário + ' ' + Ator +' ' + Circunstancia +'?'
-	#
-	# ##
-	#
-	#  elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo' \
-	#          and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar'\
-	#          and Tema_id == 'TID_complemento_elemental':
-	#
-	#      Tema_interpessoal = TEMA_INTERPESSOAL()
-	#      Tema_textual=TEMA_TEXTUAL()
-	#
-	#      print ('Qual o Processo?')
-	#      Processo = grupo_verbal() ##selecionar agenciado_passivo
-	#      print('Qual é a Meta?')
-	#      Meta = estrutura_GN()
-	#      Polaridade = POLARIDADE ()
-	#      Circunstância = circunstância()
-	#
-	#      print ('Há Participante Iniciador na oração?')
-	#      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
-	#      if INICIADOR == '+iniciador':
-	#          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
-	#      else:
-	#          Iniciador = ''
-	#
-	#      print ('O Ator/Agente é realizado na oração?')
-	#      realizacao_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
-	#      if realizacao_Ator == '+ator/agente':
-	#          print('Qual é o Ator/Agente?')
-	#          Ator = frase_preposicional()
-	#      elif realizacao_Ator == '-ator/agente':
-	#          Ator = ''
-	#
-	#
-	#      print ('Há Participante Cliente na oração?') #Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
-	#      CLIENTE = choice.Menu (['+cliente','-cliente']).ask()
-	#
-	#      if CLIENTE == '+cliente':
-	#          Cliente = frase_preposicional()
-	#      elif CLIENTE == '-cliente':
-	#          Cliente=''
-	#
-	#      oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' '\
-	#               + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +' ' + Circunstancia +'?'
-	#
-
-	###RELACIONAl MODO INTERROGATIVO POLAR
-
-	###### INTENSIVA ATRIBUTIVA (SEM ATRIBUIDOR)
-	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-		####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso não são reversíveis)
-		## Selecionam sem_atribuição_de relação no sistema de ATRIBUIÇÃO DE RELAÇÃO
-		Tema_textual = TEMA_TEXTUAL()
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-
-		print('Qual o tipo_pessoa de especificação de associação?')
-		tipo_especificação_associação = choice.Menu(['entidade', 'qualidade']).ask()
-		print('Qual a fase da atribuição?')
-		fase_atribuição = choice.Menu(['neutra',
-		                               'faseada']).ask()  ##Me parece que neste caso há diferenças em termos de verbo lexical que realiza o Processo (e tempo verbal em alguns casos)
-		###não vou especializar os tipos de fase.
-		print('Qual o domínio da atribuição')
-		domínio_atribuição = choice.Menu(['material', 'semiótico']).ask()
-
-		if (
-				tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
-				tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
-				tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
-				tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Portador?')
-			Portador = estrutura_GN()
-			print('Qual o Atributo?')
-			Atributo = estrutura_GN()
-
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Atributo + ' ' + Circunstancia + '?'
-
-		elif (
-				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
-				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
-				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
-				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Portador?')
-			Portador = estrutura_GN()
-			print('Qual o Atributo?')
-			Atributo = adjetivo()  ## O que diferencia os dois tipos é o que realiza o Atributo. Neste caso
-			# o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo.
-			##Tenho que ver ainda casos metafóricos ex,:'o caso é de grande importância')
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Atributo + ' ' + Circunstancia + '?'
-
-
-	###### INTENSIVA ATRIBUTIVA (COM ATRIBUIDOR)
-	##Nesse caso, a oração é Effective (Tem Agente) e pode ser operativa ou receptiva (há a possibilidade de Agente de segunda, terceira.....ordem)
-	####para desenvolver....
-	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_operativo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-		print('Qual o tipo_pessoa de atribuição de relação?')
-		tipo_atribuição_relação = atribuição_de_relação()
-		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
-		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
-		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-
-		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
-		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
-		    tipo_atribuição_relação == 'atribuição_proj_verbal',
-		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
-		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Atribuidor?')
-			Atribuidor = estrutura_GN()
-			print('Qual o Portador?')
-			Portador = estrutura_GN()
-			print('Qual o Atributo?')
-			Atributo = estrutura_GN()  ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
-
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Atribuidor + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Portador + ' ' + Atributo + ' ' + Circunstancia + '?'
-
-	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_receptivo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-		print('Qual o tipo_pessoa de atribuição de relação?')
-		tipo_atribuição_relação = atribuição_de_relação()
-		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
-		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
-		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ESTRUTURA DE ELEMENTOS NA ORAÇÃO
-
-		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
-		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
-		    tipo_atribuição_relação == 'atribuição_proj_verbal',
-		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
-		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Atribuidor?')
-			Atribuidor = frase_preposicional()
-
-			print('Qual o Portador?')
-			Portador = estrutura_GN()
-			print('Qual o Atributo?')
-			Atributo = estrutura_GN()  ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
-
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Atributo + ' ' + Atribuidor + ' ' + Circunstancia + '?'
-
-
-	####INTENSIVA_IDENTIFICATIVA (sem DESIGNADOR)
-
-	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_decodificação':
-		print('Apesar de Médio(middle), a direcionalidade_voz '
-		      'do Símbolo/Valor/Sujeito deste tipo_pessoa de oração determina '
-		      'se é operativa ou receptiva. Selecione a direcionalidade:')
-		direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-		if direcionalidade_voz == 'meio_operativa':
-			print('Neste caso, o Símbolo/Identificado conflui com o '
-			      'Sujeito(geralmente o elemento em posição temática')
-
-			# (confluência do Símbolo/Identificado) =
-
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '?'
-
-
-
-		elif direcionalidade_voz == 'meio_receptiva':
-			print('Neste caso, o Valor/Identificador conflui com o Sujeito')
-			##NESTE CASO, confluência de Valor/Sujeito
-
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '?'
-
-
-
-	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_codificação':
-
-		print(
-			'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-		direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-		if direcionalidade_voz == 'meio_operativa':
-			print('Neste caso, o Símbolo/Identificado conflui com o Sujeito(geralmente o elemento em posição temática)')
-
-			# (confluência do Símbolo/Identificador/Sujeito) =
-			# (Valor/Identificado/complemento)
-
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '?'
-
-		elif direcionalidade_voz == 'meio_receptiva':
-			print('Neste caso, o Valor conflui com o Sujeito')
-			##NESTE CASO, confluência de Valor/Identificado/Sujeito
-			##(Símbolo/Identificador/Complemento)
-
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '?'
-
-
-	####INTENSIVA_IDENTIFICATIVA (COM DESIGNADOR = AGENTE)
-
-	#    ###TRUE_Efetiva_operativa
-	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_operativo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-		print('Qual o tipo_pessoa de atribuição de relação?')
-		tipo_atribuição_relação = atribuição_de_relação()
-		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
-		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
-		# POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-
-		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
-		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
-		    tipo_atribuição_relação == 'atribuição_proj_verbal',
-		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
-		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual é o Designador?')
-			Designador = estrutura_GN()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()  ##ou frase preposicional?
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Designador + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Símbolo + ' ' + Valor + ' ' + Circunstancia + '?'
-			###rever possíveis estruturas para este tipo_pessoa de oração(pode haver 2 processos?)
-
-	###TRUE_Efetiva_receptiva
-
-	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_receptivo' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-		print('Qual o tipo_pessoa de atribuição de relação?')
-		tipo_atribuição_relação = atribuição_de_relação()
-		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
-		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
-		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
-
-		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
-		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
-		    tipo_atribuição_relação == 'atribuição_proj_verbal',
-		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
-		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual é o Designador?')
-			Designador = frase_preposicional()
-			print('Qual é o Símbolo(Token)?')
-			Símbolo = estrutura_GN()
-			print('Qual o Valor(Value)?')
-			Valor = estrutura_GN()  ##ou frase preposicional?
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-			#
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Valor + ' ' + Designador + ' ' + Circunstancia + '?'
-	####NOS DOIS TIPOS DE ORAÇÃO ANTERIORES É PRECISO VERIFICAR: possibilidade de realizacao de cada participante;
-	#        #ordem na estrutura; etc (vou fazer isso de acordo com o que for encontrando no corpus, por enquanto estao comentadas)
-
-	# POSSESSIVO ATRIBUTIV0
-
-	elif Transitividade == 'PR_relacional_possessivo_atributivo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-
-		TIPO_ATRIBUIÇÃO_POSSESSIVO = choice.Menu(['posse_atributo', 'posse_processo']).ask()
-
-		if TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_atributo':
-
-			realizacao_atributo = choice.Menu(['grupo_nominal_possessivo', 'frase_preposicional']).ask()
-
-			if realizacao_atributo == 'grupo_nominal_possessivo':
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual o Portador/Posse?')
-				Portador_Posse = estrutura_GN()
-				print('Qual é o Atributo/Possuidor?')
-				Atributo_Possuidor = estrutura_GN()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse \
-				         + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '?'
-
-			elif realizacao_atributo == 'frase_preposicional':
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual o Portador/Posse?')
-				Portador_Posse = estrutura_GN()
-				print('Qual é o Atributo/Possuidor?')
-				Atributo_Possuidor = frase_preposicional()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '?'
-
-
-		elif TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_processo':
-
-			##VERBO TER/POSSUIR/
-
-			tipo_possuidor = choice.Menu(['possuidor_portador', 'possuidor_atributo']).ask()
-
-			if tipo_possuidor == 'possuidor_portador':
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual o Portador/Possuidor?')
-				Portador_Possuidor = estrutura_GN()
-				print('Qual é o Atributo/Posse?')
-				Atributo_Posse = estrutura_GN()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Possuidor \
-				         + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Posse + ' ' + Circunstancia + '?'
-			###VERBOS PERTENCER A/...
-
-			elif tipo_possuidor == 'possuidor_atributo':
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual o Portador/Possuidor?')
-				Portador_Posse = estrutura_GN()
-				print('Qual é o Atributo/Posse?')
-				Atributo_Possuidor = frase_preposicional()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '?'
-
-		# POSSESSIVO IDENTIFICATIVO
-
-
-	elif Transitividade == 'PR_relacional_possessivo_identificativo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-
-		TIPO_IDENTIFICATIVO_POSSESSIVO = choice.Menu(['posse_participante', 'posse_processo']).ask()
-
-		if TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_participante':
-
-			print(
-				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-			if direcionalidade_voz == 'meio_operativa':
-				print('Neste caso, o Símbolo conflui com o Sujeito/Possuído/Identificado')
-
-				print(
-					'Escolha o tipo_pessoa de realizacao do Valor:')
-				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-
-				if realizacao_Valor == 'grupo_nominal':
-
-					Tema_textual = TEMA_TEXTUAL()
-					Tema_interpessoal = TEMA_INTERPESSOAL()
-
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual é o Símbolo(Token)/Possuído?')
-					Símbolo_Possuído = estrutura_GN()
-					print('Qual o Valor(Value)/Possuidor?')
-					Valor_Possuidor = estrutura_GN()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					# Ex.: O piano é seu
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuído + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Valor_Possuidor + ' ' + Circunstancia + '?'
-
-				elif realizacao_Valor == 'frase_preposicional':
-
-					Tema_textual = TEMA_TEXTUAL()
-					Tema_interpessoal = TEMA_INTERPESSOAL()
-
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual é o Símbolo(Token)?')
-					Símbolo_Possuído = estrutura_GN()
-					print('Qual o Valor(Value)?')
-					Valor_Possuidor = frase_preposicional()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					# Ex.: O piano é do André
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuído + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Valor_Possuidor + ' ' + Circunstancia + '?'
-
-
-			elif direcionalidade_voz == 'meio_receptiva':
-				print('Neste caso, o Valor conflui com Sujeito/Identificado/Possuidor')
-
-				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-
-				if realizacao_Valor == 'grupo_nominal':
-
-					Tema_textual = TEMA_TEXTUAL()
-					Tema_interpessoal = TEMA_INTERPESSOAL()
-
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual é o Símbolo(Token)/Possuído?')
-					Símbolo_Possuído = estrutura_GN()
-					print('Qual o Valor(Value)/Possuidor?')
-					Valor_Possuidor = estrutura_GN()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					# Ex.: O seu é o piano
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuidor + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Símbolo_Possuído + ' ' + Circunstancia + '?'
-
-				elif realizacao_Valor == 'frase_preposicional':
-
-					Tema_textual = TEMA_TEXTUAL()
-					Tema_interpessoal = TEMA_INTERPESSOAL()
-
-					print('Qual o Processo?')
-					Processo = grupo_verbal()
-					print('Qual é o Símbolo(Token)?')
-					Símbolo_Possuído = estrutura_GN()
-					print('Qual o Valor(Value)?')
-					Valor_Possuidor = estrutura_GN()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					# Ex.: O do André é o piano
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuidor \
-					         + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo_Possuído + ' ' + Circunstancia + '?'
-
-		elif TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_processo':
-			## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste de, providenciar
-			##NÃO SEI SE ESTA PARTE DO SISTEMA FUNCIONA BEM NO PORTUGUÊS
-
-			print(
-				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-			if direcionalidade_voz == 'meio_operativa':
-				print('Neste caso, o Símbolo conflui com o Sujeito/Possuidor/Identificado')
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-
-				print(
-					'Qual o Processo? ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste, providenciar')
-				Processo = grupo_verbal()
-				print('Qual é o Símbolo(Token)/Possuidor?')
-				Símbolo_Possuidor = estrutura_GN()
-				print('Qual o Valor(Value)/Possuído?')
-				Valor_Possuído = estrutura_GN()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				# Ex.: O produto contém plástico, Eles merecem a aposentadoria
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuidor \
-				         + ' ' + Polaridade + ' ' + Processo + ' ' + Valor_Possuído + ' ' + Circunstancia + '?'
-
-
-
-			elif direcionalidade_voz == 'meio_receptiva':
-				print('Neste caso, o Valor conflui com Sujeito/Identificado/Possuído')
-
-				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
-
-				if realizacao_Valor == 'grupo_nominal':
-					Tema_textual = TEMA_TEXTUAL()
-					Tema_interpessoal = TEMA_INTERPESSOAL()
-
-					print('Qual o Processo?')
-					Processo = grupo_verbal()  ##na passiva
-					print('Qual o Valor(Value)/Possuído?')
-					Valor_Possuído = estrutura_GN()
-					print('Qual é o Símbolo(Token)/Possuidor?')
-					Símbolo_Possuidor = frase_preposicional()
-					Polaridade = POLARIDADE()
-					Circunstância = circunstância()
-
-					# Ex.: O seu é o piano
-					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuído + ' ' + Polaridade \
-					         + ' ' + Processo + ' ' + Símbolo_Possuidor + ' ' + Circunstancia + '?'
-
-
-	#####RELACIONAL CIRCUNSTANCIAL MODO INTERROGATIVO POLAR
-
-	elif Transitividade == 'PR_relacional_circunstancial_atributivo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-		print('Qual o tipo_pessoa de realizacao da Relacional Circunstancial?')
-		TIPO_ATRIBUTIVO_CIRCUNSTANCIAL = choice.Menu(['atributo_circunstancial', 'processo_circunstancial']).ask()
-
-		if TIPO_ATRIBUTIVO_CIRCUNSTANCIAL == 'atributo_circunstancial':
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Portador')
-			Portador = estrutura_GN()
-			print('Qual é o Atributo Circunstancial?')
-			Atributo_Circunstancial = circunstância()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			# Ex.: O livro é sobre a IIGuerra
-
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade \
-			         + ' ' + Processo + ' ' + Atributo_Circunstancial + ' ' + Circunstancia + '?'
-
-		elif TIPO_ATRIBUTIVO_CIRCUNSTANCIAL == 'processo_circunstancial':
-			Tema_textual = TEMA_TEXTUAL()
-			Tema_interpessoal = TEMA_INTERPESSOAL()
-			print('Qual o Processo?')
-			Processo = grupo_verbal()
-			print('Qual o Portador')
-			Portador = estrutura_GN()
-			print('Qual é o Atributo Circunstancial?')
-			Atributo = estrutura_GN()
-			Polaridade = POLARIDADE()
-			Circunstância = circunstância()
-
-			# Ex.: O livro retrata a IIGuerra
-			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo \
-			         + ' ' + Atributo + ' ' + Circunstancia + '?'
-
-
-
-
-	elif Transitividade == 'PR_relacional_circunstancial_identificativo_AG_médio_com_alcance' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-
-		print('O significado circunstancial é realixado no participante ou no processo?')
-		TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL = choice.Menu(
-			['participante_circunstancial', 'processo_circunstancial']).ask()
-
-		if TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'participante_circunstancial':
-
-			print(
-				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-			if direcionalidade_voz == 'meio_operativa':
-				print('Neste caso, há confluência Símbolo/Sujeito/Identificado')
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual é o Símbolo(Token)?')
-				Símbolo = circunstância()
-				print('Qual o Valor(Value)?')
-				Valor = estrutura_GN()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				# Ex.: Amanhá é dia 10
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '?'
-
-
-			elif direcionalidade_voz == 'meio_receptiva':
-				print('Neste caso, há confluência Valor/Sujeito/Identificado')
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual é o Símbolo(Token)?')
-				Símbolo = circunstância()
-				print('Qual o Valor(Value)?')
-				Valor = estrutura_GN()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				# Ex.:dia 10 é Amanhá
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '?'
-
-
-		elif TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'processo_circunstancial':
-
-			print(
-				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
-			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
-
-			if direcionalidade_voz == 'meio_operativa':
-				print('Neste caso, há confluência Símbolo/Sujeito/Identificado')
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-
-				print('Qual o Processo?')
-				Processo = grupo_verbal()
-				print('Qual é o Símbolo(Token)?')
-				Símbolo = circunstância()
-				print('Qual o Valor(Value)?')
-				Valor = circunstância()
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-
-				# Ex.: A feira dura o dia inteiro
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '?'
-
-
-			elif direcionalidade_voz == 'meio_receptiva':
-				print('Neste caso, há confluência Valor/Sujeito/Identificado')
-
-				Tema_textual = TEMA_TEXTUAL()
-				Tema_interpessoal = TEMA_INTERPESSOAL()
-
-				print('Qual o Processo?')
-				Processo = grupo_verbal()  ## reiterações-verbo na passiva
-				print('Qual o Valor(Value)?')
-				Valor = circunstância()
-				print('Qual é o Símbolo(Token)?')
-				Símbolo = circunstância()
-
-				Polaridade = POLARIDADE()
-				Circunstância = circunstância()
-				# Ex.: O dia todo é ocupado pela feira
-
-				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
-				         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '?'
-
-
-	##ORAÇÃO EXISTENCIAL MODO INTERROGATIVO POLAR
-
-	elif Transitividade == 'PR_Existencial_AG_NA' \
-			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
-			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-
-		Tema_interpessoal = TEMA_INTERPESSOAL()
-		Tema_textual = TEMA_TEXTUAL()
-
-		print('Qual o Processo?')
-		Processo = grupo_verbal()
-		print('Qual é o Existente?')
-		Existente = estrutura_GN()
-		Polaridade = POLARIDADE()
-		Circunstância = circunstância()
-		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Polaridade \
-		         + ' ' + Processo + ' ' + Existente + ' ' + Circunstancia + '?'
-
-	return (re.sub(' +', ' ', oração).strip().capitalize())
+# def gerar_oracao(
+# 		##TRANSITIVIDADE
+# 		TIPO_DE_PROCESSO=None, indiceMat=None, indiceAgen=None,
+# 		indiceRel=None, indiceAtrib=None,
+# 		# MODO
+# 		RESPONSABILIDADE=None, PRESSUPOSICAO_DO_SUJEITO=None, TIPO_MODO=None,
+# 		# TEMA IDEACIONAL
+# 		ORIENTACAO_MODAL=None, ORIENTACAO_TRANSITIVA=None, SELECAO_TEMATICA=None,
+# 		TEMA_DEFAULT=None, TEMA_DEFAULT_indicativo=None, TEMA_IDENTIFICATIVO=None,
+# 		TEMA_ANGULO=None, TEMA_ELEMENTAL=None, TEMA_PROEMINENTE=None,
+# 		#TEMA INTERPESSOAL
+# 		TIPO_TEMA_INTERPESSOAL=None, tipoRealizacao=None,
+# 			# realizado por grupo adverbial
+# 		tipo_de_adverbio1=None, ind1=None,
+# 		tipo_de_adverbio2=None, ind2=None,
+# 		tipo_de_adverbio3=None, ind3=None,
+# 		tipo_de_adverbio4=None, ind4=None,
+# 		tipo_de_adverbio5=None, ind5=None,
+#
+# 		# realziado por frase prepos
+# 		indicePreposicao=None, dissocEnteNucleo=None, temQualificador=None,
+# 		tipoQualificador=None, DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+# 		gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+# 		DETERMINAÇÃO_espeficifidade_alpha=None, ORIENTAÇÃO_alpha=None, gênero_alpha=None,
+# 		número_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
+# 		número_obj_possuído=None, gênero_obj_possuído=None, pessoa_da_interlocução_proximidade=None,
+# 		funcaoNumerativo=None, cardinal=None, genero=None, tipo_precisa=None, tipoRealCard=None,
+# 		milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None,
+# 		numIndefinido=None, tipo_de_Ente=None, tipo_de_nao_consciente=None,
+# 		tipo_de_nao_consciente_material=None, tipo_de_nao_consciente_semiotico=None,
+# 		classe_palavra_Ente=None, substantivo_lematizado=None, numero=None,
+# 		tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,
+# 		pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+# 		morfologia_do_pronome=None, reflexivo=None, epitetoModificacao=None,
+# 		adjetivo_epiteto=None, classificadorModificacao=None,
+# 		adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None, contracao=None,
+#
+# 		#
+# 		indiceElemQu=None, indicePartModal=None,
+# 		nome_proprio=None,
+#
+# 	#TEMA TEXTUAL
+# 		temTemaTextual='-', tipo_insercao_Cont="inserção_menu",conj_extenso_Cont=None,indiceCont=None,
+# 		tipo_insercao_Conj="inserção_menu",tipo_de_conjuncao_Conj=None, conj_extensoConj=None,indiceConj=None,
+# 		tipo_insercao_Rel='inserção_menu', pron_extenso_Rel=None,tipo_de_relativo=None,
+# 		tipo_pronome_relativo=None, generoTemaTextual=None, numeroTemaTextual=None, indiceRelativo=None,
+# 		indiceRelativoAdv=None,
+#
+# 		##Processo Mental
+# 		 TIPO_DE_MENTAL=None, FENOMENALIZACAO=None,
+#
+# 		##Processo
+# 		TIPO_DE_EXPERIENCIA_GV=None, AGENCIA=None, TIPO_DE_EXPERIENCIA_1=None,
+# 		funcao_no_grupo_verbal_1=None, verbo_1=None,
+# 		tipo_de_orientacao_1=None, OI_numero_1=None, genero_1=None,
+# 		OI_tipo_de_pessoa_1=None, padrao_pessoa_morfologia_1=None, TIPO_DE_EXPERIENCIA_2=None,
+# 		funcao_no_grupo_verbal_2=None, verbo_2=None, tipo_de_orientacao_2=None, OI_numero_2=None,
+# 		genero_2=None, OI_tipo_de_pessoa_2=None, padrao_pessoa_morfologia_2=None, TIPO_DE_EXPERIENCIA_3=None,
+# 		funcao_no_grupo_verbal_3=None, verbo_3=None,
+# 		tipo_de_orientacao_3=None, OI_numero_3=None, genero_3=None, OI_tipo_de_pessoa_3=None,
+# 		padrao_pessoa_morfologia_3=None, TIPO_DE_EXPERIENCIA_4=None, funcao_no_grupo_verbal_4=None,
+# 		verbo_4=None, tipo_de_orientacao_4=None, OI_numero_4=None, genero_4=None,
+# 		OI_tipo_de_pessoa_4=None, padrao_pessoa_morfologia_4=None, TIPO_DE_EXPERIENCIA_LEX=None,
+# 		funcao_no_grupo_verbal_POS_FINAL=None, verbo_LEX=None, tipo_de_orientacao_LEX=None,
+# 		OI_numero_LEX=None, genero_LEX=None, OI_tipo_de_pessoa_LEX=None,
+# 		padrao_pessoa_morfologia_LEX='Morfologia_padrão',
+# 		# POLARIDADE
+# 		tipo_polaridade=None,
+#
+# ##PARTICIPANTES
+# 	# P1
+# 		P1_dissocEnteNucleo=None, P1_temQualificador=None, P1_tipoQualificador=None, P1_indicePreposicao=None,
+# 		P1_DETERMINAÇÃO_espeficifidade_beta=None, P1_ORIENTAÇÃO_beta=None,
+# 		P1_gênero_beta=None, P1_número_beta=None, P1_morfologia_do_pronome_beta=None,
+# 		P1_DETERMINAÇÃO_espeficifidade_alpha=None, P1_ORIENTAÇÃO_alpha=None, P1_gênero_alpha=None,
+# 		P1_número_alpha=None, P1_morfologia_do_pronome_alpha=None, P1_pessoa_da_interlocução_possuidor=None,
+# 		P1_número_obj_possuído=None, P1_gênero_obj_possuído=None, P1_pessoa_da_interlocução_proximidade=None,
+# 		P1_funcaoNumerativo=None, P1_cardinal=None, P1_genero=None, P1_tipo_precisa=None, P1_tipoRealCard=None,
+# 		P1_milharExtenso=None, P1_centenaExtenso=None, P1_dezenaExtenso=None, P1_unidadeExtenso=None,
+# 		P1_numIndefinido=None,
+# 		P1_tipo_de_Ente=None, P1_tipo_de_nao_consciente=None, P1_tipo_de_nao_consciente_material=None,
+# 		P1_tipo_de_nao_consciente_semiotico=None, P1_classe_palavra_Ente=None, P1_substantivo_lematizado=None,
+# 		P1_numero=None,
+# 		P1_tipo_feminino_ÃO=None, P1_tipo_masc_ÃO=None, P1_acentTonica=None, P1_nomeProprio=None,
+# 		P1_pessoa_da_interlocucao=None,
+# 		P1_transitividade_verbo=None, P1_tonicidade=None, P1_morfologia_do_pronome=None, P1_reflexivo=None,
+# 		P1_epitetoModificacao=None, P1_adjetivo_epiteto=None, P1_classificadorModificacao=None,
+# 		P1_adjetivo_classificador=None,P1_generoAdjetivo=None, P1_numeroAdjetivo=None,P1_contracao=None,
+# # P2
+# 		P2_dissocEnteNucleo=None, P2_temQualificador=None, P2_tipoQualificador=None, P2_indicePreposicao=None,
+# 		P2_DETERMINAÇÃO_espeficifidade_beta=None, P2_ORIENTAÇÃO_beta=None,
+# 		P2_gênero_beta=None, P2_número_beta=None, P2_morfologia_do_pronome_beta=None,
+# 		P2_DETERMINAÇÃO_espeficifidade_alpha=None, P2_ORIENTAÇÃO_alpha=None, P2_gênero_alpha=None,
+# 		P2_número_alpha=None, P2_morfologia_do_pronome_alpha=None, P2_pessoa_da_interlocução_possuidor=None,
+# 		P2_número_obj_possuído=None, P2_gênero_obj_possuído=None, P2_pessoa_da_interlocução_proximidade=None,
+# 		P2_funcaoNumerativo=None, P2_cardinal=None, P2_genero=None, P2_tipo_precisa=None, P2_tipoRealCard=None,
+# 		P2_milharExtenso=None, P2_centenaExtenso=None, P2_dezenaExtenso=None, P2_unidadeExtenso=None,
+# 		P2_numIndefinido=None,
+# 		P2_tipo_de_Ente=None, P2_tipo_de_nao_consciente=None, P2_tipo_de_nao_consciente_material=None,
+# 		P2_tipo_de_nao_consciente_semiotico=None, P2_classe_palavra_Ente=None, P2_substantivo_lematizado=None,
+# 		P2_numero=None,
+# 		P2_tipo_feminino_ÃO=None, P2_tipo_masc_ÃO=None, P2_acentTonica=None, P2_nomeProprio=None,
+# 		P2_pessoa_da_interlocucao=None,
+# 		P2_transitividade_verbo=None, P2_tonicidade=None, P2_morfologia_do_pronome=None, P2_reflexivo=None,
+# 		P2_epitetoModificacao=None, P2_adjetivo_epiteto=None, P2_classificadorModificacao=None,
+# 		P2_adjetivo_classificador=None,P2_generoAdjetivo=None, P2_numeroAdjetivo=None,P2_contracao=None,
+# ##PARTICIPANTES REALIZADOS POR FP
+# 		PART_FP_indicePreposicao=None, PART_FP_dissocEnteNucleo=None, PART_FP_temQualificador=None, PART_FP_tipoQualificador=None,
+# 		PART_FP_DETERMINAÇÃO_espeficifidade_beta=None, PART_FP_ORIENTAÇÃO_beta=None,
+# 		PART_FP_gênero_beta=None, PART_FP_número_beta=None, PART_FP_morfologia_do_pronome_beta=None,
+# 		PART_FP_DETERMINAÇÃO_espeficifidade_alpha=None, PART_FP_ORIENTAÇÃO_alpha=None, PART_FP_gênero_alpha=None,
+# 		PART_FP_número_alpha=None, PART_FP_morfologia_do_pronome_alpha=None, PART_FP_pessoa_da_interlocução_possuidor=None,
+# 		PART_FP_número_obj_possuído=None, PART_FP_gênero_obj_possuído=None, PART_FP_pessoa_da_interlocução_proximidade=None,  #
+# 		PART_FP_funcaoNumerativo=None, PART_FP_cardinal=None, PART_FP_genero=None, PART_FP_tipo_precisa=None, PART_FP_tipoRealCard=None,
+# 		PART_FP_milharExtenso=None, PART_FP_centenaExtenso=None, PART_FP_dezenaExtenso=None, PART_FP_unidadeExtenso=None,
+# 		PART_FP_numIndefinido=None,
+# 		PART_FP_tipo_de_Ente=None, PART_FP_tipo_de_nao_consciente=None, PART_FP_tipo_de_nao_consciente_material=None,
+# 		PART_FP_tipo_de_nao_consciente_semiotico=None, PART_FP_classe_palavra_Ente=None, PART_FP_substantivo_lematizado=None,
+# 		PART_FP_numero=None, PART_FP_tipo_feminino_ÃO=None, PART_FP_tipo_masc_ÃO=None, PART_FP_acentTonica=None, PART_FP_nomeProprio=None,
+# 		PART_FP_pessoa_da_interlocucao=None, PART_FP_transitividade_verbo=None, PART_FP_tonicidade=None,
+# 		PART_FP_morfologia_do_pronome=None, PART_FP_reflexivo=None,
+# 		PART_FP_EpitetoModificacao=None, PART_FP_adjetivo_epiteto=None, PART_FP_classificadorModificacao=None,
+# 		PART_FP_adjetivo_classificador=None, PART_FP_generoAdjetivo=None, PART_FP_numeroAdjetivo=None,
+# 		PART_FP_contracao=None,
+#
+# 	##CIRCUNSTANCIA
+# 		temCircunstancia=None, realizacaoCircunstancia=None,
+# 		CIRC_indicePreposicao=None, CIRC_dissocEnteNucleo=None, CIRC_temQualificador=None, CIRC_tipoQualificador=None,
+# 		CIRC_DETERMINAÇÃO_espeficifidade_beta=None, CIRC_ORIENTAÇÃO_beta=None,
+# 		CIRC_gênero_beta=None, CIRC_número_beta=None, CIRC_morfologia_do_pronome_beta=None,
+# 		CIRC_DETERMINAÇÃO_espeficifidade_alpha=None, CIRC_ORIENTAÇÃO_alpha=None, CIRC_gênero_alpha=None,
+# 		CIRC_número_alpha=None, CIRC_morfologia_do_pronome_alpha=None, CIRC_pessoa_da_interlocução_possuidor=None,
+# 		CIRC_número_obj_possuído=None, CIRC_gênero_obj_possuído=None, CIRC_pessoa_da_interlocução_proximidade=None,  #
+# 		CIRC_funcaoNumerativo=None, CIRC_cardinal=None, CIRC_genero=None, CIRC_tipo_precisa=None, CIRC_tipoRealCard=None,
+# 		CIRC_milharExtenso=None, CIRC_centenaExtenso=None, CIRC_dezenaExtenso=None, CIRC_unidadeExtenso=None,
+# 		CIRC_numIndefinido=None,
+# 		CIRC_tipo_de_Ente=None, CIRC_tipo_de_nao_consciente=None, CIRC_tipo_de_nao_consciente_material=None,
+# 		CIRC_tipo_de_nao_consciente_semiotico=None, CIRC_classe_palavra_Ente=None, CIRC_substantivo_lematizado=None,
+# 		CIRC_numero=None, CIRC_tipo_feminino_ÃO=None, CIRC_tipo_masc_ÃO=None, CIRC_acentTonica=None, CIRC_nomeProprio=None,
+# 		CIRC_pessoa_da_interlocucao=None, CIRC_transitividade_verbo=None, CIRC_tonicidade=None,
+# 		CIRC_morfologia_do_pronome=None, CIRC_reflexivo=None,
+# 		CIRC_EpitetoModificacao=None, CIRC_adjetivo_epiteto=None, CIRC_classificadorModificacao=None,
+# 		CIRC_adjetivo_classificador=None,CIRC_generoAdjetivo=None, CIRC_numeroAdjetivo=None,
+# 		CIRC_contracao=None,
+# 		CIRC_tipo_de_adverbio1=None, CIRC_ind1=None,
+# 				  CIRC_tipo_de_adverbio2=None, CIRC_ind2=None,
+# 				  CIRC_tipo_de_adverbio3=None, CIRC_ind3=None,
+# 				  CIRC_tipo_de_adverbio4=None, CIRC_ind4=None,
+# 				  CIRC_tipo_de_adverbio5=None, CIRC_ind5=None
+#
+#
+# ):
+# 	'''(str,str,str)->str
+#     Retorna a formação estrutural na lexicogramática
+#      (oração) de uma figura específica da semântica
+#
+#     >>> gerar_oracao()
+#     'eu bebi água'
+#     '''
+# 	Transitividade = TRANSITIVIDADE(TIPO_DE_PROCESSO,indiceMat,indiceAgen,
+# 				   indiceRel,indiceAtrib)
+# 	Modo = MODO(RESPONSABILIDADE,PRESSUPOSICAO_DO_SUJEITO,TIPO_MODO)
+# 	Tema_id = TEMA_IDEACIONAL(ORIENTACAO_MODAL,ORIENTACAO_TRANSITIVA,SELECAO_TEMATICA,
+# 					TEMA_DEFAULT,
+# 					TEMA_DEFAULT_indicativo,
+# 					TEMA_IDENTIFICATIVO,
+# 					TEMA_ANGULO,
+# 					TEMA_ELEMENTAL,
+# 					TEMA_PROEMINENTE)
+# 	Tema_interpessoal = TEMA_INTERPESSOAL(TIPO_TEMA_INTERPESSOAL, tipoRealizacao,
+# 										  # grupo adverbial
+# 										  tipo_de_adverbio1, ind1,
+# 										  tipo_de_adverbio2, ind2,
+# 										  tipo_de_adverbio3, ind3,
+# 										  tipo_de_adverbio4, ind4,
+# 										  tipo_de_adverbio5, ind5,
+#
+# 										  # frase prepos
+# 										  indicePreposicao, dissocEnteNucleo, temQualificador,
+# 										  tipoQualificador, DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta,
+# 										  gênero_beta, número_beta, morfologia_do_pronome_beta,
+# 										  DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha, gênero_alpha,
+# 										  número_alpha, morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+# 										  número_obj_possuído, gênero_obj_possuído, pessoa_da_interlocução_proximidade,
+# 										  funcaoNumerativo, cardinal, genero, tipo_precisa, tipoRealCard,
+# 										  milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso,
+# 										  numIndefinido, tipo_de_Ente, tipo_de_nao_consciente,
+# 										  tipo_de_nao_consciente_material, tipo_de_nao_consciente_semiotico,
+# 										  classe_palavra_Ente, substantivo_lematizado, numero,
+# 										  tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio,
+# 										  pessoa_da_interlocucao, transitividade_verbo, tonicidade,
+# 										  morfologia_do_pronome, reflexivo, epitetoModificacao,
+# 										  adjetivo_epiteto, classificadorModificacao,
+# 										  adjetivo_classificador, generoAdjetivo, numeroAdjetivo, contracao,
+# 										  #
+# 										  indiceElemQu, indicePartModal,
+# 										  nome_proprio)
+# 	Tema_textual = TEMA_TEXTUAL(temTemaTextual, tipo_insercao_Cont, conj_extenso_Cont, indiceCont,
+# 								tipo_insercao_Conj, tipo_de_conjuncao_Conj, conj_extensoConj, indiceConj,
+# 								tipo_insercao_Rel, pron_extenso_Rel, tipo_de_relativo,
+# 								tipo_pronome_relativo, generoTemaTextual, numeroTemaTextual, indiceRelativo,
+# 								indiceRelativoAdv)
+# 	Polaridade = POLARIDADE(tipo_polaridade)
+# 	Processo = grupo_verbal(TIPO_DE_EXPERIENCIA_GV, AGENCIA, TIPO_DE_EXPERIENCIA_1,
+# 							funcao_no_grupo_verbal_1, verbo_1,
+# 							tipo_de_orientacao_1, OI_numero_1, genero_1,
+# 							OI_tipo_de_pessoa_1, padrao_pessoa_morfologia_1, TIPO_DE_EXPERIENCIA_2,
+# 							funcao_no_grupo_verbal_2, verbo_2, tipo_de_orientacao_2, OI_numero_2,
+# 							genero_2, OI_tipo_de_pessoa_2, padrao_pessoa_morfologia_2,
+# 							TIPO_DE_EXPERIENCIA_3, funcao_no_grupo_verbal_3, verbo_3,
+# 							tipo_de_orientacao_3, OI_numero_3, genero_3, OI_tipo_de_pessoa_3,
+# 							padrao_pessoa_morfologia_3, TIPO_DE_EXPERIENCIA_4, funcao_no_grupo_verbal_4,
+# 							verbo_4, tipo_de_orientacao_4, OI_numero_4, genero_4,
+# 							OI_tipo_de_pessoa_4, padrao_pessoa_morfologia_4, TIPO_DE_EXPERIENCIA_LEX,
+# 							funcao_no_grupo_verbal_POS_FINAL, verbo_LEX, tipo_de_orientacao_LEX,
+# 							OI_numero_LEX, genero_LEX, OI_tipo_de_pessoa_LEX, padrao_pessoa_morfologia_LEX)
+# 	Circunstancia = circunstancia(temCircunstancia, realizacaoCircunstancia,
+# 								  CIRC_indicePreposicao, CIRC_dissocEnteNucleo, CIRC_temQualificador,
+# 								  CIRC_tipoQualificador,
+# 								  CIRC_DETERMINAÇÃO_espeficifidade_beta, CIRC_ORIENTAÇÃO_beta,
+# 								  CIRC_gênero_beta, CIRC_número_beta, CIRC_morfologia_do_pronome_beta,
+# 								  CIRC_DETERMINAÇÃO_espeficifidade_alpha, CIRC_ORIENTAÇÃO_alpha,
+# 								  CIRC_gênero_alpha,
+# 								  CIRC_número_alpha, CIRC_morfologia_do_pronome_alpha,
+# 								  CIRC_pessoa_da_interlocução_possuidor,
+# 								  CIRC_número_obj_possuído, CIRC_gênero_obj_possuído,
+# 								  CIRC_pessoa_da_interlocução_proximidade,  #
+# 								  CIRC_funcaoNumerativo, CIRC_cardinal, CIRC_genero, CIRC_tipo_precisa,
+# 								  CIRC_tipoRealCard,
+# 								  CIRC_milharExtenso, CIRC_centenaExtenso, CIRC_dezenaExtenso,
+# 								  CIRC_unidadeExtenso,
+# 								  CIRC_numIndefinido,
+# 								  CIRC_tipo_de_Ente, CIRC_tipo_de_nao_consciente,
+# 								  CIRC_tipo_de_nao_consciente_material,
+# 								  CIRC_tipo_de_nao_consciente_semiotico, CIRC_classe_palavra_Ente,
+# 								  CIRC_substantivo_lematizado,
+# 								  CIRC_numero, CIRC_tipo_feminino_ÃO, CIRC_tipo_masc_ÃO,
+# 								  CIRC_acentTonica, CIRC_nomeProprio,
+# 								  CIRC_pessoa_da_interlocucao, CIRC_transitividade_verbo,
+# 								  CIRC_tonicidade, CIRC_morfologia_do_pronome, CIRC_reflexivo,
+# 								  CIRC_EpitetoModificacao, CIRC_adjetivo_epiteto,
+# 								  CIRC_classificadorModificacao,
+# 								  CIRC_adjetivo_classificador, CIRC_generoAdjetivo, CIRC_numeroAdjetivo,
+# 								  CIRC_contracao,
+# 								  CIRC_tipo_de_adverbio1, CIRC_ind1,
+# 								  CIRC_tipo_de_adverbio2, CIRC_ind2,
+# 								  CIRC_tipo_de_adverbio3, CIRC_ind3,
+# 								  CIRC_tipo_de_adverbio4, CIRC_ind4,
+# 								  CIRC_tipo_de_adverbio5, CIRC_ind5)
+# 	# ORAÇÃO MENTAL
+#
+#
+#
+#
+# 	##ORAÇÃO verbal
+#
+# 	elif Transitividade == 'PR_Verbal_AG_médio_sem_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+#
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		print('Qual a Ordem do Dizente?')
+# 		ORDEM_DO_DIZENTE = choice.Menu(['atividade', 'semioticidade']).ask()
+# 		if ORDEM_DO_DIZENTE == 'atividade':
+# 			TIPO_ATIVIDADE = 'fala'
+#
+# 			if TIPO_ATIVIDADE == 'fala':
+#
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Dizente?')
+# 				Dizente = estrutura_GN()
+# 				print('Há Receptor?')
+# 				print('Selecione a Receptividade') \
+# 				RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+# 				if RECEPTIVIDADE == '+receptor':
+# 					Receptor = frase_preposicional()
+# 				else:
+# 					Receptor = ''
+# 				Polaridade = POLARIDADE() \
+# 				Circunstância = circunstância()
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo \
+# 				         + ' ' + Receptor + ' ' + Circunstancia + '.'
+# 				# Ex.: Eu conversei até anoitecer; Eu falei muito ontem; Nós discutimos...
+#
+#
+# 		elif ORDEM_DO_DIZENTE == 'semioticidade':
+# 			print('Semioticidade em Médio sem alcance = não_projeção')
+# 			TIPO_SEMIOTICIDADE = choice.Menu(['não_projeção']).ask()
+#
+# 			if TIPO_SEMIOTICIDADE == 'não_projeção':
+# 				print('Não-projeção + médio sem alcance = -verbiagem')
+# 				TIPO_NÃO_PROJEÇÃO = '-verbiagem'
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Dizente?')
+# 				Dizente = estrutura_GN()
+# 				print('Há Receptor?')
+# 				print('Selecione a Receptividade')
+# 				RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+# 				if RECEPTIVIDADE == '+receptor':
+# 					Receptor = frase_preposicional()
+# 				else:
+# 					Receptor = ''
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Circunstancia + '.'
+#
+# 	elif Transitividade == 'PR_Verbal_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+#
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		print('Qual a Ordem do Dizente?')
+# 		ORDEM_DO_DIZENTE = choice.Menu(['semioticidade']).ask()
+# 		print('Selecione a Receptividade')
+# 		RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+#
+# 		if ORDEM_DO_DIZENTE == 'semioticidade':
+# 			print('Selecione o tipo_pessoa de Semioticidade')
+#
+# 			TIPO_SEMIOTICIDADE = choice.Menu(['projeção', 'não_projeção']).ask()
+# 			if TIPO_SEMIOTICIDADE == 'projeção':
+# 				print('Selecione o tipo_pessoa de projeção')
+# 				TIPO_PROJEÇÃO = choice.Menu(['citativa', 'relativa']).ask()
+# 				if TIPO_PROJEÇÃO == 'citativa':
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()
+# 					print('Qual é o Dizente?')
+# 					Dizente = estrutura_GN()
+# 					print('Há Receptor?')
+# 					print('Selecione a Receptividade')
+# 					RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+# 					if RECEPTIVIDADE == '+receptor':
+# 						Receptor = frase_preposicional()
+# 					else:
+# 						Receptor = ''
+# 					Polaridade = POLARIDADE()
+# 					print('Qual a oração projetada?')
+# 					Circunstância = circunstância()
+# 					Oração_projetada = oraçãoProjetada()
+#
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo \
+# 					         + ' ' + Receptor + '"' + Oração_projetada + '" ' + ' ' + Circunstancia + '.'
+# 					# Ex.: Eu disse a ele "Eu comi o bolo".
+#
+# 				elif TIPO_PROJEÇÃO == 'relativa':
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()
+# 					print('Qual é o Dizente?')
+# 					Dizente = estrutura_GN()
+# 					print('Há Receptor?')
+# 					print('Selecione a Receptividade')
+# 					RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+# 					if RECEPTIVIDADE == '+receptor':
+# 						Receptor = frase_preposicional()
+# 					else:
+# 						Receptor = ''
+# 					Polaridade = POLARIDADE()
+# 					print('Qual a oração projetada?')
+# 					Oração_projetada = oraçãoProjetada()
+# 					Circunstância = circunstância()
+#
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo \
+# 					         + ' ' + Receptor + ' ' + 'que' + ' ' + '"' + Oração_projetada + '" ' + ' ' + Circunstancia + '.'
+# 					# Ex.: Eu disse a ele que "Eu comi o bolo".
+#
+# 			elif TIPO_SEMIOTICIDADE == 'não_projeção':
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Dizente?')
+# 				Dizente = estrutura_GN()
+# 				print('Qual é a Verbiagem?')
+# 				Verbiagem = estrutura_GN()
+# 				print('Há Receptor?')
+# 				print('Selecione a Receptividade')
+# 				RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
+# 				if RECEPTIVIDADE == '+receptor':
+# 					Receptor = frase_preposicional()
+# 				else:
+# 					Receptor = ''
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo \
+# 				         + ' ' + Verbiagem + ' ' + Receptor + ' ' + Circunstancia + '.'
+#
+# 	elif Transitividade == 'PR_Verbal_AG_efetivo_operativo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+#
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		Polaridade = POLARIDADE()
+# 		print('Qual é o Dizente?')
+# 		Dizente = estrutura_GN()
+# 		Circunstância = circunstância()
+#
+# 		print('O Alvo é realizado por grupo nominal ou frase preposicional?')
+# 		realizacao_alvo = choice.Menu(['GN', 'FP']).ask()
+# 		if realizacao_alvo == 'GN':
+# 			print('Qual é o Alvo?')
+# 			Alvo = estrutura_GN()
+# 			print('Qual a localização do alvo na oração (em relação ao Processo)?')
+# 			localização_alvo = choice.Menu(['ante_processo', 'pós_processo']).ask()
+# 			if localização_alvo == 'ante_processo':
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' \
+# 				         + Alvo + ' ' + Processo + ' ' + Circunstancia + '.'
+# 			else:
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Alvo + ' ' + Circunstancia + '.' \
+# 		else:
+# 			print('Qual é o Alvo?')
+# 			Alvo = frase_preposicional()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Dizente + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Alvo + ' ' + Circunstancia + '.'
+#
+#
+# 	elif Transitividade == 'PR_Verbal_AG_efetivo_receptivo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+#
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		Polaridade = POLARIDADE()
+# 		print('Qual é o Dizente?')
+# 		Dizente = frase_preposicional()
+# 		print('Qual é o Alvo?')
+# 		Alvo = estrutura_GN()
+# 		Circunstância = circunstância()
+#
+# 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Alvo + ' ' + Polaridade + ' ' + Processo \
+# 		         + ' ' + Dizente + ' ' + Circunstancia + '.'
+#
+# 	###MATERIAL
+#
+# 	elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		Tema_textual = TEMA_TEXTUAL()
+#
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Ator?')
+# 		Ator = estrutura_GN()
+# 		print('Qual é a Meta?')
+# 		Meta = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+#
+# 		print('Há Participante Iniciador na oração?')
+# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+# 		if INICIADOR == '+iniciador':
+# 			Iniciador = estrutura_GN() + grupo_verbal()  ####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
+# 		else:
+# 			Iniciador = ''
+#
+# 		print('Há resultado do processo?')
+# 		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'extensão', 'intensificação']).ask() \
+#  \
+# 		if TIPO_DE_RESULTADO == 'elaboração':
+#
+# 			print('há Resultado_elaboração atributo ou papel?')
+# 			RESULTADO_QUALITATIVO = choice.Menu(['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
+# 			if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
+# 					RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
+# 				realizacao_atributo = choice.Menu(['adjetivo', 'frase_preposicional']).ask()
+# 				if realizacao_atributo == 'adjetivo':
+# 					Atributo = adjetivo()
+# 				elif realizacao_atributo == 'frase_preposicional':
+# 					Atributo = frase_preposicional()
+# 			elif RESULTADO_QUALITATIVO == '-resultado':
+# 				Atributo = ''
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Meta + ' ' + Atributo + ' ' + Circunstancia + '.'
+#
+# 		elif TIPO_DE_RESULTADO == 'extensão':
+# 			print('Há Participante Beneficiário na oração?')
+# 			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
+# 			if RECEPÇÃO == '+beneficiário':
+# 				Beneficiário = frase_preposicional()
+# 			elif RECEPÇÃO == '-beneficiário':
+# 				Beneficiário = ''
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Meta + '  ' + Beneficiário + ' ' + Circunstancia + '.'
+#
+# 	elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Ator?')
+# 		Ator = estrutura_GN()
+# 		print('Qual é a Meta?')
+# 		Meta = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+#
+# 		print('Há Participante Iniciador na oração?')
+# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+# 		if INICIADOR == '+iniciador':
+# 			Iniciador = estrutura_GN()
+# 		else:
+# 			Iniciador = ''
+#
+# 		print(
+# 			'Há Participante Cliente na oração?')  # Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
+# 		CLIENTE = choice.Menu(['+cliente', '-cliente']).ask()
+#
+# 		if CLIENTE == '+cliente':
+# 			Cliente = frase_preposicional()
+# 		else:
+# 			Cliente = ''
+#
+# 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
+# 		         + ' ' + Meta + ' ' + Cliente + ' ' + Circunstancia + '.'
+#
+# 	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Ator?')
+# 		Ator = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+# 		print('Há Participante Iniciador na oração?')
+# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+# 		if INICIADOR == '+iniciador':
+# 			Iniciador = estrutura_GN() + grupo_verbal()
+# 		else:
+# 			Iniciador = ''
+# 		print('Há Participante Beneficiário na oração?')
+# 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
+# 		if RECEPÇÃO == '+beneficiário':
+# 			Beneficiário = frase_preposicional()
+# 		elif RECEPÇÃO == '-beneficiário':
+# 			Beneficiário = ''
+# 		print('Há resultado do processo?')
+# 		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
+# 		if TIPO_DE_RESULTADO == 'elaboração':
+# 			print('Qual é o Escopo?')
+# 			tipo_Escopo = choice.Menu(['escopo(processo)', 'escopo(entidade)']).ask()
+# 			if tipo_Escopo == 'escopo(processo)':
+# 				Escopo = estrutura_GN()
+# 			elif tipo_Escopo == 'escopo(entidade)':
+# 				Escopo = estrutura_GN()  # por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Escopo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+#
+# 		elif TIPO_DE_RESULTADO == 'intensificação':
+# 			print('Qual é o Escopo?')
+# 			tipo_Escopo = choice.Menu(['escopo(processo)', 'escopo(entidade)']).ask()
+# 			if tipo_Escopo == 'escopo(processo)':
+# 				Escopo = estrutura_GN()
+# 			elif tipo_Escopo == 'escopo(entidade)':
+# 				Escopo = estrutura_GN()  # por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
+# 			print('Há resultado locativo?')
+# 			realizacao_locativo = choice.Menu(['sim', 'não']).ask()
+# 			if realizacao_locativo == 'sim':
+# 				Resultado_locativo = frase_preposicional()
+# 			else:
+# 				Resultado_locativo = ''
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Escopo + ' ' + Resultado_locativo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+#
+#
+# 	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA': \
+#  \
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Ator?')
+# 		Ator = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+# 		print('Há Participante Beneficiário na oração?')
+# 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
+# 		if RECEPÇÃO == '+beneficiário':
+# 			Beneficiário = frase_preposicional()
+# 		elif RECEPÇÃO == '-beneficiário':
+# 			Beneficiário = ''
+# 		print('Há resultado do processo?')
+# 		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
+# 		if TIPO_DE_RESULTADO == 'elaboração':
+# 			print('Orações médio_sem_alcance  selecionam -escopo')
+# 			Escopo = ''
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Beneficiário + '' + Circunstancia + '.'
+#
+#
+# 		elif TIPO_DE_RESULTADO == 'intensificação':
+# 			print('Orações médio_sem_alcance selecionam -escopo')
+# 			print('Há Participante Beneficiário na oração?')
+# 			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
+# 			if RECEPÇÃO == '+beneficiário':
+# 				Beneficiário = frase_preposicional()
+# 			elif RECEPÇÃO == '-beneficiário':
+# 				Beneficiário = ''
+# 			print('Há resultado locativo?')
+# 			realizacao_locativo = choice.Menu(['sim', 'não']).ask()
+# 			if realizacao_locativo == 'sim':
+# 				Resultado_locativo = frase_preposicional()
+# 			else:
+# 				Resultado_locativo = ''
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Resultado_locativo + ' ' + Circunstancia + ' ' + Beneficiário + '.'
+#
+#
+# 	##MATERIAL METEOROLÓGICA
+# 	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_NA' \
+# 			and Modo == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+#
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		Polaridade = POLARIDADE()
+# 		print('Há Participante Iniciador na oração?')
+# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+# 		if INICIADOR == '+iniciador':
+# 			Iniciador = estrutura_GN()
+# 		else:
+# 			Iniciador = ''
+# 		print('Há Participante Beneficiário na oração?')
+# 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
+# 		if RECEPÇÃO == '+beneficiário':
+# 			Beneficiário = frase_preposicional()
+# 		elif RECEPÇÃO == '-beneficiário':
+# 			Beneficiário = ''
+# 		tipo_intransitiva = choice.Menu(['impessoal(fenômeno_natural)', 'pessoal']).ask()
+# 		print('Qual o tipo_pessoa de inTransitividade?')
+# 		if tipo_intransitiva == 'impessoal(fenômeno_natural)':
+# 			print('Há escopo?')
+# 			escopo_intransitiva = choice.Menu(['+escopo', '-escopo']).ask()
+# 			if escopo_intransitiva == '+escopo':
+# 				print('Qual estrutura realiza o escopo?')
+# 				realizacao_escopo = choice.Menu(['frase_preposicional', 'grupo_nominal']).ask()
+# 				if realizacao_escopo == 'frase_preposicional':
+# 					Escopo = frase_preposicional()
+# 				elif realizacao_escopo == 'grupo_nominal':
+# 					Escopo = estrutura_GN()
+# 			elif escopo_intransitiva == '-escopo':
+# 				Escopo = ''
+#
+# 		Circunstância = circunstância()
+#
+# 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Polaridade + ' ' + Processo \
+# 		         + ' ' + Escopo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+#
+#
+# 	elif Transitividade == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+# 		Tema_textual = TEMA_TEXTUAL() \
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Ator?')
+# 		Ator = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+#
+# 		print('Há Participante Iniciador na oração?')
+# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+# 		if INICIADOR == '+iniciador':
+# 			Iniciador = estrutura_GN() + grupo_verbal()
+# 		else:
+# 			Iniciador = ''
+# 		print('Há Participante Beneficiário na oração?')
+# 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
+# 		if RECEPÇÃO == '+beneficiário':
+# 			Beneficiário = frase_preposicional()
+# 		elif RECEPÇÃO == '-beneficiário':
+# 			Beneficiário = ''
+# 		Circunstância = circunstância()
+# 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 		         + ' ' + Processo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+#
+# 		##########COMEÇO DE AGENCIAMENTO PASSIVA
+# 		# (E CONSEQUENTEMENTE MUDANÇA NO TEMA IDEACIONAL: COMPLEMENTO ELEMENTAL)
+#
+# 	#  elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_receptivo' \
+# 	#          and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 	#          and Tema_id == 'TID_complemento_elemental':
+# 	#      Tema_interpessoal = TEMA_INTERPESSOAL()
+# 	#      Tema_textual=TEMA_TEXTUAL()
+# 	#
+# 	#      print ('Qual o Processo?')
+# 	#      Processo = grupo_verbal() ##selecionar agenciado_passivo
+# 	#      print('Qual é a Meta?')
+# 	#      Meta = estrutura_GN()
+# 	#      Polaridade = POLARIDADE ()
+# 	#      Circunstância = circunstância()
+# 	#      print('Há Participante Beneficiário na oração?')
+# 	#      RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
+# 	#      if RECEPÇÃO == '+beneficiário':
+# 	#          Beneficiário = frase_preposicional()
+# 	#      elif RECEPÇÃO == '-beneficiário':
+# 	#          Beneficiário = ''
+# 	#      print ('Há Participante Iniciador na oração?')
+# 	#      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
+# 	#      if INICIADOR == '+iniciador':
+# 	#          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
+# 	#      else:
+# 	#          Iniciador = ''
+# 	#
+# 	#      print ('O Ator/Agente é realizado na oração?')
+# 	#      realizacao_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
+# 	#      if realizacao_Ator == '+ator/agente':
+# 	#          print('Qual é o Ator/Agente?')
+# 	#          Ator = frase_preposicional()
+# 	#      elif realizacao_Ator == '-ator/agente':
+# 	#          Ator = ''
+# 	#      print ('Há resultado do processo?')
+# 	#      TIPO_DE_RESULTADO = choice.Menu(['elaboração','extensão','intensificação']).ask()
+# 	#
+# 	#      if TIPO_DE_RESULTADO == 'elaboração':
+# 	#
+# 	#          print ('há Resultado_elaboração atributo ou papel?')
+# 	#          RESULTADO_QUALITATIVO = choice.Menu (['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
+# 	#          if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
+# 	#              RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
+# 	#              realizacao_atributo = choice.Menu(['adjetivo','frase_preposicional']).ask()
+# 	#              if realizacao_atributo == 'adjetivo':
+# 	#                  Atributo = adjetivo ()
+# 	#              elif realizacao_atributo == 'frase_preposicional':
+# 	#                  Atributo = frase_preposicional()
+# 	#          elif RESULTADO_QUALITATIVO == '-resultado':
+# 	#              Atributo = ''
+# 	#
+# 	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade \
+# 	#                   + ' ' + Processo +' '+ Atributo+ ' ' + Ator +' ' +Beneficiário+' '+ Circunstancia +'.'
+# 	#
+# 	#      elif TIPO_DE_RESULTADO == 'extensão':
+# 	#          print ('Há Participante Beneficiário na oração?')
+# 	#          RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
+# 	#          if RECEPÇÃO == '+beneficiário':
+# 	#              Beneficiário = frase_preposicional()
+# 	#          elif RECEPÇÃO == '-beneficiário':
+# 	#              Beneficiário = ''
+# 	#
+# 	#
+# 	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade \
+# 	#                   + ' ' + Processo  +'  '+ Beneficiário + ' ' + Ator +' '+Beneficiário+' '+ Circunstancia +'.'
+# 	#
+# 	# ##
+# 	#
+# 	#  elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo' \
+# 	#          and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 	#          and Tema_id == 'TID_complemento_elemental':
+# 	#
+# 	#      Tema_interpessoal = TEMA_INTERPESSOAL()
+# 	#      Tema_textual=TEMA_TEXTUAL()
+# 	#
+# 	#      print ('Qual o Processo?')
+# 	#      Processo = grupo_verbal() ##selecionar agenciado_passivo
+# 	#      print('Qual é a Meta?')
+# 	#      Meta = estrutura_GN()
+# 	#      Polaridade = POLARIDADE ()
+# 	#      print('Há Participante Beneficiário na oração?')
+# 	#      RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
+# 	#      if RECEPÇÃO == '+beneficiário':
+# 	#          Beneficiário = frase_preposicional()
+# 	#      elif RECEPÇÃO == '-beneficiário':
+# 	#          Beneficiário = ''
+# 	#      Circunstância = circunstância()
+# 	#
+# 	#
+# 	#      print ('Há Participante Iniciador na oração?')
+# 	#      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
+# 	#      if INICIADOR == '+iniciador':
+# 	#          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
+# 	#      else:
+# 	#          Iniciador = ''
+# 	#
+# 	#      print ('O Ator/Agente é realizado na oração?')
+# 	#      realizacao_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
+# 	#      if realizacao_Ator == '+ator/agente':
+# 	#          print('Qual é o Ator/Agente?')
+# 	#          Ator = frase_preposicional()
+# 	#      elif realizacao_Ator == '-ator/agente':
+# 	#          Ator = ''
+# 	#
+# 	#
+# 	#      print ('Há Participante Cliente na oração?') #Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
+# 	#      CLIENTE = choice.Menu (['+cliente','-cliente']).ask()
+# 	#
+# 	#      if CLIENTE == '+cliente':
+# 	#          Cliente = frase_preposicional()
+# 	#      elif CLIENTE == '-cliente':
+# 	#          Cliente='' \
+# 	#
+# 	#      oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' \
+# 	#               + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +' ' + Beneficiário+' '+Circunstância +'.'
+#
+# 	###RELACIONAl
+# 	###### INTENSIVA ATRIBUTIVA (SEM ATRIBUIDOR)
+# 	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+# 		####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso não são reversíveis)
+# 		## Selecionam sem_atribuição_de relação no sistema de ATRIBUIÇÃO DE RELAÇÃO
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 		print('Qual o tipo_pessoa de especificação de associação?')
+# 		tipo_especificação_associação = choice.Menu(['entidade', 'qualidade']).ask()
+# 		print('Qual a fase da atribuição?')
+# 		fase_atribuição = choice.Menu(['neutra',
+# 		                               'faseada']).ask()  ##Me parece que neste caso há diferenças em termos de verbo lexical que realiza o Processo (e tempo verbal em alguns casos)
+# 		###não vou especializar os tipos de fase.
+# 		print('Qual o domínio da atribuição')
+# 		domínio_atribuição = choice.Menu(['material', 'semiótico']).ask()
+#
+# 		if (
+# 				tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
+# 				tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
+# 				tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
+# 				tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Portador?')
+# 			Portador = estrutura_GN() \
+# 			print('Qual o Atributo?')
+# 			Atributo = estrutura_GN()
+#
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Atributo + ' ' + Circunstancia + '.'
+#
+# 		elif (
+# 				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
+# 				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
+# 				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
+# 				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Portador?') \
+# 			Portador = estrutura_GN()
+# 			print('Qual o Atributo?')
+# 			Atributo = adjetivo()  ## O que diferencia os dois tipos é o que realiza o Atributo. Neste caso
+# 			# o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo.
+# 			##Tenho que ver ainda casos metafóricos ex,:'o caso é de grande importância')
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Atributo + ' ' + Circunstancia + '.'
+#
+#
+# 	###### INTENSIVA ATRIBUTIVA (COM ATRIBUIDOR)
+# 	##Nesse caso, a oração é Effective (Tem Agente) e pode ser operativa ou receptiva
+# 	# (há a possibilidade de Agente de segunda, terceira.....ordem)
+#
+# 	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_operativo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+# 		print('Qual o tipo_pessoa de atribuição de relação?')
+# 		tipo_atribuição_relação = atribuição_de_relação()
+# 		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
+# 		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
+# 		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
+#
+# 		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
+# 		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
+# 		    tipo_atribuição_relação == 'atribuição_proj_verbal',
+# 		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
+# 		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Atribuidor?')
+# 			Atribuidor = estrutura_GN()
+# 			print('Qual o Portador?')
+# 			Portador = estrutura_GN()
+# 			print('Qual o Atributo?')
+# 			Atributo = estrutura_GN()  ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+#
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Atribuidor + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Portador + ' ' + Atributo + ' ' + Circunstancia + '.'
+#
+# 	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_receptivo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+# 		print('Qual o tipo_pessoa de atribuição de relação?')
+# 		tipo_atribuição_relação = atribuição_de_relação()
+# 		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
+# 		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
+# 		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ESTRUTURA DE ELEMENTOS NA ORAÇÃO
+#
+# 		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
+# 		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
+# 		    tipo_atribuição_relação == 'atribuição_proj_verbal',
+# 		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
+# 		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Atribuidor?')
+# 			Atribuidor = frase_preposicional()
+# 			print('Qual o Portador?')
+# 			Portador = estrutura_GN()
+# 			print('Qual o Atributo?')
+# 			Atributo = estrutura_GN()  ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+#
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo
+# 			+ ' ' + Atributo + ' ' + Atribuidor + ' ' + Circunstancia + '.'
+#
+#
+# 	####INTENSIVA_IDENTIFICATIVA (sem DESIGNADOR)
+#
+# 	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_equativo_decodificação':
+# 		print('Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito '
+# 		      'deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 		direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 		if direcionalidade_voz == 'meio_operativa':
+# 			print('Neste caso, o Símbolo/Identificado conflui com o Sujeito(geralmente'
+# 			      'o elemento em posição temática)')
+# 			# (confluência do Símbolo/Identificado) =
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '.'
+#
+# 		elif direcionalidade_voz == 'meio_receptiva':
+# 			print('Neste caso, o Valor/Identificador conflui com o Sujeito')
+# 			##NESTE CASO, confluência de Valor/Sujeito
+#
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL() \
+#  \
+# 					print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Símbolo + ' ' + Circunstancia + '.'
+#
+# 	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_equativo_codificação':
+#
+# 		print(
+# 			'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 		direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 		if direcionalidade_voz == 'meio_operativa':
+# 			print('Neste caso, o Símbolo/Identificado conflui com o Sujeito(geralmente o elemento em posição temática)')
+#
+# 			# (confluência do Símbolo/Identificador/Sujeito) =
+# 			# (Valor/Identificado/complemento)
+#
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Valor + ' ' + Circunstancia + '.'
+#
+# 		elif direcionalidade_voz == 'meio_receptiva':
+# 			print('Neste caso, o Valor conflui com o Sujeito')
+# 			##NESTE CASO, confluência de Valor/Identificado/Sujeito
+# 			##(Símbolo/Identificador/Complemento)
+#
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Símbolo + ' ' + Circunstancia + '.'
+#
+# 	####INTENSIVA_IDENTIFICATIVA (COM DESIGNADOR = AGENTE)
+#
+# 	#    ###TRUE_Efetiva_operativa
+# 	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_operativo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+# 		print('Qual o tipo_pessoa de atribuição de relação?')
+# 		tipo_atribuição_relação = atribuição_de_relação()
+# 		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
+# 		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas) \
+# 		# POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
+#
+# 		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
+# 		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
+# 		    tipo_atribuição_relação == 'atribuição_proj_verbal',
+# 		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
+# 		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual é o Designador?')
+# 			Designador = estrutura_GN()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()  ##ou frase preposicional?
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Designador + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Símbolo + ' ' + Valor + ' ' + Circunstancia + '.'
+# 			###rever possíveis estruturas para este tipo_pessoa de oração(pode haver 2 processos?)
+#
+# 	###TRUE_Efetiva_receptiva
+#
+# 	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_receptivo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+# 		print('Qual o tipo_pessoa de atribuição de relação?')
+# 		tipo_atribuição_relação = atribuição_de_relação()
+# 		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
+# 		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
+# 		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
+#
+# 		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
+# 		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
+# 		    tipo_atribuição_relação == 'atribuição_proj_verbal',
+# 		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
+# 		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual é o Designador?')
+# 			Designador = frase_preposicional()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()  ##ou frase preposicional?
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+# 			#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Valor + ' ' + Designador + ' ' + Circunstancia + '.'
+# 	####NOS DOIS TIPOS DE ORAÇÃO ANTERIORES É PRECISO VERIFICAR: possibilidade de realizacao de cada participante;
+# 	#        #ordem na estrutura; etc (vou fazer isso de acordo com o que for encontrando no corpus, por enquanto estao comentadas)
+#
+# 	# POSSESSIVO ATRIBUTIV0
+#
+# 	if Transitividade == 'PR_relacional_possessivo_atributivo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+#
+# 		TIPO_ATRIBUIÇÃO_POSSESSIVO = choice.Menu(['posse_atributo', 'posse_processo']).ask()
+#
+# 		if TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_atributo':
+#
+# 			realizacao_atributo = choice.Menu(['grupo_nominal_possessivo', 'frase_preposicional']).ask()
+#
+# 			if realizacao_atributo == 'grupo_nominal_possessivo':
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual o Portador/Posse?')
+# 				Portador_Posse = estrutura_GN()
+# 				print('Qual é o Atributo/Possuidor?')
+# 				Atributo_Possuidor = estrutura_GN()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '.'
+#
+# 			elif realizacao_atributo == 'frase_preposicional':
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual o Portador/Posse?')
+# 				Portador_Posse = estrutura_GN()
+# 				print('Qual é o Atributo/Possuidor?')
+# 				Atributo_Possuidor = frase_preposicional()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '.'
+#
+#
+# 		elif TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_processo':
+#
+# 			##VERBO TER/POSSUIR/
+#
+# 			tipo_possuidor = choice.Menu(['possuidor_portador', 'possuidor_atributo']).ask() \
+#  \
+# 			if tipo_possuidor == 'possuidor_portador':
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual o Portador/Possuidor?')
+# 				Portador_Possuidor = estrutura_GN()
+# 				print('Qual é o Atributo/Posse?')
+# 				Atributo_Posse = estrutura_GN()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Possuidor + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Atributo_Posse + ' ' + Circunstancia + '.'
+#
+#
+# 			###VERBOS PERTENCER A/...
+#
+# 			elif tipo_possuidor == 'possuidor_atributo':
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual o Portador/Possuidor?')
+# 				Portador_Posse = estrutura_GN()
+# 				print('Qual é o Atributo/Posse?')
+# 				Atributo_Possuidor = frase_preposicional()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '.'
+#
+# 		# POSSESSIVO IDENTIFICATIVO
+#
+#
+# 	elif Transitividade == 'PR_relacional_possessivo_identificativo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+#
+# 		TIPO_IDENTIFICATIVO_POSSESSIVO = choice.Menu(['posse_participante', 'posse_processo']).ask()
+#
+# 		if TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_participante':
+#
+# 			print(
+# 				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 			if direcionalidade_voz == 'meio_operativa':
+# 				print('Neste caso, o Símbolo conflui com o Sujeito/Possuído/Identificado')
+#
+# 				print(
+# 					'Escolha o tipo_pessoa de realizacao do Valor:')
+# 				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
+#
+# 				if realizacao_Valor == 'grupo_nominal':
+#
+# 					Tema_textual = TEMA_TEXTUAL()
+# 					Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()
+# 					print('Qual é o Símbolo(Token)/Possuído?')
+# 					Símbolo_Possuído = estrutura_GN()
+# 					print('Qual o Valor(Value)/Possuidor?')
+# 					Valor_Possuidor = estrutura_GN()
+# 					Polaridade = POLARIDADE()
+# 					Circunstância = circunstância()
+#
+# 					# Ex.: O piano é seu
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuído + ' ' + Polaridade \
+# 					         + ' ' + Processo + ' ' + Valor_Possuidor + ' ' + Circunstancia + '.'
+#
+# 				elif realizacao_Valor == 'frase_preposicional':
+#
+# 					Tema_textual = TEMA_TEXTUAL()
+# 					Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()
+# 					print('Qual é o Símbolo(Token)?')
+# 					Símbolo_Possuído = estrutura_GN()
+# 					print('Qual o Valor(Value)?')
+# 					Valor_Possuidor = frase_preposicional()
+# 					Polaridade = POLARIDADE()
+# 					Circunstância = circunstância()
+#
+# 					# Ex.: O piano é do André
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuído + ' ' + Polaridade \
+# 					         + ' ' + Processo + ' ' + Valor_Possuidor + ' ' + Circunstancia + '.'
+#
+#
+# 			elif direcionalidade_voz == 'meio_receptiva':
+# 				print('Neste caso, o Valor conflui com Sujeito/Identificado/Possuidor')
+#
+# 				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
+#
+# 				if realizacao_Valor == 'grupo_nominal':
+#
+# 					Tema_textual = TEMA_TEXTUAL()
+# 					Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()
+# 					print('Qual é o Símbolo(Token)/Possuído?')
+# 					Símbolo_Possuído = estrutura_GN()
+# 					print('Qual o Valor(Value)/Possuidor?')
+# 					Valor_Possuidor = estrutura_GN()
+# 					Polaridade = POLARIDADE()
+# 					Circunstância = circunstância()
+#
+# 					# Ex.: O seu é o piano
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuidor + ' ' + Polaridade \
+# 					         + ' ' + Processo + ' ' + Símbolo_Possuído + ' ' + Circunstancia + '.'
+#
+# 				elif realizacao_Valor == 'frase_preposicional':
+#
+# 					Tema_textual = TEMA_TEXTUAL()
+# 					Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()
+# 					print('Qual é o Símbolo(Token)?')
+# 					Símbolo_Possuído = estrutura_GN()
+# 					print('Qual o Valor(Value)?')
+# 					Valor_Possuidor = estrutura_GN()
+# 					Polaridade = POLARIDADE()
+# 					Circunstância = circunstância()
+#
+# 					# Ex.: O do André é o piano
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuidor + ' ' + Polaridade \
+# 					         + ' ' + Processo + ' ' + Símbolo_Possuído + ' ' + Circunstancia + '.'
+#
+# 		elif TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_processo':
+# 			## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste de, providenciar
+# 			##NÃO SEI SE ESTA PARTE DO SISTEMA FUNCIONA BEM NO PORTUGUÊS
+#
+# 			print(
+# 				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 			if direcionalidade_voz == 'meio_operativa':
+# 				print('Neste caso, o Símbolo conflui com o Sujeito/Possuidor/Identificado')
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 				print(
+# 					'Qual o Processo? ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste, providenciar')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Símbolo(Token)/Possuidor?')
+# 				Símbolo_Possuidor = estrutura_GN()
+# 				print('Qual o Valor(Value)/Possuído?')
+# 				Valor_Possuído = estrutura_GN()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				# Ex.: O produto contém plástico, Eles merecem a aposentadoria
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuidor + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Valor_Possuído + ' ' + Circunstancia + '.'
+#
+#
+#
+# 			elif direcionalidade_voz == 'meio_receptiva':
+# 				print('Neste caso, o Valor conflui com Sujeito/Identificado/Possuído')
+#
+# 				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
+#
+# 				if realizacao_Valor == 'grupo_nominal':
+# 					Tema_textual = TEMA_TEXTUAL()
+# 					Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()  ##na passiva
+# 					print('Qual o Valor(Value)/Possuído?')
+# 					Valor_Possuído = estrutura_GN()
+# 					print('Qual é o Símbolo(Token)/Possuidor?')
+# 					Símbolo_Possuidor = frase_preposicional()
+# 					Polaridade = POLARIDADE()
+# 					Circunstância = circunstância()
+#
+# 					# Ex.: O seu é o piano
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuído + ' ' + Polaridade \
+# 					         + ' ' + Processo + ' ' + Símbolo_Possuidor + ' ' + Circunstancia + '.'
+#
+#
+# 	#####RELACIONAL CIRCUNSTANCIAL
+#
+# 	elif Transitividade == 'PR_relacional_circunstancial_atributivo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+# 		print('Qual o tipo_pessoa de realizacao da Relacional Circunstancial?')
+# 		TIPO_ATRIBUTIVO_CIRCUNSTANCIAL = choice.Menu(['atributo_circunstancial', 'processo_circunstancial']).ask()
+#
+# 		if TIPO_ATRIBUTIVO_CIRCUNSTANCIAL == 'atributo_circunstancial':
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Portador')
+# 			Portador = estrutura_GN()
+# 			print('Qual é o Atributo Circunstancial?')
+# 			Atributo_Circunstancial = circunstância()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			# Ex.: O livro é sobre a IIGuerra
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Atributo_Circunstancial + ' ' + Circunstancia + '.'
+#
+# 		elif TIPO_ATRIBUTIVO_CIRCUNSTANCIAL == 'processo_circunstancial':
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Portador')
+# 			Portador = estrutura_GN()
+# 			print('Qual é o Atributo Circunstancial?')
+# 			Atributo = estrutura_GN()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			# Ex.: O livro retrata a IIGuerra
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Atributo + ' ' + Circunstancia + '.'
+#
+# 	elif Transitividade == 'PR_relacional_circunstancial_identificativo_AG_médio_com_alcance' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+#
+# 		print('O significado circunstancial é realixado no participante ou no processo?')
+# 		TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL = choice.Menu(
+# 			['participante_circunstancial', 'processo_circunstancial']).ask()
+#
+# 		if TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'participante_circunstancial':
+#
+# 			print(
+# 				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 			if direcionalidade_voz == 'meio_operativa':
+# 				print('Neste caso, há confluência Símbolo/Sujeito/Identificado')
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Símbolo(Token)?')
+# 				Símbolo = circunstância()
+# 				print('Qual o Valor(Value)?')
+# 				Valor = estrutura_GN()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				# Ex.: Amanhá é dia 10
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade + ' ' + Processo \
+# 				         + ' ' + Valor + ' ' + Circunstancia + '.'
+#
+#
+# 			elif direcionalidade_voz == 'meio_receptiva':
+# 				print('Neste caso, há confluência Valor/Sujeito/Identificado')
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Símbolo(Token)?')
+# 				Símbolo = circunstância()
+# 				print('Qual o Valor(Value)?')
+# 				Valor = estrutura_GN()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				# Ex.:dia 10 é Amanhá
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '.'
+#
+#
+# 		elif TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'processo_circunstancial':
+#
+# 			print(
+# 				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 			if direcionalidade_voz == 'meio_operativa':
+# 				print('Neste caso, há confluência Símbolo/Sujeito/Identificado')
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Símbolo(Token)?')
+# 				Símbolo = circunstância()
+# 				print('Qual o Valor(Value)?')
+# 				Valor = circunstância()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				# Ex.: A feira dura o dia
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '.'
+#
+#
+# 			elif direcionalidade_voz == 'meio_receptiva':
+# 				print('Neste caso, há confluência Valor/Sujeito/Identificado')
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()  ## reiterações-verbo na passiva
+# 				print('Qual o Valor(Value)?')
+# 				Valor = circunstância()
+# 				print('Qual é o Símbolo(Token)?')
+# 				Símbolo = circunstância()
+#
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				# Ex.: O dia inteiro é ocupado pela feira
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '.'
+#
+# 	##ORAÇÃO EXISTENCIAL
+#
+# 	elif Transitividade == 'PR_Existencial_AG_NA' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+#
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		Tema_textual = TEMA_TEXTUAL()
+#
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Existente?')
+# 		Existente = estrutura_GN()
+# 		Circunstância = circunstância()
+#
+# 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Processo + ' ' + Existente + ' ' + Circunstancia + '.'
+#
+# 	#
+# 	##
+# 	###
+# 	######
+# 	####### ORAÇÕES INTERROGATIVAS POLARES
+#
+# 	##ORAÇÃO MATERIAL MODO INTERROGATIVO POLAR
+#
+# 	elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		Tema_textual = TEMA_TEXTUAL()
+#
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Ator?')
+# 		Ator = estrutura_GN()
+# 		print('Qual é a Meta?')
+# 		Meta = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+#
+# 		print('Há Participante Iniciador na oração?')
+# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+# 		if INICIADOR == '+iniciador':
+# 			Iniciador = estrutura_GN() + grupo_verbal()  ####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
+# 		else:
+# 			Iniciador = ''
+#
+# 		print('Há resultado do processo?')
+# 		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'extensão', 'intensificação']).ask()
+#
+# 		if TIPO_DE_RESULTADO == 'elaboração':
+#
+# 			print('há Resultado_elaboração atributo ou papel?')
+# 			RESULTADO_QUALITATIVO = choice.Menu(['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
+# 			if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
+# 					RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
+# 				realizacao_atributo = choice.Menu(['adjetivo', 'frase_preposicional']).ask()
+# 				if realizacao_atributo == 'adjetivo':
+# 					Atributo = adjetivo()
+# 				elif realizacao_atributo == 'frase_preposicional':
+# 					Atributo = frase_preposicional()
+# 			elif RESULTADO_QUALITATIVO == '-resultado':
+# 				Atributo = ''
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Meta + ' ' + Atributo + ' ' + Circunstancia + '?'
+#
+#
+#
+# 		elif TIPO_DE_RESULTADO == 'extensão':
+# 			print('Há Participante Beneficiário na oração?')
+# 			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
+# 			if RECEPÇÃO == '+beneficiário':
+# 				Beneficiário = frase_preposicional()
+# 			elif RECEPÇÃO == '-beneficiário':
+# 				Beneficiário = ''
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Meta + '  ' + Beneficiário + ' ' + Circunstancia + '?'
+#
+#
+# 	elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Ator?')
+# 		Ator = estrutura_GN()
+# 		print('Qual é a Meta?')
+# 		Meta = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+#
+# 		print('Há Participante Iniciador na oração?')
+# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+# 		if INICIADOR == '+iniciador':
+# 			Iniciador = estrutura_GN()
+# 		else:
+# 			Iniciador = ''
+#
+# 		print(
+# 			'Há Participante Cliente na oração?')  # Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
+# 		CLIENTE = choice.Menu(['+cliente', '-cliente']).ask()
+#
+# 		if CLIENTE == '+cliente':
+# 			Cliente = frase_preposicional()
+# 		else:
+# 			Cliente = ''
+#
+# 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 		         + ' ' + Processo + ' ' + Meta + ' ' + Cliente + ' ' + Circunstancia + '?'
+#
+#
+# 	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+#
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Ator?')
+# 		Ator = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+#
+# 		print('Há Participante Iniciador na oração?')
+# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+# 		if INICIADOR == '+iniciador':
+# 			Iniciador = estrutura_GN() + grupo_verbal()
+# 		else:
+# 			Iniciador = ''
+#
+# 		print('Há resultado do processo?')
+# 		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
+# 		if TIPO_DE_RESULTADO == 'elaboração':
+# 			print('Qual é o Escopo?')
+# 			tipo_Escopo = choice.Menu(['escopo(processo)', 'escopo(entidade)']).ask()
+# 			if tipo_Escopo == 'escopo(processo)':
+# 				Escopo = estrutura_GN()
+# 			elif tipo_Escopo == 'escopo(entidade)':
+# 				Escopo = estrutura_GN()  # por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Escopo + ' ' + Circunstancia + '?'
+#
+# 		elif TIPO_DE_RESULTADO == 'intensificação':
+# 			print('Qual é o Escopo?')
+# 			tipo_Escopo = choice.Menu(['escopo(processo)', 'escopo(entidade)']).ask()
+# 			if tipo_Escopo == 'escopo(processo)':
+# 				Escopo = estrutura_GN()
+# 			elif tipo_Escopo == 'escopo(entidade)':
+# 				Escopo = estrutura_GN()  # por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
+# 			print('Há resultado locativo?')
+# 			realizacao_locativo = choice.Menu(['sim', 'não']).ask()
+# 			if realizacao_locativo == 'sim':
+# 				Resultado_locativo = frase_preposicional()
+# 			else:
+# 				Resultado_locativo = ''
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Escopo + ' ' + Resultado_locativo + ' ' + Circunstancia + '?'
+#
+#
+# 	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+#
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Ator?')
+# 		Ator = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+# 		print('Há resultado do processo?')
+# 		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
+# 		if TIPO_DE_RESULTADO == 'elaboração':
+# 			print('Orações médio_sem_alcance  selecionam -escopo')
+# 			Escopo = ''
+#
+# 		elif TIPO_DE_RESULTADO == 'intensificação':
+# 			print('Orações médio_sem_alcance selecionam -escopo')
+#
+# 			print('Há resultado locativo?')
+# 			realizacao_locativo = choice.Menu(['sim', 'não']).ask()
+# 			if realizacao_locativo == 'sim':
+# 				Resultado_locativo = frase_preposicional()
+# 			else:
+# 				Resultado_locativo = ''
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Resultado_locativo + ' ' + Circunstancia + '?'
+#
+#
+# 	##ORAÇÃO METEOROLÓGICA MODO INTERROGATIVO POLAR
+# 	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_NA' \
+# 			and Modo == 'sujeitabilidade_recuperação_NA_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+#
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 		tipo_intransitiva = choice.Menu(['impessoal(fenômeno_natural)', 'pessoal']).ask()
+# 		print('Qual o tipo_pessoa de inTransitividade?')
+# 		if tipo_intransitiva == 'impessoal(fenômeno_natural)':
+# 			print('Há escopo?')
+# 			escopo_intransitiva = choice.Menu(['+escopo', '-escopo']).ask()
+# 			if escopo_intransitiva == '+escopo':
+# 				print('Qual estrutura realiza o escopo?')
+# 				realizacao_escopo = choice.Menu(['frase_preposicional', 'grupo_nominal']).ask()
+# 				if realizacao_escopo == 'frase_preposicional':
+# 					Escopo = frase_preposicional()
+# 				elif realizacao_escopo == 'grupo_nominal':
+# 					Escopo = estrutura_GN()
+# 			elif escopo_intransitiva == '-escopo':
+# 				Escopo = ''
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+#
+# 		print('Há Participante Iniciador na oração?')
+# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+# 		if INICIADOR == '+iniciador':
+# 			Iniciador = estrutura_GN()
+# 		else:
+# 			Iniciador = ''
+# 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Polaridade + ' ' + Processo \
+# 		         + ' ' + Escopo + ' ' + Circunstancia + '?'
+#
+#
+# 	elif Transitividade == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Ator?')
+# 		Ator = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+# 		print('Há Participante Iniciador na oração?')
+# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+# 		if INICIADOR == '+iniciador':
+# 			Iniciador = estrutura_GN() + grupo_verbal()
+# 		else:
+# 			Iniciador = ''
+#
+# 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
+# 		         + ' ' + Processo + ' ' + Circunstancia + '?'
+#
+# 		##########COMEÇO DE AGENCIAMENTO PASSIVA(E CONSEQUENTEMENTE NO TEMA IDEACIONAL)
+#
+# 	#  elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_receptivo' \
+# 	#          and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar'\
+# 	#          and Tema_id == 'TID_complemento_elemental':
+# 	#      Tema_interpessoal = TEMA_INTERPESSOAL()
+# 	#      Tema_textual=TEMA_TEXTUAL()
+# 	#
+# 	#      print ('Qual o Processo?')
+# 	#      Processo = grupo_verbal() ##selecionar agenciado_passivo
+# 	#      print('Qual é a Meta?')
+# 	#      Meta = estrutura_GN()
+# 	#      Polaridade = POLARIDADE ()
+# 	#      Circunstância = circunstância()
+# 	#      print ('Há Participante Iniciador na oração?')
+# 	#      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
+# 	#      if INICIADOR == '+iniciador':
+# 	#          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
+# 	#      else:
+# 	#          Iniciador = ''
+# 	#
+# 	#      print ('O Ator/Agente é realizado na oração?')
+# 	#      realizacao_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
+# 	#      if realizacao_Ator == '+ator/agente':
+# 	#          print('Qual é o Ator/Agente?')
+# 	#          Ator = frase_preposicional()
+# 	#      elif realizacao_Ator == '-ator/agente':
+# 	#          Ator = ''
+# 	#
+# 	#
+# 	#      print ('Há resultado do processo?')
+# 	#      TIPO_DE_RESULTADO = choice.Menu(['elaboração','extensão','intensificação']).ask()
+# 	#
+# 	#      if TIPO_DE_RESULTADO == 'elaboração':
+# 	#
+# 	#          print ('há Resultado_elaboração atributo ou papel?')
+# 	#          RESULTADO_QUALITATIVO = choice.Menu (['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
+# 	#          if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
+# 	#              RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
+# 	#              realizacao_atributo = choice.Menu(['adjetivo','frase_preposicional']).ask()
+# 	#              if realizacao_atributo == 'adjetivo':
+# 	#                  Atributo = adjetivo ()
+# 	#              elif realizacao_atributo == 'frase_preposicional':
+# 	#                  Atributo = frase_preposicional()
+# 	#          elif RESULTADO_QUALITATIVO == '-resultado':
+# 	#              Atributo = ''
+# 	#
+# 	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta \
+# 	#                   + ' ' + Polaridade + ' ' + Processo +' '+ Atributo+ ' ' + Ator +' ' + Circunstancia +'?'
+# 	#
+# 	#      elif TIPO_DE_RESULTADO == 'extensão':
+# 	#          print ('Há Participante Beneficiário na oração?')
+# 	#          RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
+# 	#          if RECEPÇÃO == '+beneficiário':
+# 	#              Beneficiário = frase_preposicional()
+# 	#          elif RECEPÇÃO == '-beneficiário':
+# 	#              Beneficiário = ''
+# 	#
+# 	#
+# 	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' \
+# 	#                   + Meta + ' ' + Polaridade + ' ' + Processo  +'  '+ Beneficiário + ' ' + Ator +' ' + Circunstancia +'?'
+# 	#
+# 	# ##
+# 	#
+# 	#  elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo' \
+# 	#          and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar'\
+# 	#          and Tema_id == 'TID_complemento_elemental':
+# 	#
+# 	#      Tema_interpessoal = TEMA_INTERPESSOAL()
+# 	#      Tema_textual=TEMA_TEXTUAL()
+# 	#
+# 	#      print ('Qual o Processo?')
+# 	#      Processo = grupo_verbal() ##selecionar agenciado_passivo
+# 	#      print('Qual é a Meta?')
+# 	#      Meta = estrutura_GN()
+# 	#      Polaridade = POLARIDADE ()
+# 	#      Circunstância = circunstância()
+# 	#
+# 	#      print ('Há Participante Iniciador na oração?')
+# 	#      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
+# 	#      if INICIADOR == '+iniciador':
+# 	#          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realizacao básica)
+# 	#      else:
+# 	#          Iniciador = ''
+# 	#
+# 	#      print ('O Ator/Agente é realizado na oração?')
+# 	#      realizacao_Ator = choice.Menu (['+ator/agente','-ator/agente']).ask()
+# 	#      if realizacao_Ator == '+ator/agente':
+# 	#          print('Qual é o Ator/Agente?')
+# 	#          Ator = frase_preposicional()
+# 	#      elif realizacao_Ator == '-ator/agente':
+# 	#          Ator = ''
+# 	#
+# 	#
+# 	#      print ('Há Participante Cliente na oração?') #Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
+# 	#      CLIENTE = choice.Menu (['+cliente','-cliente']).ask()
+# 	#
+# 	#      if CLIENTE == '+cliente':
+# 	#          Cliente = frase_preposicional()
+# 	#      elif CLIENTE == '-cliente':
+# 	#          Cliente=''
+# 	#
+# 	#      oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' '\
+# 	#               + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +' ' + Circunstancia +'?'
+# 	#
+#
+# 	###RELACIONAl MODO INTERROGATIVO POLAR
+#
+# 	###### INTENSIVA ATRIBUTIVA (SEM ATRIBUIDOR)
+# 	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+# 		####Relacionais atributivas são Middle(mas selecionam necessariamente meio-operativa = por isso não são reversíveis)
+# 		## Selecionam sem_atribuição_de relação no sistema de ATRIBUIÇÃO DE RELAÇÃO
+# 		Tema_textual = TEMA_TEXTUAL()
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 		print('Qual o tipo_pessoa de especificação de associação?')
+# 		tipo_especificação_associação = choice.Menu(['entidade', 'qualidade']).ask()
+# 		print('Qual a fase da atribuição?')
+# 		fase_atribuição = choice.Menu(['neutra',
+# 		                               'faseada']).ask()  ##Me parece que neste caso há diferenças em termos de verbo lexical que realiza o Processo (e tempo verbal em alguns casos)
+# 		###não vou especializar os tipos de fase.
+# 		print('Qual o domínio da atribuição')
+# 		domínio_atribuição = choice.Menu(['material', 'semiótico']).ask()
+#
+# 		if (
+# 				tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
+# 				tipo_especificação_associação == 'entidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
+# 				tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
+# 				tipo_especificação_associação == 'entidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Portador?')
+# 			Portador = estrutura_GN()
+# 			print('Qual o Atributo?')
+# 			Atributo = estrutura_GN()
+#
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Atributo + ' ' + Circunstancia + '?'
+#
+# 		elif (
+# 				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'material' or
+# 				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'neutra' and domínio_atribuição == 'semiótico' or
+# 				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'material' or
+# 				tipo_especificação_associação == 'qualidade' and fase_atribuição == 'faseada' and domínio_atribuição == 'semiótico'):
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Portador?')
+# 			Portador = estrutura_GN()
+# 			print('Qual o Atributo?')
+# 			Atributo = adjetivo()  ## O que diferencia os dois tipos é o que realiza o Atributo. Neste caso
+# 			# o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo.
+# 			##Tenho que ver ainda casos metafóricos ex,:'o caso é de grande importância')
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Atributo + ' ' + Circunstancia + '?'
+#
+#
+# 	###### INTENSIVA ATRIBUTIVA (COM ATRIBUIDOR)
+# 	##Nesse caso, a oração é Effective (Tem Agente) e pode ser operativa ou receptiva (há a possibilidade de Agente de segunda, terceira.....ordem)
+# 	####para desenvolver....
+# 	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_operativo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+# 		print('Qual o tipo_pessoa de atribuição de relação?')
+# 		tipo_atribuição_relação = atribuição_de_relação()
+# 		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
+# 		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
+# 		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
+#
+# 		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
+# 		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
+# 		    tipo_atribuição_relação == 'atribuição_proj_verbal',
+# 		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
+# 		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Atribuidor?')
+# 			Atribuidor = estrutura_GN()
+# 			print('Qual o Portador?')
+# 			Portador = estrutura_GN()
+# 			print('Qual o Atributo?')
+# 			Atributo = estrutura_GN()  ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+#
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Atribuidor + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Portador + ' ' + Atributo + ' ' + Circunstancia + '?'
+#
+# 	elif Transitividade == 'PR_relacional_intensivo_atributivo_AG_efetivo_receptivo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+# 		print('Qual o tipo_pessoa de atribuição de relação?')
+# 		tipo_atribuição_relação = atribuição_de_relação()
+# 		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
+# 		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
+# 		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ESTRUTURA DE ELEMENTOS NA ORAÇÃO
+#
+# 		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
+# 		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
+# 		    tipo_atribuição_relação == 'atribuição_proj_verbal',
+# 		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
+# 		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Atribuidor?')
+# 			Atribuidor = frase_preposicional()
+#
+# 			print('Qual o Portador?')
+# 			Portador = estrutura_GN()
+# 			print('Qual o Atributo?')
+# 			Atributo = estrutura_GN()  ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+#
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Atributo + ' ' + Atribuidor + ' ' + Circunstancia + '?'
+#
+#
+# 	####INTENSIVA_IDENTIFICATIVA (sem DESIGNADOR)
+#
+# 	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_decodificação':
+# 		print('Apesar de Médio(middle), a direcionalidade_voz '
+# 		      'do Símbolo/Valor/Sujeito deste tipo_pessoa de oração determina '
+# 		      'se é operativa ou receptiva. Selecione a direcionalidade:')
+# 		direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 		if direcionalidade_voz == 'meio_operativa':
+# 			print('Neste caso, o Símbolo/Identificado conflui com o '
+# 			      'Sujeito(geralmente o elemento em posição temática')
+#
+# 			# (confluência do Símbolo/Identificado) =
+#
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '?'
+#
+#
+#
+# 		elif direcionalidade_voz == 'meio_receptiva':
+# 			print('Neste caso, o Valor/Identificador conflui com o Sujeito')
+# 			##NESTE CASO, confluência de Valor/Sujeito
+#
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '?'
+#
+#
+#
+# 	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_codificação':
+#
+# 		print(
+# 			'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor/Sujeito deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 		direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 		if direcionalidade_voz == 'meio_operativa':
+# 			print('Neste caso, o Símbolo/Identificado conflui com o Sujeito(geralmente o elemento em posição temática)')
+#
+# 			# (confluência do Símbolo/Identificador/Sujeito) =
+# 			# (Valor/Identificado/complemento)
+#
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '?'
+#
+# 		elif direcionalidade_voz == 'meio_receptiva':
+# 			print('Neste caso, o Valor conflui com o Sujeito')
+# 			##NESTE CASO, confluência de Valor/Identificado/Sujeito
+# 			##(Símbolo/Identificador/Complemento)
+#
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '?'
+#
+#
+# 	####INTENSIVA_IDENTIFICATIVA (COM DESIGNADOR = AGENTE)
+#
+# 	#    ###TRUE_Efetiva_operativa
+# 	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_operativo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+# 		print('Qual o tipo_pessoa de atribuição de relação?')
+# 		tipo_atribuição_relação = atribuição_de_relação()
+# 		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
+# 		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
+# 		# POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
+#
+# 		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
+# 		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
+# 		    tipo_atribuição_relação == 'atribuição_proj_verbal',
+# 		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
+# 		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual é o Designador?')
+# 			Designador = estrutura_GN()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()  ##ou frase preposicional?
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Designador + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Símbolo + ' ' + Valor + ' ' + Circunstancia + '?'
+# 			###rever possíveis estruturas para este tipo_pessoa de oração(pode haver 2 processos?)
+#
+# 	###TRUE_Efetiva_receptiva
+#
+# 	elif Transitividade == 'PR_relacional_intensivo_identificativo_AG_efetivo_receptivo' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+# 		print('Qual o tipo_pessoa de atribuição de relação?')
+# 		tipo_atribuição_relação = atribuição_de_relação()
+# 		##ir verificando no corpus se há diferença de realizacao para cada uma das opções a seguir e também se as ordens dos
+# 		# elementos na oração mudam(e consequente adequações morfológicas precisam ser implementadas)
+# 		##POR ENQUANTO, VOU COLOCAR APENAS UMA POSSIBILIDADE DE realizacao...COM O GRUPO NOMINAL E UMA ORDEM DE ELEMENTOS NA ORAÇÃO
+#
+# 		if (tipo_atribuição_relação == 'atribuição_proj_ment_cognitiva' or
+# 		    tipo_atribuição_relação == 'atribuição_proj_ment_desiderativa',
+# 		    tipo_atribuição_relação == 'atribuição_proj_verbal',
+# 		    tipo_atribuição_relação == 'atribuição_expan_elaboração',
+# 		    tipo_atribuição_relação == 'atribuição_expan_intencificação'):
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual é o Designador?')
+# 			Designador = frase_preposicional()
+# 			print('Qual é o Símbolo(Token)?')
+# 			Símbolo = estrutura_GN()
+# 			print('Qual o Valor(Value)?')
+# 			Valor = estrutura_GN()  ##ou frase preposicional?
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+# 			#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Valor + ' ' + Designador + ' ' + Circunstancia + '?'
+# 	####NOS DOIS TIPOS DE ORAÇÃO ANTERIORES É PRECISO VERIFICAR: possibilidade de realizacao de cada participante;
+# 	#        #ordem na estrutura; etc (vou fazer isso de acordo com o que for encontrando no corpus, por enquanto estao comentadas)
+#
+# 	# POSSESSIVO ATRIBUTIV0
+#
+# 	elif Transitividade == 'PR_relacional_possessivo_atributivo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+#
+# 		TIPO_ATRIBUIÇÃO_POSSESSIVO = choice.Menu(['posse_atributo', 'posse_processo']).ask()
+#
+# 		if TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_atributo':
+#
+# 			realizacao_atributo = choice.Menu(['grupo_nominal_possessivo', 'frase_preposicional']).ask()
+#
+# 			if realizacao_atributo == 'grupo_nominal_possessivo':
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual o Portador/Posse?')
+# 				Portador_Posse = estrutura_GN()
+# 				print('Qual é o Atributo/Possuidor?')
+# 				Atributo_Possuidor = estrutura_GN()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse \
+# 				         + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '?'
+#
+# 			elif realizacao_atributo == 'frase_preposicional':
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual o Portador/Posse?')
+# 				Portador_Posse = estrutura_GN()
+# 				print('Qual é o Atributo/Possuidor?')
+# 				Atributo_Possuidor = frase_preposicional()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '?'
+#
+#
+# 		elif TIPO_ATRIBUIÇÃO_POSSESSIVO == 'posse_processo':
+#
+# 			##VERBO TER/POSSUIR/
+#
+# 			tipo_possuidor = choice.Menu(['possuidor_portador', 'possuidor_atributo']).ask()
+#
+# 			if tipo_possuidor == 'possuidor_portador':
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual o Portador/Possuidor?')
+# 				Portador_Possuidor = estrutura_GN()
+# 				print('Qual é o Atributo/Posse?')
+# 				Atributo_Posse = estrutura_GN()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Possuidor \
+# 				         + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo_Posse + ' ' + Circunstancia + '?'
+# 			###VERBOS PERTENCER A/...
+#
+# 			elif tipo_possuidor == 'possuidor_atributo':
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual o Portador/Possuidor?')
+# 				Portador_Posse = estrutura_GN()
+# 				print('Qual é o Atributo/Posse?')
+# 				Atributo_Possuidor = frase_preposicional()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador_Posse + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Atributo_Possuidor + ' ' + Circunstancia + '?'
+#
+# 		# POSSESSIVO IDENTIFICATIVO
+#
+#
+# 	elif Transitividade == 'PR_relacional_possessivo_identificativo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+#
+# 		TIPO_IDENTIFICATIVO_POSSESSIVO = choice.Menu(['posse_participante', 'posse_processo']).ask()
+#
+# 		if TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_participante':
+#
+# 			print(
+# 				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 			if direcionalidade_voz == 'meio_operativa':
+# 				print('Neste caso, o Símbolo conflui com o Sujeito/Possuído/Identificado')
+#
+# 				print(
+# 					'Escolha o tipo_pessoa de realizacao do Valor:')
+# 				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
+#
+# 				if realizacao_Valor == 'grupo_nominal':
+#
+# 					Tema_textual = TEMA_TEXTUAL()
+# 					Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()
+# 					print('Qual é o Símbolo(Token)/Possuído?')
+# 					Símbolo_Possuído = estrutura_GN()
+# 					print('Qual o Valor(Value)/Possuidor?')
+# 					Valor_Possuidor = estrutura_GN()
+# 					Polaridade = POLARIDADE()
+# 					Circunstância = circunstância()
+#
+# 					# Ex.: O piano é seu
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuído + ' ' + Polaridade \
+# 					         + ' ' + Processo + ' ' + Valor_Possuidor + ' ' + Circunstancia + '?'
+#
+# 				elif realizacao_Valor == 'frase_preposicional':
+#
+# 					Tema_textual = TEMA_TEXTUAL()
+# 					Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()
+# 					print('Qual é o Símbolo(Token)?')
+# 					Símbolo_Possuído = estrutura_GN()
+# 					print('Qual o Valor(Value)?')
+# 					Valor_Possuidor = frase_preposicional()
+# 					Polaridade = POLARIDADE()
+# 					Circunstância = circunstância()
+#
+# 					# Ex.: O piano é do André
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuído + ' ' + Polaridade \
+# 					         + ' ' + Processo + ' ' + Valor_Possuidor + ' ' + Circunstancia + '?'
+#
+#
+# 			elif direcionalidade_voz == 'meio_receptiva':
+# 				print('Neste caso, o Valor conflui com Sujeito/Identificado/Possuidor')
+#
+# 				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
+#
+# 				if realizacao_Valor == 'grupo_nominal':
+#
+# 					Tema_textual = TEMA_TEXTUAL()
+# 					Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()
+# 					print('Qual é o Símbolo(Token)/Possuído?')
+# 					Símbolo_Possuído = estrutura_GN()
+# 					print('Qual o Valor(Value)/Possuidor?')
+# 					Valor_Possuidor = estrutura_GN()
+# 					Polaridade = POLARIDADE()
+# 					Circunstância = circunstância()
+#
+# 					# Ex.: O seu é o piano
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuidor + ' ' + Polaridade \
+# 					         + ' ' + Processo + ' ' + Símbolo_Possuído + ' ' + Circunstancia + '?'
+#
+# 				elif realizacao_Valor == 'frase_preposicional':
+#
+# 					Tema_textual = TEMA_TEXTUAL()
+# 					Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()
+# 					print('Qual é o Símbolo(Token)?')
+# 					Símbolo_Possuído = estrutura_GN()
+# 					print('Qual o Valor(Value)?')
+# 					Valor_Possuidor = estrutura_GN()
+# 					Polaridade = POLARIDADE()
+# 					Circunstância = circunstância()
+#
+# 					# Ex.: O do André é o piano
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuidor \
+# 					         + ' ' + Polaridade + ' ' + Processo + ' ' + Símbolo_Possuído + ' ' + Circunstancia + '?'
+#
+# 		elif TIPO_IDENTIFICATIVO_POSSESSIVO == 'posse_processo':
+# 			## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste de, providenciar
+# 			##NÃO SEI SE ESTA PARTE DO SISTEMA FUNCIONA BEM NO PORTUGUÊS
+#
+# 			print(
+# 				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 			if direcionalidade_voz == 'meio_operativa':
+# 				print('Neste caso, o Símbolo conflui com o Sujeito/Possuidor/Identificado')
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 				print(
+# 					'Qual o Processo? ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste, providenciar')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Símbolo(Token)/Possuidor?')
+# 				Símbolo_Possuidor = estrutura_GN()
+# 				print('Qual o Valor(Value)/Possuído?')
+# 				Valor_Possuído = estrutura_GN()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				# Ex.: O produto contém plástico, Eles merecem a aposentadoria
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo_Possuidor \
+# 				         + ' ' + Polaridade + ' ' + Processo + ' ' + Valor_Possuído + ' ' + Circunstancia + '?'
+#
+#
+#
+# 			elif direcionalidade_voz == 'meio_receptiva':
+# 				print('Neste caso, o Valor conflui com Sujeito/Identificado/Possuído')
+#
+# 				realizacao_Valor = choice.Menu(['grupo_nominal', 'frase_preposicional']).ask()
+#
+# 				if realizacao_Valor == 'grupo_nominal':
+# 					Tema_textual = TEMA_TEXTUAL()
+# 					Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 					print('Qual o Processo?')
+# 					Processo = grupo_verbal()  ##na passiva
+# 					print('Qual o Valor(Value)/Possuído?')
+# 					Valor_Possuído = estrutura_GN()
+# 					print('Qual é o Símbolo(Token)/Possuidor?')
+# 					Símbolo_Possuidor = frase_preposicional()
+# 					Polaridade = POLARIDADE()
+# 					Circunstância = circunstância()
+#
+# 					# Ex.: O seu é o piano
+# 					oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor_Possuído + ' ' + Polaridade \
+# 					         + ' ' + Processo + ' ' + Símbolo_Possuidor + ' ' + Circunstancia + '?'
+#
+#
+# 	#####RELACIONAL CIRCUNSTANCIAL MODO INTERROGATIVO POLAR
+#
+# 	elif Transitividade == 'PR_relacional_circunstancial_atributivo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+# 		print('Qual o tipo_pessoa de realizacao da Relacional Circunstancial?')
+# 		TIPO_ATRIBUTIVO_CIRCUNSTANCIAL = choice.Menu(['atributo_circunstancial', 'processo_circunstancial']).ask()
+#
+# 		if TIPO_ATRIBUTIVO_CIRCUNSTANCIAL == 'atributo_circunstancial':
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Portador')
+# 			Portador = estrutura_GN()
+# 			print('Qual é o Atributo Circunstancial?')
+# 			Atributo_Circunstancial = circunstância()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			# Ex.: O livro é sobre a IIGuerra
+#
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade \
+# 			         + ' ' + Processo + ' ' + Atributo_Circunstancial + ' ' + Circunstancia + '?'
+#
+# 		elif TIPO_ATRIBUTIVO_CIRCUNSTANCIAL == 'processo_circunstancial':
+# 			Tema_textual = TEMA_TEXTUAL()
+# 			Tema_interpessoal = TEMA_INTERPESSOAL()
+# 			print('Qual o Processo?')
+# 			Processo = grupo_verbal()
+# 			print('Qual o Portador')
+# 			Portador = estrutura_GN()
+# 			print('Qual é o Atributo Circunstancial?')
+# 			Atributo = estrutura_GN()
+# 			Polaridade = POLARIDADE()
+# 			Circunstância = circunstância()
+#
+# 			# Ex.: O livro retrata a IIGuerra
+# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Portador + ' ' + Polaridade + ' ' + Processo \
+# 			         + ' ' + Atributo + ' ' + Circunstancia + '?'
+#
+#
+#
+#
+# 	elif Transitividade == 'PR_relacional_circunstancial_identificativo_AG_médio_com_alcance' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+#
+# 		print('O significado circunstancial é realixado no participante ou no processo?')
+# 		TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL = choice.Menu(
+# 			['participante_circunstancial', 'processo_circunstancial']).ask()
+#
+# 		if TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'participante_circunstancial':
+#
+# 			print(
+# 				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 			if direcionalidade_voz == 'meio_operativa':
+# 				print('Neste caso, há confluência Símbolo/Sujeito/Identificado')
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Símbolo(Token)?')
+# 				Símbolo = circunstância()
+# 				print('Qual o Valor(Value)?')
+# 				Valor = estrutura_GN()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				# Ex.: Amanhá é dia 10
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '?'
+#
+#
+# 			elif direcionalidade_voz == 'meio_receptiva':
+# 				print('Neste caso, há confluência Valor/Sujeito/Identificado')
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Símbolo(Token)?')
+# 				Símbolo = circunstância()
+# 				print('Qual o Valor(Value)?')
+# 				Valor = estrutura_GN()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				# Ex.:dia 10 é Amanhá
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '?'
+#
+#
+# 		elif TIPO_IDENTIFICATIVO_CIRCUNSTANCIAL == 'processo_circunstancial':
+#
+# 			print(
+# 				'Apesar de Médio(middle), a direcionalidade_voz do Símbolo/Valor deste tipo_pessoa de oração determina se é operativa ou receptiva. Selecione a direcionalidade:')
+# 			direcionalidade_voz = choice.Menu(['meio_operativa', 'meio_receptiva']).ask()
+#
+# 			if direcionalidade_voz == 'meio_operativa':
+# 				print('Neste caso, há confluência Símbolo/Sujeito/Identificado')
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()
+# 				print('Qual é o Símbolo(Token)?')
+# 				Símbolo = circunstância()
+# 				print('Qual o Valor(Value)?')
+# 				Valor = circunstância()
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+#
+# 				# Ex.: A feira dura o dia inteiro
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Símbolo + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Valor + ' ' + Circunstancia + '?'
+#
+#
+# 			elif direcionalidade_voz == 'meio_receptiva':
+# 				print('Neste caso, há confluência Valor/Sujeito/Identificado')
+#
+# 				Tema_textual = TEMA_TEXTUAL()
+# 				Tema_interpessoal = TEMA_INTERPESSOAL()
+#
+# 				print('Qual o Processo?')
+# 				Processo = grupo_verbal()  ## reiterações-verbo na passiva
+# 				print('Qual o Valor(Value)?')
+# 				Valor = circunstância()
+# 				print('Qual é o Símbolo(Token)?')
+# 				Símbolo = circunstância()
+#
+# 				Polaridade = POLARIDADE()
+# 				Circunstância = circunstância()
+# 				# Ex.: O dia todo é ocupado pela feira
+#
+# 				oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Valor + ' ' + Polaridade \
+# 				         + ' ' + Processo + ' ' + Símbolo + ' ' + Circunstancia + '?'
+#
+#
+# 	##ORAÇÃO EXISTENCIAL MODO INTERROGATIVO POLAR
+#
+# 	elif Transitividade == 'PR_Existencial_AG_NA' \
+# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+# 			and Tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+#
+# 		Tema_interpessoal = TEMA_INTERPESSOAL()
+# 		Tema_textual = TEMA_TEXTUAL()
+#
+# 		print('Qual o Processo?')
+# 		Processo = grupo_verbal()
+# 		print('Qual é o Existente?')
+# 		Existente = estrutura_GN()
+# 		Polaridade = POLARIDADE()
+# 		Circunstância = circunstância()
+# 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Polaridade \
+# 		         + ' ' + Processo + ' ' + Existente + ' ' + Circunstancia + '?'
+#
+# 	return (re.sub(' +', ' ', oração).strip().capitalize())
 
 # #
 # # def flexionarVerbo(experience='none', functionInGroup='none',
@@ -15224,3 +15028,145 @@ gerar_oracao(
 # # # alertou
 # # flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='alertar', person='3', gender='none', number='Sing',
 # #                mood='Ind', tense='Past', aspect='Perf')
+
+
+if __name__ == "__main__":
+	##exemplos oração mental
+	print(oracaoMental(
+		# transitividade
+		'Mental', None,
+		1, None, None,
+
+		# modo
+		0, 0, 1,
+		# TEMA IDEACIONAL
+		'orientado', 'direcional',
+		'default', 'indicativo',
+		'declarativo', 'NA',
+		None, None, None,
+
+		##Processo Mental
+		'não-fenomenalização_assunto', 'superior_cognitivo',
+		# Processo
+		'Fazer', 'não_agenciado', None, None, None, None, None, None,
+		None, None, None, None, None, None, None, None, None,
+		None, None, None, None, None, None, None, None, None, None, None,
+		None, None, None, None, None,
+		'Morfologia_padrão', 'Fazer', 'Evento', 'saber', 'presente', 'singular',
+		None, '1pessoa', 'Morfologia_padrão',
+		# POLARIDADE
+		'positiva',
+
+		##PARTICIPANTES
+		None, None, None, None,
+		None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None, None, None,
+		None, None, None, None,
+		None,
+		'consciente', None, None,
+		None, 'pronome_caso_reto',
+		None, 'singular',
+		None, None, None, None,
+		'falante',
+		None, None, "Morfologia_padrão", None,
+		None, None, None,
+		None, None, None, None,
+		# realizados por frase preposicional
+		6, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, 'não-binário', None, None,
+		None, None, None, None,
+		None, 'não_consciente', 'material',
+		'abstração_material', None,
+		'substantivo_comum', 'futebol', 'singular',
+		None, None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None,
+		None, None, None, None
+	))
+	print(oracaoMental(
+	# transitividade
+	'Mental', None,
+	1, None, None,
+
+	# modo
+	0, 0, 1,
+	# TEMA IDEACIONAL
+	'orientado', 'direcional',
+	'default', 'indicativo',
+	'declarativo', 'NA',
+	None, None, None,
+
+	##Processo Mental
+	'fenomenalização_fenômeno-simples', 'superior_cognitivo',
+# Processo
+	'Sentir', 'não_agenciado', None, None, None, None, None, None,
+	None, None, None, None, None, None, None, None, None,
+	None, None, None, None, None, None, None, None, None, None, None,
+	None, None, None, None, None,
+	'Morfologia_padrão', 'Fazer', 'Evento', 'imaginar', 'pretérito_perfectivo_I', 'singular',
+	None, '1pessoa', 'Morfologia_padrão',
+	# POLARIDADE
+	'positiva',
+	##PARTICIPANTES
+	# p1
+	None, None, None, None,
+	None, None,
+	None, None, None,
+	None, None, None,
+	None, None, None,
+	None, None, None,
+	None, None, None, None, None,
+	None, None, None, None,
+	None,
+	'consciente', None, None,
+	None, 'pronome_caso_reto',
+	None, 'singular',
+	None, None, None, None,
+	'falante',
+	None, None, "Morfologia_padrão", None,
+	None, None, None,
+	None, None, None, None,
+# p2
+	None, None, None, None,
+	None, None, None, None,
+	None, 'específico', 'NA',
+	'masculino', 'singular', None,
+	None, None, None,
+	None, None, None, 'não-binário',
+	None, None, None, None,
+	None, None, None,
+	'não_consciente', 'material', 'abstração_material',
+	None, 'substantivo_comum', 'jogo',
+	'singular', None, None, None, None,
+	None, None, None, "Morfologia_padrão",
+	None, None, None, None,
+	None, None, None, None,
+
+	# realizados por frase preposicional
+	None, None, None,
+	None, None, None,
+	None, None, None,
+	None, None, None,
+	None, None, None,
+	None, None, None,
+	None, None, None, None, None,
+	None, None, None, None,
+	None, None,None,
+	None, None,
+	None, None, None,
+	None, None, None, None,
+	None, None, None,
+	None, None, None,
+	None, None,
+	None, None, None, None,
+	))

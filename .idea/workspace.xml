@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/NLG_BRAZILIAN_PORTUGUESE_19-11.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NLG_BRAZILIAN_PORTUGUESE_19-11.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste1.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste1.py" afterDir="false" />
@@ -30,11 +32,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/corpus/scraping_verbos.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_main.py" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/corpus/experimento_dev_verbos.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/corpus/scraping_verbos.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_main.py" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1lTW8rtfPkdVNdmbaWSqRvVh02Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -46,7 +48,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documentos/PROJETO_INPE_COVID_EXPERIMENTO_ANDRE" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -56,8 +58,8 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Doctests in GENERATION_dev">
-    <configuration name="TESTE" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.GENERATION_dev">
+    <configuration name="GENERATION_dev" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLG_BRAZILIAN_PORTUGUESE_19-11" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -65,11 +67,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TESTE.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GENERATION_dev" />
         <item itemvalue="Python tests.Doctests in GENERATION_dev" />
         <item itemvalue="Python.teste" />
         <item itemvalue="Python.minerando_lemas_e_EXPERIMENTOSAPLICACAO" />
         <item itemvalue="Python.experimento_dev_verbos" />
-        <item itemvalue="Python.TESTE" />
       </list>
     </recent_temporary>
   </component>
@@ -197,58 +199,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/debug.py</url>
-          <line>133</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
-          <line>13</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
-          <line>92</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
-          <line>93</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
-          <line>95</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
-          <line>96</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py</url>
-          <line>91</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste1.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste1.py</url>
-          <line>137</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="python-line">
-          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
-          <line>11939</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
