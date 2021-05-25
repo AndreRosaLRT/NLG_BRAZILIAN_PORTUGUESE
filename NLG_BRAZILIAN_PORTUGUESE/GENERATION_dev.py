@@ -10015,7 +10015,8 @@ def realizacao_pronominal_casoreto(pessoa_da_interlocucao,genero,numero,morfolog
 # realizacao_pronominal_casoreto("não_interlocutor", "feminino", "singular", morfologia_do_pronome="de_terceira_pessoa")
 
 
-def realizacao_pronome_caso_obliquo(transitividade_verbo,tonicidade,pessoa_da_interlocucao,numero,genero,morfologia_do_pronome,reflexivo=False):
+def realizacao_pronome_caso_obliquo(transitividade_verbo=None,tonicidade=None,pessoa_da_interlocucao=None,numero=None,
+									genero=None,morfologia_do_pronome=None,reflexivo=False):
 	'''(str)->str
     Retorna o pronome oblíquo adequado dado uma pessoa da intelocução.
 	tonicidade = choice.Menu(['átono', 'tônico']).ask()
@@ -10026,104 +10027,167 @@ def realizacao_pronome_caso_obliquo(transitividade_verbo,tonicidade,pessoa_da_in
     >>>realizacao_pronominal_caso_oblíquo ()
     'me'
     '''
+	if tonicidade == 'átono' and transitividade_verbo == "direto":
+		if numero == 'singular':
+			if pessoa_da_interlocucao == 'falante':
+				pronome_pessoal_obliquo = 'me'
+			elif pessoa_da_interlocucao == 'ouvinte':
+				pronome_pessoal_obliquo = 'te'
+		elif numero == 'plural':
+			if pessoa_da_interlocucao == 'falante':
+				pronome_pessoal_obliquo = 'nos'
+			elif pessoa_da_interlocucao == 'ouvinte':
+				pronome_pessoal_obliquo = 'vos'
 
-	if pessoa_da_interlocucao == 'falante' and numero == 'singular' and tonicidade == 'átono' and transitividade_verbo == "direto":
-		pronome_pessoal_obliquo = 'me'
+		if  pessoa_da_interlocucao == 'não_interlocutor':
+			if numero == 'singular':
+				if genero == 'masculino':
+					if morfologia_do_pronome == 'padrão' :
+						pronome_pessoal_obliquo = 'o'
 
-	elif pessoa_da_interlocucao == 'ouvinte' and numero == 'singular' and tonicidade == 'átono':
-		pronome_pessoal_obliquo = 'te'
+				if genero == 'feminino':
+					if morfologia_do_pronome == 'padrão' :
+						pronome_pessoal_obliquo = 'a'
 
-	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular' and tonicidade == 'átono':
+			elif numero == 'plural':
+				if genero == 'masculino':
+					if morfologia_do_pronome == 'padrão' :
+						pronome_pessoal_obliquo = 'os'
 
-		if morfologia_do_pronome == 'padrão':
-			if genero == 'masculino':
-				pronome_pessoal_obliquo = 'o'
+				if genero == 'feminino':
+					if morfologia_do_pronome == 'padrão' :
+						pronome_pessoal_obliquo = 'as'
 
-			elif genero == 'feminino':
-				pronome_pessoal_obliquo = 'a'
-		elif morfologia_do_pronome == 'não_padrão':
-			if genero == 'masculino':
-				pronome_pessoal_obliquo = 'ele'
-			else:
-				pronome_pessoal_obliquo = 'ela'
-		else:
-			if reflexivo==True:
-				pronome_pessoal_obliquo = 'se'
+	if reflexivo==True:
+			pronome_pessoal_obliquo = 'se'
 
-	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular' and tonicidade == 'átono' and transitividade_verbo == "indireto":
-		pronome_pessoal_obliquo = 'lhe'
+	if pessoa_da_interlocucao == 'não_interlocutor'  and transitividade_verbo == "indireto":
+		if tonicidade == 'átono':
+			if numero == 'singular':
+				pronome_pessoal_obliquo = 'lhe'
 
-	elif pessoa_da_interlocucao == 'falante' and numero == 'plural' and tonicidade == 'átono':
-		pronome_pessoal_obliquo = 'nos'
+			elif numero == 'plural':
+				if morfologia_do_pronome == 'padrão':
+					pronome_pessoal_obliquo = 'lhes'
 
-	elif pessoa_da_interlocucao == 'ouvinte' and numero == 'plural' and tonicidade == 'átono':
-		pronome_pessoal_obliquo = 'vos'
 
-	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural' and tonicidade == 'átono':
-		if morfologia_do_pronome == 'padrão':
+		elif tonicidade == 'tônico':
+			if morfologia_do_pronome == 'não_padrão':
+				if genero == 'masculino':
+					if numero == 'singular':
+						pronome_pessoal_obliquo = 'ele'
+					elif numero =='plural':
+						pronome_pessoal_obliquo = 'eles'
 
-			if genero == 'masculino':
-				pronome_pessoal_obliquo = 'os'
+				elif genero == 'feminino':
+					if numero == 'singular':
+						pronome_pessoal_obliquo = 'ela'
+					elif numero =='plural':
+						pronome_pessoal_obliquo = 'elas'
+			elif morfologia_do_pronome == 'padrão':
+				pronome_pessoal_obliquo = 'si'
 
-			elif genero == 'feminino':
-				pronome_pessoal_obliquo = 'as'
-		else:
-			if reflexivo == True:
-				pronome_pessoal_obliquo = 'se'
-
-	elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural' and tonicidade == 'átono' and transitividade_verbo == "indireto":
-		pronome_pessoal_obliquo = 'lhes'
-
-		if morfologia_do_pronome == 'não_padrão':
-
-			if genero == 'masculino':
-				pronome_pessoal_obliquo = 'eles'
-			else:
-				pronome_pessoal_obliquo = 'elas'
-		if transitividade_verbo == 'indireto':
-			if pessoa_da_interlocucao == 'falante' and numero == 'singular' and tonicidade == 'tônico':
+	if transitividade_verbo == 'indireto'  and tonicidade == 'tônico':
+		if numero == 'singular':
+			if pessoa_da_interlocucao == 'falante':
 				pronome_pessoal_obliquo = 'mim'
-
-			elif pessoa_da_interlocucao == 'ouvinte' and numero == 'singular' and tonicidade == 'tônico':
-
+			elif pessoa_da_interlocucao == 'ouvinte' :
 				if morfologia_do_pronome == 'padrão':
 					pronome_pessoal_obliquo = 'ti'
 				else:
 					pronome_pessoal_obliquo = 'você'
-
-		elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular' and tonicidade == 'tônico':
-			if morfologia_do_pronome == 'não_padrão':
-				if genero == 'masculino':
-					pronome_pessoal_obliquo = 'ele'
-
-				elif genero == 'feminino':
-					pronome_pessoal_obliquo = 'ela'
-			else:
-				pronome_pessoal_obliquo = 'si'
-
-		elif pessoa_da_interlocucao == 'falante' and numero == 'plural' and tonicidade == 'tônico':
-			pronome_pessoal_obliquo = 'nós'
-
-		elif pessoa_da_interlocucao == 'ouvinte' and numero == 'plural' and tonicidade == 'tônico':
-
-			if morfologia_do_pronome == 'padrão':
-				pronome_pessoal_obliquo = 'vós'
-			else:
-				pronome_pessoal_obliquo = 'vocês'
-
-		elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural' and tonicidade == 'tônico':
-
-			if morfologia_do_pronome == 'não_padrão':
-				if genero == 'masculino':
-					pronome_pessoal_obliquo = 'eles'
-
-				elif genero == 'feminino':
-					pronome_pessoal_obliquo = 'elas'
-			else:
-				pronome_pessoal_obliquo = 'si'
+		elif numero == 'plural':
+			if pessoa_da_interlocucao == 'falante':
+				pronome_pessoal_obliquo = 'nós'
+			elif pessoa_da_interlocucao == 'ouvinte' :
+				if morfologia_do_pronome == 'padrão':
+					pronome_pessoal_obliquo = 'vós'
+				else:
+					pronome_pessoal_obliquo = 'vocês'
 
 	return pronome_pessoal_obliquo
-# realizacao_pronome_caso_obliquo("indireto",'tônico',"não_interlocutor",'singular','feminino',"padrão")
+
+#me
+realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='falante', numero='singular', genero=None, morfologia_do_pronome=None, reflexivo=False)
+#te
+realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='ouvinte', numero='singular', genero=None, morfologia_do_pronome=None, reflexivo=False)
+#nos
+realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='falante', numero='plural', genero=None, morfologia_do_pronome=None, reflexivo=False)
+#vos
+realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='ouvinte', numero='plural', genero=None, morfologia_do_pronome=None, reflexivo=False)
+
+
+#o
+realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='singular', genero='masculino', morfologia_do_pronome='padrão', reflexivo=False)
+#ele
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='não_interlocutor', numero='singular', genero='masculino', morfologia_do_pronome='não_padrão', reflexivo=False)
+#a
+realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='singular', genero='feminino', morfologia_do_pronome='padrão', reflexivo=False)
+#ela
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='não_interlocutor', numero='singular', genero='feminino', morfologia_do_pronome='não_padrão', reflexivo=False)
+#os
+realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero='masculino', morfologia_do_pronome='padrão', reflexivo=False)
+#eles
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero='masculino', morfologia_do_pronome='não_padrão', reflexivo=False)
+
+#as
+realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero='feminino', morfologia_do_pronome='padrão', reflexivo=False)
+#elas
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero='feminino', morfologia_do_pronome='não_padrão', reflexivo=False)
+#elas
+realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor',
+								numero='plural', genero='feminino', morfologia_do_pronome='padrão', reflexivo=False)
+
+
+#se
+realizacao_pronome_caso_obliquo(transitividade_verbo=None, tonicidade=None, pessoa_da_interlocucao=None, numero=None, genero=None, morfologia_do_pronome=None, reflexivo=True)
+#lhe
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='singular', genero=None, morfologia_do_pronome=None, reflexivo=None)
+
+#lhes
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero=None, morfologia_do_pronome='padrão', reflexivo=None)
+
+#mim
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='falante', numero='singular', genero=None, morfologia_do_pronome='padrão', reflexivo=None)
+#ti
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='ouvinte', numero='singular', genero=None, morfologia_do_pronome='padrão', reflexivo=None)
+
+#você
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='ouvinte', numero='singular', genero=None, morfologia_do_pronome='não_padrão', reflexivo=None)
+
+
+#nós
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='falante', numero='plural', genero=None, morfologia_do_pronome='padrão', reflexivo=None)
+#vós
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='ouvinte', numero='plural', genero=None, morfologia_do_pronome='padrão', reflexivo=None)
+
+#você
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='ouvinte', numero='plural', genero=None, morfologia_do_pronome='não_padrão', reflexivo=None)
+
+##me
+realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='falante',
+									numero='singular',genero=None, morfologia_do_pronome=None, reflexivo=False)
+
+
+realizacao_pronome_caso_obliquo("indireto",'tônico',"não_interlocutor",'singular','feminino',"padrão")
+realizacao_pronome_caso_obliquo(transitividade_verbo='indireto',tonicidade='átono',pessoa_da_interlocucao='não_interlocutor',
+								numero='plural',genero=None,morfologia_do_pronome='padrão',reflexivo=False)
+
+
+estrutura_GN(None, None, None,None,
+				 None, None, None, None,
+				None, None,None,
+				 None,None, None,
+				 None, None, None,
+				 None, None, None, None,
+				 None, None, None,None,
+				 None, None,None,
+				'consciente', None, None,
+				 None, 'pronome_caso_oblíquo',None,
+				 'singular',None, None, None, None,
+				'falante','direto','átono', "padrão",
+				None, None, None,None,
+				 None,None, None,None)
 
 ##TENHO QUE VER SE FAZ SENTIDO MUDAR ESTA(inserir parâmetros??)
 	# modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
@@ -10611,7 +10675,7 @@ def Deixis_geral(DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
 #
 # print('Qual a classe de palavra que realiza o Ente?')
 # classe_palavra_Ente = choice.Menu(
-# 	['substantivo_comum', 'substantivo_próprio', 'pronome_caso_reto', 'pronome_caso_oblíquo']).ask()
+# 	['substantivo_comum', 'substantivo_próprio', 'pronome_caso_reto', 'pronome_caso_obliquo']).ask()
 # print('Qual tipo_pessoa de semiótico?')
 # tipo_de_nao_consciente_semiotico = choice.Menu(
 # 	['instituição', 'objeto_semiótico', 'abstração_semiótica']).ask()
@@ -10644,16 +10708,20 @@ def Ente(tipo_de_Ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_
 	return Ente
 
 #
-# Ente('não_consciente','material','animal', None,'substantivo_comum','gato','singular', 'feminino')
-# Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
-#      'pronome_caso_reto', None, "singular",
-#      "feminino",None, None,None,None,"falante",
-#      None,None,None,None)
-# Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
-#      'pronome_caso_reto', None, "plural",
-#      "feminino",None, None,None,None,"falante",
-#      None,None,None,None)
-
+Ente('não_consciente','material','animal', None,'substantivo_comum','gato','singular', 'feminino')
+Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
+     'pronome_caso_reto', None, "singular",
+     "feminino",None, None,None,None,"falante",
+     None,None,None,None)
+Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
+     'pronome_caso_reto', None, "plural",
+     "feminino",None, None,None,None,"falante",
+     None,None,None,None)
+Ente(tipo_de_Ente="não_consciente", tipo_de_nao_consciente="semiótico", tipo_de_nao_consciente_material=None,
+	tipo_de_nao_consciente_semiotico='abstração_semiótica', classe_palavra_Ente='pronome_caso_oblíquo',
+	 substantivo_lematizado=None, numero=None, genero=None, tipo_feminino_ÃO=None, 
+	 tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,pessoa_da_interlocucao=None,
+	 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None)
 # #
 # # ###No caso do Ente, ainda tenho que modelar as opções de Ente realizados por substantivos compostos (devido ao padrão de
 # # # morfologia das flexões
@@ -10757,6 +10825,8 @@ def estrutura_GN_downraked(dissocEnteNucleo=None, temQualificador=None, tipoQual
 				 adjetivo_classificador, generoAdjetivo, numeroAdjetivo,contracao)
 
 	return re.sub(' +',' ',GN_downranked).strip()
+
+# estrutura_GN_downraked()
 # estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
 # 			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
 # 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
@@ -10820,80 +10890,84 @@ def estrutura_GN(dissocEnteNucleo=None, temQualificador=None, tipoQualificador=N
 				 pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None,
 				 reflexivo=None, epitetoModificacao=None, adjetivo_epiteto=None, classificadorModificacao=None,
 				 adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None,contracao=None):
+	try:
+		if dissocEnteNucleo == None:
 
-	if dissocEnteNucleo == None:
+			Determinante = Deixis_geral(DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
+					 gênero_beta,número_beta,morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha,
+					 ORIENTAÇÃO_alpha,gênero_alpha,número_alpha,morfologia_do_pronome_alpha,
+					 pessoa_da_interlocução_possuidor,número_obj_possuído,
+					 gênero_obj_possuído,pessoa_da_interlocução_proximidade)
 
-		Determinante = Deixis_geral(DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
-				 gênero_beta,número_beta,morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha,
-				 ORIENTAÇÃO_alpha,gênero_alpha,número_alpha,morfologia_do_pronome_alpha,
-				 pessoa_da_interlocução_possuidor,número_obj_possuído,
-				 gênero_obj_possuído,pessoa_da_interlocução_proximidade)
+			numerativo = Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
+				   milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido)
 
-		numerativo = Numerativo(funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
-			   milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido)
+			ente = Ente(tipo_de_Ente,tipo_de_nao_consciente,tipo_de_nao_consciente_material,
+			 tipo_de_nao_consciente_semiotico,classe_palavra_Ente,substantivo_lematizado,numero,
+			genero, tipo_feminino_ÃO, tipo_masc_ÃO,acentTonica,nomeProprio,pessoa_da_interlocucao,
+			 transitividade_verbo,tonicidade,morfologia_do_pronome,reflexivo)
 
-		ente = Ente(tipo_de_Ente,tipo_de_nao_consciente,tipo_de_nao_consciente_material,
-		 tipo_de_nao_consciente_semiotico,classe_palavra_Ente,substantivo_lematizado,numero,
-		genero, tipo_feminino_ÃO, tipo_masc_ÃO,acentTonica,nomeProprio,pessoa_da_interlocucao,
-		 transitividade_verbo,tonicidade,morfologia_do_pronome,reflexivo)
+			Classificador = adjetivo(classificadorModificacao,adjetivo_classificador,generoAdjetivo, numeroAdjetivo)
 
-		Classificador = adjetivo(classificadorModificacao,adjetivo_classificador,generoAdjetivo, numeroAdjetivo)
+			Epíteto = adjetivo(epitetoModificacao,adjetivo_epiteto,generoAdjetivo, numeroAdjetivo)
 
-		Epíteto = adjetivo(epitetoModificacao,adjetivo_epiteto,generoAdjetivo, numeroAdjetivo)
+			Qualificador = qualificador(temQualificador, tipoQualificador, indicePreposicao,
+										DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta,
+										gênero_beta, número_beta, morfologia_do_pronome_beta,
+										DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha, gênero_alpha,
+										número_alpha, morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+										número_obj_possuído, gênero_obj_possuído, pessoa_da_interlocução_proximidade,  #
+										funcaoNumerativo, cardinal, genero, tipo_precisa, tipoRealCard,
+										milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso, numIndefinido,
+										tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+										tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado,
+										numero,tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio,
+										pessoa_da_interlocucao, transitividade_verbo, tonicidade,
+										morfologia_do_pronome, reflexivo,  #
+										epitetoModificacao, adjetivo_epiteto, classificadorModificacao,
+										adjetivo_classificador, generoAdjetivo,
+										numeroAdjetivo, contracao)
 
-		Qualificador = qualificador(temQualificador, tipoQualificador, indicePreposicao,
-									DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta,
-									gênero_beta, número_beta, morfologia_do_pronome_beta,
-									DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha, gênero_alpha,
-									número_alpha, morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
-									número_obj_possuído, gênero_obj_possuído, pessoa_da_interlocução_proximidade,  #
-									funcaoNumerativo, cardinal, genero, tipo_precisa, tipoRealCard,
-									milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso, numIndefinido,
-									tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
-									tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado,
-									numero,tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio,
-									pessoa_da_interlocucao, transitividade_verbo, tonicidade,
-									morfologia_do_pronome, reflexivo,  #
-									epitetoModificacao, adjetivo_epiteto, classificadorModificacao,
-									adjetivo_classificador, generoAdjetivo,
-									numeroAdjetivo, contracao)
+			GN = Determinante + ' ' + numerativo + ' ' + ente + ' ' + Classificador + ' ' + Epíteto + ' ' + Qualificador
 
-		GN = Determinante + ' ' + numerativo + ' ' + ente + ' ' + Classificador + ' ' + Epíteto + ' ' + Qualificador
+		else:
 
-	else:
+			Núcleo_lógico = estrutura_GN_downraked(dissocEnteNucleo, temQualificador, tipoQualificador, indicePreposicao,
+					 DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta, gênero_beta, número_beta,
+					 morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha,
+					 gênero_alpha, número_alpha, morfologia_do_pronome_alpha,
+					 pessoa_da_interlocução_possuidor, número_obj_possuído, gênero_obj_possuído,
+					 pessoa_da_interlocução_proximidade, funcaoNumerativo, cardinal, genero,
+					 tipo_precisa, tipoRealCard, milharExtenso, centenaExtenso,
+					 dezenaExtenso, unidadeExtenso, numIndefinido,
+					 tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+					 tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado,
+					 numero, tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio,
+					 pessoa_da_interlocucao, transitividade_verbo, tonicidade, morfologia_do_pronome,
+					 reflexivo, epitetoModificacao, adjetivo_epiteto, classificadorModificacao,
+					 adjetivo_classificador, generoAdjetivo, numeroAdjetivo,contracao)
 
-		Núcleo_lógico = estrutura_GN_downraked(dissocEnteNucleo, temQualificador, tipoQualificador, indicePreposicao,
-				 DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta, gênero_beta, número_beta,
-				 morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha,
-				 gênero_alpha, número_alpha, morfologia_do_pronome_alpha,
-				 pessoa_da_interlocução_possuidor, número_obj_possuído, gênero_obj_possuído,
-				 pessoa_da_interlocução_proximidade, funcaoNumerativo, cardinal, genero,
-				 tipo_precisa, tipoRealCard, milharExtenso, centenaExtenso,
-				 dezenaExtenso, unidadeExtenso, numIndefinido,
-				 tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
-				 tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado,
-				 numero, tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio,
-				 pessoa_da_interlocucao, transitividade_verbo, tonicidade, morfologia_do_pronome,
-				 reflexivo, epitetoModificacao, adjetivo_epiteto, classificadorModificacao,
-				 adjetivo_classificador, generoAdjetivo, numeroAdjetivo,contracao)
+			Qualificador = qualificador(temQualificador,tipoQualificador,indicePreposicao,DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
+					 gênero_beta,número_beta,morfologia_do_pronome_beta,
+					 DETERMINAÇÃO_espeficifidade_alpha,ORIENTAÇÃO_alpha,gênero_alpha,
+					 número_alpha,morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
+					 número_obj_possuído, gênero_obj_possuído,pessoa_da_interlocução_proximidade,#
+					 funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
+					 milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido,
+					 tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+					 tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado, numero,
+					 tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio, pessoa_da_interlocucao,
+					 transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,#
+					 epitetoModificacao,adjetivo_epiteto,classificadorModificacao,adjetivo_classificador,generoAdjetivo ,
+										numeroAdjetivo , contracao )
 
-		Qualificador = qualificador(temQualificador,tipoQualificador,indicePreposicao,DETERMINAÇÃO_espeficifidade_beta,ORIENTAÇÃO_beta,
-				 gênero_beta,número_beta,morfologia_do_pronome_beta,
-				 DETERMINAÇÃO_espeficifidade_alpha,ORIENTAÇÃO_alpha,gênero_alpha,
-				 número_alpha,morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
-				 número_obj_possuído, gênero_obj_possuído,pessoa_da_interlocução_proximidade,#
-				 funcaoNumerativo,cardinal,genero,tipo_precisa,tipoRealCard,
-			  	 milharExtenso,centenaExtenso,dezenaExtenso,unidadeExtenso,numIndefinido,
-				 tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
-				 tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado, numero,
-				 tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio, pessoa_da_interlocucao,
-				 transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,#
-				 epitetoModificacao,adjetivo_epiteto,classificadorModificacao,adjetivo_classificador,generoAdjetivo ,
-									numeroAdjetivo , contracao )
-
-		GN = Núcleo_lógico + ' ' + Qualificador
-	return  (re.sub(' +', ' ', GN).strip())
+			GN = Núcleo_lógico + ' ' + Qualificador
+		return  (re.sub(' +', ' ', GN).strip())
+	except:
+		GN = ''
+		return GN
 # #
+# estrutura_GN()
 # estrutura_GN(DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='NA',
 # 			 gênero_alpha='masculino',número_alpha='singular', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
 # 			 pessoa_da_interlocução_possuidor='1s', número_obj_possuído='plural', gênero_obj_possuído='masculino',
@@ -10910,12 +10984,12 @@ def estrutura_GN(dissocEnteNucleo=None, temQualificador=None, tipoQualificador=N
 # 				 tipo_precisa=None, tipoRealCard=None, milharExtenso=None, centenaExtenso=None,
 # 				 dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
 # 				 tipo_de_Ente='consciente', tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
-# 				 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='pronome_caso_reto', substantivo_lematizado=None,
+# 				 tipo_de_nao_consciente_semiotico=None, classe_palavra_Ente='pronome_caso_oblíquo', substantivo_lematizado=None,
 # 				 numero='singular', tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,
 # 				 pessoa_da_interlocucao='falante', transitividade_verbo=None, tonicidade=None, morfologia_do_pronome="Morfologia_padrão",
 # 				 reflexivo=None, epitetoModificacao=None, adjetivo_epiteto=None, classificadorModificacao=None,
 # 				 adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None,contracao=None)
-#
+
 # estrutura_GN(DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='NA',
 # 			 gênero_alpha='masculino',número_alpha='singular', morfologia_do_pronome_alpha=None,
 # 			 pessoa_da_interlocução_possuidor=None, número_obj_possuído=None, gênero_obj_possuído=None,
@@ -12093,19 +12167,26 @@ def oracaoMental(
 
 	elif (Transitividade == 'PR_Mental_AG_efetivo_operativo'
 		  and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito'
-		  and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA'):
+		  and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA'):#impingente
+
 		if FENOMENALIZACAO == 'fenomenalização_hiperfenômeno':
 			if TIPO_DE_MENTAL =="superior_cognitivo":
+				oração = ''
 
 		elif FENOMENALIZACAO == "fenomenalização_fenômeno_simples":
-			if TIPO_DE_MENTAL == "superior_cognitivo" or TIPO_DE_MENTAL == "superior_desiderativo":
+			if TIPO_DE_MENTAL == "superior_cognitivo" :
+				ExperienciadorGN = estrutura_GN(P2_dissocEnteNucleo, P2_temQualificador, P2_tipoQualificador, P2_indicePreposicao, P2_DETERMINAÇÃO_espeficifidade_beta, P2_ORIENTAÇÃO_beta, P2_gênero_beta, P2_número_beta, P2_morfologia_do_pronome_beta, P2_DETERMINAÇÃO_espeficifidade_alpha, P2_ORIENTAÇÃO_alpha, P2_gênero_alpha, P2_número_alpha, P2_morfologia_do_pronome_alpha, P2_pessoa_da_interlocução_possuidor, P2_número_obj_possuído, P2_gênero_obj_possuído, P2_pessoa_da_interlocução_proximidade, P2_funcaoNumerativo, P2_cardinal, P2_genero, P2_tipo_precisa, P2_tipoRealCard, P2_milharExtenso, P2_centenaExtenso, P2_dezenaExtenso, P2_unidadeExtenso, P2_numIndefinido, P2_tipo_de_Ente, P2_tipo_de_nao_consciente, P2_tipo_de_nao_consciente_material, P2_tipo_de_nao_consciente_semiotico, P2_classe_palavra_Ente, P2_substantivo_lematizado, P2_numero, P2_tipo_feminino_ÃO, P2_tipo_masc_ÃO, P2_acentTonica, P2_nomeProprio, P2_pessoa_da_interlocucao, P2_transitividade_verbo, P2_tonicidade, P2_morfologia_do_pronome, P2_reflexivo, P2_epitetoModificacao, P2_adjetivo_epiteto, P2_classificadorModificacao, P2_adjetivo_classificador, P2_generoAdjetivo, P2_numeroAdjetivo, P2_contracao)
+				ExperienciadorFP = frase_preposicional(PART_FP_indicePreposicao, PART_FP_dissocEnteNucleo, PART_FP_temQualificador, PART_FP_tipoQualificador, PART_FP_DETERMINAÇÃO_espeficifidade_beta, PART_FP_ORIENTAÇÃO_beta, PART_FP_gênero_beta, PART_FP_número_beta, PART_FP_morfologia_do_pronome_beta, PART_FP_DETERMINAÇÃO_espeficifidade_alpha, PART_FP_ORIENTAÇÃO_alpha, PART_FP_gênero_alpha, PART_FP_número_alpha, PART_FP_morfologia_do_pronome_alpha, PART_FP_pessoa_da_interlocução_possuidor, PART_FP_número_obj_possuído, PART_FP_gênero_obj_possuído, PART_FP_pessoa_da_interlocução_proximidade,  PART_FP_funcaoNumerativo, PART_FP_cardinal, PART_FP_genero, PART_FP_tipo_precisa, PART_FP_tipoRealCard, PART_FP_milharExtenso, PART_FP_centenaExtenso, PART_FP_dezenaExtenso, PART_FP_unidadeExtenso, PART_FP_numIndefinido, PART_FP_tipo_de_Ente, PART_FP_tipo_de_nao_consciente, PART_FP_tipo_de_nao_consciente_material, PART_FP_tipo_de_nao_consciente_semiotico, PART_FP_classe_palavra_Ente, PART_FP_substantivo_lematizado, PART_FP_numero, PART_FP_tipo_feminino_ÃO, PART_FP_tipo_masc_ÃO, PART_FP_acentTonica, PART_FP_nomeProprio, PART_FP_pessoa_da_interlocucao, PART_FP_transitividade_verbo, PART_FP_tonicidade, PART_FP_morfologia_do_pronome, PART_FP_reflexivo, PART_FP_EpitetoModificacao, PART_FP_adjetivo_epiteto, PART_FP_classificadorModificacao, PART_FP_adjetivo_classificador, PART_FP_generoAdjetivo, PART_FP_numeroAdjetivo, PART_FP_contracao
+)
 				# print('Selecione verbo lematizado cognitivo ou desiderativo:')
-
 				FenomenoAgente = estrutura_GN(P1_dissocEnteNucleo, P1_temQualificador, P1_tipoQualificador, P1_indicePreposicao, P1_DETERMINAÇÃO_espeficifidade_beta, P1_ORIENTAÇÃO_beta, P1_gênero_beta, P1_número_beta, P1_morfologia_do_pronome_beta, P1_DETERMINAÇÃO_espeficifidade_alpha, P1_ORIENTAÇÃO_alpha, P1_gênero_alpha, P1_número_alpha, P1_morfologia_do_pronome_alpha, P1_pessoa_da_interlocução_possuidor, P1_número_obj_possuído, P1_gênero_obj_possuído, P1_pessoa_da_interlocução_proximidade, P1_funcaoNumerativo, P1_cardinal, P1_genero, P1_tipo_precisa, P1_tipoRealCard, P1_milharExtenso, P1_centenaExtenso, P1_dezenaExtenso, P1_unidadeExtenso, P1_numIndefinido, P1_tipo_de_Ente, P1_tipo_de_nao_consciente, P1_tipo_de_nao_consciente_material, P1_tipo_de_nao_consciente_semiotico, P1_classe_palavra_Ente, P1_substantivo_lematizado, P1_numero, P1_tipo_feminino_ÃO, P1_tipo_masc_ÃO, P1_acentTonica, P1_nomeProprio, P1_pessoa_da_interlocucao, P1_transitividade_verbo, P1_tonicidade, P1_morfologia_do_pronome, P1_reflexivo, P1_epitetoModificacao, P1_adjetivo_epiteto, P1_classificadorModificacao, P1_adjetivo_classificador, P1_generoAdjetivo, P1_numeroAdjetivo, P1_contracao
 )
-				oração = FenomenoAgente + ' ' + Polaridade + ' ' + Processo + ' ' + Experienciador + ' ' + Circunstancia + '.'
-		# PAREI AQUI: VOU TER DE PENSAR NO IMPINGENTE REALIXADO POR FRASE PREPOSICIONAL
+				oração = FenomenoAgente + ' ' + Polaridade + ' ' + Processo + ' ' + ExperienciadorGN+ ' ' + ExperienciadorFP+ ' ' + Circunstancia + '.'
 
+	return (re.sub(' +', ' ', oração).strip().capitalize())
+
+
+	# PAREI AQUI: COntinuar o mental
 		elif FENOMENALIZACAO == "não-fenomenalização":
 			if TIPO_DE_MENTAL =="superior_"
 
@@ -15032,6 +15113,149 @@ def oracaoMental(
 
 if __name__ == "__main__":
 	##exemplos oração mental
+# 	print(oracaoMental(
+# 		# transitividade
+# 		'Mental', None,
+# 		1, None, None,
+#
+# 		# modo
+# 		0, 0, 1,
+# 		# TEMA IDEACIONAL
+# 		'orientado', 'direcional',
+# 		'default', 'indicativo',
+# 		'declarativo', 'NA',
+# 		None, None, None,
+#
+# 		##Processo Mental
+# 		'não-fenomenalização_assunto', 'superior_cognitivo',
+# 		# Processo
+# 		'Fazer', 'não_agenciado', None, None, None, None, None, None,
+# 		None, None, None, None, None, None, None, None, None,
+# 		None, None, None, None, None, None, None, None, None, None, None,
+# 		None, None, None, None, None,
+# 		'Morfologia_padrão', 'Fazer', 'Evento', 'saber', 'presente', 'singular',
+# 		None, '1pessoa', 'Morfologia_padrão',
+# 		# POLARIDADE
+# 		'positiva',
+#
+# 		##PARTICIPANTES
+# 		None, None, None, None,
+# 		None, None,
+# 		None, None, None,
+# 		None, None, None,
+# 		None, None, None,
+# 		None, None, None,
+# 		None, None, None, None, None,
+# 		None, None, None, None,
+# 		None,
+# 		'consciente', None, None,
+# 		None, 'pronome_caso_reto',
+# 		None, 'singular',
+# 		None, None, None, None,
+# 		'falante',
+# 		None, None, "Morfologia_padrão", None,
+# 		None, None, None,
+# 		None, None, None, None,
+# 		# realizados por frase preposicional
+# 		6, None, None,
+# 		None, None, None,
+# 		None, None, None,
+# 		None, None, None,
+# 		None, None, None,
+# 		None, None, None,
+# 		None, None, 'não-binário', None, None,
+# 		None, None, None, None,
+# 		None, 'não_consciente', 'material',
+# 		'abstração_material', None,
+# 		'substantivo_comum', 'futebol', 'singular',
+# 		None, None, None, None,
+# 		None, None, None,
+# 		None, None, None,
+# 		None, None,
+# 		None, None, None, None
+# 	))
+# 	print(oracaoMental(
+# 	# transitividade
+# 	'Mental', None,
+# 	1, None, None,
+#
+# 	# modo
+# 	0, 0, 1,
+# 	# TEMA IDEACIONAL
+# 	'orientado', 'direcional',
+# 	'default', 'indicativo',
+# 	'declarativo', 'NA',
+# 	None, None, None,
+#
+# 	##Processo Mental
+# 	'fenomenalização_fenômeno-simples', 'superior_cognitivo',
+# # Processo
+# 	'Sentir', 'não_agenciado', None, None, None, None, None, None,
+# 	None, None, None, None, None, None, None, None, None,
+# 	None, None, None, None, None, None, None, None, None, None, None,
+# 	None, None, None, None, None,
+# 	'Morfologia_padrão', 'Fazer', 'Evento', 'imaginar', 'pretérito_perfectivo_I', 'singular',
+# 	None, '1pessoa', 'Morfologia_padrão',
+# 	# POLARIDADE
+# 	'positiva',
+# 	##PARTICIPANTES
+# 	# p1
+# 	None, None, None, None,
+# 	None, None,
+# 	None, None, None,
+# 	None, None, None,
+# 	None, None, None,
+# 	None, None, None,
+# 	None, None, None, None, None,
+# 	None, None, None, None,
+# 	None,
+# 	'consciente', None, None,
+# 	None, 'pronome_caso_reto',
+# 	None, 'singular',
+# 	None, None, None, None,
+# 	'falante',
+# 	None, None, "Morfologia_padrão", None,
+# 	None, None, None,
+# 	None, None, None, None,
+# # p2
+# 	None, None, None, None,
+# 	None, None, None, None,
+# 	None, 'específico', 'NA',
+# 	'masculino', 'singular', None,
+# 	None, None, None,
+# 	None, None, None, 'não-binário',
+# 	None, None, None, None,
+# 	None, None, None,
+# 	'não_consciente', 'material', 'abstração_material',
+# 	None, 'substantivo_comum', 'jogo',
+# 	'singular', None, None, None, None,
+# 	None, None, None, "Morfologia_padrão",
+# 	None, None, None, None,
+# 	None, None, None, None,
+#
+# 	# realizados por frase preposicional
+# 	None, None, None,
+# 	None, None, None,
+# 	None, None, None,
+# 	None, None, None,
+# 	None, None, None,
+# 	None, None, None,
+# 	None, None, None, None, None,
+# 	None, None, None, None,
+# 	None, None,None,
+# 	None, None,
+# 	None, None, None,
+# 	None, None, None, None,
+# 	None, None, None,
+# 	None, None, None,
+# 	None, None,
+# 	None, None, None, None,
+# 	))
+
+
+
+#impingente
+
 	print(oracaoMental(
 		# transitividade
 		'Mental', None,
@@ -15046,18 +15270,34 @@ if __name__ == "__main__":
 		None, None, None,
 
 		##Processo Mental
-		'não-fenomenalização_assunto', 'superior_cognitivo',
+		'fenomenalização_fenômeno-simples', 'superior_cognitivo',
 		# Processo
-		'Fazer', 'não_agenciado', None, None, None, None, None, None,
+		'Sentir', 'agenciado_ativa', None, None, None, None, None, None,
 		None, None, None, None, None, None, None, None, None,
 		None, None, None, None, None, None, None, None, None, None, None,
 		None, None, None, None, None,
-		'Morfologia_padrão', 'Fazer', 'Evento', 'saber', 'presente', 'singular',
-		None, '1pessoa', 'Morfologia_padrão',
+		'Morfologia_padrão', 'Fazer', 'Evento', 'agradar', 'presente', 'singular',
+		None, '3pessoa', 'Morfologia_padrão',
 		# POLARIDADE
 		'positiva',
-
 		##PARTICIPANTES
+		# p1
+		None, None, None, None,
+		None, None, None, None,
+		None, 'específico', 'NA',
+		'feminino', 'singular', None,
+		None, None, None,
+		None, None, None, 'não-binário',
+		None, None, None, None,
+		None, None, None,
+		'não_consciente', 'material', 'abstração_material',
+		None, 'substantivo_comum', 'inovação',
+		'singular', None, None, None, None,
+		None, None, None, "Morfologia_padrão",
+		None, None, None, None,
+		None, None, None, None,
+
+		# p2
 		None, None, None, None,
 		None, None,
 		None, None, None,
@@ -15068,105 +15308,29 @@ if __name__ == "__main__":
 		None, None, None, None,
 		None,
 		'consciente', None, None,
-		None, 'pronome_caso_reto',
+		None, 'pronome_caso_oblíquo',
 		None, 'singular',
 		None, None, None, None,
 		'falante',
-		None, None, "Morfologia_padrão", None,
+		'direto', 'átono', "padrão", None,
 		None, None, None,
 		None, None, None, None,
+
 		# realizados por frase preposicional
-		6, None, None,
 		None, None, None,
 		None, None, None,
 		None, None, None,
 		None, None, None,
 		None, None, None,
-		None, None, 'não-binário', None, None,
+		None, None, None,
+		None, None, None, None, None,
 		None, None, None, None,
-		None, 'não_consciente', 'material',
-		'abstração_material', None,
-		'substantivo_comum', 'futebol', 'singular',
+		None, None, None,
+		None, None,
+		None, None, None,
 		None, None, None, None,
 		None, None, None,
 		None, None, None,
 		None, None,
-		None, None, None, None
-	))
-	print(oracaoMental(
-	# transitividade
-	'Mental', None,
-	1, None, None,
-
-	# modo
-	0, 0, 1,
-	# TEMA IDEACIONAL
-	'orientado', 'direcional',
-	'default', 'indicativo',
-	'declarativo', 'NA',
-	None, None, None,
-
-	##Processo Mental
-	'fenomenalização_fenômeno-simples', 'superior_cognitivo',
-# Processo
-	'Sentir', 'não_agenciado', None, None, None, None, None, None,
-	None, None, None, None, None, None, None, None, None,
-	None, None, None, None, None, None, None, None, None, None, None,
-	None, None, None, None, None,
-	'Morfologia_padrão', 'Fazer', 'Evento', 'imaginar', 'pretérito_perfectivo_I', 'singular',
-	None, '1pessoa', 'Morfologia_padrão',
-	# POLARIDADE
-	'positiva',
-	##PARTICIPANTES
-	# p1
-	None, None, None, None,
-	None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None, None, None,
-	None, None, None, None,
-	None,
-	'consciente', None, None,
-	None, 'pronome_caso_reto',
-	None, 'singular',
-	None, None, None, None,
-	'falante',
-	None, None, "Morfologia_padrão", None,
-	None, None, None,
-	None, None, None, None,
-# p2
-	None, None, None, None,
-	None, None, None, None,
-	None, 'específico', 'NA',
-	'masculino', 'singular', None,
-	None, None, None,
-	None, None, None, 'não-binário',
-	None, None, None, None,
-	None, None, None,
-	'não_consciente', 'material', 'abstração_material',
-	None, 'substantivo_comum', 'jogo',
-	'singular', None, None, None, None,
-	None, None, None, "Morfologia_padrão",
-	None, None, None, None,
-	None, None, None, None,
-
-	# realizados por frase preposicional
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None, None, None,
-	None, None, None, None,
-	None, None,None,
-	None, None,
-	None, None, None,
-	None, None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None,
-	None, None, None, None,
+		None, None, None, None,
 	))
