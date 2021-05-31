@@ -11140,29 +11140,48 @@ def frase_preposicional(indicePreposicao=None, dissocEnteNucleo=None, temQualifi
 # 			 classificadorModificacao=None,adjetivo_classificador=None,generoAdjetivo='feminino',
 # 								numeroAdjetivo='plural', contracao='+contração')
 # 	print(frase)
+# frase_preposicional(10,None,None,None,
+# 					None, None,
+# 			 None,None, None,
+# 			 'específico','orientação_específica_proximidade',
+# 			 'feminino',
+# 			 'plural', 'morfologia_terceira_pessoa',
+# 			 '1s',
+# 			 'plural', None,
+# 			 'próximo_ao_não_interlocutor',  #
+# 			 None, None, 'não-binário', None, None,
+# 			 None, None,None, None, None,
+# 			 'consciente',None,
+# 			None,
+# 			 None, 'substantivo_comum',
+# 			'menina', 'plural',
+# 			None, None, None, None,None,
+# 			 None, None,None,None,  #
+# 			 'sim','alto',
+# 			None,None,'feminino',
+# 			'plural','+contração')
+# frase_preposicional(indicePreposicao=4,
+# 					 genero='não-binário',
+# 					tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 					tipo_de_nao_consciente_material='abstração_material', classe_palavra_Ente='substantivo_comum',
+# 					substantivo_lematizado='certeza', numero='singular')
 #
-frase_preposicional(indicePreposicao=4,
-					 genero='não-binário',
-					tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-					tipo_de_nao_consciente_material='abstração_material', classe_palavra_Ente='substantivo_comum',
-					substantivo_lematizado='certeza', numero='singular')
-
-frase_preposicional(indicePreposicao=6, dissocEnteNucleo=None, temQualificador=None,
-						tipoQualificador=None, DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-						gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-						DETERMINAÇÃO_espeficifidade_alpha=None, ORIENTAÇÃO_alpha=None, gênero_alpha=None,
-						número_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
-						número_obj_possuído=None, gênero_obj_possuído=None, pessoa_da_interlocução_proximidade=None,
-						funcaoNumerativo=None, cardinal=None, genero='não-binário', tipo_precisa=None, tipoRealCard=None,
-						milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None,
-						numIndefinido=None, tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
-						tipo_de_nao_consciente_material='abstração_material', tipo_de_nao_consciente_semiotico=None,
-						classe_palavra_Ente='substantivo_comum', substantivo_lematizado='futebol', numero='singular',
-						tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,
-						pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
-						morfologia_do_pronome=None, reflexivo=None, epitetoModificacao=None,
-						adjetivo_epiteto=None, classificadorModificacao=None,
-						adjetivo_classificador=None,generoAdjetivo=None, numeroAdjetivo=None, contracao=None)
+# frase_preposicional(indicePreposicao=6, dissocEnteNucleo=None, temQualificador=None,
+# 						tipoQualificador=None, DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+# 						gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
+# 						DETERMINAÇÃO_espeficifidade_alpha=None, ORIENTAÇÃO_alpha=None, gênero_alpha=None,
+# 						número_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
+# 						número_obj_possuído=None, gênero_obj_possuído=None, pessoa_da_interlocução_proximidade=None,
+# 						funcaoNumerativo=None, cardinal=None, genero='não-binário', tipo_precisa=None, tipoRealCard=None,
+# 						milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None,
+# 						numIndefinido=None, tipo_de_Ente='não_consciente', tipo_de_nao_consciente='material',
+# 						tipo_de_nao_consciente_material='abstração_material', tipo_de_nao_consciente_semiotico=None,
+# 						classe_palavra_Ente='substantivo_comum', substantivo_lematizado='futebol', numero='singular',
+# 						tipo_feminino_ÃO=None, tipo_masc_ÃO=None, acentTonica=None, nomeProprio=None,
+# 						pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+# 						morfologia_do_pronome=None, reflexivo=None, epitetoModificacao=None,
+# 						adjetivo_epiteto=None, classificadorModificacao=None,
+# 						adjetivo_classificador=None,generoAdjetivo=None, numeroAdjetivo=None, contracao=None)
 
 # estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
 # 			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
@@ -12200,7 +12219,8 @@ def oracaoMental(
 # print('há Resultado_elaboração atributo ou papel?')
 # 			RESULTADO_QUALITATIVO = choice.Menu(['resultado_atributo', 'resultado_papel(produto)', '-resultado']).ask()
 # realizacao_atributo = choice.Menu(['atributo_adjetivo', 'atributo_frase_preposicional']).ask()
-
+# print('Há Participante Beneficiario na oração?')
+# 			RECEPCAO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 
 def oracaoMaterial(
 ##TRANSITIVIDADE
@@ -12212,13 +12232,17 @@ def oracaoMaterial(
 	##Parâmetors específicos do Processo Mental
 		# FENOMENALIZACAO=None, TIPO_DE_MENTAL=None,
 ##Parâmetors específicos do processo material
+	#iniciador
 	INICIADOR=None,TIPO_DE_RESULTADO=None,RESULTADO_QUALITATIVO=None,realizacao_atributo=None,
 	
 	#atributos da elaboração resultativa
-		#adjetivo
+		#realizado por adjetivo
 	AtributoAdjModificacao=None,AtributoAdjetivo_lematizado=None,AtributoGenero=None,Atributonumero=None,
-		#frase preposicional
+		#realizado por frase preposicional
 	ATRIB_indicePreposicao=None, ATRIB_dissocEnteNucleo=None, ATRIB_temQualificador=None, ATRIB_tipoQualificador=None, ATRIB_DETERMINAÇÃO_espeficifidade_beta=None, ATRIB_ORIENTAÇÃO_beta=None, ATRIB_gênero_beta=None, ATRIB_número_beta=None, ATRIB_morfologia_do_pronome_beta=None, ATRIB_DETERMINAÇÃO_espeficifidade_alpha=None, ATRIB_ORIENTAÇÃO_alpha=None, ATRIB_gênero_alpha=None, ATRIB_número_alpha=None, ATRIB_morfologia_do_pronome_alpha=None, ATRIB_pessoa_da_interlocução_possuidor=None, ATRIB_número_obj_possuído=None, ATRIB_gênero_obj_possuído=None, ATRIB_pessoa_da_interlocução_proximidade=None,  ATRIB_funcaoNumerativo=None, ATRIB_cardinal=None, ATRIB_genero=None, ATRIB_tipo_precisa=None, ATRIB_tipoRealCard=None, ATRIB_milharExtenso=None, ATRIB_centenaExtenso=None, ATRIB_dezenaExtenso=None, ATRIB_unidadeExtenso=None, ATRIB_numIndefinido=None, ATRIB_tipo_de_Ente=None, ATRIB_tipo_de_nao_consciente=None, ATRIB_tipo_de_nao_consciente_material=None, ATRIB_tipo_de_nao_consciente_semiotico=None, ATRIB_classe_palavra_Ente=None, ATRIB_substantivo_lematizado=None, ATRIB_numero=None, ATRIB_tipo_feminino_ÃO=None, ATRIB_tipo_masc_ÃO=None, ATRIB_acentTonica=None, ATRIB_nomeProprio=None, ATRIB_pessoa_da_interlocucao=None, ATRIB_transitividade_verbo=None, ATRIB_tonicidade=None, ATRIB_morfologia_do_pronome=None, ATRIB_reflexivo=None, ATRIB_EpitetoModificacao=None, ATRIB_adjetivo_epiteto=None, ATRIB_classificadorModificacao=None, ATRIB_adjetivo_classificador=None, ATRIB_generoAdjetivo=None, ATRIB_numeroAdjetivo=None, ATRIB_contracao=None,
+
+##extensão recipiente
+	RECEPCAO=None,
 
 		##Processo
 	TIPO_DE_EXPERIENCIA_GV=None, AGENCIA=None, TIPO_DE_EXPERIENCIA_1=None, funcao_no_grupo_verbal_1=None, verbo_1=None, tipo_de_orientacao_1=None, OI_numero_1=None, genero_1=None, OI_tipo_de_pessoa_1=None, padrao_pessoa_morfologia_1=None, TIPO_DE_EXPERIENCIA_2=None, funcao_no_grupo_verbal_2=None, verbo_2=None, tipo_de_orientacao_2=None, OI_numero_2=None, genero_2=None, OI_tipo_de_pessoa_2=None, padrao_pessoa_morfologia_2=None, TIPO_DE_EXPERIENCIA_3=None, funcao_no_grupo_verbal_3=None, verbo_3=None, tipo_de_orientacao_3=None, OI_numero_3=None, genero_3=None, OI_tipo_de_pessoa_3=None, padrao_pessoa_morfologia_3=None, TIPO_DE_EXPERIENCIA_4=None, funcao_no_grupo_verbal_4=None, verbo_4=None, tipo_de_orientacao_4=None, OI_numero_4=None, genero_4=None, OI_tipo_de_pessoa_4=None, padrao_pessoa_morfologia_4=None, TIPO_DE_EXPERIENCIA_LEX=None, funcao_no_grupo_verbal_POS_FINAL=None, verbo_LEX=None, tipo_de_orientacao_LEX=None, OI_numero_LEX=None, genero_LEX=None, OI_tipo_de_pessoa_LEX=None, padrao_pessoa_morfologia_LEX='Morfologia_padrão',
@@ -12252,10 +12276,11 @@ def oracaoMaterial(
 		if INICIADOR == '+iniciador':
 			Iniciador = estrutura_GN(P3_dissocEnteNucleo, P3_temQualificador, P3_tipoQualificador, P3_indicePreposicao, P3_DETERMINAÇÃO_espeficifidade_beta, P3_ORIENTAÇÃO_beta, P3_gênero_beta, P3_número_beta, P3_morfologia_do_pronome_beta, P3_DETERMINAÇÃO_espeficifidade_alpha, P3_ORIENTAÇÃO_alpha, P3_gênero_alpha, P3_número_alpha, P3_morfologia_do_pronome_alpha, P3_pessoa_da_interlocução_possuidor, P3_número_obj_possuído, P3_gênero_obj_possuído, P3_pessoa_da_interlocução_proximidade, P3_funcaoNumerativo, P3_cardinal, P3_genero, P3_tipo_precisa, P3_tipoRealCard, P3_milharExtenso, P3_centenaExtenso, P3_dezenaExtenso, P3_unidadeExtenso, P3_numIndefinido, P3_tipo_de_Ente, P3_tipo_de_nao_consciente, P3_tipo_de_nao_consciente_material, P3_tipo_de_nao_consciente_semiotico, P3_classe_palavra_Ente, P3_substantivo_lematizado, P3_numero, P3_tipo_feminino_ÃO, P3_tipo_masc_ÃO, P3_acentTonica, P3_nomeProprio, P3_pessoa_da_interlocucao, P3_transitividade_verbo, P3_tonicidade, P3_morfologia_do_pronome, P3_reflexivo, P3_epitetoModificacao, P3_adjetivo_epiteto, P3_classificadorModificacao, P3_adjetivo_classificador, P3_generoAdjetivo, P3_numeroAdjetivo, P3_contracao)
 			Meta=''
-		elif INICIADOR == '-iniciador':
+			oração = Iniciador + ' ' + Polaridade + ' ' + Processo +' '+ Ator
+		if INICIADOR == '-iniciador':
 			Iniciador = ''
 			Meta = estrutura_GN(P2_dissocEnteNucleo, P2_temQualificador, P2_tipoQualificador, P2_indicePreposicao, P2_DETERMINAÇÃO_espeficifidade_beta, P2_ORIENTAÇÃO_beta, P2_gênero_beta, P2_número_beta, P2_morfologia_do_pronome_beta, P2_DETERMINAÇÃO_espeficifidade_alpha, P2_ORIENTAÇÃO_alpha, P2_gênero_alpha, P2_número_alpha, P2_morfologia_do_pronome_alpha, P2_pessoa_da_interlocução_possuidor, P2_número_obj_possuído, P2_gênero_obj_possuído, P2_pessoa_da_interlocução_proximidade, P2_funcaoNumerativo, P2_cardinal, P2_genero, P2_tipo_precisa, P2_tipoRealCard, P2_milharExtenso, P2_centenaExtenso, P2_dezenaExtenso, P2_unidadeExtenso, P2_numIndefinido, P2_tipo_de_Ente, P2_tipo_de_nao_consciente, P2_tipo_de_nao_consciente_material, P2_tipo_de_nao_consciente_semiotico, P2_classe_palavra_Ente, P2_substantivo_lematizado, P2_numero, P2_tipo_feminino_ÃO, P2_tipo_masc_ÃO, P2_acentTonica, P2_nomeProprio, P2_pessoa_da_interlocucao, P2_transitividade_verbo, P2_tonicidade, P2_morfologia_do_pronome, P2_reflexivo, P2_epitetoModificacao, P2_adjetivo_epiteto, P2_classificadorModificacao, P2_adjetivo_classificador, P2_generoAdjetivo, P2_numeroAdjetivo, P2_contracao)
-
+			oração = Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta
 	
 		if TIPO_DE_RESULTADO == 'elaboração':
 			if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
@@ -12268,169 +12293,50 @@ def oracaoMaterial(
 			elif RESULTADO_QUALITATIVO == '-resultado':
 				Atributo = ''
 
-			oração =  Iniciador  + ' ' + Polaridade + ' ' + Processo + ' ' + Ator + ' ' + Atributo + ' ' + '.'
+			oração =  oração + ' ' + Atributo + '.'
+		if TIPO_DE_RESULTADO == 'extensão':
+			if RECEPCAO == '+recipiente':
+				Recipiente = frase_preposicional(PART_FP_indicePreposicao, PART_FP_dissocEnteNucleo, PART_FP_temQualificador, PART_FP_tipoQualificador, PART_FP_DETERMINAÇÃO_espeficifidade_beta, PART_FP_ORIENTAÇÃO_beta, PART_FP_gênero_beta, PART_FP_número_beta, PART_FP_morfologia_do_pronome_beta, PART_FP_DETERMINAÇÃO_espeficifidade_alpha, PART_FP_ORIENTAÇÃO_alpha, PART_FP_gênero_alpha, PART_FP_número_alpha, PART_FP_morfologia_do_pronome_alpha, PART_FP_pessoa_da_interlocução_possuidor, PART_FP_número_obj_possuído, PART_FP_gênero_obj_possuído, PART_FP_pessoa_da_interlocução_proximidade,  PART_FP_funcaoNumerativo, PART_FP_cardinal, PART_FP_genero, PART_FP_tipo_precisa, PART_FP_tipoRealCard, PART_FP_milharExtenso, PART_FP_centenaExtenso, PART_FP_dezenaExtenso, PART_FP_unidadeExtenso, PART_FP_numIndefinido, PART_FP_tipo_de_Ente, PART_FP_tipo_de_nao_consciente, PART_FP_tipo_de_nao_consciente_material, PART_FP_tipo_de_nao_consciente_semiotico, PART_FP_classe_palavra_Ente, PART_FP_substantivo_lematizado, PART_FP_numero, PART_FP_tipo_feminino_ÃO, PART_FP_tipo_masc_ÃO, PART_FP_acentTonica, PART_FP_nomeProprio, PART_FP_pessoa_da_interlocucao, PART_FP_transitividade_verbo, PART_FP_tonicidade, PART_FP_morfologia_do_pronome, PART_FP_reflexivo, PART_FP_EpitetoModificacao, PART_FP_adjetivo_epiteto, PART_FP_classificadorModificacao, PART_FP_adjetivo_classificador, PART_FP_generoAdjetivo, PART_FP_numeroAdjetivo, PART_FP_contracao)
+			elif RECEPCAO == '-recipiente':
+				Recipiente = ''
+	#
+			oração =  oração + ' ' + Recipiente + '.'
+
+#PAREI AQUI 31-05----CONTINUAR O MATERIAL 
+	elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+
+
+			Ator = estrutura_GN(P1_dissocEnteNucleo, P1_temQualificador, P1_tipoQualificador, P1_indicePreposicao, P1_DETERMINAÇÃO_espeficifidade_beta, P1_ORIENTAÇÃO_beta, P1_gênero_beta, P1_número_beta, P1_morfologia_do_pronome_beta, P1_DETERMINAÇÃO_espeficifidade_alpha, P1_ORIENTAÇÃO_alpha, P1_gênero_alpha, P1_número_alpha, P1_morfologia_do_pronome_alpha, P1_pessoa_da_interlocução_possuidor, P1_número_obj_possuído, P1_gênero_obj_possuído, P1_pessoa_da_interlocução_proximidade, P1_funcaoNumerativo, P1_cardinal, P1_genero, P1_tipo_precisa, P1_tipoRealCard, P1_milharExtenso, P1_centenaExtenso, P1_dezenaExtenso, P1_unidadeExtenso, P1_numIndefinido, P1_tipo_de_Ente, P1_tipo_de_nao_consciente, P1_tipo_de_nao_consciente_material, P1_tipo_de_nao_consciente_semiotico, P1_classe_palavra_Ente, P1_substantivo_lematizado, P1_numero, P1_tipo_feminino_ÃO, P1_tipo_masc_ÃO, P1_acentTonica, P1_nomeProprio, P1_pessoa_da_interlocucao, P1_transitividade_verbo, P1_tonicidade, P1_morfologia_do_pronome, P1_reflexivo, P1_epitetoModificacao, P1_adjetivo_epiteto, P1_classificadorModificacao, P1_adjetivo_classificador, P1_generoAdjetivo, P1_numeroAdjetivo, P1_contracao)
+
+
+			Meta = estrutura_GN()
+			Polaridade = POLARIDADE()
+			Circunstância = circunstância()
+
+			print('Há Participante Iniciador na oração?')
+			INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
+			if INICIADOR == '+iniciador':
+				Iniciador = estrutura_GN()
+			else:
+				Iniciador = ''
+
+			print(
+				'Há Participante Cliente na oração?')  # Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
+			CLIENTE = choice.Menu(['+cliente', '-cliente']).ask()
+
+			if CLIENTE == '+cliente':
+				Cliente = frase_preposicional()
+			else:
+				Cliente = ''
+
+			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
+			         + ' ' + Meta + ' ' + Cliente + ' ' + Circunstancia + '.'
+
+
 	return (re.sub(' +', ' ', oração).strip().capitalize())
 
-# 'O policial explodiu a bomba .'
-oracaoMaterial(
-	# transitividade
-	'Material', 0,
-	2, None, None,
-
-	# modo
-	0, 0, 1,
-	# TEMA IDEACIONAL
-	'orientado', 'direcional',
-	'default', 'indicativo',
-	'declarativo', 'NA',
-	None, None, None,
-
-	# ##Processo Mental
-	# None, None,
-	##Parâmetors específicos do processo material
-	'+iniciador', 'elaboração','-resultado',None,
-
-	# atributos da elaboração resultativa
-	# adjetivo
-	None, None, None,None,
-	# frase preposicional
-	None,None, None, None,
-	None,None, None,
-	None,None, None,
-	None, None, None,
-	None,None, None,
-	None,None,None,
-	None, None,None, None, None,
-	None, None, None, None,
-	None, None, None,
-	None, None,None,
-	None, None,None, None,
-	None,None, None,None,
-	None, None, None,None,
-	None, None, None,
-	None, None,
-
-	# Processo
-	'Fazer', 'agenciado_ativa', None, None, None, None, None, None,
-	None, None, None, None, None, None, None, None, None,
-	None, None, None, None, None, None, None, None, None, None, None,
-	None, None, None, None, None,
-	'Morfologia_padrão', 'Fazer', 'Evento', 'explodir', 'pretérito_perfectivo_I', 'singular',
-	None, '3pessoa', 'Morfologia_padrão',
-	# POLARIDADE
-	'positiva',
-	##PARTICIPANTES
-	# p1
-	None, None, None, None,
-	None, None, None, None,
-	None, 'específico', 'NA',
-	'feminino', 'singular', None,
-	None, None, None,
-	None, None, None, 'não-binário',
-	None, None, None, None,
-	None, None, None,
-	'não_consciente', 'material', 'objeto_material',
-	None, 'substantivo_comum', 'bomba',
-	'singular', None, None, None, None,
-	None, None, None, "Morfologia_padrão",
-	None, None, None, None,
-	None, None, None, None,
-
-	# p2
-	None, None, None, None,
-	None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None, None, None,
-	None, None, None, None,
-	None,
-	None, None, None,
-	None, None,
-	None, None,
-	None, None, None, None,
-	None,
-	None, None, None, None,
-	None, None, None,
-	None, None, None, None,
-
-	#p3 )
-	None, None, None, None,
-	None, None, None, None,
-	None, 'específico', 'NA',
-	'masculino', 'singular', None,
-	None, None, None,
-	None, None, None, 'masculino',
-	None, None, None, None,
-	None, None, None,
-	'consciente', None, None,
-	None, 'substantivo_comum', 'policial',
-	'singular', None, None, None, None,
-	None, None, None, "Morfologia_padrão",
-	None, None, None, None,
-	None, None, None, None,
-	# realizados por frase preposicional
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None, None, None, None,
-	None, None, None, None,
-	None, None, None,
-	None, None,
-	None, None, None,
-	None, None, None, None,
-	None, None, None,
-	None, None, None,
-	None, None,
-	None, None, None, None)
-
-	# 		elif TIPO_DE_RESULTADO == 'extensão':
-# 			print('Há Participante Beneficiário na oração?')
-# 			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
-# 			if RECEPÇÃO == '+beneficiário':
-# 				Beneficiário = frase_preposicional()
-# 			elif RECEPÇÃO == '-beneficiário':
-# 				Beneficiário = ''
+	#
 #
-# 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-# 			         + ' ' + Processo + ' ' + Meta + '  ' + Beneficiário + ' ' + Circunstancia + '.'
-#
-# 	elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' \
-# 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
-# 			and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-# 		Tema_textual = TEMA_TEXTUAL()
-# 		Tema_interpessoal = TEMA_INTERPESSOAL()
-# 		print('Qual o Processo?')
-# 		Processo = grupo_verbal()
-# 		print('Qual é o Ator?')
-# 		Ator = estrutura_GN()
-# 		print('Qual é a Meta?')
-# 		Meta = estrutura_GN()
-# 		Polaridade = POLARIDADE()
-# 		Circunstância = circunstância()
-#
-# 		print('Há Participante Iniciador na oração?')
-# 		INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
-# 		if INICIADOR == '+iniciador':
-# 			Iniciador = estrutura_GN()
-# 		else:
-# 			Iniciador = ''
-#
-# 		print(
-# 			'Há Participante Cliente na oração?')  # Por enquanto apenas 1 cliente realizado (prevejo a possibilidade de +1)
-# 		CLIENTE = choice.Menu(['+cliente', '-cliente']).ask()
-#
-# 		if CLIENTE == '+cliente':
-# 			Cliente = frase_preposicional()
-# 		else:
-# 			Cliente = ''
-#
-# 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-# 		         + ' ' + Meta + ' ' + Cliente + ' ' + Circunstancia + '.'
 #
 # 	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance' \
 # 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
@@ -12449,12 +12355,12 @@ oracaoMaterial(
 # 			Iniciador = estrutura_GN() + grupo_verbal()
 # 		else:
 # 			Iniciador = ''
-# 		print('Há Participante Beneficiário na oração?')
+# 		print('Há Participante Beneficiario na oração?')
 # 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 		if RECEPÇÃO == '+beneficiário':
-# 			Beneficiário = frase_preposicional()
+# 			Beneficiario = frase_preposicional()
 # 		elif RECEPÇÃO == '-beneficiário':
-# 			Beneficiário = ''
+# 			Beneficiario = ''
 # 		print('Há resultado do processo?')
 # 		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
 # 		if TIPO_DE_RESULTADO == 'elaboração':
@@ -12466,7 +12372,7 @@ oracaoMaterial(
 # 				Escopo = estrutura_GN()  # por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
 #
 # 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-# 			         + ' ' + Processo + ' ' + Escopo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+# 			         + ' ' + Processo + ' ' + Escopo + ' ' + Beneficiario + ' ' + Circunstancia + '.'
 #
 # 		elif TIPO_DE_RESULTADO == 'intensificação':
 # 			print('Qual é o Escopo?')
@@ -12483,7 +12389,7 @@ oracaoMaterial(
 # 				Resultado_locativo = ''
 #
 # 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-# 			         + ' ' + Escopo + ' ' + Resultado_locativo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+# 			         + ' ' + Escopo + ' ' + Resultado_locativo + ' ' + Beneficiario + ' ' + Circunstancia + '.'
 #
 #
 # 	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance' \
@@ -12498,29 +12404,29 @@ oracaoMaterial(
 # 		Ator = estrutura_GN()
 # 		Polaridade = POLARIDADE()
 # 		Circunstância = circunstância()
-# 		print('Há Participante Beneficiário na oração?')
+# 		print('Há Participante Beneficiario na oração?')
 # 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 		if RECEPÇÃO == '+beneficiário':
-# 			Beneficiário = frase_preposicional()
+# 			Beneficiario = frase_preposicional()
 # 		elif RECEPÇÃO == '-beneficiário':
-# 			Beneficiário = ''
+# 			Beneficiario = ''
 # 		print('Há resultado do processo?')
 # 		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
 # 		if TIPO_DE_RESULTADO == 'elaboração':
 # 			print('Orações médio_sem_alcance  selecionam -escopo')
 # 			Escopo = ''
 # 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-# 			         + ' ' + Beneficiário + '' + Circunstancia + '.'
+# 			         + ' ' + Beneficiario + '' + Circunstancia + '.'
 #
 #
 # 		elif TIPO_DE_RESULTADO == 'intensificação':
 # 			print('Orações médio_sem_alcance selecionam -escopo')
-# 			print('Há Participante Beneficiário na oração?')
+# 			print('Há Participante Beneficiario na oração?')
 # 			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 			if RECEPÇÃO == '+beneficiário':
-# 				Beneficiário = frase_preposicional()
+# 				Beneficiario = frase_preposicional()
 # 			elif RECEPÇÃO == '-beneficiário':
-# 				Beneficiário = ''
+# 				Beneficiario = ''
 # 			print('Há resultado locativo?')
 # 			realizacao_locativo = choice.Menu(['sim', 'não']).ask()
 # 			if realizacao_locativo == 'sim':
@@ -12529,7 +12435,7 @@ oracaoMaterial(
 # 				Resultado_locativo = ''
 #
 # 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-# 			         + ' ' + Resultado_locativo + ' ' + Circunstancia + ' ' + Beneficiário + '.'
+# 			         + ' ' + Resultado_locativo + ' ' + Circunstancia + ' ' + Beneficiario + '.'
 #
 #
 # 	##MATERIAL METEOROLÓGICA
@@ -12549,12 +12455,12 @@ oracaoMaterial(
 # 			Iniciador = estrutura_GN()
 # 		else:
 # 			Iniciador = ''
-# 		print('Há Participante Beneficiário na oração?')
+# 		print('Há Participante Beneficiario na oração?')
 # 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 		if RECEPÇÃO == '+beneficiário':
-# 			Beneficiário = frase_preposicional()
+# 			Beneficiario = frase_preposicional()
 # 		elif RECEPÇÃO == '-beneficiário':
-# 			Beneficiário = ''
+# 			Beneficiario = ''
 # 		tipo_intransitiva = choice.Menu(['impessoal(fenômeno_natural)', 'pessoal']).ask()
 # 		print('Qual o tipo_pessoa de inTransitividade?')
 # 		if tipo_intransitiva == 'impessoal(fenômeno_natural)':
@@ -12573,7 +12479,7 @@ oracaoMaterial(
 # 		Circunstância = circunstância()
 #
 # 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Polaridade + ' ' + Processo \
-# 		         + ' ' + Escopo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+# 		         + ' ' + Escopo + ' ' + Beneficiario + ' ' + Circunstancia + '.'
 #
 #
 # 	elif Transitividade == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance' \
@@ -12593,15 +12499,15 @@ oracaoMaterial(
 # 			Iniciador = estrutura_GN() + grupo_verbal()
 # 		else:
 # 			Iniciador = ''
-# 		print('Há Participante Beneficiário na oração?')
+# 		print('Há Participante Beneficiario na oração?')
 # 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 		if RECEPÇÃO == '+beneficiário':
-# 			Beneficiário = frase_preposicional()
+# 			Beneficiario = frase_preposicional()
 # 		elif RECEPÇÃO == '-beneficiário':
-# 			Beneficiário = ''
+# 			Beneficiario = ''
 # 		Circunstância = circunstância()
 # 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-# 		         + ' ' + Processo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+# 		         + ' ' + Processo + ' ' + Beneficiario + ' ' + Circunstancia + '.'
 #
 # 		##########COMEÇO DE AGENCIAMENTO PASSIVA
 # 		# (E CONSEQUENTEMENTE MUDANÇA NO TEMA IDEACIONAL: COMPLEMENTO ELEMENTAL)
@@ -12618,12 +12524,12 @@ oracaoMaterial(
 # 	#      Meta = estrutura_GN()
 # 	#      Polaridade = POLARIDADE ()
 # 	#      Circunstância = circunstância()
-# 	#      print('Há Participante Beneficiário na oração?')
+# 	#      print('Há Participante Beneficiario na oração?')
 # 	#      RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 	#      if RECEPÇÃO == '+beneficiário':
-# 	#          Beneficiário = frase_preposicional()
+# 	#          Beneficiario = frase_preposicional()
 # 	#      elif RECEPÇÃO == '-beneficiário':
-# 	#          Beneficiário = ''
+# 	#          Beneficiario = ''
 # 	#      print ('Há Participante Iniciador na oração?')
 # 	#      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
 # 	#      if INICIADOR == '+iniciador':
@@ -12656,19 +12562,19 @@ oracaoMaterial(
 # 	#              Atributo = ''
 # 	#
 # 	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade \
-# 	#                   + ' ' + Processo +' '+ Atributo+ ' ' + Ator +' ' +Beneficiário+' '+ Circunstancia +'.'
+# 	#                   + ' ' + Processo +' '+ Atributo+ ' ' + Ator +' ' +Beneficiario+' '+ Circunstancia +'.'
 # 	#
 # 	#      elif TIPO_DE_RESULTADO == 'extensão':
-# 	#          print ('Há Participante Beneficiário na oração?')
+# 	#          print ('Há Participante Beneficiario na oração?')
 # 	#          RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
 # 	#          if RECEPÇÃO == '+beneficiário':
-# 	#              Beneficiário = frase_preposicional()
+# 	#              Beneficiario = frase_preposicional()
 # 	#          elif RECEPÇÃO == '-beneficiário':
-# 	#              Beneficiário = ''
+# 	#              Beneficiario = ''
 # 	#
 # 	#
 # 	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade \
-# 	#                   + ' ' + Processo  +'  '+ Beneficiário + ' ' + Ator +' '+Beneficiário+' '+ Circunstancia +'.'
+# 	#                   + ' ' + Processo  +'  '+ Beneficiario + ' ' + Ator +' '+Beneficiario+' '+ Circunstancia +'.'
 # 	#
 # 	# ##
 # 	#
@@ -12684,12 +12590,12 @@ oracaoMaterial(
 # 	#      print('Qual é a Meta?')
 # 	#      Meta = estrutura_GN()
 # 	#      Polaridade = POLARIDADE ()
-# 	#      print('Há Participante Beneficiário na oração?')
+# 	#      print('Há Participante Beneficiario na oração?')
 # 	#      RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 	#      if RECEPÇÃO == '+beneficiário':
-# 	#          Beneficiário = frase_preposicional()
+# 	#          Beneficiario = frase_preposicional()
 # 	#      elif RECEPÇÃO == '-beneficiário':
-# 	#          Beneficiário = ''
+# 	#          Beneficiario = ''
 # 	#      Circunstância = circunstância()
 # 	#
 # 	#
@@ -12718,7 +12624,7 @@ oracaoMaterial(
 # 	#          Cliente='' \
 # 	#
 # 	#      oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' \
-# 	#               + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +' ' + Beneficiário+' '+Circunstância +'.'
+# 	#               + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +' ' + Beneficiario+' '+Circunstância +'.'
 	return (re.sub(' +', ' ', oração).strip().capitalize())
 
 #
@@ -13211,15 +13117,15 @@ oracaoMaterial(
 # 			         + ' ' + Processo + ' ' + Meta + ' ' + Atributo + ' ' + Circunstancia + '.'
 #
 # 		elif TIPO_DE_RESULTADO == 'extensão':
-# 			print('Há Participante Beneficiário na oração?')
+# 			print('Há Participante Beneficiario na oração?')
 # 			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 			if RECEPÇÃO == '+beneficiário':
-# 				Beneficiário = frase_preposicional()
+# 				Beneficiario = frase_preposicional()
 # 			elif RECEPÇÃO == '-beneficiário':
-# 				Beneficiário = ''
+# 				Beneficiario = ''
 #
 # 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-# 			         + ' ' + Processo + ' ' + Meta + '  ' + Beneficiário + ' ' + Circunstancia + '.'
+# 			         + ' ' + Processo + ' ' + Meta + '  ' + Beneficiario + ' ' + Circunstancia + '.'
 #
 # 	elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' \
 # 			and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
@@ -13271,12 +13177,12 @@ oracaoMaterial(
 # 			Iniciador = estrutura_GN() + grupo_verbal()
 # 		else:
 # 			Iniciador = ''
-# 		print('Há Participante Beneficiário na oração?')
+# 		print('Há Participante Beneficiario na oração?')
 # 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 		if RECEPÇÃO == '+beneficiário':
-# 			Beneficiário = frase_preposicional()
+# 			Beneficiario = frase_preposicional()
 # 		elif RECEPÇÃO == '-beneficiário':
-# 			Beneficiário = ''
+# 			Beneficiario = ''
 # 		print('Há resultado do processo?')
 # 		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
 # 		if TIPO_DE_RESULTADO == 'elaboração':
@@ -13288,7 +13194,7 @@ oracaoMaterial(
 # 				Escopo = estrutura_GN()  # por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
 #
 # 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-# 			         + ' ' + Processo + ' ' + Escopo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+# 			         + ' ' + Processo + ' ' + Escopo + ' ' + Beneficiario + ' ' + Circunstancia + '.'
 #
 # 		elif TIPO_DE_RESULTADO == 'intensificação':
 # 			print('Qual é o Escopo?')
@@ -13305,7 +13211,7 @@ oracaoMaterial(
 # 				Resultado_locativo = ''
 #
 # 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-# 			         + ' ' + Escopo + ' ' + Resultado_locativo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+# 			         + ' ' + Escopo + ' ' + Resultado_locativo + ' ' + Beneficiario + ' ' + Circunstancia + '.'
 #
 #
 # 	elif Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance' \
@@ -13320,29 +13226,29 @@ oracaoMaterial(
 # 		Ator = estrutura_GN()
 # 		Polaridade = POLARIDADE()
 # 		Circunstância = circunstância()
-# 		print('Há Participante Beneficiário na oração?')
+# 		print('Há Participante Beneficiario na oração?')
 # 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 		if RECEPÇÃO == '+beneficiário':
-# 			Beneficiário = frase_preposicional()
+# 			Beneficiario = frase_preposicional()
 # 		elif RECEPÇÃO == '-beneficiário':
-# 			Beneficiário = ''
+# 			Beneficiario = ''
 # 		print('Há resultado do processo?')
 # 		TIPO_DE_RESULTADO = choice.Menu(['elaboração', 'intensificação']).ask()
 # 		if TIPO_DE_RESULTADO == 'elaboração':
 # 			print('Orações médio_sem_alcance  selecionam -escopo')
 # 			Escopo = ''
 # 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-# 			         + ' ' + Beneficiário + '' + Circunstancia + '.'
+# 			         + ' ' + Beneficiario + '' + Circunstancia + '.'
 #
 #
 # 		elif TIPO_DE_RESULTADO == 'intensificação':
 # 			print('Orações médio_sem_alcance selecionam -escopo')
-# 			print('Há Participante Beneficiário na oração?')
+# 			print('Há Participante Beneficiario na oração?')
 # 			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 			if RECEPÇÃO == '+beneficiário':
-# 				Beneficiário = frase_preposicional()
+# 				Beneficiario = frase_preposicional()
 # 			elif RECEPÇÃO == '-beneficiário':
-# 				Beneficiário = ''
+# 				Beneficiario = ''
 # 			print('Há resultado locativo?')
 # 			realizacao_locativo = choice.Menu(['sim', 'não']).ask()
 # 			if realizacao_locativo == 'sim':
@@ -13351,7 +13257,7 @@ oracaoMaterial(
 # 				Resultado_locativo = ''
 #
 # 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade + ' ' + Processo \
-# 			         + ' ' + Resultado_locativo + ' ' + Circunstancia + ' ' + Beneficiário + '.'
+# 			         + ' ' + Resultado_locativo + ' ' + Circunstancia + ' ' + Beneficiario + '.'
 #
 #
 # 	##MATERIAL METEOROLÓGICA
@@ -13371,12 +13277,12 @@ oracaoMaterial(
 # 			Iniciador = estrutura_GN()
 # 		else:
 # 			Iniciador = ''
-# 		print('Há Participante Beneficiário na oração?')
+# 		print('Há Participante Beneficiario na oração?')
 # 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 		if RECEPÇÃO == '+beneficiário':
-# 			Beneficiário = frase_preposicional()
+# 			Beneficiario = frase_preposicional()
 # 		elif RECEPÇÃO == '-beneficiário':
-# 			Beneficiário = ''
+# 			Beneficiario = ''
 # 		tipo_intransitiva = choice.Menu(['impessoal(fenômeno_natural)', 'pessoal']).ask()
 # 		print('Qual o tipo_pessoa de inTransitividade?')
 # 		if tipo_intransitiva == 'impessoal(fenômeno_natural)':
@@ -13395,7 +13301,7 @@ oracaoMaterial(
 # 		Circunstância = circunstância()
 #
 # 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Polaridade + ' ' + Processo \
-# 		         + ' ' + Escopo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+# 		         + ' ' + Escopo + ' ' + Beneficiario + ' ' + Circunstancia + '.'
 #
 #
 # 	elif Transitividade == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance' \
@@ -13415,15 +13321,15 @@ oracaoMaterial(
 # 			Iniciador = estrutura_GN() + grupo_verbal()
 # 		else:
 # 			Iniciador = ''
-# 		print('Há Participante Beneficiário na oração?')
+# 		print('Há Participante Beneficiario na oração?')
 # 		RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 		if RECEPÇÃO == '+beneficiário':
-# 			Beneficiário = frase_preposicional()
+# 			Beneficiario = frase_preposicional()
 # 		elif RECEPÇÃO == '-beneficiário':
-# 			Beneficiário = ''
+# 			Beneficiario = ''
 # 		Circunstância = circunstância()
 # 		oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-# 		         + ' ' + Processo + ' ' + Beneficiário + ' ' + Circunstancia + '.'
+# 		         + ' ' + Processo + ' ' + Beneficiario + ' ' + Circunstancia + '.'
 #
 # 		##########COMEÇO DE AGENCIAMENTO PASSIVA
 # 		# (E CONSEQUENTEMENTE MUDANÇA NO TEMA IDEACIONAL: COMPLEMENTO ELEMENTAL)
@@ -13440,12 +13346,12 @@ oracaoMaterial(
 # 	#      Meta = estrutura_GN()
 # 	#      Polaridade = POLARIDADE ()
 # 	#      Circunstância = circunstância()
-# 	#      print('Há Participante Beneficiário na oração?')
+# 	#      print('Há Participante Beneficiario na oração?')
 # 	#      RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 	#      if RECEPÇÃO == '+beneficiário':
-# 	#          Beneficiário = frase_preposicional()
+# 	#          Beneficiario = frase_preposicional()
 # 	#      elif RECEPÇÃO == '-beneficiário':
-# 	#          Beneficiário = ''
+# 	#          Beneficiario = ''
 # 	#      print ('Há Participante Iniciador na oração?')
 # 	#      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
 # 	#      if INICIADOR == '+iniciador':
@@ -13478,19 +13384,19 @@ oracaoMaterial(
 # 	#              Atributo = ''
 # 	#
 # 	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade \
-# 	#                   + ' ' + Processo +' '+ Atributo+ ' ' + Ator +' ' +Beneficiário+' '+ Circunstancia +'.'
+# 	#                   + ' ' + Processo +' '+ Atributo+ ' ' + Ator +' ' +Beneficiario+' '+ Circunstancia +'.'
 # 	#
 # 	#      elif TIPO_DE_RESULTADO == 'extensão':
-# 	#          print ('Há Participante Beneficiário na oração?')
+# 	#          print ('Há Participante Beneficiario na oração?')
 # 	#          RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
 # 	#          if RECEPÇÃO == '+beneficiário':
-# 	#              Beneficiário = frase_preposicional()
+# 	#              Beneficiario = frase_preposicional()
 # 	#          elif RECEPÇÃO == '-beneficiário':
-# 	#              Beneficiário = ''
+# 	#              Beneficiario = ''
 # 	#
 # 	#
 # 	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' + Meta + ' ' + Polaridade \
-# 	#                   + ' ' + Processo  +'  '+ Beneficiário + ' ' + Ator +' '+Beneficiário+' '+ Circunstancia +'.'
+# 	#                   + ' ' + Processo  +'  '+ Beneficiario + ' ' + Ator +' '+Beneficiario+' '+ Circunstancia +'.'
 # 	#
 # 	# ##
 # 	#
@@ -13506,12 +13412,12 @@ oracaoMaterial(
 # 	#      print('Qual é a Meta?')
 # 	#      Meta = estrutura_GN()
 # 	#      Polaridade = POLARIDADE ()
-# 	#      print('Há Participante Beneficiário na oração?')
+# 	#      print('Há Participante Beneficiario na oração?')
 # 	#      RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 	#      if RECEPÇÃO == '+beneficiário':
-# 	#          Beneficiário = frase_preposicional()
+# 	#          Beneficiario = frase_preposicional()
 # 	#      elif RECEPÇÃO == '-beneficiário':
-# 	#          Beneficiário = ''
+# 	#          Beneficiario = ''
 # 	#      Circunstância = circunstância()
 # 	#
 # 	#
@@ -13540,7 +13446,7 @@ oracaoMaterial(
 # 	#          Cliente='' \
 # 	#
 # 	#      oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' \
-# 	#               + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +' ' + Beneficiário+' '+Circunstância +'.'
+# 	#               + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +' ' + Beneficiario+' '+Circunstância +'.'
 #
 # 	###RELACIONAl
 # 	###### INTENSIVA ATRIBUTIVA (SEM ATRIBUIDOR)
@@ -14285,15 +14191,15 @@ oracaoMaterial(
 #
 #
 # 		elif TIPO_DE_RESULTADO == 'extensão':
-# 			print('Há Participante Beneficiário na oração?')
+# 			print('Há Participante Beneficiario na oração?')
 # 			RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
 # 			if RECEPÇÃO == '+beneficiário':
-# 				Beneficiário = frase_preposicional()
+# 				Beneficiario = frase_preposicional()
 # 			elif RECEPÇÃO == '-beneficiário':
-# 				Beneficiário = ''
+# 				Beneficiario = ''
 #
 # 			oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador + ' ' + Ator + ' ' + Polaridade \
-# 			         + ' ' + Processo + ' ' + Meta + '  ' + Beneficiário + ' ' + Circunstancia + '?'
+# 			         + ' ' + Processo + ' ' + Meta + '  ' + Beneficiario + ' ' + Circunstancia + '?'
 #
 #
 # 	elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' \
@@ -14523,16 +14429,16 @@ oracaoMaterial(
 # 	#                   + ' ' + Polaridade + ' ' + Processo +' '+ Atributo+ ' ' + Ator +' ' + Circunstancia +'?'
 # 	#
 # 	#      elif TIPO_DE_RESULTADO == 'extensão':
-# 	#          print ('Há Participante Beneficiário na oração?')
+# 	#          print ('Há Participante Beneficiario na oração?')
 # 	#          RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
 # 	#          if RECEPÇÃO == '+beneficiário':
-# 	#              Beneficiário = frase_preposicional()
+# 	#              Beneficiario = frase_preposicional()
 # 	#          elif RECEPÇÃO == '-beneficiário':
-# 	#              Beneficiário = ''
+# 	#              Beneficiario = ''
 # 	#
 # 	#
 # 	#          oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' \
-# 	#                   + Meta + ' ' + Polaridade + ' ' + Processo  +'  '+ Beneficiário + ' ' + Ator +' ' + Circunstancia +'?'
+# 	#                   + Meta + ' ' + Polaridade + ' ' + Processo  +'  '+ Beneficiario + ' ' + Ator +' ' + Circunstancia +'?'
 # 	#
 # 	# ##
 # 	#

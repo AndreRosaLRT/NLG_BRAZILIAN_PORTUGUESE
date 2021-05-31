@@ -40,7 +40,7 @@ def oração_material_dev():
             Atributo = frase_preposicional()
         else:
             Atributo = ''
-        print('Há Participante Beneficiário na oração?')
+        print('Há Participante Beneficiario na oração?')
         RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
         if RECEPÇÃO == '+beneficiário':
             Beneficiário = frase_preposicional()
@@ -137,7 +137,7 @@ def oração_material_dev():
         print('Qual é o Ator?')
         Ator = estrutura_GN()
         Polaridade = POLARIDADE()
-        print('Há Participante Beneficiário na oração?')
+        print('Há Participante Beneficiario na oração?')
 
         Circunstância = circunstância()
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Ator + ' ' + Polaridade \
@@ -191,7 +191,7 @@ def oração_material_dev():
         Processo = grupo_verbal()
         Polaridade = POLARIDADE()
         print('Tipo de oração sem escopo',end='\n')
-        print('Há Participante Beneficiário na oração?')
+        print('Há Participante Beneficiario na oração?')
         RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
         if RECEPÇÃO == '+beneficiário':
             Beneficiário = frase_preposicional()
@@ -218,7 +218,7 @@ def oração_material_dev():
             Escopo = frase_preposicional()
         elif realização_escopo == 'grupo_nominal':
             Escopo = estrutura_GN()
-        print('Há Participante Beneficiário na oração?')
+        print('Há Participante Beneficiario na oração?')
         RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
         if RECEPÇÃO == '+beneficiário':
             Beneficiário = frase_preposicional()
@@ -252,7 +252,7 @@ def oração_material_dev():
         Processo = grupo_verbal()  ##selecionar agenciado_passivo
         print('Qual é o Ator/Agente?')
         Ator = frase_preposicional()
-        print('Há Participante Beneficiário na oração?')
+        print('Há Participante Beneficiario na oração?')
         RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
         if RECEPÇÃO == '+beneficiário':
             Beneficiário = frase_preposicional()
@@ -302,7 +302,7 @@ def oração_material_dev():
         Processo = grupo_verbal()  ##selecionar agenciado_passivo
         print('Qual é o Ator/Agente?')
         Ator = frase_preposicional()
-        print('Há Participante Beneficiário na oração?')
+        print('Há Participante Beneficiario na oração?')
         RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
         if RECEPÇÃO == '+beneficiário':
             Beneficiário = frase_preposicional()
@@ -344,7 +344,7 @@ def oração_material_dev():
         print('Qual o Processo?')
         Polaridade = POLARIDADE()
         Processo = grupo_verbal()  ##selecionar agenciado_passivo
-        print('Há Participante Beneficiário na oração?')
+        print('Há Participante Beneficiario na oração?')
         RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
         if RECEPÇÃO == '+beneficiário':
             Beneficiário = frase_preposicional()
@@ -429,7 +429,7 @@ def oração_material_dev():
         print('Qual é a Meta?')
         Meta = estrutura_GN()
         Polaridade = POLARIDADE()
-        print('Há Participante Beneficiário na oração?')
+        print('Há Participante Beneficiario na oração?')
         RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
         if RECEPÇÃO == '+beneficiário':
             Beneficiário = frase_preposicional()
@@ -513,7 +513,7 @@ def oração_material_dev():
 
 
         elif TIPO_DE_RESULTADO == 'extensão':
-            print('Há Participante Beneficiário na oração?')
+            print('Há Participante Beneficiario na oração?')
             RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
             if RECEPÇÃO == '+beneficiário':
                 Beneficiário = frase_preposicional()
@@ -654,7 +654,7 @@ def oração_material_dev():
          Meta = estrutura_GN()
          Polaridade = POLARIDADE ()
          Circunstância = circunstância()
-         print('Há Participante Beneficiário na oração?')
+         print('Há Participante Beneficiario na oração?')
          RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
          if RECEPÇÃO == '+beneficiário':
              Beneficiário = frase_preposicional()
@@ -695,7 +695,7 @@ def oração_material_dev():
                       + ' ' + Processo +' '+ Atributo+ ' ' + Ator +' ' +Beneficiário+' '+ Circunstância +'.'
 
          elif TIPO_DE_RESULTADO == 'extensão':
-             print ('Há Participante Beneficiário na oração?')
+             print ('Há Participante Beneficiario na oração?')
              RECEPÇÃO = choice.Menu (['+beneficiário','-beneficiário']).ask()
              if RECEPÇÃO == '+beneficiário':
                  Beneficiário = frase_preposicional()
@@ -720,12 +720,12 @@ def oração_material_dev():
     #      print('Qual é a Meta?')
     #      Meta = estrutura_GN()
     #      Polaridade = POLARIDADE ()
-    #      print('Há Participante Beneficiário na oração?')
+    #      print('Há Participante Beneficiario na oração?')
     #      RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
     #      if RECEPÇÃO == '+beneficiário':
-    #          Beneficiário = frase_preposicional()
+    #          Beneficiario = frase_preposicional()
     #      elif RECEPÇÃO == '-beneficiário':
-    #          Beneficiário = ''
+    #          Beneficiario = ''
     #      Circunstância = circunstância()
     #
     #
@@ -754,7 +754,7 @@ def oração_material_dev():
     #          Cliente=''
     #
     #      oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador + ' ' \
-    #               + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +' ' + Beneficiário+' '+Circunstância +'.'
+    #               + Meta + ' ' + Polaridade + ' ' + Processo +' '+ Cliente+ ' ' + Ator +' ' + Beneficiario+' '+Circunstância +'.'
 
     ################
 
@@ -866,7 +866,7 @@ def oração_material_dev():
                      + ' ' + Polaridade + ' ' + Processo + ' ' + Atributo + ' ' + Ator + ' ' + Circunstância + '?'
 
         elif TIPO_DE_RESULTADO == 'extensão':
-            print('Há Participante Beneficiário na oração?')
+            print('Há Participante Beneficiario na oração?')
             RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
             if RECEPÇÃO == '+beneficiário':
                 Beneficiário = frase_preposicional()

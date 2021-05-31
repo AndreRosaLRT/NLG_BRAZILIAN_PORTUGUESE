@@ -94,7 +94,7 @@ def teste_material():
                      + ' ' + Processo + ' ' + Meta + ' ' + Atributo + ' ' + Circunstância + '.'
 
         elif TIPO_DE_RESULTADO == 'extensão':
-            print('Há Participante Beneficiário na oração?')
+            print('Há Participante Beneficiario na oração?')
             RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
             if RECEPÇÃO == '+beneficiário':
                 Beneficiário = frase_preposicional()
