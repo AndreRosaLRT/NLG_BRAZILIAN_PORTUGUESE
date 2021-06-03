@@ -4,9 +4,6 @@
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/oração_material.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/oração_material.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste1.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

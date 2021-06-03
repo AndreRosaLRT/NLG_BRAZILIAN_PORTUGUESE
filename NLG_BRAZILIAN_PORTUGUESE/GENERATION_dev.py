@@ -11354,9 +11354,9 @@ def PROCESSO_MATERIAL(indice=None):
 	Processo_material = tipos[indice]
 
 	return Processo_material
-# for i in range(4):
+# # for i in range(4):
 # 	print(PROCESSO_MATERIAL(i))
-
+# PROCESSO_MATERIAL(2)
 
 def PROCESSO_RELACIONAL(indiceRel=None,indiceAtrib=None):
    """
@@ -12221,6 +12221,9 @@ def oracaoMental(
 # realizacao_atributo = choice.Menu(['atributo_adjetivo', 'atributo_frase_preposicional']).ask()
 # print('Há Participante Beneficiario na oração?')
 # 			RECEPCAO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
+# print('Qual é o Escopo?')
+# tipo_Escopo = choice.Menu(['escopo(processo)', 'escopo(entidade)']).ask()
+
 
 def oracaoMaterial(
 ##TRANSITIVIDADE
@@ -12233,16 +12236,20 @@ def oracaoMaterial(
 		# FENOMENALIZACAO=None, TIPO_DE_MENTAL=None,
 ##Parâmetors específicos do processo material
 	#iniciador
-	INICIADOR=None,TIPO_DE_RESULTADO=None,RESULTADO_QUALITATIVO=None,realizacao_atributo=None,
+	INICIADOR=None,
 	
-	#atributos da elaboração resultativa
+
+	RESULTADO_QUALITATIVO=None,realizacao_atributo=None,
 		#realizado por adjetivo
-	AtributoAdjModificacao=None,AtributoAdjetivo_lematizado=None,AtributoGenero=None,Atributonumero=None,
+	AtributoAdjModificacao=None,AtributoAdjetivo_lematizado=None,AtributoGenero=None,AtributoNumero=None,
 		#realizado por frase preposicional
 	ATRIB_indicePreposicao=None, ATRIB_dissocEnteNucleo=None, ATRIB_temQualificador=None, ATRIB_tipoQualificador=None, ATRIB_DETERMINAÇÃO_espeficifidade_beta=None, ATRIB_ORIENTAÇÃO_beta=None, ATRIB_gênero_beta=None, ATRIB_número_beta=None, ATRIB_morfologia_do_pronome_beta=None, ATRIB_DETERMINAÇÃO_espeficifidade_alpha=None, ATRIB_ORIENTAÇÃO_alpha=None, ATRIB_gênero_alpha=None, ATRIB_número_alpha=None, ATRIB_morfologia_do_pronome_alpha=None, ATRIB_pessoa_da_interlocução_possuidor=None, ATRIB_número_obj_possuído=None, ATRIB_gênero_obj_possuído=None, ATRIB_pessoa_da_interlocução_proximidade=None,  ATRIB_funcaoNumerativo=None, ATRIB_cardinal=None, ATRIB_genero=None, ATRIB_tipo_precisa=None, ATRIB_tipoRealCard=None, ATRIB_milharExtenso=None, ATRIB_centenaExtenso=None, ATRIB_dezenaExtenso=None, ATRIB_unidadeExtenso=None, ATRIB_numIndefinido=None, ATRIB_tipo_de_Ente=None, ATRIB_tipo_de_nao_consciente=None, ATRIB_tipo_de_nao_consciente_material=None, ATRIB_tipo_de_nao_consciente_semiotico=None, ATRIB_classe_palavra_Ente=None, ATRIB_substantivo_lematizado=None, ATRIB_numero=None, ATRIB_tipo_feminino_ÃO=None, ATRIB_tipo_masc_ÃO=None, ATRIB_acentTonica=None, ATRIB_nomeProprio=None, ATRIB_pessoa_da_interlocucao=None, ATRIB_transitividade_verbo=None, ATRIB_tonicidade=None, ATRIB_morfologia_do_pronome=None, ATRIB_reflexivo=None, ATRIB_EpitetoModificacao=None, ATRIB_adjetivo_epiteto=None, ATRIB_classificadorModificacao=None, ATRIB_adjetivo_classificador=None, ATRIB_generoAdjetivo=None, ATRIB_numeroAdjetivo=None, ATRIB_contracao=None,
-
-##extensão recipiente
-	RECEPCAO=None,
+		#ESCOPO
+	ESCOPO=None,
+		#locativo
+	LOCATIVO=None,
+##extensão beneficiarios
+	BENEFICIARIO=None,
 
 		##Processo
 	TIPO_DE_EXPERIENCIA_GV=None, AGENCIA=None, TIPO_DE_EXPERIENCIA_1=None, funcao_no_grupo_verbal_1=None, verbo_1=None, tipo_de_orientacao_1=None, OI_numero_1=None, genero_1=None, OI_tipo_de_pessoa_1=None, padrao_pessoa_morfologia_1=None, TIPO_DE_EXPERIENCIA_2=None, funcao_no_grupo_verbal_2=None, verbo_2=None, tipo_de_orientacao_2=None, OI_numero_2=None, genero_2=None, OI_tipo_de_pessoa_2=None, padrao_pessoa_morfologia_2=None, TIPO_DE_EXPERIENCIA_3=None, funcao_no_grupo_verbal_3=None, verbo_3=None, tipo_de_orientacao_3=None, OI_numero_3=None, genero_3=None, OI_tipo_de_pessoa_3=None, padrao_pessoa_morfologia_3=None, TIPO_DE_EXPERIENCIA_4=None, funcao_no_grupo_verbal_4=None, verbo_4=None, tipo_de_orientacao_4=None, OI_numero_4=None, genero_4=None, OI_tipo_de_pessoa_4=None, padrao_pessoa_morfologia_4=None, TIPO_DE_EXPERIENCIA_LEX=None, funcao_no_grupo_verbal_POS_FINAL=None, verbo_LEX=None, tipo_de_orientacao_LEX=None, OI_numero_LEX=None, genero_LEX=None, OI_tipo_de_pessoa_LEX=None, padrao_pessoa_morfologia_LEX='Morfologia_padrão',
@@ -12267,42 +12274,328 @@ def oracaoMaterial(
 	Polaridade = POLARIDADE(tipo_polaridade)
 	Processo = grupo_verbal(TIPO_DE_EXPERIENCIA_GV, AGENCIA, TIPO_DE_EXPERIENCIA_1, funcao_no_grupo_verbal_1, verbo_1, tipo_de_orientacao_1, OI_numero_1, genero_1, OI_tipo_de_pessoa_1, padrao_pessoa_morfologia_1, TIPO_DE_EXPERIENCIA_2, funcao_no_grupo_verbal_2, verbo_2, tipo_de_orientacao_2, OI_numero_2, genero_2, OI_tipo_de_pessoa_2, padrao_pessoa_morfologia_2, TIPO_DE_EXPERIENCIA_3, funcao_no_grupo_verbal_3, verbo_3, tipo_de_orientacao_3, OI_numero_3, genero_3, OI_tipo_de_pessoa_3, padrao_pessoa_morfologia_3, TIPO_DE_EXPERIENCIA_4, funcao_no_grupo_verbal_4, verbo_4, tipo_de_orientacao_4, OI_numero_4, genero_4, OI_tipo_de_pessoa_4, padrao_pessoa_morfologia_4, TIPO_DE_EXPERIENCIA_LEX, funcao_no_grupo_verbal_POS_FINAL, verbo_LEX, tipo_de_orientacao_LEX, OI_numero_LEX, genero_LEX, OI_tipo_de_pessoa_LEX, padrao_pessoa_morfologia_LEX)
 
-
-#
-	if Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+	if Transitividade == 'PR_material_transformativo_IMPA_intransitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
 		#NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDENS DE AGENTES
 		Ator = estrutura_GN(P1_dissocEnteNucleo, P1_temQualificador, P1_tipoQualificador, P1_indicePreposicao, P1_DETERMINAÇÃO_espeficifidade_beta, P1_ORIENTAÇÃO_beta, P1_gênero_beta, P1_número_beta, P1_morfologia_do_pronome_beta, P1_DETERMINAÇÃO_espeficifidade_alpha, P1_ORIENTAÇÃO_alpha, P1_gênero_alpha, P1_número_alpha, P1_morfologia_do_pronome_alpha, P1_pessoa_da_interlocução_possuidor, P1_número_obj_possuído, P1_gênero_obj_possuído, P1_pessoa_da_interlocução_proximidade, P1_funcaoNumerativo, P1_cardinal, P1_genero, P1_tipo_precisa, P1_tipoRealCard, P1_milharExtenso, P1_centenaExtenso, P1_dezenaExtenso, P1_unidadeExtenso, P1_numIndefinido, P1_tipo_de_Ente, P1_tipo_de_nao_consciente, P1_tipo_de_nao_consciente_material, P1_tipo_de_nao_consciente_semiotico, P1_classe_palavra_Ente, P1_substantivo_lematizado, P1_numero, P1_tipo_feminino_ÃO, P1_tipo_masc_ÃO, P1_acentTonica, P1_nomeProprio, P1_pessoa_da_interlocucao, P1_transitividade_verbo, P1_tonicidade, P1_morfologia_do_pronome, P1_reflexivo, P1_epitetoModificacao, P1_adjetivo_epiteto, P1_classificadorModificacao, P1_adjetivo_classificador, P1_generoAdjetivo, P1_numeroAdjetivo, P1_contracao)
 
 		if INICIADOR == '+iniciador':
 			Iniciador = estrutura_GN(P3_dissocEnteNucleo, P3_temQualificador, P3_tipoQualificador, P3_indicePreposicao, P3_DETERMINAÇÃO_espeficifidade_beta, P3_ORIENTAÇÃO_beta, P3_gênero_beta, P3_número_beta, P3_morfologia_do_pronome_beta, P3_DETERMINAÇÃO_espeficifidade_alpha, P3_ORIENTAÇÃO_alpha, P3_gênero_alpha, P3_número_alpha, P3_morfologia_do_pronome_alpha, P3_pessoa_da_interlocução_possuidor, P3_número_obj_possuído, P3_gênero_obj_possuído, P3_pessoa_da_interlocução_proximidade, P3_funcaoNumerativo, P3_cardinal, P3_genero, P3_tipo_precisa, P3_tipoRealCard, P3_milharExtenso, P3_centenaExtenso, P3_dezenaExtenso, P3_unidadeExtenso, P3_numIndefinido, P3_tipo_de_Ente, P3_tipo_de_nao_consciente, P3_tipo_de_nao_consciente_material, P3_tipo_de_nao_consciente_semiotico, P3_classe_palavra_Ente, P3_substantivo_lematizado, P3_numero, P3_tipo_feminino_ÃO, P3_tipo_masc_ÃO, P3_acentTonica, P3_nomeProprio, P3_pessoa_da_interlocucao, P3_transitividade_verbo, P3_tonicidade, P3_morfologia_do_pronome, P3_reflexivo, P3_epitetoModificacao, P3_adjetivo_epiteto, P3_classificadorModificacao, P3_adjetivo_classificador, P3_generoAdjetivo, P3_numeroAdjetivo, P3_contracao)
-			Meta=''
 			oração = Iniciador + ' ' + Polaridade + ' ' + Processo +' '+ Ator
-		if INICIADOR == '-iniciador':
+		elif INICIADOR == '-iniciador':
 			Iniciador = ''
-			Meta = estrutura_GN(P2_dissocEnteNucleo, P2_temQualificador, P2_tipoQualificador, P2_indicePreposicao, P2_DETERMINAÇÃO_espeficifidade_beta, P2_ORIENTAÇÃO_beta, P2_gênero_beta, P2_número_beta, P2_morfologia_do_pronome_beta, P2_DETERMINAÇÃO_espeficifidade_alpha, P2_ORIENTAÇÃO_alpha, P2_gênero_alpha, P2_número_alpha, P2_morfologia_do_pronome_alpha, P2_pessoa_da_interlocução_possuidor, P2_número_obj_possuído, P2_gênero_obj_possuído, P2_pessoa_da_interlocução_proximidade, P2_funcaoNumerativo, P2_cardinal, P2_genero, P2_tipo_precisa, P2_tipoRealCard, P2_milharExtenso, P2_centenaExtenso, P2_dezenaExtenso, P2_unidadeExtenso, P2_numIndefinido, P2_tipo_de_Ente, P2_tipo_de_nao_consciente, P2_tipo_de_nao_consciente_material, P2_tipo_de_nao_consciente_semiotico, P2_classe_palavra_Ente, P2_substantivo_lematizado, P2_numero, P2_tipo_feminino_ÃO, P2_tipo_masc_ÃO, P2_acentTonica, P2_nomeProprio, P2_pessoa_da_interlocucao, P2_transitividade_verbo, P2_tonicidade, P2_morfologia_do_pronome, P2_reflexivo, P2_epitetoModificacao, P2_adjetivo_epiteto, P2_classificadorModificacao, P2_adjetivo_classificador, P2_generoAdjetivo, P2_numeroAdjetivo, P2_contracao)
-			oração = Ator + ' ' + Polaridade + ' ' + Processo + ' ' + Meta
-	
-		if TIPO_DE_RESULTADO == 'elaboração':
-			if (RESULTADO_QUALITATIVO == 'resultado_atributo' or
-					RESULTADO_QUALITATIVO == 'resultado_papel(produto)'):
+			oração = Ator + ' ' + Polaridade + ' ' + Processo
+		try:
+			if BENEFICIARIO == '+cliente':
+				Cliente = frase_preposicional(PART_FP_indicePreposicao, PART_FP_dissocEnteNucleo, PART_FP_temQualificador, PART_FP_tipoQualificador, PART_FP_DETERMINAÇÃO_espeficifidade_beta, PART_FP_ORIENTAÇÃO_beta, PART_FP_gênero_beta, PART_FP_número_beta, PART_FP_morfologia_do_pronome_beta, PART_FP_DETERMINAÇÃO_espeficifidade_alpha, PART_FP_ORIENTAÇÃO_alpha, PART_FP_gênero_alpha, PART_FP_número_alpha, PART_FP_morfologia_do_pronome_alpha, PART_FP_pessoa_da_interlocução_possuidor, PART_FP_número_obj_possuído, PART_FP_gênero_obj_possuído, PART_FP_pessoa_da_interlocução_proximidade,  PART_FP_funcaoNumerativo, PART_FP_cardinal, PART_FP_genero, PART_FP_tipo_precisa, PART_FP_tipoRealCard, PART_FP_milharExtenso, PART_FP_centenaExtenso, PART_FP_dezenaExtenso, PART_FP_unidadeExtenso, PART_FP_numIndefinido, PART_FP_tipo_de_Ente, PART_FP_tipo_de_nao_consciente, PART_FP_tipo_de_nao_consciente_material, PART_FP_tipo_de_nao_consciente_semiotico, PART_FP_classe_palavra_Ente, PART_FP_substantivo_lematizado, PART_FP_numero, PART_FP_tipo_feminino_ÃO, PART_FP_tipo_masc_ÃO, PART_FP_acentTonica, PART_FP_nomeProprio, PART_FP_pessoa_da_interlocucao, PART_FP_transitividade_verbo, PART_FP_tonicidade, PART_FP_morfologia_do_pronome, PART_FP_reflexivo, PART_FP_EpitetoModificacao, PART_FP_adjetivo_epiteto, PART_FP_classificadorModificacao, PART_FP_adjetivo_classificador, PART_FP_generoAdjetivo, PART_FP_numeroAdjetivo, PART_FP_contracao)
+			elif BENEFICIARIO == '-cliente':
+				Cliente = ''
+		except:
+			Cliente = ''
+		try:
+			if LOCATIVO == '+locativo':
+				Locativo = frase_preposicional(PART_FP_indicePreposicao, PART_FP_dissocEnteNucleo, PART_FP_temQualificador, PART_FP_tipoQualificador, PART_FP_DETERMINAÇÃO_espeficifidade_beta, PART_FP_ORIENTAÇÃO_beta, PART_FP_gênero_beta, PART_FP_número_beta, PART_FP_morfologia_do_pronome_beta, PART_FP_DETERMINAÇÃO_espeficifidade_alpha, PART_FP_ORIENTAÇÃO_alpha, PART_FP_gênero_alpha, PART_FP_número_alpha, PART_FP_morfologia_do_pronome_alpha, PART_FP_pessoa_da_interlocução_possuidor, PART_FP_número_obj_possuído, PART_FP_gênero_obj_possuído, PART_FP_pessoa_da_interlocução_proximidade, PART_FP_funcaoNumerativo, PART_FP_cardinal, PART_FP_genero, PART_FP_tipo_precisa, PART_FP_tipoRealCard, PART_FP_milharExtenso, PART_FP_centenaExtenso, PART_FP_dezenaExtenso, PART_FP_unidadeExtenso, PART_FP_numIndefinido, PART_FP_tipo_de_Ente, PART_FP_tipo_de_nao_consciente, PART_FP_tipo_de_nao_consciente_material, PART_FP_tipo_de_nao_consciente_semiotico, PART_FP_classe_palavra_Ente, PART_FP_substantivo_lematizado, PART_FP_numero, PART_FP_tipo_feminino_ÃO, PART_FP_tipo_masc_ÃO, PART_FP_acentTonica, PART_FP_nomeProprio, PART_FP_pessoa_da_interlocucao, PART_FP_transitividade_verbo, PART_FP_tonicidade, PART_FP_morfologia_do_pronome, PART_FP_reflexivo, PART_FP_EpitetoModificacao, PART_FP_adjetivo_epiteto, PART_FP_classificadorModificacao, PART_FP_adjetivo_classificador, PART_FP_generoAdjetivo, PART_FP_numeroAdjetivo, PART_FP_contracao)
+			elif LOCATIVO == '-locativo':
+				Locativo = ''
+		except:
+			Locativo = ''
+
+		oração = oração + ' ' + Locativo + ' ' + Cliente + '.'
+
+
+	elif Transitividade == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+		# NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDENS DE AGENTES
+		Ator = estrutura_GN(P1_dissocEnteNucleo, P1_temQualificador, P1_tipoQualificador, P1_indicePreposicao, P1_DETERMINAÇÃO_espeficifidade_beta, P1_ORIENTAÇÃO_beta, P1_gênero_beta, P1_número_beta, P1_morfologia_do_pronome_beta, P1_DETERMINAÇÃO_espeficifidade_alpha, P1_ORIENTAÇÃO_alpha, P1_gênero_alpha, P1_número_alpha, P1_morfologia_do_pronome_alpha, P1_pessoa_da_interlocução_possuidor, P1_número_obj_possuído, P1_gênero_obj_possuído, P1_pessoa_da_interlocução_proximidade, P1_funcaoNumerativo, P1_cardinal, P1_genero, P1_tipo_precisa, P1_tipoRealCard, P1_milharExtenso, P1_centenaExtenso, P1_dezenaExtenso, P1_unidadeExtenso, P1_numIndefinido, P1_tipo_de_Ente, P1_tipo_de_nao_consciente, P1_tipo_de_nao_consciente_material, P1_tipo_de_nao_consciente_semiotico, P1_classe_palavra_Ente, P1_substantivo_lematizado, P1_numero, P1_tipo_feminino_ÃO, P1_tipo_masc_ÃO, P1_acentTonica, P1_nomeProprio, P1_pessoa_da_interlocucao, P1_transitividade_verbo, P1_tonicidade, P1_morfologia_do_pronome, P1_reflexivo, P1_epitetoModificacao, P1_adjetivo_epiteto, P1_classificadorModificacao, P1_adjetivo_classificador, P1_generoAdjetivo, P1_numeroAdjetivo, P1_contracao)
+		Meta = estrutura_GN(P2_dissocEnteNucleo, P2_temQualificador, P2_tipoQualificador, P2_indicePreposicao, P2_DETERMINAÇÃO_espeficifidade_beta, P2_ORIENTAÇÃO_beta, P2_gênero_beta, P2_número_beta, P2_morfologia_do_pronome_beta, P2_DETERMINAÇÃO_espeficifidade_alpha, P2_ORIENTAÇÃO_alpha, P2_gênero_alpha, P2_número_alpha, P2_morfologia_do_pronome_alpha, P2_pessoa_da_interlocução_possuidor, P2_número_obj_possuído, P2_gênero_obj_possuído, P2_pessoa_da_interlocução_proximidade, P2_funcaoNumerativo, P2_cardinal, P2_genero, P2_tipo_precisa, P2_tipoRealCard, P2_milharExtenso, P2_centenaExtenso, P2_dezenaExtenso, P2_unidadeExtenso, P2_numIndefinido, P2_tipo_de_Ente, P2_tipo_de_nao_consciente, P2_tipo_de_nao_consciente_material, P2_tipo_de_nao_consciente_semiotico, P2_classe_palavra_Ente, P2_substantivo_lematizado, P2_numero, P2_tipo_feminino_ÃO, P2_tipo_masc_ÃO, P2_acentTonica, P2_nomeProprio, P2_pessoa_da_interlocucao, P2_transitividade_verbo, P2_tonicidade, P2_morfologia_do_pronome, P2_reflexivo, P2_epitetoModificacao, P2_adjetivo_epiteto, P2_classificadorModificacao, P2_adjetivo_classificador, P2_generoAdjetivo, P2_numeroAdjetivo, P2_contracao)
+
+		try:
+			if RESULTADO_QUALITATIVO == 'resultado_atributo' or RESULTADO_QUALITATIVO == 'resultado_papel(produto)':
 				if realizacao_atributo == 'atributo_adjetivo':
-					Atributo = adjetivo(AtributoAdjModificacao,AtributoAdjetivo_lematizado,AtributoGenero,Atributonumero,
-)
+					Atributo = adjetivo(AtributoAdjModificacao,AtributoAdjetivo_lematizado,AtributoGenero,AtributoNumero)
 				elif realizacao_atributo == 'atributo_frase_preposicional':
-					Atributo = frase_preposicional(ATRIB_indicePreposicao, ATRIB_dissocEnteNucleo, ATRIB_temQualificador, ATRIB_tipoQualificador, ATRIB_DETERMINAÇÃO_espeficifidade_beta, ATRIB_ORIENTAÇÃO_beta, ATRIB_gênero_beta, ATRIB_número_beta, ATRIB_morfologia_do_pronome_beta, ATRIB_DETERMINAÇÃO_espeficifidade_alpha, ATRIB_ORIENTAÇÃO_alpha, ATRIB_gênero_alpha, ATRIB_número_alpha, ATRIB_morfologia_do_pronome_alpha, ATRIB_pessoa_da_interlocução_possuidor, ATRIB_número_obj_possuído, ATRIB_gênero_obj_possuído, ATRIB_pessoa_da_interlocução_proximidade,  ATRIB_funcaoNumerativo, ATRIB_cardinal, ATRIB_genero, ATRIB_tipo_precisa, ATRIB_tipoRealCard, ATRIB_milharExtenso, ATRIB_centenaExtenso, ATRIB_dezenaExtenso, ATRIB_unidadeExtenso, ATRIB_numIndefinido, ATRIB_tipo_de_Ente, ATRIB_tipo_de_nao_consciente, ATRIB_tipo_de_nao_consciente_material, ATRIB_tipo_de_nao_consciente_semiotico, ATRIB_classe_palavra_Ente, ATRIB_substantivo_lematizado, ATRIB_numero, ATRIB_tipo_feminino_ÃO, ATRIB_tipo_masc_ÃO, ATRIB_acentTonica, ATRIB_nomeProprio, ATRIB_pessoa_da_interlocucao, ATRIB_transitividade_verbo, ATRIB_tonicidade, ATRIB_morfologia_do_pronome, ATRIB_reflexivo, ATRIB_EpitetoModificacao, ATRIB_adjetivo_epiteto, ATRIB_classificadorModificacao, ATRIB_adjetivo_classificador, ATRIB_generoAdjetivo, ATRIB_numeroAdjetivo, ATRIB_contracao)
+					Atributo = frase_preposicional(ATRIB_indicePreposicao, ATRIB_dissocEnteNucleo, ATRIB_temQualificador, ATRIB_tipoQualificador, ATRIB_DETERMINAÇÃO_espeficifidade_beta, ATRIB_ORIENTAÇÃO_beta, ATRIB_gênero_beta, ATRIB_número_beta, ATRIB_morfologia_do_pronome_beta, ATRIB_DETERMINAÇÃO_espeficifidade_alpha, ATRIB_ORIENTAÇÃO_alpha, ATRIB_gênero_alpha, ATRIB_número_alpha, ATRIB_morfologia_do_pronome_alpha, ATRIB_pessoa_da_interlocução_possuidor, ATRIB_número_obj_possuído, ATRIB_gênero_obj_possuído, ATRIB_pessoa_da_interlocução_proximidade, ATRIB_funcaoNumerativo, ATRIB_cardinal, ATRIB_genero, ATRIB_tipo_precisa, ATRIB_tipoRealCard, ATRIB_milharExtenso, ATRIB_centenaExtenso, ATRIB_dezenaExtenso, ATRIB_unidadeExtenso, ATRIB_numIndefinido, ATRIB_tipo_de_Ente, ATRIB_tipo_de_nao_consciente, ATRIB_tipo_de_nao_consciente_material, ATRIB_tipo_de_nao_consciente_semiotico, ATRIB_classe_palavra_Ente, ATRIB_substantivo_lematizado, ATRIB_numero, ATRIB_tipo_feminino_ÃO, ATRIB_tipo_masc_ÃO, ATRIB_acentTonica, ATRIB_nomeProprio, ATRIB_pessoa_da_interlocucao, ATRIB_transitividade_verbo, ATRIB_tonicidade, ATRIB_morfologia_do_pronome, ATRIB_reflexivo, ATRIB_EpitetoModificacao, ATRIB_adjetivo_epiteto, ATRIB_classificadorModificacao, ATRIB_adjetivo_classificador, ATRIB_generoAdjetivo, ATRIB_numeroAdjetivo, ATRIB_contracao)
 			elif RESULTADO_QUALITATIVO == '-resultado':
-				Atributo = ''
+					Atributo = ''
+		except:
+			Atributo = ''
 
-			oração =  oração + ' ' + Atributo + '.'
-		if TIPO_DE_RESULTADO == 'extensão':
-			if RECEPCAO == '+recipiente':
-				Recipiente = frase_preposicional(PART_FP_indicePreposicao, PART_FP_dissocEnteNucleo, PART_FP_temQualificador, PART_FP_tipoQualificador, PART_FP_DETERMINAÇÃO_espeficifidade_beta, PART_FP_ORIENTAÇÃO_beta, PART_FP_gênero_beta, PART_FP_número_beta, PART_FP_morfologia_do_pronome_beta, PART_FP_DETERMINAÇÃO_espeficifidade_alpha, PART_FP_ORIENTAÇÃO_alpha, PART_FP_gênero_alpha, PART_FP_número_alpha, PART_FP_morfologia_do_pronome_alpha, PART_FP_pessoa_da_interlocução_possuidor, PART_FP_número_obj_possuído, PART_FP_gênero_obj_possuído, PART_FP_pessoa_da_interlocução_proximidade,  PART_FP_funcaoNumerativo, PART_FP_cardinal, PART_FP_genero, PART_FP_tipo_precisa, PART_FP_tipoRealCard, PART_FP_milharExtenso, PART_FP_centenaExtenso, PART_FP_dezenaExtenso, PART_FP_unidadeExtenso, PART_FP_numIndefinido, PART_FP_tipo_de_Ente, PART_FP_tipo_de_nao_consciente, PART_FP_tipo_de_nao_consciente_material, PART_FP_tipo_de_nao_consciente_semiotico, PART_FP_classe_palavra_Ente, PART_FP_substantivo_lematizado, PART_FP_numero, PART_FP_tipo_feminino_ÃO, PART_FP_tipo_masc_ÃO, PART_FP_acentTonica, PART_FP_nomeProprio, PART_FP_pessoa_da_interlocucao, PART_FP_transitividade_verbo, PART_FP_tonicidade, PART_FP_morfologia_do_pronome, PART_FP_reflexivo, PART_FP_EpitetoModificacao, PART_FP_adjetivo_epiteto, PART_FP_classificadorModificacao, PART_FP_adjetivo_classificador, PART_FP_generoAdjetivo, PART_FP_numeroAdjetivo, PART_FP_contracao)
-			elif RECEPCAO == '-recipiente':
+		try:
+			if BENEFICIARIO == '+recipiente':
+				Recipiente = frase_preposicional(PART_FP_indicePreposicao, PART_FP_dissocEnteNucleo, PART_FP_temQualificador, PART_FP_tipoQualificador, PART_FP_DETERMINAÇÃO_espeficifidade_beta, PART_FP_ORIENTAÇÃO_beta, PART_FP_gênero_beta, PART_FP_número_beta, PART_FP_morfologia_do_pronome_beta, PART_FP_DETERMINAÇÃO_espeficifidade_alpha, PART_FP_ORIENTAÇÃO_alpha, PART_FP_gênero_alpha, PART_FP_número_alpha, PART_FP_morfologia_do_pronome_alpha, PART_FP_pessoa_da_interlocução_possuidor, PART_FP_número_obj_possuído, PART_FP_gênero_obj_possuído, PART_FP_pessoa_da_interlocução_proximidade, PART_FP_funcaoNumerativo, PART_FP_cardinal, PART_FP_genero, PART_FP_tipo_precisa, PART_FP_tipoRealCard, PART_FP_milharExtenso, PART_FP_centenaExtenso, PART_FP_dezenaExtenso, PART_FP_unidadeExtenso, PART_FP_numIndefinido, PART_FP_tipo_de_Ente, PART_FP_tipo_de_nao_consciente, PART_FP_tipo_de_nao_consciente_material, PART_FP_tipo_de_nao_consciente_semiotico, PART_FP_classe_palavra_Ente, PART_FP_substantivo_lematizado, PART_FP_numero, PART_FP_tipo_feminino_ÃO, PART_FP_tipo_masc_ÃO, PART_FP_acentTonica, PART_FP_nomeProprio, PART_FP_pessoa_da_interlocucao, PART_FP_transitividade_verbo, PART_FP_tonicidade, PART_FP_morfologia_do_pronome, PART_FP_reflexivo, PART_FP_EpitetoModificacao, PART_FP_adjetivo_epiteto, PART_FP_classificadorModificacao, PART_FP_adjetivo_classificador, PART_FP_generoAdjetivo, PART_FP_numeroAdjetivo, PART_FP_contracao)
+			elif BENEFICIARIO == '-recipiente':
 				Recipiente = ''
-	#
-			oração =  oração + ' ' + Recipiente + '.'
+		except:
+			Recipiente = ''
+		try:
+			if LOCATIVO == '+locativo':
+				Locativo = frase_preposicional(PART_FP_indicePreposicao, PART_FP_dissocEnteNucleo, PART_FP_temQualificador, PART_FP_tipoQualificador, PART_FP_DETERMINAÇÃO_espeficifidade_beta, PART_FP_ORIENTAÇÃO_beta, PART_FP_gênero_beta, PART_FP_número_beta, PART_FP_morfologia_do_pronome_beta, PART_FP_DETERMINAÇÃO_espeficifidade_alpha, PART_FP_ORIENTAÇÃO_alpha, PART_FP_gênero_alpha, PART_FP_número_alpha, PART_FP_morfologia_do_pronome_alpha, PART_FP_pessoa_da_interlocução_possuidor, PART_FP_número_obj_possuído, PART_FP_gênero_obj_possuído, PART_FP_pessoa_da_interlocução_proximidade, PART_FP_funcaoNumerativo, PART_FP_cardinal, PART_FP_genero, PART_FP_tipo_precisa, PART_FP_tipoRealCard, PART_FP_milharExtenso, PART_FP_centenaExtenso, PART_FP_dezenaExtenso, PART_FP_unidadeExtenso, PART_FP_numIndefinido, PART_FP_tipo_de_Ente, PART_FP_tipo_de_nao_consciente, PART_FP_tipo_de_nao_consciente_material, PART_FP_tipo_de_nao_consciente_semiotico, PART_FP_classe_palavra_Ente, PART_FP_substantivo_lematizado, PART_FP_numero, PART_FP_tipo_feminino_ÃO, PART_FP_tipo_masc_ÃO, PART_FP_acentTonica, PART_FP_nomeProprio, PART_FP_pessoa_da_interlocucao, PART_FP_transitividade_verbo, PART_FP_tonicidade, PART_FP_morfologia_do_pronome, PART_FP_reflexivo, PART_FP_EpitetoModificacao, PART_FP_adjetivo_epiteto, PART_FP_classificadorModificacao, PART_FP_adjetivo_classificador, PART_FP_generoAdjetivo, PART_FP_numeroAdjetivo, PART_FP_contracao)
+			elif LOCATIVO == '-locativo':
+				Locativo = ''
+		except:
+			Locativo = ''
 
-#PAREI AQUI 31-05----CONTINUAR O MATERIAL 
+		oração = Ator + ' ' + Polaridade + ' ' + Processo  + ' ' + Meta + ' ' + Atributo + ' ' + Locativo + ' ' + Recipiente+ '.'
+	return (re.sub(' +', ' ', oração).strip().capitalize())
+####PAREI AQUI COM SUCEEEEEESSSSOOOOOOOO
+	# 'O policial comprou o sorvete para aquelas meninas altas.'
+	oracaoMaterial(
+		# transitividade
+		'Material', 0,
+		2, None, None,
+
+		# modo
+		0, 0, 1,
+		# TEMA IDEACIONAL
+		'orientado', 'direcional',
+		'default', 'indicativo',
+		'declarativo', 'NA',
+		None, None, None,
+
+		# ##Processo Mental
+		# None, None,
+		##Parâmetors específicos do processo material
+		'-iniciador',
+		# 'intensificação',
+		'-resultado', None,
+
+		# atributos da elaboração resultativa
+		# adjetivo
+		None, None, None, None,
+		# frase preposicional
+		None, None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None, None, None,
+		None, None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None, None,
+		None, None, None, None,
+		None, None, None, None,
+		None, None, None,
+		None, None,
+		# ESCOPO
+		None,
+		# LOCATIVO
+		'-locativo',
+		##extensão BENEFICIARIO
+		'+recipiente',
+
+		# Processo
+		'Fazer', 'agenciado_ativa', None, None, None, None, None, None,
+		None, None, None, None, None, None, None, None, None,
+		None, None, None, None, None, None, None, None, None, None, None,
+		None, None, None, None, None,
+		'Morfologia_padrão', 'Fazer', 'Evento', 'comprar', 'pretérito_perfectivo_I', 'singular',
+		None, '3pessoa', 'Morfologia_padrão',
+		# POLARIDADE
+		'positiva',
+		##PARTICIPANTES
+		# p1
+		None, None, None, None,
+		None, None, None, None,
+		None, 'específico', 'NA',
+		'masculino', 'singular', None,
+		None, None, None,
+		None, None, None, 'masculino',
+		None, None, None, None,
+		None, None, None,
+		'consciente', None, None,
+		None, 'substantivo_comum', 'policial',
+		'singular', None, None, None, None,
+		None, None, None, "Morfologia_padrão",
+		None, None, None, None,
+		None, None, None, None,
+		# p2 )
+		##
+		None, None, None, None,
+		None, None, None, None,
+		None, 'específico', 'NA',
+		'masculino', 'singular', None,
+		None, None, None,
+		None, None, None, 'não-binário',
+		None, None, None, None,
+		None, None, None,
+		'não_consciente', 'material', 'objeto_material',
+		None, 'substantivo_comum', 'sorvete',
+		'singular', None, None, None, None,
+		None, None, None, "Morfologia_padrão",
+		None, None, None, None,
+		None, None, None, None,
+		# p3
+		None, None, None, None,
+		None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None, None, None,
+		None, None, None, None,
+		None,
+		None, None, None,
+		None, None,
+		None, None,
+		None, None, None, None,
+		None,
+		None, None, None, None,
+		None, None, None,
+		None, None, None, None,
+		# realizados por frase preposicional
+		10, None, None, None,
+		None, None,
+		None, None, None,
+		'específico', 'orientação_específica_proximidade',
+		'feminino',
+		'plural', 'morfologia_terceira_pessoa',
+		'1s',
+		'plural', None,
+		'próximo_ao_não_interlocutor',  #
+		None, None, 'feminino', None, None,
+		None, None, None, None, None,
+		'consciente', None,
+		None,
+		None, 'substantivo_comum',
+		'menino', 'plural',
+		None, None, None, None, None,
+		None, None, None, None,  #
+		'sim', 'alto',
+		None, None, 'feminino',
+		'plural', '+contração')
+
+
+	# 'O policial rolou o bola entre aqueles prédios altos.'
+	oracaoMaterial(
+		# transitividade
+		'Material', 2,
+		2, None, None,
+
+		# modo
+		0, 0, 1,
+		# TEMA IDEACIONAL
+		'orientado', 'direcional',
+		'default', 'indicativo',
+		'declarativo', 'NA',
+		None, None, None,
+
+		# ##Processo Mental
+		# None, None,
+		##Parâmetors específicos do processo material
+		'+iniciador',
+		# 'intensificação',
+		None, None,
+
+		# atributos da elaboração resultativa
+		# adjetivo
+		None, None, None, None,
+		# frase preposicional
+		None, None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None, None, None,
+		None, None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None, None,
+		None, None, None, None,
+		None, None, None, None,
+		None, None, None,
+		None, None,
+		# ESCOPO
+		None,
+		# LOCATIVO
+		'+locativo',
+		##extensão BENEFICIARIO
+		'-cliente',
+
+		# Processo
+		'Fazer', 'agenciado_ativa', None, None, None, None, None, None,
+		None, None, None, None, None, None, None, None, None,
+		None, None, None, None, None, None, None, None, None, None, None,
+		None, None, None, None, None,
+		'Morfologia_padrão', 'Fazer', 'Evento', 'rolar', 'pretérito_perfectivo_I', 'singular',
+		None, '3pessoa', 'Morfologia_padrão',
+		# POLARIDADE
+		'positiva',
+		##PARTICIPANTES
+		# p1
+		None, None, None, None,
+		None, None, None, None,
+		None, 'específico', 'NA',
+		'feminino', 'singular', None,
+		None, None, None,
+		None, None, None, 'não-binário',
+		None, None, None, None,
+		None, None, None,
+		'não_consciente', 'material', 'objeto_material',
+		None, 'substantivo_comum', 'bola',
+		'singular', None, None, None, None,
+		None, None, None, "Morfologia_padrão",
+		None, None, None, None,
+		None, None, None, None,
+
+		# p2
+		None, None, None, None,
+		None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None,
+		None, None, None, None, None,
+		None, None, None, None,
+		None,
+		None, None, None,
+		None, None,
+		None, None,
+		None, None, None, None,
+		None,
+		None, None, None, None,
+		None, None, None,
+		None, None, None, None,
+
+		# p3 )
+		None, None, None, None,
+		None, None, None, None,
+		None, 'específico', 'NA',
+		'masculino', 'singular', None,
+		None, None, None,
+		None, None, None, 'masculino',
+		None, None, None, None,
+		None, None, None,
+		'consciente', None, None,
+		None, 'substantivo_comum', 'policial',
+		'singular', None, None, None, None,
+		None, None, None, "Morfologia_padrão",
+		None, None, None, None,
+		None, None, None, None,
+		# realizados por frase preposicional
+		9, None, None, None,
+		None, None,
+		None, None, None,
+		'específico', 'orientação_específica_proximidade',
+		'masculino',
+		'plural', 'morfologia_terceira_pessoa',
+		'1s',
+		'plural', None,
+		'próximo_ao_não_interlocutor',  #
+		None, None, 'masculino', None, None,
+		None, None, None, None, None,
+		'consciente', None,
+		None,
+		None, 'substantivo_comum',
+		'prédio', 'plural',
+		None, None, None, None, None,
+		None, None, None, None,  #
+		'sim', 'alto',
+		None, None, 'masculino',
+		'plural', '+contração')
+
+
+
 	elif Transitividade == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo' and Modo == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and Tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
 
 
@@ -12334,6 +12627,7 @@ def oracaoMaterial(
 
 
 	return (re.sub(' +', ' ', oração).strip().capitalize())
+
 
 	#
 #
