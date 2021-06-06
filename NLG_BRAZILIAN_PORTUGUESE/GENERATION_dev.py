@@ -12750,7 +12750,7 @@ def oracaoRelacional(
 
 		oração = Portador + ' ' + Polaridade + ' ' + Processo  + ' ' + Atributo + '.'
 	return (re.sub(' +', ' ', oração).strip().capitalize())
-#PAREI AQUI RELACIONAL: CONTINUAR  
+#PAREI AQUI RELACIONAL: CONTINUAR
 # 'O moço é um pedreiro.'
 oracaoRelacional(
 	# transitividade
