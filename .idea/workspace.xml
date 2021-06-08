@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="" />
+    <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste1.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste1.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +36,9 @@
     <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" root0="SKIP_INSPECTION" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="1lTW8rtfPkdVNdmbaWSqRvVh02Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -52,7 +59,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.GENERATION_dev">
+  <component name="RunManager" selected="Python tests.Doctests in GENERATION_dev">
     <configuration name="GENERATION_dev" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLG_BRAZILIAN_PORTUGUESE_19-11" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -157,8 +164,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.GENERATION_dev" />
         <item itemvalue="Python tests.Doctests in GENERATION_dev" />
+        <item itemvalue="Python.GENERATION_dev" />
         <item itemvalue="Python.teste" />
         <item itemvalue="Python.minerando_lemas_e_EXPERIMENTOSAPLICACAO" />
         <item itemvalue="Python.experimento_dev_verbos" />

@@ -1,3 +1,55 @@
+def PROCESSO_RELACIONAL(indiceRel=None):
+    """
+     :param tipo_de_relacional= 'PR_relacional_intensivo_atributivo',
+                                       'PR_relacional_intensivo_identificativo',
+                                       'PR_relacional_possessivo_atributivo',
+                                       'PR_relacional_possessivo_identificativo',
+                                       'PR_relacional_circunstancial_atributivo',
+                                       'PR_relacional_circunstancial_identificativo
+
+
+     :return: relacional
+    """
+    opcoesRelacional = ['PR_relacional_intensivo_atributivo',
+                        'PR_relacional_intensivo_identificativo',
+                        'PR_relacional_possessivo_atributivo',
+                        'PR_relacional_possessivo_identificativo',
+                        'PR_relacional_circunstancial_atributivo',
+                        'PR_relacional_circunstancial_identificativo']
+    numsRel = [x for x in range(len(opcoesRelacional))]
+    tiposRel = dict(zip(numsRel, opcoesRelacional))
+    tipoRel = tiposRel[indiceRel]
+
+    return tipoRel
+
+
+# PROCESSO_RELACIONAL(0)
+def atribuicao_relacao(indiceAtrib=None):
+    """
+    :param atribuicao_relacao= 'atribuição_proj_ment_cognitiva',
+                                            'atribuição_proj_ment_desiderativa',
+                                            'atribuição_proj_verbal',
+                                            'atribuição_expan_elaboração',
+                                            'atribuição_expan_intencificação',
+                                            'sem_atribuição_de_relação'
+                                            """
+    opcoesAtribuicao = ['atribuição_proj_ment_cognitiva',
+                        'atribuição_proj_ment_desiderativa',
+                        'atribuição_proj_verbal',
+                        'atribuição_expan_elaboração',
+                        'atribuição_expan_intencificação',
+                        'sem_atribuição_de_relação']
+    numsAtribuicao = [x for x in range(len(opcoesAtribuicao))]
+    tiposAtrobuicao = dict(zip(numsAtribuicao, opcoesAtribuicao))
+    tipoAtrib = tiposAtrobuicao[indiceAtrib]
+
+    return tipoAtrib
+
+
+
+
+
+
 import re
 from GENERATION_dev import *
 
