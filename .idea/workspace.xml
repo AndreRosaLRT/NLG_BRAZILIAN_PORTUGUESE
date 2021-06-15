@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" afterDir="false" />
     </list>
@@ -197,6 +196,43 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
+          <line>12841</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
+          <line>12875</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
+          <line>12909</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
+          <line>12912</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
+          <line>12923</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
+          <line>12965</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py</url>
+          <line>12948</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
