@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$/corpus/corpora_train_dev_test/acertos_conjugação_TESTE.json" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/corpus/corpora_train_dev_test/acertos_conjugação_dev.json" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/corpus/corpora_train_dev_test/erros_conjugação_dev.json" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/corpus/corpora_train_dev_test/portuguese-dev.txt" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/corpus/erros_infinitivo.json" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/corpus/verbos_web_dev.json" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/mineração_lexicon/dicionarioVerbosDaMata.json" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/mineração_lexicon/dicionarioVerbosDaMataGerundio.json" charset="windows-1252" />
