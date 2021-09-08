@@ -16,13 +16,14 @@ import nltk
 # wn.langs()
 
 ##########WORDEMBEDDINGS
-#
+#PARA REALIZAR AS ETAPAS SEGUINTES, É NECESSÁRIO BAIXAR OS MODELOS NOVAMENTE.
+#http://nilc.icmc.usp.br/nilc/index.php/repositorio-de-word-embeddings-do-nilc
 # import gensim
 # print('done')
 # from gensim import models
 # from gensim.models import KeyedVectors
 # print('done')
-#
+
 # model_cbow = KeyedVectors.load_word2vec_format('./mineração_lexicon/cbow_s50.txt', encoding="utf-8")
 # print('Done')
 # model_skip = KeyedVectors.load_word2vec_format('./mineração_lexicon/skip_s300.txt')
@@ -38,16 +39,15 @@ arquivo = json.load(open('./mineração_lexicon/verbs.json'))
 chaves = arquivo.keys()
 # type(chaves)
 chaves = list(chaves)
-chaves[0]
-lemas_verbos = []
 
+lemas_verbos = []
 i = 0
 for entrada in chaves:
     verbo = chaves[i].split()[1]
     if verbo not in lemas_verbos:
         lemas_verbos.append(verbo)
     i += 1
-lemas_verbos[8] = "alcançar"
+
 
 
 ##############################################
@@ -71,19 +71,17 @@ for palavra in lemas_verbos:
 # json_object = json.dumps(dict_sinon_cbow, indent=4)
 #
 # # Writing to sample.json
-# with open("./mineração_lexicon/dic_sin_cbow.json", "w", encoding="utf-8") as outfile:
+# with open("./mineração_lexicon/dic_sin_cbow2.json", "w", encoding="utf-8") as outfile:
 #     outfile.write(json_object)
 #
 # dict_sinon_cbow.items()
 ####COM O DICIONARIO JÁ SALVO EM JSON, É SÓ ABRIR
-dicionario_cbow = json.load(open('./mineração_lexicon/dic_sin_cbow.json'))
+dicionario_cbow = json.load(open('./mineração_lexicon/dic_sin_cbow2.json'))
 
 
 ##PRE-EXPERIMENTOS APLICAÇÃO
 
-####TOTOS OS VERBOS:
-
-
+####TOdOS OS VERBOS:
 
 # #
 # # # ##TESTE VERBOS
@@ -107,12 +105,6 @@ conjugacao = []
 #             except:
 #                 conjugacao.append('ERROR_'+oi+'_'+tipo_pessoa)
 
-formacao_verbo_CAR('identificar','imperativo_I','-AR','plural',None,'2pessoa')
-verbo_geral("Fazer", 'Evento', 'identificar', 'imperativo_I', 'singular', None, '2pessoa')
-
-verbo_geral("Fazer", 'Evento', 'andar', 'gerúndio', None, None, None)
-verbo_geral("Fazer", 'Evento', 'andar', 'particípio','singular', 'masculino', None)
-verbo_geral("Fazer", 'Evento', "identificar","imperativo_I", 'singular', None, '1pessoa')
 
 dicionarioConjuga={}
 
@@ -162,15 +154,10 @@ json_object=json.dumps(dicionarioConjugaParticipio, ensure_ascii=False)
 with open('./mineração_lexicon/dicionarioVerbosDaMataParticipio.json', "w",) as outfile:
     outfile.write(json_object)
 
-
-
 verbo_geral("Fazer", 'Evento', 'levar', 'imperativo_I', 'singular', None, '1pessoa')
 
 # # # #presente
 # print("A conjugação é:")
-
-
-
 
 listaSentencas = []
 
@@ -180,13 +167,7 @@ for lema in dicionario_cbow['registrar']:
     listaSentencas.append(sentenca)
 
 
-
-
-
 ###DICIONARIOS QUE ACABEI NÃO USANDO NO EXPERIMENTO:
-
-
-
 # ###dicionario co base no skipgram
 # dict_sinon_skip = {}
 #
@@ -206,7 +187,7 @@ for lema in dicionario_cbow['registrar']:
 # json_object = json.dumps(dict_sinon_skip, indent=4)
 #
 # # Writing to sample.json
-# with open("C:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/mineração_lexicon/dic_sin_skip.json", "w") as outfile:
+# with open("C:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/mineração_lexicon/dic_sin_cbow2.json", "w") as outfile:
 #     outfile.write(json_object)
 #
 # dict_sinon_skip.items()
