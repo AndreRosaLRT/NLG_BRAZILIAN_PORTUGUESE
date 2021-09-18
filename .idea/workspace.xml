@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_do_grupo/grupo_adverbial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_palavra/adverbios.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste_grupo_verbal.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste_grupo_verbal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/portuguese-dev.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/portuguese-test_verificacao.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/portuguese-train-high.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/portuguese-train-low.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/portuguese-train-medium.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/portuguese-uncovered-test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/verbos_dev_2.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/verbos_test_1.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/verbos_verificar.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/~$verbos_dev.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/experimento_corpora_dev-test_verbos.py" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/experimento_corpora_dev-test_verbos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dic_sin_skip.json" beforeDir="false" afterPath="$PROJECT_DIR$/mineração_lexicon/dic_sin_cbow2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verbos_json/verbos_AR.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -75,7 +61,7 @@
       <recent name="$PROJECT_DIR$/mineração_lexicon" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Doctests in GENERATION_dev (1)">
+  <component name="RunManager" selected="Python.grupo_adverbial">
     <configuration name="GENERATION_dev" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLG_BRAZILIAN_PORTUGUESE_19-11" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,7 +83,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="minerando_lemas_e_EXPERIMENTOSAPLICACAO" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="adverbios" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLG_BRAZILIAN_PORTUGUESE_19-11" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -105,11 +91,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mineração_lexicon" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_unidade/ordem_palavra" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_unidade/ordem_palavra/adverbios.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -118,7 +104,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="teste" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="grupo_adverbial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLG_BRAZILIAN_PORTUGUESE_19-11" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -126,11 +112,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/corpus/corpora_train_dev_test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_do_grupo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/corpus/corpora_train_dev_test/teste.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_do_grupo/grupo_adverbial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.grupo_adverbial" />
+        <item itemvalue="Python.adverbios" />
         <item itemvalue="Python tests.Doctests in GENERATION_dev (1)" />
         <item itemvalue="Python tests.Doctests in GENERATION_dev" />
         <item itemvalue="Python.GENERATION_dev" />
-        <item itemvalue="Python.teste" />
-        <item itemvalue="Python.minerando_lemas_e_EXPERIMENTOSAPLICACAO" />
       </list>
     </recent_temporary>
   </component>
