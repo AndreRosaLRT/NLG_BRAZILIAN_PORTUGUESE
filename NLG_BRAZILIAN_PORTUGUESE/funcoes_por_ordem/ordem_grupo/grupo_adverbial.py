@@ -23,7 +23,6 @@ if __name__ == '__main__':
     for i in range(1, len(args.argumentos), 2):
         args.argumentos[i] = int(args.argumentos[i])
 
-    print(args.argumentos)
     print(grupo_adverbial(*args.argumentos))
 
 

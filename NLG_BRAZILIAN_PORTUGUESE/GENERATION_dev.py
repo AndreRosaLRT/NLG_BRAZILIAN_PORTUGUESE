@@ -22,193 +22,193 @@ import re
 ###ADVÉRBIO    INÍCIO####
 
 ###########ORDEM DA PALAVRA
-from builtins import zip
-
-from nltk import unify
-
-
-def adverbio_modo(indice=None):
-	try:
-		opcoes = ['bem','mal','assim','adrede',
-				  'melhor','pior','depressa','devagar',
-				  'acinte','debalde','cuidadosamente','calmamente',
-				  'tristemente','alegremente', 'bondosamente',
-				  'calmamente', 'discretamente', 'elegantemente','infelizmente',
-				  'evidentemente']
-		nums = [x for x in range(len(opcoes))]
-		adverbios = dict(zip(nums, opcoes))
-		adverbio = adverbios[indice]
-	except:
-		adverbio = ''
-	return adverbio
-# adverbio_modo(10)
-
-def adverbio_intensidade(indice=None):
-	try:
-		opcoes = ['muito','demais','todo','pouco',
-			'tão','quão','demasiado','bastante','imenso','demais',
-			'mais','menos','quanto','quase','tanto',
-			'assaz','tudo','nada']
-		nums = [x for x in range(len(opcoes))]
-		adverbios = dict(zip(nums, opcoes))
-		adverbio = adverbios[indice]
-	except:
-		adverbio=''
-	return adverbio
-# adverbio_intensidade(1)
-def adverbio_lugar(indice=None):
-	try:
-		opcoes = ['aí','aqui','acolá','cá',
-			'lá','ali','adiante','abaixo','embaixo',
-			'acima','adentro','dentro']
-		nums = [x for x in range(len(opcoes))]
-		adverbios = dict(zip(nums, opcoes))
-		adverbio = adverbios[indice]
-	except:
-		adverbio=''
-	return adverbio
-# adverbio_lugar(1)
-
-def adverbio_tempo(indice=None):
-	try:
-		opcoes = ['ainda', 'agora',
-				  'amanhã', 'à noite', 'anteontem',
-				  'antes', 'à tarde', 'às vezes', 'atualmente',
-				  'breve', 'cedo', 'depois','de manhã','de repente',
-				  'de vez em quando','hoje','hoje em dia',
-				  'já', 'logo', 'nunca','ontem','ora',
-				  'outrora','quando','sempre','tarde','jamais']
-		nums = [x for x in range(len(opcoes))]
-		adverbios = dict(zip(nums, opcoes))
-		adverbio = adverbios[indice]
-	except:
-		adverbio = ''
-	return adverbio
-
-# adverbio_tempo(1)
-def adverbio_negacao(indice=None):
-	try:
-
-		opcoes = ['não', 'nem', 'tampouco', 'nunca', 'jamais' ]
-		nums = [x for x in range(len(opcoes))]
-		adverbios = dict(zip(nums, opcoes))
-		adverbio = adverbios[indice]
-	except:
-		adverbio=''
-	return adverbio
-
-# adverbio_negacao(4)
-
-def adverbio_relativo(indice=None):
-	try:
-		opcoes = ['de onde', 'quando', 'onde',
-							 'de quando', 'que', 'por onde']
-		nums = [x for x in range(len(opcoes))]
-		adverbios = dict(zip(nums, opcoes))
-		adverbio = adverbios[indice]
-	except:
-		adverbio=''
-	return adverbio
-
-# adverbio_relativo(4)
-
-
-def adverbio_afirmacao(indice=None):
-	try:
-		opcoes = ['sim','deveras',
-					'indubitavelmente','decididamente',
-					  'certamente', 'realmente',
-					  'decerto', 'certo',
-					   'efetivamente']
-		nums = [x for x in range(len(opcoes))]
-		adverbios = dict(zip(nums, opcoes))
-		adverbio = adverbios[indice]
-	except:
-		adverbio=''
-	return adverbio
-
-# adverbio_afirmacao(4)
-
-def adverbio_duvida(indice=None):
-	try:
-		opcoes = ['possivelmente','provavelmente',
-				  'acaso','porventura',
-				   'quiçá','será','talvez',
-				   'casualmente']
-		nums = [x for x in range(len(opcoes))]
-		adverbios = dict(zip(nums, opcoes))
-		adverbio = adverbios[indice]
-	except:
-		adverbio=''
-	return adverbio
-
-# adverbio_duvida(4)
-
-def adverbio(tipo_de_adverbio, indice):
-	"""
-	:param tipo_de_adverbio: 'Modo' 'Intensidade' 'Lugar' 'Tempo'
-			'Negação' 'Afirmação' 'Dúvida' 'Adv_relativo'
-	:param indice: --
-	:return: advérbio
-	"""
-	try:
-		if tipo_de_adverbio == 'Modo':
-
-			adverbio = adverbio_modo(indice)
-
-		elif tipo_de_adverbio == 'Intensidade':
-
-			adverbio = adverbio_intensidade(indice)
-
-		elif tipo_de_adverbio == 'Lugar':
-
-			adverbio = adverbio_lugar(indice)
-
-		elif tipo_de_adverbio == 'Tempo':
-
-			adverbio = adverbio_tempo(indice)
-
-		elif tipo_de_adverbio == 'Negação':
-
-			adverbio = adverbio_negacao(indice)
-
-		elif tipo_de_adverbio == 'Afirmação':
-			adverbio = adverbio_afirmacao(indice)
-
-		elif tipo_de_adverbio == 'Dúvida':
-
-			adverbio = adverbio_duvida(indice)
-
-		elif tipo_de_adverbio == 'Adv_relativo':
-
-			adverbio = adverbio_relativo(indice)
-		return adverbio
-	except:
-		adverbio=''
-		return adverbio
-
-# adverbio('teste', 4)
-
-def grupo_adverbial(tipo_de_adverbio1=None, ind1=None,
-					tipo_de_adverbio2=None, ind2=None,
-					tipo_de_adverbio3=None, ind3=None,
-					tipo_de_adverbio4=None, ind4=None,
-					tipo_de_adverbio5=None, ind5=None):
-	adv1 = adverbio(tipo_de_adverbio1, ind1)
-	adv2 = adverbio(tipo_de_adverbio2, ind2)
-	adv3 = adverbio(tipo_de_adverbio3, ind3)
-	adv4 = adverbio(tipo_de_adverbio4, ind4)
-	adv5=adverbio(tipo_de_adverbio5,ind5)
-	advs = [adv1,adv2,adv3,adv4,adv5]
-	grupo_adv =re.sub(' +', ' ', (' '.join(advs)))
-
-	return grupo_adv
-
-grupo_adverbial(tipo_de_adverbio1='Negação', ind1=0,
-				tipo_de_adverbio2='Intensidade', ind2=0,
-				tipo_de_adverbio3='Modo', ind3=10)
-
-
+# from builtins import zip
+#
+# from nltk import unify
+#
+#
+# def adverbio_modo(indice=None):
+# 	try:
+# 		opcoes = ['bem','mal','assim','adrede',
+# 				  'melhor','pior','depressa','devagar',
+# 				  'acinte','debalde','cuidadosamente','calmamente',
+# 				  'tristemente','alegremente', 'bondosamente',
+# 				  'calmamente', 'discretamente', 'elegantemente','infelizmente',
+# 				  'evidentemente']
+# 		nums = [x for x in range(len(opcoes))]
+# 		adverbios = dict(zip(nums, opcoes))
+# 		adverbio = adverbios[indice]
+# 	except:
+# 		adverbio = ''
+# 	return adverbio
+# # adverbio_modo(10)
+#
+# def adverbio_intensidade(indice=None):
+# 	try:
+# 		opcoes = ['muito','demais','todo','pouco',
+# 			'tão','quão','demasiado','bastante','imenso','demais',
+# 			'mais','menos','quanto','quase','tanto',
+# 			'assaz','tudo','nada']
+# 		nums = [x for x in range(len(opcoes))]
+# 		adverbios = dict(zip(nums, opcoes))
+# 		adverbio = adverbios[indice]
+# 	except:
+# 		adverbio=''
+# 	return adverbio
+# # adverbio_intensidade(1)
+# def adverbio_lugar(indice=None):
+# 	try:
+# 		opcoes = ['aí','aqui','acolá','cá',
+# 			'lá','ali','adiante','abaixo','embaixo',
+# 			'acima','adentro','dentro']
+# 		nums = [x for x in range(len(opcoes))]
+# 		adverbios = dict(zip(nums, opcoes))
+# 		adverbio = adverbios[indice]
+# 	except:
+# 		adverbio=''
+# 	return adverbio
+# # adverbio_lugar(1)
+#
+# def adverbio_tempo(indice=None):
+# 	try:
+# 		opcoes = ['ainda', 'agora',
+# 				  'amanhã', 'à noite', 'anteontem',
+# 				  'antes', 'à tarde', 'às vezes', 'atualmente',
+# 				  'breve', 'cedo', 'depois','de manhã','de repente',
+# 				  'de vez em quando','hoje','hoje em dia',
+# 				  'já', 'logo', 'nunca','ontem','ora',
+# 				  'outrora','quando','sempre','tarde','jamais']
+# 		nums = [x for x in range(len(opcoes))]
+# 		adverbios = dict(zip(nums, opcoes))
+# 		adverbio = adverbios[indice]
+# 	except:
+# 		adverbio = ''
+# 	return adverbio
+#
+# # adverbio_tempo(1)
+# def adverbio_negacao(indice=None):
+# 	try:
+#
+# 		opcoes = ['não', 'nem', 'tampouco', 'nunca', 'jamais' ]
+# 		nums = [x for x in range(len(opcoes))]
+# 		adverbios = dict(zip(nums, opcoes))
+# 		adverbio = adverbios[indice]
+# 	except:
+# 		adverbio=''
+# 	return adverbio
+#
+# # adverbio_negacao(4)
+#
+# def adverbio_relativo(indice=None):
+# 	try:
+# 		opcoes = ['de onde', 'quando', 'onde',
+# 							 'de quando', 'que', 'por onde']
+# 		nums = [x for x in range(len(opcoes))]
+# 		adverbios = dict(zip(nums, opcoes))
+# 		adverbio = adverbios[indice]
+# 	except:
+# 		adverbio=''
+# 	return adverbio
+#
+# # adverbio_relativo(4)
+#
+#
+# def adverbio_afirmacao(indice=None):
+# 	try:
+# 		opcoes = ['sim','deveras',
+# 					'indubitavelmente','decididamente',
+# 					  'certamente', 'realmente',
+# 					  'decerto', 'certo',
+# 					   'efetivamente']
+# 		nums = [x for x in range(len(opcoes))]
+# 		adverbios = dict(zip(nums, opcoes))
+# 		adverbio = adverbios[indice]
+# 	except:
+# 		adverbio=''
+# 	return adverbio
+#
+# # adverbio_afirmacao(4)
+#
+# def adverbio_duvida(indice=None):
+# 	try:
+# 		opcoes = ['possivelmente','provavelmente',
+# 				  'acaso','porventura',
+# 				   'quiçá','será','talvez',
+# 				   'casualmente']
+# 		nums = [x for x in range(len(opcoes))]
+# 		adverbios = dict(zip(nums, opcoes))
+# 		adverbio = adverbios[indice]
+# 	except:
+# 		adverbio=''
+# 	return adverbio
+#
+# # adverbio_duvida(4)
+#
+# def adverbio(tipo_de_adverbio, indice):
+# 	"""
+# 	:param tipo_de_adverbio: 'Modo' 'Intensidade' 'Lugar' 'Tempo'
+# 			'Negação' 'Afirmação' 'Dúvida' 'Adv_relativo'
+# 	:param indice: --
+# 	:return: advérbio
+# 	"""
+# 	try:
+# 		if tipo_de_adverbio == 'Modo':
+#
+# 			adverbio = adverbio_modo(indice)
+#
+# 		elif tipo_de_adverbio == 'Intensidade':
+#
+# 			adverbio = adverbio_intensidade(indice)
+#
+# 		elif tipo_de_adverbio == 'Lugar':
+#
+# 			adverbio = adverbio_lugar(indice)
+#
+# 		elif tipo_de_adverbio == 'Tempo':
+#
+# 			adverbio = adverbio_tempo(indice)
+#
+# 		elif tipo_de_adverbio == 'Negação':
+#
+# 			adverbio = adverbio_negacao(indice)
+#
+# 		elif tipo_de_adverbio == 'Afirmação':
+# 			adverbio = adverbio_afirmacao(indice)
+#
+# 		elif tipo_de_adverbio == 'Dúvida':
+#
+# 			adverbio = adverbio_duvida(indice)
+#
+# 		elif tipo_de_adverbio == 'Adv_relativo':
+#
+# 			adverbio = adverbio_relativo(indice)
+# 		return adverbio
+# 	except:
+# 		adverbio=''
+# 		return adverbio
+#
+# # adverbio('teste', 4)
+#
+# def grupo_adverbial(tipo_de_adverbio1=None, ind1=None,
+# 					tipo_de_adverbio2=None, ind2=None,
+# 					tipo_de_adverbio3=None, ind3=None,
+# 					tipo_de_adverbio4=None, ind4=None,
+# 					tipo_de_adverbio5=None, ind5=None):
+# 	adv1 = adverbio(tipo_de_adverbio1, ind1)
+# 	adv2 = adverbio(tipo_de_adverbio2, ind2)
+# 	adv3 = adverbio(tipo_de_adverbio3, ind3)
+# 	adv4 = adverbio(tipo_de_adverbio4, ind4)
+# 	adv5=adverbio(tipo_de_adverbio5,ind5)
+# 	advs = [adv1,adv2,adv3,adv4,adv5]
+# 	grupo_adv =re.sub(' +', ' ', (' '.join(advs)))
+#
+# 	return grupo_adv
+#
+# grupo_adverbial(tipo_de_adverbio1='Negação', ind1=0,
+# 				tipo_de_adverbio2='Intensidade', ind2=0,
+# 				tipo_de_adverbio3='Modo', ind3=10)
+#
+#
 
 # grupo_adverbial(tipo_de_adverbio1='Modo',ind1=0,tipo_de_adverbio2='Modo',ind2=1,tipo_de_adverbio3='Modo',
 # 				ind3=2,tipo_de_adverbio4='Modo', ind4=3, tipo_de_adverbio5='Modo',ind5=4)
@@ -343,7 +343,7 @@ def deteccao_transitoriedade_do_verbo(verbo):
 	return MI
 
 
-# deteccao_transitoriedade_do_verbo("ando")
+deteccao_transitoriedade_do_verbo("ando")
 #
 #
 # ###################opções para tipos de orientação interpessoal
@@ -360,17 +360,16 @@ def deteccao_transitoriedade_do_verbo(verbo):
 #                                 'não_orientado_particípio'
 #                                     ]).ask()
 
-
-def OI_tipo_de_orientacao(tipo_de_orientacao):
-	return tipo_de_orientacao
+#
+# def OI_tipo_de_orientacao(tipo_de_orientacao):
+# 	return tipo_de_orientacao
 
 
 # OI_tipo_de_orientacao("não_orientado_infinitivo")
 #######
 # opções de padrão de morfologia('-AR', '-ER', '-IR', '-OR')
 
-def realizacao_transitoriedade_infinitivo(padrao_de_morfologia, OI_numero=None,
-                                          OI_tipo_de_pessoa=None, padrao_pessoa_morfologia=None):
+def realizacao_transitoriedade_infinitivo(padrao_de_morfologia):
 	'''(str)->str
 
     Retorna o morfema que realiza a transitoriedade de um verbo no infinitivo, dado
@@ -418,9 +417,9 @@ def detecta_padrao_morfologia(verbo):
 
 	return padraoMorfologia
 
-teste = detecta_padrao_morfologia(None)
+teste = detecta_padrao_morfologia('andar')
 
-
+###PAREI O REFATORAMENTO POR ORDEM AQUI
 ######
 # opções
 # padrao_de_morfologia = ['-AR', '-ER', '-IR', '-OR']
