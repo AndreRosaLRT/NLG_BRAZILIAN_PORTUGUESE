@@ -1,5 +1,4 @@
 import NLG_BRAZILIAN_PORTUGUESE.funcoes_por_ordem.ordem_palavra.adverbios as adv
-
 import re
 import argparse
 

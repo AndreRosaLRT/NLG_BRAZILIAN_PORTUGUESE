@@ -1,10 +1,12 @@
 import importlib
 import nltk as nltk
+import spacy
 nltk.download('punkt')
 nltk.download('rslp')
-
+import argparse
 
 ##MESMA FUNCAO COM NLTK
+
 
 def experiencia_do_verbo(verbo):
     """
@@ -63,10 +65,14 @@ def detecta_padrao_morfologia(verbo):
     :return:Retorna o morfema que realiza a transitoriedade de um verbo no infinitivo, dado
     padrão de morfologia.
     """
+    spc_import = importlib.import_module('spacy')
+    nlp = spc_import.load("pt_core_news_lg")
 
     if verbo is None:
         padrao_morfologia = None
     else:
+        txt = nlp(verbo)
+        verbo = txt[0].lemma_
         me = experiencia_do_verbo(verbo)
         mi = (verbo[len(me):])
         if mi == 'ar':
@@ -84,5 +90,12 @@ def detecta_padrao_morfologia(verbo):
 
 
 if __name__ == '__main__':
-    verbo = input('Qual o verbo?')
-    print(detecta_padrao_morfologia(verbo))
+    parser = argparse.ArgumentParser(description='Retorna experiência (radical), '
+                                                 'morfema inerpessoal do verbo conjugado, '
+                                                 'terminação do infinitivo dado o padrão de morfologia')
+    parser.add_argument('argumentos', nargs='+', type=str)
+    args = parser.parse_args()
+
+    print('O ME do verbo: ', experiencia_do_verbo(args.argumentos[0]))
+    print('O MI do verbo: ', deteccao_transitoriedade_do_verbo(args.argumentos[0]))
+    print('O padrão de morfologia do infinitivo:', detecta_padrao_morfologia(args.argumentos[0]))

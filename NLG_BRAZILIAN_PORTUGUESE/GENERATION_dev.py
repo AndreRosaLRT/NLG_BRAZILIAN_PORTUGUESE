@@ -417,9 +417,9 @@ def detecta_padrao_morfologia(verbo):
 
 	return padraoMorfologia
 
-teste = detecta_padrao_morfologia('andar')
+# teste = detecta_padrao_morfologia('andar')
 
-###PAREI O REFATORAMENTO POR ORDEM AQUI
+
 ######
 # opções
 # padrao_de_morfologia = ['-AR', '-ER', '-IR', '-OR']
