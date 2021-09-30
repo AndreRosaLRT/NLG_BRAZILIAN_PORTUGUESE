@@ -13,7 +13,7 @@ verbos_web=[]
 
 for pg in np.arange(1,51,1):
     pagina = requests.get('https://www.conjugacao.com.br/verbos-populares/'+str(pg)+'/').text
-    soup = BeautifulSoup(pagina,features="html.parser")
+    soup = BeautifulSoup(pagina,features="html.parser_me_mi")
     verb_div = soup.find_all('div',class_='wrapper')
     for container in verb_div:
         i = 0
@@ -21,7 +21,7 @@ for pg in np.arange(1,51,1):
             verbos_web.append(container.find('ul').find_all('li')[i].text)
         i += 1
 
-##separação em dados para dev e teste
+##separaï¿½ï¿½o em dados para dev e teste
 verbos_web_array=np.array(verbos_web)
 from sklearn.model_selection import train_test_split
 verbos_web_dev, verbos_web_teste = train_test_split(verbos_web_array, test_size=0.25, random_state=0)
