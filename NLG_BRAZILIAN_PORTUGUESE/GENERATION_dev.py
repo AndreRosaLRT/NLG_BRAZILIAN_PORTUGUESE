@@ -1280,13 +1280,13 @@ def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, OI_nu
 #######subjuntivo_condicional
 
 
-def realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, OI_numero, OI_tipo_de_pessoa,
+def realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia,  OI_tipo_de_pessoa,OI_numero,
                                                       padrao_pessoa_morfologia="Morfologia_padrão"):
 	'''(str)->str
     Retorna o morfema que realiza a transitoriedade de um verbo no subjuntivo condicional, dados
     o padrão de morfologia, tipo_pessoa de pessoa, e número.
 
-    >>>realizacao_transitoriedade_preterito_perfectivo_I('-AR','1pessoa','singular')
+    >>>realizacao_transitoriedade_subjuntivo_condicional('-AR','1pessoa','singular')
     >>>'asse'
 
     '''
@@ -1901,11 +1901,9 @@ def realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, OI_numero, OI
 
 # realizacao_transitoriedade_imperativo_II('-AR', '2pessoa','plural')
 ###gerúndio
-# realizacao_transitoriedade_gerundio('-OR')
 
-def realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero=None, OI_numero=None,
-                                        OI_tipo_de_pessoa=None, padrao_pessoa_morfologia="Morfologia_padrão"
-                                        ):
+
+def realizacao_transitoriedade_gerundio(padrao_de_morfologia):
 	'''(str)->str
     Retorna o morfema que realiza a transitoriedade de um verbo no gerúndio,
     dadoo padrão de morfologia.
@@ -1932,8 +1930,7 @@ realizacao_transitoriedade_gerundio('-IR')
 ######particípio
 
 
-def realizacao_transitoriedade_participio(padrao_de_morfologia,OI_numero, genero, OI_tipo_de_pessoa=None,
-                                          padrao_pessoa_morfologia="Morfologia_padrão"):
+def realizacao_transitoriedade_participio(padrao_de_morfologia,OI_numero, genero):
 	'''(str)->str
     Retorna o morfema que realiza a transitoriedade de um verbo no particípio,
     dados  o padrão de morfologia, tipo_pessoa de pessoa, e número.
@@ -2093,8 +2090,7 @@ def realizacao_transitoriedade_do_verbo(tipo_de_orientacao, padrao_de_morfologia
 		                                         padrao_pessoa_morfologia)
 
 	elif tipo_de_orientacao == 'particípio':
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa=None,
-		                                           padrao_pessoa_morfologia=None)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 	return MI
 
 
@@ -2210,13 +2206,11 @@ def formacao_verbo_CER(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numer
 																OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-												 padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-												   padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 
 	elif tipo_de_orientacao == 'infinitivo':
 		ME = verbo[slice(-2)]
@@ -2301,13 +2295,11 @@ def formacao_verbo_ÇAR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_nume
 																OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-												 padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-												   padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 
 	elif tipo_de_orientacao == 'infinitivo':
 		ME = verbo[slice(-2)]
@@ -2406,13 +2398,11 @@ def formacao_verbo_CAR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numer
 																OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-												 padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-												   padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 
 	elif tipo_de_orientacao == 'infinitivo':
 		ME = verbo[slice(-2)]
@@ -2501,13 +2491,11 @@ def formacao_verbo_GAR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numer
 																OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-												 padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-												   padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 
 	elif tipo_de_orientacao == 'infinitivo':
 		ME = verbo[slice(-2)]
@@ -2739,14 +2727,12 @@ def formacao_verbo_possuir(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_n
 		verbo = ME + MI
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-		                                           padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'infinitivo':
@@ -3017,13 +3003,11 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_nume
 
 		elif tipo_de_orientacao == 'gerúndio':
 			ME = verbo[slice(-2)]
-			MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-													 padrao_pessoa_morfologia)
+			MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
 		elif tipo_de_orientacao == 'particípio':
 			ME = verbo[slice(-2)]
-			MI = "í" + realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-													   padrao_pessoa_morfologia)[1:]
+			MI = "í" + realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)[1:]
 
 		elif tipo_de_orientacao == 'infinitivo':
 			ME = verbo[slice(-2)]
@@ -3214,14 +3198,12 @@ def formacao_verbo_agredir(verbo, tipo_de_orientacao,padrao_de_morfologia, OI_nu
 		verbo = ME + MI
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-		                                           padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'infinitivo':
@@ -3408,14 +3390,12 @@ def formacao_verbo_aferir(verbo, tipo_de_orientacao,padrao_de_morfologia,  OI_nu
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
 
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
 
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-		                                           padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 	return verbo
 
@@ -3596,13 +3576,11 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao,padrao_de_morfologia,  OI_num
 
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-		                                           padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 	return verbo
 
@@ -3776,13 +3754,11 @@ def formacao_verbo_sentir(verbo, tipo_de_orientacao,padrao_de_morfologia,  OI_nu
 
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-		                                           padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 	return verbo
 
@@ -3808,14 +3784,12 @@ def formacao_verbo_saber(verbo, tipo_de_orientacao,padrao_de_morfologia, OI_nume
 		verbo = ME + MI
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-		                                           padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'pretérito_imperfectivo':
@@ -4453,13 +4427,11 @@ def formacao_verbo_estar(verbo, tipo_de_orientacao,padrao_de_morfologia,  OI_num
 
 	elif tipo_de_orientacao == 'gerúndio':
 
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 	elif tipo_de_orientacao == 'particípio':
 
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-		                                           padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 
 	return verbo
@@ -5418,14 +5390,12 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
 	###
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-												 padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 	###
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-												   padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 
 	return verbo
@@ -5511,13 +5481,11 @@ def formacao_verbo_trazer(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_nu
 																OI_tipo_de_pessoa, padrao_pessoa_morfologia)
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-												 padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-												   padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 
 	elif tipo_de_orientacao == 'infinitivo':
 		ME = verbo[slice(-2)]
@@ -5936,14 +5904,12 @@ def formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
 	###
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 	###
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa,
-		                                           padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 
 	return verbo
@@ -6097,14 +6063,12 @@ def formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numer
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
 
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 	###
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia,OI_numero, genero,
-		                                           OI_tipo_de_pessoa,padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 	###
 	elif tipo_de_orientacao == 'presente':
@@ -6505,16 +6469,12 @@ def formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero
 	###
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero,
-		                                         OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 	###
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero,
-		                                           genero, OI_tipo_de_pessoa,
-		                                           padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 	###
 	elif tipo_de_orientacao == 'presente':
@@ -6986,8 +6946,7 @@ def formacao_verbo_vir_intervir(verbo, tipo_de_orientacao,padrao_de_morfologia,
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'gerúndio':
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero,
-		                                         OI_tipo_de_pessoa,padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'particípio':
@@ -7505,7 +7464,7 @@ def formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
 
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa,padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'particípio':
@@ -7938,16 +7897,12 @@ def formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
 
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero,
-		                                         OI_numero, OI_tipo_de_pessoa,
-		                                         padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'particípio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero,
-		                                           genero, OI_tipo_de_pessoa,
-		                                           padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'presente':
@@ -8622,7 +8577,7 @@ def formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_num
 
 	elif tipo_de_orientacao == 'gerúndio':
 		ME = verbo[slice(-2)]
-		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia, genero, OI_numero, OI_tipo_de_pessoa, padrao_pessoa_morfologia)
+		MI = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 		verbo = ME + MI
 
 	elif tipo_de_orientacao == 'particípio':
@@ -8807,7 +8762,7 @@ def formacao_verbo_participio(verbo, tipo_de_orientacao, OI_numero,
 
 	ME = verbo[slice(-2)]
 	padrao_de_morfologia=detecta_padrao_morfologia(verbo)
-	MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero, OI_tipo_de_pessoa=None,padrao_pessoa_morfologia='Morfologia_padrão')
+	MI = realizacao_transitoriedade_participio(padrao_de_morfologia, OI_numero, genero)
 	verbo_participio = ME + MI
 
 	return verbo_participio
