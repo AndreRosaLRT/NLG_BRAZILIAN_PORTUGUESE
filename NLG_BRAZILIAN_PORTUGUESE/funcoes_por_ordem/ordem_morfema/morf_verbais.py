@@ -2,19 +2,20 @@ import importlib
 import nltk
 import argparse
 
-nltk.download('punkt')
-nltk.download('rslp')
+
+# nltk.download('punkt')
+# nltk.download('rslp')
 
 
 # MESMA FUNCAO COM NLTK
 
 
-def experiencia_do_verbo(verbo):
+def experiencia_do_verbo(verbo) -> str:
     """
     Retorna um str com o morfema experiencial (me) que realiza
     a experiência do verbo, dado um verbo lematizado
-    :param:verbo no infinitivo (str)
-    :return: morfema experiencial (str)
+    :param verbo: str
+    :return: morfema experiencial
     """
     nltk_imp = importlib.import_module('nltk')
     rad = nltk_imp.stem.RSLPStemmer()
@@ -25,13 +26,11 @@ def experiencia_do_verbo(verbo):
 
 def deteccao_transitoriedade_do_verbo(verbo):
     """
-    (str) -> str
-
     Retorna o morfema interpessoal que realiza a orientação interpessoal
     dados o verbo, seu padrão de morfologia, seu tipo_pessoa de orientação
     e o tipo_pessoa de pessoa.
 
-    :param: verbo
+    :param verbo: str
     :return: morfema interpessoal
     """
 
@@ -40,31 +39,30 @@ def deteccao_transitoriedade_do_verbo(verbo):
     return mi
 
 
-def realizacao_transitoriedade_infinitivo(padrao_de_morfologia):
+def realizacao_transitoriedade_infinitivo(padrao_de_morfologia: str) -> str:
     """
-    (str)->str
-    :param padrao_de_morfologia:
-    :return: Retorna o morfema que realiza a transitoriedade de um verbo no infinitivo, dado
+    Retorna o morfema que realiza a transitoriedade de um verbo no infinitivo, dado
     padrão de morfologia.
+
+    :param padrao_de_morfologia: str
+    :return : mi
+
+    ex.:
+    >>> realizacao_transitoriedade_infinitivo('AR')
+    >>> 'ar'
     """
-    mi = None
-    if padrao_de_morfologia == '-AR':
-        mi = 'ar'
-    elif padrao_de_morfologia == '-ER':
-        mi = 'er'
-    elif padrao_de_morfologia == '-IR':
-        mi = 'ir'
-    elif padrao_de_morfologia == '-OR':
-        mi = 'or'
+    mi = padrao_de_morfologia.lower()
+
     return mi
 
 
-def detecta_padrao_morfologia(verbo):
+def detecta_padrao_morfologia(verbo: str) -> str:
     """
-    (str)->str
-    :param verbo:
-    :return:Retorna o morfema que realiza a transitoriedade de um verbo no infinitivo, dado
+    Retorna o morfema que realiza a transitoriedade de um verbo no infinitivo, dado
     padrão de morfologia.
+
+    :param verbo: str
+    :return: Padrão de morfologia do verbo
     """
     spc_import = importlib.import_module('spacy')
     nlp = spc_import.load("pt_core_news_lg")
@@ -77,13 +75,13 @@ def detecta_padrao_morfologia(verbo):
         me = experiencia_do_verbo(verbo)
         mi = (verbo[len(me):])
         if mi == 'ar':
-            padrao_morfologia = '-AR'
+            padrao_morfologia = 'AR'
         elif mi == 'er':
-            padrao_morfologia = '-ER'
+            padrao_morfologia = 'ER'
         elif mi == 'ir':
-            padrao_morfologia = '-IR'
+            padrao_morfologia = 'IR'
         elif mi == 'or':
-            padrao_morfologia = '-OR'
+            padrao_morfologia = 'OR'
         else:
             padrao_morfologia = None
 
@@ -100,10 +98,11 @@ def realizacao_transitoriedade_presente(padrao_de_morfologia: str, oi_numero: st
     o padrão de morfologia, tipo de orientação, tipo de pessoa, número e o padrão pessoa_morfologia.
 
     ex.:
-    >>>realizacao_transitoriedade_presente('-AR','singular','1pessoa')
+    >>>realizacao_transitoriedade_presente('AR','singular','1pessoa')
     >>>'o'
+
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -116,153 +115,153 @@ def realizacao_transitoriedade_presente(padrao_de_morfologia: str, oi_numero: st
     mi = None
     try:
         if (
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular'
                 and padrao_pessoa_morfologia == "Morfologia_padrão" or
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular'
                 and padrao_pessoa_morfologia == "Morfologia_padrão" or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular'
                 and padrao_pessoa_morfologia == "Morfologia_padrão"
         ):
             mi = 'o'
 
-        elif (padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and
+        elif (padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and
               oi_numero == 'singular' and padrao_pessoa_morfologia == "Morfologia_padrão"):
             mi = 'onho'
-        elif (padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
+        elif (padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
               padrao_pessoa_morfologia == '3pessoa_do_singular'):
             mi = 'a'
-        elif (padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
+        elif (padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
               padrao_pessoa_morfologia == 'Morfologia_padrão'):
             mi = 'as'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == '3pessoa_do_singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == '3pessoa_do_singular'
         ):
             mi = 'e'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão'
         ):
             mi = 'es'
 
         elif (
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == '3pessoa_do_singular'):
             mi = 'õe'
         elif (
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão'):
             mi = 'ões'
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
             mi = 'a'
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão'
         ):
             mi = 'e'
 
-        elif (padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
+        elif (padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
               padrao_pessoa_morfologia == 'Morfologia_padrão'):
             mi = 'õe'
 
-        elif (padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
+        elif (padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
               padrao_pessoa_morfologia == '3pessoa_do_singular'):
             mi = 'a'
 
-        elif (padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
+        elif (padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
               padrao_pessoa_morfologia == 'Morfologia_padrão'):
             mi = 'amos'
 
-        elif (padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
+        elif (padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
               padrao_pessoa_morfologia == '3pessoa_do_singular'):
             mi = 'e'
 
-        elif (padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
+        elif (padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
               padrao_pessoa_morfologia == 'Morfologia_padrão'):
             mi = 'emos'
 
-        elif (padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
+        elif (padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
               padrao_pessoa_morfologia == '3pessoa_do_singular'):
             mi = 'e'
 
-        elif (padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
+        elif (padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
               padrao_pessoa_morfologia == 'Morfologia_padrão'):
             mi = 'imos'
 
-        elif (padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
+        elif (padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and
               padrao_pessoa_morfologia == '3pessoa_do_singular'):
             mi = 'õe'
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'omos'
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'a'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'ais'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'e'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'eis'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'e'
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'is'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'õe'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'ondes'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'a'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'am'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and
                 padrao_pessoa_morfologia == '3pessoa_do_singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and
                 padrao_pessoa_morfologia == '3pessoa_do_singular'
         ):
             mi = 'e'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão'
         ):
             mi = 'em'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'õe'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'õem'
         return mi
@@ -277,10 +276,11 @@ def realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia: str,
      Retorna o morfema que realiza a transitoriedade de um verbo no pretérito_perfectivo_I, dados
     a o padrão de morfologia, tipo de orientação, tipo de pessoa e número.
 
-    >>>realizacao_transitoriedade_preterito_perfectivo_I('-AR','singular','1pessoa')
+    >>>realizacao_transitoriedade_preterito_perfectivo_I('AR','singular','1pessoa')
     >>>'ei'
+
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -292,151 +292,151 @@ def realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia: str,
     """
     mi = None
     try:
-        if padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and \
+        if padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == "Morfologia_padrão":
             mi = 'ei'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == "Morfologia_padrão" or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == "Morfologia_padrão"):
             mi = 'i'
 
         elif (
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == "Morfologia_padrão"):
             mi = 'us'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ou'
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'aste'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'eu'
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'este'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'iu'
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'iste'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ôs'
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'useste'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'ou'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'eu'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'iu'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'ôs'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ou'
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'amos'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'eu'
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'emos'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'iu'
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'imos'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ôs'
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'usemos'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ou'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'astes'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'eu'
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'estes'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'iu'
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'istes'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ôs'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'usestes'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ou'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'aram'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'eu'
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'eram'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'iu'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'iram'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ôs'
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'useram'
         return mi
@@ -452,11 +452,11 @@ def realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia: str,
     a o padrão de morfologia, tipo_pessoa de pessoa e número.
 
     ex.:
-    >>>realizacao_transitoriedade_preterito_imperfectivo('-IR', 'singular', '1pessoa')
+    >>>realizacao_transitoriedade_preterito_imperfectivo('IR', 'singular', '1pessoa')
     >>>'ia'
 
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -469,129 +469,129 @@ def realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia: str,
     mi = None
     try:
         if (
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular'
                 and padrao_pessoa_morfologia == 'Morfologia_padrão' or
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
                 and padrao_pessoa_morfologia == 'Morfologia_padrão'):
             mi = 'ava'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão' or
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão'
-                or padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
+                or padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão'):
             mi = 'ia'
 
         elif (
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão' or
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == 'Morfologia_padrão'):
             mi = 'unha'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ava'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'avas'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == '3pessoa_do_singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and
                 padrao_pessoa_morfologia == '3pessoa_do_singular'):
             mi = 'ia'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'ias'
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'ias'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'unha'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'unhas'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ava'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'ávamos'
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'íamos'
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ia'
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ia'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'íamos'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'unha'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morforlogia_padrão':
             mi = 'únhamos'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == '3pessoa_do_singular':
             mi = 'ava'
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' and \
                 padrao_pessoa_morfologia == 'Morfologia_padrão':
             mi = 'áveis'
         #
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ia'
             else:
                 mi = 'íeis'
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ía'
             else:
                 mi = 'íeis'
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'unha'
             else:
                 mi = 'únheis'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ava'
             else:
                 mi = 'avam'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ia'
             else:
                 mi = 'iam'
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ía'
             else:
                 mi = 'íam'
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'unha'
             else:
@@ -609,11 +609,11 @@ def realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia: str
     a o padrão de morfologia, tipo_pessoa de pessoa, e número.
 
     ex.:
-    >>>realizacao_transitoriedade_preterito_perfectivo_II('-AR', 'singular','1pessoa')
+    >>>realizacao_transitoriedade_preterito_perfectivo_II('AR', 'singular','1pessoa')
     >>>'ara'
 
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -626,68 +626,68 @@ def realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia: str
     """
     mi = None
     try:
-        if (padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
+        if (padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
             mi = 'ara'
 
-        elif (padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-              padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
+        elif (padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+              padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
             mi = 'era'
 
-        elif (padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-              padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
+        elif (padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+              padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
             mi = 'ira'
 
-        elif (padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-              padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
+        elif (padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+              padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
             mi = 'usera'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             mi = 'aras'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             mi = 'eras'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             mi = 'iras'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             mi = 'useras'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             mi = 'áramos'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             mi = 'êramos'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             mi = 'íramos'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             mi = 'úseramos'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             mi = 'áreis'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             mi = 'êreis'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             mi = 'íreis'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             mi = 'uséreis'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             mi = 'aram'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             mi = 'eram'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             mi = 'iram'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             mi = 'useram'
         return mi
     except KeyError:
@@ -702,12 +702,12 @@ def realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia: str, oi_nu
     a o padrão de morfologia, tipo de pessoa e número.
 
     ex.:
-    >>>realizacao_transitoriedade_passado_volitivo('-AR', 'singular', '1pessoa',
+    >>>realizacao_transitoriedade_passado_volitivo('AR', 'singular', '1pessoa',
         >>>padrao_pessoa_morfologia="Morfologia_padrão")
     >>>'aria'
 
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -720,128 +720,128 @@ def realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia: str, oi_nu
     """
     mi = None
     try:
-        if (padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
+        if (padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
             mi = 'aria'
 
-        elif (padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-              padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
+        elif (padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+              padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
             mi = 'eria'
 
-        elif (padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-              padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
+        elif (padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+              padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
             mi = 'iria'
 
-        elif (padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-              padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
+        elif (padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+              padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
             mi = 'oria'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'aria'
             else:
                 mi = 'arias'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'eria'
             else:
                 mi = 'erias'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'iria'
             else:
                 mi = 'irias'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'oria'
             else:
                 mi = 'orias'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'aria'
             else:
                 mi = 'aríamos'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'eria'
             else:
                 mi = 'eríamos'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'iria'
             else:
                 mi = 'iríamos'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'oria'
             else:
                 mi = 'oríamos'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'aria'
             else:
                 mi = 'aríeis'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'eria'
             else:
                 mi = 'eríeis'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'iria'
             else:
                 mi = 'iríeis'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'oria'
             else:
                 mi = 'oríeis'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'aria'
             else:
                 mi = 'ariam'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'eria'
             else:
                 mi = 'eriam'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'iria'
             else:
                 mi = 'iriam'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'oria'
@@ -855,17 +855,16 @@ def realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia: str, oi_nu
 
 def realizacao_transitoriedade_futuro(padrao_de_morfologia: str, oi_numero, oi_tipo_de_pessoa: str,
                                       padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
-
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no futuro, dados
     o padrão de morfologia, tipo de pessoa, número e padrão de pessoa_morfologia.
 
     ex.:
-    >>>realizacao_transitoriedade_futuro('-AR', 'singular', '1pessoa')
+    >>>realizacao_transitoriedade_futuro('AR', 'singular', '1pessoa')
     >>>'arei'
     '''
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -878,89 +877,89 @@ def realizacao_transitoriedade_futuro(padrao_de_morfologia: str, oi_numero, oi_t
     mi = None
     try:
 
-        if padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
+        if padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
             mi = 'arei'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
             mi = 'erei'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
             mi = 'irei'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
             mi = 'orei'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ará'
             else:
                 mi = 'arás'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'erá'
             else:
                 mi = 'erás'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'irá'
             else:
                 mi = 'irás'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'orá'
             else:
                 mi = 'orás'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
             mi = 'ará'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
             mi = 'erá'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
             mi = 'irá'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
             mi = 'orá'
         #
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             mi = 'aremos'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             mi = 'eremos'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             mi = 'iremos'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             mi = 'oremos'
         #
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             mi = 'areis'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             mi = 'ereis'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             mi = 'ireis'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             mi = 'oreis'
         #
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             mi = 'arão'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             mi = 'erão'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             mi = 'irão'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             mi = 'orão'
         return mi
     except KeyError:
@@ -974,12 +973,12 @@ def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia: str, 
     o padrão de morfologia, tipo de pessoa, número e padrão de pessoa_morfologia.
 
     ex.:
-    >>>realizacao_transitoriedade_subjuntivo_conjuntivo('-AR', 'singular', '2pessoa',
+    >>>realizacao_transitoriedade_subjuntivo_conjuntivo('AR', 'singular', '2pessoa',
     padrao_pessoa_morfologia="Morfologia_padrão")
     >>>'es'
 
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -992,26 +991,26 @@ def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia: str, 
     mi = None
     try:
         if (
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'e'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'a'
 
         elif (
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'onha'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'e'
@@ -1019,8 +1018,8 @@ def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia: str, 
                 mi = 'es'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular'
         ):
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
@@ -1028,14 +1027,14 @@ def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia: str, 
             else:
                 mi = 'as'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'onha'
             else:
                 mi = 'onhas'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'e'
@@ -1043,22 +1042,22 @@ def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia: str, 
                 mi = 'emos'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural'
         ):
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'a'
             else:
                 mi = 'amos'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'onha'
             else:
                 mi = 'onhamos'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'e'
@@ -1066,22 +1065,22 @@ def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia: str, 
                 mi = 'eis'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural'
         ):
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'a'
             else:
                 mi = 'ais'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'onha'
             else:
                 mi = 'onhais'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'e'
@@ -1089,8 +1088,8 @@ def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia: str, 
                 mi = 'em'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural'
         ):
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
@@ -1098,7 +1097,7 @@ def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia: str, 
             else:
                 mi = 'am'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'onha'
@@ -1116,11 +1115,11 @@ def realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia: str,
     o padrão de morfologia, tipo_pessoa de pessoa, e número.
 
     ex.:
-    >>>realizacao_transitoriedade_subjuntivo_condicional('-AR','singular','1pessoa')
+    >>>realizacao_transitoriedade_subjuntivo_condicional('AR','singular','1pessoa')
     >>>'asse'
 
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -1133,120 +1132,120 @@ def realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia: str,
     mi = None
     try:
         if (
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'asse'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'esse'
 
         elif (
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'isse'
 
         elif (
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'usesse'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'asse'
             else:
                 mi = 'asses'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'esse'
             else:
                 mi = 'esses'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'isse'
             else:
                 mi = 'isses'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'usesse'
             else:
                 mi = 'usesses'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'asse'
             else:
                 mi = 'ássemos'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'esse'
             else:
                 mi = 'êssemos'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'isse'
             else:
                 mi = 'íssemos'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'usesse'
             else:
                 mi = 'uséssemos'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'asse'
             else:
                 mi = 'ásseis'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'esse'
             else:
                 mi = 'êsseis'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'isse'
             else:
                 mi = 'ísseis'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'usesse'
             else:
                 mi = 'usésseis'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'asse'
             else:
                 mi = 'assem'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'esse'
             else:
                 mi = 'essem'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'isse'
             else:
                 mi = 'íssem'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'usesse'
             else:
@@ -1263,11 +1262,11 @@ def realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia: str, oi
     dados  o padrão de morfologia, tipo de pessoa, número e padrão de pessoa_morfologia.
 
     ex.:
-    >>>realizacao_transitoriedade_subjuntivo_optativo('-AR','singular','2pessoa')
+    >>>realizacao_transitoriedade_subjuntivo_optativo('AR','singular','2pessoa')
     >>>'ares'
 
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -1281,135 +1280,135 @@ def realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia: str, oi
     mi = None
     try:
         if (
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'ar'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'er'
 
         elif (
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'ir'
 
         elif (
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'user'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ar'
             else:
                 mi = 'ares'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'er'
             else:
                 mi = 'eres'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ir'
             else:
                 mi = 'ires'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'user'
             else:
                 mi = 'useres'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ar'
             else:
                 mi = 'armos'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'er'
             else:
                 mi = 'ermos'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ir'
             else:
                 mi = 'irmos'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'user'
             else:
                 mi = 'usermos'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ar'
             else:
                 mi = 'ardes'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'er'
             else:
                 mi = 'erdes'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ir'
             else:
                 mi = 'irdes'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'user'
             else:
                 mi = 'userdes'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ar'
             else:
                 mi = 'arem'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'er'
             else:
                 mi = 'erem'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ir'
             else:
                 mi = 'irem'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'user'
@@ -1429,11 +1428,11 @@ def realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia: str
     dados  o padrão de morfologia, tipo de pessoa, número e padrão de pessoa_morfologia.
 
      ex.:
-    >>>realizacao_transitoriedade_nao_finito_concretizado('-OR','singular','2pessoa')
+    >>>realizacao_transitoriedade_nao_finito_concretizado('OR','singular','2pessoa')
     >>>'ores'
 
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -1446,121 +1445,121 @@ def realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia: str
     mi = None
     try:
         if (
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'ar'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'er'
 
         elif (
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'ir'
 
         elif (
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'
         ):
             mi = 'or'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ar'
             else:
                 mi = 'ares'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'er'
             else:
                 mi = 'eres'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ir'
             else:
                 mi = 'ires'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'or'
             else:
                 mi = 'ores'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ar'
             else:
                 mi = 'armos'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'er'
             else:
                 mi = 'ermos'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ir'
             else:
                 mi = 'irmos'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'or'
             else:
                 mi = 'ormos'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ar'
             else:
                 mi = 'ardes'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'er'
             else:
                 mi = 'erdes'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ir'
             else:
                 mi = 'irdes'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'or'
             else:
                 mi = 'ordes'
 
-        elif padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ar'
             else:
                 mi = 'arem'
 
-        elif padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'er'
             else:
                 mi = 'erem'
 
-        elif padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'ir'
             else:
                 mi = 'irem'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             if padrao_pessoa_morfologia == '3pessoa_do_singular':
                 mi = 'or'
             else:
@@ -1577,11 +1576,11 @@ def realizacao_transitoriedade_imperativo_I(padrao_de_morfologia: str, oi_numero
     dados  o padrão de morfologia, tipo de pessoa, número, padrão de pessoa da morfologia.
 
     ex.:
-    >>>realizacao_transitoriedade_imperativo_I('-AR','plural','3pessoa')
+    >>>realizacao_transitoriedade_imperativo_I('AR','plural','3pessoa')
     >>>'em'
 
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -1595,63 +1594,63 @@ def realizacao_transitoriedade_imperativo_I(padrao_de_morfologia: str, oi_numero
     try:
         if oi_numero == 'singular':
             if oi_tipo_de_pessoa == '1pessoa':
-                if (padrao_de_morfologia == '-AR' or
-                        padrao_de_morfologia == '-ER' or
-                        padrao_de_morfologia == '-IR' or
-                        padrao_de_morfologia == '-OR'):
+                if (padrao_de_morfologia == 'AR' or
+                        padrao_de_morfologia == 'ER' or
+                        padrao_de_morfologia == 'IR' or
+                        padrao_de_morfologia == 'OR'):
                     mi = ''
 
             elif oi_tipo_de_pessoa == '2pessoa':
-                if padrao_de_morfologia == '-AR':
+                if padrao_de_morfologia == 'AR':
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = 'e'
                     else:
                         mi = 'a'
-                elif padrao_de_morfologia == '-ER' or padrao_de_morfologia == '-IR':
+                elif padrao_de_morfologia == 'ER' or padrao_de_morfologia == 'IR':
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = 'a'
                     else:
                         mi = 'e'
-                elif padrao_de_morfologia == '-OR':
+                elif padrao_de_morfologia == 'OR':
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = 'onha'
                     else:
                         mi = 'õe'
             ####
             elif oi_tipo_de_pessoa == '3pessoa':
-                if padrao_de_morfologia == '-AR':
+                if padrao_de_morfologia == 'AR':
                     mi = 'e'
-                elif padrao_de_morfologia == '-ER' or padrao_de_morfologia == '-IR':
+                elif padrao_de_morfologia == 'ER' or padrao_de_morfologia == 'IR':
                     mi = 'a'
-                elif padrao_de_morfologia == '-OR':
+                elif padrao_de_morfologia == 'OR':
                     mi = 'onha'
         ####
         elif oi_numero == 'plural':
             if oi_tipo_de_pessoa == '1pessoa':
-                if padrao_de_morfologia == '-AR':
+                if padrao_de_morfologia == 'AR':
                     mi = 'emos'
-                elif padrao_de_morfologia == '-ER' or padrao_de_morfologia == '-IR':
+                elif padrao_de_morfologia == 'ER' or padrao_de_morfologia == 'IR':
                     mi = 'amos'
-                elif padrao_de_morfologia == '-OR':
+                elif padrao_de_morfologia == 'OR':
                     mi = 'onhamos'
 
             elif oi_tipo_de_pessoa == '2pessoa':
-                if padrao_de_morfologia == '-AR':
+                if padrao_de_morfologia == 'AR':
                     mi = 'ai'
-                elif padrao_de_morfologia == '-ER':
+                elif padrao_de_morfologia == 'ER':
                     mi = 'ei'
-                elif padrao_de_morfologia == '-IR':
+                elif padrao_de_morfologia == 'IR':
                     mi = 'i'
-                elif padrao_de_morfologia == '-OR':
+                elif padrao_de_morfologia == 'OR':
                     mi = 'onde'
 
             elif oi_tipo_de_pessoa == '3pessoa':
-                if padrao_de_morfologia == '-AR':
+                if padrao_de_morfologia == 'AR':
                     mi = 'em'
-                elif (padrao_de_morfologia == '-ER' or
-                      padrao_de_morfologia == '-IR'):
+                elif (padrao_de_morfologia == 'ER' or
+                      padrao_de_morfologia == 'IR'):
                     mi = 'am'
-                elif padrao_de_morfologia == '-OR':
+                elif padrao_de_morfologia == 'OR':
                     mi = 'onham'
         return mi
     except KeyError:
@@ -1663,11 +1662,11 @@ def realizacao_transitoriedade_imperativo_II(padrao_de_morfologia: str, oi_numer
     Retorna o morfema que realiza a transitoriedade de um verbo no imperativo_II,
     dados  o padrão de morfologia, tipo de pessoa, e número.
      ex.:
-    >>>realizacao_transitoriedade_imperativo_II('-AR','plural','2pessoa')
+    >>>realizacao_transitoriedade_imperativo_II('AR','plural','2pessoa')
     >>>'eis'
 
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
         escolhas: 'singular', 'plural'
     :param oi_tipo_de_pessoa:str
@@ -1678,24 +1677,24 @@ def realizacao_transitoriedade_imperativo_II(padrao_de_morfologia: str, oi_numer
     mi = None
     try:
 
-        if padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
+        if padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
             mi = 'es'
 
         elif (
-                (padrao_de_morfologia == '-ER' or '-IR')
+                (padrao_de_morfologia == 'ER' or 'IR')
                 and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular'
         ):
             mi = 'as'
 
         elif (
-                padrao_de_morfologia == '-OR'
+                padrao_de_morfologia == 'OR'
                 and oi_tipo_de_pessoa == '2pessoa'
                 and oi_numero == 'singular'
         ):
             mi = 'onhas'
 
         elif (
-                padrao_de_morfologia == '-AR'
+                padrao_de_morfologia == 'AR'
                 and oi_tipo_de_pessoa == '3pessoa'
                 and oi_numero == 'singular'
         ):
@@ -1703,80 +1702,80 @@ def realizacao_transitoriedade_imperativo_II(padrao_de_morfologia: str, oi_numer
 
         elif (
                 (
-                        padrao_de_morfologia == '-ER' or '-IR'
+                        padrao_de_morfologia == 'ER' or 'IR'
                 )
                 and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa'
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa'
                 and oi_numero == 'singular'
         ):
             mi = 'a'
 
         elif (
-                padrao_de_morfologia == '-OR'
+                padrao_de_morfologia == 'OR'
                 and oi_tipo_de_pessoa == '3pessoa'
                 and oi_numero == 'singular'
         ):
             mi = 'onha'
 
         elif (
-                padrao_de_morfologia == '-AR'
+                padrao_de_morfologia == 'AR'
                 and oi_tipo_de_pessoa == '1pessoa'
                 and oi_numero == 'plural'
         ):
             mi = 'emos'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural'
         ):
             mi = 'amos'
 
         elif (
-                padrao_de_morfologia == '-OR'
+                padrao_de_morfologia == 'OR'
                 and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural'):
             mi = 'onhamos'
 
         elif (
-                padrao_de_morfologia == '-AR'
+                padrao_de_morfologia == 'AR'
                 and oi_tipo_de_pessoa == '2pessoa'
                 and oi_numero == 'plural'
         ):
             mi = 'eis'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural'
         ):
             mi = 'ais'
 
         elif (
-                padrao_de_morfologia == '-OR'
+                padrao_de_morfologia == 'OR'
                 and oi_tipo_de_pessoa == '2pessoa'
                 and oi_numero == 'plural'
         ):
             mi = 'onhais'
 
         elif (
-                padrao_de_morfologia == '-AR'
+                padrao_de_morfologia == 'AR'
                 and oi_tipo_de_pessoa == '3pessoa'
                 and oi_numero == 'plural'
         ):
             mi = 'em'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural'
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural'
         ):
             mi = 'am'
 
-        elif padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
+        elif padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
             mi = 'onham'
 
         elif (
-                padrao_de_morfologia == '-AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
-                padrao_de_morfologia == '-OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular'
+                padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'ER' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'IR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or
+                padrao_de_morfologia == 'OR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular'
         ):
             mi = ''
 
@@ -1791,26 +1790,26 @@ def realizacao_transitoriedade_gerundio(padrao_de_morfologia: str) -> str:
     dado o padrão de morfologia.
 
    ex.:
-   >>>realizacao_transitoriedade_gerundio('-AR')
+   >>>realizacao_transitoriedade_gerundio('AR')
    >>>'ando'
    :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
    :return:mi
         Morfema Interpessoal que realiza a Orientação Interpessoal do verbo
    """
     mi = None
     try:
 
-        if padrao_de_morfologia == '-AR':
+        if padrao_de_morfologia == 'AR':
             mi = 'ando'
 
-        elif padrao_de_morfologia == '-ER':
+        elif padrao_de_morfologia == 'ER':
             mi = 'endo'
 
-        elif padrao_de_morfologia == '-IR':
+        elif padrao_de_morfologia == 'IR':
             mi = 'indo'
 
-        elif padrao_de_morfologia == '-OR':
+        elif padrao_de_morfologia == 'OR':
             mi = 'ondo'
 
         return mi
@@ -1824,11 +1823,11 @@ def realizacao_transitoriedade_participio(padrao_de_morfologia: str, oi_numero: 
     dados  o padrão de morfologia, número e gênero.
 
     ex.:
-    >>>realizacao_transitoriedade_participio('-AR', 'plural', 'masculino')
+    >>>realizacao_transitoriedade_participio('AR', 'plural', 'masculino')
     >>>'ados'
 
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
        escolhas: 'singular', 'plural'
     :param genero:str
@@ -1839,52 +1838,52 @@ def realizacao_transitoriedade_participio(padrao_de_morfologia: str, oi_numero: 
     mi = None
 
     try:
-        if padrao_de_morfologia == '-AR' and oi_numero == 'singular' and genero == 'feminino':
+        if padrao_de_morfologia == 'AR' and oi_numero == 'singular' and genero == 'feminino':
             mi = 'ada'
 
-        elif padrao_de_morfologia == '-AR' and oi_numero == 'plural' and genero == 'feminino':
+        elif padrao_de_morfologia == 'AR' and oi_numero == 'plural' and genero == 'feminino':
             mi = 'adas'
 
-        elif padrao_de_morfologia == '-AR' and oi_numero == 'singular' and genero == 'masculino':
+        elif padrao_de_morfologia == 'AR' and oi_numero == 'singular' and genero == 'masculino':
             mi = 'ado'
 
-        elif padrao_de_morfologia == '-AR' and oi_numero == 'plural' and genero == 'masculino':
+        elif padrao_de_morfologia == 'AR' and oi_numero == 'plural' and genero == 'masculino':
             mi = 'ados'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_numero == 'singular' and genero == 'masculino' or
-                padrao_de_morfologia == '-IR' and oi_numero == 'singular' and genero == 'masculino'
+                padrao_de_morfologia == 'ER' and oi_numero == 'singular' and genero == 'masculino' or
+                padrao_de_morfologia == 'IR' and oi_numero == 'singular' and genero == 'masculino'
         ):
             mi = 'ido'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_numero == 'plural' and genero == 'masculino' or
-                padrao_de_morfologia == '-IR' and oi_numero == 'plural' and genero == 'masculino'
+                padrao_de_morfologia == 'ER' and oi_numero == 'plural' and genero == 'masculino' or
+                padrao_de_morfologia == 'IR' and oi_numero == 'plural' and genero == 'masculino'
         ):
             mi = 'idos'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_numero == 'singular' and genero == 'feminino' or
-                padrao_de_morfologia == '-IR' and oi_numero == 'singular' and genero == 'feminino'
+                padrao_de_morfologia == 'ER' and oi_numero == 'singular' and genero == 'feminino' or
+                padrao_de_morfologia == 'IR' and oi_numero == 'singular' and genero == 'feminino'
         ):
             mi = 'ida'
 
         elif (
-                padrao_de_morfologia == '-ER' and oi_numero == 'plural' and genero == 'feminino' or
-                padrao_de_morfologia == '-IR' and oi_numero == 'plural' and genero == 'feminino'
+                padrao_de_morfologia == 'ER' and oi_numero == 'plural' and genero == 'feminino' or
+                padrao_de_morfologia == 'IR' and oi_numero == 'plural' and genero == 'feminino'
         ):
             mi = 'idas'
 
-        elif padrao_de_morfologia == '-OR' and oi_numero == 'singular' and genero == 'feminino':
+        elif padrao_de_morfologia == 'OR' and oi_numero == 'singular' and genero == 'feminino':
             mi = 'osta'
 
-        elif padrao_de_morfologia == '-OR' and oi_numero == 'singular' and genero == 'masculino':
+        elif padrao_de_morfologia == 'OR' and oi_numero == 'singular' and genero == 'masculino':
             mi = 'osto'
 
-        elif padrao_de_morfologia == '-OR' and oi_numero == 'plural' and genero == 'feminino':
+        elif padrao_de_morfologia == 'OR' and oi_numero == 'plural' and genero == 'feminino':
             mi = 'ostas'
 
-        elif padrao_de_morfologia == '-OR' and oi_numero == 'plural' and genero == 'masculino':
+        elif padrao_de_morfologia == 'OR' and oi_numero == 'plural' and genero == 'masculino':
             mi = 'ostos'
 
         return mi
@@ -1892,22 +1891,22 @@ def realizacao_transitoriedade_participio(padrao_de_morfologia: str, oi_numero: 
         return ''
 
 
-def realizacao_transitoriedade_do_verbo(tipo_de_orientacao: str, padrao_de_morfologia: str,
-                                        oi_numero: str, genero: str, oi_tipo_de_pessoa: str,
+def realizacao_transitoriedade_do_verbo(tipo_de_orientacao: str = None, padrao_de_morfologia: str = None,
+                                        oi_numero: str = None, genero: str = None, oi_tipo_de_pessoa: str = None,
                                         padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
     """
     Função geral que retorna o morfema que realiza a transitoriedade do verbo no português
     brasileiro.
 
     ex.:
-    >>>realizacao_transitoriedade_do_verbo('presente','-AR','singular',None,'1pessoa')
+    >>>realizacao_transitoriedade_do_verbo('presente','AR','singular',None,'1pessoa')
     >>>'o'
     :param tipo_de_orientacao: str
         opções: 'infinitivo','presente','pretérito_perfectivo_I', 'pretérito_perfectivo_II', 'pretérito_imperfectivo',
         'passado_volitivo', 'futuro', 'subjuntivo_conjuntivo','subjuntivo_condicional', 'subjuntivo_optativo',
         'não_finito_concretizado','imperativo_I','imperativo_II','gerúndio', 'particípio'
     :param padrao_de_morfologia:str
-       escolhas: '-AR','-ER','-IR', '-OR'
+       escolhas: 'AR','ER','IR', 'OR'
     :param oi_numero:str
        escolhas: 'singular', 'plural'
     :param genero:str
@@ -1982,16 +1981,19 @@ def realizacao_transitoriedade_do_verbo(tipo_de_orientacao: str, padrao_de_morfo
 
 if __name__ == '__main__':
     # parseamentos detecção ME e MI
-    parser_me_mi = argparse.ArgumentParser(description='Retorna experiência (radical), '
-                                                       'morfema interpessoal do verbo conjugado, '
-                                                       'terminação do infinitivo dado o padrão de morfologia')
-    parser_me_mi.add_argument('argumentos', nargs='+', type=str)
-    args = parser_me_mi.parse_args()
+    parser = argparse.ArgumentParser(description='Retorna experiência (radical), '
+                                                 'morfema interpessoal do verbo conjugado, '
+                                                 'terminação do infinitivo dado o padrão de morfologia')
+    parser.add_argument('argumentos', nargs='+', type=str)
+    args = parser.parse_args()
 
-    print('O ME do verbo: ', experiencia_do_verbo(args.argumentos[0]))
-    print('O MI do verbo: ', deteccao_transitoriedade_do_verbo(args.argumentos[0]))
-    print('O padrão de morfologia do infinitivo:', detecta_padrao_morfologia(args.argumentos[0]))
-
-    #a fazer: resolver o argparse da transitividade do verbo
-
-# parseamento realização de transitoriedade
+    if len(args.argumentos) < 2:
+        print('O ME do verbo: ', experiencia_do_verbo(args.argumentos[0]))
+        print('O MI do verbo: ', deteccao_transitoriedade_do_verbo(args.argumentos[0]))
+        print('O padrão de morfologia do infinitivo:', detecta_padrao_morfologia(args.argumentos[0]))
+    else:
+        for i in range(len(args.argumentos)):
+            if args.argumentos[i] == 'None':
+                args.argumentos[i] = None
+        print(realizacao_transitoriedade_do_verbo(*args.argumentos))
+    # print(args.argumentos)

@@ -2137,7 +2137,6 @@ def realizacao_transitoriedade_do_verbo(tipo_de_orientacao, padrao_de_morfologia
 ### FORMAÇÃO DOS VERBOS IRREGULARES
 ###VERBOS TERMINADOS EM : 'cer'
 
-
 def formacao_verbo_CER(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numero,
 						   genero, OI_tipo_de_pessoa, padrao_pessoa_morfologia='Morfologia_padrão'):
 	if tipo_de_orientacao == 'presente':
@@ -2221,7 +2220,7 @@ def formacao_verbo_CER(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_numer
 
 	return verbo
 #
-# formacao_verbo_CER('enternecer','presente','-ER','singular',None,'2pessoa','Morfologia_padrão')
+formacao_verbo_CER('enternecer','presente','-ER','singular',None,'2pessoa','Morfologia_padrão')
 # formacao_verbo_CER('enternecer','subjuntivo_conjuntivo','-ER','singular',None,'1pessoa')
 # formacao_verbo_CER('enternecer','imperativo_I','-ER','plural',None,'3pessoa')
 # formacao_verbo_CER('enternecer','imperativo_II','-ER','singular',None,'2pessoa')
@@ -8806,7 +8805,7 @@ def formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, OI_numero,
 											  padrao_pessoa_morfologia='Morfologia_padrão')
 
 		elif verbo == 'vir':
-			verbo_conj = formacao_verbo_vir_invervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
+			verbo_conj = formacao_verbo_vir_intervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
 														OI_numero,
 														genero, OI_tipo_de_pessoa,
 														padrao_pessoa_morfologia='Morfologia_padrão')

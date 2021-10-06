@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_morfema/.env/bin/python" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_morfema/.env/bin/python3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_morfema/.env/bin/python3.9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_morfema/.env/lib64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_morfema/.env/pyvenv.cfg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_morfema/morf_verbais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_morfema/morf_verbais.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/scraping_verbos.py" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/scraping_verbos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_palavra/verbos.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_palavra/verbos.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -58,6 +64,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_morfema" />
+      <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_grupo" />
       <recent name="$PROJECT_DIR$/mineração_lexicon" />
     </key>
   </component>
@@ -163,11 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Doctests in GENERATION_dev" />
+        <item itemvalue="Python tests.Doctests in GENERATION_dev (1)" />
         <item itemvalue="Python.morf_verbais" />
         <item itemvalue="Python.grupo_adverbial" />
         <item itemvalue="Python.adverbios" />
-        <item itemvalue="Python tests.Doctests in GENERATION_dev (1)" />
-        <item itemvalue="Python tests.Doctests in GENERATION_dev" />
       </list>
     </recent_temporary>
   </component>
