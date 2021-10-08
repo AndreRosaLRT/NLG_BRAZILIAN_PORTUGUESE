@@ -1,5 +1,5 @@
 import importlib
-import nltk
+# import nltk
 import argparse
 
 
@@ -14,7 +14,7 @@ def experiencia_do_verbo(verbo) -> str:
     """
     Retorna um str com o morfema experiencial (me) que realiza
     a experiência do verbo, dado um verbo lematizado
-    :param verbo: str
+    :param verbo
     :return: morfema experiencial
     """
     nltk_imp = importlib.import_module('nltk')
@@ -30,7 +30,7 @@ def deteccao_transitoriedade_do_verbo(verbo):
     dados o verbo, seu padrão de morfologia, seu tipo_pessoa de orientação
     e o tipo_pessoa de pessoa.
 
-    :param verbo: str
+    :param verbo
     :return: morfema interpessoal
     """
 
@@ -39,12 +39,12 @@ def deteccao_transitoriedade_do_verbo(verbo):
     return mi
 
 
-def realizacao_transitoriedade_infinitivo(padrao_de_morfologia: str) -> str:
+def realizacao_transitoriedade_infinitivo(padrao_de_morfologia) -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no infinitivo, dado
     padrão de morfologia.
 
-    :param padrao_de_morfologia: str
+    :param padrao_de_morfologia
     :return : mi
 
     ex.:
@@ -56,22 +56,22 @@ def realizacao_transitoriedade_infinitivo(padrao_de_morfologia: str) -> str:
     return mi
 
 
-def detecta_padrao_morfologia(verbo: str) -> str:
+def detecta_padrao_morfologia(verbo) -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no infinitivo, dado
     padrão de morfologia.
 
-    :param verbo: str
+    :param verbo
     :return: Padrão de morfologia do verbo
     """
-    spc_import = importlib.import_module('spacy')
-    nlp = spc_import.load("pt_core_news_lg")
+    # spc_import = importlib.import_module('spacy')
+    # nlp = spc_import.load("pt_core_news_lg")
 
     if verbo is None:
         padrao_morfologia = None
     else:
-        txt = nlp(verbo)
-        verbo = txt[0].lemma_
+        # txt = nlp(verbo)
+        # verbo = txt[0].lemma_
         me = experiencia_do_verbo(verbo)
         mi = (verbo[len(me):])
         if mi == 'ar':
@@ -91,8 +91,8 @@ def detecta_padrao_morfologia(verbo: str) -> str:
 # transitoriedade (todos os tempos verbais)
 
 
-def realizacao_transitoriedade_presente(padrao_de_morfologia: str, oi_numero: str, oi_tipo_de_pessoa: str,
-                                        padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
+def realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                        padrao_pessoa_morfologia = "Morfologia_padrão") -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no presente, dados
     o padrão de morfologia, tipo de orientação, tipo de pessoa, número e o padrão pessoa_morfologia.
@@ -269,8 +269,8 @@ def realizacao_transitoriedade_presente(padrao_de_morfologia: str, oi_numero: st
         return ''
 
 
-def realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia: str, oi_numero: str, oi_tipo_de_pessoa: str,
-                                                      padrao_pessoa_morfologia: str = "Morfologia_padrão"
+def realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                      padrao_pessoa_morfologia = "Morfologia_padrão"
                                                       ) -> str:
     """
      Retorna o morfema que realiza a transitoriedade de um verbo no pretérito_perfectivo_I, dados
@@ -444,8 +444,8 @@ def realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia: str,
         return ''
 
 
-def realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia: str, oi_numero: str, oi_tipo_de_pessoa: str,
-                                                      padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
+def realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                      padrao_pessoa_morfologia="Morfologia_padrão") -> str:
     """
 
     Retorna o morfema que realiza a transitoriedade de um verbo no pretérito imperfectivo, dados
@@ -601,8 +601,8 @@ def realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia: str,
         return ''
 
 
-def realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia: str, oi_numero: str,
-                                                       oi_tipo_de_pessoa: str):
+def realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                       oi_tipo_de_pessoa):
     """
 
     Retorna o morfema que realiza a transitoriedade de um verbo no pretérito_perfectivo_II, dados
@@ -694,8 +694,8 @@ def realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia: str
         return ''
 
 
-def realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia: str, oi_numero: str, oi_tipo_de_pessoa: str,
-                                                padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
+def realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                padrao_pessoa_morfologia = "Morfologia_padrão") -> str:
     """
 
     Retorna o morfema que realiza a transitoriedade de um verbo no passado volitivo, dados
@@ -853,8 +853,8 @@ def realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia: str, oi_nu
         return ''
 
 
-def realizacao_transitoriedade_futuro(padrao_de_morfologia: str, oi_numero, oi_tipo_de_pessoa: str,
-                                      padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
+def realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                      padrao_pessoa_morfologia = "Morfologia_padrão") -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no futuro, dados
     o padrão de morfologia, tipo de pessoa, número e padrão de pessoa_morfologia.
@@ -966,8 +966,8 @@ def realizacao_transitoriedade_futuro(padrao_de_morfologia: str, oi_numero, oi_t
         return ''
 
 
-def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia: str, oi_numero: str, oi_tipo_de_pessoa: str,
-                                                     padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
+def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                     padrao_pessoa_morfologia = "Morfologia_padrão") -> str:
     """
      Retorna o morfema que realiza a transitoriedade de um verbo no subjuntivo conjuntivo, dados
     o padrão de morfologia, tipo de pessoa, número e padrão de pessoa_morfologia.
@@ -1108,8 +1108,8 @@ def realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia: str, 
         return ''
 
 
-def realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia: str, oi_numero: str, oi_tipo_de_pessoa: str,
-                                                      padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
+def realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                      padrao_pessoa_morfologia = "Morfologia_padrão") -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no subjuntivo condicional, dados
     o padrão de morfologia, tipo_pessoa de pessoa, e número.
@@ -1252,11 +1252,11 @@ def realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia: str,
                 mi = 'usessem'
         return mi
     except KeyError:
-        return mi
+        return ''
 
 
-def realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia: str, oi_numero: str, oi_tipo_de_pessoa: str,
-                                                   padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
+def realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia = "Morfologia_padrão") -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no subjuntivo_optativo,
     dados  o padrão de morfologia, tipo de pessoa, número e padrão de pessoa_morfologia.
@@ -1420,9 +1420,9 @@ def realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia: str, oi
         return ''
 
 
-def realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia: str, oi_numero: str,
-                                                       oi_tipo_de_pessoa: str,
-                                                       padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
+def realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                       oi_tipo_de_pessoa,
+                                                       padrao_pessoa_morfologia = "Morfologia_padrão") -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo  não_finito_concretizado,
     dados  o padrão de morfologia, tipo de pessoa, número e padrão de pessoa_morfologia.
@@ -1569,8 +1569,8 @@ def realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia: str
         return ''
 
 
-def realizacao_transitoriedade_imperativo_I(padrao_de_morfologia: str, oi_numero: str, oi_tipo_de_pessoa: str,
-                                            padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
+def realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                            padrao_pessoa_morfologia = "Morfologia_padrão") -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no imperativo_I,
     dados  o padrão de morfologia, tipo de pessoa, número, padrão de pessoa da morfologia.
@@ -1657,7 +1657,7 @@ def realizacao_transitoriedade_imperativo_I(padrao_de_morfologia: str, oi_numero
         return ''
 
 
-def realizacao_transitoriedade_imperativo_II(padrao_de_morfologia: str, oi_numero: str, oi_tipo_de_pessoa: str) -> str:
+def realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa) -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no imperativo_II,
     dados  o padrão de morfologia, tipo de pessoa, e número.
@@ -1784,7 +1784,7 @@ def realizacao_transitoriedade_imperativo_II(padrao_de_morfologia: str, oi_numer
         return ''
 
 
-def realizacao_transitoriedade_gerundio(padrao_de_morfologia: str) -> str:
+def realizacao_transitoriedade_gerundio(padrao_de_morfologia) -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no gerúndio,
     dado o padrão de morfologia.
@@ -1817,7 +1817,7 @@ def realizacao_transitoriedade_gerundio(padrao_de_morfologia: str) -> str:
         return ''
 
 
-def realizacao_transitoriedade_participio(padrao_de_morfologia: str, oi_numero: str, genero: str) -> str:
+def realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero) -> str:
     """
     Retorna o morfema que realiza a transitoriedade de um verbo no particípio,
     dados  o padrão de morfologia, número e gênero.
@@ -1891,9 +1891,9 @@ def realizacao_transitoriedade_participio(padrao_de_morfologia: str, oi_numero: 
         return ''
 
 
-def realizacao_transitoriedade_do_verbo(tipo_de_orientacao: str = None, padrao_de_morfologia: str = None,
-                                        oi_numero: str = None, genero: str = None, oi_tipo_de_pessoa: str = None,
-                                        padrao_pessoa_morfologia: str = "Morfologia_padrão") -> str:
+def realizacao_transitoriedade_do_verbo(tipo_de_orientacao = None, padrao_de_morfologia = None,
+                                        oi_numero = None, genero = None, oi_tipo_de_pessoa = None,
+                                        padrao_pessoa_morfologia = "Morfologia_padrão") -> str:
     """
     Função geral que retorna o morfema que realiza a transitoriedade do verbo no português
     brasileiro.
@@ -1901,7 +1901,7 @@ def realizacao_transitoriedade_do_verbo(tipo_de_orientacao: str = None, padrao_d
     ex.:
     >>>realizacao_transitoriedade_do_verbo('presente','AR','singular',None,'1pessoa')
     >>>'o'
-    :param tipo_de_orientacao: str
+    :param tipo_de_orientacao
         opções: 'infinitivo','presente','pretérito_perfectivo_I', 'pretérito_perfectivo_II', 'pretérito_imperfectivo',
         'passado_volitivo', 'futuro', 'subjuntivo_conjuntivo','subjuntivo_condicional', 'subjuntivo_optativo',
         'não_finito_concretizado','imperativo_I','imperativo_II','gerúndio', 'particípio'

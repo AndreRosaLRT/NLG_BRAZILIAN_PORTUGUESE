@@ -3017,18 +3017,18 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, OI_nume
 
 	return verbo
 #
-# verbo=formacao_verbo_RUIR('construir', 'presente', '-IR','plural' ,None, '3pessoa')
-# verbo=formacao_verbo_RUIR('usufruir', 'presente', '-IR','plural' ,None, '3pessoa')
-#
-# verbo=formacao_verbo_RUIR('construir', 'subjuntivo_optativo', '-IR','plural' ,None, '3pessoa')
-# verbo=formacao_verbo_RUIR('usufruir', 'subjuntivo_condicional', '-IR','plural' ,None, '3pessoa')
+verbo=formacao_verbo_RUIR('construir', 'presente', '-IR','plural' ,None, '3pessoa')
+verbo=formacao_verbo_RUIR('usufruir', 'presente', '-IR','plural' ,None, '3pessoa')
+
+verbo=formacao_verbo_RUIR('construir', 'subjuntivo_optativo', '-IR','plural' ,None, '3pessoa')
+verbo=formacao_verbo_RUIR('usufruir', 'subjuntivo_condicional', '-IR','plural' ,None, '3pessoa')
 #
 formacao_verbo_RUIR('construir', 'imperativo_I', '-IR','singular' ,None, '1pessoa')
 # verbo=formacao_verbo_RUIR('usufruir', 'imperativo_I', '-IR','plural' ,None, '2pessoa')
 #
 #
-# verbo=formacao_verbo_RUIR('construir', 'não_finito_concretizado', '-IR','singular' ,None, '2pessoa')
-# verbo=formacao_verbo_RUIR('ruir', 'não_finito_concretizado', '-IR','singular' ,None, '2pessoa')
+formacao_verbo_RUIR('construir', 'não_finito_concretizado', '-IR','singular' ,None, '2pessoa')
+verbo=formacao_verbo_RUIR('ruir', 'não_finito_concretizado', '-IR','singular' ,None, '2pessoa')
 
 
 # #
