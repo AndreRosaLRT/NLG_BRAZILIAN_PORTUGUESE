@@ -20,7 +20,7 @@ def adverbio_modo(indice=None):
         adverbios = dict(zip(nums, opcoes))
         adv = adverbios[indice]
         return adv
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -34,7 +34,7 @@ def adverbio_intensidade(indice=None):
         adverbios = dict(zip(nums, opcoes))
         adv = adverbios[indice]
         return adv
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -47,7 +47,7 @@ def adverbio_lugar(indice=None):
         adverbios = dict(zip(nums, opcoes))
         adv = adverbios[indice]
         return adv
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -64,7 +64,7 @@ def adverbio_tempo(indice=None):
         adverbios = dict(zip(nums, opcoes))
         adv = adverbios[indice]
         return adv
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -77,7 +77,7 @@ def adverbio_negacao(indice=None):
         adverbios = dict(zip(nums, opcoes))
         adv = adverbios[indice]
         return adv
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -90,7 +90,7 @@ def adverbio_relativo(indice=None):
         adv = adverbios[indice]
         return adv
 
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -105,7 +105,7 @@ def adverbio_afirmacao(indice=None):
         adverbios = dict(zip(nums, opcoes))
         adv = adverbios[indice]
         return adv
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -120,7 +120,7 @@ def adverbio_duvida(indice=None):
         adv = adverbios[indice]
         return adv
 
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -151,7 +151,7 @@ def adverbio(tipo_de_adverbio, indice):
         elif tipo_de_adverbio == 'Adv_relativo':
             adv = adverbio_relativo(indice)
         return adv
-    except KeyError:
+    except ValueError:
         return ''
 
 

@@ -1,4 +1,4 @@
-from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_morfema import morf_verbais as morfs
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_morfema.morf_verbais import *
 import argparse
 
 
@@ -28,7 +28,7 @@ def def_classe_de_verbo(funcao_no_grupo_verbal: str) -> str:
             classe_verbo = None
 
         return classe_verbo
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -40,8 +40,8 @@ def formacao_verbo_CER(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numer
     me, mi = '', ''
     try:
         if tipo_de_orientacao == 'presente':
-            mi = morfs.realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
-                                                           oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
+                                                     oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             if oi_tipo_de_pessoa == '1pessoa':
                 me = verbo[slice(-3)] + 'ç'
             else:
@@ -49,75 +49,75 @@ def formacao_verbo_CER(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numer
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_I':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_II':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-3)] + 'ç'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_condicional':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_optativo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'imperativo_I':
             if (oi_tipo_de_pessoa == '3pessoa' or
                     oi_tipo_de_pessoa == '1pessoa'):
                 me = verbo[slice(-3)] + 'ç'
             else:
                 me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
-                                                               oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
+                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'imperativo_II':
             me = verbo[slice(-3)] + 'ç'
-            mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                          oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
 
         elif tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         return ''.join((me, mi))
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -144,82 +144,82 @@ def formacao_verbo_ÇAR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nume
     try:
         if tipo_de_orientacao == 'presente':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
-                                                           oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
+                                                     oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_I':
             if oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
                 me = verbo[slice(-3)] + 'c'
             else:
                 me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_II':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-3)] + 'c'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_condicional':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_optativo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'imperativo_I':
             if oi_tipo_de_pessoa == '2pessoa':
                 me = verbo[slice(-2)]
             else:
                 me = verbo[slice(-3)] + 'c'
-            mi = morfs.realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
-                                                               oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
+                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'imperativo_II':
             me = verbo[slice(-3)] + 'c'
-            mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                          oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
 
         elif tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         return ''.join((me, mi))
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -247,51 +247,51 @@ def formacao_verbo_CAR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numer
     try:
         if tipo_de_orientacao == 'presente':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
-                                                           oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
+                                                     oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_I':
             if oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
                 me = verbo[slice(-3)] + 'qu'
             else:
                 me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_II':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-3)] + 'qu'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_condicional':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_optativo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'imperativo_I':
             if oi_numero == 'singular':
                 if oi_tipo_de_pessoa == '3pessoa':
@@ -305,35 +305,35 @@ def formacao_verbo_CAR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numer
                     me = verbo[slice(-3)] + 'qu'
                 else:
                     me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
-                                                               oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
+                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'imperativo_II':
             if oi_numero == 'singular' and oi_tipo_de_pessoa == '1pessoa':
                 me = ''
             else:
                 me = verbo[slice(-3)] + 'qu'
-            mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                          oi_tipo_de_pessoa)
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
 
         elif tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         return ''.join((me, mi))
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -368,83 +368,83 @@ def formacao_verbo_GAR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numer
 
         if tipo_de_orientacao == 'presente':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
-                                                           oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
+                                                     oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_I':
             if oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
                 me = verbo[slice(-3)] + 'gu'
             else:
                 me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_II':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-3)] + 'gu'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_condicional':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_optativo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'imperativo_I':
             if (oi_tipo_de_pessoa == '3pessoa' or
                     oi_tipo_de_pessoa == '1pessoa'):
                 me = verbo[slice(-3)] + 'gu'
             else:
                 me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
-                                                               oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
+                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'imperativo_II':
             me = verbo[slice(-3)] + 'gu'
-            mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                          oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
 
         elif tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         return ''.join((me, mi))
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -569,35 +569,35 @@ def formacao_verbo_possuir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_n
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_II':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa)
             mi = ''.join(('í', mi[1:]))
 
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_condicional':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             mi = ''.join(('í', mi[1:]))
 
         elif tipo_de_orientacao == 'subjuntivo_optativo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
             if (oi_numero == 'singular' and oi_tipo_de_pessoa == '2pessoa' or
                     oi_numero == 'plural' and oi_tipo_de_pessoa == '3pessoa'):
@@ -643,29 +643,29 @@ def formacao_verbo_possuir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_n
 
         elif tipo_de_orientacao == 'imperativo_II':
             me = ''.join((verbo[slice(-4)], 'id'))
-            mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                          oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
 
         elif tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         return ''.join((me, mi))
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -782,8 +782,8 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nume
                 mi = 'í'
             else:
                 me = verbo[slice(-2)]
-                mi = morfs.realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
         elif verbo[-4:] == 'ruir' and tipo_de_orientacao == 'imperativo_I':
             if oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
                 me = verbo[slice(-1)]
@@ -793,8 +793,8 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nume
                 mi = 'í'
             else:
                 me = verbo[slice(-2)]
-                mi = morfs.realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif (verbo[-5:] == 'truir' or
               verbo[-4:] == 'ruir'):
@@ -864,15 +864,15 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nume
             elif tipo_de_orientacao == 'pretérito_perfectivo_II':
                 me = verbo[slice(-2)]
                 mi = ''.join(
-                    ('í', morfs.realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
-                                                                                   oi_tipo_de_pessoa)[1:]))
+                    ('í', realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                                             oi_tipo_de_pessoa)[1:]))
 
             elif tipo_de_orientacao == 'subjuntivo_condicional':
                 me = verbo[slice(-2)]
                 mi = ''.join(
-                    ('í', morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                                  oi_tipo_de_pessoa,
-                                                                                  padrao_pessoa_morfologia)[
+                    ('í', realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                            oi_tipo_de_pessoa,
+                                                                            padrao_pessoa_morfologia)[
                           1:]))
 
             elif tipo_de_orientacao == 'subjuntivo_optativo':
@@ -880,18 +880,18 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nume
                 if (oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' or
                         oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural'):
                     mi = ''.join(
-                        ('í', (morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                                    oi_tipo_de_pessoa,
-                                                                                    padrao_pessoa_morfologia)[1:])))
-                else:
-                    mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                        ('í', (realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
                                                                               oi_tipo_de_pessoa,
-                                                                              padrao_pessoa_morfologia)
+                                                                              padrao_pessoa_morfologia)[1:])))
+                else:
+                    mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                        oi_tipo_de_pessoa,
+                                                                        padrao_pessoa_morfologia)
 
             elif tipo_de_orientacao == 'passado_volitivo':
                 me = verbo[slice(-2)]
-                mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                       oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                                 oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
             elif tipo_de_orientacao == 'pretérito_imperfectivo':
                 me = verbo[slice(-2)]
@@ -929,47 +929,47 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nume
                 if (oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular' or
                         oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural'):
                     mi = ''.join(
-                        ('í', (morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia,
-                                                                                        oi_numero,
-                                                                                        oi_tipo_de_pessoa,
-                                                                                        padrao_pessoa_morfologia)[
+                        ('í', (realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia,
+                                                                                  oi_numero,
+                                                                                  oi_tipo_de_pessoa,
+                                                                                  padrao_pessoa_morfologia)[
                                1:])))
                 else:
-                    mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                                  oi_tipo_de_pessoa,
-                                                                                  padrao_pessoa_morfologia)
-
-            elif tipo_de_orientacao == 'futuro':
-                me = verbo[slice(-2)]
-                mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
-
-            elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
-                me = verbo[slice(-2)]
-                mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                    mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
                                                                             oi_tipo_de_pessoa,
                                                                             padrao_pessoa_morfologia)
 
+            elif tipo_de_orientacao == 'futuro':
+                me = verbo[slice(-2)]
+                mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                       oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+
+            elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
+                me = verbo[slice(-2)]
+                mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                      oi_tipo_de_pessoa,
+                                                                      padrao_pessoa_morfologia)
+
             elif tipo_de_orientacao == 'imperativo_II':
                 me = verbo[slice(-2)]
-                mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                    oi_tipo_de_pessoa)
+                mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                              oi_tipo_de_pessoa)
 
             elif tipo_de_orientacao == 'gerúndio':
                 me = verbo[slice(-2)]
-                mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+                mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
             elif tipo_de_orientacao == 'particípio':
                 me = verbo[slice(-2)]
                 mi = ''.join(
-                    ("í", morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)[1:]))
+                    ("í", realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)[1:]))
 
             elif tipo_de_orientacao == 'infinitivo':
                 me = verbo[slice(-2)]
-                mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+                mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         return ''.join((me, mi))
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -1015,10 +1015,10 @@ def formacao_verbo_agredir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_n
                         me = verbo[slice(-4)] + 'id'
                         mi = 'e'
                     else:
-                        me = morfs.experiencia_do_verbo(verbo)
+                        me = experiencia_do_verbo(verbo)
                         mi = 'imos'
                 elif oi_tipo_de_pessoa == '2pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
                     mi = 'is'
 
                 elif oi_tipo_de_pessoa == '3pessoa':
@@ -1031,47 +1031,47 @@ def formacao_verbo_agredir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_n
                         mi = 'em'
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
             if oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
                 mi = 'iam'
             else:
-                mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                             oi_tipo_de_pessoa,
-                                                                             padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                       oi_tipo_de_pessoa,
+                                                                       padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_I':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
-
-        elif tipo_de_orientacao == 'pretérito_perfectivo_II':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa)
-
-        elif tipo_de_orientacao == 'passado_volitivo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
                                                                    oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
+        elif tipo_de_orientacao == 'pretérito_perfectivo_II':
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa)
+
+        elif tipo_de_orientacao == 'passado_volitivo':
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+
         elif tipo_de_orientacao == 'futuro':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-4)] + 'id'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'subjuntivo_condicional':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_optativo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'imperativo_I':
             if oi_numero == 'singular':
                 if oi_tipo_de_pessoa == '1pessoa':
@@ -1099,7 +1099,7 @@ def formacao_verbo_agredir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_n
                         mi = 'amos'
 
                 elif oi_tipo_de_pessoa == '2pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
                     mi = 'i'
 
                 elif oi_tipo_de_pessoa == '3pessoa':
@@ -1116,29 +1116,29 @@ def formacao_verbo_agredir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_n
                 print('Imperativos não selecionam 1pessoa do singular')
             else:
                 me = verbo[slice(-4)] + 'id'
-                mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                    oi_tipo_de_pessoa)
+                mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                              oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'gerúndio':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'particípio':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
 
         elif tipo_de_orientacao == 'infinitivo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         return ''.join((me, mi))
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -1189,48 +1189,48 @@ def formacao_verbo_aferir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nu
                         mi = 'em'
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
             if oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
                 mi = 'iam'
             else:
-                mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                             oi_tipo_de_pessoa,
-                                                                             padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                       oi_tipo_de_pessoa,
+                                                                       padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_I':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_II':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-4)] + 'ir'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_condicional':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_optativo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'imperativo_I':
             if oi_numero == 'singular':
@@ -1275,29 +1275,29 @@ def formacao_verbo_aferir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nu
                 print('Imperativos não selecionam 1pessoa do singular')
             else:
                 me = verbo[slice(-4)] + 'ir'
-                mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                    oi_tipo_de_pessoa)
+                mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                              oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
 
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
 
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
         return ''.join((me, mi))
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -1328,7 +1328,7 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                     mi = 'o'
 
                 elif oi_tipo_de_pessoa == '2pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
 
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = 'e'
@@ -1336,11 +1336,11 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         mi = 'es'
 
                 elif oi_tipo_de_pessoa == '3pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
                     mi = 'e'
             elif oi_numero == 'plural':
                 if oi_tipo_de_pessoa == '1pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
 
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = 'e'
@@ -1348,11 +1348,11 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         mi = 'imos'
 
                 elif oi_tipo_de_pessoa == '2pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
                     mi = 'is'
 
                 elif oi_tipo_de_pessoa == '3pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
 
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = 'e'
@@ -1360,44 +1360,44 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         mi = 'em'
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
-
-        elif tipo_de_orientacao == 'pretérito_perfectivo_I':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
-
-        elif tipo_de_orientacao == 'pretérito_perfectivo_II':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa)
-
-        elif tipo_de_orientacao == 'passado_volitivo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
                                                                    oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
+        elif tipo_de_orientacao == 'pretérito_perfectivo_I':
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+
+        elif tipo_de_orientacao == 'pretérito_perfectivo_II':
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa)
+
+        elif tipo_de_orientacao == 'passado_volitivo':
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+
         elif tipo_de_orientacao == 'futuro':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         if tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-3)] + 'ç'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_condicional':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa,
-                                                                         padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa,
+                                                                   padrao_pessoa_morfologia)
         elif tipo_de_orientacao == 'subjuntivo_optativo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         if tipo_de_orientacao == 'imperativo_I':
 
@@ -1412,7 +1412,7 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         mi = 'a'
 
                     else:
-                        me = morfs.experiencia_do_verbo(verbo)
+                        me = experiencia_do_verbo(verbo)
                         mi = 'e'
                 else:
                     me = verbo[slice(-3)] + "ç"
@@ -1429,7 +1429,7 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         mi = 'amos'
 
                 elif oi_tipo_de_pessoa == '2pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
                     mi = 'i'
 
                 elif oi_tipo_de_pessoa == '3pessoa':
@@ -1445,28 +1445,28 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                 print('Imperativos não selecionam 1pessoa do singular')
             else:
                 me = verbo[slice(-3)] + 'ç'
-                mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                    oi_tipo_de_pessoa)
+                mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                              oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'infinitivo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'gerúndio':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
         elif tipo_de_orientacao == 'particípio':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
 
         return ''.join((me, mi))
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -1566,44 +1566,44 @@ def formacao_verbo_sentir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nu
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_I':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_II':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_preterito_perfectivo_II(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         if tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-5)] + 'int'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_condicional':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa,
-                                                                         padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa,
+                                                                   padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_optativo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'imperativo_I':
 
@@ -1654,29 +1654,29 @@ def formacao_verbo_sentir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nu
                 print('Imperativos não selecionam 1pessoa do singular')
             else:
                 me = verbo[slice(-5)] + 'int'
-                mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                    oi_tipo_de_pessoa)
+                mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                              oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
 
         return ''.join((me, mi))
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -1705,38 +1705,38 @@ def formacao_verbo_saber(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
             verbo_conj = verbo
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
         elif tipo_de_orientacao == 'gerúndio':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'particípio':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = me + mi
         #
         elif tipo_de_orientacao == 'futuro':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
-                                                         padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)
 
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'passado_volitivo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'presente':
@@ -1747,7 +1747,7 @@ def formacao_verbo_saber(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                 verbo_conj = me + mi
 
             elif oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'singular':
-                me = morfs.experiencia_do_verbo(verbo)
+                me = experiencia_do_verbo(verbo)
 
                 if padrao_pessoa_morfologia == '3pessoa_do_singular':
                     mi = 'e'
@@ -1758,36 +1758,36 @@ def formacao_verbo_saber(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                     verbo_conj = me + mi
 
             elif oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
-                me = morfs.experiencia_do_verbo(verbo)
+                me = experiencia_do_verbo(verbo)
                 mi = 'e'
                 verbo_conj = me + mi
 
             elif oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'plural':
 
                 if padrao_pessoa_morfologia == '3pessoa_do_singular':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
                     mi = 'e'
                     verbo_conj = me + mi
 
                 else:
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
                     mi = 'emos'
                     verbo_conj = me + mi
 
             elif oi_tipo_de_pessoa == '2pessoa' and oi_numero == 'plural':
-                me = morfs.experiencia_do_verbo(verbo)
+                me = experiencia_do_verbo(verbo)
                 mi = 'eis'
                 verbo_conj = me + mi
 
             elif oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'plural':
 
                 if padrao_pessoa_morfologia == '3pessoa_do_singular':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
                     mi = 'e'
                     verbo_conj = me + mi
 
                 else:
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
                     mi = 'em'
                     verbo_conj = me + mi
 
@@ -1919,21 +1919,21 @@ def formacao_verbo_saber(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
 
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-4)] + 'aib'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-4)] + 'oub'
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
         #
         elif tipo_de_orientacao == 'subjuntivo_optativo':
             me = verbo[slice(-4)] + 'oub'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'imperativo_I':
@@ -1979,12 +1979,12 @@ def formacao_verbo_saber(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                 print('Imperativos não selecionam 1pessoa do singular')
             else:
                 me = verbo[slice(-3)] + 'ib'
-                mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                    oi_tipo_de_pessoa)
+                mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                              oi_tipo_de_pessoa)
                 verbo_conj = me + mi
 
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -2006,7 +2006,7 @@ def formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
     :param padrao_pessoa_morfologia:
     :return: verbo conjugado
     """
-    verbo_conj, me = '', morfs.experiencia_do_verbo(verbo)
+    verbo_conj, me = '', experiencia_do_verbo(verbo)
 
     try:
         if tipo_de_orientacao == 'subjuntivo_condicional':
@@ -2196,17 +2196,17 @@ def formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         mi = 'erem'
                     verbo_conj = me + 'iv' + mi
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = me + mi
         elif tipo_de_orientacao == 'futuro':
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'passado_volitivo':
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = me + mi
         elif tipo_de_orientacao == 'presente':
             if oi_numero == 'singular':
@@ -2228,8 +2228,8 @@ def formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                 if (oi_tipo_de_pessoa == '1pessoa' or
                         oi_tipo_de_pessoa == '2pessoa'):
 
-                    mi = morfs.realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+                    mi = realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
                     verbo_conj = me + mi
 
                 elif oi_tipo_de_pessoa == '3pessoa':
@@ -2321,27 +2321,27 @@ def formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                     verbo_conj = me + mi
         elif tipo_de_orientacao == 'não_finito_concretizado':
 
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'infinitivo':
 
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'gerúndio':
 
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
         elif tipo_de_orientacao == 'particípio':
 
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
             verbo_conj = me + mi
 
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -2374,7 +2374,7 @@ def formacao_verbo_dizer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                     verbo_conj = me + mi
 
                 elif oi_tipo_de_pessoa == '2pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
 
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = ''
@@ -2385,13 +2385,13 @@ def formacao_verbo_dizer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         verbo_conj = me + mi
 
                 elif oi_tipo_de_pessoa == '3pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
                     mi = ''
                     verbo_conj = me + mi
 
             elif oi_numero == 'plural':
                 if oi_tipo_de_pessoa == '1pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
 
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = ''
@@ -2402,7 +2402,7 @@ def formacao_verbo_dizer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         verbo_conj = me + mi
 
                 elif oi_tipo_de_pessoa == '2pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
 
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = ''
@@ -2413,7 +2413,7 @@ def formacao_verbo_dizer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         verbo_conj = me + mi
 
                 elif oi_tipo_de_pessoa == '3pessoa':
-                    me = morfs.experiencia_do_verbo(verbo)
+                    me = experiencia_do_verbo(verbo)
 
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = ''
@@ -2476,7 +2476,7 @@ def formacao_verbo_dizer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
             if oi_numero == 'singular':
                 if (oi_tipo_de_pessoa == '1pessoa' or
                         oi_tipo_de_pessoa == '3pessoa'):
@@ -2603,8 +2603,8 @@ def formacao_verbo_dizer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-3)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = me + mi[1:]
         elif tipo_de_orientacao == 'subjuntivo_condicional':
             me = verbo[slice(-4)]
@@ -2693,10 +2693,10 @@ def formacao_verbo_dizer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         verbo_conj = me + 'g' + mi
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'imperativo_I':
@@ -2832,13 +2832,13 @@ def formacao_verbo_dizer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                         mi = 'erem'
                     verbo_conj = me + 'iss' + mi
         elif tipo_de_orientacao == 'infinitivo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'gerúndio':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-4)]
@@ -2855,7 +2855,7 @@ def formacao_verbo_dizer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
 
             verbo_conj = me + mi
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -2956,9 +2956,9 @@ def formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
         ###
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'imperativo_I':
@@ -3114,15 +3114,15 @@ def formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
         ###
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
-                                                         padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa,
-                                                                   padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa,
+                                                             padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'presente':
@@ -3235,21 +3235,21 @@ def formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
         ###
         elif tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
             verbo_conj = me + mi
 
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -3287,7 +3287,7 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
     me, mi, verbo_conj = '', '', ''
     try:
         if tipo_de_orientacao == 'subjuntivo_condicional':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
 
             if oi_numero == 'singular':
                 if (oi_tipo_de_pessoa == '1pessoa' or
@@ -3326,7 +3326,7 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                 verbo_conj = me + 'iv' + mi
         ###
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
 
             if oi_numero == 'singular':
                 if (oi_tipo_de_pessoa == '1pessoa' or
@@ -3362,14 +3362,14 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                 verbo_conj = me + 'enh' + mi
         ###
         elif tipo_de_orientacao == 'não_finito_concretizado':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'imperativo_I':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
             if oi_numero == 'singular':
                 if oi_tipo_de_pessoa == '1pessoa':
                     print('Imperativos não selecionam 1pessoa do singular')
@@ -3407,7 +3407,7 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                     verbo_conj = me + 'enh' + mi
         ###
         elif tipo_de_orientacao == 'imperativo_II':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
             if oi_numero == 'singular':
                 if oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
                     print('Imperativos não selecionam 1pessoa do singular')
@@ -3447,7 +3447,7 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                     verbo_conj = me + 'enh' + mi
         ###
         elif tipo_de_orientacao == 'subjuntivo_optativo':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
             if oi_numero == 'singular':
                 if (oi_tipo_de_pessoa == '1pessoa' or
                         oi_tipo_de_pessoa == '3pessoa'):
@@ -3482,7 +3482,7 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                 verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
 
             if oi_numero == 'singular':
                 if (oi_tipo_de_pessoa == '1pessoa' or
@@ -3520,20 +3520,20 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                         verbo_conj = me + 'inh' + mi
         ###
         elif tipo_de_orientacao == 'futuro':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
-                                                         padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'passado_volitivo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa,
-                                                                   padrao_pessoa_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa,
+                                                             padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'presente':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
             if oi_numero == 'singular':
                 if oi_tipo_de_pessoa == '1pessoa':
                     mi = 'enho'
@@ -3571,7 +3571,7 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                 verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'pretérito_perfectivo_I':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
             if oi_numero == 'singular':
                 if oi_tipo_de_pessoa == '1pessoa':
                     mi = 'ive'
@@ -3606,7 +3606,7 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                 verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'pretérito_perfectivo_II':
-            me = morfs.experiencia_do_verbo(verbo)
+            me = experiencia_do_verbo(verbo)
             if oi_numero == 'singular':
                 if oi_tipo_de_pessoa == '1pessoa':
                     mi = 'ivera'
@@ -3641,22 +3641,22 @@ def formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                 verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'infinitivo':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'gerúndio':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'particípio':
-            me = morfs.experiencia_do_verbo(verbo)
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            me = experiencia_do_verbo(verbo)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
             verbo_conj = me + mi
 
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -3684,21 +3684,21 @@ def formacao_verbo_trazer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nu
 
             if oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
                 me = verbo[slice(-3)] + 'g'
-                mi = morfs.realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
-                                                               oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
+                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             else:
                 if oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular':
                     me = verbo[slice(-2)]
                     mi = ''
                 else:
                     me = verbo[slice(-2)]
-                    mi = morfs.realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+                    mi = realizacao_transitoriedade_presente(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_I':
             me = verbo[slice(-4)] + 'oux'
@@ -3706,9 +3706,9 @@ def formacao_verbo_trazer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nu
                     oi_tipo_de_pessoa == '3pessoa' and oi_numero == 'singular'):
                 mi = 'e'
             else:
-                mi = morfs.realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
-                                                                             oi_tipo_de_pessoa,
-                                                                             padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_preterito_perfectivo_I(padrao_de_morfologia, oi_numero,
+                                                                       oi_tipo_de_pessoa,
+                                                                       padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_II':
             me = verbo[slice(-4)] + 'oux'
@@ -3745,28 +3745,28 @@ def formacao_verbo_trazer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nu
 
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-3)] + 'r'
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)[2:]
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)[2:]
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-3)] + 'r'
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
-                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)[2:]
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero,
+                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)[2:]
 
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-3)] + 'g'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_condicional':
             me = verbo[slice(-4)] + 'oux'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'subjuntivo_optativo':
             me = verbo[slice(-4)] + 'oux'
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
-                                                                      oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia, oi_numero,
+                                                                oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'imperativo_I':
             if oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
@@ -3779,38 +3779,38 @@ def formacao_verbo_trazer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nu
                 mi = 'ei'
             else:
                 me = verbo[slice(-3)] + 'g'
-                mi = morfs.realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_imperativo_I(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'imperativo_II':
             if oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
                 return ''
             else:
                 me = verbo[slice(-3)] + 'g'
-                mi = morfs.realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
-                                                                    oi_tipo_de_pessoa)
+                mi = realizacao_transitoriedade_imperativo_II(padrao_de_morfologia, oi_numero,
+                                                              oi_tipo_de_pessoa)
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
 
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
 
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
 
         elif tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
 
         return ''.join((me, mi))
 
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -3836,7 +3836,7 @@ def formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numer
     try:
         if tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
@@ -3884,26 +3884,26 @@ def formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numer
         ###
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
-                                                         padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa,
-                                                                   padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa,
+                                                             padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
 
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'presente':
@@ -4067,16 +4067,16 @@ def formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numer
         ###
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
-                                                                        oi_tipo_de_pessoa,
-                                                                        padrao_pessoa_morfologia="Morfologia_padrão")
+            mi = realizacao_transitoriedade_subjuntivo_conjuntivo(padrao_de_morfologia, oi_numero,
+                                                                  oi_tipo_de_pessoa,
+                                                                  padrao_pessoa_morfologia="Morfologia_padrão")
             verbo_conj = me + 'ej' + mi
         ###
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'subjuntivo_optativo':
@@ -4193,11 +4193,12 @@ def formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numer
                     verbo_conj = me + 'ej' + mi
 
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
 # # VERBO IR
+
 
 def formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero,
                       genero, oi_tipo_de_pessoa, padrao_pessoa_morfologia='Morfologia_padrão'):
@@ -4218,36 +4219,36 @@ def formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero
     verbo_conj = ''
     try:
         if tipo_de_orientacao == 'infinitivo':
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
             verbo_conj = mi
         ###
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
 
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = mi
         ###
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
-                                                         padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa,
-                                                                   padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa,
+                                                             padrao_pessoa_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'presente':
@@ -4456,8 +4457,8 @@ def formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero
         ###
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia,
-                                                                          oi_numero, oi_tipo_de_pessoa)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia,
+                                                                    oi_numero, oi_tipo_de_pessoa)
             verbo_conj = me + mi
         ###
         elif tipo_de_orientacao == 'imperativo_I':
@@ -4574,7 +4575,7 @@ def formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero
                     verbo_conj = me + mi
 
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -4585,7 +4586,7 @@ def formacao_verbo_vir_intervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                 padrao_pessoa_morfologia='Morfologia_padrão'):
     """
     Ex.:
-    >>> formacao_verbo_vir_intervir('vir', 'presente', 'IR','singular', None, '1pessoa')
+    >>> formacao_verbo_vir_intervir('vir', 'passado_volitivo', 'IR','singular', None, '1pessoa')
     'venho'
     :param verbo:
     :param tipo_de_orientacao:
@@ -4599,7 +4600,7 @@ def formacao_verbo_vir_intervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
     me, verbo_conj = verbo[slice(-2)], ''
     try:
         if tipo_de_orientacao == 'infinitivo':
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
@@ -4638,18 +4639,18 @@ def formacao_verbo_vir_intervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
                     verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'futuro':
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
-                                                         padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'passado_volitivo':
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa,
-                                                                   padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa,
+                                                             padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'gerúndio':
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'particípio':
@@ -4849,9 +4850,9 @@ def formacao_verbo_vir_intervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
                     verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'imperativo_I':
@@ -4969,7 +4970,7 @@ def formacao_verbo_vir_intervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
                         mi = 'ierem'
                     verbo_conj = me + mi
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -4995,37 +4996,37 @@ def formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
     try:
         if tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa,
-                                                                         padrao_pessoa_morfologia)
-            verbo_conj = me + mi
-
-        elif tipo_de_orientacao == 'futuro':
-            me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
-                                                         padrao_pessoa_morfologia)
-            verbo_conj = me + mi
-
-        elif tipo_de_orientacao == 'passado_volitivo':
-            me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
                                                                    oi_tipo_de_pessoa,
                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
+        elif tipo_de_orientacao == 'futuro':
+            me = verbo[slice(-2)]
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)
+            verbo_conj = me + mi
+
+        elif tipo_de_orientacao == 'passado_volitivo':
+            me = verbo[slice(-2)]
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa,
+                                                             padrao_pessoa_morfologia)
+            verbo_conj = me + mi
+
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'presente':
@@ -5153,9 +5154,9 @@ def formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
                         oi_tipo_de_pessoa == '2pessoa' or
                         oi_tipo_de_pessoa == '3pessoa'):
                     me = verbo[slice(-4)]
-                    mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                                 oi_tipo_de_pessoa,
-                                                                                 padrao_pessoa_morfologia)
+                    mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                           oi_tipo_de_pessoa,
+                                                                           padrao_pessoa_morfologia)
                     verbo_conj = me + 'ouv' + mi
 
             elif oi_numero == 'plural':
@@ -5176,9 +5177,9 @@ def formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
                     verbo_conj = me + 'ouv' + mi
                 elif oi_tipo_de_pessoa == '3pessoa':
                     me = verbo[slice(-4)]
-                    mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                                 oi_tipo_de_pessoa,
-                                                                                 padrao_pessoa_morfologia)
+                    mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                           oi_tipo_de_pessoa,
+                                                                           padrao_pessoa_morfologia)
                     verbo_conj = me + 'ouv' + mi
 
         elif tipo_de_orientacao == 'subjuntivo_conjuntivo':
@@ -5222,9 +5223,9 @@ def formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'imperativo_I':
@@ -5346,7 +5347,7 @@ def formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
             verbo_conj = me + 'ouv' + mi
 
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -5371,52 +5372,52 @@ def formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
     try:
         if tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa,
-                                                                         padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa,
+                                                                   padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
-                                                         padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'passado_volitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
-                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_passado_volitivo(padrao_de_morfologia, oi_numero,
+                                                             oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'particípio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+            mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'presente':
 
             if oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular':
                 me = verbo[slice(-3)]
-                mi = morfs.realizacao_transitoriedade_presente(padrao_de_morfologia,
-                                                               oi_numero, oi_tipo_de_pessoa,
-                                                               padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_presente(padrao_de_morfologia,
+                                                         oi_numero, oi_tipo_de_pessoa,
+                                                         padrao_pessoa_morfologia)
                 verbo_conj = me + 'ss' + mi
 
             else:
                 me = verbo[slice(-2)]
-                mi = morfs.realizacao_transitoriedade_presente(padrao_de_morfologia,
-                                                               oi_numero, oi_tipo_de_pessoa,
-                                                               padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_presente(padrao_de_morfologia,
+                                                         oi_numero, oi_tipo_de_pessoa,
+                                                         padrao_pessoa_morfologia)
                 verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'pretérito_perfectivo_I':
@@ -5495,16 +5496,16 @@ def formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
                 if (oi_tipo_de_pessoa == '1pessoa' or
                         oi_tipo_de_pessoa == '2pessoa' or
                         oi_tipo_de_pessoa == '3pessoa'):
-                    mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                                 oi_tipo_de_pessoa,
-                                                                                 padrao_pessoa_morfologia)
+                    mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                           oi_tipo_de_pessoa,
+                                                                           padrao_pessoa_morfologia)
                     verbo_conj = me + 'ud' + mi
 
             elif oi_numero == 'plural':
                 if oi_tipo_de_pessoa == '3pessoa':
-                    mi = morfs.realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                                 oi_tipo_de_pessoa,
-                                                                                 padrao_pessoa_morfologia)
+                    mi = realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
+                                                                           oi_tipo_de_pessoa,
+                                                                           padrao_pessoa_morfologia)
                     verbo_conj = me + 'ud' + mi
 
                 elif oi_tipo_de_pessoa == '1pessoa':
@@ -5557,9 +5558,9 @@ def formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'imperativo_I':
@@ -5643,13 +5644,13 @@ def formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
 
         elif tipo_de_orientacao == 'subjuntivo_optativo':
             me = verbo[slice(-4)]
-            mi = morfs.realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia,
-                                                                      oi_numero, oi_tipo_de_pessoa,
-                                                                      padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_subjuntivo_optativo(padrao_de_morfologia,
+                                                                oi_numero, oi_tipo_de_pessoa,
+                                                                padrao_pessoa_morfologia)
             verbo_conj = me + 'ud' + mi
 
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -5782,14 +5783,14 @@ def formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
 
         elif tipo_de_orientacao == 'pretérito_imperfectivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
-                                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_preterito_imperfectivo(padrao_de_morfologia, oi_numero,
+                                                                   oi_tipo_de_pessoa, padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'futuro':
             me = verbo[slice(-3)]
-            mi = morfs.realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
-                                                         padrao_pessoa_morfologia)[slice(1, 7)]
+            mi = realizacao_transitoriedade_futuro(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa,
+                                                   padrao_pessoa_morfologia)[slice(1, 7)]
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'passado_volitivo':
@@ -5995,19 +5996,19 @@ def formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
 
         elif tipo_de_orientacao == 'não_finito_concretizado':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
-                                                                          oi_tipo_de_pessoa,
-                                                                          padrao_pessoa_morfologia)
+            mi = realizacao_transitoriedade_nao_finito_concretizado(padrao_de_morfologia, oi_numero,
+                                                                    oi_tipo_de_pessoa,
+                                                                    padrao_pessoa_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'infinitivo':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_infinitivo(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'gerúndio':
             me = verbo[slice(-2)]
-            mi = morfs.realizacao_transitoriedade_gerundio(padrao_de_morfologia)
+            mi = realizacao_transitoriedade_gerundio(padrao_de_morfologia)
             verbo_conj = me + mi
 
         elif tipo_de_orientacao == 'particípio':
@@ -6024,7 +6025,7 @@ def formacao_verbo_fazer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
                     mi = 'eitos'
             verbo_conj = me + mi
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -6053,9 +6054,9 @@ def formacao_da_estrutura_do_verbo_modal(tipo_de_experiencia, verbo, tipo_de_ori
 
             if verbo == 'dever':
                 me = verbo[slice(-2)]
-                mi = morfs.realizacao_transitoriedade_do_verbo(tipo_de_orientacao, padrao_de_morfologia, oi_numero,
-                                                               genero,
-                                                               oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+                mi = realizacao_transitoriedade_do_verbo(tipo_de_orientacao, padrao_de_morfologia, oi_numero,
+                                                         genero,
+                                                         oi_tipo_de_pessoa, padrao_pessoa_morfologia)
                 verbo_conj = me + mi
 
             elif verbo == 'poder':
@@ -6078,7 +6079,7 @@ def formacao_da_estrutura_do_verbo_modal(tipo_de_experiencia, verbo, tipo_de_ori
         # 	                           OI_numero, genero, OI_tipo_de_pessoa,
         # 	                           padrao_pessoa_morfologia='Morfologia_padrão') + ' ' + 'de'
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -6096,7 +6097,7 @@ def formacao_da_estrutura_do_verbo_AUX(verbo, tipo_de_orientacao, oi_numero,
     :param padrao_pessoa_morfologia:
     :return: verbo auxiliar conjugado
     """
-    verbo_conj, padrao_de_morfologia = '', morfs.detecta_padrao_morfologia(verbo)
+    verbo_conj, padrao_de_morfologia = '', detecta_padrao_morfologia(verbo)
     try:
         if verbo == 'estar':
             verbo_conj = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero,
@@ -6123,7 +6124,7 @@ def formacao_da_estrutura_do_verbo_AUX(verbo, tipo_de_orientacao, oi_numero,
                                             genero, oi_tipo_de_pessoa, padrao_pessoa_morfologia)
 
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
@@ -6140,8 +6141,8 @@ def formacao_verbo_participio(verbo, oi_numero, genero) -> str:
     :return: verbo no particípio
     """
     me = verbo[slice(-2)]
-    padrao_de_morfologia = morfs.detecta_padrao_morfologia(verbo)
-    mi = morfs.realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
+    padrao_de_morfologia = detecta_padrao_morfologia(verbo)
+    mi = realizacao_transitoriedade_participio(padrao_de_morfologia, oi_numero, genero)
     verbo_participio = me + mi
 
     return verbo_participio
@@ -6163,7 +6164,7 @@ def formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, oi_numero,
     :param padrao_pessoa_morfologia:
     :return:
     """
-    padrao_de_morfologia = morfs.detecta_padrao_morfologia(verbo)
+    padrao_de_morfologia = detecta_padrao_morfologia(verbo)
     try:
         if (tipo_de_orientacao == 'imperativo_I' and oi_numero == 'singular' and oi_tipo_de_pessoa == '1pessoa' or
                 tipo_de_orientacao == 'imperativo_II' and oi_numero == 'singular' and oi_tipo_de_pessoa == '1pessoa'):
@@ -6215,26 +6216,26 @@ def formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, oi_numero,
 
                 oe_experiencia_do_verbo = verbo[slice(-2)]
                 oi_orientacao_interpessoal_do_verbo = \
-                    morfs.realizacao_transitoriedade_do_verbo(tipo_de_orientacao,
-                                                              padrao_de_morfologia,
-                                                              oi_numero,
-                                                              genero,
-                                                              oi_tipo_de_pessoa,
-                                                              padrao_pessoa_morfologia)
+                    realizacao_transitoriedade_do_verbo(tipo_de_orientacao,
+                                                        padrao_de_morfologia,
+                                                        oi_numero,
+                                                        genero,
+                                                        oi_tipo_de_pessoa,
+                                                        padrao_pessoa_morfologia)
                 verbo_conj = ''.join((oe_experiencia_do_verbo, oi_orientacao_interpessoal_do_verbo))
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
-def verbo_geral(tipo_de_experiencia=None, funcao_no_grupo_verbal=None, verbo=None,
-                tipo_de_orientacao=None, oi_numero=None, genero=None, oi_tipo_de_pessoa=None,
+def verbo_geral(tipo_de_experiencia, funcao_no_grupo_verbal, verbo,
+                tipo_de_orientacao, oi_numero, genero, oi_tipo_de_pessoa,
                 padrao_pessoa_morfologia="Morfologia_padrão"):
     """
     Retorna a estrutura que realiza os verbos no português.
 
     Ex.:
-    >>> verbo_geral('Fazer','Evento','cortar','presente','singular',None,'1pessoa')
+    >>> verbo_geral('Ser','Evento','vir','passado_volitivo','singular',None,'1pessoa')
     'corto'
 
     :param tipo_de_experiencia:
@@ -6259,7 +6260,7 @@ def verbo_geral(tipo_de_experiencia=None, funcao_no_grupo_verbal=None, verbo=Non
         verbo conjugado de acordo com os parâmetros
     """
     classe_do_verbo = def_classe_de_verbo(funcao_no_grupo_verbal)
-    padrao_de_morfologia = morfs.detecta_padrao_morfologia(verbo)
+    padrao_de_morfologia = detecta_padrao_morfologia(verbo)
     verbo_conj = ''
     try:
         if classe_do_verbo == 'lexical':
@@ -6365,10 +6366,10 @@ def verbo_geral(tipo_de_experiencia=None, funcao_no_grupo_verbal=None, verbo=Non
 
                 if verbo == 'dever':
                     me = verbo[slice(-2)]
-                    mi = morfs.realizacao_transitoriedade_do_verbo(tipo_de_orientacao, padrao_de_morfologia,
-                                                                   oi_numero, genero,
-                                                                   oi_tipo_de_pessoa,
-                                                                   padrao_pessoa_morfologia="Morfologia_padrão")
+                    mi = realizacao_transitoriedade_do_verbo(tipo_de_orientacao, padrao_de_morfologia,
+                                                             oi_numero, genero,
+                                                             oi_tipo_de_pessoa,
+                                                             padrao_pessoa_morfologia="Morfologia_padrão")
                     verbo_conj = me + mi
 
                 elif verbo == 'poder':
@@ -6397,11 +6398,20 @@ def verbo_geral(tipo_de_experiencia=None, funcao_no_grupo_verbal=None, verbo=Non
         else:
             verbo_conj = ''
         return verbo_conj
-    except KeyError:
+    except ValueError:
         return ''
 
 
-def main(tipo_experiencia, funcao_verbo, lema):
+def main(tipo_de_experiencia, funcao_no_grupo_verbal, lema):
+    """
+    Retorna a conjugação em todas as opções e Orientação Interpessoal.
+    :param tipo_de_experiencia:
+    :param funcao_no_grupo_verbal:
+    :param lema:
+    :return:
+    """
+    dicionario_conjuga = {}
+    participios = []
     ois = ['presente', 'pretérito_perfectivo_I', 'pretérito_perfectivo_II', 'pretérito_imperfectivo',
            'passado_volitivo', 'futuro', 'subjuntivo_conjuntivo', 'subjuntivo_condicional', 'subjuntivo_optativo',
            'não_finito_concretizado', 'imperativo_I', 'imperativo_II']
@@ -6410,27 +6420,30 @@ def main(tipo_experiencia, funcao_verbo, lema):
     generos = ['masculino', 'feminino']
 
     # TESTE GERAL:
+    try:
 
-    print('Conjugação geral: ', lema)
-    for oi in ois:
-        print("### ", oi, ' ###')
-        for num in oi_numeros:
-            for pessoa in oi_tipo_pessoas:
-                print(verbo_geral(tipo_experiencia, funcao_verbo, lema, oi, num, None, pessoa))
+        dicionario_conjuga.update({lema: {}})
+        for oi in ois:
+            conjugacao = []
+            for num in oi_numeros:
+                for pessoa in oi_tipo_pessoas:
+                    verbo = verbo_geral(tipo_de_experiencia, funcao_no_grupo_verbal, lema, oi, num, None, pessoa)
+                    conjugacao.append(verbo)
+                    dicionario_conjuga[lema].update({oi: conjugacao})
+        dicionario_conjuga[lema].update({'gerúndio': verbo_geral(tipo_de_experiencia, funcao_no_grupo_verbal, lema,
+                                                                 'gerúndio', None, None, None)})
 
-    # infinitivo
-    print('### ', 'Infinitivo', ' ###')
-    print(verbo_geral(tipo_experiencia, funcao_verbo, lema, 'infinitivo', None, None, None))
+        for numero in oi_numeros:
+            for genero in generos:
+                participios.append(verbo_geral(tipo_de_experiencia, funcao_no_grupo_verbal, lema, 'particípio',
+                                               numero, genero, None))
+        dicionario_conjuga[lema].update({'participio': participios})
+        return dicionario_conjuga
+    except ValueError:
+        return ''
 
-    # gerúndio
-    print('### ', 'Gerúndio', ' ###')
-    print(verbo_geral(tipo_experiencia, funcao_verbo, lema, 'gerúndio', None, None, None))
-    #
-    # # particípio
-    print('### ', 'Particípio', ' ###')
-    for numero in oi_numeros:
-        for genero in generos:
-            print(verbo_geral(tipo_experiencia, funcao_verbo, lema, 'particípio', numero, genero, None))
+
+main('Fazer', 'Evento', 'ser')
 
 
 if __name__ == "__main__":
