@@ -1,12 +1,12 @@
-from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra import adverbios as adv
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.adverbios import *
 import re
 import argparse
 
 
-def grupo_adverbial(*args):
+def grupo_adverbial(*argums):
     advs = []
-    for x in range(0, len(args), 2):
-        advs.append(adv.adverbio(args[x], args[x + 1]))
+    for x in range(0, len(argums), 2):
+        advs.append(adverbio(argums[x], argums[x + 1]))
 
     grupo_adv = re.sub(' +', ' ', (' '.join(advs)))
 

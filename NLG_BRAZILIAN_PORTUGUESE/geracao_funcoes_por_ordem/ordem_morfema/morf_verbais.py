@@ -1992,11 +1992,15 @@ def realizacao_transitoriedade_do_verbo(tipo_de_orientacao=None, padrao_de_morfo
 
 
 if __name__ == '__main__':
+    def none_ou_str(value):
+        if value == 'None':
+            return None
+        return value
     # parseamentos detecção ME e MI
     parser = argparse.ArgumentParser(description='Retorna experiência (radical), '
                                                  'morfema interpessoal do verbo conjugado, '
                                                  'terminação do infinitivo dado o padrão de morfologia')
-    parser.add_argument('argumentos', nargs='+', type=str)
+    parser.add_argument('argumentos', nargs='+', type=none_ou_str)
     args = parser.parse_args()
 
     if len(args.argumentos) < 2:
@@ -2004,8 +2008,5 @@ if __name__ == '__main__':
         print('O MI do verbo: ', deteccao_transitoriedade_do_verbo(args.argumentos[0]))
         print('O padrão de morfologia do infinitivo:', detecta_padrao_morfologia(args.argumentos[0]))
     else:
-        for i in range(len(args.argumentos)):
-            if args.argumentos[i] == 'None':
-                args.argumentos[i] = None
         print(realizacao_transitoriedade_do_verbo(*args.argumentos))
     # print(args.argumentos)

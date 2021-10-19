@@ -9255,16 +9255,6 @@ def grupo_verbal(TIPO_DE_EXPERIENCIA_GV=None, AGENCIA=None, TIPO_DE_EXPERIENCIA_
 ###########################################
 #
 
-def adverbio_modo(indice=None):
-	opcoes = ['bem','mal','assim','adrede',
-			  'melhor','pior','depressa','devagar',
-			  'acinte','debalde','cuidadosamente','calmamente',
-			  'tristemente']
-	nums = [x for x in range(len(opcoes))]
-	adverbios = dict(zip(nums, opcoes))
-	adverbio = adverbios[indice]
-	return adverbio
-
 #####
 # modo_insercao = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
 # print('Qual o tipo_pessoa de conjunção?')
