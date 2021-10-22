@@ -1,4 +1,4 @@
-## Cardinais
+## Cardinais teste
 teste = ("testo", "testo2", "teste3")
 
 DECIMAIS = (('décimo', 'décimos'), ('centésimo', 'centésimos'), ('milésimo', 'milésimos'),
