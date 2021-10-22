@@ -97,15 +97,15 @@ def unidade_dezena_centena(terno, genero=None):
 
     return numero_extenso
 
-
-unidade_dezena_centena([2,2,2], 'feminino')
-unidade_dezena_centena([3,2,2], 'masculino')
-unidade_dezena_centena([3,2,4], 'masculino')
-unidade_dezena_centena([3,2,4], 'feminino')
-unidade_dezena_centena([3,2,2], 'masculino')
-unidade_dezena_centena([3,2,2], 'feminino')
-unidade_dezena_centena([5,2,4], 'masculino')
-unidade_dezena_centena([5,2,4], 'feminino')
+#
+# unidade_dezena_centena([2,2,2], 'feminino')
+# unidade_dezena_centena([3,2,2], 'masculino')
+# unidade_dezena_centena([3,2,4], 'masculino')
+# unidade_dezena_centena([3,2,4], 'feminino')
+# unidade_dezena_centena([3,2,2], 'masculino')
+# unidade_dezena_centena([3,2,2], 'feminino')
+# unidade_dezena_centena([5,2,4], 'masculino')
+# unidade_dezena_centena([5,2,4], 'feminino')
 
 
 def milhares(ternos, genero=None):
@@ -123,9 +123,9 @@ def milhares(ternos, genero=None):
             if ternos[1:] == [[0, 0, 0], [0, 0, 0]]:
                 return numero_extenso
             else:
-                numero_extenso += ' ' + milhares(ternos[1:])
+                numero_extenso += ' ' + milhares(ternos[1:], genero)
         else:
-            numero_extenso += milhares(ternos[1:])
+            numero_extenso += milhares(ternos[1:], genero)
 
     if termos == 2:
         if terno != [0, 0, 0]:
@@ -184,7 +184,7 @@ def formatar(numero: str):
     return inteiro, decimal
 
 
-def real(numero: float or str,genero=None):
+def real(numero: float or str, genero=None):
     inteiro, decimal = formatar(str(numero))
     extenso = milhares(separar_casas(inteiro), genero)
 
@@ -206,10 +206,10 @@ def real(numero: float or str,genero=None):
         else:
             plural = 1
 
-        extenso += milhares(separar_casas(decimal),genero) + ' ' + DECIMAIS[ordem][plural]
+        extenso += milhares(separar_casas(decimal), genero) + ' ' + DECIMAIS[ordem][plural]
 
     return extenso
-real(122222,'feminino')
+
 
 def monetario(numero: float or str):
     inteiro, decimal = formatar(str(numero))
