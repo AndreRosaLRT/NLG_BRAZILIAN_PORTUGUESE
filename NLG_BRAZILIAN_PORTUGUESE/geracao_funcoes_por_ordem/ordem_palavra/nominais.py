@@ -1,4 +1,6 @@
 ## Cardinais
+teste = ("testo", "testo2", "teste3")
+
 DECIMAIS = (('décimo', 'décimos'), ('centésimo', 'centésimos'), ('milésimo', 'milésimos'),
             ('décimo de milésimo', 'décimos de milésimo'),
             ('centésimo de milésimo', 'centésimos de milésimo'), ('milionésimo', 'milionésimos'),
@@ -11,7 +13,6 @@ DECIMAIS = (('décimo', 'décimos'), ('centésimo', 'centésimos'), ('milésimo'
             ('septilionésimo', 'septilionésimos'), ('octilionésimo', 'octilionésimos'),
             ('nonilionésimo', 'nonilionésimos'), ('decilionésimo', 'decilionésimos')
             )
-
 
 UNIDADES = ('zero', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove')
 DEZENA_ESPECIAL = ('', 'onze', 'doze', 'treze', 'quatorze', 'quinze', 'dezesseis', 'dezessete', 'dezoito', 'dezenove')
@@ -30,7 +31,7 @@ MILHAR = (('milhão', 'milhões'), ('bilhão', 'bilhões'), ('trilhão', 'trilh�
           )
 
 
-def unidade_dezena_centena(terno, genero):
+def unidade_dezena_centena(terno, genero=None):
     numero_extenso = ''
     termos = len(terno)
     digito = terno[0]
@@ -40,12 +41,38 @@ def unidade_dezena_centena(terno, genero):
                 if digito == 1:
                     numero_extenso += CENTENAS[0]
                 else:
-                    numero_extenso += CENTENAS[digito]
+                    if genero == 'feminino':
+                        numero_extenso += CENTENAS[digito][slice(-2)] + 'as'
+                    else:
+                        numero_extenso += CENTENAS[digito]
+
             else:
-                numero_extenso += CENTENAS[digito] + ' e '
-                numero_extenso += unidade_dezena_centena(terno[1:])
+                if terno[0] == 1:
+                    if genero == 'feminino':
+                        numero_extenso += CENTENAS[digito] + ' e '
+                        if terno[-1] == 2:
+                            numero_extenso += unidade_dezena_centena(terno[1:])[slice(-3)] + "uas"
+                        else:
+                            numero_extenso += unidade_dezena_centena(terno[1:])
+                else:
+
+                    if genero == 'feminino':
+                        numero_extenso += CENTENAS[digito][slice(-2)] + 'as e '
+
+                        if terno[-1] == 2:
+                            numero_extenso += unidade_dezena_centena(terno[1:])[slice(-3)] + "uas"
+                        else:
+                            numero_extenso += unidade_dezena_centena(terno[1:])
+                    else:
+                        numero_extenso += CENTENAS[digito] + ' e ' + unidade_dezena_centena(terno[1:])
         else:
-            numero_extenso += unidade_dezena_centena(terno[1:])
+            if genero == 'feminino':
+
+                if terno[2] == 2:
+                    numero_extenso += unidade_dezena_centena(terno[1:])[slice(-3)] + "uas"
+                else:
+                    numero_extenso += unidade_dezena_centena(terno[1:])
+
     if termos == 2:
         if digito != 0:
             if terno[1] == 0:
@@ -53,16 +80,35 @@ def unidade_dezena_centena(terno, genero):
             elif digito == 1:
                 numero_extenso += DEZENA_ESPECIAL[terno[1]]
             else:
-                numero_extenso += DEZENAS[digito] + ' e ' + unidade_dezena_centena(terno[1:])
+                if terno[-1] == 2 and genero == 'feminino':
+                    numero_extenso += DEZENAS[digito] + ' e ' + unidade_dezena_centena(terno[1:])[slice(-3)] + "uas"
+                else:
+                    numero_extenso += DEZENAS[digito] + ' e ' + unidade_dezena_centena(terno[1:])
+
         else:
             numero_extenso += unidade_dezena_centena(terno[1:])
     elif termos == 1:
-        numero_extenso += UNIDADES[digito]
+        if terno[0] == 1 and genero == 'feminino':
+            numero_extenso += UNIDADES[digito] + 'a'
+        elif terno[0] == 2 and genero == 'feminino':
+            numero_extenso += UNIDADES[digito][slice(-3)] + 'uas'
+        else:
+            numero_extenso += UNIDADES[digito]
 
     return numero_extenso
 
 
-def milhares(ternos):
+unidade_dezena_centena([2,2,2], 'feminino')
+unidade_dezena_centena([3,2,2], 'masculino')
+unidade_dezena_centena([3,2,4], 'masculino')
+unidade_dezena_centena([3,2,4], 'feminino')
+unidade_dezena_centena([3,2,2], 'masculino')
+unidade_dezena_centena([3,2,2], 'feminino')
+unidade_dezena_centena([5,2,4], 'masculino')
+unidade_dezena_centena([5,2,4], 'feminino')
+
+
+def milhares(ternos, genero=None):
     numero_extenso = ''
     termos = len(ternos)
     terno = ternos[0]
@@ -72,7 +118,7 @@ def milhares(ternos):
             if terno == [0, 0, 1] or terno == [1]:
                 numero_extenso += 'um ' + MILHAR[termos - 3][0]
             else:
-                numero_extenso += unidade_dezena_centena(terno) + ' ' + MILHAR[termos - 3][1]
+                numero_extenso += unidade_dezena_centena(terno, genero) + ' ' + MILHAR[termos - 3][1]
 
             if ternos[1:] == [[0, 0, 0], [0, 0, 0]]:
                 return numero_extenso
@@ -83,19 +129,19 @@ def milhares(ternos):
 
     if termos == 2:
         if terno != [0, 0, 0]:
-            numero_extenso += unidade_dezena_centena(terno) + ' mil'
+            numero_extenso += unidade_dezena_centena(terno, genero) + ' mil'
             if ternos[1] == [0, 0, 0]:
                 return numero_extenso
             elif ternos[1][0]:
-                numero_extenso += ' ' + milhares(ternos[1:])
+                numero_extenso += ' ' + milhares(ternos[1:], genero)
             else:
-                numero_extenso += ' e ' + milhares(ternos[1:])
+                numero_extenso += ' e ' + milhares(ternos[1:], genero)
         else:
-            numero_extenso += ' ' + milhares(ternos[1:])
+            numero_extenso += ' ' + milhares(ternos[1:], genero)
 
     elif termos == 1:
         if terno != [0, 0, 0]:
-            numero_extenso += unidade_dezena_centena(terno)
+            numero_extenso += unidade_dezena_centena(terno, genero)
 
     return numero_extenso
 
@@ -135,14 +181,14 @@ def formatar(numero: str):
     else:
         raise ValueError('Número não formatado corretamente')
 
-    return (inteiro, decimal)
+    return inteiro, decimal
 
 
-def real(numero: float or str):
+def real(numero: float or str,genero=None):
     inteiro, decimal = formatar(str(numero))
-    extenso = milhares(separar_casas(inteiro))
+    extenso = milhares(separar_casas(inteiro), genero)
 
-    if decimal != None and int(decimal) != 0:
+    if decimal is not None and int(decimal) != 0:
         ordem = len(decimal) - 1
         if ordem > 11:
             ordem = 7 + ordem // 3
@@ -160,10 +206,10 @@ def real(numero: float or str):
         else:
             plural = 1
 
-        extenso += milhares(separar_casas(decimal)) + ' ' + DECIMAIS[ordem][plural]
+        extenso += milhares(separar_casas(decimal),genero) + ' ' + DECIMAIS[ordem][plural]
 
     return extenso
-
+real(122222,'feminino')
 
 def monetario(numero: float or str):
     inteiro, decimal = formatar(str(numero))
@@ -176,7 +222,7 @@ def monetario(numero: float or str):
     else:
         extenso += ' reais'
 
-    if decimal != None and int(decimal) != 0:
+    if decimal is not None and int(decimal) != 0:
         ordem = len(decimal)
         if ordem == 1:
             decimal += '0'
@@ -210,6 +256,7 @@ def monetario(numero: float or str):
 
     return extenso
 
+
 #
 # if __name__ == '__main__':
 #
@@ -237,7 +284,7 @@ def ordinal(cardinal, genero):
     return ordin
 
 
-print(ordinal(4,'masculino'))
+print(ordinal(4, 'masculino'))
 
 
 # #
