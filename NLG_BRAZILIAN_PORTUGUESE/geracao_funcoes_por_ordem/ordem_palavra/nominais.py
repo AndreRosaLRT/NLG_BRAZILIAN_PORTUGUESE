@@ -1,5 +1,6 @@
-## Cardinais teste
-teste = ("testo", "testo2", "teste3")
+# Cardinais teste
+
+import re
 
 DECIMAIS = (('décimo', 'décimos'), ('centésimo', 'centésimos'), ('milésimo', 'milésimos'),
             ('décimo de milésimo', 'décimos de milésimo'),
@@ -13,12 +14,11 @@ DECIMAIS = (('décimo', 'décimos'), ('centésimo', 'centésimos'), ('milésimo'
             ('septilionésimo', 'septilionésimos'), ('octilionésimo', 'octilionésimos'),
             ('nonilionésimo', 'nonilionésimos'), ('decilionésimo', 'decilionésimos')
             )
-
 UNIDADES = ('zero', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove')
 DEZENA_ESPECIAL = ('', 'onze', 'doze', 'treze', 'quatorze', 'quinze', 'dezesseis', 'dezessete', 'dezoito', 'dezenove')
 DEZENAS = ('', 'dez', 'vinte', 'trinta', 'quarenta', 'cinquenta', 'sessenta', 'setenta', 'oitenta', 'noventa')
-CENTENAS = ('cem', 'cento', 'duzentos', 'trezentos', 'quatrocentos', 'quinhentos', 'seiscentos', 'setecentos', 'oitocentos',
-'novecentos')
+CENTENAS = ('cem', 'cento', 'duzentos', 'trezentos', 'quatrocentos', 'quinhentos', 'seiscentos', 'setecentos',
+            'oitocentos', 'novecentos')
 MILHAR = (('milhão', 'milhões'), ('bilhão', 'bilhões'), ('trilhão', 'trilhões'), ('quatrilhão', 'quatrilhões'),
           ('quintilhão', 'quintilhões'),
           ('sextilhão', 'sextilhões'), ('septilhão', 'septilhões'), ('octilhão', 'octilhões'),
@@ -29,6 +29,41 @@ MILHAR = (('milhão', 'milhões'), ('bilhão', 'bilhões'), ('trilhão', 'trilh�
           ('octodecilhão', 'octodecilhões'),
           ('novemdecilhão', 'novemdecilhões')
           )
+
+
+UNIDADES_ORD = ('', 'primeiro', 'segundo', 'terceiro', 'quarto', 'quinto', 'sexto', 'sétimo', 'oitavo', 'nono')
+# DEZENA_ESPECIAL_ORD = ('', 'décimo primeiro', 'décimo segundo', 'décimo terceiro', 'décimo quarto', 'décimo quinto',
+#                        'décimo sexto', 'décimo sétimo', 'décimo oitavo', 'décimo nono')
+DEZENAS_ORD = ('', 'décimo', 'vigésimo','trigésimo', 'quadragésimo', 'quinquagésimo', 'sexagésimo', 'septuagésimo',
+               'octogésimo', 'nonagésimo')
+CENTENAS_ORD = ('','centésimo', 'ducentésimo', 'trecentésimo', 'quadringentésimo', 'quingentésimo', 'sexsentésimo',
+                'setingentésimo', 'octingentésimo', 'nongentésimo')
+MILHAR_ORD = ('','milésimo')
+
+def mil_unid_dez_cent_ord(terno, genero = None):
+    """"""
+
+    if terno[0]>1:
+        mil = ' '.join((UNIDADES_ORD[terno[0]], MILHAR_ORD[1]))
+    else:
+        mil = MILHAR_ORD[terno[0]]
+    cent = CENTENAS_ORD[terno[1]]
+    dez = DEZENAS_ORD[terno[2]]
+    unid = UNIDADES_ORD[terno[3]]
+    numero_extenso = ' '.join((mil, cent, dez, unid))
+
+    if genero == 'feminino':
+        numero_extenso = ' '.join([i[slice(-1)] + 'a' for i in numero_extenso.split()])
+    return re.sub(' +', ' ', numero_extenso).strip()
+
+
+mil_unid_dez_cent_ord([2,1,2,1],'feminino')
+
+
+teste = 'a centésima vigésima primeira'
+re.sub(r'(\sa)', ' ', teste).strip()
+teste.split()
+
 
 
 def unidade_dezena_centena(terno, genero=None):
@@ -97,15 +132,13 @@ def unidade_dezena_centena(terno, genero=None):
 
     return numero_extenso
 
-#
-# unidade_dezena_centena([2,2,2], 'feminino')
-# unidade_dezena_centena([3,2,2], 'masculino')
-# unidade_dezena_centena([3,2,4], 'masculino')
-# unidade_dezena_centena([3,2,4], 'feminino')
-# unidade_dezena_centena([3,2,2], 'masculino')
-# unidade_dezena_centena([3,2,2], 'feminino')
-# unidade_dezena_centena([5,2,4], 'masculino')
-# unidade_dezena_centena([5,2,4], 'feminino')
+unidade_dezena_centena([5,2,4], 'masculino')
+unidade_dezena_centena([3,2,2], 'masculino')
+unidade_dezena_centena([3,2,4], 'masculino')
+unidade_dezena_centena([3,2,4], 'feminino')
+unidade_dezena_centena([3,2,2], 'masculino')
+unidade_dezena_centena([3,2,2], 'feminino')
+unidade_dezena_centena([5,2,4], 'feminino')
 
 
 def milhares(ternos, genero=None):
@@ -255,6 +288,9 @@ def monetario(numero: float or str):
             extenso += ' ' + DECIMAIS[ordem - 3][plural] + ' de centavo'
 
     return extenso
+
+
+def uni_dez_cent_ordinal (terno, genero=None):
 
 
 #
