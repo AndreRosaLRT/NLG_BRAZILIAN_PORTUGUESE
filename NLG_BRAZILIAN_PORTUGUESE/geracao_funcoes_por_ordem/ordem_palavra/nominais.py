@@ -40,83 +40,59 @@ CENTENAS_ORD = ('','centésimo', 'ducentésimo', 'trecentésimo', 'quadringenté
                 'setingentésimo', 'octingentésimo', 'nongentésimo')
 MILHAR_ORD = ('','milésimo')
 
-def unid_dez_cent_mil_ord(numero, genero = None):
+
+def unid_dez_cent_mil_ord(numero, genero=None):
     """
     Até 9999 - retorna os números ordinais
 
     Ex.:
-    >>> unid_dez_cent_mil_ord([9,9,9,9], 'feminino')
-    'nona milésima nongentésima nonagésima nona'
+    >>> unid_dez_cent_mil_ord(999999, 'masculino')
+    'nongentésimo nonagésimo nono milésimo nongentésimo nonagésimo nono'
     :param numero:
     :param genero:
     :return: ordinais
     """
-    if numero.__len__() > 3:
-        if numero[-4] > 1:
-            mil = ' '.join((UNIDADES_ORD[numero[-4]], MILHAR_ORD[1]))
+    numero_extenso, cent_mil, dez_mil, unid_mil, cent, dez, unid = '', '', '', '', '', '', ''
+    ternos = separar_casas(numero)
+    if ternos.__len__() == 2:
+        if ternos[-2].__len__() > 2:
+            cent_mil = CENTENAS_ORD[ternos[-2][-3]]
         else:
-            mil = MILHAR_ORD[numero[-4]]
-    else:
-        mil = ''
-    if numero.__len__() > 2:
-        cent = CENTENAS_ORD[numero[-3]]
-    else:
-        cent = ''
-    if numero.__len__() > 1:
-        dez = DEZENAS_ORD[numero[-2]]
-    else:
-        dez = ''
-    unid = UNIDADES_ORD[numero[-1]]
-    numero_extenso = ' '.join((mil, cent, dez, unid))
+            cent_mil = ''
+        if ternos[-2].__len__() > 1:
+            dez_mil = DEZENAS_ORD[ternos[-2][-2]]
+        else:
+            dez_mil = ''
+        unid_mil = UNIDADES_ORD[ternos[-2][-1]]
+        if ternos[-1].__len__() > 2:
+            cent = CENTENAS_ORD[ternos[-1][-3]]
+        else:
+            cent = ''
+        if ternos[-1].__len__() > 1:
+            dez = DEZENAS_ORD[ternos[-1][-2]]
+        else:
+            dez = ''
+        unid = UNIDADES_ORD[ternos[-1][-1]]
+        numero_extenso = ' '.join((cent_mil, dez_mil,  unid_mil,'milésimo', cent, dez, unid))
+
+    if ternos.__len__() == 1:
+        if ternos[-1].__len__() > 2:
+            cent = CENTENAS_ORD[ternos[-1][-3]]
+        else:
+            cent = ''
+        if ternos[-1].__len__() > 1:
+            dez = DEZENAS_ORD[ternos[-1][-2]]
+        else:
+            dez = ''
+        unid = UNIDADES_ORD[ternos[-1][-1]]
+        numero_extenso = ' '.join((cent_mil, dez_mil, unid_mil, cent, dez, unid))
 
     if genero == 'feminino':
         numero_extenso = ' '.join([i[slice(-1)] + 'a' for i in numero_extenso.split()])
     return re.sub(' +', ' ', numero_extenso).strip()
 
 
-unid_dez_cent_mil_ord([2,1,9,3], 'feminino')
-
-teste = [1,0,0,0]
-
-
-def milhares_ord(ternos, genero=None):
-    numero_extenso = ''
-    termos = len(ternos)
-    terno = ternos[0]
-
-    if termos >= 3:
-        if terno != [0, 0, 0]:
-            if terno == [0, 0, 1] or terno == [1]:
-                numero_extenso += 'um ' + MILHAR[termos - 3][0]
-            else:
-                numero_extenso += unidade_dezena_centena(terno, genero) + ' ' + MILHAR[termos - 3][1]
-
-            if ternos[1:] == [[0, 0, 0], [0, 0, 0]]:
-                return numero_extenso
-            else:
-                numero_extenso += ' ' + milhares(ternos[1:], genero)
-        else:
-            numero_extenso += milhares(ternos[1:], genero)
-
-    if termos == 2:
-        if terno != [0, 0, 0]:
-            numero_extenso += unidade_dezena_centena(terno, genero) + ' mil'
-            if ternos[1] == [0, 0, 0]:
-                return numero_extenso
-            elif ternos[1][0]:
-                numero_extenso += ' ' + milhares(ternos[1:], genero)
-            else:
-                numero_extenso += ' e ' + milhares(ternos[1:], genero)
-        else:
-            numero_extenso += ' ' + milhares(ternos[1:], genero)
-
-    elif termos == 1:
-        if terno != [0, 0, 0]:
-            numero_extenso += unidade_dezena_centena(terno, genero)
-
-    return numero_extenso
-
-
+unid_dez_cent_mil_ord(123, 'feminino')
 
 
 def unidade_dezena_centena(terno, genero=None):
@@ -342,8 +318,6 @@ def monetario(numero: float or str):
 
     return extenso
 
-
-def uni_dez_cent_ordinal (terno, genero=None):
 
 
 #
