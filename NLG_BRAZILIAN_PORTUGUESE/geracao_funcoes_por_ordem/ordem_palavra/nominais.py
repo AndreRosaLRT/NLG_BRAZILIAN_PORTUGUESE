@@ -40,16 +40,33 @@ CENTENAS_ORD = ('','centésimo', 'ducentésimo', 'trecentésimo', 'quadringenté
                 'setingentésimo', 'octingentésimo', 'nongentésimo')
 MILHAR_ORD = ('','milésimo')
 
-def mil_unid_dez_cent_ord(terno, genero = None):
-    """"""
+def unid_dez_cent_mil_ord(numero, genero = None):
+    """
+    Até 9999 - retorna os números ordinais
 
-    if terno[0]>1:
-        mil = ' '.join((UNIDADES_ORD[terno[0]], MILHAR_ORD[1]))
+    Ex.:
+    >>> unid_dez_cent_mil_ord([9,9,9,9], 'feminino')
+    'nona milésima nongentésima nonagésima nona'
+    :param numero:
+    :param genero:
+    :return: ordinais
+    """
+    if numero.__len__() > 3:
+        if numero[-4] > 1:
+            mil = ' '.join((UNIDADES_ORD[numero[-4]], MILHAR_ORD[1]))
+        else:
+            mil = MILHAR_ORD[numero[-4]]
     else:
-        mil = MILHAR_ORD[terno[0]]
-    cent = CENTENAS_ORD[terno[1]]
-    dez = DEZENAS_ORD[terno[2]]
-    unid = UNIDADES_ORD[terno[3]]
+        mil = ''
+    if numero.__len__() > 2:
+        cent = CENTENAS_ORD[numero[-3]]
+    else:
+        cent = ''
+    if numero.__len__() > 1:
+        dez = DEZENAS_ORD[numero[-2]]
+    else:
+        dez = ''
+    unid = UNIDADES_ORD[numero[-1]]
     numero_extenso = ' '.join((mil, cent, dez, unid))
 
     if genero == 'feminino':
@@ -57,12 +74,48 @@ def mil_unid_dez_cent_ord(terno, genero = None):
     return re.sub(' +', ' ', numero_extenso).strip()
 
 
-mil_unid_dez_cent_ord([2,1,2,1],'feminino')
+unid_dez_cent_mil_ord([2,1,9,3], 'feminino')
+
+teste = [1,0,0,0]
 
 
-teste = 'a centésima vigésima primeira'
-re.sub(r'(\sa)', ' ', teste).strip()
-teste.split()
+def milhares_ord(ternos, genero=None):
+    numero_extenso = ''
+    termos = len(ternos)
+    terno = ternos[0]
+
+    if termos >= 3:
+        if terno != [0, 0, 0]:
+            if terno == [0, 0, 1] or terno == [1]:
+                numero_extenso += 'um ' + MILHAR[termos - 3][0]
+            else:
+                numero_extenso += unidade_dezena_centena(terno, genero) + ' ' + MILHAR[termos - 3][1]
+
+            if ternos[1:] == [[0, 0, 0], [0, 0, 0]]:
+                return numero_extenso
+            else:
+                numero_extenso += ' ' + milhares(ternos[1:], genero)
+        else:
+            numero_extenso += milhares(ternos[1:], genero)
+
+    if termos == 2:
+        if terno != [0, 0, 0]:
+            numero_extenso += unidade_dezena_centena(terno, genero) + ' mil'
+            if ternos[1] == [0, 0, 0]:
+                return numero_extenso
+            elif ternos[1][0]:
+                numero_extenso += ' ' + milhares(ternos[1:], genero)
+            else:
+                numero_extenso += ' e ' + milhares(ternos[1:], genero)
+        else:
+            numero_extenso += ' ' + milhares(ternos[1:], genero)
+
+    elif termos == 1:
+        if terno != [0, 0, 0]:
+            numero_extenso += unidade_dezena_centena(terno, genero)
+
+    return numero_extenso
+
 
 
 
