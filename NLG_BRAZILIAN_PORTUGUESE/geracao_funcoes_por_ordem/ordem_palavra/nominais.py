@@ -1,7 +1,12 @@
 # Cardinais teste
 
 import re
+import nltk
+nltk.download('punkt')
+nltk.download('rslp')
 
+
+tokens = nltk.word_tokenize("cachorros gatos canecas mesas", language='portuguese')
 DECIMAIS = (('décimo', 'décimos'), ('centésimo', 'centésimos'), ('milésimo', 'milésimos'),
             ('décimo de milésimo', 'décimos de milésimo'),
             ('centésimo de milésimo', 'centésimos de milésimo'), ('milionésimo', 'milionésimos'),
@@ -38,67 +43,31 @@ DEZENAS_ORD = ('', 'décimo', 'vigésimo','trigésimo', 'quadragésimo', 'quinqu
                'octogésimo', 'nonagésimo')
 CENTENAS_ORD = ('','centésimo', 'ducentésimo', 'trecentésimo', 'quadringentésimo', 'quingentésimo', 'sexsentésimo',
                 'setingentésimo', 'octingentésimo', 'nongentésimo')
-MILHAR_ORD = ('','milésimo')
+MILHAR_ORD = ('', 'milésimo')
 
 
-def unid_dez_cent_mil_ord(numero, genero=None):
-    """
-    Até 9999 - retorna os números ordinais
+def separar_casas(numero):
+    digitos = list(str(numero))
+    tamanho = len(digitos)
 
-    Ex.:
-    >>> unid_dez_cent_mil_ord(999999, 'masculino')
-    'nongentésimo nonagésimo nono milésimo nongentésimo nonagésimo nono'
-    :param numero:
-    :param genero:
-    :return: ordinais
-    """
-    numero_extenso, cent_mil, dez_mil, unid_mil, cent, dez, unid = '', '', '', '', '', '', ''
-    ternos = separar_casas(numero)
-    if ternos.__len__() == 2:
-        if ternos[-2].__len__() > 2:
-            cent_mil = CENTENAS_ORD[ternos[-2][-3]]
-        else:
-            cent_mil = ''
-        if ternos[-2].__len__() > 1:
-            dez_mil = DEZENAS_ORD[ternos[-2][-2]]
-        else:
-            dez_mil = ''
-        unid_mil = UNIDADES_ORD[ternos[-2][-1]]
-        if ternos[-1].__len__() > 2:
-            cent = CENTENAS_ORD[ternos[-1][-3]]
-        else:
-            cent = ''
-        if ternos[-1].__len__() > 1:
-            dez = DEZENAS_ORD[ternos[-1][-2]]
-        else:
-            dez = ''
-        unid = UNIDADES_ORD[ternos[-1][-1]]
-        numero_extenso = ' '.join((cent_mil, dez_mil,  unid_mil,'milésimo', cent, dez, unid))
-
-    if ternos.__len__() == 1:
-        if ternos[-1].__len__() > 2:
-            cent = CENTENAS_ORD[ternos[-1][-3]]
-        else:
-            cent = ''
-        if ternos[-1].__len__() > 1:
-            dez = DEZENAS_ORD[ternos[-1][-2]]
-        else:
-            dez = ''
-        unid = UNIDADES_ORD[ternos[-1][-1]]
-        numero_extenso = ' '.join((cent_mil, dez_mil, unid_mil, cent, dez, unid))
-
-    if genero == 'feminino':
-        numero_extenso = ' '.join([i[slice(-1)] + 'a' for i in numero_extenso.split()])
-    return re.sub(' +', ' ', numero_extenso).strip()
-
-
-unid_dez_cent_mil_ord(123, 'feminino')
+    casa = tamanho % 3
+    casas = []
+    terno = []
+    for i in range(tamanho):
+        terno.append(int(digitos[i]))
+        if (i + 1) % 3 == casa:
+            casas.append(terno)
+            terno = []
+    return casas
 
 
 def unidade_dezena_centena(terno, genero=None):
+
     numero_extenso = ''
+
     termos = len(terno)
     digito = terno[0]
+
     if termos == 3:
         if digito != 0:
             if terno[1:] == [0, 0]:
@@ -161,13 +130,12 @@ def unidade_dezena_centena(terno, genero=None):
 
     return numero_extenso
 
-unidade_dezena_centena([5,2,4], 'masculino')
-unidade_dezena_centena([3,2,2], 'masculino')
-unidade_dezena_centena([3,2,4], 'masculino')
-unidade_dezena_centena([3,2,4], 'feminino')
-unidade_dezena_centena([3,2,2], 'masculino')
-unidade_dezena_centena([3,2,2], 'feminino')
-unidade_dezena_centena([5,2,4], 'feminino')
+#
+# unidade_dezena_centena([3,2,4], 'masculino')
+# unidade_dezena_centena([3,2,4], 'feminino')
+# unidade_dezena_centena([3,2,2], 'masculino')
+# unidade_dezena_centena([3,2,2], 'feminino')
+# unidade_dezena_centena([5,2,4], 'feminino')
 
 
 def milhares(ternos, genero=None):
@@ -206,21 +174,6 @@ def milhares(ternos, genero=None):
             numero_extenso += unidade_dezena_centena(terno, genero)
 
     return numero_extenso
-
-
-def separar_casas(numero):
-    digitos = list(str(numero))
-    tamanho = len(digitos)
-
-    casa = tamanho % 3
-    casas = []
-    terno = []
-    for i in range(tamanho):
-        terno.append(int(digitos[i]))
-        if (i + 1) % 3 == casa:
-            casas.append(terno)
-            terno = []
-    return casas
 
 
 def formatar(numero: str):
@@ -319,391 +272,199 @@ def monetario(numero: float or str):
     return extenso
 
 
-
-#
-# if __name__ == '__main__':
-#
-#     while True:
-#         try:
-#             numero = input('Digite um número real: ')
-#             extenso = monetario(numero)
-#             print(numero, extenso)
-#             break
-#         except ValueError as erro:
-#             print('ERRO!! ', erro)
-
-
-def ordinal(cardinal, genero):
+def ordinal(num_cardinal, genero=None):
     """
-    :param cardinal:
+    Até 9999 - retorna os números ordinais
+
+    Ex.:
+    >>> ordinal(999999, 'masculino')
+    'nongentésimo nonagésimo nono milésimo nongentésimo nonagésimo nono'
+
+    >>> ordinal(123, 'feminino')
+    'centésima vigésima terceira'
+
+    >>> ordinal(2334,'feminino')
+    'segunda milésima trecentésima trigésima quarta'
+
+    :param num_cardinal:
     :param genero:
-    :return: orginal
+    :return: ordinais
     """
-    num = str(cardinal)
-    if genero == 'masculino':
-        ordin = num + 'º'
-    else:
-        ordin = num + 'ª'
-    return ordin
 
+    numero_extenso, cent_mil, dez_mil, unid_mil, cent, dez, unid = '', '', '', '', '', '', ''
+    ternos = separar_casas(num_cardinal)
+    if ternos.__len__() == 2:
+        if ternos[-2].__len__() > 2:
+            cent_mil = CENTENAS_ORD[ternos[-2][-3]]
+        else:
+            cent_mil = ''
+        if ternos[-2].__len__() > 1:
+            dez_mil = DEZENAS_ORD[ternos[-2][-2]]
+        else:
+            dez_mil = ''
+        unid_mil = UNIDADES_ORD[ternos[-2][-1]]
+        if ternos[-1].__len__() > 2:
+            cent = CENTENAS_ORD[ternos[-1][-3]]
+        else:
+            cent = ''
+        if ternos[-1].__len__() > 1:
+            dez = DEZENAS_ORD[ternos[-1][-2]]
+        else:
+            dez = ''
+        unid = UNIDADES_ORD[ternos[-1][-1]]
+        numero_extenso = ' '.join((cent_mil, dez_mil,  unid_mil,'milésimo', cent, dez, unid))
 
-print(ordinal(4, 'masculino'))
+    if ternos.__len__() == 1:
+        if ternos[-1].__len__() > 2:
+            cent = CENTENAS_ORD[ternos[-1][-3]]
+        else:
+            cent = ''
+        if ternos[-1].__len__() > 1:
+            dez = DEZENAS_ORD[ternos[-1][-2]]
+        else:
+            dez = ''
+        unid = UNIDADES_ORD[ternos[-1][-1]]
+        numero_extenso = ' '.join((cent_mil, dez_mil, unid_mil, cent, dez, unid))
+
+    if genero == 'feminino':
+        numero_extenso = ' '.join([i[slice(-1)] + 'a' for i in numero_extenso.split()])
+    return re.sub(' +', ' ', numero_extenso).strip()
 
 
 # #
 def porcento(cardinal):
-    '''
-    '''
+    """
+    Retorna num com símbolo de percentual
+    :param cardinal:
+    :return:
+    """
     porcento = str(cardinal) + '%'
 
     return porcento
 
 
-# porcento(10)
-#
-# ##NÚMEROS CARDINAIS ATÉ A 4 CASA(9 000) NÃOS SEI SE VOU IMPLEMENTAR ATÉ A 6 CASA.....
-# def num_cardinal_1dig_extenso(unidade, genero):
-#     if unidade == "zero":
-#         numerativo = ''
-#     else:
-#         if unidade == 'dois':
-#             if genero == 'feminino':
-#                 numerativo = unidade[slice(-3)] + 'uas'
-#             elif genero == 'masculino':
-#                 numerativo = unidade
-#         elif unidade == 'um':
-#             if genero == 'feminino':
-#                 numerativo = unidade + 'a'
-#             elif genero == 'masculino':
-#                 numerativo = unidade
-#         else:
-#             numerativo = unidade
-#
-#     return numerativo
-#
-#
-# num_cardinal_1dig_extenso('um','feminino')
-# #
-# # def num_cardinal_2dig_extenso(dezenaExtenso, unidadeExtenso, genero):
-# #     if dezenaExtenso == "zero":
-# #         numerativo = num_cardinal_1dig_extenso(unidadeExtenso, genero)
-# #     elif dezenaExtenso == 'dez':
-# #         if unidadeExtenso == 'zero':
-# #             numerativo = dezenaExtenso
-# #         elif unidadeExtenso == 'um':
-# #             numerativo = 'onze'
-# #         elif unidadeExtenso == 'dois':
-# #             numerativo = 'doze'
-# #         elif unidadeExtenso == 'três':
-# #             numerativo = 'treze'
-# #         elif unidadeExtenso == 'quatro':
-# #             numerativo = 'quatorze'
-# #         elif unidadeExtenso == 'cinco':
-# #             numerativo = 'quinze'
-# #         elif unidadeExtenso == 'seis':
-# #             numerativo = 'dezesseis'
-# #         elif unidadeExtenso == 'sete':
-# #             numerativo = 'dezessete'
-# #         elif unidadeExtenso == 'oito':
-# #             numerativo = 'dezoito'
-# #         elif unidadeExtenso == 'nove':
-# #             numerativo = 'dezenove'
-# #     else:
-# #         digito1 = num_cardinal_1dig_extenso(unidadeExtenso, genero)
-# #         if digito1 == "zero":
-# #             digito1 = ''
-# #         if digito1 == "":
-# #             numerativo = dezenaExtenso + digito1
-# #         else:
-# #             numerativo = dezenaExtenso + ' e ' + digito1
-# #
-# #     return numerativo
-# #
-# #
-# # # num_cardinal_2dig_extenso('zero','zero','feminino')
-# #
-# # def num_cardinal_3dig_extenso(centenaExtenso, dezenaExtenso, unidadeExtenso, genero):
-# #     if centenaExtenso == "zero":
-# #         numerativo = num_cardinal_2dig_extenso(dezenaExtenso, unidadeExtenso, genero)
-# #     else:
-# #         digitos2 = num_cardinal_2dig_extenso(dezenaExtenso, unidadeExtenso, genero)
-# #
-# #         if digitos2 == '':
-# #             if (centenaExtenso == 'duzentos' or centenaExtenso == 'trezentos' or
-# #                     centenaExtenso == 'quatrocentos' or centenaExtenso == 'quinhentos' or
-# #                     centenaExtenso == 'seiscentos' or centenaExtenso == 'setecentos' or
-# #                     centenaExtenso == 'oitocentos' or centenaExtenso == 'novecentos'):
-# #                 if genero == 'feminino':
-# #                     centena = centenaExtenso[slice(-2)] + 'as'
-# #                 elif genero == 'masculino':
-# #                     centena = centenaExtenso[slice(-2)] + 'os'
-# #                 numerativo = centena + digitos2
-# #             else:
-# #                 numerativo = centenaExtenso
-# #         else:
-# #             if centenaExtenso == 'cem':
-# #                 centena = 'cento e '
-# #
-# #             elif (centenaExtenso == 'duzentos' or centenaExtenso == 'trezentos' or
-# #                   centenaExtenso == 'quatrocentos' or centenaExtenso == 'quinhentos' or
-# #                   centenaExtenso == 'seiscentos' or centenaExtenso == 'setecentos' or
-# #                   centenaExtenso == 'oitocentos' or centenaExtenso == 'novecentos'):
-# #                 if genero == 'feminino':
-# #                     centena = centenaExtenso[slice(-2)] + 'as e '
-# #                 elif genero == 'masculino':
-# #                     centena = centenaExtenso[slice(-2)] + 'os e '
-# #
-# #             numerativo = centena + digitos2
-# #
-# #     return numerativo
-# #
-# #
-# # # num_cardinal_3dig_extenso('duzentos','zero','zero', 'feminino')
-# #
-# # def num_cardinal_4dig_extenso(milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso,
-# #                               genero):  # Número com 4 dígitos
-# #     if milharExtenso == "zero":
-# #         numerativo = num_cardinal_3dig_extenso(centenaExtenso, dezenaExtenso, unidadeExtenso, genero)
-# #     else:
-# #         digito3 = num_cardinal_3dig_extenso(centenaExtenso, dezenaExtenso, unidadeExtenso, genero)
-# #         if digito3 == '':
-# #             if milharExtenso == 'dois mil':
-# #                 if genero == 'masculino':
-# #                     milhar = milharExtenso
-# #
-# #                 elif genero == 'feminino':
-# #                     milhar = milharExtenso[:1] + 'uas' + milharExtenso[4:]
-# #             else:
-# #                 milhar = milharExtenso
-# #         else:
-# #             milhar = milharExtenso
-# #             numerativo = milhar + " e " + digito3
-# #
-# #     return numerativo
+def porcento_extenso(numero):
+    """
+    Retorna uma porcentagem por extenso dada uma lista de inteiros representando cada casa do cardinal
+    Ex.:
+
+    >>>porcento_extenso(34)
+    'trinta e quatro por cento'
+
+    :param numero:
+    :return: percentagem por extenso
+    """
+    return ' '.join((real(numero), 'por cento'))
 
 
-# num_cardinal_4dig_extenso('zero','trezentos', 'zero', 'três', 'feminino')
+def numerativo(tipo_numerativo=None, cardinal=None, genero=None):
+    """
+    Retorna numerativos (ainda restrito a cardinal, ordinal e porcentagem, por enquanto), dada o
+    tipo de numerativo, um número cardinal, genero,
 
-# tipoRealCard = choice.Menu(['extenso', 'numérico']).ask()
-#
-# def num_cardinal(tipoRealCard, cardNumerico, milharExtenso,
-#                  centenaExtenso, dezenaExtenso, unidadeExtenso, genero):
-#     if tipoRealCard == 'numérico':
-#         numCardinal = cardNumerico
-#
-#     elif tipoRealCard == 'extenso':
-#         numCardinal = num_cardinal_4dig_extenso(milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso, genero)
-#
-#     return numCardinal
+    Ex.:
 
+    >>> numerativo('cardinal',23,'feminino')
+    'vinte e três'
 
-# num_cardinal("extenso", None, 'zero','duzentos', 'zero', 'zero', 'feminino')
-#
-# funcaoNumerativo = choice.Menu(['quant_precisa_absoluta(cardinais)',
-# 		                                 'quant_precisa_div/multi(fração/multiplicativos)',
-# 		                                 'quant_imprecisa_pron_indef_numer',
-# 		                                 'quant_imprecisa_pron_indef_valor_alt_baixo',
-# 		                                 'ordem_lugar_preciso(ordinal)',
-# 		                                 'ordem_lugar_impreciso(posição_relativa'
-# 		                                 ]).ask()
-# print("""
-#                     'algum'
-#                     'nenhum'
-#                     3: 'todo'
-#                     4: 'muito'
-#                     5: 'pouco'
-#                     6: 'vário'
-#                     7: 'tanto'
-#                     8: 'outro'
-#                     9: 'quanto'
-#                     10: 'alguma'
-#                     1'nenhuma'
-#                     1'toda'
-#                     13: 'muita'
-#                     14: 'pouca'
-#                     15: 'vária'
-#                     1'tanta'
-#                     17:'outra'
-#                     18: 'quanta'
-#                     19:'alguns'
-#                     20:'nenhuns'
-#                     21:'todos'
-#                     22:'muitos'
-#                     23:'poucos'
-#                     24:'vários'
-#                     25:'tantos'
-#                     26:'outros'
-#                     27:'quantos'
-#                     28:'algumas'
-#                     29:'nenhumas'
-#                     30:'todas'
-#                     31:'muitas'
-#                     32:'poucas'
-#                     33:'várias'
-#                     34:'tantas'
-#                     35:'outras'
-#                     36:'quantas'
-#
-#                                Escolha uma opção:""")
+   >>> numerativo('cardinal',202,'feminino')
+    'duzentas e duas'
 
+    >>> numerativo('ordinal',202,'feminino')
+    'ducentésima segunda'
 
-def Numerativo(funcaoNumerativo=None, cardinal=None, genero=None, tipo_precisa=None, tipoRealCard=None,
-               milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None):
-    '''
-    '''
+    :param tipo_numerativo:
+    :param cardinal:
+    :param genero:
+    :return: numerativo
+    """
+
     try:
-        if funcaoNumerativo == 'ordem_lugar_preciso(ordinal)':
-            Numerativo = ordinal(cardinal, genero)
+        if tipo_numerativo == 'ordinal':
+            num_extenso = ordinal(cardinal, genero)
 
-        elif funcaoNumerativo == 'quant_precisa_div/multi(fração/multiplicativos)':
-            if tipo_precisa == 'porcentagem':
-                Numerativo = porcento(cardinal)
+        elif tipo_numerativo == 'porcentagem':
+            num_extenso = porcento_extenso(cardinal)
 
-        elif funcaoNumerativo == 'quant_precisa_absoluta(cardinais)':
-            Numerativo = num_cardinal(tipoRealCard, cardinal, milharExtenso, centenaExtenso,
-                                      dezenaExtenso, unidadeExtenso, genero)
-        elif funcaoNumerativo == 'quant_imprecisa_pron_indef_numer':
-            Numerativo = numIndefinido
+        elif tipo_numerativo == 'cardinal':
+            num_extenso = real(cardinal, genero)
         else:
-            Numerativo = ''
+            num_extenso = ''
 
-        return Numerativo
-    except:
-        Numerativo = ''
-        return Numerativo
-
+        return num_extenso
+    except ValueError:
+        return ''
 
 #
-# # ordinal
-# Numerativo()
-# Numerativo('ordem_lugar_preciso(ordinal)','2','feminino',None,None,
-# 			   None,None,None,None,None)
-# #cardinal
-# Numerativo('quant_precisa_absoluta(cardinais)',None,'feminino',None,"extenso",
-# 			   "zero","duzentos","zero","zero",None)
+# def detecta_exp_substantivo(substantivo):  ##dado o substantivo flexionado##
+#     '''(str,str,str)->
 #
-# def NumerativoIndefinidoSwitcher():
-# 	i = int(input())
+#     Retorna o morfema que realiza a experiência em um substantivo, dados
+#     o substantivo flexionado, o gênero e o numero.
 #
-# 	switcherNumInd = {
-# 		'algum',
-# 		'nenhum',
-# 		3: 'todo', \
-# 		4: 'muito',
-# 		5: 'pouco',
-# 		6: 'vário',
-# 		7: 'tanto',
-# 		8: 'outro',
-# 		9: 'quanto',
-# 		10: 'alguma',
-# 		1'nenhuma',
-# 		1'toda',
-# 		13: 'muita',
-# 		14: 'pouca',
-# 		15: 'vária',
-# 		16: 'tanta',
-# 		17: 'outra',
-# 		18: 'quanta',
-# 		19: 'alguns',
-# 		20: 'nenhuns',
-# 		2'todos',
-# 		2'muitos',
-# 		23: 'poucos',
-# 		24: 'vários',
-# 		25: 'tantos',
-# 		26: 'outros',
-# 		27: 'quantos',
-# 		28: 'algumas',
-# 		29: 'nenhumas',
-# 		30: 'todas',
-# 		3'muitas',
-# 		3'poucas',
-# 		33: 'várias',
-# 		34: 'tantas',
-# 		35: 'outras',
-# 		36: 'quantas',
-# 	}
+#     >>>detecta_exp_substantivo('','masculino','plural')
+#     'gat'
+#     '''
+#     raiz = nltk.stem.RSLPStemmer()
 #
-# 	return switcherNumInd.get(i, 'Seleção nao disponível')
-
-# #
-# # #
-# #
-# # ###A palavra nominal que realiza o Ente no GRUPO NOMINAL- Flexiona para nos eixos:
-# # #     Gênero, Número, Grau. Por enquanto, vou trabalhar apenas com Gênero e número.(ORDEM DA PALAVRA AINDA)
-# # # COMECEI APENAS COM SUBSTANTIVOS QUE SÃO REGULARES NAS SUAS FLEXÕES: gato:gatos:gatas:
-
-def detectaExpSubstantivo(substantivo, genero, numero):  ##dado o substantivo flexionado##
-    '''(str,str,str)->
-
-    Retorna o morfema que realiza a experiência em um substantivo, dados
-    o substantivo flexionado, o gênero e o numero.
-
-    >>>detectaExpSubstantivo('','masculino','plural')
-    'gat'
-    '''
-
-    if genero == 'masculino' and numero == 'singular':
-        raizSubs = (substantivo[slice(-1)])
-
-    elif genero == 'feminino' and numero == 'singular':
-        raizSubs = (substantivo[slice(-1)])
-
-    elif genero == 'masculino' and numero == 'plural':
-        raizSubs = (substantivo[slice(-2)])
-
-    elif genero == 'feminino' and numero == 'plural':
-        raizSubs = (substantivo[slice(-2)])
-    return raizSubs
+#     # if genero == 'masculino' and numero == 'singular':
+#     #     raizSubs = (substantivo[slice(-1)])
+#     #
+#     # elif genero == 'feminino' and numero == 'singular':
+#     #     raizSubs = (substantivo[slice(-1)])
+#     #
+#     # elif genero == 'masculino' and numero == 'plural':
+#     #     raizSubs = (substantivo[slice(-2)])
+#     #
+#     # elif genero == 'feminino' and numero == 'plural':
+#     #     raizSubs = (substantivo[slice(-2)])
+#     return raiz.stem(substantivo)
+# detecta_exp_substantivo('garrafa')
 
 
-# detectaExpSubstantivo('gatos','masculino','plural')
-# #
-# # # OS LEMAS QUE SERVIRÃO PARA  FUNÇÃO QUE SEGUE VIRÃO DA ANOTAÇÃO NA ONTOLOGIA:
-# # #        o que na ontologia tiver anotado como Thing, vai servir como um
-# # ##        banco lexical do qual o operador vai selecionar(não sei ainda se
-# # #        vai ser importado automaticamente ou se vou ter de inserir manualmente
-# # #        )
-# #
 # genero = choice.Menu(['masculino/feminino', 'não-binário']).ask()
 # lemaSubs = input('Qual é o substantivo lematizado?')
 
-
-def realizaExpSubstantivo(lemaSubs, genero):  ##dado o substantivo_lematizado- por enquanto, apenas para
-    ##substantivos regulares, com foco em masculino-feminino, singular plural. Tenho que considerar desenvolver
-    #    com relação aos diferentes tipos de radicais (primitivo, derivado, composto, simples...)
-    '''(str)-> str
-
-    Retorna o morfema que realiza a experiência em um substantivo, dado
-    o substantivo lematizado.
-
-    >>>realizaExpSubstantivo()
-    'gat'
-    '''
-    if genero == 'masculino' or genero == 'feminino':
-        morfExpSubs = lemaSubs[slice(-1)]
-
-    elif genero == 'não-binário':
-        morfExpSubs = lemaSubs
-
-    return morfExpSubs
-
+#
+# def realiza_exp_substantivo(lema, genero):
+#
+#     """
+#     Retorna o morfema que realiza a experiência em um substantivo, dado
+#     o substantivo lematizado.
+#
+#     ##dado o substantivo_lematizado- por enquanto, apenas para
+#     ##substantivos regulares, com foco em masculino-feminino, singular plural. Tenho que considerar desenvolver
+#     #    com relação aos diferentes tipos de radicais (primitivo, derivado, composto, simples...)
+#
+#     >>>realiza_exp_substantivo('gato','feminino')
+#     'gat'
+#     """
+#     morf_exp_subs = ''
+#     if genero == 'masculino' or genero == 'feminino':
+#         morf_exp_subs = lema[slice(-1)]
+#
+#     elif genero == 'não-binário':
+#         morf_exp_subs = lema
+#
+#     return morf_exp_subs
+#
 
 # realizaExpSubstantivo('gata','masculino')
 # #
 
-def realizacao_flexoes_substantivos(genero, numero):
-    '''(str,str,str)->
+def realizacao_flexoes_substantivo(genero, numero):
+    """(str,str,str)->str
 
     Retorna os morfemas que realizam as flexões de genero e numero dados
     a experiência do substantivo e os genero e numeros desejados.
 
     genero = choice.Menu(['masculino', 'feminino', 'não-binário']).ask()
     numero = choice.Menu(['singular', 'plural']).ask()
-    >>>realizacao_flexoes_substantivos()
+    
+    >>>realizacao_flexoes_substantivo(,
     'os'
-    '''
-
+    """
+    morfema_flexao_substantivo = ''
     if genero == 'masculino' and numero == 'singular':
         morfema_flexao_substantivo = 'o'
     elif genero == 'feminino' and numero == 'singular':
@@ -731,239 +492,261 @@ def realizacao_flexoes_substantivos(genero, numero):
 # tipo_feminino_ÃO = choice.Menu(['oa', 'ona', 'ã', 'esa', 'casos_exceção']).ask()
 #
 # print('Escolha o tipo_pessoa de plural:')
-# tipo_masc_ÃO = choice.Menu(['ãos', 'ões', 'ães']).ask()
+#
 
-# terminado em 's':;;;tonicidade = choice.Menu(['oxítona', 'paroxítona', 'proparoxítona']).ask()
-
-def substantivo_comum(substantivo_lematizado, numero,
-                      genero, tipo_feminino_ÃO,
-                      tipo_masc_ÃO, acentTonica):
+def substantivo_comum(substantivo_lematizado, numero='singular',
+                      genero='masculino', tipo_feminino_ao=None,
+                      tipo_masc_ao=None, acent_tonica=None):
     """
-    """
+    Retorna o substantivo comum flexionado em gênero e número
+    Ex.:
 
+    >>>substantivo_comum("ancião",'plural',"masculino", None,"ão",None)
+    'anciãos'
+
+    >>> substantivo_comum("artesão",'singular',"feminino", "ão",None,None)
+    'artesã'
+
+    >>> substantivo_comum("carro","plural","não-binário")
+    'carros'
+
+    >>> substantivo_comum("varal","plural", "não-binário")
+    'varais'
+
+    >>> substantivo_comum("retrós","plural", "não-binário", None, None,'oxítona')
+    'retroses'
+
+    :param substantivo_lematizado:
+    :param numero:
+    :param genero:
+    :param tipo_feminino_ao:
+        opcoes : ['oa', 'ona', 'ã', 'esa']
+    :param tipo_masc_ao:
+        opcoes: ['ãos', 'ões', 'ães']
+    :param acent_tonica: ['oxítona', 'paroxítona', 'proparoxítona']
+    :return:
+    """
+    subs_comum = ''
     if substantivo_lematizado[-1:] == 'm':
 
         if numero == 'singular':
-            substantivo_comum = substantivo_lematizado
+            subs_comum = substantivo_lematizado
 
         elif numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
             morfema_flexao_substantivo = 'ns'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
     elif substantivo_lematizado[-2:] == 'or':
 
         if genero == 'masculino' and numero == 'singular':
 
-            substantivo_comum = substantivo_lematizado
+            subs_comum = substantivo_lematizado
 
         elif genero == 'feminino' and numero == 'singular':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = 'a'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'masculino' and numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = 'es'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'feminino' and numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = 'as'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'não-binário' and numero == 'singular':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = ''
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'não-binário' and numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = 's'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
     elif substantivo_lematizado[-2:] == 'ão':
 
         if (genero == 'masculino' and numero == 'singular'
                 or genero == 'não-binário' and numero == 'singular'):
-            substantivo_comum = substantivo_lematizado
+            subs_comum = substantivo_lematizado
 
         elif genero == 'feminino' and numero == 'singular':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-            substantivo_comum = morfema_experiencial_do_substantivo + tipo_feminino_ÃO
+            subs_comum = morfema_experiencial_do_substantivo + tipo_feminino_ao
 
         elif (genero == 'masculino' and numero == 'plural'
               or genero == 'não-binário' and numero == 'plural'):
 
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-            substantivo_comum = morfema_experiencial_do_substantivo + tipo_masc_ÃO + 's'
+            subs_comum = morfema_experiencial_do_substantivo + tipo_masc_ao + 's'
 
         elif genero == 'feminino' and numero == 'plural':
 
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
-            substantivo_comum = morfema_experiencial_do_substantivo + tipo_feminino_ÃO + 's'
+            subs_comum = morfema_experiencial_do_substantivo + tipo_feminino_ao + 's'
 
     elif substantivo_lematizado[-1:] == 'x':
-        substantivo_comum = substantivo_lematizado
+        subs_comum = substantivo_lematizado
 
     elif substantivo_lematizado[-1:] == 's':
-        if acentTonica == 'paroxítona':
-            substantivo_comum = substantivo_lematizado
-        elif acentTonica == 'oxítona':
-            morfema_experiencial_do_substantivo = substantivo_lematizado
-            morfema_numero = 'es'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_numero
+        if acent_tonica == 'paroxítona':
+            subs_comum = substantivo_lematizado
+        elif acent_tonica == 'oxítona':
+            if substantivo_lematizado[-2] == 'ó':
+                morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)] + 'os'
+            else:
+                morfema_experiencial_do_substantivo = substantivo_lematizado
 
-    elif (substantivo_lematizado[-1:] == 'r' or substantivo_lematizado[-1:] == 'z'):
+            morfema_numero = 'es'
+            subs_comum = morfema_experiencial_do_substantivo + morfema_numero
+
+    elif substantivo_lematizado[-1:] == 'r' or substantivo_lematizado[-1:] == 'z':
 
         if genero == 'masculino' and numero == 'singular':
-            substantivo_comum = substantivo_lematizado
+            subs_comum = substantivo_lematizado
 
         elif genero == 'feminino' and numero == 'singular':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = 'a'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'masculino' and numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = 'es'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'feminino' and numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = 'as'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'não-binário' and numero == 'singular':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = ''
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'não-binário' and numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = 'es'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
     elif substantivo_lematizado[-2:] == 'al':
         if numero == 'singular':
-            substantivo_comum = substantivo_lematizado
+            subs_comum = substantivo_lematizado
 
         elif numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
             morfema_flexao_substantivo = 'ais'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
     elif substantivo_lematizado[-2:] == 'el':
 
         if numero == 'singular':
-            substantivo_comum = substantivo_lematizado
+            subs_comum = substantivo_lematizado
 
         elif numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
             morfema_flexao_substantivo = 'éis'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
     elif substantivo_lematizado[-2:] == 'il':
 
         if numero == 'singular':
-            substantivo_comum = substantivo_lematizado
+            subs_comum = substantivo_lematizado
 
         elif numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
             morfema_flexao_substantivo = 'is'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
     elif substantivo_lematizado[-2:] == 'ol':
 
         if numero == 'singular':
-            substantivo_comum = substantivo_lematizado
+            subs_comum = substantivo_lematizado
 
         elif numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
             morfema_flexao_substantivo = 'óis'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
     elif substantivo_lematizado[-2:] == 'ul':
 
         if numero == 'singular':
-            substantivo_comum = substantivo_lematizado
+            subs_comum = substantivo_lematizado
 
         elif numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-2)]
             morfema_flexao_substantivo = 'úis'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
     else:
 
         if genero == 'masculino' and numero == 'singular':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
             morfema_flexao_substantivo = 'o'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'feminino' and numero == 'singular':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
             morfema_flexao_substantivo = 'a'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'masculino' and numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
             morfema_flexao_substantivo = 'os'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'feminino' and numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado[slice(-1)]
             morfema_flexao_substantivo = 'as'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'não-binário' and numero == 'singular':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = ''
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
         elif genero == 'não-binário' and numero == 'plural':
             morfema_experiencial_do_substantivo = substantivo_lematizado
             morfema_flexao_substantivo = 's'
-            substantivo_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
+            subs_comum = morfema_experiencial_do_substantivo + morfema_flexao_substantivo
 
-    return substantivo_comum
+    return subs_comum
 
-
-#
-# substantivo_comum("ancião",'plural',"masculino", None,"ão",None)
-# substantivo_comum("artesão",'singular',"feminino", "ã",None,None)
-#
-# substantivo_comum("carro","plural","não-binário", None, None,None)
-# substantivo_comum("varal","plural", "não-binário", None, None,None)
 
 # # # ADJETIVOS
-
-def deteccao_experiencia_do_adjetivo(adjetivo, genero, numero):  ##dado o adjetivo flexionado##
-    '''(str,str,str)->
-
-    Retorna o morfema que realiza a experiência em um adjetivo, dados
-    o adjetivo flexionado, o gênero e o número.
-
-    >>>deteccao_experiencia_do_adjetivo()
-    'esportiv'
-    '''
-
-    if numero == 'singular':
-        if genero == 'masculino':
-            raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
-
-        elif genero == 'feminino':
-            raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
-    elif numero == 'plural':
-        if genero == 'masculino':
-            raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
-
-        elif genero == 'feminino':
-            raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
-
-    return raiz_experiencial_adjetivo
+#
+# def deteccao_experiencia_do_adjetivo(adjetivo, genero, numero):  ##dado o adjetivo flexionado##
+#     '''(str,str,str)->
+#
+#     Retorna o morfema que realiza a experiência em um adjetivo, dados
+#     o adjetivo flexionado, o gênero e o número.
+#
+#     >>>deteccao_experiencia_do_adjetivo()
+#     'esportiv'
+#     '''
+#
+#     if numero == 'singular':
+#         if genero == 'masculino':
+#             raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
+#
+#         elif genero == 'feminino':
+#             raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
+#     elif numero == 'plural':
+#         if genero == 'masculino':
+#             raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
+#
+#         elif genero == 'feminino':
+#             raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
+#
+#     return raiz_experiencial_adjetivo
 
 
 # deteccao_experiencia_do_adjetivo("esperto","masculino","singular")
-# #
+#
 
 
 def realizacao_experiencia_do_adjetivo(adjetivo_lematizado, genero):
@@ -988,48 +771,60 @@ def realizacao_experiencia_do_adjetivo(adjetivo_lematizado, genero):
 
 
 # realizacao_experiencia_do_adjetivo("esperto","masculino/feminino")
-
-def realizacao_flexoes_adjetivos(genero, numero):
-    """
-    Retorna os morfemas que realizam as flexões de gênero e número dados
-    a experiência do adjetivo e os gênero e números desejados.
-
-    :param genero: 'masculino', 'feminino', 'não-binário'
-    :param numero: 'singular', 'plural'
-    :return: morfema_flexao_adjetivo
-    """
-
-    if numero == 'singular':
-        if genero == 'masculino':
-            morfema_flexao_adjetivo = 'o'
-
-        elif genero == 'feminino':
-            morfema_flexao_adjetivo = 'a'
-        elif genero == 'não-binário':
-            morfema_flexao_adjetivo = ''
-
-    elif numero == 'plural':
-        if genero == 'masculino':
-            morfema_flexao_adjetivo = 'os'
-
-        elif genero == 'feminino' and numero == 'plural':
-            morfema_flexao_adjetivo = 'as'
-
-        elif genero == 'não-binário':
-            morfema_flexao_adjetivo = 's'
-
-    return morfema_flexao_adjetivo
+#
+# def realizacao_flexoes_adjetivos(genero, numero):
+#     """
+#     Retorna os morfemas que realizam as flexões de gênero e número dados
+#     a experiência do adjetivo e os gênero e números desejados.
+#
+#     :param genero: 'masculino', 'feminino', 'não-binário'
+#     :param numero: 'singular', 'plural'
+#     :return: morfema_flexao_adjetivo
+#     """
+#
+#     if numero == 'singular':
+#         if genero == 'masculino':
+#             morfema_flexao_adjetivo = 'o'
+#
+#         elif genero == 'feminino':
+#             morfema_flexao_adjetivo = 'a'
+#         elif genero == 'não-binário':
+#             morfema_flexao_adjetivo = ''
+#
+#     elif numero == 'plural':
+#         if genero == 'masculino':
+#             morfema_flexao_adjetivo = 'os'
+#
+#         elif genero == 'feminino' and numero == 'plural':
+#             morfema_flexao_adjetivo = 'as'
+#
+#         elif genero == 'não-binário':
+#             morfema_flexao_adjetivo = 's'
+#
+#     return morfema_flexao_adjetivo
 
 
 def adjetivo(adjetivo_lematizado=None, genero=None, numero=None):
     """
-    Retorna a realizacao de um adjetivo comum dados a experiência_do_adjetivo
-    e as flexões_desejadas.
+    Retorna a realizacao de um adjetivo comum dado o adjetivo lematizado e as
+    e parâmetros de genero e número.
+
+    Ex.:
+
+    >>> adjetivo('garrafa','não-binário','plural')
+    'garrafas'
+
+    >>> adjetivo('gato','feminino','plural')
+    'gatas'
+
     :param adjetivo_lematizado:
     :param genero:
+        opções: 'feminino', 'masculino', 'não-binário'
     :param numero:
-    :return:
+        opções: 'singular', 'plural'
+    :return: adjetivo comum flexionado em genero e numero
     """
+    morfema_experiencial_do_adjetivo, morfema_flexao_adjetivo = '', ''
     try:
 
         if numero == 'singular':
@@ -1045,12 +840,10 @@ def adjetivo(adjetivo_lematizado=None, genero=None, numero=None):
                 morfema_experiencial_do_adjetivo = adjetivo_lematizado
                 morfema_flexao_adjetivo = ''
 
-
         elif numero == 'plural':
             if genero == 'masculino':
                 morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
                 morfema_flexao_adjetivo = 'os'
-
 
             elif genero == 'feminino':
                 morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
@@ -1062,74 +855,80 @@ def adjetivo(adjetivo_lematizado=None, genero=None, numero=None):
 
         adj = morfema_experiencial_do_adjetivo + morfema_flexao_adjetivo
         return adj
-    except:
-        adj = ''
-        return adj
 
-
-# print(adjetivo('sim','alto','feminino','singular'))
-# print(adjetivo('sim','alto','feminino','singular'))
-
+    except ValueError:
+        return ''
 
 # #
 # # # PRONOMES#
-# #
 # # # PEGUEI OS PRONOMES BÁSICOS# QUANDO CHEGAR NA ORAÇÃO, A MORFOLOGIA DOS VERBOS
 # # # FICA UM POUCO SUBVERSIVA
 
-def realizacao_pronominal_casoreto(pessoa_da_interlocucao, genero, numero, morfologia_do_pronome="de_terceira_pessoa"):
-    '''(str)->str
-    Retorna o pronome adequado dado uma pessoa da intelocução.
-    pessoa_da_interlocucao = choice.Menu(['falante', 'ouvinte', 'não_interlocutor']).ask()
-    numero = choice.Menu(['singular', 'plural']).ask()
-    morfologia_do_pronome = choice.Menu(['padrão', 'de_terceira_pessoa']).ask()
-    >>>realizacao_pronominal_casoreto ('','')
-    'eu'
-    '''
 
-    if pessoa_da_interlocucao == 'falante' and numero == 'singular':
-        pronome_pessoal_reto = 'eu'
+def realizacao_pronominal_casoreto(pessoa_da_interlocucao, genero, numero,
+                                   morfologia_do_pronome="morfologia_terceira_pessoa"):
+    """
+    Retorna a realização de pronomes de caso reto, dados a pessoa da interlocução,
+    o gênero, o número e, opcionalmente, o tipo de morfologia do pronome.
+    Ex.:
+    >>> realizacao_pronominal_casoreto("não_interlocutor", "feminino", "singular")
+    'ela'
 
+    >>> realizacao_pronominal_casoreto("ouvinte", "feminino", "singular",'padrão')
+    'tu'
 
-    elif pessoa_da_interlocucao == 'ouvinte' and numero == 'singular':
+    :param pessoa_da_interlocucao:
+    :param genero:
+        opções: 'feminino', 'masculino', 'não-binário'
+    :param numero:
+        opções: 'singular', 'plural'
+    :param morfologia_do_pronome:
+        opções:  "morfologia_terceira_pessoa", 'padrão'
+    :return:
+    """
+    pronome_pessoal_reto = ''
 
-        if morfologia_do_pronome == 'padrão':
-            pronome_pessoal_reto = 'tu'
-        else:
-            pronome_pessoal_reto = 'você'
+    try:
+        if pessoa_da_interlocucao == 'falante' and numero == 'singular':
+            pronome_pessoal_reto = 'eu'
 
-    elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular':
-        if genero == 'masculino':
-            pronome_pessoal_reto = 'ele'
-        else:
-            pronome_pessoal_reto = 'ela'
+        elif pessoa_da_interlocucao == 'ouvinte' and numero == 'singular':
 
-    elif pessoa_da_interlocucao == 'falante' and numero == 'plural':
-        pronome_pessoal_reto = 'nós'
+            if morfologia_do_pronome == 'padrão':
+                pronome_pessoal_reto = 'tu'
+            else:
+                pronome_pessoal_reto = 'você'
 
-    elif pessoa_da_interlocucao == 'ouvinte' and numero == 'plural':
+        elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'singular':
+            if genero == 'masculino':
+                pronome_pessoal_reto = 'ele'
+            else:
+                pronome_pessoal_reto = 'ela'
 
-        if morfologia_do_pronome == 'padrão':
-            pronome_pessoal_reto = 'vós'
-        else:
-            pronome_pessoal_reto = 'vocês'
+        elif pessoa_da_interlocucao == 'falante' and numero == 'plural':
+            pronome_pessoal_reto = 'nós'
 
-    elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural':
+        elif pessoa_da_interlocucao == 'ouvinte' and numero == 'plural':
 
-        if genero == 'masculino':
-            pronome_pessoal_reto = 'eles'
-        else:
-            pronome_pessoal_reto = 'elas'
+            if morfologia_do_pronome == 'padrão':
+                pronome_pessoal_reto = 'vós'
+            else:
+                pronome_pessoal_reto = 'vocês'
 
-    return pronome_pessoal_reto
+        elif pessoa_da_interlocucao == 'não_interlocutor' and numero == 'plural':
 
+            if genero == 'masculino':
+                pronome_pessoal_reto = 'eles'
+            else:
+                pronome_pessoal_reto = 'elas'
 
-# realizacao_pronominal_casoreto("não_interlocutor", "feminino", "singular", morfologia_do_pronome="de_terceira_pessoa")
+        return pronome_pessoal_reto
+    except ValueError:
+        return ''
 
 
 def realizacao_pronome_caso_obliquo(transitividade_verbo=None, tonicidade=None, pessoa_da_interlocucao=None,
-                                    numero=None,
-                                    genero=None, morfologia_do_pronome=None, reflexivo=False):
+                                    numero=None, genero=None, morfologia_do_pronome=None, reflexivo=False):
     '''(str)->str
     Retorna o pronome oblíquo adequado dado uma pessoa da intelocução.
     tonicidade = choice.Menu(['átono', 'tônico']).ask()
