@@ -11242,8 +11242,8 @@ def preposicao(indice):
 # print("Com ou sem contração")
 # contracao = choice.Menu(['+contração', '-contração']).ask()
 
-def frase_preposicional(indicePreposicaoFrase=None, dissocEnteNucleo=None, temQualificador=None,
-						tipoQualificador=None,indicePreposicaoQualif=None, DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
+def frase_preposicional(indice_preposicao_frase=None, dissocEnteNucleo=None, temQualificador=None,
+						tipoQualificador=None, indicePreposicaoQualif=None, DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
 						gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
 						DETERMINAÇÃO_espeficifidade_alpha=None, ORIENTAÇÃO_alpha=None, gênero_alpha=None,
 						número_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
@@ -11257,11 +11257,11 @@ def frase_preposicional(indicePreposicaoFrase=None, dissocEnteNucleo=None, temQu
 						pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
 						morfologia_do_pronome=None, reflexivo=None,
 						adjetivo_epiteto=None,
-						adjetivo_classificador=None,generoAdjetivo=None, numeroAdjetivo=None,
+						adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None,
 						contracao=None):
 	'''
     '''
-	prep = preposicao(indicePreposicaoFrase)
+	prep = preposicao(indice_preposicao_frase)
 	grupo_nominal = (re.sub(' +', ' ',
 							estrutura_GN_downraked(dissocEnteNucleo, temQualificador, tipoQualificador, indicePreposicaoQualif, DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta, gênero_beta, número_beta, morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha, gênero_alpha, número_alpha, morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor, número_obj_possuído, gênero_obj_possuído, pessoa_da_interlocução_proximidade, funcaoNumerativo, cardinal, genero, tipo_precisa, tipoRealCard, milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso, numIndefinido, tipo_de_Ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material, tipo_de_nao_consciente_semiotico, classe_palavra_Ente, substantivo_lematizado, numero, tipo_feminino_ÃO, tipo_masc_ÃO, acentTonica, nomeProprio, pessoa_da_interlocucao, transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo, adjetivo_epiteto, adjetivo_classificador, generoAdjetivo, numeroAdjetivo, contracao))).strip()
 	try:

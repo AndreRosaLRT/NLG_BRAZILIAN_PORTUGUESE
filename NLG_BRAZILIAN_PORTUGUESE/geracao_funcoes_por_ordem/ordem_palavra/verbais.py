@@ -2,6 +2,30 @@ from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_morfema.morf_verba
 import argparse
 
 
+def preposicao(indice: int = None) -> str:
+    """
+    Retorna preposição dado um índice entre 0 e 16
+    :param indice:
+    :return: preposição
+    """
+    opcoes = ['a', 'ante', 'após', 'até', 'com', 'contra',
+              'de', 'desde', 'em', 'entre', 'para', 'por', 'perante', 'sem',
+              'sob', 'sobre', 'trás']
+    try:
+        nums = [x for x in range(len(opcoes))]
+        preposicoes = dict(zip(nums, opcoes))
+        prep = preposicoes[indice]
+        return prep
+    except ValueError:
+        return ''
+# preposicao(0)
+# preposicao(11)
+# preposicao(None)
+
+# print("Com ou sem contração")
+# contracao = choice.Menu(['+contração', '-contração']).ask()
+
+
 def def_classe_de_verbo(funcao_no_grupo_verbal: str) -> str:
     """
     Retorna a classe do verbo dada a sua função potencial no grupo verbal

@@ -1,5 +1,5 @@
 import re
-from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.verbos import *
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.verbais import *
 # grupo verbal
 
 # print('Qual de Agência?')

@@ -1,12 +1,11 @@
 # Cardinais teste
-
+import argparse
 import re
-import nltk
-nltk.download('punkt')
-nltk.download('rslp')
+# import nltk
+# nltk.download('punkt')
+# nltk.download('rslp')
 
 
-tokens = nltk.word_tokenize("cachorros gatos canecas mesas", language='portuguese')
 DECIMAIS = (('décimo', 'décimos'), ('centésimo', 'centésimos'), ('milésimo', 'milésimos'),
             ('décimo de milésimo', 'décimos de milésimo'),
             ('centésimo de milésimo', 'centésimos de milésimo'), ('milionésimo', 'milionésimos'),
@@ -488,11 +487,6 @@ def realizacao_flexoes_substantivo(genero, numero):
 # # # que o sistema se organiza a realizar o gênero em alguns casos na ordem da palavra, e em
 # # # outros casos na ordem do grupo (mesa: não parece ter uma contrapartida masculina)
 # #
-# print('Escolha o tipo_pessoa de feminino:')
-# tipo_feminino_ÃO = choice.Menu(['oa', 'ona', 'ã', 'esa', 'casos_exceção']).ask()
-#
-# print('Escolha o tipo_pessoa de plural:')
-#
 
 def substantivo_comum(substantivo_lematizado, numero='singular',
                       genero='masculino', tipo_feminino_ao=None,
@@ -748,26 +742,28 @@ def substantivo_comum(substantivo_lematizado, numero='singular',
 # deteccao_experiencia_do_adjetivo("esperto","masculino","singular")
 #
 
-
-def realizacao_experiencia_do_adjetivo(adjetivo_lematizado, genero):
-    '''(str)-> str
-    genero = choice.Menu(['masculino/feminino', 'não-binário']).ask()
-    adjetivo_lematizado =
-
-    Retorna o morfema que realiza a experiência em um adjetivo, dado
-    o adjetivo lematizado.
-
-    >>>realizacao_experiencia_do_adjetivo()
-    'gat'
-    '''
-
-    if genero == 'masculino/feminino':
-        morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-
-    elif genero == 'não-binário':
-        morfema_experiencial_do_adjetivo = adjetivo_lematizado
-
-    return morfema_experiencial_do_adjetivo
+# def realizacao_experiencia_do_adjetivo(adjetivo_lematizado, genero):
+#     """
+#     genero = choice.Menu(['masculino/feminino', 'não-binário']).ask()
+#     adjetivo_lematizado =
+#
+#     Retorna o morfema que realiza a experiência em um adjetivo, dado
+#     o adjetivo lematizado.
+#
+#     >>>realizacao_experiencia_do_adjetivo()
+#     'gat'
+#     :param adjetivo_lematizado:
+#     :param genero:
+#     :return:
+#     """
+#     morfema_experiencial_do_adjetivo = ''
+#     if genero == 'masculino/feminino':
+#         morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+#
+#     elif genero == 'não-binário':
+#         morfema_experiencial_do_adjetivo = adjetivo_lematizado
+#
+#     return morfema_experiencial_do_adjetivo
 
 
 # realizacao_experiencia_do_adjetivo("esperto","masculino/feminino")
@@ -927,268 +923,207 @@ def realizacao_pronominal_casoreto(pessoa_da_interlocucao, genero, numero,
         return ''
 
 
-def realizacao_pronome_caso_obliquo(transitividade_verbo=None, tonicidade=None, pessoa_da_interlocucao=None,
-                                    numero=None, genero=None, morfologia_do_pronome=None, reflexivo=False):
-    '''(str)->str
-    Retorna o pronome oblíquo adequado dado uma pessoa da intelocução.
-    tonicidade = choice.Menu(['átono', 'tônico']).ask()
-    pessoa_da_interlocucao = choice.Menu(['falante', 'ouvinte', 'não_interlocutor']).ask()
-    numero = choice.Menu(['singular', 'plural']).ask()
-    morfologia_do_pronome = choice.Menu(['padrão', 'não_padrão']).ask()
-    transitividade_verbo =choice.Menu(['direto','direto_preposicionado, 'indireto']).ask()
-    >>>realizacao_pronominal_caso_oblíquo ()
+def realizacao_pronome_caso_obliquo(transitividade_verbo: str = None, tonicidade: str = None,
+                                    pessoa_da_interlocucao: str = None,
+                                    numero: str = None, genero: str = None,
+                                    morfologia_do_pronome: str = None, reflexivo: bool = False):
+    """
+    Retorna o pronome oblíquo.
+
+
+    >>> realizacao_pronome_caso_obliquo('direto', 'átono','falante', 'singular', None, None, False)
     'me'
-    '''
-    if tonicidade == 'átono' and transitividade_verbo == "direto":
-        if numero == 'singular':
-            if pessoa_da_interlocucao == 'falante':
-                pronome_pessoal_obliquo = 'me'
-            elif pessoa_da_interlocucao == 'ouvinte':
-                pronome_pessoal_obliquo = 'te'
-        elif numero == 'plural':
-            if pessoa_da_interlocucao == 'falante':
-                pronome_pessoal_obliquo = 'nos'
-            elif pessoa_da_interlocucao == 'ouvinte':
-                pronome_pessoal_obliquo = 'vos'
 
-        if pessoa_da_interlocucao == 'não_interlocutor':
+    >>> realizacao_pronome_caso_obliquo('direto', 'átono','falante', 'singular', None, None, True)
+    'se'
+    :param transitividade_verbo: 'direto','direto_preposicionado, 'indireto'
+    :param tonicidade: 'átono', 'tônico'
+    :param pessoa_da_interlocucao: 'falante', 'ouvinte', 'não_interlocutor'
+    :param numero: 'singular', 'plural'
+    :param genero: 'masculino', 'feminino'
+    :param morfologia_do_pronome: 'padrão', 'não_padrão'
+    :param reflexivo: bool
+    :return: pronome oblíquo
+    """
+    pronome_pessoal_obliquo = ''
+    try:
+        if tonicidade == 'átono' and transitividade_verbo == "direto":
             if numero == 'singular':
-                if genero == 'masculino':
-                    if morfologia_do_pronome == 'padrão':
-                        pronome_pessoal_obliquo = 'o'
-
-                if genero == 'feminino':
-                    if morfologia_do_pronome == 'padrão':
-                        pronome_pessoal_obliquo = 'a'
-
+                if pessoa_da_interlocucao == 'falante':
+                    pronome_pessoal_obliquo = 'me'
+                elif pessoa_da_interlocucao == 'ouvinte':
+                    pronome_pessoal_obliquo = 'te'
             elif numero == 'plural':
-                if genero == 'masculino':
+                if pessoa_da_interlocucao == 'falante':
+                    pronome_pessoal_obliquo = 'nos'
+                elif pessoa_da_interlocucao == 'ouvinte':
+                    pronome_pessoal_obliquo = 'vos'
+
+            if pessoa_da_interlocucao == 'não_interlocutor':
+                if numero == 'singular':
+                    if genero == 'masculino':
+                        if morfologia_do_pronome == 'padrão':
+                            pronome_pessoal_obliquo = 'o'
+
+                    if genero == 'feminino':
+                        if morfologia_do_pronome == 'padrão':
+                            pronome_pessoal_obliquo = 'a'
+
+                elif numero == 'plural':
+                    if genero == 'masculino':
+                        if morfologia_do_pronome == 'padrão':
+                            pronome_pessoal_obliquo = 'os'
+
+                    if genero == 'feminino':
+                        if morfologia_do_pronome == 'padrão':
+                            pronome_pessoal_obliquo = 'as'
+
+        if reflexivo:
+            pronome_pessoal_obliquo = 'se'
+
+        if pessoa_da_interlocucao == 'não_interlocutor' and transitividade_verbo == "indireto":
+            if tonicidade == 'átono':
+                if numero == 'singular':
+                    pronome_pessoal_obliquo = 'lhe'
+
+                elif numero == 'plural':
                     if morfologia_do_pronome == 'padrão':
-                        pronome_pessoal_obliquo = 'os'
+                        pronome_pessoal_obliquo = 'lhes'
 
-                if genero == 'feminino':
-                    if morfologia_do_pronome == 'padrão':
-                        pronome_pessoal_obliquo = 'as'
+            elif tonicidade == 'tônico':
+                if morfologia_do_pronome == 'não_padrão':
+                    if genero == 'masculino':
+                        if numero == 'singular':
+                            pronome_pessoal_obliquo = 'ele'
+                        elif numero == 'plural':
+                            pronome_pessoal_obliquo = 'eles'
 
-    if reflexivo == True:
-        pronome_pessoal_obliquo = 'se'
+                    elif genero == 'feminino':
+                        if numero == 'singular':
+                            pronome_pessoal_obliquo = 'ela'
+                        elif numero == 'plural':
+                            pronome_pessoal_obliquo = 'elas'
+                elif morfologia_do_pronome == 'padrão':
+                    pronome_pessoal_obliquo = 'si'
 
-    if pessoa_da_interlocucao == 'não_interlocutor' and transitividade_verbo == "indireto":
-        if tonicidade == 'átono':
+        if transitividade_verbo == 'indireto' and tonicidade == 'tônico':
             if numero == 'singular':
-                pronome_pessoal_obliquo = 'lhe'
-
+                if pessoa_da_interlocucao == 'falante':
+                    pronome_pessoal_obliquo = 'mim'
+                elif pessoa_da_interlocucao == 'ouvinte':
+                    if morfologia_do_pronome == 'padrão':
+                        pronome_pessoal_obliquo = 'ti'
+                    else:
+                        pronome_pessoal_obliquo = 'você'
             elif numero == 'plural':
-                if morfologia_do_pronome == 'padrão':
-                    pronome_pessoal_obliquo = 'lhes'
+                if pessoa_da_interlocucao == 'falante':
+                    pronome_pessoal_obliquo = 'nós'
+                elif pessoa_da_interlocucao == 'ouvinte':
+                    if morfologia_do_pronome == 'padrão':
+                        pronome_pessoal_obliquo = 'vós'
+                    else:
+                        pronome_pessoal_obliquo = 'vocês'
+
+        return pronome_pessoal_obliquo
+    except ValueError:
+        return ''
 
 
-        elif tonicidade == 'tônico':
-            if morfologia_do_pronome == 'não_padrão':
-                if genero == 'masculino':
-                    if numero == 'singular':
-                        pronome_pessoal_obliquo = 'ele'
-                    elif numero == 'plural':
-                        pronome_pessoal_obliquo = 'eles'
-
-                elif genero == 'feminino':
-                    if numero == 'singular':
-                        pronome_pessoal_obliquo = 'ela'
-                    elif numero == 'plural':
-                        pronome_pessoal_obliquo = 'elas'
-            elif morfologia_do_pronome == 'padrão':
-                pronome_pessoal_obliquo = 'si'
-
-    if transitividade_verbo == 'indireto' and tonicidade == 'tônico':
-        if numero == 'singular':
-            if pessoa_da_interlocucao == 'falante':
-                pronome_pessoal_obliquo = 'mim'
-            elif pessoa_da_interlocucao == 'ouvinte':
-                if morfologia_do_pronome == 'padrão':
-                    pronome_pessoal_obliquo = 'ti'
-                else:
-                    pronome_pessoal_obliquo = 'você'
-        elif numero == 'plural':
-            if pessoa_da_interlocucao == 'falante':
-                pronome_pessoal_obliquo = 'nós'
-            elif pessoa_da_interlocucao == 'ouvinte':
-                if morfologia_do_pronome == 'padrão':
-                    pronome_pessoal_obliquo = 'vós'
-                else:
-                    pronome_pessoal_obliquo = 'vocês'
-
-    return pronome_pessoal_obliquo
-
-
-#
-# #me
-# realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='falante', numero='singular', genero=None, morfologia_do_pronome=None, reflexivo=False)
-# #te
-# realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='ouvinte', numero='singular', genero=None, morfologia_do_pronome=None, reflexivo=False)
-# #nos
-# realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='falante', numero='plural', genero=None, morfologia_do_pronome=None, reflexivo=False)
-# #vos
-# realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='ouvinte', numero='plural', genero=None, morfologia_do_pronome=None, reflexivo=False)
-#
-#
-# #o
-# realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='singular', genero='masculino', morfologia_do_pronome='padrão', reflexivo=False)
-# #ele
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='não_interlocutor', numero='singular', genero='masculino', morfologia_do_pronome='não_padrão', reflexivo=False)
-# #a
-# realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='singular', genero='feminino', morfologia_do_pronome='padrão', reflexivo=False)
-# #ela
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='não_interlocutor', numero='singular', genero='feminino', morfologia_do_pronome='não_padrão', reflexivo=False)
-# #os
-# realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero='masculino', morfologia_do_pronome='padrão', reflexivo=False)
-# #eles
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero='masculino', morfologia_do_pronome='não_padrão', reflexivo=False)
-#
-# #as
-# realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero='feminino', morfologia_do_pronome='padrão', reflexivo=False)
-# #elas
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero='feminino', morfologia_do_pronome='não_padrão', reflexivo=False)
-# #elas
-# realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero='feminino', morfologia_do_pronome='padrão', reflexivo=False)
-#
-#
-# #se
-# realizacao_pronome_caso_obliquo(transitividade_verbo=None, tonicidade=None, pessoa_da_interlocucao=None, numero=None, genero=None, morfologia_do_pronome=None, reflexivo=True)
-# #lhe
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='singular', genero=None, morfologia_do_pronome=None, reflexivo=None)
-#
-# #lhes
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='átono', pessoa_da_interlocucao='não_interlocutor', numero='plural', genero=None, morfologia_do_pronome='padrão', reflexivo=None)
-#
-# #mim
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='falante', numero='singular', genero=None, morfologia_do_pronome='padrão', reflexivo=None)
-# #ti
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='ouvinte', numero='singular', genero=None, morfologia_do_pronome='padrão', reflexivo=None)
-#
-# #você
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='ouvinte', numero='singular', genero=None, morfologia_do_pronome='não_padrão', reflexivo=None)
-#
-#
-# #nós
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='falante', numero='plural', genero=None, morfologia_do_pronome='padrão', reflexivo=None)
-# #vós
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='ouvinte', numero='plural', genero=None, morfologia_do_pronome='padrão', reflexivo=None)
-#
-# #você
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto', tonicidade='tônico', pessoa_da_interlocucao='ouvinte', numero='plural', genero=None, morfologia_do_pronome='não_padrão', reflexivo=None)
-#
-# ##me
-# realizacao_pronome_caso_obliquo(transitividade_verbo='direto', tonicidade='átono', pessoa_da_interlocucao='falante',
-# 									numero='singular',genero=None, morfologia_do_pronome=None, reflexivo=False)
-#
-#
-# realizacao_pronome_caso_obliquo("indireto",'tônico',"não_interlocutor",'singular','feminino',"padrão")
-# realizacao_pronome_caso_obliquo(transitividade_verbo='indireto',tonicidade='átono',pessoa_da_interlocucao='não_interlocutor',
-# 								numero='plural',genero=None,morfologia_do_pronome='padrão',reflexivo=False)
-
-#
-# estrutura_GN(None, None, None,None,
-# 				 None, None, None, None,
-# 				None, None,None,
-# 				 None,None, None,
-# 				 None, None, None,
-# 				 None, None, None, None,
-# 				 None, None, None,None,
-# 				 None, None,None,
-# 				'consciente', None, None,
-# 				 None, 'pronome_caso_oblíquo',None,
-# 				 'singular',None, None, None, None,
-# 				'falante','direto','átono', "padrão",
-# 				None, None, None,None,
-# 				 None,None, None,None)
-
-##TENHO QUE VER SE FAZ SENTIDO MUDAR ESTA(inserir parâmetros??)
-# modo_inserção = choice.Menu(['inserção_manual', 'inserção_menu']).ask()
-# print('Qual tipo_pessoa de relativo?')
-# tipo_pronome_relativo = choice.Menu(['variável', 'invariável']).ask()
-#
-
-def pronome_relativo(tipo_insercao="inserção_menu", pron_extenso=None, tipo_pronome_relativo=None,
+def pronome_relativo(tipo_pronome_relativo=None,
                      genero=None, numero=None, indice=None):
     """
+    REVISAR: lembrar de operar mudanças nas funções nas quais esta está aninhada
 
-    :param tipo_insercao: 'inserção_manual', 'inserção_menu'
-    :param pron_extenso: entre o pronome
-    :param tipo_pronome_relativo: 'variável', 'invariável'
+    Retorna o pronome relativo  dados os parâmetros:
+
+    Ex.:
+    >>> pronome_relativo(tipo_pronome_relativo='variável',genero='masculino',numero='singular', indice=3)
+    'pelo qual'
+
+    >>> pronome_relativo(tipo_pronome_relativo='variável',genero='masculino',numero='plural', indice=3)
+    'pelos quais'
+
+    :param tipo_pronome_relativo: 'variável' ('os quais', 'cujos', 'quantos', 'pelos quais'),
+                                'invariável' ('quem', 'que', 'a quem', 'a que', 'porque', 'como')
     :param genero: 'masculino','feminino'
     :param numero: 'singular','plural'
     :param indice: entre um integer com índice
     :return:
     """
+    pron_relativo = ''
     try:
-        if tipo_insercao == 'inserção_manual':
-            pronome_relativo = pron_extenso
+        if tipo_pronome_relativo == 'variável':
+            if numero == "plural":
+                if genero == 'masculino':
+                    opcoes = ['os quais', 'cujos', 'quantos', 'pelos quais']
+                    nums = [x for x in range(len(opcoes))]
+                    relativos = dict(zip(nums, opcoes))
+                    try:
+                        pron_relativo = relativos[indice]
+                    except KeyError:
+                        pron_relativo = ''
 
-        elif tipo_insercao == 'inserção_menu':
+                elif genero == 'feminino':
+                    opcoes = ['as quais', 'cujas', 'quantas', 'pelas quais']
+                    nums = [x for x in range(len(opcoes))]
+                    relativos = dict(zip(nums, opcoes))
+                    try:
+                        pron_relativo = relativos[indice]
+                    except KeyError:
+                        pron_relativo = ''
 
-            if tipo_pronome_relativo == 'variável':
-                if numero == "plural":
-                    if genero == 'masculino':
-                        opcoes = ['os quais', 'cujos', 'quantos', 'pelos quais']
-                        nums = [x for x in range(len(opcoes))]
-                        relativos = dict(zip(nums, opcoes))
-                        pronome_relativo = relativos[indice]
+            elif numero == "singular":
+                if genero == 'masculino':
+                    opcoes = ['o qual', 'cujo', 'quanto', 'pelo qual']
+                    nums = [x for x in range(len(opcoes))]
+                    relativos = dict(zip(nums, opcoes))
+                    try:
+                        pron_relativo = relativos[indice]
+                    except KeyError:
+                        pron_relativo = ''
 
-                    elif genero == 'feminino':
-                        opcoes = ['as quais', 'cujas', 'quantas', 'pelas quais']
-                        nums = [x for x in range(len(opcoes))]
-                        relativos = dict(zip(nums, opcoes))
-                        pronome_relativo = relativos[indice]
+                elif genero == 'feminino':
+                    opcoes = ['a qual', 'cuja', 'quanta', 'pela qual']
+                    nums = [x for x in range(len(opcoes))]
+                    relativos = dict(zip(nums, opcoes))
+                    try:
+                        pron_relativo = relativos[indice]
+                    except KeyError:
+                        pron_relativo = ''
 
-                elif numero == "singular":
-                    if genero == 'masculino':
-                        opcoes = ['o qual', 'cujo', 'quanto', 'pelo qual']
-                        nums = [x for x in range(len(opcoes))]
-                        relativos = dict(zip(nums, opcoes))
-                        pronome_relativo = relativos[indice]
+        elif tipo_pronome_relativo == 'invariável':
+            opcoes = ['quem', 'que',
+                      'a quem', 'a que', 'porque', 'como']
+            nums = [x for x in range(len(opcoes))]
+            relativos = dict(zip(nums, opcoes))
+            try:
+                pron_relativo = relativos[indice]
+            except KeyError:
+                pron_relativo = ''
 
-                    elif genero == 'feminino':
-                        opcoes = ['a qual', 'cuja', 'quanta', 'pela qual']
-                        nums = [x for x in range(len(opcoes))]
-                        relativos = dict(zip(nums, opcoes))
-                        pronome_relativo = relativos[indice]
-
-            elif tipo_pronome_relativo == 'invariável':
-                opcoes = ['quem', 'que',
-                          'a quem', 'a que', 'porque', 'como']
-                nums = [x for x in range(len(opcoes))]
-                relativos = dict(zip(nums, opcoes))
-                pronome_relativo = relativos[indice]
-
-        return pronome_relativo
-    except:
-        pronome_relativo = ''
-        return pronome_relativo
-
-
-# pronome_relativo()
-# pronome_relativo(tipo_insercao="inserção_menu",pron_extenso=None,tipo_pronome_relativo='variável',genero='masculino',numero='singular', indice=3)
-# pronome_relativo(tipo_insercao="inserção_menu",pron_extenso=None,tipo_pronome_relativo='variável',genero='masculino',numero='plural', indice=3)
-# #
-pronome_relativo(tipo_insercao="inserção_menu", pron_extenso=None, tipo_pronome_relativo='invariável', indice=3)
+        return pron_relativo
+    except ValueError:
+        return ''
 
 
-# #
-# # ##PRECISO IMPLEMENTAR LETRA MAIÚSCULA NO CASO DE INICIO DE FRASE.
-# # # SUBSTANTIVOS PRÓPRIOS VIRÃO DA LISTA DE NOMES PRÓPRIOS ANOTADOS NA GUM
-# # # Por enquanto, vou deixar um input
-# #
-
-def nome_proprio(nome=None):
-    '''(str)->str
+def nome_proprio(nome: str = None):
+    """
     Retorna o nome próprio. #Futuramente parte das listas de léxicos
     advindas da anotação na GUM.
-    '''
+
+    Ex.:
+    >>> nome_proprio('andré')
+    'André'
+    :param nome:
+    :return:
+    """
     resul = nome
     try:
         return resul.capitalize()
-    except:
-        resul = ''
-        return resul
+    except ValueError:
+        return ''
 
-# nome_proprio('andre')
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Retorna palavras nominais')
+    pass
