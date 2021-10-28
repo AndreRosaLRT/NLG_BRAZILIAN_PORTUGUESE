@@ -893,11 +893,7 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nume
 
             elif tipo_de_orientacao == 'subjuntivo_condicional':
                 me = verbo[slice(-2)]
-                mi = ''.join(
-                    ('í', realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero,
-                                                                            oi_tipo_de_pessoa,
-                                                                            padrao_pessoa_morfologia)[
-                          1:]))
+                mi = ''.join(('í', realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_numero, oi_tipo_de_pessoa, padrao_pessoa_morfologia)[1:]))
 
             elif tipo_de_orientacao == 'subjuntivo_optativo':
                 me = verbo[slice(-2)]
@@ -996,7 +992,8 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nume
     except ValueError:
         return ''
 
-
+formacao_verbo_RUIR('construir', 'subjuntivo_condicional', 'IR','plural' ,None, '3pessoa')
+formacao_verbo_RUIR('usufruir', 'subjuntivo_condicional', 'IR','plural' ,None, '3pessoa')
 # # VERBO agredir
 
 def formacao_verbo_agredir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero,
@@ -6465,6 +6462,199 @@ def main(tipo_de_experiencia, funcao_no_grupo_verbal, lema):
         return dicionario_conjuga
     except ValueError:
         return ''
+
+
+def flexionar_verbo(experience='none', function_in_group='none',
+                    lemma='none', person='none', gender='none', number='none',
+                    mood='none', tense='none', aspect='none'):
+
+    tipo_de_orientacao = ''
+
+    if number == 'Plur':
+        oi_numero = 'plural'
+    elif number == 'Sing':
+        oi_numero = 'singular'
+    else:
+        oi_numero = None
+
+    if person == '1':
+        oi_tipo_de_pessoa = '1pessoa'
+
+    elif person == '2':
+        oi_tipo_de_pessoa = '2pessoa'
+
+    elif person == '3':
+        oi_tipo_de_pessoa = '3pessoa'
+    else:
+        oi_tipo_de_pessoa = None
+
+    if gender == 'Masc':
+        genero = 'masculino'
+
+    elif gender == 'Fem':
+        genero = 'feminino'
+
+    else:
+        genero = None
+
+    ####
+    if mood + '_' + tense + '_' + aspect == 'Ind_Past_Perf':
+        tipo_de_orientacao = 'pretérito_perfectivo_I'
+    elif mood + '_' + tense + '_' + aspect == 'Ind_Past_Perf':
+        tipo_de_orientacao = 'pretérito_perfectivo_II'
+    elif mood + '_' + tense + '_' + aspect == 'Ind_Past_Imp':
+        tipo_de_orientacao = 'pretérito_imperfectivo'
+    elif mood + '_' + tense + '_' + aspect == 'Ind_Fut_none':
+        tipo_de_orientacao = 'futuro'
+    elif mood + '_' + tense + '_' + aspect == 'Ind_Pres_none':
+        tipo_de_orientacao = 'presente'
+    elif mood + '_' + tense + '_' + aspect == 'Sub_Pres_none':
+        tipo_de_orientacao = 'subjuntivo_conjuntivo'
+    elif mood + '_' + tense + '_' + aspect == 'Sub_Past_Imp':
+        tipo_de_orientacao = 'subjuntivo_condicional'
+    elif mood + '_' + tense + '_' + aspect == 'Sub_Fut_none':
+        tipo_de_orientacao = 'subjuntivo_optativo'
+    elif mood + '_' + tense + '_' + aspect == 'none_Past_Perf':
+        tipo_de_orientacao = 'particípio'
+    elif mood == 'Imp_POS':
+        tipo_de_orientacao = 'imperativo_I'
+    elif mood == 'Imp_NEG':
+        tipo_de_orientacao = 'imperativo_II'
+    elif mood + '_' + tense + '_' + aspect == 'Cnd_Past_none':
+        tipo_de_orientacao = 'passado_volitivo'
+    elif mood + '_' + tense + '_' + aspect == 'none_Inf_none':
+        tipo_de_orientacao = 'não_finito_concretizado'
+    elif person + '_' + gender + '_' + number + '_' + mood + '_' + tense + '_' + aspect == 'none_none_none_none_Pres_Prog':
+        tipo_de_orientacao = 'gerúndio'
+    elif person + '_' + gender + '_' + number + '_' + mood + '_' + tense + '_' + aspect == 'none_none_none_none_Inf_none':
+        tipo_de_orientacao = 'infinitivo'
+    verb = verbo_geral(experience, function_in_group, lemma, tipo_de_orientacao, oi_numero, genero, oi_tipo_de_pessoa)
+    return verb
+
+
+#
+# flexionarVerbo(experience="Fazer", functionInGroup='Evento', lemma="registrar", person='none', gender='none',
+#                number='none', mood='none', tense='Pres', aspect='Prog')
+#
+# flexionarVerbo(experience="Fazer", functionInGroup='Evento', lemma="registrar", person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+#
+# flexionarVerbo(experience="Fazer", functionInGroup='Evento', lemma="registrar", person='1', gender='none',
+#                number='Plur', mood='none', tense='Inf', aspect='none')
+#
+# #
+# # ######verbos exemplos para o robô
+# # TEVE
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='ter', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+#
+# # REGISTROU
+# flexionarVerbo(experience="Fazer", functionInGroup='Evento', lemma="registrar", person='3', gender='none',
+#                number='Sing', mood='Ind', tense='Past', aspect='Perf')
+#
+# # reportou
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='reportar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # DIVULGOU
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='divulgar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # identificou
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='identificar', person='3', gender='none',
+#                number='Sing', mood='Ind', tense='Past', aspect='Perf')
+# # #mostrou
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='mostrar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # #foram (auxiliar)
+# flexionarVerbo(experience='Ser', functionInGroup='Auxiliar', lemma='ser', person='3', gender='none', number='Plur',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # #desmatados
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='desmatar', person='none', gender='Masc',
+#                number='Plur', mood='none', tense='Past', aspect='Perf')
+# # #foi (EVENTO)
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='ser', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+#
+# # #teve
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='ter', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# #
+# # #atingido
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='atingir', person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+# #
+# # #foi (auxiliar)
+# flexionarVerbo(experience='Ser', functionInGroup='Auxiliar', lemma='ser', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# #
+# # #devastada
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='devastar', person='none', gender='Fem',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+# #
+# # #devastado
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='devastar', person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+# # #deixa
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='deixar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Pres', aspect='none')
+# # #SOMANDO
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='somar', person='none', gender='none', number='none',
+#                mood='none', tense='Pres', aspect='Prog')
+# # #somam
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='somar', person='3', gender='none', number='Plur',
+#                mood='Ind', tense='Pres', aspect='none')
+# # soma
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='somar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Pres', aspect='none')
+# # somaram
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='somar', person='3', gender='none', number='Plur',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # TEM
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='ter', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Pres', aspect='none')
+# # acumulando
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='acumular', person='none', gender='none',
+#                number='none', mood='none', tense='Pres', aspect='Prog')
+#
+# # #ACUMULOU
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='acumular', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+# # ACUMULA
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='acumular', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Pres', aspect='none')
+# # atingindo
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='atingir', person='none', gender='none', number='none',
+#                mood='none', tense='Pres', aspect='Prog')
+# #
+# # 'analisado'
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='analisar', person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+#
+# # 'desmatados'
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='desmatar', person='none', gender='Masc',
+#                number='Plur', mood='none', tense='Past', aspect='Perf')
+#
+# # 'desmatado'
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='desmatar', person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+#
+# # 'desmatada'
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='desmatar', person='none', gender='Fem',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+# # AFETADO
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='afetar', person='none', gender='Masc',
+#                number='Sing', mood='none', tense='Past', aspect='Perf')
+# # GERADO
+# flexionarVerbo(experience='Fazer', functionInGroup='Evento', lemma='gerar', person='none', gender='Masc', number='Sing',
+#                mood='none', tense='Past', aspect='Perf')
+#
+# # RASTREOU
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='rastrear', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+#
+# # alertou
+# flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='alertar', person='3', gender='none', number='Sing',
+#                mood='Ind', tense='Past', aspect='Perf')
+
 
 
 main('Fazer', 'Evento', 'ser')

@@ -1141,7 +1141,7 @@ def realizacao_transitoriedade_subjuntivo_condicional(padrao_de_morfologia, oi_n
     :return:mi
         Morfema Interpessoal que realiza a Orientação Interpessoal do verbo
     """
-    mi = None
+    mi = ''
     try:
         if (
                 padrao_de_morfologia == 'AR' and oi_tipo_de_pessoa == '1pessoa' and oi_numero == 'singular' or

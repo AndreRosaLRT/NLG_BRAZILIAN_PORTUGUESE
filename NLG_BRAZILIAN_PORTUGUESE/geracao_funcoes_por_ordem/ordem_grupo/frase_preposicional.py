@@ -1,4 +1,4 @@
-from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.verbais import *
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.pal_verbais import *
 
 
 def frase_preposicional(indicePreposicaoFrase=None, dissocEnteNucleo=None, temQualificador=None,
