@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/experimento_DAMATA_andre.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_adverbial.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_adverbial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_verbal.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_verbal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_morfema/morf_verbais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_morfema/morf_verbais.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/adverbiais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_adverbiais.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/nominais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_nominais.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/verbais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_nominais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_nominais.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste_grupo_verbal.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/teste_grupo_verbal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +49,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PLN_TESE_ANDRE" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -64,6 +60,9 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$USER_HOME$/PLN_TESE_ANDRE" />
       <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE" />

@@ -6530,9 +6530,45 @@ def flexionar_verbo(experience='none', function_in_group='none',
         tipo_de_orientacao = 'infinitivo'
     verb = verbo_geral(experience, function_in_group, lemma, tipo_de_orientacao, oi_numero, genero, oi_tipo_de_pessoa)
     return verb
-
-
 #
+# token = 'VP[experience=Ser,function_in_group=Evento,lemma=ser,person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf]'
+#
+# import re
+#
+# parametros = []
+#
+# texto = 'tentamos fazer VP[experience=Ser,function_in_group=Evento,lemma=ser,person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf]'
+# new_text = []
+# tokens = text.split()
+# for token in tokens:
+#     if re.findall(r'VP\[',token):
+#         elementos = list(token[3:-1].split(','))
+#         for elemento in elementos:
+#             parametro = elemento.split('=')[1]
+#             parametros.append(parametro)
+#         verb = flexionar_verbo(*parametros)
+#         new_text.extend([verb])
+#     else:
+#         new_text.append(token)
+#
+# def generate(text):
+#     new_text, elements, parameters, i = [], [], [], 0
+#     # while i < len(text):
+#     #     token = text[i]
+#     tokens = text.split()
+#     for token in tokens:
+#         if 'VP[' in token:
+#             elements = list(token[3:-1].split(','))
+#             for element in elements:
+#                 parameter = element.split('=')[1]
+#                 parameters.append(parameter)
+#             verb = flexionar_verbo(*parameters)
+#             new_text.append(verb)
+#         else:
+#             new_text.append(token)
+#     return new_text
+# generate(texto)
+# # #
 # flexionarVerbo(experience="Fazer", functionInGroup='Evento', lemma="registrar", person='none', gender='none',
 #                number='none', mood='none', tense='Pres', aspect='Prog')
 #
@@ -6657,7 +6693,7 @@ def flexionar_verbo(experience='none', function_in_group='none',
 
 
 
-main('Fazer', 'Evento', 'ser')
+# main('Fazer', 'Evento', 'ser')
 
 
 if __name__ == "__main__":

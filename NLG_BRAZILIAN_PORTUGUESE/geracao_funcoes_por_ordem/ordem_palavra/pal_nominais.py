@@ -1106,7 +1106,7 @@ def pronome_relativo(tipo_pronome_relativo=None,
         return ''
 
 
-def nome_proprio(nome: str = None):
+def nome_proprio(nome: str = ''):
     """
     Retorna o nome próprio. #Futuramente parte das listas de léxicos
     advindas da anotação na GUM.
