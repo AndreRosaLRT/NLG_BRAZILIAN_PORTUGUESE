@@ -1,5 +1,6 @@
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.pal_nominais import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.pal_verbais import *
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.frase_preposicional import *
 
 
 # # ####DÊIXIS DO GN
@@ -24,7 +25,7 @@ def estrutura_logica_deixis(indice: int = None) -> str:
               "α(Dêitico_pess)",  # Meu
               "β(Dêitico_prox)^α(Dêitico_pess)",  # ex.: Este meu
               "β(Dêitico_ñ_seletivo_específico)^α(Dêitico_pess)",  # ex.: O meu
-              "β(Dêitico_ñ_seletivo_ñ_específico)^α(Dêitico_pess)"]# ex.: Um meu
+              "β(Dêitico_ñ_seletivo_ñ_específico)^α(Dêitico_pess)"]  # ex.: Um meu
     num = [x for x in range(len(opcoes))]
     estrutura_logica_det_deixis = dict(zip(num, opcoes))
     return estrutura_logica_det_deixis[indice]
@@ -184,7 +185,7 @@ def deitico_pess(determinacao_espeficifidade, orientacao, pessoa_da_interlocucao
             elif pessoa_da_interlocucao_possuidor == '1s' and numero_obj_possuido == 'singular' \
                     and genero_obj_possuido == 'feminino':
                 determinante = 'minha'
-            elif pessoa_da_interlocucao_possuidor == '1s' and numero_obj_possuido == 'plural'\
+            elif pessoa_da_interlocucao_possuidor == '1s' and numero_obj_possuido == 'plural' \
                     and genero_obj_possuido == 'feminino':
                 determinante = 'minhas'
 
@@ -294,9 +295,9 @@ def deitico_pess(determinacao_espeficifidade, orientacao, pessoa_da_interlocucao
 # 	return determinante
 # #
 
-def deixis_geral(determinacao_espeficifidade_beta=None, orientacao_beta=None,
+def deixis_geral(determinacao_especificidade_beta=None, orientacao_beta=None,
                  genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
-                 determinacao_espeficifidade_alpha=None,
+                 determinacao_especificidade_alpha=None,
                  orientacao_alpha=None, genero_alpha=None, numero_alpha=None, morfologia_do_pronome_alpha=None,
                  pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None,
                  genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None):
@@ -304,9 +305,9 @@ def deixis_geral(determinacao_espeficifidade_beta=None, orientacao_beta=None,
 
     Ex.:
     
-    >>> deixis_geral(determinacao_espeficifidade_beta='específico', orientacao_beta='NA',
+    >>> deixis_geral(determinacao_especificidade_beta='específico', orientacao_beta='NA',
     ... genero_beta='masculino', numero_beta='singular', morfologia_do_pronome_beta='padrão',
-    ...determinacao_espeficifidade_alpha='específico',
+    ...determinacao_especificidade_alpha='específico',
     ... orientacao_alpha='orientação_específica_pessoa', genero_alpha='masculino', numero_alpha='singular',
     ...morfologia_do_pronome_alpha='padrão',
     ...pessoa_da_interlocucao_possuidor='1s', numero_obj_possuido='singular',
@@ -318,7 +319,7 @@ def deixis_geral(determinacao_espeficifidade_beta=None, orientacao_beta=None,
              ...'morfologia_terceira_pessoa','1s','singular','masculino','próximo_ao_falante')
     'este'
 
-    :param determinacao_espeficifidade_beta:['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)',
+    :param determinacao_especificidade_beta:['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)',
                                                'genérico(de_massa)', 'genérico(contável)']
     :param orientacao_beta:['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
                               'orientação_específica_proximidade_e_pessoa']
@@ -326,7 +327,7 @@ def deixis_geral(determinacao_espeficifidade_beta=None, orientacao_beta=None,
     :param numero_obj_possuido: ['singular', 'plural']
     :param genero_obj_possuido:['masculino', 'feminino']
     :param morfologia_do_pronome_beta: padrão', 'morfologia_terceira_pessoa']
-    :param determinacao_espeficifidade_alpha:['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)',
+    :param determinacao_especificidade_alpha:['NA', 'específico', 'não_específico', 'genérico(=todos,quaisquer)',
                                                'genérico(de_massa)', 'genérico(contável)']
     :param orientacao_alpha:['NA', 'orientação_específica_pessoa', 'orientação_específica_proximidade',
                               'orientação_específica_proximidade_e_pessoa']
@@ -345,38 +346,38 @@ def deixis_geral(determinacao_espeficifidade_beta=None, orientacao_beta=None,
     :return: 
     """
     try:
-        if determinacao_espeficifidade_alpha == 'específico':
+        if determinacao_especificidade_alpha == 'específico':
             if orientacao_alpha == 'orientação_específica_proximidade':
-                alpha = deitico_prox(determinacao_espeficifidade_alpha, orientacao_alpha,
+                alpha = deitico_prox(determinacao_especificidade_alpha, orientacao_alpha,
                                      pessoa_da_interlocucao_proximidade, numero_alpha, genero_alpha)
             elif orientacao_alpha == 'orientação_específica_pessoa':
-                alpha = deitico_pess(determinacao_espeficifidade_alpha, orientacao_alpha,
+                alpha = deitico_pess(determinacao_especificidade_alpha, orientacao_alpha,
                                      pessoa_da_interlocucao_possuidor,
                                      numero_obj_possuido, genero_obj_possuido, morfologia_do_pronome_alpha)
             else:
-                alpha = deitico_nao_seletivo_especifico(determinacao_espeficifidade_alpha,
+                alpha = deitico_nao_seletivo_especifico(determinacao_especificidade_alpha,
                                                         orientacao_alpha, numero_alpha, genero_alpha)
-        elif determinacao_espeficifidade_alpha == 'não_específico':
-            alpha = deitico_nao_seletivo_nao_especifico(determinacao_espeficifidade_alpha,
+        elif determinacao_especificidade_alpha == 'não_específico':
+            alpha = deitico_nao_seletivo_nao_especifico(determinacao_especificidade_alpha,
                                                         orientacao_alpha, numero_alpha, genero_alpha)
         else:
             alpha = ''
 
-        if determinacao_espeficifidade_beta == 'específico':
+        if determinacao_especificidade_beta == 'específico':
 
             if orientacao_beta == 'orientação_específica_proximidade':
-                beta = deitico_prox(determinacao_espeficifidade_beta, orientacao_beta,
+                beta = deitico_prox(determinacao_especificidade_beta, orientacao_beta,
                                     pessoa_da_interlocucao_proximidade,
                                     numero_beta, genero_beta)
             elif orientacao_beta == 'orientação_específica_pessoa':
-                beta = deitico_pess(determinacao_espeficifidade_beta, orientacao_beta,
+                beta = deitico_pess(determinacao_especificidade_beta, orientacao_beta,
                                     pessoa_da_interlocucao_possuidor,
                                     numero_obj_possuido, genero_obj_possuido, morfologia_do_pronome_beta)
             else:
-                beta = deitico_nao_seletivo_especifico(determinacao_espeficifidade_beta, orientacao_beta, numero_beta,
+                beta = deitico_nao_seletivo_especifico(determinacao_especificidade_beta, orientacao_beta, numero_beta,
                                                        genero_beta)
-        elif determinacao_espeficifidade_beta == 'não_específico':
-            beta = deitico_nao_seletivo_nao_especifico(determinacao_espeficifidade_beta,
+        elif determinacao_especificidade_beta == 'não_específico':
+            beta = deitico_nao_seletivo_nao_especifico(determinacao_especificidade_beta,
                                                        orientacao_beta, numero_beta, genero_beta)
 
         else:
@@ -385,10 +386,6 @@ def deixis_geral(determinacao_espeficifidade_beta=None, orientacao_beta=None,
         return re.sub(' +', ' ', " ".join((beta, alpha))).strip()
     except ValueError:
         return ''
-
-#
-#
-#
 
 
 def ente(tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
@@ -511,7 +508,31 @@ def ente(tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_
     except ValueError:
         return ''
 
-    
+
+# ente('não_consciente', 'material', 'objeto_material', None, 'substantivo_comum', 'prédio', 'plural', 'masculino')
+
+# Ente('consciente',None,None, None,'substantivo_comum','menina','singular', 'feminino')
+# Ente(tipo_de_ente='não_consciente', tipo_de_nao_consciente='material',
+#      tipo_de_nao_consciente_material='animal',
+#      tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='substantivo_comum',
+#      substantivo_lematizado='gato', numero='plural', genero='masculino',
+#      tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_proprio=None, pessoa_da_interlocucao=None,
+#      transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None)
+
+
+# Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
+#      'pronome_caso_reto', None, "singular",
+#      "feminino",None, None,None,None,"falante",
+#      None,None,None,None)
+# Ente("não_consciente", "semiótico",None, 'abstração_semiótica',
+#      'pronome_caso_reto', None, "plural",
+#      "feminino",None, None,None,None,"falante",
+#      None,None,None,None)
+# Ente(tipo_de_ente="não_consciente", tipo_de_nao_consciente="semiótico", tipo_de_nao_consciente_material=None,
+# 	tipo_de_nao_consciente_semiotico='abstração_semiótica', classe_palavra_ente='pronome_caso_oblíquo',
+# 	 substantivo_lematizado=None, numero='plural', genero='masculino', tipo_feminino_ao=None,
+# 	 tipo_masc_ao=None, acent_tonica=None, nome_proprio=None,pessoa_da_interlocucao='não_interlocutor',
+# 	 transitividade_verbo='indireto', tonicidade='tônico', morfologia_do_pronome='não_padrão', reflexivo=False)
 
 #####ESTRUTURA DO GRUPO NOMINAL:
 
@@ -520,51 +541,43 @@ def ente(tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_
 # tem_qualificador = choice.Menu(['sim', 'NA']).ask()
 # realizacao_qualificador = choice.Menu(['frase-preposicional', 'oração']).ask()
 
-##parei aqui
-def qualificador(indicePreposicaoFrase=None, dissocEnteNucleo=None, DETERMINAÇÃO_espeficifidade_beta=None,
-                 ORIENTAÇÃO_beta=None,
-                 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-                 DETERMINAÇÃO_espeficifidade_alpha=None, ORIENTAÇÃO_alpha=None, gênero_alpha=None,
-                 número_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocução_possuidor=None,
-                 número_obj_possuído=None, gênero_obj_possuído=None, pessoa_da_interlocução_proximidade=None,  #
-                 funcaoNumerativo=None, cardinal=None, genero=None, tipo_precisa=None, tipoRealCard=None,
-                 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+
+def qualificador(indice_preposicao_frase=None, dissoc_ente_nucleo=None, determinacao_especificidade_beta=None,
+                 orientacao_beta=None,
+                 genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
+                 determinacao_especificidade_alpha=None, orientacao_alpha=None, genero_alpha=None,
+                 numero_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocucao_possuidor=None,
+                 numero_obj_possuido=None, genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None,
+                 tipo_numerativo=None, cardinal=None, genero_numerativo=None,
                  tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
                  tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
                  numero=None,
-                 tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_proprio=None,
+                 tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_prop=None,
                  pessoa_da_interlocucao=None,
                  transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-                 temQualificador=None, tipoQualificador=None, indicePreposicaoQualif=None, adjetivo_epiteto=None,
-                 adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None, contracao=None):
+                 tem_qualificador=None, tipo_qualificador=None, indice_preposicao_qualif=None, adjetivo_epiteto=None,
+                 adjetivo_classificador=None, genero_adjetivo=None, numero_adjetivo=None, contracao=None):
     """
 
-    :param indicePreposicaoFrase:
-    :param dissocEnteNucleo:
-    :param DETERMINAÇÃO_espeficifidade_beta:
-    :param ORIENTAÇÃO_beta:
-    :param gênero_beta:
-    :param número_beta:
+    :param indice_preposicao_frase:
+    :param dissoc_ente_nucleo:
+    :param determinacao_especificidade_beta:
+    :param orientacao_beta:
+    :param genero_beta:
+    :param numero_beta:
     :param morfologia_do_pronome_beta:
-    :param DETERMINAÇÃO_espeficifidade_alpha:
-    :param ORIENTAÇÃO_alpha:
-    :param gênero_alpha:
-    :param número_alpha:
+    :param determinacao_especificidade_alpha:
+    :param orientacao_alpha:
+    :param genero_alpha:
+    :param numero_alpha:
     :param morfologia_do_pronome_alpha:
-    :param pessoa_da_interlocução_possuidor:
-    :param número_obj_possuído:
-    :param gênero_obj_possuído:
-    :param pessoa_da_interlocução_proximidade:
-    :param funcaoNumerativo:
+    :param pessoa_da_interlocucao_possuidor:
+    :param numero_obj_possuido:
+    :param genero_obj_possuido:
+    :param pessoa_da_interlocucao_proximidade:
+    :param tipo_numerativo:
     :param cardinal:
-    :param genero:
-    :param tipo_precisa:
-    :param tipoRealCard:
-    :param milharExtenso:
-    :param centenaExtenso:
-    :param dezenaExtenso:
-    :param unidadeExtenso:
-    :param numIndefinido:
+    :param genero_numerativo:
     :param tipo_de_ente:
     :param tipo_de_nao_consciente:
     :param tipo_de_nao_consciente_material:
@@ -575,309 +588,239 @@ def qualificador(indicePreposicaoFrase=None, dissocEnteNucleo=None, DETERMINAÇ�
     :param tipo_feminino_ao:
     :param tipo_masc_ao:
     :param acent_tonica:
-    :param nome_proprio:
+    :param nome_prop:
     :param pessoa_da_interlocucao:
     :param transitividade_verbo:
     :param tonicidade:
     :param morfologia_do_pronome:
     :param reflexivo:
-    :param temQualificador:
-    :param tipoQualificador:
-    :param indicePreposicaoQualif:
+    :param tem_qualificador:
+    :param tipo_qualificador:
+    :param indice_preposicao_qualif:
     :param adjetivo_epiteto:
     :param adjetivo_classificador:
-    :param generoAdjetivo:
-    :param numeroAdjetivo:
+    :param genero_adjetivo:
+    :param numero_adjetivo:
     :param contracao:
     :return:
     """
     try:
-        if tipoQualificador == 'frase-preposicional':
-            Qualificador = frase_preposicional(indicePreposicaoFrase, dissocEnteNucleo, temQualificador,
-                                               tipoQualificador,
-                                               indicePreposicaoQualif, DETERMINAÇÃO_espeficifidade_beta,
-                                               ORIENTAÇÃO_beta, gênero_beta,
-                                               número_beta, morfologia_do_pronome_beta,
-                                               DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha, gênero_alpha,
-                                               número_alpha, morfologia_do_pronome_alpha,
-                                               pessoa_da_interlocução_possuidor, número_obj_possuído,
-                                               gênero_obj_possuído, pessoa_da_interlocução_proximidade,
-                                               funcaoNumerativo, cardinal, genero, tipo_precisa, tipoRealCard,
-                                               milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso,
-                                               numIndefinido, tipo_de_ente, tipo_de_nao_consciente,
-                                               tipo_de_nao_consciente_material, tipo_de_nao_consciente_semiotico,
-                                               classe_palavra_ente, substantivo_lematizado, numero, tipo_feminino_ao,
-                                               tipo_masc_ao, acent_tonica, nome_proprio, pessoa_da_interlocucao,
-                                               transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,
-                                               adjetivo_epiteto, adjetivo_classificador, generoAdjetivo, numeroAdjetivo,
-                                               contracao)
+        if tipo_qualificador == 'frase-preposicional':
+            qualif = frase_preposicional(indice_preposicao_frase, dissoc_ente_nucleo, tem_qualificador,
+                                         tipo_qualificador,
+                                         indice_preposicao_qualif, determinacao_especificidade_beta,
+                                         orientacao_beta, genero_beta,
+                                         numero_beta, morfologia_do_pronome_beta,
+                                         determinacao_especificidade_alpha, orientacao_alpha, genero_alpha,
+                                         numero_alpha, morfologia_do_pronome_alpha,
+                                         pessoa_da_interlocucao_possuidor, numero_obj_possuido,
+                                         genero_obj_possuido, pessoa_da_interlocucao_proximidade,
+                                         tipo_numerativo, cardinal, genero_numerativo, tipo_de_ente,
+                                         tipo_de_nao_consciente,
+                                         tipo_de_nao_consciente_material, tipo_de_nao_consciente_semiotico,
+                                         classe_palavra_ente, substantivo_lematizado, numero, tipo_feminino_ao,
+                                         tipo_masc_ao, acent_tonica, nome_prop, pessoa_da_interlocucao,
+                                         transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,
+                                         adjetivo_epiteto, adjetivo_classificador, genero_adjetivo, numero_adjetivo,
+                                         contracao)
             # else:
             # 	Qualificador = "que" + oraçãoProjetada()
-            return re.sub(' +', ' ', Qualificador).strip()
-    except:
+            return re.sub(' +', ' ', qualif).strip()
+    except ValueError:
         return ''
 
 
 #
 # for i in range(12):
-# 	print(qualificador(indicePreposicaoFrase=i,dissocEnteNucleo=None, DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-# 			 gênero_alpha='masculino', número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-# 			 pessoa_da_interlocução_possuidor='1s', número_obj_possuído='plural', gênero_obj_possuído='masculino',
-# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor', funcaoNumerativo=None, cardinal=None,
-# 			 genero='masculino', tipo_precisa=None, tipoRealCard=None, milharExtenso=None, centenaExtenso=None,
+# 	print(qualificador(indice_preposicao_frase=i,dissoc_ente_nucleo=None, determinacao_especificidade_beta=None, orientacao_beta=None,
+# 			 genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
+# 			 determinacao_especificidade_alpha='específico', orientacao_alpha='orientação_específica_proximidade',
+# 			 genero_alpha='masculino', numero_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
+# 			 pessoa_da_interlocucao_possuidor='1s', numero_obj_possuido='plural', genero_obj_possuido='masculino',
+# 			 pessoa_da_interlocucao_proximidade='próximo_ao_não_interlocutor', funcao_numerativo=None, cardinal=None,
+# 			 genero='masculino', tipo_precisa=None, tipo_real_card=None, milharExtenso=None, centenaExtenso=None,
 # 			 dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None, tipo_de_ente='não_consciente',
 # 			 tipo_de_nao_consciente='material', tipo_de_nao_consciente_material='animal',
 # 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='substantivo_comum',
 # 			 substantivo_lematizado='gato', numero='plural', tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
 # 			 nome_proprio=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
-# 			 morfologia_do_pronome=None, reflexivo=None, temQualificador=None, tipoQualificador='frase-preposicional',indicePreposicaoQualif=5,
-# 			 adjetivo_epiteto='bonito', adjetivo_classificador=None, generoAdjetivo='masculino',
-# 			 numeroAdjetivo='plural', contracao='-contração'))
+# 			 morfologia_do_pronome=None, reflexivo=None, tem_qualificador=None, tipo_qualificador='frase-preposicional',indice_preposicao_qualif=5,
+# 			 adjetivo_epiteto='bonito', adjetivo_classificador=None, genero_adjetivo='masculino',
+# 			 numero_adjetivo='plural', contracao='-contração'))
 
 
-def estrutura_GN(dissocEnteNucleo=None, temQualificador=None, tipoQualificador=None, indicePreposicaoQualif=None,
-                 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None, gênero_beta=None, número_beta=None,
-                 morfologia_do_pronome_beta=None, DETERMINAÇÃO_espeficifidade_alpha=None, ORIENTAÇÃO_alpha=None,
-                 gênero_alpha=None, número_alpha=None, morfologia_do_pronome_alpha=None,
-                 pessoa_da_interlocução_possuidor=None, número_obj_possuído=None, gênero_obj_possuído=None,
-                 pessoa_da_interlocução_proximidade=None, funcaoNumerativo=None, cardinal=None, genero=None,
-                 tipo_precisa=None, tipoRealCard=None, milharExtenso=None, centenaExtenso=None,
-                 dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None, tipo_qualificador=None, indice_preposicao_qualif=None,
+                 determinacao_especificidade_beta=None, orientacao_beta=None, genero_beta=None, numero_beta=None,
+                 morfologia_do_pronome_beta=None, determinacao_especificidade_alpha=None, orientacao_alpha=None,
+                 genero_alpha=None, numero_alpha=None, morfologia_do_pronome_alpha=None,
+                 pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None, genero_obj_possuido=None,
+                 pessoa_da_interlocucao_proximidade=None, tipo_numerativo=None, cardinal=None, genero_numerativo=None,
                  tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
                  tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
-                 numero=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_proprio=None,
-                 pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None,
-                 reflexivo=None, adjetivo_epiteto=None,
-                 adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None, contracao=None):
+                 numero=None, genero=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
+                 nome_prop=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+                 morfologia_do_pronome=None, reflexivo=None, adjetivo_epiteto=None,
+                 adjetivo_classificador=None, genero_adjetivo=None, numero_adjetivo=None, contracao=None):
+    """
+    Ex.:
+    
+    >>> estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None, tipo_qualificador=None, indice_preposicao_qualif=None,
+             ...determinacao_especificidade_beta='específico', orientacao_beta='NA', genero_beta='masculino',
+             ...numero_beta=None,morfologia_do_pronome_beta=None, determinacao_especificidade_alpha='específico', orientacao_alpha='NA',
+             ...genero_alpha='masculino', numero_alpha='singular', morfologia_do_pronome_alpha=None,
+             ...pessoa_da_interlocucao_possuidor='1s', numero_obj_possuido='singular', genero_obj_possuido='masculino',
+             ...pessoa_da_interlocucao_proximidade='próximo_ao_falante', tipo_numerativo=None, cardinal=None, genero_numerativo=None,
+             ...tipo_de_ente='não_consciente', tipo_de_nao_consciente='material', tipo_de_nao_consciente_material='objeto_material',
+             ...tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='substantivo_comum', substantivo_lematizado='piano',
+             ...numero='singular', genero='masculino', tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
+             ...nome_prop=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+             ...morfologia_do_pronome=None, reflexivo=None, adjetivo_epiteto=None,
+             ...adjetivo_classificador=None, genero_adjetivo=None, numero_adjetivo=None, contracao=None) -> 'o piano'
+
+    :param dissoc_ente_nucleo: 
+    :param tem_qualificador: 
+    :param tipo_qualificador: 
+    :param indice_preposicao_qualif: 
+    :param determinacao_especificidade_beta: 
+    :param orientacao_beta: 
+    :param genero_beta: 
+    :param numero_beta: 
+    :param morfologia_do_pronome_beta: 
+    :param determinacao_especificidade_alpha: 
+    :param orientacao_alpha: 
+    :param genero_alpha: 
+    :param numero_alpha: 
+    :param morfologia_do_pronome_alpha: 
+    :param pessoa_da_interlocucao_possuidor: 
+    :param numero_obj_possuido: 
+    :param genero_obj_possuido: 
+    :param pessoa_da_interlocucao_proximidade: 
+    :param tipo_numerativo: 
+    :param cardinal: 
+    :param genero_numerativo: 
+    :param tipo_de_ente: 
+    :param tipo_de_nao_consciente: 
+    :param tipo_de_nao_consciente_material: 
+    :param tipo_de_nao_consciente_semiotico: 
+    :param classe_palavra_ente: 
+    :param substantivo_lematizado: 
+    :param numero: 
+    :param genero: 
+    :param tipo_feminino_ao: 
+    :param tipo_masc_ao: 
+    :param acent_tonica: 
+    :param nome_prop: 
+    :param pessoa_da_interlocucao: 
+    :param transitividade_verbo: 
+    :param tonicidade: 
+    :param morfologia_do_pronome: 
+    :param reflexivo: 
+    :param adjetivo_epiteto: 
+    :param adjetivo_classificador: 
+    :param genero_adjetivo: 
+    :param numero_adjetivo: 
+    :param contracao: 
+    :return: 
+    """
     try:
-        if dissocEnteNucleo == None:
+        if dissoc_ente_nucleo is None:
 
-            Determinante = deixis_geral(DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta,
-                                        gênero_beta, número_beta, morfologia_do_pronome_beta,
-                                        DETERMINAÇÃO_espeficifidade_alpha,
-                                        ORIENTAÇÃO_alpha, gênero_alpha, número_alpha, morfologia_do_pronome_alpha,
-                                        pessoa_da_interlocução_possuidor, número_obj_possuído,
-                                        gênero_obj_possuído, pessoa_da_interlocução_proximidade)
+            determinante = deixis_geral(determinacao_especificidade_beta, orientacao_beta,
+                                        genero_beta, numero_beta, morfologia_do_pronome_beta,
+                                        determinacao_especificidade_alpha,
+                                        orientacao_alpha, genero_alpha, numero_alpha, morfologia_do_pronome_alpha,
+                                        pessoa_da_interlocucao_possuidor, numero_obj_possuido,
+                                        genero_obj_possuido, pessoa_da_interlocucao_proximidade)
 
-            numerativo = Numerativo(funcaoNumerativo, cardinal, genero, tipo_precisa, tipoRealCard,
-                                    milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso, numIndefinido)
+            num = numerativo(tipo_numerativo, cardinal, genero_numerativo)
 
-            ente = ente(tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
-                        tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado, numero,
-                        genero, tipo_feminino_ao, tipo_masc_ao, acent_tonica, nome_proprio, pessoa_da_interlocucao,
-                        transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo)
+            ente_ = ente(tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+                         tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado, numero,
+                         genero, tipo_feminino_ao, tipo_masc_ao, acent_tonica, nome_prop, pessoa_da_interlocucao,
+                         transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo)
 
-            Classificador = adjetivo(adjetivo_classificador, generoAdjetivo, numeroAdjetivo)
+            classificador = adjetivo(adjetivo_classificador, genero_adjetivo, numero_adjetivo)
 
-            Epiteto = adjetivo(adjetivo_epiteto, generoAdjetivo, numeroAdjetivo)
+            epiteto = adjetivo(adjetivo_epiteto, genero_adjetivo, numero_adjetivo)
 
-            GN = " ".join((Determinante, numerativo, ente, Classificador, Epiteto))
+            gn = " ".join((determinante, num, ente_, classificador, epiteto))
 
         else:
 
-            Nucleo_logico = estrutura_GN_downraked(dissocEnteNucleo, temQualificador, tipoQualificador,
-                                                   indicePreposicaoQualif, DETERMINAÇÃO_espeficifidade_beta,
-                                                   ORIENTAÇÃO_beta, gênero_beta, número_beta,
-                                                   morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha,
-                                                   ORIENTAÇÃO_alpha, gênero_alpha, número_alpha,
-                                                   morfologia_do_pronome_alpha, pessoa_da_interlocução_possuidor,
-                                                   número_obj_possuído, gênero_obj_possuído,
-                                                   pessoa_da_interlocução_proximidade, funcaoNumerativo, cardinal,
-                                                   genero, tipo_precisa, tipoRealCard, milharExtenso, centenaExtenso,
-                                                   dezenaExtenso, unidadeExtenso, numIndefinido, tipo_de_ente,
-                                                   tipo_de_nao_consciente, tipo_de_nao_consciente_material,
-                                                   tipo_de_nao_consciente_semiotico, classe_palavra_ente,
-                                                   substantivo_lematizado, numero, tipo_feminino_ao, tipo_masc_ao,
-                                                   acent_tonica, nome_proprio, pessoa_da_interlocucao,
-                                                   transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,
-                                                   adjetivo_epiteto, adjetivo_classificador, generoAdjetivo,
-                                                   numeroAdjetivo, contracao)
+            nucleo_logico = estrutura_gn(dissoc_ente_nucleo, tem_qualificador,
+                                         tipo_qualificador, indice_preposicao_qualif,
+                                         determinacao_especificidade_beta, orientacao_beta,
+                                         genero_beta, numero_beta,
+                                         morfologia_do_pronome_beta,
+                                         determinacao_especificidade_alpha, orientacao_alpha,
+                                         genero_alpha, numero_alpha,
+                                         morfologia_do_pronome_alpha,
+                                         pessoa_da_interlocucao_possuidor, numero_obj_possuido,
+                                         genero_obj_possuido,
+                                         pessoa_da_interlocucao_proximidade, tipo_numerativo,
+                                         cardinal, genero_numerativo,
+                                         tipo_de_ente, tipo_de_nao_consciente,
+                                         tipo_de_nao_consciente_material,
+                                         tipo_de_nao_consciente_semiotico, classe_palavra_ente,
+                                         substantivo_lematizado,
+                                         numero, genero, tipo_feminino_ao, tipo_masc_ao,
+                                         acent_tonica,
+                                         nome_prop, pessoa_da_interlocucao,
+                                         transitividade_verbo, tonicidade,
+                                         morfologia_do_pronome, reflexivo, adjetivo_epiteto,
+                                         adjetivo_classificador, genero_adjetivo,
+                                         numero_adjetivo, contracao)
 
-            Qualificador = Qualificador = qualificador(indicePreposicaoQualif, dissocEnteNucleo,
-                                                       DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta,
-                                                       gênero_beta, número_beta, morfologia_do_pronome_beta,
-                                                       DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha,
-                                                       gênero_alpha,
-                                                       número_alpha, morfologia_do_pronome_alpha,
-                                                       pessoa_da_interlocução_possuidor,
-                                                       número_obj_possuído, gênero_obj_possuído,
-                                                       pessoa_da_interlocução_proximidade,  #
-                                                       funcaoNumerativo, cardinal, genero, tipo_precisa, tipoRealCard,
-                                                       milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso,
-                                                       numIndefinido,
-                                                       tipo_de_ente, tipo_de_nao_consciente,
-                                                       tipo_de_nao_consciente_material,
-                                                       tipo_de_nao_consciente_semiotico, classe_palavra_ente,
-                                                       substantivo_lematizado, numero,
-                                                       tipo_feminino_ao, tipo_masc_ao, acent_tonica, nome_proprio,
-                                                       pessoa_da_interlocucao,
-                                                       transitividade_verbo, tonicidade, morfologia_do_pronome,
-                                                       reflexivo,  #
-                                                       temQualificador, tipoQualificador, adjetivo_epiteto,
-                                                       adjetivo_classificador, generoAdjetivo, numeroAdjetivo,
-                                                       contracao)
+            qualif = qualificador(indice_preposicao_qualif, dissoc_ente_nucleo, determinacao_especificidade_beta,
+                                  orientacao_beta, genero_beta, numero_beta, morfologia_do_pronome_beta,
+                                  determinacao_especificidade_alpha, orientacao_alpha, genero_alpha, numero_alpha,
+                                  morfologia_do_pronome_alpha, pessoa_da_interlocucao_possuidor, numero_obj_possuido,
+                                  genero_obj_possuido, pessoa_da_interlocucao_proximidade, tipo_numerativo, cardinal,
+                                  genero_numerativo, tipo_de_ente, tipo_de_nao_consciente,
+                                  tipo_de_nao_consciente_material, tipo_de_nao_consciente_semiotico,
+                                  classe_palavra_ente, substantivo_lematizado, numero, tipo_feminino_ao, tipo_masc_ao,
+                                  acent_tonica, nome_prop, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
+                                  morfologia_do_pronome, reflexivo, tem_qualificador, tipo_qualificador,
+                                  adjetivo_epiteto, adjetivo_classificador, genero_adjetivo, numero_adjetivo, contracao)
 
-            GN = " ".join((Nucleo_logico, Qualificador))
-        return (re.sub(' +', ' ', GN).strip())
-    except:
-        GN = ''
-        return GN
+            gn = " ".join((nucleo_logico, qualif))
+        return re.sub(' +', ' ', gn).strip()
+    except ValueError:
+        return ''
 
 
-estrutura_GN(DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='NA', gênero_alpha='masculino',
-             número_alpha='singular', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-             pessoa_da_interlocução_possuidor='1s', número_obj_possuído='plural', gênero_obj_possuído='masculino',
-             genero='não-binário', tipo_de_ente='não_consciente', tipo_de_nao_consciente='material',
-             tipo_de_nao_consciente_material='instituição', classe_palavra_ente='substantivo_comum',
-             substantivo_lematizado='desmatamento', numero='singular')
-
-estrutura_GN(None, None, None, None, DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='NA',
-             gênero_alpha='masculino', número_alpha='singular', morfologia_do_pronome_alpha=None,
-             pessoa_da_interlocução_possuidor=None, número_obj_possuído=None, gênero_obj_possuído=None,
-             genero='não-binário', tipo_de_ente='não_consciente', tipo_de_nao_consciente='material',
-             tipo_de_nao_consciente_material='instituição', classe_palavra_ente='substantivo_comum',
-             substantivo_lematizado='desmatamento', numero='singular',
-             tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_proprio=None, pessoa_da_interlocucao=None,
-             transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,
-             adjetivo_epiteto=None, adjetivo_classificador=None, generoAdjetivo=None,
-             numeroAdjetivo='singular', contracao=None)
-
-estrutura_GN(dissocEnteNucleo=None, temQualificador=None, tipoQualificador=None, indicePreposicaoQualif=None,
-             DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None, gênero_beta=None, número_beta=None,
-             morfologia_do_pronome_beta=None, DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='NA',
-             gênero_alpha='masculino', número_alpha='singular', morfologia_do_pronome_alpha=None,
-             pessoa_da_interlocução_possuidor='1s', número_obj_possuído='singular', gênero_obj_possuído='masculino',
-             pessoa_da_interlocução_proximidade='próximo_ao_falante', funcaoNumerativo=None, cardinal=None,
-             genero='não-binário',
-             tipo_precisa=None, tipoRealCard=None, milharExtenso=None, centenaExtenso=None, dezenaExtenso=None,
-             unidadeExtenso=None, numIndefinido=None, tipo_de_ente='não_consciente', tipo_de_nao_consciente='material',
-             tipo_de_nao_consciente_material='abstração_material', tipo_de_nao_consciente_semiotico=None,
-             classe_palavra_ente='substantivo_comum', substantivo_lematizado='piano', numero='singular',
-             tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_proprio=None, pessoa_da_interlocucao=None,
-             transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,
-             adjetivo_epiteto=None, adjetivo_classificador=None, generoAdjetivo=None,
-             numeroAdjetivo=None, contracao=None)
-
-estrutura_GN(dissocEnteNucleo=None, temQualificador=None, tipoQualificador=None, indicePreposicaoQualif=None,
-             DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None, gênero_beta=None, número_beta=None,
-             morfologia_do_pronome_beta=None, DETERMINAÇÃO_espeficifidade_alpha='específico',
-             ORIENTAÇÃO_alpha='orientação_específica_pessoa',
-             gênero_alpha='masculino', número_alpha='singular', morfologia_do_pronome_alpha=None,
-             pessoa_da_interlocução_possuidor='1s', número_obj_possuído='singular', gênero_obj_possuído='masculino',
-             pessoa_da_interlocução_proximidade='próximo_ao_falante', funcaoNumerativo=None, cardinal=None,
-             genero='não-binário',
-             tipo_precisa=None, tipoRealCard=None, milharExtenso=None, centenaExtenso=None, dezenaExtenso=None,
-             unidadeExtenso=None, numIndefinido=None, tipo_de_ente=None, tipo_de_nao_consciente=None,
-             tipo_de_nao_consciente_material=None, tipo_de_nao_consciente_semiotico=None,
-             classe_palavra_ente=None, substantivo_lematizado=None, numero=None,
-             tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_proprio=None, pessoa_da_interlocucao=None,
-             transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,
-             adjetivo_epiteto=None, adjetivo_classificador=None, generoAdjetivo=None,
-             numeroAdjetivo=None, contracao=None)
-
-estrutura_GN(None, None, None, None,
-             None, None, None, None,
-             None, 'específico', 'NA',
-             'masculino', 'singular', None,
-             None, None, None,
-             None, None, None, 'não-binário',
-             None, None, None, None, None,
-             None, None, 'não_consciente', 'material',
-             'abstração_material', None,
-             'substantivo_comum', 'moço', 'singular',
-             None, None, None, None, None,
-             None, None, None, None,
-             None, None, None,
-             None, None)
-
-
-# # ########PREPOSIÇÃO
-# preposicoes = ['a','ante','após','até','com','contra',
-# 				   'de','desde','em','entre','para','por','perante','sem',
-# 				   'sob','sobre','trás']
-
-
-def estrutura_GN_downraked(dissocEnteNucleo=None, temQualificador=None, tipoQualificador=None,
-                           indicePreposicaoQualif=None,
-                           DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None, gênero_beta=None,
-                           número_beta=None,
-                           morfologia_do_pronome_beta=None, DETERMINAÇÃO_espeficifidade_alpha=None,
-                           ORIENTAÇÃO_alpha=None,
-                           gênero_alpha=None, número_alpha=None, morfologia_do_pronome_alpha=None,
-                           pessoa_da_interlocução_possuidor=None, número_obj_possuído=None, gênero_obj_possuído=None,
-                           pessoa_da_interlocução_proximidade=None, funcaoNumerativo=None, cardinal=None, genero=None,
-                           tipo_precisa=None, tipoRealCard=None, milharExtenso=None, centenaExtenso=None,
-                           dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
+def estrutura_gn_downraked(dissoc_ente_nucleo=None, tem_qualificador=None, tipo_qualificador=None,
+                           indice_preposicao_qualif=None,
+                           determinacao_especificidade_beta=None, orientacao_beta=None, genero_beta=None,
+                           numero_beta=None,
+                           morfologia_do_pronome_beta=None, determinacao_especificidade_alpha=None,
+                           orientacao_alpha=None,
+                           genero_alpha=None, numero_alpha=None, morfologia_do_pronome_alpha=None,
+                           pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None, genero_obj_possuido=None,
+                           pessoa_da_interlocucao_proximidade=None, tipo_numerativo=None, cardinal=None,
+                           genero_numerativo=None,
                            tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
                            tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
-                           numero=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_proprio=None,
-                           pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
-                           morfologia_do_pronome=None,
-                           reflexivo=None, adjetivo_epiteto=None,
-                           adjetivo_classificador=None, generoAdjetivo=None, numeroAdjetivo=None, contracao=None):
-    GN_downranked = estrutura_GN(dissocEnteNucleo, temQualificador, tipoQualificador, indicePreposicaoQualif,
-                                 DETERMINAÇÃO_espeficifidade_beta, ORIENTAÇÃO_beta, gênero_beta, número_beta,
-                                 morfologia_do_pronome_beta, DETERMINAÇÃO_espeficifidade_alpha, ORIENTAÇÃO_alpha,
-                                 gênero_alpha, número_alpha, morfologia_do_pronome_alpha,
-                                 pessoa_da_interlocução_possuidor, número_obj_possuído, gênero_obj_possuído,
-                                 pessoa_da_interlocução_proximidade, funcaoNumerativo, cardinal, genero, tipo_precisa,
-                                 tipoRealCard, milharExtenso, centenaExtenso, dezenaExtenso, unidadeExtenso,
-                                 numIndefinido, tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
-                                 tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado, numero,
-                                 tipo_feminino_ao, tipo_masc_ao, acent_tonica, nome_proprio, pessoa_da_interlocucao,
-                                 transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo, adjetivo_epiteto,
-                                 adjetivo_classificador, generoAdjetivo, numeroAdjetivo, contracao)
+                           numero=None, genero=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
+                           nome_prop=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+                           morfologia_do_pronome=None, reflexivo=None, adjetivo_epiteto=None,
+                           adjetivo_classificador=None, genero_adjetivo=None, numero_adjetivo=None, contracao=None):
+    gn_downranked = estrutura_gn(dissoc_ente_nucleo, tem_qualificador, tipo_qualificador, indice_preposicao_qualif,
+                                 determinacao_especificidade_beta, orientacao_beta, genero_beta, numero_beta,
+                                 morfologia_do_pronome_beta, determinacao_especificidade_alpha, orientacao_alpha,
+                                 genero_alpha, numero_alpha, morfologia_do_pronome_alpha,
+                                 pessoa_da_interlocucao_possuidor, numero_obj_possuido, genero_obj_possuido,
+                                 pessoa_da_interlocucao_proximidade, tipo_numerativo, cardinal, genero_numerativo,
+                                 tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+                                 tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado,
+                                 numero, genero, tipo_feminino_ao, tipo_masc_ao, acent_tonica,
+                                 nome_prop, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
+                                 morfologia_do_pronome, reflexivo, adjetivo_epiteto,
+                                 adjetivo_classificador, genero_adjetivo, numero_adjetivo, contracao)
 
-    return re.sub(' +', ' ', GN_downranked).strip()
-
-# estrutura_GN_downraked()
-# estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
-# 			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-# 			 gênero_alpha='masculino',
-# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-# 			 pessoa_da_interlocução_possuidor='1s',
-# 			 número_obj_possuído='plural', gênero_obj_possuído='masculino',
-# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
-# 			 funcaoNumerativo=None, cardinal=None, genero='masculino', tipo_precisa=None, tipoRealCard=None,
-# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
-# 			 tipo_de_ente='não_consciente', tipo_de_nao_consciente='material',
-# 			 tipo_de_nao_consciente_material='animal',
-# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='substantivo_comum',
-# 			 substantivo_lematizado='gato', numero='plural',
-# 			 tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_proprio=None, pessoa_da_interlocucao=None,
-# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-# 			adjetivo_epiteto='bonito',
-# 			 adjetivo_classificador=None,
-# 					   generoAdjetivo='masculino', numeroAdjetivo='singular',contracao='+contação')
-#
-# estrutura_GN_downraked(dissocEnteNucleo=None,temQualificador=None,tipoQualificador=None,indicePreposicao=0,
-# 			 DETERMINAÇÃO_espeficifidade_beta=None, ORIENTAÇÃO_beta=None,
-# 			 gênero_beta=None, número_beta=None, morfologia_do_pronome_beta=None,
-# 			 DETERMINAÇÃO_espeficifidade_alpha='específico', ORIENTAÇÃO_alpha='orientação_específica_proximidade',
-# 			 gênero_alpha='feminino',
-# 			 número_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-# 			 pessoa_da_interlocução_possuidor='1s',
-# 			 número_obj_possuído='plural', gênero_obj_possuído='feminino',
-# 			 pessoa_da_interlocução_proximidade='próximo_ao_não_interlocutor',  #
-# 			 funcaoNumerativo=None, cardinal=None, genero='feminino', tipo_precisa=None, tipoRealCard=None,
-# 			 milharExtenso=None, centenaExtenso=None, dezenaExtenso=None, unidadeExtenso=None, numIndefinido=None,
-# 			 tipo_de_ente='não_consciente', tipo_de_nao_consciente='material',
-# 			 tipo_de_nao_consciente_material='animal',
-# 			 tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='substantivo_comum',
-# 			 substantivo_lematizado='árvore', numero='plural',
-# 			 tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_proprio=None, pessoa_da_interlocucao=None,
-# 			 transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,  #
-# 			,adjetivo_epiteto='bonito',
-# 			 adjetivo_classificador=None,
-# 					   generoAdjetivo='feminino', numeroAdjetivo='plural',contracao='+contação')
-# #
+    return re.sub(' +', ' ', gn_downranked).strip()
 
 # # ####NO CASO A SEGUIR, PODE ACONTECER DE UM GRUPO NOMINAL DESCER DE ORDEM E REALIZAR, POR SUA VEZ,
 # # ##ALGUMA FUNÇÃO DENTRO NO GN DO QUAL FAZ PARTE('XÍCARA DE CAFÉ',no qual 'xícara' é um grupo nominal
 # # # com função de Numerativo no GN DE PRIMEIRO NÍVEL)
-# 	print('Há dissociação entre Ente e Núcleo do GN?')
-# 	dissocEnteNucleo = choice.Menu(['sim', 'não']).ask()
+

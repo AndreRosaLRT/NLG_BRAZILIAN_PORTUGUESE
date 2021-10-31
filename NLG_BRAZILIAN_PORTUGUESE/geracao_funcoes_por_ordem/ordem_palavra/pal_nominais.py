@@ -337,9 +337,9 @@ def porcento(cardinal):
     :param cardinal:
     :return:
     """
-    porcento = str(cardinal) + '%'
+    porc = str(cardinal) + '%'
 
-    return porcento
+    return porc
 
 
 def porcento_extenso(numero):
@@ -356,7 +356,7 @@ def porcento_extenso(numero):
     return ' '.join((real(numero), 'por cento'))
 
 
-def numerativo(tipo_numerativo=None, cardinal=None, genero=None):
+def numerativo(tipo_numerativo=None, cardinal=None, genero_numerativo=None):
     """
     Retorna numerativos (ainda restrito a cardinal, ordinal e porcentagem, por enquanto), dada o
     tipo de numerativo, um número cardinal, genero,
@@ -374,19 +374,19 @@ def numerativo(tipo_numerativo=None, cardinal=None, genero=None):
 
     :param tipo_numerativo:
     :param cardinal:
-    :param genero:
+    :param genero_numerativo:
     :return: numerativo
     """
 
     try:
         if tipo_numerativo == 'ordinal':
-            num_extenso = ordinal(cardinal, genero)
+            num_extenso = ordinal(cardinal, genero_numerativo)
 
         elif tipo_numerativo == 'porcentagem':
             num_extenso = porcento_extenso(cardinal)
 
         elif tipo_numerativo == 'cardinal':
-            num_extenso = real(cardinal, genero)
+            num_extenso = real(cardinal, genero_numerativo)
         else:
             num_extenso = ''
 
@@ -394,7 +394,7 @@ def numerativo(tipo_numerativo=None, cardinal=None, genero=None):
     except ValueError:
         return ''
 
-#
+
 # def detecta_exp_substantivo(substantivo):  ##dado o substantivo flexionado##
 #     '''(str,str,str)->
 #
