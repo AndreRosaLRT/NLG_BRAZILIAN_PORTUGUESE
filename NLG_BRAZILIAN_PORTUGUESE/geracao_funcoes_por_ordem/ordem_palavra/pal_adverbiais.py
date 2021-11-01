@@ -125,7 +125,7 @@ def adverbio_duvida(indice=None):
 
 
 def adverbio(tipo_de_adverbio, indice):
-    adv = None
+    adv = ''
     try:
         if tipo_de_adverbio == 'Modo':
             adv = adverbio_modo(indice)

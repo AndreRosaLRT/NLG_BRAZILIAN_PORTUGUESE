@@ -4,13 +4,24 @@ import argparse
 
 
 def grupo_adverbial(*argums):
-    advs = []
-    for x in range(0, len(argums), 2):
-        advs.append(adverbio(argums[x], argums[x + 1]))
+    """
 
-    grupo_adv = re.sub(' +', ' ', (' '.join(advs)))
+    :param argums:
+    :return: grupo adverbial
+    """
+    try:
+        advs = []
+        for x in range(0, len(argums), 2):
+            advs.append(adverbio(argums[x], argums[x + 1]))
+        for j in range(len(advs)):
+            if advs[j] is None:
+                advs[j] = ''
+        grupo_adv = re.sub(' +', ' ', (' '.join(advs))).strip()
 
-    return grupo_adv
+        return grupo_adv
+    except ValueError:
+        return ''
+
 
 
 if __name__ == '__main__':

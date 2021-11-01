@@ -14671,7 +14671,7 @@ def qualificador():
 
 def estrutura_gn_downraked():
     
-    GN_downranked = estrutura_GN()
+    GN_downranked = estrutura_gn()
 
     return GN_downranked
 
@@ -14680,7 +14680,7 @@ def estrutura_gn_downraked():
 ####NO CASO A SEGUIR, PODE ACONTECER DE UM GRUPO NOMINAL DESCER DE ORDEM E REALIZAR, POR SUA VEZ,
     ##ALGUMA FUNÇÃO DENTRO NO GN DO QUAL FAZ PARTE('XÍCARA DE CAFÉ',no qual 'xícara' é um grupo nominal 
     #com função de Numerativo no GN DE PRIMEIRO NÍVEL)
-def estrutura_GN():
+def estrutura_gn():
 
       
     print ('Há dissociação entre Ente e Núcleo do GN?')
@@ -14873,7 +14873,7 @@ def circunstância():
         realização_circunstância = choice.Menu(['grupo_nominal','frase_preposicional','grupo_adverbial']).ask()
 
         if realização_circunstância == 'grupo_nominal':
-            Circunstância = estrutura_GN()
+            Circunstância = estrutura_gn()
         elif realização_circunstância == 'frase_preposicional':
             Circunstância = frase_preposicional()
         elif realização_circunstância == 'grupo_adverbial':
@@ -15629,7 +15629,7 @@ def oração_gerar():
                     print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Humanizado)?')
-                    Experienciador = estrutura_GN()
+                    Experienciador = estrutura_gn()
                     Polaridade = POLARIDADE()
                     Circunstância = circunstância()
 
@@ -15644,7 +15644,7 @@ def oração_gerar():
                     print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Animalizado)?')
-                    Experienciador = estrutura_GN()
+                    Experienciador = estrutura_gn()
                     Polaridade = POLARIDADE()
                     Circunstância = circunstância()
 
@@ -15674,7 +15674,7 @@ def oração_gerar():
                     print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Humanizado)?')
-                    Experienciador = estrutura_GN()
+                    Experienciador = estrutura_gn()
                     print('Qual o Assunto?')
                     Assunto = circunstância()
                     Polaridade = POLARIDADE()
@@ -15691,7 +15691,7 @@ def oração_gerar():
                     print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Animalizado)?')
-                    Experienciador = estrutura_GN()
+                    Experienciador = estrutura_gn()
                     print('Qual o Assunto?')
                     Assunto = circunstância()
                     Polaridade = POLARIDADE()
@@ -15712,9 +15712,9 @@ def oração_gerar():
                     print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Humanizado)?')
-                    Experienciador = estrutura_GN()
+                    Experienciador = estrutura_gn()
                     print('Qual o Fenômeno?')
-                    Fenômeno = estrutura_GN()
+                    Fenômeno = estrutura_gn()
                     Polaridade = POLARIDADE()
                     Circunstância = circunstância()
 
@@ -15737,7 +15737,7 @@ def oração_gerar():
                                 print('Qual o Processo?')
                                 Processo = grupo_verbal()
                                 print('Qual o Experienciador (Ente:Humanizado)?')
-                                Experienciador = estrutura_GN()
+                                Experienciador = estrutura_gn()
                                 print('Qual o hiperfenômeno projetado? Selecione orientado-finito')
                                 Pensamento = oraçãoProjetada()
                                 Polaridade = POLARIDADE()
@@ -15751,7 +15751,7 @@ def oração_gerar():
                                 print('Qual o Processo?')
                                 Processo = grupo_verbal()
                                 print('Qual o Experienciador (Ente:Humanizado)?')
-                                Experienciador = estrutura_GN()
+                                Experienciador = estrutura_gn()
                                 print('Qual o hiperfenômeno projetado?')
                                 print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
                                 Desejo = oraçãoProjetada()
@@ -15769,9 +15769,9 @@ def oração_gerar():
                     print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Animalizado)?')
-                    Experienciador = estrutura_GN()
+                    Experienciador = estrutura_gn()
                     print('Qual o Fenômeno?')
-                    Fenômeno = estrutura_GN()
+                    Fenômeno = estrutura_gn()
                     Polaridade = POLARIDADE()
                     Circunstância = circunstância()
 
@@ -15792,7 +15792,7 @@ def oração_gerar():
                         print('Qual o Processo?')
                         Processo = grupo_verbal()
                         print('Qual o Experienciador (Ente:Humanizado)?')
-                        Experienciador = estrutura_GN()
+                        Experienciador = estrutura_gn()
                         print('Qual o metafenômeno? Metafenômenos têm natureza abstrata')
                         realização_metafenômeno = choice.Menu(['oração_mudada_ordem', 'oração_que',
                              'GN+oração_qualificadora']).ask()
@@ -15805,7 +15805,7 @@ def oração_gerar():
                             Metafenômeno = 'que' + ' ' + oraçãoProjetada()
                         else:
                             print('Selecione o GN com oração qualificadora:')
-                            Metafenômeno = estrutura_GN()
+                            Metafenômeno = estrutura_gn()
 
                         Polaridade = POLARIDADE()
                         Circunstância = circunstância()
@@ -15819,7 +15819,7 @@ def oração_gerar():
                         print('Qual o Processo?')
                         Processo = grupo_verbal()
                         print('Qual o Experienciador (Ente:Humanizado)?')
-                        Experienciador = estrutura_GN()
+                        Experienciador = estrutura_gn()
                         print('Qual o macrofenômeno? Macrofenômenos têm natureza concreta')
                         realização_macrofenômeno = choice.Menu(['não_finito_concretizado','não-orientado_gerúndio','oração_que',
                                                                 'GN+oração_qualificadora']).ask()
@@ -15835,7 +15835,7 @@ def oração_gerar():
                             Macrofenômeno = 'que' + ' '+oraçãoProjetada()
                         else:
                             print('Selecione o GN com oração qualificadora:')
-                            Macrofenômeno = estrutura_GN()
+                            Macrofenômeno = estrutura_gn()
 
                         Polaridade = POLARIDADE()
                         Circunstância = circunstância()
@@ -15863,9 +15863,9 @@ def oração_gerar():
                     print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Humanizado)?')
-                    Experienciador = estrutura_GN()
+                    Experienciador = estrutura_gn()
                     print('Qual o Fenômeno Agente?')
-                    FenômenoAgente = estrutura_GN()
+                    FenômenoAgente = estrutura_gn()
                     Polaridade = POLARIDADE()
                     Circunstância = circunstância()
 
@@ -15888,7 +15888,7 @@ def oração_gerar():
                                 print('Qual o Processo?')
                                 Processo = grupo_verbal()
                                 print('Qual o Experienciador (Ente:Humanizado)?')
-                                Experienciador = estrutura_GN()
+                                Experienciador = estrutura_gn()
                                 print('Qual o Pensamento Agente? Selecione orientado-finito')
                                 PensamentoAgente = oraçãoProjetada()
                                 Polaridade = POLARIDADE()
@@ -15904,7 +15904,7 @@ def oração_gerar():
                                 print('Qual o Processo?')
                                 Processo = grupo_verbal()
                                 print('Qual o Experienciador (Ente:Humanizado)?')
-                                Experienciador = estrutura_GN()
+                                Experienciador = estrutura_gn()
                                 print('Qual o Desejo Agente?')
                                 print('Selecione grupo verbal não-finito_subjuntivo(condicional ou optativo)')
                                 DesejoAgente = oraçãoProjetada()
@@ -15922,9 +15922,9 @@ def oração_gerar():
                     print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Animalizado)?')
-                    Experienciador = estrutura_GN()
+                    Experienciador = estrutura_gn()
                     print('Qual o Fenômeno/Agente?')
-                    FenômenoAgente = estrutura_GN()
+                    FenômenoAgente = estrutura_gn()
                     Polaridade = POLARIDADE()
                     Circunstância = circunstância()
 
@@ -15946,7 +15946,7 @@ def oração_gerar():
                         print('Qual o Processo?')
                         Processo = grupo_verbal()
                         print('Qual o Experienciador (Ente:Humanizado)?')
-                        Experienciador = estrutura_GN()
+                        Experienciador = estrutura_gn()
                         print('Qual o metafenômeno? Metafenômenos têm natureza abstrata')
                         realização_metafenômeno = choice.Menu(['oração_mudada_ordem', 'oração_que',
                                                                'GN+oração_qualificadora']).ask()
@@ -15959,7 +15959,7 @@ def oração_gerar():
                             MetafenômenoAgente = 'que' + ' ' + oraçãoProjetada()
                         else:
                             print('Selecione o GN com oração qualificadora:')
-                            MetafenômenoAgente = estrutura_GN()
+                            MetafenômenoAgente = estrutura_gn()
 
                         Polaridade = POLARIDADE()
                         Circunstância = circunstância()
@@ -15974,7 +15974,7 @@ def oração_gerar():
                         print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual o Experienciador (Ente:Humanizado)?')
-                    Experienciador = estrutura_GN()
+                    Experienciador = estrutura_gn()
                     print('Qual o macrofenômeno? Macrofenômenos têm natureza concreta')
                     realização_macrofenômeno = choice.Menu(
                         ['não_finito_concretizado', 'não-orientado_gerúndio', 'oração_que',
@@ -15991,7 +15991,7 @@ def oração_gerar():
                         MacrofenômenoAgente = 'que' + ' ' + oraçãoProjetada()
                     else:
                         print('Selecione o GN com oração qualificadora:')
-                        Macrofenômeno = estrutura_GN()
+                        Macrofenômeno = estrutura_gn()
 
                     Polaridade = POLARIDADE()
                     Circunstância = circunstância()
@@ -16018,7 +16018,7 @@ def oração_gerar():
                 print('Qual o Processo?')
                 Processo = grupo_verbal()
                 print('Qual é o Dizente?')
-                Dizente = estrutura_GN()
+                Dizente = estrutura_gn()
                 print('Há Receptor?')
                 print('Selecione a Receptividade')
                 RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
@@ -16044,7 +16044,7 @@ def oração_gerar():
                 print('Qual o Processo?')
                 Processo = grupo_verbal()
                 print('Qual é o Dizente?')
-                Dizente = estrutura_GN()
+                Dizente = estrutura_gn()
                 print('Há Receptor?')
                 print('Selecione a Receptividade')
                 RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
@@ -16080,7 +16080,7 @@ def oração_gerar():
                     print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual é o Dizente?')
-                    Dizente = estrutura_GN()
+                    Dizente = estrutura_gn()
                     print('Há Receptor?')
                     print('Selecione a Receptividade')
                     RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
@@ -16101,7 +16101,7 @@ def oração_gerar():
                     print('Qual o Processo?')
                     Processo = grupo_verbal()
                     print('Qual é o Dizente?')
-                    Dizente = estrutura_GN()
+                    Dizente = estrutura_gn()
                     print('Há Receptor?')
                     print('Selecione a Receptividade')
                     RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
@@ -16122,9 +16122,9 @@ def oração_gerar():
                 print('Qual o Processo?')
                 Processo = grupo_verbal()
                 print('Qual é o Dizente?')
-                Dizente = estrutura_GN()
+                Dizente = estrutura_gn()
                 print('Qual é a Verbiagem?')
-                Verbiagem = estrutura_GN()
+                Verbiagem = estrutura_gn()
                 print('Há Receptor?')
                 print('Selecione a Receptividade')
                 RECEPTIVIDADE = choice.Menu(['+receptor', '-receptor']).ask()
@@ -16148,14 +16148,14 @@ def oração_gerar():
         Processo = grupo_verbal()
         Polaridade = POLARIDADE ()
         print('Qual é o Dizente?')
-        Dizente = estrutura_GN()
+        Dizente = estrutura_gn()
         Circunstância = circunstância()
 
         print('O Alvo é realizado por grupo nominal ou frase preposicional?')
         realização_alvo = choice.Menu(['GN','FP']).ask()
         if realização_alvo == 'GN':
             print('Qual é o Alvo?')
-            Alvo = estrutura_GN()
+            Alvo = estrutura_gn()
             print ('Qual a localização do alvo na oração (em relação ao Processo)?')
             localização_alvo = choice.Menu(['ante_processo','pós_processo']).ask()
             if localização_alvo == 'ante_processo':
@@ -16184,7 +16184,7 @@ def oração_gerar():
         print('Qual é o Dizente?')
         Dizente = frase_preposicional()
         print('Qual é o Alvo?')
-        Alvo = estrutura_GN()
+        Alvo = estrutura_gn()
         Circunstância = circunstância()
 
         oração = Tema_interpessoal + ' ' + Tema_textual  + ' ' + Alvo  + ' ' + Polaridade + ' ' + Processo\
@@ -16201,16 +16201,16 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
-        Ator = estrutura_GN()
+        Ator = estrutura_gn()
         print('Qual é a Meta?')
-        Meta = estrutura_GN()
+        Meta = estrutura_gn()
         Polaridade = POLARIDADE ()
         Circunstância = circunstância()
 
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
-            Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
+            Iniciador = estrutura_gn() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
         else:
             Iniciador = ''
 
@@ -16253,16 +16253,16 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
-        Ator = estrutura_GN()
+        Ator = estrutura_gn()
         print('Qual é a Meta?')
-        Meta = estrutura_GN()
+        Meta = estrutura_gn()
         Polaridade = POLARIDADE ()
         Circunstância = circunstância()
 
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
-            Iniciador = estrutura_GN()
+            Iniciador = estrutura_gn()
         else:
             Iniciador = ''
 
@@ -16286,13 +16286,13 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
-        Ator = estrutura_GN()
+        Ator = estrutura_gn()
         Polaridade = POLARIDADE()
         Circunstância = circunstância()
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
-            Iniciador = estrutura_GN() + grupo_verbal()
+            Iniciador = estrutura_gn() + grupo_verbal()
         else:
             Iniciador = ''
         print('Há Participante Beneficiario na oração?')
@@ -16307,9 +16307,9 @@ def oração_gerar():
              print('Qual é o Escopo?')
              tipo_Escopo = choice.Menu (['escopo(processo)','escopo(entidade)']).ask()
              if tipo_Escopo == 'escopo(processo)':
-                 Escopo = estrutura_GN()
+                 Escopo = estrutura_gn()
              elif tipo_Escopo == 'escopo(entidade)':
-                 Escopo = estrutura_GN() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
+                 Escopo = estrutura_gn() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
 
              oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade \
                       + ' ' + Processo + ' ' +  Escopo+' ' + Beneficiário+ ' '+ Circunstância +'.'
@@ -16318,9 +16318,9 @@ def oração_gerar():
             print('Qual é o Escopo?')
             tipo_Escopo = choice.Menu (['escopo(processo)','escopo(entidade)']).ask()
             if tipo_Escopo == 'escopo(processo)':
-                Escopo = estrutura_GN()
+                Escopo = estrutura_gn()
             elif tipo_Escopo == 'escopo(entidade)':
-                Escopo = estrutura_GN() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
+                Escopo = estrutura_gn() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
             print ('Há resultado locativo?')
             realização_locativo =choice.Menu(['sim','não']).ask()
             if realização_locativo == 'sim':
@@ -16342,7 +16342,7 @@ def oração_gerar():
         print('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
-        Ator = estrutura_GN()
+        Ator = estrutura_gn()
         Polaridade = POLARIDADE()
         Circunstância = circunstância()
         print('Há Participante Beneficiario na oração?')
@@ -16393,7 +16393,7 @@ def oração_gerar():
         print('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu(['+iniciador', '-iniciador']).ask()
         if INICIADOR == '+iniciador':
-            Iniciador = estrutura_GN()
+            Iniciador = estrutura_gn()
         else:
             Iniciador = ''
         print('Há Participante Beneficiario na oração?')
@@ -16413,7 +16413,7 @@ def oração_gerar():
                 if realização_escopo == 'frase_preposicional':
                     Escopo = frase_preposicional()
                 elif realização_escopo == 'grupo_nominal':
-                    Escopo = estrutura_GN()
+                    Escopo = estrutura_gn()
             elif escopo_intransitiva == '-escopo':
                 Escopo = ''
 
@@ -16431,13 +16431,13 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
-        Ator = estrutura_GN()
+        Ator = estrutura_gn()
         Polaridade = POLARIDADE()
 
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
-            Iniciador = estrutura_GN() + grupo_verbal()
+            Iniciador = estrutura_gn() + grupo_verbal()
         else:
             Iniciador = ''
         print('Há Participante Beneficiario na oração?')
@@ -16464,7 +16464,7 @@ def oração_gerar():
    #      print ('Qual o Processo?')
    #      Processo = grupo_verbal() ##selecionar agenciado_passivo
    #      print('Qual é a Meta?')
-   #      Meta = estrutura_GN()
+   #      Meta = estrutura_gn()
    #      Polaridade = POLARIDADE ()
    #      Circunstância = circunstância()
    #      print('Há Participante Beneficiario na oração?')
@@ -16476,7 +16476,7 @@ def oração_gerar():
    #      print ('Há Participante Iniciador na oração?')
    #      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
    #      if INICIADOR == '+iniciador':
-   #          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
+   #          Iniciador = estrutura_gn() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
    #      else:
    #          Iniciador = ''
    #
@@ -16531,7 +16531,7 @@ def oração_gerar():
    #      print ('Qual o Processo?')
    #      Processo = grupo_verbal() ##selecionar agenciado_passivo
    #      print('Qual é a Meta?')
-   #      Meta = estrutura_GN()
+   #      Meta = estrutura_gn()
    #      Polaridade = POLARIDADE ()
    #      print('Há Participante Beneficiario na oração?')
    #      RECEPÇÃO = choice.Menu(['+beneficiário', '-beneficiário']).ask()
@@ -16545,7 +16545,7 @@ def oração_gerar():
    #      print ('Há Participante Iniciador na oração?')
    #      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
    #      if INICIADOR == '+iniciador':
-   #          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
+   #          Iniciador = estrutura_gn() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
    #      else:
    #          Iniciador = ''
    #
@@ -16595,9 +16595,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador?')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual o Atributo?')
-            Atributo = estrutura_GN()
+            Atributo = estrutura_gn()
 
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
@@ -16613,7 +16613,7 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador?')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual o Atributo?')
             Atributo = adjetivo_modificador ()## O que diferencia os dois tipos é o que realiza o Atributo. Neste caso
                                       # o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo.
@@ -16649,11 +16649,11 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Atribuidor?')
-            Atribuidor = estrutura_GN()
+            Atribuidor = estrutura_gn()
             print ('Qual o Portador?')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual o Atributo?')
-            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+            Atributo = estrutura_gn() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
 
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
@@ -16683,9 +16683,9 @@ def oração_gerar():
             print ('Qual o Atribuidor?')
             Atribuidor = frase_preposicional()
             print ('Qual o Portador?')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual o Atributo?')
-            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+            Atributo = estrutura_gn() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
 
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
@@ -16712,9 +16712,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN()
+            Valor = estrutura_gn()
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
 
@@ -16731,9 +16731,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN()
+            Valor = estrutura_gn()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
 
@@ -16759,9 +16759,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN()
+            Valor = estrutura_gn()
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
 
@@ -16780,9 +16780,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN()
+            Valor = estrutura_gn()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
 
@@ -16814,11 +16814,11 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Designador?')
-            Designador = estrutura_GN()
+            Designador = estrutura_gn()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN() ##ou frase preposicional?
+            Valor = estrutura_gn() ##ou frase preposicional?
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
 
@@ -16850,9 +16850,9 @@ def oração_gerar():
             print ('Qual é o Designador?')
             Designador = frase_preposicional()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN() ##ou frase preposicional?
+            Valor = estrutura_gn() ##ou frase preposicional?
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
     #
@@ -16881,9 +16881,9 @@ def oração_gerar():
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Posse?')
-                Portador_Posse = estrutura_GN()
+                Portador_Posse = estrutura_gn()
                 print ('Qual é o Atributo/Possuidor?')
-                Atributo_Possuidor = estrutura_GN()
+                Atributo_Possuidor = estrutura_gn()
                 Polaridade = POLARIDADE()
                 Circunstância = circunstância()
 
@@ -16896,7 +16896,7 @@ def oração_gerar():
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Posse?')
-                Portador_Posse = estrutura_GN()
+                Portador_Posse = estrutura_gn()
                 print ('Qual é o Atributo/Possuidor?')
                 Atributo_Possuidor = frase_preposicional()
                 Polaridade = POLARIDADE()
@@ -16920,9 +16920,9 @@ def oração_gerar():
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Possuidor?')
-                Portador_Possuidor = estrutura_GN()
+                Portador_Possuidor = estrutura_gn()
                 print ('Qual é o Atributo/Posse?')
-                Atributo_Posse = estrutura_GN()
+                Atributo_Posse = estrutura_gn()
                 Polaridade = POLARIDADE()
                 Circunstância = circunstância()
 
@@ -16940,7 +16940,7 @@ def oração_gerar():
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Possuidor?')
-                Portador_Posse = estrutura_GN()
+                Portador_Posse = estrutura_gn()
                 print ('Qual é o Atributo/Posse?')
                 Atributo_Possuidor = frase_preposicional()
                 Polaridade = POLARIDADE()
@@ -16980,9 +16980,9 @@ def oração_gerar():
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)/Possuído?')
-                    Símbolo_Possuído = estrutura_GN()
+                    Símbolo_Possuído = estrutura_gn()
                     print ('Qual o Valor(Value)/Possuidor?')
-                    Valor_Possuidor = estrutura_GN()
+                    Valor_Possuidor = estrutura_gn()
                     Polaridade = POLARIDADE ()
                     Circunstância = circunstância()
 
@@ -16999,7 +16999,7 @@ def oração_gerar():
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)?')
-                    Símbolo_Possuído = estrutura_GN()
+                    Símbolo_Possuído = estrutura_gn()
                     print ('Qual o Valor(Value)?')
                     Valor_Possuidor = frase_preposicional()
                     Polaridade = POLARIDADE ()
@@ -17024,9 +17024,9 @@ def oração_gerar():
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)/Possuído?')
-                    Símbolo_Possuído = estrutura_GN()
+                    Símbolo_Possuído = estrutura_gn()
                     print ('Qual o Valor(Value)/Possuidor?')
-                    Valor_Possuidor = estrutura_GN()
+                    Valor_Possuidor = estrutura_gn()
                     Polaridade = POLARIDADE ()
                     Circunstância = circunstância()
 
@@ -17043,9 +17043,9 @@ def oração_gerar():
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)?')
-                    Símbolo_Possuído = estrutura_GN()
+                    Símbolo_Possuído = estrutura_gn()
                     print ('Qual o Valor(Value)?')
-                    Valor_Possuidor = estrutura_GN()
+                    Valor_Possuidor = estrutura_gn()
                     Polaridade = POLARIDADE ()
                     Circunstância = circunstância()
 
@@ -17069,9 +17069,9 @@ def oração_gerar():
                 print ('Qual o Processo? ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste, providenciar')
                 Processo = grupo_verbal()
                 print ('Qual é o Símbolo(Token)/Possuidor?')
-                Símbolo_Possuidor = estrutura_GN()
+                Símbolo_Possuidor = estrutura_gn()
                 print ('Qual o Valor(Value)/Possuído?')
-                Valor_Possuído = estrutura_GN()
+                Valor_Possuído = estrutura_gn()
                 Polaridade = POLARIDADE ()
                 Circunstância = circunstância()
 
@@ -17096,7 +17096,7 @@ def oração_gerar():
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()##na passiva
                     print ('Qual o Valor(Value)/Possuído?')
-                    Valor_Possuído = estrutura_GN()
+                    Valor_Possuído = estrutura_gn()
                     print ('Qual é o Símbolo(Token)/Possuidor?')
                     Símbolo_Possuidor = frase_preposicional()
                     Polaridade = POLARIDADE ()
@@ -17121,7 +17121,7 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual é o Atributo Circunstancial?')
             Atributo_Circunstancial = circunstância()
             Polaridade = POLARIDADE()
@@ -17138,9 +17138,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual é o Atributo Circunstancial?')
-            Atributo = estrutura_GN()
+            Atributo = estrutura_gn()
             Polaridade = POLARIDADE()
             Circunstância = circunstância()
 
@@ -17170,7 +17170,7 @@ def oração_gerar():
                 print ('Qual é o Símbolo(Token)?')
                 Símbolo = circunstância()
                 print ('Qual o Valor(Value)?')
-                Valor = estrutura_GN()
+                Valor = estrutura_gn()
                 Polaridade = POLARIDADE ()
                 Circunstância = circunstância()
 
@@ -17191,7 +17191,7 @@ def oração_gerar():
                 print ('Qual é o Símbolo(Token)?')
                 Símbolo = circunstância()
                 print ('Qual o Valor(Value)?')
-                Valor = estrutura_GN()
+                Valor = estrutura_gn()
                 Polaridade = POLARIDADE ()
                 Circunstância = circunstância()
 
@@ -17260,7 +17260,7 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Existente?')
-        Existente = estrutura_GN()
+        Existente = estrutura_gn()
         Circunstância = circunstância()
 
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Processo + ' ' + Existente +' ' + Circunstância +'.'
@@ -17283,16 +17283,16 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
-        Ator = estrutura_GN()
+        Ator = estrutura_gn()
         print('Qual é a Meta?')
-        Meta = estrutura_GN()
+        Meta = estrutura_gn()
         Polaridade = POLARIDADE ()
         Circunstância = circunstância()
 
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
-            Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
+            Iniciador = estrutura_gn() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
         else:
             Iniciador = ''
 
@@ -17340,16 +17340,16 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
-        Ator = estrutura_GN()
+        Ator = estrutura_gn()
         print('Qual é a Meta?')
-        Meta = estrutura_GN()
+        Meta = estrutura_gn()
         Polaridade = POLARIDADE ()
         Circunstância = circunstância()
 
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
-            Iniciador = estrutura_GN()
+            Iniciador = estrutura_gn()
         else:
             Iniciador = ''
 
@@ -17376,14 +17376,14 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
-        Ator = estrutura_GN()
+        Ator = estrutura_gn()
         Polaridade = POLARIDADE()
         Circunstância = circunstância()
 
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
-            Iniciador = estrutura_GN() + grupo_verbal()
+            Iniciador = estrutura_gn() + grupo_verbal()
         else:
             Iniciador = ''
 
@@ -17393,9 +17393,9 @@ def oração_gerar():
              print('Qual é o Escopo?')
              tipo_Escopo = choice.Menu (['escopo(processo)','escopo(entidade)']).ask()
              if tipo_Escopo == 'escopo(processo)':
-                 Escopo = estrutura_GN()
+                 Escopo = estrutura_gn()
              elif tipo_Escopo == 'escopo(entidade)':
-                 Escopo = estrutura_GN() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
+                 Escopo = estrutura_gn() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
 
              oração = Tema_interpessoal + ' ' + Tema_textual + ' ' +Iniciador+' '+ Ator + ' ' + Polaridade \
                       + ' ' + Processo + ' ' +  Escopo+' ' + Circunstância +'?'
@@ -17404,9 +17404,9 @@ def oração_gerar():
             print('Qual é o Escopo?')
             tipo_Escopo = choice.Menu (['escopo(processo)','escopo(entidade)']).ask()
             if tipo_Escopo == 'escopo(processo)':
-                Escopo = estrutura_GN()
+                Escopo = estrutura_gn()
             elif tipo_Escopo == 'escopo(entidade)':
-                Escopo = estrutura_GN() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
+                Escopo = estrutura_gn() #por enquanto os dois tipos de escopo são realizados pela mesma estrutura(verificar se já distinção ao longo da anotação do corpus)
             print ('Há resultado locativo?')
             realização_locativo =choice.Menu(['sim','não']).ask()
             if realização_locativo == 'sim':
@@ -17428,7 +17428,7 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
-        Ator = estrutura_GN()
+        Ator = estrutura_gn()
         Polaridade = POLARIDADE()
         Circunstância = circunstância()
         print ('Há resultado do processo?')
@@ -17470,7 +17470,7 @@ def oração_gerar():
                 if realização_escopo == 'frase_preposicional':
                     Escopo = frase_preposicional()
                 elif realização_escopo == 'grupo_nominal':
-                    Escopo = estrutura_GN()
+                    Escopo = estrutura_gn()
             elif escopo_intransitiva == '-escopo':
                 Escopo = ''
         print ('Qual o Processo?')
@@ -17481,7 +17481,7 @@ def oração_gerar():
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
-            Iniciador = estrutura_GN()
+            Iniciador = estrutura_gn()
         else:
             Iniciador = ''
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Iniciador+' '+  Polaridade + ' ' + Processo \
@@ -17496,13 +17496,13 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Ator?')
-        Ator = estrutura_GN()
+        Ator = estrutura_gn()
         Polaridade = POLARIDADE()
         Circunstância = circunstância()
         print ('Há Participante Iniciador na oração?')
         INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
         if INICIADOR == '+iniciador':
-            Iniciador = estrutura_GN() + grupo_verbal()
+            Iniciador = estrutura_gn() + grupo_verbal()
         else:
             Iniciador = ''
 
@@ -17523,13 +17523,13 @@ def oração_gerar():
    #      print ('Qual o Processo?')
    #      Processo = grupo_verbal() ##selecionar agenciado_passivo
    #      print('Qual é a Meta?')
-   #      Meta = estrutura_GN()
+   #      Meta = estrutura_gn()
    #      Polaridade = POLARIDADE ()
    #      Circunstância = circunstância()
    #      print ('Há Participante Iniciador na oração?')
    #      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
    #      if INICIADOR == '+iniciador':
-   #          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
+   #          Iniciador = estrutura_gn() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
    #      else:
    #          Iniciador = ''
    #
@@ -17586,14 +17586,14 @@ def oração_gerar():
    #      print ('Qual o Processo?')
    #      Processo = grupo_verbal() ##selecionar agenciado_passivo
    #      print('Qual é a Meta?')
-   #      Meta = estrutura_GN()
+   #      Meta = estrutura_gn()
    #      Polaridade = POLARIDADE ()
    #      Circunstância = circunstância()
    #
    #      print ('Há Participante Iniciador na oração?')
    #      INICIADOR = choice.Menu (['+iniciador','-iniciador']).ask()
    #      if INICIADOR == '+iniciador':
-   #          Iniciador = estrutura_GN() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
+   #          Iniciador = estrutura_gn() + grupo_verbal()####TENHO QUE VER AS REALIZAÇÕES DE INICIADOR(POR enquanto apenas uma realização básica)
    #      else:
    #          Iniciador = ''
    #
@@ -17646,9 +17646,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador?')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual o Atributo?')
-            Atributo = estrutura_GN()
+            Atributo = estrutura_gn()
 
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
@@ -17664,7 +17664,7 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador?')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual o Atributo?')
             Atributo = adjetivo_modificador ()## O que diferencia os dois tipos é o que realiza o Atributo. Neste caso
                                       # o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo.
@@ -17699,11 +17699,11 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Atribuidor?')
-            Atribuidor = estrutura_GN()
+            Atribuidor = estrutura_gn()
             print ('Qual o Portador?')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual o Atributo?')
-            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+            Atributo = estrutura_gn() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
 
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
@@ -17735,9 +17735,9 @@ def oração_gerar():
 
 
             print ('Qual o Portador?')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual o Atributo?')
-            Atributo = estrutura_GN() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
+            Atributo = estrutura_gn() ##ou frase preposicional; grupo nominal com Epíteto como núcleo (checar)
 
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
@@ -17769,9 +17769,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN()
+            Valor = estrutura_gn()
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
 
@@ -17791,9 +17791,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN()
+            Valor = estrutura_gn()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
 
@@ -17821,9 +17821,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN()
+            Valor = estrutura_gn()
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
 
@@ -17842,9 +17842,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN()
+            Valor = estrutura_gn()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
 
@@ -17877,11 +17877,11 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual é o Designador?')
-            Designador = estrutura_GN()
+            Designador = estrutura_gn()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN() ##ou frase preposicional?
+            Valor = estrutura_gn() ##ou frase preposicional?
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
 
@@ -17913,9 +17913,9 @@ def oração_gerar():
             print ('Qual é o Designador?')
             Designador = frase_preposicional()
             print ('Qual é o Símbolo(Token)?')
-            Símbolo = estrutura_GN()
+            Símbolo = estrutura_gn()
             print ('Qual o Valor(Value)?')
-            Valor = estrutura_GN() ##ou frase preposicional?
+            Valor = estrutura_gn() ##ou frase preposicional?
             Polaridade = POLARIDADE ()
             Circunstância = circunstância()
     #
@@ -17944,9 +17944,9 @@ def oração_gerar():
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Posse?')
-                Portador_Posse = estrutura_GN()
+                Portador_Posse = estrutura_gn()
                 print ('Qual é o Atributo/Possuidor?')
-                Atributo_Possuidor = estrutura_GN()
+                Atributo_Possuidor = estrutura_gn()
                 Polaridade = POLARIDADE()
                 Circunstância = circunstância()
 
@@ -17959,7 +17959,7 @@ def oração_gerar():
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Posse?')
-                Portador_Posse = estrutura_GN()
+                Portador_Posse = estrutura_gn()
                 print ('Qual é o Atributo/Possuidor?')
                 Atributo_Possuidor = frase_preposicional()
                 Polaridade = POLARIDADE()
@@ -17983,9 +17983,9 @@ def oração_gerar():
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Possuidor?')
-                Portador_Possuidor = estrutura_GN()
+                Portador_Possuidor = estrutura_gn()
                 print ('Qual é o Atributo/Posse?')
-                Atributo_Posse = estrutura_GN()
+                Atributo_Posse = estrutura_gn()
                 Polaridade = POLARIDADE()
                 Circunstância = circunstância()
                 oração =  Tema_interpessoal + ' ' + Tema_textual  + ' ' + Portador_Possuidor \
@@ -18000,7 +18000,7 @@ def oração_gerar():
                 print ('Qual o Processo?')
                 Processo = grupo_verbal()
                 print ('Qual o Portador/Possuidor?')
-                Portador_Posse = estrutura_GN()
+                Portador_Posse = estrutura_gn()
                 print ('Qual é o Atributo/Posse?')
                 Atributo_Possuidor = frase_preposicional()
                 Polaridade = POLARIDADE()
@@ -18040,9 +18040,9 @@ def oração_gerar():
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)/Possuído?')
-                    Símbolo_Possuído = estrutura_GN()
+                    Símbolo_Possuído = estrutura_gn()
                     print ('Qual o Valor(Value)/Possuidor?')
-                    Valor_Possuidor = estrutura_GN()
+                    Valor_Possuidor = estrutura_gn()
                     Polaridade = POLARIDADE ()
                     Circunstância = circunstância()
 
@@ -18059,7 +18059,7 @@ def oração_gerar():
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)?')
-                    Símbolo_Possuído = estrutura_GN()
+                    Símbolo_Possuído = estrutura_gn()
                     print ('Qual o Valor(Value)?')
                     Valor_Possuidor = frase_preposicional()
                     Polaridade = POLARIDADE ()
@@ -18084,9 +18084,9 @@ def oração_gerar():
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)/Possuído?')
-                    Símbolo_Possuído = estrutura_GN()
+                    Símbolo_Possuído = estrutura_gn()
                     print ('Qual o Valor(Value)/Possuidor?')
-                    Valor_Possuidor = estrutura_GN()
+                    Valor_Possuidor = estrutura_gn()
                     Polaridade = POLARIDADE ()
                     Circunstância = circunstância()
 
@@ -18103,9 +18103,9 @@ def oração_gerar():
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()
                     print ('Qual é o Símbolo(Token)?')
-                    Símbolo_Possuído = estrutura_GN()
+                    Símbolo_Possuído = estrutura_gn()
                     print ('Qual o Valor(Value)?')
-                    Valor_Possuidor = estrutura_GN()
+                    Valor_Possuidor = estrutura_gn()
                     Polaridade = POLARIDADE ()
                     Circunstância = circunstância()
 
@@ -18129,9 +18129,9 @@ def oração_gerar():
                 print ('Qual o Processo? ## GERALMENTE REALIZADOS POR: incluir, envolver, conter, consiste, providenciar')
                 Processo = grupo_verbal()
                 print ('Qual é o Símbolo(Token)/Possuidor?')
-                Símbolo_Possuidor = estrutura_GN()
+                Símbolo_Possuidor = estrutura_gn()
                 print ('Qual o Valor(Value)/Possuído?')
-                Valor_Possuído = estrutura_GN()
+                Valor_Possuído = estrutura_gn()
                 Polaridade = POLARIDADE ()
                 Circunstância = circunstância()
 
@@ -18156,7 +18156,7 @@ def oração_gerar():
                     print ('Qual o Processo?')
                     Processo = grupo_verbal()##na passiva
                     print ('Qual o Valor(Value)/Possuído?')
-                    Valor_Possuído = estrutura_GN()
+                    Valor_Possuído = estrutura_gn()
                     print ('Qual é o Símbolo(Token)/Possuidor?')
                     Símbolo_Possuidor = frase_preposicional()
                     Polaridade = POLARIDADE ()
@@ -18181,7 +18181,7 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual é o Atributo Circunstancial?')
             Atributo_Circunstancial = circunstância()
             Polaridade = POLARIDADE()
@@ -18198,9 +18198,9 @@ def oração_gerar():
             print ('Qual o Processo?')
             Processo = grupo_verbal()
             print ('Qual o Portador')
-            Portador = estrutura_GN()
+            Portador = estrutura_gn()
             print ('Qual é o Atributo Circunstancial?')
-            Atributo = estrutura_GN()
+            Atributo = estrutura_gn()
             Polaridade = POLARIDADE()
             Circunstância = circunstância()
 
@@ -18235,7 +18235,7 @@ def oração_gerar():
                 print ('Qual é o Símbolo(Token)?')
                 Símbolo = circunstância()
                 print ('Qual o Valor(Value)?')
-                Valor = estrutura_GN()
+                Valor = estrutura_gn()
                 Polaridade = POLARIDADE ()
                 Circunstância = circunstância()
 
@@ -18256,7 +18256,7 @@ def oração_gerar():
                 print ('Qual é o Símbolo(Token)?')
                 Símbolo = circunstância()
                 print ('Qual o Valor(Value)?')
-                Valor = estrutura_GN()
+                Valor = estrutura_gn()
                 Polaridade = POLARIDADE ()
                 Circunstância = circunstância()
 
@@ -18326,7 +18326,7 @@ def oração_gerar():
         print ('Qual o Processo?')
         Processo = grupo_verbal()
         print('Qual é o Existente?')
-        Existente = estrutura_GN()
+        Existente = estrutura_gn()
         Polaridade = POLARIDADE()
         Circunstância = circunstância()
         oração = Tema_interpessoal + ' ' + Tema_textual + ' ' + Polaridade\
