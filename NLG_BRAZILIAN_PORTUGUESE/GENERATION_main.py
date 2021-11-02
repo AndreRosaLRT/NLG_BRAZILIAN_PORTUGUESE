@@ -14906,7 +14906,7 @@ def AGENCIAMENTO():
 #Material
     ##VERIFICAR SE EXISTE DESCRIÇÃO DO PROCESSO MATERIAL (POR ENQUANTO, USANDO O SISTEMA DO INGLÊS)
 
-#def PROCESSO_MATERIAL():
+#def processo_material():
 #    Processo_material = choice.Menu(['PR_material_transformativo_transitivo',
 #                                     'PR_material_criativo_transitivo',
 #                                     'PR_material_transformativo_intransitivo',
@@ -14921,7 +14921,7 @@ def AGENCIAMENTO():
 #Material
     ##VERIFICAR SE EXISTE DESCRIÇÃO DO PROCESSO MATERIAL (POR ENQUANTO, USANDO O SISTEMA DO INGLÊS)
 
-def PROCESSO_MATERIAL():
+def processo_material():
 
     print ('Qual o tipo de ação realizada pelo processo?')
     TIPO_DE_AÇÃO = choice.Menu (['transformativo', 'criativo']).ask()
@@ -15550,7 +15550,7 @@ def TRANSITIVIDADE():
     
     if TIPO_DE_PROCESSO == 'Material':
         print('Selecione as opções do sistema da Oração Material')
-        Processo = PROCESSO_MATERIAL()
+        Processo = processo_material()
         Agenciamento = AGENCIAMENTO()
 
         TRANSITIVIDADE = Processo + '_' + Agenciamento

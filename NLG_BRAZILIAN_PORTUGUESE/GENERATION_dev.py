@@ -11657,7 +11657,7 @@ AGENCIAMENTO(0)
 # # # Material
 # # ##VERIFICAR SE EXISTE DESCRIÇÃO DO PROCESSO MATERIAL (POR ENQUANTO, USANDO O SISTEMA DO INGLÊS)
 
-def PROCESSO_MATERIAL(indice=None):
+def processo_material(indice=None):
     """
 
 	:param indice= 0:'PR_material_transformativo_IMPA_transitivo',
@@ -11678,8 +11678,8 @@ def PROCESSO_MATERIAL(indice=None):
 
 
 # # for i in range(4):
-# 	print(PROCESSO_MATERIAL(i))
-# PROCESSO_MATERIAL(2)
+# 	print(processo_material(i))
+# processo_material(2)
 
 def PROCESSO_RELACIONAL(indiceRel=None):
     """
@@ -12340,7 +12340,7 @@ def particula_modal(indice=None):
 def TRANSITIVIDADE(TIPO_DE_PROCESSO=None, indiceMat=None,
                    indiceAgen=None, indiceRel=None):
     if TIPO_DE_PROCESSO == 'Material':
-        Processo = PROCESSO_MATERIAL(indiceMat)
+        Processo = processo_material(indiceMat)
         Agenciamento = AGENCIAMENTO(indiceAgen)
 
     elif TIPO_DE_PROCESSO == 'Relacional':

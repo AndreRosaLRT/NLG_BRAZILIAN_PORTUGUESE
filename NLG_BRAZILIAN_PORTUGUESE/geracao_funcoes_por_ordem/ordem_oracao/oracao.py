@@ -1,3 +1,5 @@
+from builtins import KeyError, ValueError
+
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.frase_preposicional import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_verbal import *
@@ -193,13 +195,19 @@ def circunstancia(realizacao_circunstancia=None,
 ## no caso de materiais meteorológicas, o Meio conflui
 # com o Processo (por isso :AG_processo_sem_alcance,AG_processo_com_alcance );
 # pode haver escopo (Ex.: choveu uma chuva grossa)
-def AGENCIAMENTO(indice):
+def agenciamento(indice=None):
     """
-    :param AGENCIAMENTO= [0:'AG_médio_sem_alcance',1:'AG_médio_com_alcance',
-        2:'AG_efetivo_operativo',3:'AG_efetivo_receptivo',
-       4:'AG_efetivo_receptivo_não_agentivo',5:'AG_processo_sem_alcance',
-       6:'AG_processo_com_alcance']
-    :return: AGENCIAMENTO
+
+    Ex.:
+
+    >>> agenciamento(0) -> 'AG_médio_sem_alcance'
+
+    :param indice:
+    [0:'AG_médio_sem_alcance',1:'AG_médio_com_alcance',
+    2:'AG_efetivo_operativo',3:'AG_efetivo_receptivo',
+    4:'AG_efetivo_receptivo_não_agentivo',5:'AG_processo_sem_alcance',
+    6:'AG_processo_com_alcance']
+    :return: agenciamento
     """
     try:
         opcoes = ['AG_médio_sem_alcance',
@@ -211,17 +219,10 @@ def AGENCIAMENTO(indice):
                   'AG_processo_com_alcance']
         nums = [x for x in range(len(opcoes))]
         tipos = dict(zip(nums, opcoes))
-        AGENCIAMENTO = tipos[indice]
-    except:
-        AGENCIAMENTO = None
-    return AGENCIAMENTO
-
-
-#
-AGENCIAMENTO(0)
-
-
-# AGENCIAMENTO(5)
+        agn = tipos[indice]
+    except (KeyError,ValueError,TypeError):
+        agn = None
+    return agn
 
 
 # #
@@ -229,84 +230,101 @@ AGENCIAMENTO(0)
 # # # Material
 # # ##VERIFICAR SE EXISTE DESCRIÇÃO DO PROCESSO MATERIAL (POR ENQUANTO, USANDO O SISTEMA DO INGLÊS)
 
-def PROCESSO_MATERIAL(indice=None):
+def processo_material(indice=None):
     """
 
-    :param indice= 0:'PR_material_transformativo_IMPA_transitivo',
-              1:'PR_material_criativo_IMPA_transitivo',
-              2:'PR_material_transformativo_IMPA_intransitivo',
-              3:'PR_material_criativo_IMPA_intransitivo'
-    :return: Processo_material
+    Exs.:
+
+    >>> for j in range(4):
+	    ...print(processo_material(j))
+	    "PR_material_transformativo_IMPA_transitivo"
+        "PR_material_criativo_IMPA_transitivo"
+        "PR_material_transformativo_IMPA_intransitivo"
+        "PR_material_criativo_IMPA_intransitivo"
+
+    :param indice:
+        [0:'PR_material_transformativo_IMPA_transitivo',
+        1:'PR_material_criativo_IMPA_transitivo',
+        2:'PR_material_transformativo_IMPA_intransitivo',
+        3:'PR_material_criativo_IMPA_intransitivo']
+    :return: tipos de processo material
     """
-    opcoes = ['PR_material_transformativo_IMPA_transitivo',
-              'PR_material_criativo_IMPA_transitivo',
-              'PR_material_transformativo_IMPA_intransitivo',
-              'PR_material_criativo_IMPA_intransitivo']
-    nums = [x for x in range(len(opcoes))]
-    tipos = dict(zip(nums, opcoes))
-    Processo_material = tipos[indice]
+    try:
+        opcoes = ['PR_material_transformativo_IMPA_transitivo',
+                  'PR_material_criativo_IMPA_transitivo',
+                  'PR_material_transformativo_IMPA_intransitivo',
+                  'PR_material_criativo_IMPA_intransitivo']
+        nums = [x for x in range(len(opcoes))]
+        tipos = dict(zip(nums, opcoes))
+        tipo_material = tipos[indice]
 
-    return Processo_material
+    except (KeyError,ValueError,TypeError):
+        tipo_material = None
+    return tipo_material
 
-
-# # for i in range(4):
-# 	print(PROCESSO_MATERIAL(i))
-# PROCESSO_MATERIAL(2)
-
-def PROCESSO_RELACIONAL(indiceRel=None):
+def processo_relacional(indice_rel=None):
     """
-     :param tipo_de_relacional= 'PR_relacional_intensivo_atributivo',
-                                       'PR_relacional_intensivo_identificativo',
-                                       'PR_relacional_possessivo_atributivo',
-                                       'PR_relacional_possessivo_identificativo',
-                                       'PR_relacional_circunstancial_atributivo',
-                                       'PR_relacional_circunstancial_identificativo
+    Exs.:
 
+    >>> processo_relacional(0) -> "PR_relacional_intensivo_atributivo"
 
-     :return: relacional
+    :param indice_rel:
+    ['PR_relacional_intensivo_atributivo',
+   'PR_relacional_intensivo_identificativo',
+   'PR_relacional_possessivo_atributivo',
+   'PR_relacional_possessivo_identificativo',
+   'PR_relacional_circunstancial_atributivo',
+   'PR_relacional_circunstancial_identificativo]
+
+    :return:
     """
-    opcoesRelacional = ['PR_relacional_intensivo_atributivo',
-                        'PR_relacional_intensivo_identificativo',
-                        'PR_relacional_possessivo_atributivo',
-                        'PR_relacional_possessivo_identificativo',
-                        'PR_relacional_circunstancial_atributivo',
-                        'PR_relacional_circunstancial_identificativo']
-    numsRel = [x for x in range(len(opcoesRelacional))]
-    tiposRel = dict(zip(numsRel, opcoesRelacional))
-    tipoRel = tiposRel[indiceRel]
+    try:
+        opcoes_relacional = ['PR_relacional_intensivo_atributivo',
+                            'PR_relacional_intensivo_identificativo',
+                            'PR_relacional_possessivo_atributivo',
+                            'PR_relacional_possessivo_identificativo',
+                            'PR_relacional_circunstancial_atributivo',
+                            'PR_relacional_circunstancial_identificativo']
+        nums_rel = [x for x in range(len(opcoes_relacional))]
+        tipos_rel = dict(zip(nums_rel, opcoes_relacional))
+        tipo_relacional = tipos_rel[indice_rel]
 
-    return tipoRel
+        return tipo_relacional
+    except (ValueError, TypeError, KeyError):
+        return None
 
 
-PROCESSO_RELACIONAL(0)
 
-
-def atribuicao_relacao(indiceAtrib=None):
+def atribuicao_relacao(indice_atrib=None):
     """
-    :param atribuicao_relacao= 'atribuição_proj_ment_cognitiva',
-                                            'atribuição_proj_ment_desiderativa',
-                                            'atribuição_proj_verbal',
-                                            'atribuição_expan_elaboração',
-                                            'atribuição_expan_intencificação',
-                                            'sem_atribuição_de_relação'
-                                            """
-    opcoesAtribuicao = ['atribuição_proj_ment_cognitiva',
+    Exe.:
+
+    >>> atribuicao_relacao(0) -> 'atribuição_proj_ment_cognitiva'
+
+    :param indice_atrib:
+    'atribuição_proj_ment_cognitiva',
+    'atribuição_proj_ment_desiderativa',
+    'atribuição_proj_verbal',
+    'atribuição_expan_elaboração',
+    'atribuição_expan_intencificação',
+    'sem_atribuição_de_relação'
+    :return:
+    """
+    opcoes_atribuicao = ['atribuição_proj_ment_cognitiva',
                         'atribuição_proj_ment_desiderativa',
                         'atribuição_proj_verbal',
                         'atribuição_expan_elaboração',
                         'atribuição_expan_intencificação',
                         'sem_atribuição_de_relação']
-    numsAtribuicao = [x for x in range(len(opcoesAtribuicao))]
-    tiposAtrobuicao = dict(zip(numsAtribuicao, opcoesAtribuicao))
+    nums_atribuicao = [x for x in range(len(opcoes_atribuicao))]
+    tipos_atrobuicao = dict(zip(nums_atribuicao, opcoes_atribuicao))
     try:
-        tipoAtrib = tiposAtrobuicao[indiceAtrib]
+        tipo_atrib = tipos_atrobuicao[indice_atrib]
 
-        return tipoAtrib
-    except:
+        return tipo_atrib
+    except (ValueError, TypeError, KeyError):
         return ''
 
-
-# atribuicao_relacao(None)
 
 # # # TRANSITIVIDADE
 # #
@@ -324,40 +342,42 @@ def atribuicao_relacao(indiceAtrib=None):
 # # # pessoa e número já é decidido na ordem da palavra 9tenho que ver o impacto teórico que
 # # ##isso tem..não sei se preciso repetir as escolhas)
 
-def SUJEITABILIDADE(indiceRespo=None, indicePress=None):
+def sujeitabilidade(indice_respo=None, indice_press=None):
     """
+    Ex.:
 
-    :param RESPONSABILIDADE=0:'SUJ_responsável',1:'SUJ_distante_impessoal',
+    >>> sujeitabilidade(0,0) -> 'SUJ_responsável_recuperado_explícito'
+
+    :param indice_respo:'SUJ_responsável',1:'SUJ_distante_impessoal',
                             2:'SUJ_distante_não_responsável', 3:'SUJ_-sujeitabilidade'
-    :param PRESSUPOSICAO_DO_SUJEITO = 0:'recuperado_explícito', 1:'recuperado_implícito',
+    :param indice_press:'recuperado_explícito', 1:'recuperado_implícito',
                                     2:'não_recuperável', 3:'recuperação_NA'
-    :return: SUJEITABILIDADE
+    :return: tipo de sujeitabilidade
     """
-    opcoesRespo = ['SUJ_responsável', 'SUJ_distante_impessoal',
+    opcoes_respo = ['SUJ_responsável', 'SUJ_distante_impessoal',
                    'SUJ_distante_não_responsável', 'SUJ_-sujeitabilidade']
-    numsRespo = [x for x in range(len(opcoesRespo))]
-    tiposRespon = dict(zip(numsRespo, opcoesRespo))
-    tipoRespon = tiposRespon[indiceRespo]
+    nums_respo = [x for x in range(len(opcoes_respo))]
+    tipos_respon = dict(zip(nums_respo, opcoes_respo))
+    tipo_respon = tipos_respon[indice_respo]
 
-    opcoesPress = ['recuperado_explícito', 'recuperado_implícito',
+    opcoes_press = ['recuperado_explícito', 'recuperado_implícito',
                    'não_recuperável', 'recuperação_NA']
-    numsPress = [x for x in range(len(opcoesPress))]
-    tiposPress = dict(zip(numsPress, opcoesPress))
-    tipoPress = tiposPress[indicePress]
-    SUJEITABILIDADE = tipoRespon + '_' + tipoPress
+    nums_press = [x for x in range(len(opcoes_press))]
+    tipos_press = dict(zip(nums_press, opcoes_press))
+    tipo_press = tipos_press[indice_press]
+    tipo_sujeitabilidade = tipo_respon + '_' + tipo_press
 
-    return SUJEITABILIDADE
+    return tipo_sujeitabilidade
 
 
-# SUJEITABILIDADE(0,0)
 
-def TIPO_DE_MODO(indiceModo):
+def tipo_de_modo(indice_modo):
     """
 
-    :param TIPO_MODO= 'MOD_declarativo_+perguntafinito', 'MOD_declarativo_-perguntafinito',
+    :param indice_modo: 'MOD_declarativo_+perguntafinito', 'MOD_declarativo_-perguntafinito',
                        'MOD_interrogativo_elemental','MOD_interrogativo_polar',
                        'MOD_imperativo'
-    :return:
+    :return: tipo de modo
     """
     opcoes = ['MOD_declarativo_+perguntafinito', 'MOD_declarativo_-perguntafinito',
               'MOD_interrogativo_elemental', 'MOD_interrogativo_polar',
@@ -365,7 +385,7 @@ def TIPO_DE_MODO(indiceModo):
     try:
         nums = [x for x in range(len(opcoes))]
         tiposModo = dict(zip(nums, opcoes))
-        tipoModo = tiposModo[indiceModo]
+        tipoModo = tiposModo[indice_modo]
     except:
         tipoModo = 'MOD_declarativo_-perguntafinito'
     return tipoModo
@@ -469,7 +489,7 @@ def MODO(RESPONSABILIDADE=None, PRESSUPOSICAO_DO_SUJEITO=None, TIPO_MODO=None):
                        4:'MOD_imperativo'
     :return:
     """
-    MODO = SUJEITABILIDADE(RESPONSABILIDADE, PRESSUPOSICAO_DO_SUJEITO) + '_' + TIPO_DE_MODO(TIPO_MODO)
+    MODO = sujeitabilidade(RESPONSABILIDADE, PRESSUPOSICAO_DO_SUJEITO) + '_' + tipo_de_modo(TIPO_MODO)
     return MODO
 
 
@@ -912,24 +932,24 @@ def particula_modal(indice=None):
 def TRANSITIVIDADE(TIPO_DE_PROCESSO=None, indiceMat=None,
                    indiceAgen=None, indiceRel=None):
     if TIPO_DE_PROCESSO == 'Material':
-        Processo = PROCESSO_MATERIAL(indiceMat)
-        Agenciamento = AGENCIAMENTO(indiceAgen)
+        Processo = processo_material(indiceMat)
+        Agenciamento = agenciamento(indiceAgen)
 
     elif TIPO_DE_PROCESSO == 'Relacional':
-        Processo = PROCESSO_RELACIONAL(indiceRel)
-        Agenciamento = AGENCIAMENTO(indiceAgen)
+        Processo = processo_relacional(indiceRel)
+        Agenciamento = agenciamento(indiceAgen)
 
     elif TIPO_DE_PROCESSO == 'Existencial':
         Processo = 'PR_Existencial'
-        Agenciamento = AGENCIAMENTO(indiceAgen)
+        Agenciamento = agenciamento(indiceAgen)
 
     elif TIPO_DE_PROCESSO == 'Verbal':
         Processo = 'PR_Verbal'
-        Agenciamento = AGENCIAMENTO(indiceAgen)
+        Agenciamento = agenciamento(indiceAgen)
 
     elif TIPO_DE_PROCESSO == 'Mental':
         Processo = 'PR_Mental'
-        Agenciamento = AGENCIAMENTO(indiceAgen)
+        Agenciamento = agenciamento(indiceAgen)
 
     TRANSITIVIDADE = Processo + '_' + Agenciamento
     return TRANSITIVIDADE
