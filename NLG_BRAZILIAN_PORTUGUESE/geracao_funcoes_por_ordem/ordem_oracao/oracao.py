@@ -1,4 +1,3 @@
-from builtins import KeyError, ValueError
 
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.frase_preposicional import *
@@ -181,6 +180,7 @@ def circunstancia(realizacao_circunstancia=None,
 # 'ordem_lugar_preciso(ordinal)','2','feminino',None,None,
 # 			   None,None,None,None,None
 
+
 # # ##SISTEMAS DA ORAÇÃO
 # #
 ## no caso de materiais meteorológicas, o Meio conflui
@@ -227,11 +227,11 @@ def processo_material(indice=None):
     Exs.:
 
     >>> for j in range(4):
-	    ...print(processo_material(j))
-	    "PR_material_transformativo_IMPA_transitivo"
-        "PR_material_criativo_IMPA_transitivo"
-        "PR_material_transformativo_IMPA_intransitivo"
-        "PR_material_criativo_IMPA_intransitivo"
+    ...print(processo_material(j))
+    ..."PR_material_transformativo_IMPA_transitivo"
+    ..."PR_material_criativo_IMPA_transitivo"
+    ..."PR_material_transformativo_IMPA_intransitivo"
+    ..."PR_material_criativo_IMPA_intransitivo"
 
     :param indice:
         [0:'PR_material_transformativo_IMPA_transitivo',
@@ -423,6 +423,7 @@ def polaridade(tipo_polaridade=None):
     :param tipo_polaridade= 'positiva', 'negativa'
     :return: Adjunto_polaridade
     """
+    adjunto_polaridade = ''
     try:
         if tipo_polaridade == 'positiva':
             adjunto_polaridade = ''
@@ -569,6 +570,47 @@ def conjuncao_continuativa(indice=None):
 # 								 'onde', 'de quando', 'que', 'por onde']).ask()
 #
 
+def elemento_qu(indice=None):
+    """
+    Retorna elementos QU.
+
+    Ex.:
+    >>> elemento_qu(0) -> 'o que'
+
+    :param indice: 0:'o que', 1:'quem', 2:'qual', 3:'quanto',
+                                   4:'quantos', 5:'quando', 6:'como', :7'onde',
+                                  8:'de quem', 9:'por quê', 10:'pra quê', 11:'por que'
+    :return:
+    """
+    try:
+        opcoes = ['o que', 'quem', 'qual', 'quanto',
+                  'quantos', 'quando', 'como', 'onde',
+                  'de quem', 'por quê', 'pra quê', 'por que']
+        nums = [x for x in range(len(opcoes))]
+        elementos = dict(zip(nums, opcoes))
+        elem_qu = elementos[indice]
+        return elem_qu
+    except:
+        return ''
+
+
+def particula_modal(indice=None):
+    """
+
+    :param indice: {0: 'né', 1: 'ué', 2: 'ó', 3: 'uai', 4: 'é'}
+    ##HÁ MAIS PARTÍCULAS....
+    :return:
+    """
+    try:
+        opcoes = ['né', 'ué', 'ó', 'uai', 'é']
+        nums = [x for x in range(len(opcoes))]
+        particulas = dict(zip(nums, opcoes))
+        particula_modal = particulas[indice]
+        return particula_modal
+    except:
+        return ''
+
+
 def tema_textual(tem_tema_textual=False, indice_cont=None,
                  tipo_de_conjuncao=None,
                  indice_conj=None, tipo_de_relativo=None,
@@ -647,10 +689,7 @@ def tema_textual(tem_tema_textual=False, indice_cont=None,
 
 
 ###tema interpessoal
-# TIPO_TEMA_INTERPESSOAL = choice.Menu(['TI_avaliação_modo', 'TI_avaliação_comentário',
-# 		                                      'TI_encenação_troca', 'TI_encenação_papel_falante', 'TI_polaridade',
-# 		                                      'TI_encenação_papel_ouvinte',
-# 		                                      'TI_NA']).ask()
+# TIPO_TEMA_INTERPESSOAL = choice.Menu().ask()
 # tipo_realizacao = choice.Menu(['grupo_adverbial', 'frase_preposicional']).ask()
 
 
@@ -664,25 +703,96 @@ def tema_interpessoal(tipo_tema_interpessoal=None, tipo_realizacao=None,
 
                       # frase prepos
                       indice_preposicao_frase=None, dissoc_ente_nucleo=None, tem_qualificador=None,
-                      tipo_qualificador=None, indice_preposicao_qualif=None, determinacao_especificidade_beta=None,
-                      orientacao_beta=None,
-                      genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
-                      determinacao_especificidade_alpha=None, orientacao_alpha=None, genero_alpha=None,
-                      numero_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocucao_possuidor=None,
-                      numero_obj_possuido=None, genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None,
-                      tipo_numerativo=None, cardinal=None, genero_numerativo=None, tipo_de_ente=None,
-                      tipo_de_nao_consciente=None,
-                      tipo_de_nao_consciente_material=None, tipo_de_nao_consciente_semiotico=None,
-                      classe_palavra_ente=None, substantivo_lematizado=None, numero=None,
-                      tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_prop_fp=None,
-                      pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
-                      morfologia_do_pronome=None, reflexivo=None,
-                      adjetivo_epiteto=None,
-                      adjetivo_classificador=None, genero_adjetivo=None, numero_adjetivo=None,
-                      contracao=None,
+                      tipo_qualificador=None, indice_preposicao_qualif=None,
+                      determinacao_especificidade_beta=None, orientacao_beta=None, genero_beta=None, numero_beta=None,
+                      morfologia_do_pronome_beta=None, determinacao_especificidade_alpha=None, orientacao_alpha=None,
+                      genero_alpha=None, numero_alpha=None, morfologia_do_pronome_alpha=None,
+                      pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None, genero_obj_possuido=None,
+                      pessoa_da_interlocucao_proximidade=None, tipo_numerativo=None, cardinal=None,
+                      genero_numerativo=None,
+                      tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
+                      tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
+                      numero_subs=None, genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
+                      nome_prop_fp=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+                      morfologia_do_pronome=None, reflexivo=None, adjetivo_epiteto=None,
+                      adjetivo_classificador=None, genero_adjetivo=None, numero_adjetivo=None, contracao=None,
                       #
+
                       indice_elem_qu=None, indice_part_modal=None,
-                      nome_prop=None):
+                      nome_prop=None
+                      ):
+    """
+    Retorna o Tema interpessoal.
+    
+    Ex.:
+    
+    >>> tema_interpessoal("TI_avaliação_comentário", 'grupo_adverbial','Modo', 18) -> 'infelizmente'
+    >>> tema_interpessoal('TI_avaliação_comentário','grupo_adverbial','Modo',12) -> 'tristemente'
+    
+    :param tipo_tema_interpessoal: ['TI_avaliação_modo', 'TI_avaliação_comentário',
+                                'TI_encenação_troca', 'TI_encenação_papel_falante', 'TI_polaridade',
+                                'TI_encenação_papel_ouvinte','TI_NA']
+    :param tipo_realizacao: ['grupo_adverbial','frase_preposicional]
+    :param tipo_de_adverbio1: 
+    :param ind1: 
+    :param tipo_de_adverbio2: 
+    :param ind2: 
+    :param tipo_de_adverbio3: 
+    :param ind3: 
+    :param tipo_de_adverbio4: 
+    :param ind4: 
+    :param tipo_de_adverbio5: 
+    :param ind5: 
+    :param indice_preposicao_frase: 
+    :param dissoc_ente_nucleo: 
+    :param tem_qualificador: 
+    :param tipo_qualificador: 
+    :param indice_preposicao_qualif: 
+    :param determinacao_especificidade_beta: 
+    :param orientacao_beta: 
+    :param genero_beta: 
+    :param numero_beta: 
+    :param morfologia_do_pronome_beta: 
+    :param determinacao_especificidade_alpha: 
+    :param orientacao_alpha: 
+    :param genero_alpha: 
+    :param numero_alpha: 
+    :param morfologia_do_pronome_alpha: 
+    :param pessoa_da_interlocucao_possuidor: 
+    :param numero_obj_possuido: 
+    :param genero_obj_possuido: 
+    :param pessoa_da_interlocucao_proximidade: 
+    :param tipo_numerativo: 
+    :param cardinal: 
+    :param genero_numerativo: 
+    :param tipo_de_ente: 
+    :param tipo_de_nao_consciente: 
+    :param tipo_de_nao_consciente_material: 
+    :param tipo_de_nao_consciente_semiotico: 
+    :param classe_palavra_ente: 
+    :param substantivo_lematizado: 
+    :param numero_subs: 
+    :param genero_subs: 
+    :param tipo_feminino_ao: 
+    :param tipo_masc_ao: 
+    :param acent_tonica: 
+    :param nome_prop_fp: 
+    :param pessoa_da_interlocucao: 
+    :param transitividade_verbo: 
+    :param tonicidade: 
+    :param morfologia_do_pronome: 
+    :param reflexivo: 
+    :param adjetivo_epiteto: 
+    :param adjetivo_classificador: 
+    :param genero_adjetivo: 
+    :param numero_adjetivo: 
+    :param contracao: 
+    :param indice_elem_qu: 
+    :param indice_part_modal: 
+    :param nome_prop: 
+    :return: 
+    """
+    tema_int = ''
     try:
 
         if tipo_tema_interpessoal == 'TI_avaliação_modo' or tipo_tema_interpessoal == 'TI_avaliação_comentário':
@@ -693,21 +803,30 @@ def tema_interpessoal(tipo_tema_interpessoal=None, tipo_realizacao=None,
                                            tipo_de_adverbio4, ind4,
                                            tipo_de_adverbio5, ind5, )
             elif tipo_realizacao == 'frase_preposicional':
-                tema_int = frase_preposicional(indice_preposicao_frase, dissoc_ente_nucleo, tem_qualificador,
+                tema_int = frase_preposicional(indice_preposicao_frase, dissoc_ente_nucleo,
+                                               tem_qualificador,
                                                tipo_qualificador, indice_preposicao_qualif,
-                                               determinacao_especificidade_beta, orientacao_beta, genero_beta,
-                                               numero_beta, morfologia_do_pronome_beta,
-                                               determinacao_especificidade_alpha, orientacao_alpha, genero_alpha,
-                                               numero_alpha, morfologia_do_pronome_alpha,
+                                               determinacao_especificidade_beta, orientacao_beta,
+                                               genero_beta, numero_beta,
+                                               morfologia_do_pronome_beta, determinacao_especificidade_alpha,
+                                               orientacao_alpha,
+                                               genero_alpha, numero_alpha, morfologia_do_pronome_alpha,
                                                pessoa_da_interlocucao_possuidor, numero_obj_possuido,
-                                               genero_obj_possuido, pessoa_da_interlocucao_proximidade, tipo_numerativo,
-                                               cardinal, genero_numerativo, tipo_de_ente, tipo_de_nao_consciente,
-                                               tipo_de_nao_consciente_material, tipo_de_nao_consciente_semiotico,
-                                               classe_palavra_ente, substantivo_lematizado, numero, tipo_feminino_ao,
-                                               tipo_masc_ao, acent_tonica, nome_prop_fp, pessoa_da_interlocucao,
-                                               transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo,
-                                               adjetivo_epiteto, adjetivo_classificador, genero_adjetivo,
-                                               numero_adjetivo, contracao)
+                                               genero_obj_possuido,
+                                               pessoa_da_interlocucao_proximidade, tipo_numerativo,
+                                               cardinal,
+                                               genero_numerativo,
+                                               tipo_de_ente, tipo_de_nao_consciente,
+                                               tipo_de_nao_consciente_material,
+                                               tipo_de_nao_consciente_semiotico, classe_palavra_ente,
+                                               substantivo_lematizado,
+                                               numero_subs, genero_subs, tipo_feminino_ao,
+                                               tipo_masc_ao, acent_tonica,
+                                               nome_prop_fp, pessoa_da_interlocucao,
+                                               transitividade_verbo, tonicidade,
+                                               morfologia_do_pronome, reflexivo, adjetivo_epiteto,
+                                               adjetivo_classificador, genero_adjetivo, numero_adjetivo,
+                                               contracao)
 
         elif tipo_tema_interpessoal == 'TI_encenação_troca':
             tema_int = elemento_qu(indice_elem_qu)
@@ -720,218 +839,117 @@ def tema_interpessoal(tipo_tema_interpessoal=None, tipo_realizacao=None,
         tema_int = ''
 
     return tema_int
+#
 
-
-tema_interpessoal("TI_avaliação_comentário", 'frase_preposicional',
-                  # grupo adverbial
-                  None, None,
-                  None, None,
-                  None, None,
-                  None, None,
-                  None, None,
-
-                  # frase prepos
-                  indice_preposicao_frase=0, dissoc_ente_nucleo=None, tem_qualificador=None,
-                  tipo_qualificador=None, indice_preposicao_qualif=None, determinacao_especificidade_beta=None,
-                  orientacao_beta=None,
-                  genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
-                  determinacao_especificidade_alpha='específico', orientacao_alpha='NA',
-                  genero_alpha='masculino', numero_alpha='singular', morfologia_do_pronome_alpha=None,
-                  pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None,
-                  genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None,
-                  tipo_numerativo=None, cardinal=None, genero_numerativo='não-binário',
-                  tipo_de_ente='não_consciente',
-                  tipo_de_nao_consciente='material', tipo_de_nao_consciente_material='abstração_material',
-                  tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='substantivo_comum',
-                  substantivo_lematizado='homem', numero='singular', tipo_feminino_ao=None,
-                  tipo_masc_ao=None, acent_tonica=None, nome_prop_fp=None, pessoa_da_interlocucao=None,
-                  transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,
-                  adjetivo_epiteto='alto', adjetivo_classificador=None, genero_adjetivo='masculino',
-                  numero_adjetivo='singular', contracao=None,
-
-                  indice_elem_qu=None, indice_part_modal=None,
-                  nome_prop=None)
-
-
-# TEMA_INTERPESSOAL(TIPO_TEMA_INTERPESSOAL="TI_avaliação_comentário", tipoRealizacao='frase_preposicional',
-# 				  indice_preposicao_frase=4,
-# 				  genero='não-binário',
-# 				  tipo_de_ente='não_consciente', tipo_de_nao_consciente='semiótico',
-# 				  tipo_de_nao_consciente_material=None, classe_palavra_ente='substantivo_comum',
-# 				  substantivo_lematizado='certeza', numero='singular'
-# 				  )
 # #
-# TEMA_INTERPESSOAL(TIPO_TEMA_INTERPESSOAL='TI_avaliação_comentário',
-# 				  tipoRealizacao='grupo_adverbial', tipo_de_adverbio1='Modo', ind1=12)
+
 
 ####TEMA IDEACIONAL
-# print('Qual a ORIENTAÇÃO MODAL do tema?')
-# 	ORIENTAÇÃO_MODAL = choice.Menu(['orientado', 'não_orientado']).ask()
-#
-# 	print('Qual a ORIENTAÇÃO TRANSITIVA do tema?')
-# 	ORIENTACAO_TRANSITIVA = choice.Menu(['direcional', 'não_direcional']).ask()
-#
-# 	print('Qual a SELEÇÃO TEMÁTICA do tema?')
-# 	SELEÇÃO_TEMÁTICA = choice.Menu(['default', 'proeminente']).ask()
-# print('Qual o tipo_pessoa de TEMA DEFAULT?')
-# 		TEMA_DEFAULT = choice.Menu(['imperativo',
-# 		                            'indicativo']).ask()
-#
-# print('Qual o tipo_pessoa de TEMA DEFAULT INDICATIVO?')
-# 			TEMA_DEFAULT_indicativo = choice.Menu(['declarativo',
-# 			                                       'interrogativo_polar',
-# 			                                       'interrogativo_sujeito_elemental']).ask()
-# print('Há TEMA IDENTIFICATIVO?')
-# 			TEMA_IDENTIFICATIVO = choice.Menu(['NA',
-# 			                                   'equativo_codificação',
-# 			                                   'equativo_decodificação']).ask()
-# TEMA_ÂNGULO = choice.Menu(['TID_fonte', 'TID_ponto_de_vista']).ask()
-# TEMA_ELEMENTAL = choice.Menu(['TID_complemento_elemental', 'TID_adjunto_elemental']).ask()
-# TEMA_PROEMINENTE = choice.Menu(['TID_perspectiva_intensificação',
-# 		                                'TID_perspectiva_outro',
-# 		                                'TID_intensivo_absoluto',
+
+# TEMA_ÂNGULO = choice.Menu().ask()
+# TEMA_ELEMENTAL = choice.Menu().ask()
+# TEMA_PROEMINENTE = choice.Menu().ask()
+
+
+def tema_ideacional(orientacao_modal=None, orientacao_transitiva=None,
+                    selecao_tematica=None, tema_default=None,
+                    tema_default_indicativo=None, tema_identificativo=None,
+                    tema_angulo=None, tema_elemental=None,
+                    tema_proeminente=None):
+    """
+    Ex.:
+
+    >>> tema_ideacional(orientacao_modal='orientado', orientacao_transitiva='direcional',
+    ...selecao_tematica='default', tema_default='indicativo',
+    ...tema_default_indicativo='declarativo', tema_identificativo='NA',
+    ...tema_angulo=None, tema_elemental=None,
+    ...tema_proeminente=None) -> 'TID_default_indicativo_declarativo_TIdentif_NA'
+
+    >>> tema_ideacional('não_orientado','não_direcional','proeminente', None,None, 'NA',
+    ...None,None, 'intensivo_relativo_papel_transitivo_nuclear_participante')
+    -> 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante'
+
+    :param orientacao_modal:['orientado', 'não_orientado']
+    :param orientacao_transitiva:['direcional', 'não_direcional']
+    :param selecao_tematica:['default', 'proeminente']
+    :param tema_default:['imperativo','indicativo']
+    :param tema_default_indicativo:['declarativo','interrogativo_polar','interrogativo_sujeito_elemental']
+    :param tema_identificativo:['NA','equativo_codificação','equativo_decodificação']
+    :param tema_angulo:['TID_fonte', 'TID_ponto_de_vista']
+    :param tema_elemental:['TID_complemento_elemental', 'TID_adjunto_elemental']
+    :param tema_proeminente:['perspectiva_intensificação','perspectiva_outro',
+# 		                                'intensivo_absoluto',
 # 		                                'intensivo_relativo_papel_transitivo_nuclear_participante',
-# 		                                'TID_intensivo_relativo_papel_transitivo_nuclear_processo',
-# 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_expansão_elaboração',
-# 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_expansão_extensão',
-# 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto',
-# 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto_estensivo_reprisado',
-# 		                                'TID_intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto_estensivo_recuperável',
-# 		                                'TID_intensivo_relativo_predicação_default_local',
-# 		                                'TID_intensivo_relativo_predicação_proeminente_local'
-#
-# 		                                ]).ask()
-
-
-def TEMA_IDEACIONAL(ORIENTACAO_MODAL=None, ORIENTACAO_TRANSITIVA=None,
-                    SELECAO_TEMATICA=None, TEMA_DEFAULT=None,
-                    TEMA_DEFAULT_indicativo=None, TEMA_IDENTIFICATIVO=None,
-                    TEMA_ANGULO=None, TEMA_ELEMENTAL=None,
-                    TEMA_PROEMINENTE=None):
-    if ORIENTACAO_MODAL == 'orientado' and ORIENTACAO_TRANSITIVA == 'direcional' and SELECAO_TEMATICA == 'default':
-
-        if TEMA_DEFAULT == 'imperativo':
-            TEMA_IDEACIONAL = 'TID_default_imperativo'
-
-        elif TEMA_DEFAULT == 'indicativo':
-
-            if TEMA_DEFAULT_indicativo == 'declarativo' and TEMA_IDENTIFICATIVO == 'NA':
-
-                TEMA_IDEACIONAL = 'TID_default_indicativo_declarativo_TIdentif_NA'
-
-            elif TEMA_DEFAULT_indicativo == 'interrogativo_polar' and TEMA_IDENTIFICATIVO == 'NA':
-
-                TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_polar_TIdentif_NA'
-
-            elif TEMA_DEFAULT_indicativo == 'interrogativo_sujeito_elemental' and TEMA_IDENTIFICATIVO == 'NA':
-
-                TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_NA'
-
-            elif TEMA_DEFAULT_indicativo == 'declarativo' and TEMA_IDENTIFICATIVO == 'equativo_decodificação':
-                TEMA_IDEACIONAL = 'TID_default_indicativo_declarativo_TIdentif_equativo_decodificação'
-
-            elif TEMA_DEFAULT_indicativo == 'interrogativo_polar' and TEMA_IDENTIFICATIVO == 'equativo_decodificação':
-
-                TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_decodificação'
-
-            elif TEMA_DEFAULT_indicativo == 'interrogativo_sujeito_elemental' and TEMA_IDENTIFICATIVO == 'equativo_decodificação':
-
-                TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_decodificação'
-
-            elif TEMA_DEFAULT_indicativo == 'declarativo' and TEMA_IDENTIFICATIVO == 'equativo_codificação':
-
-                TEMA_IDEACIONAL = 'TID_default_indicativo_declarativo_TIdentif_equativo_codificação'
-
-            elif TEMA_DEFAULT_indicativo == 'interrogativo_polar' and TEMA_IDENTIFICATIVO == 'equativo_codificação':
-
-                TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_codificação'
-
-            elif TEMA_DEFAULT_indicativo == 'interrogativo_sujeito_elemental' and TEMA_IDENTIFICATIVO == 'equativo_codificação':
-
-                TEMA_IDEACIONAL = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_codificação'
-
-    elif ORIENTACAO_MODAL == 'não_orientado' and ORIENTACAO_TRANSITIVA == 'direcional' and SELECAO_TEMATICA == 'proeminente':
-        if TEMA_ANGULO == 'fonte':
-            TEMA_IDEACIONAL = 'TID_angulo_fonte'
-        elif TEMA_ANGULO == 'ponto_de_vista':
-            TEMA_IDEACIONAL = 'TID_angulo_ponto_de_vista'
-    elif ORIENTACAO_MODAL == 'orientado' and ORIENTACAO_TRANSITIVA == 'não_direcional' and SELECAO_TEMATICA == 'default':
-        if TEMA_ELEMENTAL == 'complemento_elemental':
-            TEMA_IDEACIONAL = 'TID_complemento_elemental'
-        elif TEMA_ELEMENTAL == 'adjunto_elemental':
-            TEMA_IDEACIONAL = 'TID_adjunto_elemental'
-    elif ORIENTACAO_MODAL == 'não_orientado' and ORIENTACAO_TRANSITIVA == 'não_direcional' and SELECAO_TEMATICA == 'proeminente':
-
-        TEMA_IDEACIONAL = 'TID_proeminente_' + TEMA_PROEMINENTE
-
-    return TEMA_IDEACIONAL
-
-
-# TEMA_IDEACIONAL(ORIENTACAO_MODAL='orientado',ORIENTACAO_TRANSITIVA='direcional',
-# 				SELECAO_TEMATICA='default', TEMA_DEFAULT='indicativo',
-# 				TEMA_DEFAULT_indicativo='declarativo', TEMA_IDENTIFICATIVO='NA',
-# 				TEMA_ANGULO=None, TEMA_ELEMENTAL=None, TEMA_PROEMINENTE=None)
-# #
-# TEMA_IDEACIONAL(ORIENTACAO_MODAL='não_orientado',ORIENTACAO_TRANSITIVA='não_direcional',
-# 				SELECAO_TEMATICA='proeminente', TEMA_DEFAULT=None,
-# 				TEMA_DEFAULT_indicativo=None, TEMA_IDENTIFICATIVO='NA',
-# 				TEMA_ANGULO=None, TEMA_ELEMENTAL=None, TEMA_PROEMINENTE='intensivo_relativo_papel_transitivo_nuclear_participante')
-
-# intensivo_relativo_papel_transitivo_nuclear_participante
-
-# TEMA_IDEACIONAL(ORIENTACAO_MODAL='orientado',ORIENTACAO_TRANSITIVA='não_direcional',
-# 				SELECAO_TEMATICA='default', TEMA_DEFAULT=None,
-# 				TEMA_DEFAULT_indicativo='declarativo', TEMA_IDENTIFICATIVO='NA',
-# 				TEMA_ANGULO=None, TEMA_ELEMENTAL='complemento_elemental', TEMA_PROEMINENTE=None)
-
-def elemento_qu(indice=None):
+# 		                                'intensivo_relativo_papel_transitivo_nuclear_processo',
+# 		                                'intensivo_relativo_papel_transitivo_circunstancial_expansão_elaboração',
+# 		                                'intensivo_relativo_papel_transitivo_circunstancial_expansão_extensão',
+# 		                                'intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto',
+# 		                                'intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto_estensivo_reprisado',
+# 		                                'intensivo_relativo_papel_transitivo_circunstancial_projeção_assunto_estensivo_recuperável',
+# 		                                'intensivo_relativo_predicação_default_local',
+# 		                                'intensivo_relativo_predicação_proeminente_local']
+    :return: tipo de tema ideacional
     """
+    tema_id = ''
+    if orientacao_modal == 'orientado' and orientacao_transitiva == 'direcional' and selecao_tematica == 'default':
 
-    :param indice: 0:'o que', 1:'quem', 2:'qual', 3:'quanto',
-                                   4:'quantos', 5:'quando', 6:'como', :7'onde',
-                                  8:'de quem', 9:'por quê', 10:'pra quê', 11:'por que'
-    :return:
-    """
-    try:
-        opcoes = ['o que', 'quem', 'qual', 'quanto',
-                  'quantos', 'quando', 'como', 'onde',
-                  'de quem', 'por quê', 'pra quê', 'por que']
-        nums = [x for x in range(len(opcoes))]
-        elementos = dict(zip(nums, opcoes))
-        elem_qu = elementos[indice]
+        if tema_default == 'imperativo':
+            tema_id = 'TID_default_imperativo'
 
-    except:
-        elem_qu = ''
+        elif tema_default == 'indicativo':
 
-    return elem_qu
+            if tema_default_indicativo == 'declarativo' and tema_identificativo == 'NA':
+
+                tema_id = 'TID_default_indicativo_declarativo_TIdentif_NA'
+
+            elif tema_default_indicativo == 'interrogativo_polar' and tema_identificativo == 'NA':
+
+                tema_id = 'TID_default_indicativo_interrogativo_polar_TIdentif_NA'
+
+            elif tema_default_indicativo == 'interrogativo_sujeito_elemental' and tema_identificativo == 'NA':
+
+                tema_id = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_NA'
+
+            elif tema_default_indicativo == 'declarativo' and tema_identificativo == 'equativo_decodificação':
+                tema_id = 'TID_default_indicativo_declarativo_TIdentif_equativo_decodificação'
+
+            elif tema_default_indicativo == 'interrogativo_polar' and tema_identificativo == 'equativo_decodificação':
+
+                tema_id = 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_decodificação'
+
+            elif tema_default_indicativo == 'interrogativo_sujeito_elemental' and tema_identificativo == 'equativo_decodificação':
+
+                tema_id = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_decodificação'
+
+            elif tema_default_indicativo == 'declarativo' and tema_identificativo == 'equativo_codificação':
+
+                tema_id = 'TID_default_indicativo_declarativo_TIdentif_equativo_codificação'
+
+            elif tema_default_indicativo == 'interrogativo_polar' and tema_identificativo == 'equativo_codificação':
+
+                tema_id = 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_codificação'
+
+            elif tema_default_indicativo == 'interrogativo_sujeito_elemental' and tema_identificativo == 'equativo_codificação':
+
+                tema_id = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_codificação'
+
+    elif orientacao_modal == 'não_orientado' and orientacao_transitiva == 'direcional' and selecao_tematica == 'proeminente':
+        if tema_angulo == 'fonte':
+            tema_id = 'TID_angulo_fonte'
+        elif tema_angulo == 'ponto_de_vista':
+            tema_id = 'TID_angulo_ponto_de_vista'
+    elif orientacao_modal == 'orientado' and orientacao_transitiva == 'não_direcional' and selecao_tematica == 'default':
+        if tema_elemental == 'complemento_elemental':
+            tema_id = 'TID_complemento_elemental'
+        elif tema_elemental == 'adjunto_elemental':
+            tema_id = 'TID_adjunto_elemental'
+    elif orientacao_modal == 'não_orientado' and orientacao_transitiva == 'não_direcional' and selecao_tematica == 'proeminente':
+
+        tema_id = 'TID_proeminente_' + tema_proeminente
+
+    return tema_id
 
 
-# elemento_qu()
-# elemento_qu(56)
-# elemento_qu(3)
-
-def particula_modal(indice=None):
-    """
-
-    :param indice: {0: 'né', 1: 'ué', 2: 'ó', 3: 'uai', 4: 'é'}
-    ##HÁ MAIS PARTÍCULAS....
-    :return:
-    """
-    try:
-        opcoes = ['né', 'ué', 'ó', 'uai', 'é']
-        nums = [x for x in range(len(opcoes))]
-        particulas = dict(zip(nums, opcoes))
-        particula_modal = particulas[indice]
-
-    except:
-        particula_modal = ''
-    return particula_modal
-
-
-#
-# particula_modal(1)
-# particula_modal()
-# #
 # # ## NO CASO DO SISTEMA DE AVALIAÇÃO_MODAL EU NÃO CONTEMPLEI AINDA  O SISTEMA, POR ENQUANTO VOU ME
 # # # ATER APENAS AO SUBSISTEMA DE POLARIDADE.
 # #
@@ -940,39 +958,64 @@ def particula_modal(indice=None):
 #
 ####
 # print('Qual o tipo_pessoa de Processo?')
-# 	TIPO_DE_PROCESSO = choice.Menu(['Material', 'Relacional',
-# 	                                'Mental', 'Verbal',
-# 	                                'Existencial']).ask()
+# 	TIPO_DE_PROCESSO = choice.Menu().ask()
 # print('Selecione as opções do sistema da Oração Material')
 
-def TRANSITIVIDADE(TIPO_DE_PROCESSO=None, indiceMat=None,
-                   indiceAgen=None, indiceRel=None):
-    if TIPO_DE_PROCESSO == 'Material':
-        Processo = processo_material(indiceMat)
-        Agenciamento = agenciamento(indiceAgen)
 
-    elif TIPO_DE_PROCESSO == 'Relacional':
-        Processo = processo_relacional(indiceRel)
-        Agenciamento = agenciamento(indiceAgen)
+# desenvolvendo
+def transitividade(tipo_de_processo=None, indice_material=None,
+                   indice_agenciamento=None, indice_relacional=None):
+    """
+    Retorna a transitividade da oração.
 
-    elif TIPO_DE_PROCESSO == 'Existencial':
-        Processo = 'PR_Existencial'
-        Agenciamento = agenciamento(indiceAgen)
+    Ex.:
 
-    elif TIPO_DE_PROCESSO == 'Verbal':
-        Processo = 'PR_Verbal'
-        Agenciamento = agenciamento(indiceAgen)
+    >>> transitividade(tipo_de_processo='Relacional',indice_material=None, indice_agenciamento=1, indice_relacional=0)
+    -> 'PR_relacional_intensivo_atributivo_sem_atribuição_de_relação_AG_médio_com_alcance':
+    :param tipo_de_processo: ['Material', 'Relacional',
+                            'Mental', 'Verbal',
+                            'Existencial']
+    :param indice_material: [0:"PR_material_transformativo_IMPA_transitivo",
+    1:"PR_material_criativo_IMPA_transitivo"
+    2:"PR_material_transformativo_IMPA_intransitivo",
+    3:"PR_material_criativo_IMPA_intransitivo]
+    :param indice_agenciamento: [0:'AG_médio_sem_alcance',1:'AG_médio_com_alcance',
+    2:'AG_efetivo_operativo',3:'AG_efetivo_receptivo',
+    4:'AG_efetivo_receptivo_não_agentivo',5:'AG_processo_sem_alcance',
+    6:'AG_processo_com_alcance']
+    :param indice_relacional:  [0:'PR_relacional_intensivo_atributivo',
+   1:'PR_relacional_intensivo_identificativo',
+   2:'PR_relacional_possessivo_atributivo',
+   3:'PR_relacional_possessivo_identificativo',
+   4:'PR_relacional_circunstancial_atributivo',
+   5'PR_relacional_circunstancial_identificativo]
+    :return:
+    """
+    processo, agnciamento = '', ''
+    if tipo_de_processo == 'Material':
+        processo = processo_material(indice_material)
+        agnciamento = agenciamento(indice_agenciamento)
 
-    elif TIPO_DE_PROCESSO == 'Mental':
-        Processo = 'PR_Mental'
-        Agenciamento = agenciamento(indiceAgen)
+    elif tipo_de_processo == 'Relacional':
+        processo = processo_relacional(indice_relacional)
+        agnciamento = agenciamento(indice_agenciamento)
 
-    TRANSITIVIDADE = Processo + '_' + Agenciamento
-    return TRANSITIVIDADE
+    elif tipo_de_processo == 'Existencial':
+        processo = 'PR_Existencial'
+        agnciamento = agenciamento(indice_agenciamento)
+
+    elif tipo_de_processo == 'Verbal':
+        processo = 'PR_Verbal'
+        agnciamento = agenciamento(indice_agenciamento)
+
+    elif tipo_de_processo == 'Mental':
+        processo = 'PR_Mental'
+        agnciamento = agenciamento(indice_agenciamento)
+
+    real_transitividade = processo + '_' + agnciamento
+    return real_transitividade
 
 
-# #'PR_relacional_intensivo_atributivo_sem_atribuição_de_relação_AG_médio_com_alcance':
-# TRANSITIVIDADE(TIPO_DE_PROCESSO='Relacional',indiceMat=None, indiceAgen=1, indiceRel=0)
 
 # TRANSITIVIDADE(TIPO_DE_PROCESSO='Material', indiceMat=0, indiceAgen=2,indiceRel=None, indiceAtrib=None)
 # TRANSITIVIDADE(TIPO_DE_PROCESSO='Material', indiceMat=1, indiceAgen=2,indiceRel=None, indiceAtrib=None)
@@ -1172,7 +1215,7 @@ def oracaoMental(
 
 ):
     try:
-        Transitividade = TRANSITIVIDADE(TIPO_DE_PROCESSO, indiceMat, indiceAgen, indiceRel, indiceAtrib)
+        Transitividade = transitividade(TIPO_DE_PROCESSO, indiceMat, indiceAgen, indiceRel, indiceAtrib)
         Modo = modo(RESPONSABILIDADE, PRESSUPOSICAO_DO_SUJEITO, TIPO_MODO)
         Tema_interpessoal = tema_interpessoal(TIPO_TEMA_INTERPESSOAL, T_INTER_tipoRealizacao, T_INTER_tipo_de_adverbio1,
                                               T_INTER_ind1, T_INTER_tipo_de_adverbio2, T_INTER_ind2,
@@ -1211,7 +1254,7 @@ def oracaoMental(
                                     T_TEXT_tipo_de_conjuncao_Conj, T_TEXT_conj_extensoConj, T_TEXT_indiceConj,
                                     T_TEXT_tipo_insercao_Rel, T_TEXT_pron_extenso_Rel, T_TEXT_tipo_de_relativo,
                                     T_TEXT_tipo_pronome_relativo, T_TEXT_generoTemaTextual, T_TEXT_numeroTemaTextual)
-        Tema_id = TEMA_IDEACIONAL(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
+        Tema_id = tema_ideacional(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
                                   TEMA_DEFAULT_indicativo, TEMA_IDENTIFICATIVO, TEMA_ANGULO, TEMA_ELEMENTAL,
                                   TEMA_PROEMINENTE)
         Polaridade = polaridade(tipo_polaridade)
@@ -2181,7 +2224,7 @@ def oracaoMaterial(
         CIRC_ORACAO_ind4=None, CIRC_ORACAO_tipo_de_adverbio5=None, CIRC_ORACAO_ind5=None
 ):
     try:
-        Transitividade = TRANSITIVIDADE(TIPO_DE_PROCESSO, indiceMat, indiceAgen, indiceRel, indiceAtrib)
+        Transitividade = transitividade(TIPO_DE_PROCESSO, indiceMat, indiceAgen, indiceRel, indiceAtrib)
         Modo = modo(RESPONSABILIDADE, PRESSUPOSICAO_DO_SUJEITO, TIPO_MODO)
         Tema_interpessoal = tema_interpessoal(TIPO_TEMA_INTERPESSOAL, T_INTER_tipoRealizacao, T_INTER_tipo_de_adverbio1,
                                               T_INTER_ind1, T_INTER_tipo_de_adverbio2, T_INTER_ind2,
@@ -2220,7 +2263,7 @@ def oracaoMaterial(
                                     T_TEXT_tipo_de_conjuncao_Conj, T_TEXT_conj_extensoConj, T_TEXT_indiceConj,
                                     T_TEXT_tipo_insercao_Rel, T_TEXT_pron_extenso_Rel, T_TEXT_tipo_de_relativo,
                                     T_TEXT_tipo_pronome_relativo, T_TEXT_generoTemaTextual, T_TEXT_numeroTemaTextual)
-        Tema_id = TEMA_IDEACIONAL(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
+        Tema_id = tema_ideacional(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
                                   TEMA_DEFAULT_indicativo, TEMA_IDENTIFICATIVO, TEMA_ANGULO, TEMA_ELEMENTAL,
                                   TEMA_PROEMINENTE)
         Polaridade = polaridade(tipo_polaridade)
@@ -3266,7 +3309,7 @@ def oracaoRelacional(
 
 ):
     try:
-        Transitividade = TRANSITIVIDADE(TIPO_DE_PROCESSO, indiceMat, indiceAgen, indiceRel)
+        Transitividade = transitividade(TIPO_DE_PROCESSO, indiceMat, indiceAgen, indiceRel)
         Modo = modo(RESPONSABILIDADE, PRESSUPOSICAO_DO_SUJEITO, TIPO_MODO)
         Tema_interpessoal = tema_interpessoal(TIPO_TEMA_INTERPESSOAL, T_INTER_tipoRealizacao, T_INTER_tipo_de_adverbio1,
                                               T_INTER_ind1, T_INTER_tipo_de_adverbio2, T_INTER_ind2,
@@ -3306,7 +3349,7 @@ def oracaoRelacional(
                                     T_TEXT_tipo_insercao_Rel, T_TEXT_pron_extenso_Rel, T_TEXT_tipo_de_relativo,
                                     T_TEXT_tipo_pronome_relativo, T_TEXT_generoTemaTextual, T_TEXT_numeroTemaTextual)
 
-        Tema_id = TEMA_IDEACIONAL(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
+        Tema_id = tema_ideacional(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
                                   TEMA_DEFAULT_indicativo, TEMA_IDENTIFICATIVO, TEMA_ANGULO, TEMA_ELEMENTAL,
                                   TEMA_PROEMINENTE)
         Polaridade = polaridade(tipo_polaridade)
@@ -4399,7 +4442,7 @@ def oracaoExistencial(
         CIRC_ORACAO_tipo_de_adverbio3=None, CIRC_ORACAO_ind3=None, CIRC_ORACAO_tipo_de_adverbio4=None,
         CIRC_ORACAO_ind4=None, CIRC_ORACAO_tipo_de_adverbio5=None, CIRC_ORACAO_ind5=None):
     try:
-        Transitividade = TRANSITIVIDADE(TIPO_DE_PROCESSO, indiceMat, indiceAgen, indiceRel)
+        Transitividade = transitividade(TIPO_DE_PROCESSO, indiceMat, indiceAgen, indiceRel)
         Modo = modo(RESPONSABILIDADE, PRESSUPOSICAO_DO_SUJEITO, TIPO_MODO)
         Tema_interpessoal = tema_interpessoal(TIPO_TEMA_INTERPESSOAL, T_INTER_tipoRealizacao, T_INTER_tipo_de_adverbio1,
                                               T_INTER_ind1, T_INTER_tipo_de_adverbio2, T_INTER_ind2,
@@ -4438,7 +4481,7 @@ def oracaoExistencial(
                                     T_TEXT_tipo_de_conjuncao_Conj, T_TEXT_conj_extensoConj, T_TEXT_indiceConj,
                                     T_TEXT_tipo_insercao_Rel, T_TEXT_pron_extenso_Rel, T_TEXT_tipo_de_relativo,
                                     T_TEXT_tipo_pronome_relativo, T_TEXT_generoTemaTextual, T_TEXT_numeroTemaTextual)
-        Tema_id = TEMA_IDEACIONAL(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
+        Tema_id = tema_ideacional(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
                                   TEMA_DEFAULT_indicativo, TEMA_IDENTIFICATIVO, TEMA_ANGULO, TEMA_ELEMENTAL,
                                   TEMA_PROEMINENTE)
         Polaridade = polaridade(tipo_polaridade)
@@ -4691,7 +4734,7 @@ def oracaoVerbal(
         P3_FP_adjetivo_classificador=None, P3_FP_genero_adjetivo=None, P3_FP_numero_adjetivo=None, P3_FP_contracao=None,
 ):
     try:
-        Transitividade = TRANSITIVIDADE(TIPO_DE_PROCESSO, indiceMat, indiceAgen, indiceRel)
+        Transitividade = transitividade(TIPO_DE_PROCESSO, indiceMat, indiceAgen, indiceRel)
         Modo = modo(RESPONSABILIDADE, PRESSUPOSICAO_DO_SUJEITO, TIPO_MODO)
         Tema_interpessoal = tema_interpessoal(TIPO_TEMA_INTERPESSOAL, T_INTER_tipoRealizacao, T_INTER_tipo_de_adverbio1,
                                               T_INTER_ind1, T_INTER_tipo_de_adverbio2, T_INTER_ind2,
@@ -4730,7 +4773,7 @@ def oracaoVerbal(
                                     T_TEXT_tipo_de_conjuncao_Conj, T_TEXT_conj_extensoConj, T_TEXT_indiceConj,
                                     T_TEXT_tipo_insercao_Rel, T_TEXT_pron_extenso_Rel, T_TEXT_tipo_de_relativo,
                                     T_TEXT_tipo_pronome_relativo, T_TEXT_generoTemaTextual, T_TEXT_numeroTemaTextual)
-        Tema_id = TEMA_IDEACIONAL(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
+        Tema_id = tema_ideacional(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
                                   TEMA_DEFAULT_indicativo, TEMA_IDENTIFICATIVO, TEMA_ANGULO, TEMA_ELEMENTAL,
                                   TEMA_PROEMINENTE)
         Polaridade = polaridade(tipo_polaridade)

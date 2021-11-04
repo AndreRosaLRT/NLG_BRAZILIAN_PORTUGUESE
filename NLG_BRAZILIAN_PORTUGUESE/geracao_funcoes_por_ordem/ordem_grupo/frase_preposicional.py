@@ -33,7 +33,7 @@ def frase_preposicional(indice_preposicao_frase=None, dissoc_ente_nucleo=None, t
     substantivo_lematizado='homem',numero_subs='singular',genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,
     acent_tonica=None,nome_prop_fp=None,pessoa_da_interlocucao=None,transitividade_verbo=None,
     tonicidade=None,morfologia_do_pronome=None,reflexivo=None,adjetivo_epiteto='alto',adjetivo_classificador=None,
-    genero_adjetivo='masculino',numero_adjetivo='singular',contracao=None) -> "ao homem"
+    genero_adjetivo='masculino',numero_adjetivo='singular',contracao=None) -> "ao homem alto"
 
 
     """
@@ -124,70 +124,6 @@ def frase_preposicional(indice_preposicao_frase=None, dissoc_ente_nucleo=None, t
     except ValueError:
         return ''
 #
-# frase_preposicional(indice_preposicao_frase=0, dissoc_ente_nucleo=None, tem_qualificador=None,
-#                     tipo_qualificador=None, indice_preposicao_qualif=None, determinacao_especificidade_beta=None,
-#                     orientacao_beta=None,
-#                     genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
-#                     determinacao_especificidade_alpha='específico', orientacao_alpha='NA',
-#                     genero_alpha='masculino', numero_alpha='singular', morfologia_do_pronome_alpha=None,
-#                     pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None,
-#                     genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None,
-#                     tipo_numerativo=None, cardinal=None, genero_numerativo='não-binário',
-#                     tipo_de_ente='não_consciente',
-#                     tipo_de_nao_consciente='material', tipo_de_nao_consciente_material='abstração_material',
-#                     tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='substantivo_comum',
-#                     substantivo_lematizado='homem', numero_subs='singular', genero_subs='não_binário',
-#                     tipo_feminino_ao=None,
-#                     tipo_masc_ao=None, acent_tonica=None, nome_prop_fp=None, pessoa_da_interlocucao=None,
-#                     transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,
-#                     adjetivo_epiteto='alto', adjetivo_classificador=None, genero_adjetivo='masculino',
-#                     numero_adjetivo='singular', contracao=None)
-
-indice_preposicao_frase=0
-dissoc_ente_nucleo=None
-tem_qualificador=None
-tipo_qualificador=None
-indice_preposicao_qualif=None
-determinacao_especificidade_beta=None
-orientacao_beta=None 
-genero_beta=None
-numero_beta=None
-morfologia_do_pronome_beta=None
-determinacao_especificidade_alpha='específico'
-orientacao_alpha='NA'
-genero_alpha='masculino'
-numero_alpha='singular'
-morfologia_do_pronome_alpha=None
-pessoa_da_interlocucao_possuidor=None
-numero_obj_possuido=None
-genero_obj_possuido=None
-pessoa_da_interlocucao_proximidade=None
-tipo_numerativo=None
-cardinal=None
-genero_numerativo='não-binário'
-tipo_de_ente='não_consciente' 
-tipo_de_nao_consciente='material'
-tipo_de_nao_consciente_material='abstração_material'
-tipo_de_nao_consciente_semiotico=None
-classe_palavra_ente='substantivo_comum'
-substantivo_lematizado='homem'
-numero_subs='singular'
-genero_subs='não_binário'
-tipo_feminino_ao=None 
-tipo_masc_ao=None
-acent_tonica=None
-nome_prop_fp=None
-pessoa_da_interlocucao=None
-transitividade_verbo=None
-tonicidade=None
-morfologia_do_pronome=None
-reflexivo=None
-adjetivo_epiteto='alto'
-adjetivo_classificador=None
-genero_adjetivo='masculino'
-numero_adjetivo='singular'
-contracao=None
-
 # for i in range(12):
 #     print(frase_preposicional(indice_preposicao_frase=i, dissoc_ente_nucleo=None, tem_qualificador=None,
 #                           tipo_qualificador=None, indice_preposicao_qualif=None,
@@ -199,11 +135,12 @@ contracao=None
 #                           pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None,
 #                           genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None,
 #                           tipo_numerativo=None, cardinal=None, genero_numerativo='não-binário',
-#                           tipo_de_ente='não_consciente',
-#                           tipo_de_nao_consciente='material', tipo_de_nao_consciente_material='abstração_material',
+#                           tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
+#                           tipo_de_nao_consciente_material='abstração_material',
 #                           tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='substantivo_comum',
-#                           substantivo_lematizado='homem', numero='singular', tipo_feminino_ao=None,
-#                           tipo_masc_ao=None, acent_tonica=None, nome_prop=None, pessoa_da_interlocucao=None,
-#                           transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,
-#                           adjetivo_epiteto='alto', adjetivo_classificador=None, genero_adjetivo='masculino',
+#                           substantivo_lematizado='homem', numero_subs='singular',genero_subs='masculino',
+#                           tipo_feminino_ao=None,tipo_masc_ao=None, acent_tonica=None, nome_prop_fp=None,
+#                           pessoa_da_interlocucao=None,transitividade_verbo=None, tonicidade=None,
+#                           morfologia_do_pronome=None, reflexivo=None,adjetivo_epiteto='alto',
+#                           adjetivo_classificador=None, genero_adjetivo='masculino',
 #                           numero_adjetivo='singular', contracao=None))

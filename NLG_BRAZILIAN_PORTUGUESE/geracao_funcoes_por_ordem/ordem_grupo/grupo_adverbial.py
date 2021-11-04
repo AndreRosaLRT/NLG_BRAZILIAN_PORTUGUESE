@@ -5,7 +5,13 @@ import argparse
 
 def grupo_adverbial(*argums):
     """
+    Ex.:
 
+    >>> grupo_adverbial('Negação', 0,
+                    'Intensidade',1,
+                    'Afirmação',2,
+                    'Tempo',3,
+                    'Dúvida',1) -> 'não demais indubitavelmente à noite provavelmente'
     :param argums:
     :return: grupo adverbial
     """
