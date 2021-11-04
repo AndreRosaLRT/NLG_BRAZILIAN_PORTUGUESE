@@ -1,8 +1,7 @@
 import argparse
 
 
-def grupo_conjuntivo(tipo_insercao: str = 'inserção_menu',
-                     conj_extenso=None, tipo_de_conjuncao=None, indice=None):
+def grupo_conjuntivo(tipo_de_conjuncao=None, indice=None):
     """
     Retorna um grupo conjuntivo dado o tipo de inserção, a conjunção por extenso
     (caso a escolha seja manual), o tipo de conjunção e o índice (caso a escolha de tipo de
@@ -10,18 +9,13 @@ def grupo_conjuntivo(tipo_insercao: str = 'inserção_menu',
 
     Exs.:
 
-    >>> grupo_conjuntivo('inserção_menu', None,'paratática_adversativa',1)
+    >>> grupo_conjuntivo('paratática_adversativa',1)
 
     >>> 'entretanto'
 
-    >>> grupo_conjuntivo(tipo_insercao = 'inserção_menu', conj_extenso=None,
-    tipo_de_conjuncao='hipotática_concessiva', indice=7)
-
-    >>> 'apesar de que'
+    >>> grupo_conjuntivo (tipo_de_conjuncao='hipotática_concessiva', indice=7) -> 'apesar de que'
 
     :param indice:
-    :param tipo_insercao:'inserção_manual', 'inserção_menu'
-    :param conj_extenso: 'inserida manualmente'
     :param tipo_de_conjuncao:'paratática_aditiva': {0: 'e', 1: 'mas ainda', 2: 'mas também', 3: 'nem'},
     'paratática_adversativa':{0: 'contudo', 1: 'entretanto', 2: 'mas', 3: 'não obstante',4: 'no entanto',
     5: 'porém', 6: 'todavia'},
@@ -52,139 +46,135 @@ def grupo_conjuntivo(tipo_insercao: str = 'inserção_menu',
     """
     conjuncao = ''
     try:
-        if tipo_insercao == 'inserção_manual':
-            conjuncao = conj_extenso
 
-        elif tipo_insercao == 'inserção_menu':
+        if tipo_de_conjuncao == 'paratática_aditiva':
+            opcoes = ['e', 'mas ainda', 'mas também', 'nem']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            if tipo_de_conjuncao == 'paratática_aditiva':
-                opcoes = ['e', 'mas ainda', 'mas também', 'nem']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'paratática_adversativa':
+            opcoes = ['contudo', 'entretanto', 'mas',
+                      'não obstante', 'no entanto',
+                      'porém', 'todavia']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'paratática_adversativa':
-                opcoes = ['contudo', 'entretanto', 'mas',
-                          'não obstante', 'no entanto',
-                          'porém', 'todavia']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'paratática_alternativa':
+            # PRECISO VER COMO IMPLEMENTAR UM COMPLEXO COM ESTE TIPO
+            opcoes = ['já', 'ou', 'ora', 'quer']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'paratática_alternativa':
-                # PRECISO VER COMO IMPLEMENTAR UM COMPLEXO COM ESTE TIPO
-                opcoes = ['já', 'ou', 'ora', 'quer']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'paratática_conclusiva':
+            opcoes = ['assim', 'então', 'logo',
+                      'por conseguinte', 'por isso',
+                      'portanto']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'paratática_conclusiva':
-                opcoes = ['assim', 'então', 'logo',
-                          'por conseguinte', 'por isso',
-                          'portanto']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'paratática_explicativa':
+            opcoes = ['pois', 'porquanto', 'porque', 'que']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'paratática_explicativa':
-                opcoes = ['pois', 'porquanto', 'porque', 'que']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_causal':
+            opcoes = ['porque', 'pois', 'porquanto',
+                      'como', 'pois que', 'por isso que',
+                      'á que', 'uma vez que', 'visto que',
+                      'visto como', 'que']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'hipotática_causal':
-                opcoes = ['porque', 'pois', 'porquanto',
-                          'como', 'pois que', 'por isso que',
-                          'á que', 'uma vez que', 'visto que',
-                          'visto como', 'que']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_concessiva':
+            opcoes = ['embora', 'conquanto', 'ainda que',
+                      'mesmo que', 'posto que', 'bem que',
+                      'se bem que', 'apesar de que', 'nem que',
+                      'que']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'hipotática_concessiva':
-                opcoes = ['embora', 'conquanto', 'ainda que',
-                          'mesmo que', 'posto que', 'bem que',
-                          'se bem que', 'apesar de que', 'nem que',
-                          'que']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_condicional':
+            opcoes = ['se', 'caso', 'quando',
+                      'conquanto que', 'salvo se', 'sem que',
+                      'dado que', 'desde que', 'a menos que',
+                      'a não ser que']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'hipotática_condicional':
-                opcoes = ['se', 'caso', 'quando',
-                          'conquanto que', 'salvo se', 'sem que',
-                          'dado que', 'desde que', 'a menos que',
-                          'a não ser que']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_conformativa':
+            opcoes = ['conforme', 'como', 'segundo', 'consoante']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'hipotática_conformativa':
-                opcoes = ['conforme', 'como', 'segundo', 'consoante']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_final':
+            opcoes = ['para que',
+                      'a fim de que', 'porque',
+                      'que']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'hipotática_final':
-                opcoes = ['para que',
-                          'a fim de que', 'porque',
-                          'que']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_proporcional':
+            opcoes = ['à medida que', 'ao passo que', 'à proporção que',
+                      'enquanto', 'quanto mais',
+                      'quanto menos']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'hipotática_proporcional':
-                opcoes = ['à medida que', 'ao passo que', 'à proporção que',
-                          'enquanto', 'quanto mais',
-                          'quanto menos']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_temporal':
+            opcoes = ['quando', 'antes que',
+                      'depois que', 'até que', 'logo que',
+                      'sempre que', 'assim que', 'desde que',
+                      'todas as vezes que', 'cada vez que', 'apenas',
+                      'mal', 'desde que']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'hipotática_temporal':
-                opcoes = ['quando', 'antes que',
-                          'depois que', 'até que', 'logo que',
-                          'sempre que', 'assim que', 'desde que',
-                          'todas as vezes que', 'cada vez que', 'apenas',
-                          'mal', 'desde que']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_comparativa':
+            opcoes = ['mais que', 'mais do que',
+                      'menos que', 'maior que', 'menor que',
+                      'melhor que', 'pior que',
+                      'menos do que', 'maior do que',
+                      'menor do que', 'melhor do que',
+                      'pior do que']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'hipotática_comparativa':
-                opcoes = ['mais que', 'mais do que',
-                          'menos que', 'maior que', 'menor que',
-                          'melhor que', 'pior que',
-                          'menos do que', 'maior do que',
-                          'menor do que', 'melhor do que',
-                          'pior do que']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_consecutiva':
+            opcoes = ['De modo que', 'De maneira que']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'hipotática_consecutiva':
-                opcoes = ['De modo que', 'De maneira que']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_integrante':
+            opcoes = ['que', 'se']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
-            elif tipo_de_conjuncao == 'hipotática_integrante':
-                opcoes = ['que', 'se']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
-
-            elif tipo_de_conjuncao == 'hipotática_relativa':
-                opcoes = ['porque', 'pois', 'porquanto',
-                          'como', 'pois que', 'por isso que',
-                          'á que', 'uma vez que', 'visto que',
-                          'visto como', 'que']
-                nums = [x for x in range(len(opcoes))]
-                conjuncoes = dict(zip(nums, opcoes))
-                conjuncao = conjuncoes[indice]
+        elif tipo_de_conjuncao == 'hipotática_relativa':
+            opcoes = ['porque', 'pois', 'porquanto',
+                      'como', 'pois que', 'por isso que',
+                      'á que', 'uma vez que', 'visto que',
+                      'visto como', 'que']
+            nums = [x for x in range(len(opcoes))]
+            conjuncoes = dict(zip(nums, opcoes))
+            conjuncao = conjuncoes[indice]
 
         return conjuncao
-    except ValueError:
+    except:
         return ''
 
 

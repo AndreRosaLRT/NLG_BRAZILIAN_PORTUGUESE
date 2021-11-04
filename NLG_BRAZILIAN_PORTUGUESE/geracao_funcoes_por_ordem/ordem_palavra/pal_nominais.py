@@ -712,95 +712,100 @@ def substantivo_comum(substantivo_lematizado, numero='singular',
 
 
 # # # ADJETIVOS
-#
-# def deteccao_experiencia_do_adjetivo(adjetivo, genero, numero):  ##dado o adjetivo flexionado##
-#     '''(str,str,str)->
-#
-#     Retorna o morfema que realiza a experiência em um adjetivo, dados
-#     o adjetivo flexionado, o gênero e o número.
-#
-#     >>>deteccao_experiencia_do_adjetivo()
-#     'esportiv'
-#     '''
-#
-#     if numero == 'singular':
-#         if genero == 'masculino':
-#             raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
-#
-#         elif genero == 'feminino':
-#             raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
-#     elif numero == 'plural':
-#         if genero == 'masculino':
-#             raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
-#
-#         elif genero == 'feminino':
-#             raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
-#
-#     return raiz_experiencial_adjetivo
+
+def deteccao_experiencia_do_adjetivo(adjetivo, genero, numero):  ##dado o adjetivo flexionado##
+    """
+    (str,str,str)->
+
+    Retorna o morfema que realiza a experiência em um adjetivo, dados
+    o adjetivo flexionado, o gênero e o número.
+
+    >>>deteccao_experiencia_do_adjetivo()
+    'esportiv'
+    :param adjetivo:
+    :param genero:
+    :param numero:
+    :return:
+    """
+    raiz_experiencial_adjetivo = ''
+    if numero == 'singular':
+        if genero == 'masculino':
+            raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
+
+        elif genero == 'feminino':
+            raiz_experiencial_adjetivo = (adjetivo[slice(-1)])
+    elif numero == 'plural':
+        if genero == 'masculino':
+            raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
+
+        elif genero == 'feminino':
+            raiz_experiencial_adjetivo = (adjetivo[slice(-2)])
+
+    return raiz_experiencial_adjetivo
 
 
 # deteccao_experiencia_do_adjetivo("esperto","masculino","singular")
 #
 
-# def realizacao_experiencia_do_adjetivo(adjetivo_lematizado, genero):
-#     """
-#     genero = choice.Menu(['masculino/feminino', 'não-binário']).ask()
-#     adjetivo_lematizado =
-#
-#     Retorna o morfema que realiza a experiência em um adjetivo, dado
-#     o adjetivo lematizado.
-#
-#     >>>realizacao_experiencia_do_adjetivo()
-#     'gat'
-#     :param adjetivo_lematizado:
-#     :param genero:
-#     :return:
-#     """
-#     morfema_experiencial_do_adjetivo = ''
-#     if genero == 'masculino/feminino':
-#         morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-#
-#     elif genero == 'não-binário':
-#         morfema_experiencial_do_adjetivo = adjetivo_lematizado
-#
-#     return morfema_experiencial_do_adjetivo
+def realizacao_experiencia_do_adjetivo(adjetivo_lematizado, genero):
+    """
+    genero = choice.Menu(['masculino/feminino', 'não-binário']).ask()
+    adjetivo_lematizado =
+
+    Retorna o morfema que realiza a experiência em um adjetivo, dado
+    o adjetivo lematizado.
+
+    >>>realizacao_experiencia_do_adjetivo()
+    'gat'
+    :param adjetivo_lematizado:
+    :param genero:
+    :return:
+    """
+    morfema_experiencial_do_adjetivo = ''
+    if genero == 'masculino/feminino':
+        morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+
+    elif genero == 'não-binário':
+        morfema_experiencial_do_adjetivo = adjetivo_lematizado
+
+    return morfema_experiencial_do_adjetivo
 
 
 # realizacao_experiencia_do_adjetivo("esperto","masculino/feminino")
-#
-# def realizacao_flexoes_adjetivos(genero, numero):
-#     """
-#     Retorna os morfemas que realizam as flexões de gênero e número dados
-#     a experiência do adjetivo e os gênero e números desejados.
-#
-#     :param genero: 'masculino', 'feminino', 'não-binário'
-#     :param numero: 'singular', 'plural'
-#     :return: morfema_flexao_adjetivo
-#     """
-#
-#     if numero == 'singular':
-#         if genero == 'masculino':
-#             morfema_flexao_adjetivo = 'o'
-#
-#         elif genero == 'feminino':
-#             morfema_flexao_adjetivo = 'a'
-#         elif genero == 'não-binário':
-#             morfema_flexao_adjetivo = ''
-#
-#     elif numero == 'plural':
-#         if genero == 'masculino':
-#             morfema_flexao_adjetivo = 'os'
-#
-#         elif genero == 'feminino' and numero == 'plural':
-#             morfema_flexao_adjetivo = 'as'
-#
-#         elif genero == 'não-binário':
-#             morfema_flexao_adjetivo = 's'
-#
-#     return morfema_flexao_adjetivo
+
+def realizacao_flexoes_adjetivos(genero, numero):
+    """
+    Retorna os morfemas que realizam as flexões de gênero e número dados
+    a experiência do adjetivo e os gênero e números desejados.
+
+    :param genero: 'masculino', 'feminino', 'não-binário'
+    :param numero: 'singular', 'plural'
+    :return: morfema_flexao_adjetivo
+    """
+    morfema_flexao_adjetivo = ''
+    if numero == 'singular':
+        if genero == 'masculino':
+            morfema_flexao_adjetivo = 'o'
+
+        elif genero == 'feminino':
+            morfema_flexao_adjetivo = 'a'
+        elif genero == 'não-binário':
+            morfema_flexao_adjetivo = ''
+
+    elif numero == 'plural':
+        if genero == 'masculino':
+            morfema_flexao_adjetivo = 'os'
+
+        elif genero == 'feminino' and numero == 'plural':
+            morfema_flexao_adjetivo = 'as'
+
+        elif genero == 'não-binário':
+            morfema_flexao_adjetivo = 's'
+
+    return morfema_flexao_adjetivo
 
 
-def adjetivo(adjetivo_lematizado=None, genero=None, numero=None):
+def adjetivo(adjetivo_lematizado, genero=None, numero=None):
     """
     Retorna a realizacao de um adjetivo comum dado o adjetivo lematizado e as
     e parâmetros de genero e número.
@@ -822,38 +827,41 @@ def adjetivo(adjetivo_lematizado=None, genero=None, numero=None):
     """
     morfema_experiencial_do_adjetivo, morfema_flexao_adjetivo = '', ''
     try:
+        if adjetivo_lematizado is not None:
+            if numero == 'singular':
+                if genero == 'masculino':
+                    morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+                    morfema_flexao_adjetivo = 'o'
 
-        if numero == 'singular':
-            if genero == 'masculino':
-                morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-                morfema_flexao_adjetivo = 'o'
+                elif genero == 'feminino':
+                    morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+                    morfema_flexao_adjetivo = 'a'
 
-            elif genero == 'feminino':
-                morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-                morfema_flexao_adjetivo = 'a'
+                elif genero == 'não-binário':
+                    morfema_experiencial_do_adjetivo = adjetivo_lematizado
+                    morfema_flexao_adjetivo = ''
 
-            elif genero == 'não-binário':
-                morfema_experiencial_do_adjetivo = adjetivo_lematizado
-                morfema_flexao_adjetivo = ''
+            elif numero == 'plural':
+                if genero == 'masculino':
+                    morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+                    morfema_flexao_adjetivo = 'os'
 
-        elif numero == 'plural':
-            if genero == 'masculino':
-                morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-                morfema_flexao_adjetivo = 'os'
+                elif genero == 'feminino':
+                    morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
+                    morfema_flexao_adjetivo = 'as'
 
-            elif genero == 'feminino':
-                morfema_experiencial_do_adjetivo = adjetivo_lematizado[slice(-1)]
-                morfema_flexao_adjetivo = 'as'
+                elif genero == 'não-binário':
+                    morfema_experiencial_do_adjetivo = adjetivo_lematizado
+                    morfema_flexao_adjetivo = 's'
 
-            elif genero == 'não-binário':
-                morfema_experiencial_do_adjetivo = adjetivo_lematizado
-                morfema_flexao_adjetivo = 's'
-
-        adj = morfema_experiencial_do_adjetivo + morfema_flexao_adjetivo
+            adj = morfema_experiencial_do_adjetivo + morfema_flexao_adjetivo
+        else:
+            adj = ''
         return adj
 
-    except ValueError:
+    except:
         return ''
+
 
 # #
 # # # PRONOMES#
