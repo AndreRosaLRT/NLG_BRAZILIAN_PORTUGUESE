@@ -1,0 +1,74 @@
+{
+    "CAUSE(cause=CAUSE_1,city=CITY_1,location=LOCATION_1,month=MONTH_1,state=STATE_1,uc=UC_1,year=YEAR_1)":[
+        {
+            "template":"O desmatamento VP[experience=Ser,function_in_group=Evento,lemma=ter,person=3,gender=none,number=Sing, mood=Ind,tense=Past,aspect=Perf] como principal causa CAUSE_1 .",
+            "frequency":1
+        }
+    ],
+    "DAILY_ALERT(area=AREA_1,city=CITY_1,daily_accumulation=DAILY_ACCUMULATION_1,day=DAY_1,location=LOCATION_1,month=MONTH_1,state=STATE_1,uc=UC_1,year=YEAR_1)":[
+        {
+            "template":"Em o dia DAY_1 de MONTH_1 de YEAR_1 , INSTITUTE_1 divulgou alertas de desmatamento que VP[aspect=simple,tense=present,voice=active,person=3rd,number=plural] somar AREA_1 em UC_1 / STATE_1 , VP[experience=Ser,function_in_group=Evento,lemma=somar,person=3,gender=none,number=Plur, mood=Ind,tense=Pres,aspect=none] dia com NN[gender=female,number=DAILY_ACCUMULATION_1] alerta em o m\u00eas .",
+            "frequency":1
+        }
+    ],
+    "TOTAL_DEFORESTATION(area=AREA_1,city=CITY_1,location=LOCATION_1,month=MONTH_1,state=STATE_1,uc=UC_1,year=YEAR_1)":[
+        {
+            "template":"UC_1 VP[experience=Ser,function_in_group=Evento,lemma=somar,person=3,gender=none,number=Sing, mood=Ind,tense=Pres,aspect=none] AREA_1 de desmatamento em o m\u00eas analisado .",
+            "frequency":1
+        }
+    ],
+    "CAUSE(cause=CAUSE_1,city=CITY_1,location=LOCATION_1,month=MONTH_1,state=STATE_1,year=YEAR_1)":[
+        {
+            "template":"A principal causa de desmatamento VP[experience=Ser,function_in_group=Evento,lemma=ser,person=3, gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] CAUSE_1 .",
+            "frequency":1
+        },
+        {
+            "template":"A principal causa de os alertas de desmatamento VP[experience=Ser,function_in_group=Evento,lemma=ser, person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] CAUSE_1 .",
+            "frequency":1
+        },
+        {
+            "template":"O principal tipo de desmatamento VP[experience=Ser,function_in_group=Evento,lemma=ser, person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] CAUSE_1 .",
+            "frequency":1
+        },
+        {
+            "template":"A principal causa para o desmatamento em DT[number=singular,gender=female] o NN[gender=female,number=singular] regi\u00e3o VP[experience=Ser,function_in_group=Evento,lemma=ser, person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] CAUSE_1 .",
+            "frequency":1
+        }
+    ],
+    "DAILY_ALERT(area=AREA_1,city=CITY_1,daily_accumulation=DAILY_ACCUMULATION_1,day=DAY_1,location=LOCATION_1,month=MONTH_1,state=STATE_1,year=YEAR_1)":[
+        {
+            "template":"Em DAY_1 de MONTH_1 de YEAR_1 , INSTITUTE_1 VP[experience=Ser,function_in_group=Evento,lemma=reportar, person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] avisos de desmatamento VP[experience=Ser,function_in_group=Evento,lemma=somar,person=none,gender=none,number=none, mood=none,tense=Pres,aspect=Prog] AREA_1 em CITY_1 / STATE_1 , que VP[experience=Ser, function_in_group=Evento,lemma=acumular,person=3,gender=none,number=Sing, mood=Ind,tense=Past,aspect=Perf] DAILY_ACCUMULATION_1 NN[number=DAILY_ACCUMULATION_1, gender=male] dia de NN[gender=female,number=DAILY_ACCUMULATION_1] alerta .",
+            "frequency":1
+        },
+        {
+            "template":"Em o dia DAY_1 de MONTH_1 de YEAR_1 , INSTITUTE_1 VP[experience=Sentir,function_in_group=Evento, lemma=informar,person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] que houve alertas de desmatamento que somam AREA_1 em CITY_1 / STATE_1 , acumulando DAILY_ACCUMULATION_1 NN[number=DAILY_ACCUMULATION_1,gender=male] dia com alertas em o m\u00eas em a regi\u00e3o.",
+            "frequency":1
+        },
+        {
+            "template":"INSTITUTE_1 VP[experience=Sentir,function_in_group=Evento,lemma=relatar,person=3,gender=none,number=Sing, mood=Ind,tense=Past,aspect=Perf] NN[gender=male,number=plural] alerta de desmatamento em CITY_1 / STATE_1 , em o dia DAY_1 de MONTH_1 de YEAR_1 , VP[experience=Ser,function_in_group=Evento,lemma=somar, person=none,gender=none,number=none,mood=none,tense=Pres,aspect=Prog] AREA_1 , e a regi\u00e3o VP[experience=Ser,function_in_group=Evento, lemma=acumular,person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] DAILY_ACCUMULATION_1 NN[number=DAILY_ACCUMULATION_1,gender=male] dia com alertas em o m\u00eas .",
+            "frequency":1
+        },
+        {
+            "template":"Segundo INSTITUTE_1 , CITY_1 / STATE_1 VP[experience=Ser,function_in_group=Evento,lemma=ter,person=3, gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] alertas de desmatamento em o dia DAY_1 de MONTH_1 de YEAR_1 que VP[experience=Ser,function_in_group=Evento,lemma=somar,person=3,gender=none,number=Plur, mood=Ind,tense=Past,aspect=Perf] AREA_1 .",
+            "frequency":1
+        }
+    ],
+    "TOTAL_DEFORESTATION(area=AREA_1,city=CITY_1,location=LOCATION_1,month=MONTH_1,state=STATE_1,year=YEAR_1)":[
+        {
+            "template":"CITY_1 VP[experience=Ser,function_in_group=Evento,lemma=somar,person=3,gender=none,number=Sing, mood=Ind,tense=Pres,aspect=none] AREA_1 de \u00e1rea desmatada em MONTH_1 .",
+            "frequency":1
+        },
+        {
+            "template":"CITY_1 VP[experience=Ser,function_in_group=Evento,lemma=acumular,person=3,gender=none,number=Sing, mood=Ind,tense=Pres,aspect=none] AREA_1 de desmatamento em MONTH_1 .",
+            "frequency":1
+        },
+        {
+            "template":"Em o m\u00eas de MONTH_1 , CITY_1 VP[experience=Ser,function_in_group=Evento,lemma=acumular,person=3, gender=none,number=Sing,mood=Ind,tense=Pres,aspect=none] AREA_1 de \u00e1rea desmatada .",
+            "frequency":1
+        },
+        {
+            "template":"CITY_1 VP[experience=Ser,function_in_group=Evento,lemma=acumular,person=3, gender=none,number=Sing,mood=Ind,tense=Pres,aspect=none] AREA_1 em MONTH_1 .",
+            "frequency":1
+        }
+    ]
+}

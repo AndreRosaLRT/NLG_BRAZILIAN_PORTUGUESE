@@ -1,0 +1,407 @@
+<?xml version="1.0" ?>
+<entries>
+    <entry date="2019-06-18 00:00:00">
+        <meaning>
+            <unit>CAUSE(cause="MINERACAO",city="None",location="deter-amz",month="6",state="RO",uc="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS",year="2019")</unit>
+            <unit>DAILY_ALERT(area="3.472148256306645",city="None",daily_accumulation="8",day="18",location="deter-amz",month="6",state="RO",uc="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS",year="2019")</unit>
+            <unit>TOTAL_DEFORESTATION(area="8.334555363319664",city="None",location="deter-amz",month="6",state="RO",uc="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS",year="2019")</unit>
+        </meaning>
+        <ordering>
+            <unit>DAILY_ALERT(area="3.472148256306645",city="None",daily_accumulation="8",day="18",location="deter-amz",month="6",state="RO",uc="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS",year="2019")</unit>
+            <unit>TOTAL_DEFORESTATION(area="8.334555363319664",city="None",location="deter-amz",month="6",state="RO",uc="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS",year="2019")</unit>
+            <unit>CAUSE(cause="MINERACAO",city="None",location="deter-amz",month="6",state="RO",uc="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS",year="2019")</unit>
+        </ordering>
+        <structuring>
+            <paragraph>
+                <sentence>
+                    <unit>DAILY_ALERT(area="3.472148256306645",city="None",daily_accumulation="8",day="18",location="deter-amz",month="6",state="RO",uc="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS",year="2019")</unit>
+                </sentence>
+                <sentence>
+                    <unit>TOTAL_DEFORESTATION(area="8.334555363319664",city="None",location="deter-amz",month="6",state="RO",uc="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS",year="2019")</unit>
+                </sentence>
+                <sentence>
+                    <unit>CAUSE(cause="MINERACAO",city="None",location="deter-amz",month="6",state="RO",uc="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS",year="2019")</unit>
+                </sentence>
+            </paragraph>
+        </structuring>
+        <lexicalization>
+            <paragraph>
+                <sentence>
+                    No dia DAY_1 de MONTH_1 de YEAR_1 , INSTITUTE_1 divulgou alertas de desmatamento que
+                    VP[aspect=simple,tense=present,voice=active,person=3rd,number=plural] somar AREA_1 em
+                    UC_1 / STATE_1 , VP[experience=Ser,function_in_group=Evento,lemma=somar,person=3,gender=none,number=Plur,
+                    mood=Ind,tense=Pres,aspect=none] dia com NN[gender=female,number=DAILY_ACCUMULATION_1] alerta
+                    no mês .
+                </sentence>
+                <sentence>
+                    UC_1 VP[experience=Ser,function_in_group=Evento,lemma=somar,person=3,gender=none,number=Sing,
+                    mood=Ind,tense=Pres,aspect=none] AREA_1 de desmatamento no mês analisado .
+                </sentence>s
+                <sentence>
+                    O desmatamento VP[experience=Ser,function_in_group=Evento,lemma=ter,person=3,gender=none,number=Sing,
+                    mood=Ind,tense=Past,aspect=Perf] como principal causa CAUSE_1 .
+                </sentence>
+            </paragraph>
+        </lexicalization>
+        <references>
+            <paragraph>
+                <sentence>
+                    <reference tag="DAY_1" entity="18" gender="male" number="singular">18</reference>
+                    <reference tag="MONTH_1" entity="6" gender="male" number="singular">junho</reference>
+                    <reference tag="YEAR_1" entity="2019" gender="male" number="singular" >2019</reference>
+                    <reference tag="INSTITUTE_1" entity="INPE" gender="male" number="singular" >o Instituto Nacional de Pesquisas Espaciais (INPE)</reference>
+                    <reference tag="AREA_1" entity="3.472148256306645" gender="male" number="plural" >3.472148256306645km²</reference>
+                    <reference tag="UC_1" entity="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS" gender="female" number="singular" >a ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS</reference>
+                    <reference tag="STATE_1" entity="RO" gender="male" number="singular">RO</reference>
+                    <reference tag="DAILY_ACCUMULATION_1" entity="8" gender="male" number="plural">8</reference>
+                </sentence>
+                <sentence>
+                    <reference tag="UC_1" entity="ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS" gender="female" number="singular" >a ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS</reference>
+                    <reference tag="AREA_1" entity="8.334555363319664" gender="male" number="plural">8.334555363319664km²</reference>
+                </sentence>
+                <sentence>
+                    <reference tag="CAUSE_1" entity="MINERACAO" gender="female" number="singular">a mineração</reference>
+                </sentence>
+            </paragraph>
+        </references>
+        <text>
+            <paragraph>
+                <sentence>
+                    No dia 18 de junho de 2019, o Instituto Nacional de Pesquisas Espaciais (INPE) divulgou
+                    alertas de desmatamento que somam 3.472148256306645 km² na
+                    ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS/RO, acumulando 8 dias com alertas no mês.
+                </sentence>
+                <sentence>
+                    A ÁREA DE PROTEÇÃO AMBIENTAL DO TAPAJÓS soma 8.334555363319664 km² de desmatamento no mês analisado.
+                </sentence>
+                <sentence>
+                    O desmatamento tem como principal causa a mineração.
+                </sentence>
+            </paragraph>
+        </text>
+    </entry>
+    <entry date="2019-07-08 00:00:00">
+        <meaning>
+            <unit>CAUSE(cause="DESMATAMENTO_CR",city="Apui",location="deter-amz",month="7",state="AM",year="2019")</unit>
+            <unit>DAILY_ALERT(area="12.007300834420757",city="Apui",daily_accumulation="11",day="8",location="deter-amz",month="7",state="AM",year="2019")</unit>
+            <unit>TOTAL_DEFORESTATION(area="75.16054508934322",city="Apui",location="deter-amz",month="7",state="AM",year="2019")</unit>
+        </meaning>
+        <ordering>
+            <unit>DAILY_ALERT(area="12.007300834420757",city="Apui",daily_accumulation="11",day="8",location="deter-amz",month="7",state="AM",year="2019")</unit>
+            <unit>TOTAL_DEFORESTATION(area="75.16054508934322",city="Apui",location="deter-amz",month="7",state="AM",year="2019")</unit>
+            <unit>CAUSE(cause="DESMATAMENTO_CR",city="Apui",location="deter-amz",month="7",state="AM",year="2019")</unit>
+        </ordering>
+        <structuring>
+            <paragraph>
+                <sentence>
+                    <unit>DAILY_ALERT(area="12.007300834420757",city="Apui",daily_accumulation="11",day="8",location="deter-amz",month="7",state="AM",year="2019")</unit>
+                </sentence>
+                <sentence>
+                    <unit>TOTAL_DEFORESTATION(area="75.16054508934322",city="Apui",location="deter-amz",month="7",state="AM",year="2019")</unit>
+                </sentence>
+                <sentence>
+                    <unit>CAUSE(cause="DESMATAMENTO_CR",city="Apui",location="deter-amz",month="7",state="AM",year="2019")</unit>
+                </sentence>
+            </paragraph>
+        </structuring>
+        <lexicalization>
+            <paragraph>
+                <sentence>
+                    Em DAY_1 de MONTH_1 de YEAR_1 , INSTITUTE_1 VP[experience=Ser,function_in_group=Evento,lemma=reportar,
+                    person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] avisos de desmatamento 
+                    VP[experience=Ser,function_in_group=Evento,lemma=somar,person=none,gender=none,number=none,
+                    mood=none,tense=Pres,aspect=Prog] AREA_1 em CITY_1 / STATE_1 , que VP[experience=Ser,
+                    function_in_group=Evento,lemma=acumular,person=3,gender=none,number=Sing,
+                   mood=Ind,tense=Past,aspect=Perf] DAILY_ACCUMULATION_1 NN[number=DAILY_ACCUMULATION_1,
+                    gender=male] dia de NN[gender=female,number=DAILY_ACCUMULATION_1] alerta .
+                </sentence>
+                <sentence>
+                    CITY_1 VP[experience=Ser,function_in_group=Evento,lemma=somar,person=3,gender=none,number=Sing,
+                    mood=Ind,tense=Pres,aspect=none] AREA_1 de área desmatada em MONTH_1 .
+                </sentence>
+                <sentence>
+                    A principal causa de desmatamento VP[experience=Ser,function_in_group=Evento,lemma=ser,person=3,
+                    gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] CAUSE_1 .
+                </sentence>
+            </paragraph>
+        </lexicalization>
+        <references>
+            <paragraph>
+                <sentence>
+                    <reference tag="INSTITUTE_1" entity="INPE" gender="male" number="singular">o Instituto Nacional de Pesquisas Espaciais (INPE)</reference>
+                    <reference tag="DAILY_ACCUMULATION_1" entity="11" gender="male" number="plural">11</reference>
+                    <reference tag="AREA_1" entity="12.007300834420757" gender="male" number="plural">12.007300834420757 km²</reference>
+                    <reference tag="DAY_1" entity="8" gender="male" number="singular">8</reference>
+                    <reference tag="STATE_1" entity="AM" gender="male" number="singular">AM</reference>
+                    <reference tag="MONTH_1" entity="7" gender="male" number="singular">julho</reference>
+                    <reference tag="YEAR_1" entity="2019" gender="male" number="singular">2019</reference>
+                </sentence>
+                <sentence>
+                    <reference tag="CITY_1" entity="Apui" gender="male" number="singular">a cidade de Apuí</reference>
+                    <reference tag="AREA_1" entity="75.16054508934322" gender="male" number="plural">75.16054508934322 km²</reference>
+                    <reference tag="MONTH_1" entity="7" gender="male" number="singular">julho</reference>
+                </sentence>
+                <sentence>
+                    <reference tag="CAUSE_1" entity="DESMATAMENTO_CR" gender="male" number="singular">o desmatamento com solo exposto, deixando a terra sem vegetação</reference>
+                </sentence>
+            </paragraph>
+        </references>
+        <text>
+            <paragraph>
+                <sentence>
+                    Em 8 de julho de 2019, o Instituto Nacional de Pesquisas Espaciais (INPE) reportou avisos de desmatamento somando 12.007300834420757 km²
+                    na cidade de Apuí/AM, que acumulou 11 dias com alertas.
+                </sentence>
+                <sentence>
+                    Apuí soma 75.16054508934322 km² de área desmatada no mês de julho.
+                </sentence>
+                <sentence>
+                    A principal causa de desmatamento foi o desmatamento com solo exposto, deixando a terra sem vegetação.
+                </sentence>
+            </paragraph>
+        </text>
+    </entry>
+    <entry date="2019-07-31 00:00:00">
+        <meaning>
+            <unit>CAUSE(cause="DESMATAMENTO_CR",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+            <unit>DAILY_ALERT(area="1.315173359776571",city="Alta Floresta D'oeste",daily_accumulation="7",day="31",location="deter-amz",month="7",state="RO",year="2019")</unit>
+            <unit>TOTAL_DEFORESTATION(area="12.685352175179451",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+        </meaning>
+        <ordering>
+            <unit>DAILY_ALERT(area="1.315173359776571",city="Alta Floresta D'oeste",daily_accumulation="7",day="31",location="deter-amz",month="7",state="RO",year="2019")</unit>
+            <unit>TOTAL_DEFORESTATION(area="12.685352175179451",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+            <unit>CAUSE(cause="DESMATAMENTO_CR",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+        </ordering>
+        <structuring>
+            <paragraph>
+                <sentence>
+                    <unit>DAILY_ALERT(area="1.315173359776571",city="Alta Floresta D'oeste",daily_accumulation="7",day="31",location="deter-amz",month="7",state="RO",year="2019")</unit>
+                </sentence>
+                <sentence>
+                    <unit>TOTAL_DEFORESTATION(area="12.685352175179451",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+                </sentence>
+                <sentence>
+                    <unit>CAUSE(cause="DESMATAMENTO_CR",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+                </sentence>
+            </paragraph>
+        </structuring>
+        <lexicalization>
+            <paragraph>
+                <sentence>
+                    No dia DAY_1 de MONTH_1 de YEAR_1 , INSTITUTE_1 VP[experience=Sentir,function_in_group=Evento,
+                    lemma=informar,person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] que houve alertas de
+                    desmatamento que somam AREA_1 em  CITY_1 / STATE_1 , acumulando
+                    DAILY_ACCUMULATION_1 NN[number=DAILY_ACCUMULATION_1,gender=male] dia com alertas no mês na região.
+                </sentence>
+                <sentence>
+                   CITY_1 VP[experience=Ser,function_in_group=Evento,lemma=acumular,person=3,gender=none,number=Sing,
+                  mood=Ind,tense=Pres,aspect=none] AREA_1 de desmatamento em MONTH_1 .
+                </sentence>
+                <sentence>
+                    A principal causa dos alertas de desmatamento VP[experience=Ser,function_in_group=Evento,lemma=ser,
+                    person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] CAUSE_1 .
+                </sentence>
+            </paragraph>
+
+        </lexicalization>
+        <references>
+            <paragraph>
+                <sentence>
+                    <reference tag="DAY_1" entity="31" gender="male" number="singular">31</reference>
+                    <reference tag="MONTH_1" entity="7" gender="male" number="singular">julho</reference>
+                    <reference tag="YEAR_1" entity="2019" gender="male" number="singular">2019</reference>
+                    <reference tag="INSTITUTE_1" entity="INPE" gender="male" number="singular">o Instituto Nacional de Pesquisas Espaciais (INPE)</reference>
+                    <reference tag="AREA_1" entity="12.007300834420757" gender="male" number="plural">12.007300834420757 km²</reference>
+                    <reference tag="CITY_1" entity="Alta Floresta D'oeste" gender="male" number="singular">o município de Alta Floresta D'oeste</reference>
+                    <reference tag="STATE_1" entity="RO" gender="male" number="singular">RO</reference>
+                    <reference tag="DAILY_ACCUMULATION_1" entity="7" gender="male" number="plural">7</reference>
+                </sentence>
+                <sentence>
+                    <reference tag="CITY_1" entity="Alta Floresta D'oeste" gender="male" number="singular">Alta Floresta D'oeste</reference>
+                    <reference tag="AREA_1" entity="12.685352175179451" gender="male" number="plural">12.685352175179451 km²</reference>
+                    <reference tag="MONTH_1" entity="7" gender="male" number="singular">julho</reference>
+                </sentence>
+                <sentence>
+                    <reference tag="CAUSE_1" entity="DESMATAMENTO_CR" gender="male" number="singular">o desmatamento com solo exposto, deixando a terra sem vegetação</reference>
+                </sentence>
+            </paragraph>
+        </references>
+        <text>
+            <paragraph>
+                <sentence>
+                    No dia 31 de julho de 2019, o Instituto Nacional de Pesquisas Espaciais (INPE) informou que houve alertas de
+                    desmatamento que somam 1.315173359776571 km² no município de Alta Floresta D'oeste/RO, acumulando
+                    7 dias com alertas no mês na região.
+                </sentence>
+                <sentence>
+                    Alta Floresta D'oeste acumula 12.685352175179451 km² de desmatamento em julho.
+                </sentence>
+                <sentence>
+                    A principal causa dos alertas de desmatamento foi o desmatamento com solo exposto, deixando a terra sem vegetação.
+                </sentence>
+            </paragraph>
+        </text>
+    </entry>
+    <entry date="2019-07-15 00:00:00">
+        <meaning>
+            <unit>CAUSE(cause="DESMATAMENTO_CR",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+            <unit>DAILY_ALERT(area="1.315173359776571",city="Alta Floresta D'oeste",daily_accumulation="7",day="15",location="deter-amz",month="7",state="RO",year="2019")</unit>
+            <unit>TOTAL_DEFORESTATION(area="12.685352175179451",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+        </meaning>
+        <ordering>
+            <unit>DAILY_ALERT(area="1.315173359776571",city="Alta Floresta D'oeste",daily_accumulation="7",day="15",location="deter-amz",month="7",state="RO",year="2019")</unit>
+            <unit>CAUSE(cause="DESMATAMENTO_CR",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+            <unit>TOTAL_DEFORESTATION(area="12.685352175179451",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+        </ordering>
+        <structuring>
+            <paragraph>
+                <sentence>
+                    <unit>DAILY_ALERT(area="1.315173359776571",city="Alta Floresta D'oeste",daily_accumulation="7",day="15",location="deter-amz",month="7",state="RO",year="2019")</unit>
+                </sentence>
+                <sentence>
+                    <unit>CAUSE(cause="DESMATAMENTO_CR",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+                </sentence>
+                <sentence>
+                    <unit>TOTAL_DEFORESTATION(area="12.685352175179451",city="Alta Floresta D'oeste",location="deter-amz",month="7",state="RO",year="2019")</unit>
+                </sentence>
+            </paragraph>
+        </structuring>
+        <lexicalization>
+            <paragraph>
+                <sentence>
+                    INSTITUTE_1 VP[experience=Sentir,function_in_group=Evento,lemma=relatar,person=3,gender=none,number=Sing,
+                    mood=Ind,tense=Past,aspect=Perf] NN[gender=male,number=plural] alerta de desmatamento em CITY_1 / 
+                    STATE_1 , no dia DAY_1 de MONTH_1 de YEAR_1 , VP[experience=Ser,function_in_group=Evento,lemma=somar,
+                    person=none,gender=none,number=none,mood=none,tense=Pres,aspect=Prog] AREA_1 , 
+                    e a região VP[experience=Ser,function_in_group=Evento,
+                    lemma=acumular,person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] 
+                    DAILY_ACCUMULATION_1 NN[number=DAILY_ACCUMULATION_1,gender=male] dia com alertas no mês .
+                </sentence>
+                <sentence>
+                    O principal tipo de desmatamento VP[experience=Ser,function_in_group=Evento,lemma=ser,
+                    person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] CAUSE_1 .
+                </sentence>
+                <sentence>
+                    No mês de MONTH_1 , CITY_1 VP[experience=Ser,function_in_group=Evento,lemma=acumular,person=3,
+                    gender=none,number=Sing,mood=Ind,tense=Pres,aspect=none] AREA_1 de área desmatada .
+                </sentence>
+            </paragraph>
+        </lexicalization>
+        <references>
+            <paragraph>
+                <sentence>
+                    <reference tag="INSTITUTE_1" entity="INPE" gender="male" number="singular">o Instituto Nacional de Pesquisas Espaciais (INPE)</reference>
+                    <reference tag="CITY_1" entity="Alta Floresta" gender="female" number="singular">Alta Floresta D'oeste</reference>
+                    <reference tag="STATE_1" entity="RO" gender="male" number="singular">RO</reference>
+                    <reference tag="DAY_1" entity="15" gender="male" number="singular">15</reference>
+                    <reference tag="MONTH_1" entity="7" gender="male" number="singular">julho</reference>
+                    <reference tag="YEAR_1" entity="2019" gender="male" number="singular">2019</reference>
+                    <reference tag="AREA_1" entity="1.315173359776571" gender="male" number="plural">1.315173359776571 km²</reference>
+                    <reference tag="DAILY_ACCUMULATION_1" entity="7" gender="male" number="plural">7</reference>
+                </sentence>
+                <sentence>
+                    <reference tag="CAUSE_1" entity="DESMATAMENTO_CR" gender="male" number="singular">o desmatamento com solo exposto, que deixa a terra sem vegetação</reference>
+                </sentence>
+                <sentence>
+                    <reference tag="MONTH_1" entity="7" gender="male" number="singular">julho</reference>
+                    <reference tag="CITY_1" entity="Alta Floresta" gender="male" number="singular">Alta Floresta D'oeste</reference>
+                    <reference tag="AREA_1" entity="12.685352175179451" gender="male" number="plural">12.685352175179451 km²</reference>
+                </sentence>
+            </paragraph>
+        </references>
+        <text>
+            <paragraph>
+                <sentence>
+                    O Instituto Nacional de Pesquisas Espaciais (INPE) relatou alertas de área desmatada em Alta Floresta D'oeste/RO,
+                    no dia 15 de julho de 2019, somando 1.315173359776571 km², e a região acumulou 7 dias com alertas no mês.
+                </sentence>
+                <sentence>
+                    O principal tipo de desmatamento foi o desmatamento com solo exposto, que deixa a terra sem vegetação.
+                </sentence>
+                <sentence>
+                    No mês de julho, Alta Floresta D'oeste acumula 12.685352175179451 km² de área desmatada.
+                </sentence>
+            </paragraph>
+        </text>
+    </entry>
+    <entry date="2019-08-16 00:00:00">
+        <meaning>
+            <unit>CAUSE(cause="DESMATAMENTO_CR",city="Santa Maria das Barreiras",location="deter-amz",month="8",state="PA",year="2019")</unit>
+            <unit>DAILY_ALERT(area="2.381176608019067",city="Santa Maria das Barreiras",daily_accumulation="6",day="16",location="deter-amz",month="8",state="PA",year="2019")</unit>
+            <unit>TOTAL_DEFORESTATION(area="9.562673442768272",city="Santa Maria das Barreiras",location="deter-amz",month="8",state="PA",year="2019")</unit>
+        </meaning>
+        <ordering>
+            <unit>DAILY_ALERT(area="2.381176608019067",city="Santa Maria das Barreiras",daily_accumulation="6",day="16",location="deter-amz",month="8",state="PA",year="2019")</unit>
+            <unit>TOTAL_DEFORESTATION(area="9.562673442768272",city="Santa Maria das Barreiras",location="deter-amz",month="8",state="PA",year="2019")</unit>
+            <unit>CAUSE(cause="DESMATAMENTO_CR",city="Santa Maria das Barreiras",location="deter-amz",month="8",state="PA",year="2019")</unit>
+        </ordering>
+        <structuring>
+            <paragraph>
+                <sentence>
+                    <unit>DAILY_ALERT(area="2.381176608019067",city="Santa Maria das Barreiras",daily_accumulation="6",day="16",location="deter-amz",month="8",state="PA",year="2019")</unit>
+                </sentence>
+                <sentence>
+                    <unit>TOTAL_DEFORESTATION(area="9.562673442768272",city="Santa Maria das Barreiras",location="deter-amz",month="8",state="PA",year="2019")</unit>
+                </sentence>
+                <sentence>
+                    <unit>CAUSE(cause="DESMATAMENTO_CR",city="Santa Maria das Barreiras",location="deter-amz",month="8",state="PA",year="2019")</unit>
+                </sentence>
+            </paragraph>
+        </structuring>
+        <lexicalization>
+            <paragraph>
+                <sentence>
+                    Segundo INSTITUTE_1 , CITY_1 / STATE_1 VP[experience=Ser,function_in_group=Evento,lemma=ter,person=3,
+                    gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] alertas de
+                    desmatamento no dia DAY_1 de MONTH_1 de YEAR_1 que
+                    VP[experience=Ser,function_in_group=Evento,lemma=somar,person=3,gender=none,number=Plur,
+                    mood=Ind,tense=Past,aspect=Perf] AREA_1 .
+                </sentence>
+                <sentence>
+                    CITY_1 VP[experience=Ser,function_in_group=Evento,lemma=acumular,person=3,
+                    gender=none,number=Sing,mood=Ind,tense=Pres,aspect=none] AREA_1 em MONTH_1 .
+                </sentence>
+                <sentence>
+                    A principal causa para o desmatamento em DT[number=singular,gender=female] o
+                    NN[gender=female,number=singular] região VP[experience=Ser,function_in_group=Evento,lemma=ser,
+                    person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf] CAUSE_1 .
+                </sentence>
+            </paragraph>
+        </lexicalization>
+        <references>
+            <paragraph>
+                <sentence>
+                    <reference tag="INSTITUTE_1" entity="INPE" gender="male" number="singular">o Instituto Nacional de Pesquisas Espaciais (INPE)</reference>
+                    <reference tag="CITY_1" entity="Santa Maria das Barreiras" gender="male" number="singular">o município de Santa Maria das Barreiras</reference>
+                    <reference tag="STATE_1" entity="PA" gender="male" number="singular">PA</reference>
+                    <reference tag="DAY_1" entity="16" gender="male" number="singular">16</reference>
+                    <reference tag="MONTH_1" entity="8" gender="male" number="singular">agosto</reference>
+                    <reference tag="YEAR_1" entity="2019" gender="male" number="singular">2019</reference>
+                    <reference tag="AREA_1" entity="2.381176608019067" gender="male" number="plural">2.381176608019067 km²</reference>
+                </sentence>
+                <sentence>
+                    <reference tag="AREA_1" entity="9.562673442768272" gender="male" number="plural">9.562673442768272 km²</reference>
+                    <reference tag="MONTH_1" entity="8" gender="male" number="singular">agosto</reference>
+                </sentence>
+                <sentence>
+                    <reference tag="CAUSE_1" entity="DESMATAMENTO_CR" gender="male" number="singular">o desmatamento com solo exposto, deixando a terra sem vegetação</reference>
+                </sentence>
+            </paragraph>
+        </references>
+        <text>
+            <paragraph>
+                <sentence>
+                    Segundo o Instituto Nacional de Pesquisas Espaciais (INPE), o município de Santa Maria das Barreiras/PA teve
+                    alertas de desmatamento no dia 16 de agosto de 2018 que somaram 2.381176608019067 km².
+                </sentence>
+                <sentence>
+                    Santa Maria das Barreiras acumula 9.562673442768272 km² em agosto.
+                </sentence>
+                <sentence>
+                    A principal causa para o desmatamento na região foi o desmatamento com o solo exposto, deixando a terra sem vegetação.
+                </sentence>
+            </paragraph>
+        </text>
+    </entry>
+
+</entries>

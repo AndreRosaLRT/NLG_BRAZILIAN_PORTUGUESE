@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/daily_corpus.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/daily_grammar/lexicalization.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/daily_grammar/ordering.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/daily_grammar/references.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/daily_grammar/structuring.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/month_corpus.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/month_grammar/lexicalization.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/month_grammar/ordering.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/month_grammar/references.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/month_grammar/structuring.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experimento_DAMATA_andre.py" beforeDir="false" afterPath="$PROJECT_DIR$/experimento_DAMATA_andre.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experimento_DAMATA_andre.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimento_DaMata/experimento_DAMATA_andre.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +46,9 @@
     <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_main.py" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/corpus/scraping_verbos.py" root0="SKIP_INSPECTION" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="1lTW8rtfPkdVNdmbaWSqRvVh02Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -48,7 +59,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Experimento_DaMata" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -60,14 +71,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Experimento_DaMata" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Experimento_DaMata" />
       <recent name="$USER_HOME$/PLN_TESE_ANDRE" />
       <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_morfema" />
-      <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/funcoes_por_ordem/ordem_grupo" />
     </key>
   </component>
   <component name="RunManager" selected="Python tests.Doctests in grupo_nominal">
