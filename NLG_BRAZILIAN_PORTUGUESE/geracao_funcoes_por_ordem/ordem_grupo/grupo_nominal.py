@@ -543,21 +543,27 @@ def ente(tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_
 
 
 def qualificador(indice_preposicao_frase=None, dissoc_ente_nucleo=None, tem_qualificador=None,
-                 tipo_qualificador=None, indice_preposicao_qualif=None, determinacao_especificidade_beta=None,
-                 orientacao_beta=None,
-                 genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
-                 determinacao_especificidade_alpha=None, orientacao_alpha=None, genero_alpha=None,
-                 numero_alpha=None, morfologia_do_pronome_alpha=None, pessoa_da_interlocucao_possuidor=None,
-                 numero_obj_possuido=None, genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None,
-                 tipo_numerativo=None, cardinal=None, genero_numerativo=None, tipo_de_ente=None,
-                 tipo_de_nao_consciente=None,
-                 tipo_de_nao_consciente_material=None, tipo_de_nao_consciente_semiotico=None,
-                 classe_palavra_ente=None, substantivo_lematizado=None, numero_subs=None,genero_subs=None,
-                 tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_prop_fp=None,
-                 pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+                 tipo_qualificador=None, indice_preposicao_qualif=None,
+                 determinacao_especificidade_beta=None, orientacao_beta=None, genero_beta=None, numero_beta=None,
+                 morfologia_do_pronome_beta=None, determinacao_especificidade_alpha=None, orientacao_alpha=None,
+                 genero_alpha=None, numero_alpha=None, morfologia_do_pronome_alpha=None,
+                 pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None, genero_obj_possuido=None,
+                 pessoa_da_interlocucao_proximidade=None, tipo_numerativo=None, cardinal=None,
+                 genero_numerativo=None,
+                 tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
+                 tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
+                 numero_subs=None, genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
+                 nome_prop_fp=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
                  morfologia_do_pronome=None, reflexivo=None,
-                 adjetivo_epiteto=None,
-                 adjetivo_classificador=None, genero_adjetivo=None, numero_adjetivo=None,
+                 # classificador
+                 adjetivo_classificador=None,
+                 # epitetos
+                 adj_epit_exp_pre=None,
+                 adj_epit_int_pre=None,
+                 adj_epit_exp_pos=None,
+                 adj_epit_int_pos=None,
+                 genero_adjetivo=None, numero_adjetivo=None,
+
                  contracao=None):
     """
     Retorna o qualificador (por enquanto, realizado apenas pela frase preposicional)
@@ -611,19 +617,35 @@ def qualificador(indice_preposicao_frase=None, dissoc_ente_nucleo=None, tem_qual
     try:
     
         qualif = frase_preposicional(indice_preposicao_frase, dissoc_ente_nucleo, tem_qualificador,
-                        tipo_qualificador, indice_preposicao_qualif,
-                        determinacao_especificidade_beta, orientacao_beta, genero_beta, numero_beta,
-                        morfologia_do_pronome_beta, determinacao_especificidade_alpha, orientacao_alpha,
-                        genero_alpha, numero_alpha, morfologia_do_pronome_alpha,
-                        pessoa_da_interlocucao_possuidor, numero_obj_possuido, genero_obj_possuido,
-                        pessoa_da_interlocucao_proximidade, tipo_numerativo, cardinal,
-                        genero_numerativo,
-                        tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
-                        tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado,
-                        numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica,
-                        nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
-                        morfologia_do_pronome, reflexivo, adjetivo_epiteto,
-                        adjetivo_classificador, genero_adjetivo, numero_adjetivo, contracao)
+                                     tipo_qualificador, indice_preposicao_qualif,
+                                     determinacao_especificidade_beta, orientacao_beta, genero_beta,
+                                     numero_beta,
+                                     morfologia_do_pronome_beta, determinacao_especificidade_alpha,
+                                     orientacao_alpha,
+                                     genero_alpha, numero_alpha, morfologia_do_pronome_alpha,
+                                     pessoa_da_interlocucao_possuidor, numero_obj_possuido,
+                                     genero_obj_possuido,
+                                     pessoa_da_interlocucao_proximidade, tipo_numerativo, cardinal,
+                                     genero_numerativo,
+                                     tipo_de_ente, tipo_de_nao_consciente,
+                                     tipo_de_nao_consciente_material,
+                                     tipo_de_nao_consciente_semiotico, classe_palavra_ente,
+                                     substantivo_lematizado,
+                                     numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao,
+                                     acent_tonica,
+                                     nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo,
+                                     tonicidade,
+                                     morfologia_do_pronome, reflexivo,
+                                     # classificador
+                                     adjetivo_classificador,
+                                     # epitetos
+                                     adj_epit_exp_pre,
+                                     adj_epit_int_pre,
+                                     adj_epit_exp_pos,
+                                     adj_epit_int_pos,
+                                     genero_adjetivo, numero_adjetivo,
+
+                                     contracao)
         # else:
             # 	Qualificador = "que" + oraçãoProjetada() (em desenvolvimento)
         return re.sub(' +', ' ', qualif).strip()
@@ -665,10 +687,18 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
                  tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
                  numero_subs=None, genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
                  nome_prop_fp=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
-                 morfologia_do_pronome=None, reflexivo=None, adjetivo_epiteto=None,
-                 adjetivo_classificador=None, genero_adjetivo=None, numero_adjetivo=None, contracao=None):
+                 morfologia_do_pronome=None, reflexivo=None,
+                 # classificador
+                 adjetivo_classificador=None,
+                 # epitetos
+                 adj_epit_exp_pre=None,
+                 adj_epit_int_pre=None,
+                 adj_epit_exp_pos=None,
+                 adj_epit_int_pos=None,
+                 genero_adjetivo=None, numero_adjetivo=None,
+
+                 contracao=None):
     """
-    A FAZER: implementar a estrutura lógica completa do GN(Deit,Num,Epit Inter,Epit Exp,Ente,Classificador,Epit Exp, Epit Inter)
     Ex.:
 
     >>> estrutura_gn(dissoc_ente_nucleo=None,tem_qualificador=None,tipo_qualificador=None,
@@ -681,11 +711,18 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
     genero_numerativo=None,tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
     tipo_de_nao_consciente_material='objeto_material',tipo_de_nao_consciente_semiotico=None,
     classe_palavra_ente='substantivo_comum',substantivo_lematizado='piano',numero_subs='singular',
-    genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_prop=None,
+    genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_prop_fp=None,
     pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
-    reflexivo=None,adjetivo_epiteto='bonito',adjetivo_classificador='importado',genero_adjetivo='masculino',
-    numero_adjetivo='singular',contracao=None)
-    -> 'o piano importado bonito'
+    reflexivo=None,
+    adjetivo_classificador='importado',
+    adj_epit_exp_pre=None,
+    adj_epit_int_pre='grande',
+    adj_epit_exp_pos=None,
+    adj_epit_int_pos='bonito',
+    genero_adjetivo='não-binário',
+    numero_adjetivo='singular',
+    contracao=None)
+    -> 'o grande piano importado bonito'
 
     :param dissoc_ente_nucleo:
     :param tem_qualificador:
@@ -719,7 +756,7 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
     :param tipo_feminino_ao:
     :param tipo_masc_ao:
     :param acent_tonica:
-    :param nome_prop:
+    :param nome_prop_fp:
     :param pessoa_da_interlocucao:
     :param transitividade_verbo:
     :param tonicidade:
@@ -751,27 +788,48 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
 
             classificador_adj = adjetivo(adjetivo_classificador, genero_adjetivo, numero_adjetivo)
 
+            # (Deit, Num, Epit Inter, Epit Exp, Ente, Classificador, Epit Exp, Epit Inter)
+            epiteto_int_pre = adjetivo(adj_epit_int_pre, genero_adjetivo, numero_adjetivo)
+            epiteto_exp_pre = adjetivo(adj_epit_exp_pre, genero_adjetivo, numero_adjetivo)
 
-            epiteto_pos = adjetivo(adjetivo_epiteto, genero_adjetivo, numero_adjetivo)
-            epiteto_pre = adjetivo(adjetivo_epiteto, genero_adjetivo, numero_adjetivo)
+            epiteto_exp_pos = adjetivo(adj_epit_exp_pos, genero_adjetivo, numero_adjetivo)
+            epiteto_int_pos = adjetivo(adj_epit_int_pos, genero_adjetivo, numero_adjetivo)
 
-            gn = re.sub(' +', ' ', " ".join((determinante, num, epiteto_pre, ente_, classificador_adj, epiteto_pos))).strip()
+            gn = re.sub(' +', ' ', " ".join((determinante, num, epiteto_int_pre,epiteto_exp_pre,
+                                             ente_, classificador_adj, epiteto_exp_pos,epiteto_int_pos))).strip()
 
         else:
 
-            nucleo_logico = estrutura_gn(dissoc_ente_nucleo, tem_qualificador, tipo_qualificador,
-                                         indice_preposicao_qualif, determinacao_especificidade_beta, orientacao_beta,
-                                         genero_beta, numero_beta, morfologia_do_pronome_beta,
-                                         determinacao_especificidade_alpha, orientacao_alpha, genero_alpha,
-                                         numero_alpha, morfologia_do_pronome_alpha, pessoa_da_interlocucao_possuidor,
-                                         numero_obj_possuido, genero_obj_possuido, pessoa_da_interlocucao_proximidade,
-                                         tipo_numerativo, cardinal, genero_numerativo, tipo_de_ente,
-                                         tipo_de_nao_consciente, tipo_de_nao_consciente_material,
-                                         tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado,
-                                         numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica,
-                                         nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
-                                         morfologia_do_pronome, reflexivo, adjetivo_epiteto, adjetivo_classificador,
-                                         genero_adjetivo, numero_adjetivo, contracao)
+            nucleo_logico = estrutura_gn(dissoc_ente_nucleo, tem_qualificador,
+                                         tipo_qualificador, indice_preposicao_qualif,
+                                         determinacao_especificidade_beta, orientacao_beta, genero_beta,
+                                         numero_beta,
+                                         morfologia_do_pronome_beta, determinacao_especificidade_alpha,
+                                         orientacao_alpha,
+                                         genero_alpha, numero_alpha, morfologia_do_pronome_alpha,
+                                         pessoa_da_interlocucao_possuidor, numero_obj_possuido,
+                                         genero_obj_possuido,
+                                         pessoa_da_interlocucao_proximidade, tipo_numerativo, cardinal,
+                                         genero_numerativo,
+                                         tipo_de_ente, tipo_de_nao_consciente,
+                                         tipo_de_nao_consciente_material,
+                                         tipo_de_nao_consciente_semiotico, classe_palavra_ente,
+                                         substantivo_lematizado,
+                                         numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao,
+                                         acent_tonica,
+                                         nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo,
+                                         tonicidade,
+                                         morfologia_do_pronome, reflexivo,
+                                         # classificador
+                                         adjetivo_classificador,
+                                         # epitetos
+                                         adj_epit_exp_pre,
+                                         adj_epit_int_pre,
+                                         adj_epit_exp_pos,
+                                         adj_epit_int_pos,
+                                         genero_adjetivo, numero_adjetivo,
+
+                                         contracao)
 
             qualif = qualificador(indice_preposicao_qualif, dissoc_ente_nucleo, tem_qualificador,
                                   tipo_qualificador, indice_preposicao_qualif,
@@ -785,15 +843,23 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
                                   tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado,
                                   numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica,
                                   nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
-                                  morfologia_do_pronome, reflexivo, adjetivo_epiteto,
-                                  adjetivo_classificador, genero_adjetivo, numero_adjetivo, contracao)
+                                  morfologia_do_pronome, reflexivo,  # classificador
+                                  adjetivo_classificador,
+                                  # epitetos
+                                  adj_epit_exp_pre,
+                                  adj_epit_int_pre,
+                                  adj_epit_exp_pos,
+                                  adj_epit_int_pos,
+                                  genero_adjetivo, numero_adjetivo,
+                                  contracao=None)
 
             gn = " ".join((nucleo_logico, qualif))
         return re.sub(' +', ' ', gn).strip()
     except ValueError:
         return ''
 
-def estrutura_gn_downraked(dissoc_ente_nucleo=None, tem_qualificador=None,
+
+def estrutura_gn_downranked(dissoc_ente_nucleo=None, tem_qualificador=None,
                            tipo_qualificador=None, indice_preposicao_qualif=None,
                            determinacao_especificidade_beta=None, orientacao_beta=None, genero_beta=None,
                            numero_beta=None,
@@ -807,9 +873,18 @@ def estrutura_gn_downraked(dissoc_ente_nucleo=None, tem_qualificador=None,
                            tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
                            numero_subs=None, genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None,
                            acent_tonica=None,
-                           nome_prop=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
-                           morfologia_do_pronome=None, reflexivo=None, adjetivo_epiteto=None,
-                           adjetivo_classificador=None, genero_adjetivo=None, numero_adjetivo=None, contracao=None):
+                           nome_prop_fp=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+                           morfologia_do_pronome=None, reflexivo=None,
+                           # classificador
+                           adjetivo_classificador=None,
+                           # epitetos
+                           adj_epit_exp_pre=None,
+                           adj_epit_int_pre=None,
+                           adj_epit_exp_pos=None,
+                           adj_epit_int_pos=None,
+                           genero_adjetivo=None, numero_adjetivo=None,
+
+                           contracao=None):
     """
     Ex.:
     >>>  estrutura_gn_downraked(dissoc_ente_nucleo=None,tem_qualificador=None,tipo_qualificador=None,
@@ -822,10 +897,17 @@ def estrutura_gn_downraked(dissoc_ente_nucleo=None, tem_qualificador=None,
     genero_numerativo=None,tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
     tipo_de_nao_consciente_material='objeto_material',tipo_de_nao_consciente_semiotico=None,
     classe_palavra_ente='substantivo_comum',substantivo_lematizado='piano',numero_subs='singular',
-    genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_prop=None,
+    genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_prop_fp=None,
     pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
-    reflexivo=None,adjetivo_epiteto='bonito',adjetivo_classificador='importado',genero_adjetivo='masculino',
-    numero_adjetivo='singular',contracao=None)
+    reflexivo=None,
+    adjetivo_classificador='importado',
+    adj_epit_exp_pre=None,
+    adj_epit_int_pre='grande',
+    adj_epit_exp_pos=None,
+    adj_epit_int_pos='bonito',
+    genero_adjetivo='masculino',
+    numero_adjetivo='singular',
+    contracao=None)
 
     :param dissoc_ente_nucleo:
     :param tem_qualificador:
@@ -872,18 +954,29 @@ def estrutura_gn_downraked(dissoc_ente_nucleo=None, tem_qualificador=None,
     :param contracao:
     :return:
     """
-    gn_downranked = estrutura_gn(dissoc_ente_nucleo, tem_qualificador, tipo_qualificador, indice_preposicao_qualif,
-                                 determinacao_especificidade_beta, orientacao_beta, genero_beta, numero_beta,
-                                 morfologia_do_pronome_beta, determinacao_especificidade_alpha, orientacao_alpha,
-                                 genero_alpha, numero_alpha, morfologia_do_pronome_alpha,
-                                 pessoa_da_interlocucao_possuidor, numero_obj_possuido, genero_obj_possuido,
-                                 pessoa_da_interlocucao_proximidade, tipo_numerativo, cardinal, genero_numerativo,
-                                 tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
-                                 tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado,
-                                 numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica,
-                                 nome_prop, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
-                                 morfologia_do_pronome, reflexivo, adjetivo_epiteto,
-                                 adjetivo_classificador, genero_adjetivo, numero_adjetivo, contracao)
+    gn_downranked = estrutura_gn(dissoc_ente_nucleo, tem_qualificador,
+                 tipo_qualificador, indice_preposicao_qualif,
+                 determinacao_especificidade_beta, orientacao_beta, genero_beta, numero_beta,
+                 morfologia_do_pronome_beta, determinacao_especificidade_alpha, orientacao_alpha,
+                 genero_alpha, numero_alpha, morfologia_do_pronome_alpha,
+                 pessoa_da_interlocucao_possuidor, numero_obj_possuido, genero_obj_possuido,
+                 pessoa_da_interlocucao_proximidade, tipo_numerativo, cardinal,
+                 genero_numerativo,
+                 tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+                 tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado,
+                 numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica,
+                 nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
+                 morfologia_do_pronome, reflexivo,
+                 # classificador
+                 adjetivo_classificador,
+                 # epitetos
+                 adj_epit_exp_pre,
+                 adj_epit_int_pre,
+                 adj_epit_exp_pos,
+                 adj_epit_int_pos,
+                 genero_adjetivo, numero_adjetivo,
+
+                 contracao)
 
     return re.sub(' +', ' ', gn_downranked).strip()
 
