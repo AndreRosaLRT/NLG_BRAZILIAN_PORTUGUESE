@@ -5,7 +5,8 @@
 import pandas as pd
 import json
 from sklearn.impute import SimpleImputer
-from NLG_BRAZILIAN_PORTUGUESE.arquivos_dev_antigos.GENERATION_dev import *
+
+
 ###FUNCAO EXPERIMENTO
 # TENTATIVA DE FAZER UMA CLASSE: acho  que seria desnecessário pra este experimento?
 # class ExperimentoFlexao:

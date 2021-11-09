@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Experimento_DaMata/realization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs" beforeDir="false" afterPath="$PROJECT_DIR$/Logs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/arquivos_dev_antigos/GENERATION_dev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/GENERATION_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/arquivos_dev_antigos/GENERATION_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/arquivos_dev_antigos/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_dev_antigos/GENERATION_dev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/arquivos_dev_antigos/GENERATION_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_dev_antigos/GENERATION_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/arquivos_dev_antigos/parametros_GV.json" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_dev_antigos/parametros_GV.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/arquivos_dev_antigos/teste_grupo_verbal.py" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_dev_antigos/teste_grupo_verbal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corpus/experimento_corpora_dev-test_verbos.py" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/experimento_corpora_dev-test_verbos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" afterDir="false" />
@@ -36,13 +37,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/corpus/experimento_corpora_dev-test_verbos.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/arquivos_dev_antigos/GENERATION_dev.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/arquivos_dev_antigos/GENERATION_dev.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/arquivos_dev_antigos/GENERATION_main.py" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/arquivos_dev_antigos/GENERATION_main.py" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/corpus/scraping_verbos.py" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1lTW8rtfPkdVNdmbaWSqRvVh02Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -70,11 +68,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/arquivos_dev_antigos" />
       <recent name="$PROJECT_DIR$/Experimento_DaMata" />
       <recent name="$USER_HOME$/PLN_TESE_ANDRE" />
       <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="Python tests.Doctests in grupo_nominal">

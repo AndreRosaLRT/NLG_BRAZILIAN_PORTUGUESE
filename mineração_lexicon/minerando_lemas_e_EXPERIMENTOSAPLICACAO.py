@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from NLG_BRAZILIAN_PORTUGUESE.arquivos_dev_antigos.GENERATION_dev import *
 import os
 path=os.getcwd()
 import json

@@ -37,7 +37,21 @@ def circunstancia(realizacao_circunstancia=None,
                   ):
     """
     Ex.:
-    >>> circunstancia('grupo_adverbial',None,None,tem_qualificador=None,tipo_qualificador=None,indice_preposicao_qualif=None,determinacao_especificidade_beta=None,orientacao_beta=None,genero_beta=None,numero_beta=None,morfologia_do_pronome_beta=None,determinacao_especificidade_alpha='específico',orientacao_alpha='orientação_específica_proximidade',genero_alpha='masculino',numero_alpha='plural',morfologia_do_pronome_alpha='morfologia_terceira_pessoa',pessoa_da_interlocucao_possuidor='1s',numero_obj_possuido='plural',genero_obj_possuido='masculino',pessoa_da_interlocucao_proximidade='próximo_ao_não_interlocutor',tipo_numerativo=None,cardinal=None,genero_numerativo=None,tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',tipo_de_nao_consciente_material='animal',tipo_de_nao_consciente_semiotico=None,classe_palavra_ente='substantivo_comum',substantivo_lematizado='prédio',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,reflexivo=None,adjetivo_classificador=None,adj_epit_exp_pre=None,adj_epit_int_pre=None,adj_epit_exp_pos=None,adj_epit_int_pos=None,genero_adjetivo=None,numero_adjetivo=None,contracao='-contração',tipo_de_adverbio1='Modo',adv_ind1=10) -> 'cuidadosamente'
+
+    >>> circunstancia('grupo_adverbial',None,None,tem_qualificador=None,tipo_qualificador=None,
+    ...indice_preposicao_qualif=None,determinacao_especificidade_beta=None,orientacao_beta=None,
+    ...genero_beta=None,numero_beta=None,morfologia_do_pronome_beta=None,determinacao_especificidade_alpha='específico',
+    ...orientacao_alpha='orientação_específica_proximidade',genero_alpha='masculino',numero_alpha='plural',
+    ...morfologia_do_pronome_alpha='morfologia_terceira_pessoa',pessoa_da_interlocucao_possuidor='1s',
+    ...numero_obj_possuido='plural',genero_obj_possuido='masculino',
+    ...pessoa_da_interlocucao_proximidade='próximo_ao_não_interlocutor',tipo_numerativo=None,cardinal=None,
+    ...genero_numerativo=None,tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
+    ...tipo_de_nao_consciente_material='animal',tipo_de_nao_consciente_semiotico=None,
+    ...classe_palavra_ente='substantivo_comum',substantivo_lematizado='prédio',tipo_feminino_ao=None,tipo_masc_ao=None,
+    ...acent_tonica=None,pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
+    ...reflexivo=None,adjetivo_classificador=None,adj_epit_exp_pre=None,adj_epit_int_pre=None,adj_epit_exp_pos=None,
+    ...adj_epit_int_pos=None,genero_adjetivo=None,numero_adjetivo=None,contracao='-contração',
+    ...tipo_de_adverbio1='Modo',adv_ind1=10) -> 'cuidadosamente'
 
     :param realizacao_circunstancia:
     :param indice_preposicao_frase:
@@ -68,18 +82,22 @@ def circunstancia(realizacao_circunstancia=None,
     :param tipo_de_nao_consciente_semiotico:
     :param classe_palavra_ente:
     :param substantivo_lematizado:
-    :param numero:
+    :param numero_subs:
+    :param genero_subs:
     :param tipo_feminino_ao:
     :param tipo_masc_ao:
     :param acent_tonica:
-    :param nome_prop:
+    :param nome_prop_fp:
     :param pessoa_da_interlocucao:
     :param transitividade_verbo:
     :param tonicidade:
     :param morfologia_do_pronome:
     :param reflexivo:
-    :param adjetivo_epiteto:
     :param adjetivo_classificador:
+    :param adj_epit_exp_pre:
+    :param adj_epit_int_pre:
+    :param adj_epit_exp_pos:
+    :param adj_epit_int_pos:
     :param genero_adjetivo:
     :param numero_adjetivo:
     :param contracao:
@@ -160,7 +178,7 @@ def circunstancia(realizacao_circunstancia=None,
         return ''
 
 
-#
+# teste circunstancia
 # circunstancia('grupo_adverbial', None,None,tem_qualificador=None,tipo_qualificador=None,indice_preposicao_qualif=None,
 #               determinacao_especificidade_beta=None, orientacao_beta=None, genero_beta=None, numero_beta=None,
 #               morfologia_do_pronome_beta=None, determinacao_especificidade_alpha='específico',
@@ -179,14 +197,17 @@ def circunstancia(realizacao_circunstancia=None,
 
 
 # for i ordem_lugar_preciso in range (12):
-# 	# print(circunstancia(realizacao_circunstancia='frase_preposicional',indice_preposicao_frase=6, dissoc_ente_nucleo=None, tem_qualificador=None,
-# 	# 							tipo_qualificador=None,indice_preposicao_qualif=None, determinacao_especificidade_beta=None, orientacao_beta=None,
+# 	# print(circunstancia(realizacao_circunstancia='frase_preposicional',indice_preposicao_frase=6,
+# 	dissoc_ente_nucleo=None, tem_qualificador=None,
+# 	# 							tipo_qualificador=None,indice_preposicao_qualif=None,
+# 	determinacao_especificidade_beta=None, orientacao_beta=None,
 # 	# 							genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
 # 	# 							determinacao_especificidade_alpha='específico', orientacao_alpha='NA',
 # 	# 							genero_alpha='feminino', numero_alpha='singular', morfologia_do_pronome_alpha=None,
 # 	# 							pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None,
 # 	# 							genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None,
-# 	# 							funcao_numerativo='ordem_lugar_preciso(ordinal)', cardinal=2, genero='feminino', tipo_precisa=None,
+# 	# 							funcao_numerativo='ordem_lugar_preciso(ordinal)', cardinal=2, genero='feminino',
+# 	tipo_precisa=None,
 # 	# 							tipo_real_card=None, milharExtenso=None, centenaExtenso=None, dezenaExtenso=None,
 # 	# 							unidadeExtenso=None, numIndefinido=None, tipo_de_ente='não_consciente',
 # 	# 							tipo_de_nao_consciente='material', tipo_de_nao_consciente_material='abstração_material',
@@ -201,9 +222,9 @@ def circunstancia(realizacao_circunstancia=None,
 # 			   None,None,None,None,None
 
 
-# # ##SISTEMAS DA ORAÇÃO
-# #
-## no caso de materiais meteorológicas, o Meio conflui
+# SISTEMAS DA ORAÇÃO
+
+# no caso de materiais meteorológicas, o Meio conflui
 # com o processo_ (por isso :AG_processo_sem_alcance,AG_processo_com_alcance );
 # pode haver escopo (Ex.: choveu uma chuva grossa)
 def agenciamento(indice=None):
@@ -493,7 +514,7 @@ def tipo_avaliacao_modal(avaliacao=False, polar=None):
         return 'AvM_sem_avaliação_modal'
 
 
-##para o sistema de modo, AINDA não considerei o subsistema de VALIDAÇÃO. (será implementado)
+# para o sistema de modo, AINDA não considerei o subsistema de VALIDAÇÃO. (será implementado)
 
 def modo(responsabilidade=None, pressuposicao_do_sujeito=None, tipo_modo=None):
     """
@@ -566,9 +587,9 @@ def conjuncao_continuativa(indice=None):
     """
     try:
 
-        opcoes = ["e", "é", "ah", 'mas', 'sim', 'bem', 'não', 'agora', 'então', 'pois é', 'assim'
-            , 'ó', 'daí', 'aí', 'aí então', 'quer dizer', 'assim', 'em seguida', 'por fim'
-            , 'porque', 'porém', 'também', 'é que', 'olha']
+        opcoes = ["e", "é", "ah", 'mas', 'sim', 'bem', 'não', 'agora', 'então', 'pois é', 'assim',
+                  'ó', 'daí', 'aí', 'aí então', 'quer dizer', 'assim', 'em seguida', 'por fim',
+                  'porque', 'porém', 'também', 'é que', 'olha']
 
         nums = [x for x in range(len(opcoes))]
         conjuncoes = dict(zip(nums, opcoes))
@@ -939,7 +960,8 @@ def tema_ideacional(orientacao_modal=None, orientacao_transitiva=None,
 
                 tema_id = 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_decodificação'
 
-            elif tema_default_indicativo == 'interrogativo_sujeito_elemental' and tema_identificativo == 'equativo_decodificação':
+            elif tema_default_indicativo == 'interrogativo_sujeito_elemental' \
+                    and tema_identificativo == 'equativo_decodificação':
 
                 tema_id = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_decodificação'
 
@@ -951,21 +973,25 @@ def tema_ideacional(orientacao_modal=None, orientacao_transitiva=None,
 
                 tema_id = 'TID_default_indicativo_interrogativo_polar_TIdentif_equativo_codificação'
 
-            elif tema_default_indicativo == 'interrogativo_sujeito_elemental' and tema_identificativo == 'equativo_codificação':
+            elif tema_default_indicativo == 'interrogativo_sujeito_elemental' \
+                    and tema_identificativo == 'equativo_codificação':
 
                 tema_id = 'TID_default_indicativo_interrogativo_sujeito_elemental_TIdentif_equativo_codificação'
 
-    elif orientacao_modal == 'não_orientado' and orientacao_transitiva == 'direcional' and selecao_tematica == 'proeminente':
+    elif orientacao_modal == 'não_orientado' and orientacao_transitiva == 'direcional'\
+            and selecao_tematica == 'proeminente':
         if tema_angulo == 'fonte':
             tema_id = 'TID_angulo_fonte'
         elif tema_angulo == 'ponto_de_vista':
             tema_id = 'TID_angulo_ponto_de_vista'
-    elif orientacao_modal == 'orientado' and orientacao_transitiva == 'não_direcional' and selecao_tematica == 'default':
+    elif orientacao_modal == 'orientado' and orientacao_transitiva == 'não_direcional' \
+            and selecao_tematica == 'default':
         if tema_elemental == 'complemento_elemental':
             tema_id = 'TID_complemento_elemental'
         elif tema_elemental == 'adjunto_elemental':
             tema_id = 'TID_adjunto_elemental'
-    elif orientacao_modal == 'não_orientado' and orientacao_transitiva == 'não_direcional' and selecao_tematica == 'proeminente':
+    elif orientacao_modal == 'não_orientado' and orientacao_transitiva == 'não_direcional' \
+            and selecao_tematica == 'proeminente':
 
         tema_id = 'TID_proeminente_' + tema_proeminente
 
@@ -1620,8 +1646,8 @@ def oracao_mental(
                                                     p2_adj_epit_int_pre,
                                                     p2_adj_epit_exp_pos,
                                                     p2_adj_epit_int_pos,
-                                                    p2_genero_adjetivo, p2_numero_adjetivo
-                                                    , p2_contracao)
+                                                    p2_genero_adjetivo, p2_numero_adjetivo,
+                                                    p2_contracao)
 
                         oracao = " ".join((experienciador, polar, processo_, metafenomeno + '.'))
 
@@ -1743,7 +1769,8 @@ def oracao_mental(
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_oração_que':
                     if tipo_de_mental == 'inferior_emotivo':
                         metafenomeno_agente = 'que' + ' ' + oracao_projetada()
-                        oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + ' ' + '.'
+                        oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn \
+                                 +' ' + experienciador_fp + ' ' + '.'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == 'inferior_emotivo':
@@ -1778,18 +1805,21 @@ def oracao_mental(
                                                            p2_adj_epit_exp_pos,
                                                            p2_adj_epit_int_pos,
                                                            p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
-                        oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + ' ' + '.'
+                        oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn +\
+                                 ' ' + experienciador_fp + ' ' + '.'
 
                 elif (fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_não-finito_concretizado' or
                       fenomenalizacao == 'reativo_macrofenômeno_não-orientado_gerúndio'):
                     if tipo_de_mental == "superior_cognitivo":
                         macrofenomeno_agente = oracao_projetada()
-                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + ' ' + '.'
+                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn +\
+                                 ' ' + experienciador_fp + ' ' + '.'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_oração_que':
                     if tipo_de_mental == "superior_cognitivo":
                         macrofenomeno_agente = 'que' + ' ' + oracao_projetada()
-                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + ' ' + '.'
+                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn \
+                                 + ' ' + experienciador_fp + ' ' + '.'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == "superior_cognitivo":
@@ -1823,7 +1853,8 @@ def oracao_mental(
                                                             p2_adj_epit_exp_pos,
                                                             p2_adj_epit_int_pos,
                                                             p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
-                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + ' ' + '.'
+                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn +\
+                                 ' ' + experienciador_fp + ' ' + '.'
 
                 elif fenomenalizacao == "fenomenalização_fenômeno_simples":
                     if tipo_de_mental == "superior_cognitivo":
@@ -1862,10 +1893,12 @@ def oracao_mental(
                                                        p1_adj_epit_exp_pos,
                                                        p1_adj_epit_int_pos,
                                                        p1_genero_adjetivo, p1_numero_adjetivo, p1_contracao)
-                        oracao = fenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + ' ' + '.'
+                        oracao = fenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn +\
+                                 ' ' + experienciador_fp + ' ' + '.'
 
         # comeca interrogativa polar
-        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+                and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
 
             if transitividade_ == 'PR_Mental_AG_médio_sem_alcance':
 
@@ -2894,7 +2927,7 @@ def oracao_material(
 
         elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance':
             ator = p1_gn
-            iniciador == '-iniciador'
+            iniciador = '-iniciador'
             iniciador_ = ''
             oracao = ator + ' ' + polar + ' ' + processo_
             try:
@@ -3500,7 +3533,7 @@ def oracao_relacional(
         circunst_tipo_de_adverbio5=None, circunst_adv_ind5=None
 
 ):
-    portador, polar, processo_, atributo = '', '', '', ''
+    portador, polar, processo_, atributo,oracao = '', '', '', '', ''
     try:
         transitividade_ = transitividade(tipo_de_processo, indice_material, indice_agenciamento, indice_relacional)
         modo_ = modo(responsabilidade, pressuposicao_do_sujeito, tipo_modo)
@@ -4723,6 +4756,7 @@ def oracao_verbal(
         circunst_tipo_de_adverbio4=None, circunst_adv_ind4=None,
         circunst_tipo_de_adverbio5=None, circunst_adv_ind5=None
 ):
+    oracao = ''
     try:
         transitividade_ = transitividade(tipo_de_processo, indice_material, indice_agenciamento, indice_relacional)
         modo_ = modo(responsabilidade, pressuposicao_do_sujeito, tipo_modo)
@@ -4989,39 +5023,7 @@ def oracao_verbal(
                                     p3_fp_adj_epit_int_pos,
                                     p3_fp_genero_adjetivo, p3_fp_numero_adjetivo,
                                     p3_fp_contracao)
-        circunstancia_ = circunstancia(circ_oracao_realizacaoCircunstancia, circ_oracao_indice_preposicao_frase,
-                                       circ_oracao_dissoc_ente_nucleo, circ_oracao_tem_qualificador,
-                                       circ_oracao_tipo_qualificador, circ_oracao_indice_preposicao_qualif,
-                                       circ_oracao_determinacao_especificidade_beta, circ_oracao_orientacao_beta,
-                                       circ_oracao_genero_beta, circ_oracao_numero_beta,
-                                       circ_oracao_morfologia_do_pronome_beta,
-                                       circ_oracao_determinacao_especificidade_alpha, circ_oracao_orientacao_alpha,
-                                       circ_oracao_genero_alpha, circ_oracao_numero_alpha,
-                                       circ_oracao_morfologia_do_pronome_alpha,
-                                       circ_oracao_pessoa_da_interlocucao_possuidor, circ_oracao_numero_obj_possuido,
-                                       circ_oracao_genero_obj_possuido, circ_oracao_pessoa_da_interlocucao_proximidade,
-                                       cardinal=circ_oracao_cardinal, genero_numerativo=circ_oracao_numIndefinido,
-                                       tipo_de_ente=circ_oracao_tipo_de_ente,
-                                       tipo_de_nao_consciente=circ_oracao_tipo_de_nao_consciente,
-                                       tipo_de_nao_consciente_material=circ_oracao_tipo_de_nao_consciente_material,
-                                       tipo_de_nao_consciente_semiotico=circ_oracao_tipo_de_nao_consciente_semiotico,
-                                       classe_palavra_ente=circ_oracao_classe_palavra_ente,
-                                       substantivo_lematizado=circ_oracao_substantivo_lematizado,
-                                       tipo_feminino_ao=circ_oracao_tipo_feminino_ao,
-                                       tipo_masc_ao=circ_oracao_tipo_masc_ao, acent_tonica=circ_oracao_acent_tonica,
-                                       pessoa_da_interlocucao=circ_oracao_pessoa_da_interlocucao,
-                                       transitividade_verbo=circ_oracao_transitividade_verbo,
-                                       tonicidade=circ_oracao_tonicidade,
-                                       morfologia_do_pronome=circ_oracao_morfologia_do_pronome,
-                                       reflexivo=circ_oracao_reflexivo,
-                                       adjetivo_classificador=circ_oracao_adjetivo_classificador,
-                                       genero_adjetivo=circ_oracao_genero_adjetivo,
-                                       numero_adjetivo=circ_oracao_numero_adjetivo, contracao=circ_oracao_contracao,
-                                       tipo_de_adverbio1=circ_oracao_tipo_de_adverbio1, adv_ind1=circ_oracao_ind1,
-                                       tipo_de_adverbio2=circ_oracao_tipo_de_adverbio2, adv_ind2=circ_oracao_ind2,
-                                       tipo_de_adverbio3=circ_oracao_tipo_de_adverbio3, adv_ind3=circ_oracao_ind3,
-                                       tipo_de_adverbio4=circ_oracao_tipo_de_adverbio4, adv_ind4=circ_oracao_ind4,
-                                       tipo_de_adverbio5=circ_oracao_tipo_de_adverbio5, adv_ind5=circ_oracao_ind5)
+
         dizente = p1_gn
         if receptividade == '+receptor':
             receptor = p3_fp
@@ -5113,4 +5115,3 @@ def oracao_verbal(
         return re.sub(' +', ' ', ' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()
     except:
         return ""
-
