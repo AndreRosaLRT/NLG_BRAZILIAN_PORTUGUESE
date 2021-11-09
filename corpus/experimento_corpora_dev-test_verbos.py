@@ -2,13 +2,10 @@
 
 
 ##PRELIMINARES
-import os
 import pandas as pd
 import json
-import numpy as np
-import sklearn
 from sklearn.impute import SimpleImputer
-from NLG_BRAZILIAN_PORTUGUESE.GENERATION_dev import *
+from NLG_BRAZILIAN_PORTUGUESE.arquivos_dev_antigos.GENERATION_dev import *
 ###FUNCAO EXPERIMENTO
 # TENTATIVA DE FAZER UMA CLASSE: acho  que seria desnecessário pra este experimento?
 # class ExperimentoFlexao:

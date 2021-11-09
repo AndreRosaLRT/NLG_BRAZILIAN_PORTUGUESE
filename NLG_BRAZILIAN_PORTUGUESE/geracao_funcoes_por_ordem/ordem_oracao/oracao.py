@@ -4461,60 +4461,63 @@ def oracao_existencial(
 # TIPO_SEMIOTICIDADE == 'não_projeção_+verbiagem',não_projeção_-verbiagem
 # TIPO_PROJECAO = choice.Menu(['citativa', 'relativa']).ask()
 # TIPO_SEMIOTICIDADE = choice.Menu(['projeção', 'não_projeção']).ask()
-def oracaoVerbal(
+def oracao_verbal(
 
-        ##TRANSITIVIDADE
-        TIPO_DE_PROCESSO=None, indice_material=None, indice_agenciamento=None, indice_relacional=None,
+        # TRANSITIVIDADE
+        tipo_de_processo=None, indice_material=None, indice_agenciamento=None, indice_relacional=None,
+        indice_atrib=None,
         # MODO
-        RESPONSABILIDADE=None, PRESSUPOSICAO_DO_SUJEITO=None, TIPO_MODO=None,
+        responsabilidade=None, pressuposicao_do_sujeito=None, tipo_modo=None,
         # TEMA INTERPESSOAL
-        TIPO_TEMA_INTERPESSOAL=None, t_inter_tipoRealizacao=None,
+        tipo_tema_interpessoal=None, t_inter_tipo_realizacao=None,
         # TEMA INTERP realizado por grupo adverbial
-        t_inter_tipo_de_adverbio1=None, t_inter_ind1=None,
-        t_inter_tipo_de_adverbio2=None, t_inter_ind2=None,
-        t_inter_tipo_de_adverbio3=None, t_inter_ind3=None,
-        t_inter_tipo_de_adverbio4=None, t_inter_ind4=None,
-        t_inter_tipo_de_adverbio5=None, t_inter_ind5=None,
+        t_inter_tipo_de_adverbio1=None, t_inter_ind_adv_1=None,
+        t_inter_tipo_de_adverbio2=None, t_inter_ind_adv_2=None,
+        t_inter_tipo_de_adverbio3=None, t_inter_ind_adv_3=None,
+        t_inter_tipo_de_adverbio4=None, t_inter_ind_adv_4=None,
+        t_inter_tipo_de_adverbio5=None, t_inter_ind_adv_5=None,
         #
         # 		# TEMA INTERPESSOAL realiziado por frase preposicional
         t_inter_fp_indice_preposicao_frase=None, t_inter_fp_dissoc_ente_nucleo=None, t_inter_fp_tem_qualificador=None,
         t_inter_fp_tipo_qualificador=None, t_inter_fp_indice_preposicao_qualif=None,
         t_inter_fp_determinacao_especificidade_beta=None, t_inter_fp_orientacao_beta=None, t_inter_fp_genero_beta=None,
-        t_inter_fp_numero_beta=None, t_inter_fp_morfologia_do_pronome_beta=None,
-        t_inter_fp_determinacao_especificidade_alpha=None, t_inter_fp_orientacao_alpha=None,
+        t_inter_fp_numero_beta=None,
+        t_inter_fp_morfologia_do_pronome_beta=None, t_inter_fp_determinacao_especificidade_alpha=None,
+        t_inter_fp_orientacao_alpha=None,
         t_inter_fp_genero_alpha=None, t_inter_fp_numero_alpha=None, t_inter_fp_morfologia_do_pronome_alpha=None,
         t_inter_fp_pessoa_da_interlocucao_possuidor=None, t_inter_fp_numero_obj_possuido=None,
-        t_inter_fp_genero_obj_possuido=None, t_inter_fp_pessoa_da_interlocucao_proximidade=None,
-        t_inter_fp_funcao_numerativo=None, t_inter_fp_cardinal=None, t_inter_fp_genero=None,
-        t_inter_fp_tipo_precisa=None, t_inter_fp_tipo_real_card=None, t_inter_fp_milharExtenso=None,
-        t_inter_fp_centenaExtenso=None, t_inter_fp_dezenaExtenso=None, t_inter_fp_unidadeExtenso=None,
-        t_inter_fp_numIndefinido=None, t_inter_fp_tipo_de_ente=None, t_inter_fp_tipo_de_nao_consciente=None,
-        t_inter_fp_tipo_de_nao_consciente_material=None, t_inter_fp_tipo_de_nao_consciente_semiotico=None,
-        t_inter_fp_classe_palavra_ente=None, t_inter_fp_substantivo_lematizado=None, t_inter_fp_numero=None,
-        t_inter_fp_tipo_feminino_ao=None, t_inter_fp_tipo_masc_ao=None, t_inter_fp_acent_tonica=None,
-        t_inter_fp_nome_proprio=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
-        t_inter_fp_tonicidade=None, t_inter_fp_morfologia_do_pronome=None, t_inter_fp_reflexivo=None,
-        t_inter_fp_adjetivo_epiteto=None, t_inter_fp_adjetivo_classificador=None, t_inter_fp_genero_adjetivo=None,
-        t_inter_fp_numero_adjetivo=None, t_inter_fp_contracao=None,
+        t_inter_fp_genero_obj_possuido=None,
+        t_inter_fp_pessoa_da_interlocucao_proximidade=None, t_inter_fp_tipo_numerativo=None, t_inter_fp_cardinal=None,
+        t_inter_fp_genero_numerativo=None,
+        t_inter_fp_tipo_de_ente=None, t_inter_fp_tipo_de_nao_consciente=None,
+        t_inter_fp_tipo_de_nao_consciente_material=None,
+        t_inter_fp_tipo_de_nao_consciente_semiotico=None, t_inter_fp_classe_palavra_ente=None,
+        t_inter_fp_substantivo_lematizado=None,
+        t_inter_fp_numero_subs=None, t_inter_fp_genero_subs=None, t_inter_fp_tipo_feminino_ao=None,
+        t_inter_fp_tipo_masc_ao=None, t_inter_fp_acent_tonica=None,
+        t_inter_fp_nome_prop_fp=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
+        t_inter_fp_tonicidade=None,
+        t_inter_fp_morfologia_do_pronome=None, t_inter_fp_reflexivo=None, t_inter_fp_adjetivo_epiteto=None,
+        t_inter_fp_adjetivo_classificador=None, t_inter_fp_genero_adjetivo=None, t_inter_fp_numero_adjetivo=None,
+        t_inter_fp_contracao=None,
         #
         # 		#
         t_inter_indice_elem_qu=None, t_inter_indice_part_modal=None, t_inter_nome_proprio=None,
         #
         # 	#TEMA TEXTUAL
-        t_text_tem_tema_textual='-', t_text_tipo_insercao_cont="inserção_menu", t_text_conj_extenso_Cont=None,
-        t_text_indiceCont=None,
-        t_text_tipo_insercao_Conj="inserção_menu", t_text_tipo_de_conjuncao_Conj=None, t_text_conj_extensoConj=None,
-        t_text_indiceConj=None,
-        t_text_tipo_insercao_Rel='inserção_menu', t_text_pron_extenso_Rel=None, t_text_tipo_de_relativo=None,
-        t_text_tipo_pronome_relativo=None, t_text_generoTemaTextual=None, t_text_numeroTemaTextual=None,
-        t_text_indice_relacionalativo=None,
-        t_text_indice_relacionalativoAdv=None,
+        t_text_tem_tema_textual=False, t_text_indice_cont=None,
+        t_text_tipo_de_conjuncao=None,
+        t_text_indice_conj=None, t_text_tipo_de_relativo=None,
+        t_text_tipo_pronome_relativo=None, t_text_genero=None, t_text_numero=None,
+        t_text_indice_relativo=None, t_text_indice_relativo_adv=None,
         # TEMA IDEACIONAL
-        ORIENTACAO_MODAL=None, ORIENTACAO_TRANSITIVA=None, SELECAO_TEMATICA=None, TEMA_DEFAULT=None,
-        TEMA_DEFAULT_indicativo=None, TEMA_IDENTIFICATIVO=None, TEMA_ANGULO=None, TEMA_ELEMENTAL=None,
-        TEMA_PROEMINENTE=None,
+        orientacao_modal=None, orientacao_transitiva=None,
+        selecao_tematica=None, tema_default=None,
+        tema_default_indicativo=None, tema_identificativo=None,
+        tema_angulo=None, tema_elemental=None,
+        tema_proeminente=None,
         ##PARAMETROS da oracao VERBAL
-        MODO_DO_DIZENTE=None, TIPO_SEMIOTICIDADE=None, TIPO_PROJECAO=None, RECEPTIVIDADE=None,
+        modo_do_dizente=None, tipo_semioticidade=None, tipo_projecao=None, receptividade=None,
         ##processo_
         tipo_de_experiencia_gv=None, agencia=None, tipo_de_experiencia_1=None, funcao_no_grupo_verbal_1=None,
         verbo_1=None, tipo_de_orientacao_1=None, oi_numero_1=None, genero_1=None, oi_tipo_de_pessoa_1=None,
@@ -4529,146 +4532,247 @@ def oracaoVerbal(
         padrao_pessoa_morfologia_lex='Morfologia_padrão',
         # POLARIDADE
         tipo_polaridade=None,
+
         # P1
         p1_dissoc_ente_nucleo=None, p1_tem_qualificador=None, p1_tipo_qualificador=None,
         p1_indice_preposicao_qualif=None, p1_determinacao_especificidade_beta=None, p1_orientacao_beta=None,
         p1_genero_beta=None, p1_numero_beta=None, p1_morfologia_do_pronome_beta=None,
         p1_determinacao_especificidade_alpha=None, p1_orientacao_alpha=None, p1_genero_alpha=None, p1_numero_alpha=None,
         p1_morfologia_do_pronome_alpha=None, p1_pessoa_da_interlocucao_possuidor=None, p1_numero_obj_possuido=None,
-        p1_genero_obj_possuido=None, p1_pessoa_da_interlocucao_proximidade=None, p1_funcao_numerativo=None,
-        p1_cardinal=None, p1_genero=None, p1_tipo_precisa=None, p1_tipo_real_card=None, p1_milharExtenso=None,
-        p1_centenaExtenso=None, p1_dezenaExtenso=None, p1_unidadeExtenso=None, p1_numIndefinido=None,
+        p1_genero_obj_possuido=None, p1_pessoa_da_interlocucao_proximidade=None, p1_tipo_numerativo=None,
+        p1_cardinal=None, p1_genero_numerativo=None,
         p1_tipo_de_ente=None, p1_tipo_de_nao_consciente=None, p1_tipo_de_nao_consciente_material=None,
         p1_tipo_de_nao_consciente_semiotico=None, p1_classe_palavra_ente=None, p1_substantivo_lematizado=None,
-        p1_numero=None, p1_tipo_feminino_ao=None, p1_tipo_masc_ao=None, p1_acent_tonica=None, p1_nome_proprio=None,
+        p1_numero_subs=None, p1_genero_subs=None, p1_tipo_feminino_ao=None, p1_tipo_masc_ao=None, p1_acent_tonica=None,
+        p1_nome_proprio=None,
         p1_pessoa_da_interlocucao=None, p1_transitividade_verbo=None, p1_tonicidade=None, p1_morfologia_do_pronome=None,
-        p1_reflexivo=None, p1_adjetivo_epiteto=None, p1_adjetivo_classificador=None, p1_genero_adjetivo=None,
-        p1_numero_adjetivo=None, p1_contracao=None,
-        ## P1 REALIZADOS POR FP
-        p1_FP_indice_preposicao_frase=None, p1_FP_dissoc_ente_nucleo=None, p1_FP_tem_qualificador=None,
-        p1_FP_tipo_qualificador=None, p1_FP_indice_preposicao_qualif=None, p1_FP_determinacao_especificidade_beta=None,
-        p1_FP_orientacao_beta=None, p1_FP_genero_beta=None, p1_FP_numero_beta=None,
-        p1_FP_morfologia_do_pronome_beta=None, p1_FP_determinacao_especificidade_alpha=None,
-        p1_FP_orientacao_alpha=None, p1_FP_genero_alpha=None, p1_FP_numero_alpha=None,
-        p1_FP_morfologia_do_pronome_alpha=None, p1_FP_pessoa_da_interlocucao_possuidor=None,
-        p1_FP_numero_obj_possuido=None, p1_FP_genero_obj_possuido=None, p1_FP_pessoa_da_interlocucao_proximidade=None,
-        p1_FP_funcao_numerativo=None, p1_FP_cardinal=None, p1_FP_genero=None, p1_FP_tipo_precisa=None,
-        p1_FP_tipo_real_card=None, p1_FP_milharExtenso=None, p1_FP_centenaExtenso=None, p1_FP_dezenaExtenso=None,
-        p1_FP_unidadeExtenso=None, p1_FP_numIndefinido=None, p1_FP_tipo_de_ente=None, p1_FP_tipo_de_nao_consciente=None,
-        p1_FP_tipo_de_nao_consciente_material=None, p1_FP_tipo_de_nao_consciente_semiotico=None,
-        p1_FP_classe_palavra_ente=None, p1_FP_substantivo_lematizado=None, p1_FP_numero=None,
-        p1_FP_tipo_feminino_ao=None, p1_FP_tipo_masc_ao=None, p1_FP_acent_tonica=None, p1_FP_nome_proprio=None,
-        p1_FP_pessoa_da_interlocucao=None, p1_FP_transitividade_verbo=None, p1_FP_tonicidade=None,
-        p1_FP_morfologia_do_pronome=None, p1_FP_reflexivo=None, p1_FP_adjetivo_epiteto=None,
-        p1_FP_adjetivo_classificador=None, p1_FP_genero_adjetivo=None, p1_FP_numero_adjetivo=None, p1_FP_contracao=None,
+        p1_reflexivo=None,
+        # classificador
+        p1_adjetivo_classificador=None,
+        # epitetos
+        p1_adj_epit_exp_pre=None,
+        p1_adj_epit_int_pre=None,
+        p1_adj_epit_exp_pos=None,
+        p1_adj_epit_int_pos=None,
+        p1_genero_adjetivo=None, p1_numero_adjetivo=None,
+
+        p1_contracao=None,
+
+        ##PARTICIPANTE P1 REALIZADOS POR FP
+        p1_fp_indice_preposicao_frase=None, p1_fp_dissoc_ente_nucleo=None, p1_fp_tem_qualificador=None,
+        p1_fp_tipo_qualificador=None, p1_fp_indice_preposicao_qualif=None,
+        p1_fp_determinacao_especificidade_beta=None, p1_fp_orientacao_beta=None, p1_fp_genero_beta=None,
+        p1_fp_numero_beta=None, p1_fp_morfologia_do_pronome_beta=None,
+        p1_fp_determinacao_especificidade_alpha=None, p1_fp_orientacao_alpha=None, p1_fp_genero_alpha=None,
+        p1_fp_numero_alpha=None, p1_fp_morfologia_do_pronome_alpha=None,
+        p1_fp_pessoa_da_interlocucao_possuidor=None, p1_fp_numero_obj_possuido=None,
+        p1_fp_genero_obj_possuido=None, p1_fp_pessoa_da_interlocucao_proximidade=None,
+        p1_fp_tipo_numerativo=None, p1_fp_cardinal=None,
+        p1_fp_genero_numerativo=None, p1_fp_tipo_de_ente=None,
+        p1_fp_tipo_de_nao_consciente=None, p1_fp_tipo_de_nao_consciente_material=None,
+        p1_fp_tipo_de_nao_consciente_semiotico=None, p1_fp_classe_palavra_ente=None,
+        p1_fp_substantivo_lematizado=None, p1_fp_numero_subs=None, p1_fp_genero_subs=None,
+        p1_fp_tipo_feminino_ao=None,
+        p1_fp_tipo_masc_ao=None, p1_fp_acent_tonica=None, p1_fp_nome_proprio=None,
+        p1_fp_pessoa_da_interlocucao=None, p1_fp_transitividade_verbo=None, p1_fp_tonicidade=None,
+        p1_fp_morfologia_do_pronome=None, p1_fp_reflexivo=None,  # classificador
+        p1_fp_adjetivo_classificador=None,
+        # epitetos
+        p1_fp_adj_epit_exp_pre=None,
+        p1_fp_adj_epit_int_pre=None,
+        p1_fp_adj_epit_exp_pos=None,
+        p1_fp_adj_epit_int_pos=None,
+        p1_fp_genero_adjetivo=None, p1_fp_numero_adjetivo=None,
+        p1_fp_contracao=None,
         # P2
         p2_dissoc_ente_nucleo=None, p2_tem_qualificador=None, p2_tipo_qualificador=None,
         p2_indice_preposicao_qualif=None, p2_determinacao_especificidade_beta=None, p2_orientacao_beta=None,
         p2_genero_beta=None, p2_numero_beta=None, p2_morfologia_do_pronome_beta=None,
         p2_determinacao_especificidade_alpha=None, p2_orientacao_alpha=None, p2_genero_alpha=None, p2_numero_alpha=None,
         p2_morfologia_do_pronome_alpha=None, p2_pessoa_da_interlocucao_possuidor=None, p2_numero_obj_possuido=None,
-        p2_genero_obj_possuido=None, p2_pessoa_da_interlocucao_proximidade=None, p2_funcao_numerativo=None,
-        p2_cardinal=None, p2_genero=None, p2_tipo_precisa=None, p2_tipo_real_card=None, p2_milharExtenso=None,
-        p2_centenaExtenso=None, p2_dezenaExtenso=None, p2_unidadeExtenso=None, p2_numIndefinido=None,
+        p2_genero_obj_possuido=None, p2_pessoa_da_interlocucao_proximidade=None, p2_tipo_numerativo=None,
+        p2_cardinal=None, p2_genero_numerativo=None,
         p2_tipo_de_ente=None, p2_tipo_de_nao_consciente=None, p2_tipo_de_nao_consciente_material=None,
         p2_tipo_de_nao_consciente_semiotico=None, p2_classe_palavra_ente=None, p2_substantivo_lematizado=None,
-        p2_numero=None, p2_tipo_feminino_ao=None, p2_tipo_masc_ao=None, p2_acent_tonica=None, p2_nome_proprio=None,
+        p2_numero_subs=None, p2_genero_subs=None, p2_tipo_feminino_ao=None, p2_tipo_masc_ao=None, p2_acent_tonica=None,
+        p2_nome_proprio=None,
         p2_pessoa_da_interlocucao=None, p2_transitividade_verbo=None, p2_tonicidade=None, p2_morfologia_do_pronome=None,
-        p2_reflexivo=None, p2_adjetivo_epiteto=None, p2_adjetivo_classificador=None, p2_genero_adjetivo=None,
-        p2_numero_adjetivo=None, p2_contracao=None,
+        p2_reflexivo=None,
+        # classificador
+        p2_adjetivo_classificador=None,
+        # epitetos
+        p2_adj_epit_exp_pre=None,
+        p2_adj_epit_int_pre=None,
+        p2_adj_epit_exp_pos=None,
+        p2_adj_epit_int_pos=None,
+        p2_genero_adjetivo=None, p2_numero_adjetivo=None,
+
+        p2_contracao=None,
         # P2 FRASE PREP
-        p2_FP_indice_preposicao_frase=None, p2_FP_dissoc_ente_nucleo=None, p2_FP_tem_qualificador=None,
-        p2_FP_tipo_qualificador=None, p2_FP_indice_preposicao_qualif=None, p2_FP_determinacao_especificidade_beta=None,
-        p2_FP_orientacao_beta=None, p2_FP_genero_beta=None, p2_FP_numero_beta=None,
-        p2_FP_morfologia_do_pronome_beta=None, p2_FP_determinacao_especificidade_alpha=None,
-        p2_FP_orientacao_alpha=None, p2_FP_genero_alpha=None, p2_FP_numero_alpha=None,
-        p2_FP_morfologia_do_pronome_alpha=None, p2_FP_pessoa_da_interlocucao_possuidor=None,
-        p2_FP_numero_obj_possuido=None, p2_FP_genero_obj_possuido=None, p2_FP_pessoa_da_interlocucao_proximidade=None,
-        p2_FP_funcao_numerativo=None, p2_FP_cardinal=None, p2_FP_genero=None, p2_FP_tipo_precisa=None,
-        p2_FP_tipo_real_card=None, p2_FP_milharExtenso=None, p2_FP_centenaExtenso=None, p2_FP_dezenaExtenso=None,
-        p2_FP_unidadeExtenso=None, p2_FP_numIndefinido=None, p2_FP_tipo_de_ente=None, p2_FP_tipo_de_nao_consciente=None,
-        p2_FP_tipo_de_nao_consciente_material=None, p2_FP_tipo_de_nao_consciente_semiotico=None,
-        p2_FP_classe_palavra_ente=None, p2_FP_substantivo_lematizado=None, p2_FP_numero=None,
-        p2_FP_tipo_feminino_ao=None, p2_FP_tipo_masc_ao=None, p2_FP_acent_tonica=None, p2_FP_nome_proprio=None,
-        p2_FP_pessoa_da_interlocucao=None, p2_FP_transitividade_verbo=None, p2_FP_tonicidade=None,
-        p2_FP_morfologia_do_pronome=None, p2_FP_reflexivo=None, p2_FP_adjetivo_epiteto=None,
-        p2_FP_adjetivo_classificador=None, p2_FP_genero_adjetivo=None, p2_FP_numero_adjetivo=None, p2_FP_contracao=None,
+        p2_fp_indice_preposicao_frase=None, p2_fp_dissoc_ente_nucleo=None, p2_fp_tem_qualificador=None,
+        p2_fp_tipo_qualificador=None, p2_fp_indice_preposicao_qualif=None,
+        p2_fp_determinacao_especificidade_beta=None, p2_fp_orientacao_beta=None, p2_fp_genero_beta=None,
+        p2_fp_numero_beta=None, p2_fp_morfologia_do_pronome_beta=None,
+        p2_fp_determinacao_especificidade_alpha=None, p2_fp_orientacao_alpha=None, p2_fp_genero_alpha=None,
+        p2_fp_numero_alpha=None, p2_fp_morfologia_do_pronome_alpha=None,
+        p2_fp_pessoa_da_interlocucao_possuidor=None, p2_fp_numero_obj_possuido=None,
+        p2_fp_genero_obj_possuido=None, p2_fp_pessoa_da_interlocucao_proximidade=None,
+        p2_fp_tipo_numerativo=None, p2_fp_cardinal=None,
+        p2_fp_genero_numerativo=None, p2_fp_tipo_de_ente=None,
+        p2_fp_tipo_de_nao_consciente=None, p2_fp_tipo_de_nao_consciente_material=None,
+        p2_fp_tipo_de_nao_consciente_semiotico=None, p2_fp_classe_palavra_ente=None,
+        p2_fp_substantivo_lematizado=None, p2_fp_numero_subs=None, p2_fp_genero_subs=None,
+        p2_fp_tipo_feminino_ao=None,
+        p2_fp_tipo_masc_ao=None, p2_fp_acent_tonica=None, p2_fp_nome_proprio=None,
+        p2_fp_pessoa_da_interlocucao=None, p2_fp_transitividade_verbo=None, p2_fp_tonicidade=None,
+        p2_fp_morfologia_do_pronome=None, p2_fp_reflexivo=None,  # classificador
+        p2_fp_adjetivo_classificador=None,
+        # epitetos
+        p2_fp_adj_epit_exp_pre=None,
+        p2_fp_adj_epit_int_pre=None,
+        p2_fp_adj_epit_exp_pos=None,
+        p2_fp_adj_epit_int_pos=None,
+        p2_fp_genero_adjetivo=None, p2_fp_numero_adjetivo=None,
+        p2_fp_contracao=None,
+
         # P3
         p3_dissoc_ente_nucleo=None, p3_tem_qualificador=None, p3_tipo_qualificador=None,
         p3_indice_preposicao_qualif=None, p3_determinacao_especificidade_beta=None, p3_orientacao_beta=None,
         p3_genero_beta=None, p3_numero_beta=None, p3_morfologia_do_pronome_beta=None,
         p3_determinacao_especificidade_alpha=None, p3_orientacao_alpha=None, p3_genero_alpha=None, p3_numero_alpha=None,
         p3_morfologia_do_pronome_alpha=None, p3_pessoa_da_interlocucao_possuidor=None, p3_numero_obj_possuido=None,
-        p3_genero_obj_possuido=None, p3_pessoa_da_interlocucao_proximidade=None, p3_funcao_numerativo=None,
-        p3_cardinal=None, p3_genero=None, p3_tipo_precisa=None, p3_tipo_real_card=None, p3_milharExtenso=None,
-        p3_centenaExtenso=None, p3_dezenaExtenso=None, p3_unidadeExtenso=None, p3_numIndefinido=None,
+        p3_genero_obj_possuido=None, p3_pessoa_da_interlocucao_proximidade=None, p3_tipo_numerativo=None,
+        p3_cardinal=None, p3_genero_numerativo=None,
         p3_tipo_de_ente=None, p3_tipo_de_nao_consciente=None, p3_tipo_de_nao_consciente_material=None,
         p3_tipo_de_nao_consciente_semiotico=None, p3_classe_palavra_ente=None, p3_substantivo_lematizado=None,
-        p3_numero=None, p3_tipo_feminino_ao=None, p3_tipo_masc_ao=None, p3_acent_tonica=None, p3_nome_proprio=None,
+        p3_numero_subs=None, p3_genero_subs=None, p3_tipo_feminino_ao=None, p3_tipo_masc_ao=None, p3_acent_tonica=None,
+        p3_nome_proprio=None,
         p3_pessoa_da_interlocucao=None, p3_transitividade_verbo=None, p3_tonicidade=None, p3_morfologia_do_pronome=None,
-        p3_reflexivo=None, p3_adjetivo_epiteto=None, p3_adjetivo_classificador=None, p3_genero_adjetivo=None,
-        p3_numero_adjetivo=None, p3_contracao=None,
-        ## P3 REALIZADOS POR FP
-        p3_FP_indice_preposicao_frase=None, p3_FP_dissoc_ente_nucleo=None, p3_FP_tem_qualificador=None,
-        p3_FP_tipo_qualificador=None, p3_FP_indice_preposicao_qualif=None, p3_FP_determinacao_especificidade_beta=None,
-        p3_FP_orientacao_beta=None, p3_FP_genero_beta=None, p3_FP_numero_beta=None,
-        p3_FP_morfologia_do_pronome_beta=None, p3_FP_determinacao_especificidade_alpha=None,
-        p3_FP_orientacao_alpha=None, p3_FP_genero_alpha=None, p3_FP_numero_alpha=None,
-        p3_FP_morfologia_do_pronome_alpha=None, p3_FP_pessoa_da_interlocucao_possuidor=None,
-        p3_FP_numero_obj_possuido=None, p3_FP_genero_obj_possuido=None, p3_FP_pessoa_da_interlocucao_proximidade=None,
-        p3_FP_funcao_numerativo=None, p3_FP_cardinal=None, p3_FP_genero=None, p3_FP_tipo_precisa=None,
-        p3_FP_tipo_real_card=None, p3_FP_milharExtenso=None, p3_FP_centenaExtenso=None, p3_FP_dezenaExtenso=None,
-        p3_FP_unidadeExtenso=None, p3_FP_numIndefinido=None, p3_FP_tipo_de_ente=None, p3_FP_tipo_de_nao_consciente=None,
-        p3_FP_tipo_de_nao_consciente_material=None, p3_FP_tipo_de_nao_consciente_semiotico=None,
-        p3_FP_classe_palavra_ente=None, p3_FP_substantivo_lematizado=None, p3_FP_numero=None,
-        p3_FP_tipo_feminino_ao=None, p3_FP_tipo_masc_ao=None, p3_FP_acent_tonica=None, p3_FP_nome_proprio=None,
-        p3_FP_pessoa_da_interlocucao=None, p3_FP_transitividade_verbo=None, p3_FP_tonicidade=None,
-        p3_FP_morfologia_do_pronome=None, p3_FP_reflexivo=None, p3_FP_adjetivo_epiteto=None,
-        p3_FP_adjetivo_classificador=None, p3_FP_genero_adjetivo=None, p3_FP_numero_adjetivo=None, p3_FP_contracao=None,
+        p3_reflexivo=None,
+        # classificador
+        p3_adjetivo_classificador=None,
+        # epitetos
+        p3_adj_epit_exp_pre=None,
+        p3_adj_epit_int_pre=None,
+        p3_adj_epit_exp_pos=None,
+        p3_adj_epit_int_pos=None,
+        p3_genero_adjetivo=None, p3_numero_adjetivo=None,
+
+        p3_contracao=None,
+        ##PARTICIPANTE P3 REALIZADOS POR FP
+        p3_fp_indice_preposicao_frase=None, p3_fp_dissoc_ente_nucleo=None, p3_fp_tem_qualificador=None,
+        p3_fp_tipo_qualificador=None, p3_fp_indice_preposicao_qualif=None,
+        p3_fp_determinacao_especificidade_beta=None, p3_fp_orientacao_beta=None, p3_fp_genero_beta=None,
+        p3_fp_numero_beta=None, p3_fp_morfologia_do_pronome_beta=None,
+        p3_fp_determinacao_especificidade_alpha=None, p3_fp_orientacao_alpha=None, p3_fp_genero_alpha=None,
+        p3_fp_numero_alpha=None, p3_fp_morfologia_do_pronome_alpha=None,
+        p3_fp_pessoa_da_interlocucao_possuidor=None, p3_fp_numero_obj_possuido=None,
+        p3_fp_genero_obj_possuido=None, p3_fp_pessoa_da_interlocucao_proximidade=None,
+        p3_fp_tipo_numerativo=None, p3_fp_cardinal=None,
+        p3_fp_genero_numerativo=None, p3_fp_tipo_de_ente=None,
+        p3_fp_tipo_de_nao_consciente=None, p3_fp_tipo_de_nao_consciente_material=None,
+        p3_fp_tipo_de_nao_consciente_semiotico=None, p3_fp_classe_palavra_ente=None,
+        p3_fp_substantivo_lematizado=None, p3_fp_numero_subs=None, p3_fp_genero_subs=None,
+        p3_fp_tipo_feminino_ao=None,
+        p3_fp_tipo_masc_ao=None, p3_fp_acent_tonica=None, p3_fp_nome_proprio=None,
+        p3_fp_pessoa_da_interlocucao=None, p3_fp_transitividade_verbo=None, p3_fp_tonicidade=None,
+        p3_fp_morfologia_do_pronome=None, p3_fp_reflexivo=None,  # classificador
+        p3_fp_adjetivo_classificador=None,
+        # epitetos
+        p3_fp_adj_epit_exp_pre=None,
+        p3_fp_adj_epit_int_pre=None,
+        p3_fp_adj_epit_exp_pos=None,
+        p3_fp_adj_epit_int_pos=None,
+        p3_fp_genero_adjetivo=None, p3_fp_numero_adjetivo=None,
+        p3_fp_contracao=None,
+
+##CIRCUNSTANCIA
+        circunst_realizacao_circunstancia=None,
+        circunst_indice_preposicao_frase=None, circunst_dissoc_ente_nucleo=None, circunst_tem_qualificador=None,
+        circunst_tipo_qualificador=None, circunst_indice_preposicao_qualif=None,
+        circunst_determinacao_especificidade_beta=None, circunst_orientacao_beta=None, circunst_genero_beta=None,
+        circunst_numero_beta=None,
+        circunst_morfologia_do_pronome_beta=None, circunst_determinacao_especificidade_alpha=None,
+        circunst_orientacao_alpha=None,
+        circunst_genero_alpha=None, circunst_numero_alpha=None, circunst_morfologia_do_pronome_alpha=None,
+        circunst_pessoa_da_interlocucao_possuidor=None, circunst_numero_obj_possuido=None,
+        circunst_genero_obj_possuido=None,
+        circunst_pessoa_da_interlocucao_proximidade=None, circunst_tipo_numerativo=None, circunst_cardinal=None,
+        circunst_genero_numerativo=None,
+        circunst_tipo_de_ente=None, circunst_tipo_de_nao_consciente=None, circunst_tipo_de_nao_consciente_material=None,
+        circunst_tipo_de_nao_consciente_semiotico=None, circunst_classe_palavra_ente=None,
+        circunst_substantivo_lematizado=None,
+        circunst_numero_subs=None, circunst_genero_subs=None, circunst_tipo_feminino_ao=None,
+        circunst_tipo_masc_ao=None, circunst_acent_tonica=None,
+        circunst_nome_prop_fp=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
+        circunst_tonicidade=None,
+        circunst_morfologia_do_pronome=None, circunst_reflexivo=None,
+        # classificador
+        circunst_adjetivo_classificador=None,
+        # epitetos
+        circunst_adj_epit_exp_pre=None,
+        circunst_adj_epit_int_pre=None,
+        circunst_adj_epit_exp_pos=None,
+        circunst_adj_epit_int_pos=None,
+        circunst_genero_adjetivo=None, circunst_numero_adjetivo=None,
+
+        circunst_contracao=None,
+        circunst_tipo_de_adverbio1=None, circunst_adv_ind1=None,
+        circunst_tipo_de_adverbio2=None, circunst_adv_ind2=None,
+        circunst_tipo_de_adverbio3=None, circunst_adv_ind3=None,
+        circunst_tipo_de_adverbio4=None, circunst_adv_ind4=None,
+        circunst_tipo_de_adverbio5=None, circunst_adv_ind5=None
 ):
     try:
-        transitividade_ = transitividade(TIPO_DE_PROCESSO, indice_material, indice_agenciamento, indice_relacional)
-        modo_ = modo(RESPONSABILIDADE, PRESSUPOSICAO_DO_SUJEITO, TIPO_MODO)
-        Tema_interpessoal = tema_interpessoal(TIPO_TEMA_INTERPESSOAL, t_inter_tipoRealizacao, t_inter_tipo_de_adverbio1,
-                                              t_inter_ind1, t_inter_tipo_de_adverbio2, t_inter_ind2,
-                                              t_inter_tipo_de_adverbio3, t_inter_ind3, t_inter_tipo_de_adverbio4,
-                                              t_inter_ind4, t_inter_tipo_de_adverbio5, t_inter_ind5,
-                                              t_inter_fp_indice_preposicao_frase, t_inter_fp_dissoc_ente_nucleo,
-                                              t_inter_fp_tem_qualificador, t_inter_fp_tipo_qualificador,
-                                              t_inter_fp_indice_preposicao_qualif,
-                                              t_inter_fp_determinacao_especificidade_beta, t_inter_fp_orientacao_beta,
-                                              t_inter_fp_genero_beta, t_inter_fp_numero_beta,
-                                              t_inter_fp_morfologia_do_pronome_beta,
-                                              t_inter_fp_determinacao_especificidade_alpha, t_inter_fp_orientacao_alpha,
-                                              t_inter_fp_genero_alpha, t_inter_fp_numero_alpha,
-                                              t_inter_fp_morfologia_do_pronome_alpha,
-                                              t_inter_fp_pessoa_da_interlocucao_possuidor,
-                                              t_inter_fp_numero_obj_possuido, t_inter_fp_genero_obj_possuido,
-                                              t_inter_fp_pessoa_da_interlocucao_proximidade,
-                                              t_inter_fp_funcao_numerativo, t_inter_fp_cardinal, t_inter_fp_genero,
-                                              t_inter_fp_tipo_precisa, t_inter_fp_tipo_real_card,
-                                              t_inter_fp_milharExtenso, t_inter_fp_centenaExtenso,
-                                              t_inter_fp_dezenaExtenso, t_inter_fp_unidadeExtenso,
-                                              t_inter_fp_numIndefinido, t_inter_fp_tipo_de_ente,
-                                              t_inter_fp_tipo_de_nao_consciente,
-                                              t_inter_fp_tipo_de_nao_consciente_material,
-                                              t_inter_fp_tipo_de_nao_consciente_semiotico,
-                                              t_inter_fp_classe_palavra_ente, t_inter_fp_substantivo_lematizado,
-                                              t_inter_fp_numero, t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
-                                              t_inter_fp_acent_tonica, t_inter_fp_nome_proprio,
-                                              t_inter_fp_pessoa_da_interlocucao, t_inter_fp_transitividade_verbo,
-                                              t_inter_fp_tonicidade, t_inter_fp_morfologia_do_pronome,
-                                              t_inter_fp_reflexivo, t_inter_fp_adjetivo_epiteto,
-                                              t_inter_fp_adjetivo_classificador, t_inter_fp_genero_adjetivo,
-                                              t_inter_fp_numero_adjetivo, t_inter_fp_contracao, t_inter_indice_elem_qu,
-                                              t_inter_indice_part_modal, t_inter_nome_proprio)
-        Tema_textual = tema_textual(t_text_tem_tema_textual, t_text_tipo_insercao_cont, t_text_indiceCont,
-                                    t_text_tipo_de_conjuncao_Conj, t_text_conj_extensoConj, t_text_indiceConj,
-                                    t_text_tipo_insercao_Rel, t_text_pron_extenso_Rel, t_text_tipo_de_relativo,
-                                    t_text_tipo_pronome_relativo, t_text_generoTemaTextual, t_text_numeroTemaTextual)
-        tema_id = tema_ideacional(ORIENTACAO_MODAL, ORIENTACAO_TRANSITIVA, SELECAO_TEMATICA, TEMA_DEFAULT,
-                                  TEMA_DEFAULT_indicativo, TEMA_IDENTIFICATIVO, TEMA_ANGULO, TEMA_ELEMENTAL,
-                                  TEMA_PROEMINENTE)
+        transitividade_ = transitividade(tipo_de_processo, indice_material, indice_agenciamento, indice_relacional)
+        modo_ = modo(responsabilidade, pressuposicao_do_sujeito, tipo_modo)
+        tema_interp = tema_interpessoal(tipo_tema_interpessoal, t_inter_tipo_realizacao, t_inter_tipo_de_adverbio1,
+                                        t_inter_ind_adv_1, t_inter_tipo_de_adverbio2, t_inter_ind_adv_2,
+                                        t_inter_tipo_de_adverbio3, t_inter_ind_adv_3, t_inter_tipo_de_adverbio4,
+                                        t_inter_ind_adv_4, t_inter_tipo_de_adverbio5, t_inter_ind_adv_5,
+                                        t_inter_fp_indice_preposicao_frase,
+                                        t_inter_fp_dissoc_ente_nucleo, t_inter_fp_tem_qualificador,
+                                        t_inter_fp_tipo_qualificador,
+                                        t_inter_fp_indice_preposicao_qualif,
+                                        t_inter_fp_determinacao_especificidade_beta,
+                                        t_inter_fp_orientacao_beta, t_inter_fp_genero_beta,
+                                        t_inter_fp_numero_beta,
+                                        t_inter_fp_morfologia_do_pronome_beta,
+                                        t_inter_fp_determinacao_especificidade_alpha,
+                                        t_inter_fp_orientacao_alpha,
+                                        t_inter_fp_genero_alpha, t_inter_fp_numero_alpha,
+                                        t_inter_fp_morfologia_do_pronome_alpha,
+                                        t_inter_fp_pessoa_da_interlocucao_possuidor,
+                                        t_inter_fp_numero_obj_possuido, t_inter_fp_genero_obj_possuido,
+                                        t_inter_fp_pessoa_da_interlocucao_proximidade,
+                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal,
+                                        t_inter_fp_genero_numerativo,
+                                        t_inter_fp_tipo_de_ente, t_inter_fp_tipo_de_nao_consciente,
+                                        t_inter_fp_tipo_de_nao_consciente_material,
+                                        t_inter_fp_tipo_de_nao_consciente_semiotico,
+                                        t_inter_fp_classe_palavra_ente,
+                                        t_inter_fp_substantivo_lematizado,
+                                        t_inter_fp_numero_subs, t_inter_fp_genero_subs,
+                                        t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
+                                        t_inter_fp_acent_tonica,
+                                        t_inter_fp_nome_prop_fp, t_inter_fp_pessoa_da_interlocucao,
+                                        t_inter_fp_transitividade_verbo, t_inter_fp_tonicidade,
+                                        t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
+                                        t_inter_fp_adjetivo_epiteto,
+                                        t_inter_fp_adjetivo_classificador, t_inter_fp_genero_adjetivo,
+                                        t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
+                                        t_inter_indice_elem_qu,
+                                        t_inter_indice_part_modal, t_inter_nome_proprio)
+        tema_text = tema_textual(t_text_tem_tema_textual, t_text_indice_cont,
+                                 t_text_tipo_de_conjuncao,
+                                 t_text_indice_conj, t_text_tipo_de_relativo,
+                                 t_text_tipo_pronome_relativo, t_text_genero, t_text_numero,
+                                 t_text_indice_relativo, t_text_indice_relativo_adv)
+        tema_id = tema_ideacional(orientacao_modal, orientacao_transitiva,
+                                  selecao_tematica, tema_default,
+                                  tema_default_indicativo, tema_identificativo,
+                                  tema_angulo, tema_elemental,
+                                  tema_proeminente)
         polar = polaridade(tipo_polaridade)
         processo_ = grupo_verbal(tipo_de_experiencia_gv, agencia, tipo_de_experiencia_1, funcao_no_grupo_verbal_1,
                                  verbo_1, tipo_de_orientacao_1, oi_numero_1, genero_1, oi_tipo_de_pessoa_1,
@@ -4681,6 +4785,210 @@ def oracaoVerbal(
                                  padrao_pessoa_morfologia_4, tipo_de_experiencia_lex, funcao_no_grupo_verbal_pos_final,
                                  verbo_lex, tipo_de_orientacao_lex, oi_numero_lex, genero_lex, oi_tipo_de_pessoa_lex,
                                  padrao_pessoa_morfologia_lex)
+        circunstancia_ = circunstancia(circunst_realizacao_circunstancia,
+                                       circunst_indice_preposicao_frase, circunst_dissoc_ente_nucleo,
+                                       circunst_tem_qualificador,
+                                       circunst_tipo_qualificador, circunst_indice_preposicao_qualif,
+                                       circunst_determinacao_especificidade_beta, circunst_orientacao_beta,
+                                       circunst_genero_beta, circunst_numero_beta,
+                                       circunst_morfologia_do_pronome_beta,
+                                       circunst_determinacao_especificidade_alpha, circunst_orientacao_alpha,
+                                       circunst_genero_alpha, circunst_numero_alpha,
+                                       circunst_morfologia_do_pronome_alpha,
+                                       circunst_pessoa_da_interlocucao_possuidor, circunst_numero_obj_possuido,
+                                       circunst_genero_obj_possuido,
+                                       circunst_pessoa_da_interlocucao_proximidade, circunst_tipo_numerativo,
+                                       circunst_cardinal,
+                                       circunst_genero_numerativo,
+                                       circunst_tipo_de_ente, circunst_tipo_de_nao_consciente,
+                                       circunst_tipo_de_nao_consciente_material,
+                                       circunst_tipo_de_nao_consciente_semiotico, circunst_classe_palavra_ente,
+                                       circunst_substantivo_lematizado,
+                                       circunst_numero_subs, circunst_genero_subs,
+                                       circunst_tipo_feminino_ao, circunst_tipo_masc_ao,
+                                       circunst_acent_tonica,
+                                       circunst_nome_prop_fp, circunst_pessoa_da_interlocucao,
+                                       circunst_transitividade_verbo, circunst_tonicidade,
+                                       circunst_morfologia_do_pronome, circunst_reflexivo,
+                                       # classificador
+                                       circunst_adjetivo_classificador,
+                                       # epitetos
+                                       circunst_adj_epit_exp_pre,
+                                       circunst_adj_epit_int_pre,
+                                       circunst_adj_epit_exp_pos,
+                                       circunst_adj_epit_int_pos,
+                                       circunst_genero_adjetivo, circunst_numero_adjetivo,
+
+                                       circunst_contracao,
+                                       circunst_tipo_de_adverbio1, circunst_adv_ind1,
+                                       circunst_tipo_de_adverbio2, circunst_adv_ind2,
+                                       circunst_tipo_de_adverbio3, circunst_adv_ind3,
+                                       circunst_tipo_de_adverbio4, circunst_adv_ind4,
+                                       circunst_tipo_de_adverbio5, circunst_adv_ind5)
+
+        p1_gn = estrutura_gn(p1_dissoc_ente_nucleo, p1_tem_qualificador, p1_tipo_qualificador,
+                             p1_indice_preposicao_qualif, p1_determinacao_especificidade_beta, p1_orientacao_beta,
+                             p1_genero_beta, p1_numero_beta, p1_morfologia_do_pronome_beta,
+                             p1_determinacao_especificidade_alpha, p1_orientacao_alpha, p1_genero_alpha,
+                             p1_numero_alpha,
+                             p1_morfologia_do_pronome_alpha, p1_pessoa_da_interlocucao_possuidor,
+                             p1_numero_obj_possuido,
+                             p1_genero_obj_possuido, p1_pessoa_da_interlocucao_proximidade, p1_tipo_numerativo,
+                             p1_cardinal, p1_genero_numerativo,
+                             p1_tipo_de_ente, p1_tipo_de_nao_consciente, p1_tipo_de_nao_consciente_material,
+                             p1_tipo_de_nao_consciente_semiotico, p1_classe_palavra_ente, p1_substantivo_lematizado,
+                             p1_numero_subs, p1_genero_subs, p1_tipo_feminino_ao, p1_tipo_masc_ao, p1_acent_tonica,
+                             p1_nome_proprio,
+                             p1_pessoa_da_interlocucao, p1_transitividade_verbo, p1_tonicidade,
+                             p1_morfologia_do_pronome,
+                             p1_reflexivo,
+                             # classificador
+                             p1_adjetivo_classificador,
+                             # epitetos
+                             p1_adj_epit_exp_pre,
+                             p1_adj_epit_int_pre,
+                             p1_adj_epit_exp_pos,
+                             p1_adj_epit_int_pos,
+                             p1_genero_adjetivo, p1_numero_adjetivo,
+
+                             p1_contracao)
+
+        ##PARTICIPANTE P1 REALIZADOS POR FP
+        p1_fp = frase_preposicional(p1_fp_indice_preposicao_frase, p1_fp_dissoc_ente_nucleo, p1_fp_tem_qualificador,
+                                    p1_fp_tipo_qualificador, p1_fp_indice_preposicao_qualif,
+                                    p1_fp_determinacao_especificidade_beta, p1_fp_orientacao_beta, p1_fp_genero_beta,
+                                    p1_fp_numero_beta, p1_fp_morfologia_do_pronome_beta,
+                                    p1_fp_determinacao_especificidade_alpha, p1_fp_orientacao_alpha, p1_fp_genero_alpha,
+                                    p1_fp_numero_alpha, p1_fp_morfologia_do_pronome_alpha,
+                                    p1_fp_pessoa_da_interlocucao_possuidor, p1_fp_numero_obj_possuido,
+                                    p1_fp_genero_obj_possuido, p1_fp_pessoa_da_interlocucao_proximidade,
+                                    p1_fp_tipo_numerativo, p1_fp_cardinal,
+                                    p1_fp_genero_numerativo, p1_fp_tipo_de_ente,
+                                    p1_fp_tipo_de_nao_consciente, p1_fp_tipo_de_nao_consciente_material,
+                                    p1_fp_tipo_de_nao_consciente_semiotico, p1_fp_classe_palavra_ente,
+                                    p1_fp_substantivo_lematizado, p1_fp_numero_subs, p1_fp_genero_subs,
+                                    p1_fp_tipo_feminino_ao,
+                                    p1_fp_tipo_masc_ao, p1_fp_acent_tonica, p1_fp_nome_proprio,
+                                    p1_fp_pessoa_da_interlocucao, p1_fp_transitividade_verbo, p1_fp_tonicidade,
+                                    p1_fp_morfologia_do_pronome, p1_fp_reflexivo,  # classificador
+                                    p1_fp_adjetivo_classificador,
+                                    # epitetos
+                                    p1_fp_adj_epit_exp_pre,
+                                    p1_fp_adj_epit_int_pre,
+                                    p1_fp_adj_epit_exp_pos,
+                                    p1_fp_adj_epit_int_pos,
+                                    p1_fp_genero_adjetivo, p1_fp_numero_adjetivo,
+                                    p1_fp_contracao)
+
+        # P2
+        p2_gn = estrutura_gn(p2_dissoc_ente_nucleo, p2_tem_qualificador, p2_tipo_qualificador,
+                             p2_indice_preposicao_qualif, p2_determinacao_especificidade_beta, p2_orientacao_beta,
+                             p2_genero_beta, p2_numero_beta, p2_morfologia_do_pronome_beta,
+                             p2_determinacao_especificidade_alpha, p2_orientacao_alpha, p2_genero_alpha,
+                             p2_numero_alpha,
+                             p2_morfologia_do_pronome_alpha, p2_pessoa_da_interlocucao_possuidor,
+                             p2_numero_obj_possuido,
+                             p2_genero_obj_possuido, p2_pessoa_da_interlocucao_proximidade, p2_tipo_numerativo,
+                             p2_cardinal, p2_genero_numerativo,
+                             p2_tipo_de_ente, p2_tipo_de_nao_consciente, p2_tipo_de_nao_consciente_material,
+                             p2_tipo_de_nao_consciente_semiotico, p2_classe_palavra_ente, p2_substantivo_lematizado,
+                             p2_numero_subs, p2_genero_subs, p2_tipo_feminino_ao, p2_tipo_masc_ao, p2_acent_tonica,
+                             p2_nome_proprio,
+                             p2_pessoa_da_interlocucao, p2_transitividade_verbo, p2_tonicidade,
+                             p2_morfologia_do_pronome,
+                             p2_reflexivo,
+                             # classificador
+                             p2_adjetivo_classificador,
+                             # epitetos
+                             p2_adj_epit_exp_pre,
+                             p2_adj_epit_int_pre,
+                             p2_adj_epit_exp_pos,
+                             p2_adj_epit_int_pos,
+                             p2_genero_adjetivo, p2_numero_adjetivo,
+
+                             p2_contracao)
+
+        # P2 FRASE PREP
+        p2_fp = frase_preposicional(p2_fp_indice_preposicao_frase, p2_fp_dissoc_ente_nucleo, p2_fp_tem_qualificador,
+                                    p2_fp_tipo_qualificador, p2_fp_indice_preposicao_qualif,
+                                    p2_fp_determinacao_especificidade_beta, p2_fp_orientacao_beta, p2_fp_genero_beta,
+                                    p2_fp_numero_beta, p2_fp_morfologia_do_pronome_beta,
+                                    p2_fp_determinacao_especificidade_alpha, p2_fp_orientacao_alpha, p2_fp_genero_alpha,
+                                    p2_fp_numero_alpha, p2_fp_morfologia_do_pronome_alpha,
+                                    p2_fp_pessoa_da_interlocucao_possuidor, p2_fp_numero_obj_possuido,
+                                    p2_fp_genero_obj_possuido, p2_fp_pessoa_da_interlocucao_proximidade,
+                                    p2_fp_tipo_numerativo, p2_fp_cardinal,
+                                    p2_fp_genero_numerativo, p2_fp_tipo_de_ente,
+                                    p2_fp_tipo_de_nao_consciente, p2_fp_tipo_de_nao_consciente_material,
+                                    p2_fp_tipo_de_nao_consciente_semiotico, p2_fp_classe_palavra_ente,
+                                    p2_fp_substantivo_lematizado, p2_fp_numero_subs, p2_fp_genero_subs,
+                                    p2_fp_tipo_feminino_ao,
+                                    p2_fp_tipo_masc_ao, p2_fp_acent_tonica, p2_fp_nome_proprio,
+                                    p2_fp_pessoa_da_interlocucao, p2_fp_transitividade_verbo, p2_fp_tonicidade,
+                                    p2_fp_morfologia_do_pronome, p2_fp_reflexivo,  # classificador
+                                    p2_fp_adjetivo_classificador,
+                                    # epitetos
+                                    p2_fp_adj_epit_exp_pre,
+                                    p2_fp_adj_epit_int_pre,
+                                    p2_fp_adj_epit_exp_pos,
+                                    p2_fp_adj_epit_int_pos,
+                                    p2_fp_genero_adjetivo, p2_fp_numero_adjetivo,
+                                    p2_fp_contracao)
+
+        # P3
+        p3_gn = estrutura_gn(p3_dissoc_ente_nucleo, p3_tem_qualificador, p3_tipo_qualificador,
+                             p3_indice_preposicao_qualif, p3_determinacao_especificidade_beta, p3_orientacao_beta,
+                             p3_genero_beta, p3_numero_beta, p3_morfologia_do_pronome_beta,
+                             p3_determinacao_especificidade_alpha, p3_orientacao_alpha, p3_genero_alpha,
+                             p3_numero_alpha,
+                             p3_morfologia_do_pronome_alpha, p3_pessoa_da_interlocucao_possuidor,
+                             p3_numero_obj_possuido,
+                             p3_genero_obj_possuido, p3_pessoa_da_interlocucao_proximidade, p3_tipo_numerativo,
+                             p3_cardinal, p3_genero_numerativo,
+                             p3_tipo_de_ente, p3_tipo_de_nao_consciente, p3_tipo_de_nao_consciente_material,
+                             p3_tipo_de_nao_consciente_semiotico, p3_classe_palavra_ente, p3_substantivo_lematizado,
+                             p3_numero_subs, p3_genero_subs, p3_tipo_feminino_ao, p3_tipo_masc_ao, p3_acent_tonica,
+                             p3_nome_proprio,
+                             p3_pessoa_da_interlocucao, p3_transitividade_verbo, p3_tonicidade,
+                             p3_morfologia_do_pronome,
+                             p3_reflexivo,
+                             # classificador
+                             p3_adjetivo_classificador,
+                             # epitetos
+                             p3_adj_epit_exp_pre,
+                             p3_adj_epit_int_pre,
+                             p3_adj_epit_exp_pos,
+                             p3_adj_epit_int_pos,
+                             p3_genero_adjetivo, p3_numero_adjetivo,
+
+                             p3_contracao)
+
+        ##PARTICIPANTE P3 REALIZADOS POR FP
+        p3_fp = frase_preposicional(p3_fp_indice_preposicao_frase, p3_fp_dissoc_ente_nucleo, p3_fp_tem_qualificador,
+                                    p3_fp_tipo_qualificador, p3_fp_indice_preposicao_qualif,
+                                    p3_fp_determinacao_especificidade_beta, p3_fp_orientacao_beta, p3_fp_genero_beta,
+                                    p3_fp_numero_beta, p3_fp_morfologia_do_pronome_beta,
+                                    p3_fp_determinacao_especificidade_alpha, p3_fp_orientacao_alpha, p3_fp_genero_alpha,
+                                    p3_fp_numero_alpha, p3_fp_morfologia_do_pronome_alpha,
+                                    p3_fp_pessoa_da_interlocucao_possuidor, p3_fp_numero_obj_possuido,
+                                    p3_fp_genero_obj_possuido, p3_fp_pessoa_da_interlocucao_proximidade,
+                                    p3_fp_tipo_numerativo, p3_fp_cardinal,
+                                    p3_fp_genero_numerativo, p3_fp_tipo_de_ente,
+                                    p3_fp_tipo_de_nao_consciente, p3_fp_tipo_de_nao_consciente_material,
+                                    p3_fp_tipo_de_nao_consciente_semiotico, p3_fp_classe_palavra_ente,
+                                    p3_fp_substantivo_lematizado, p3_fp_numero_subs, p3_fp_genero_subs,
+                                    p3_fp_tipo_feminino_ao,
+                                    p3_fp_tipo_masc_ao, p3_fp_acent_tonica, p3_fp_nome_proprio,
+                                    p3_fp_pessoa_da_interlocucao, p3_fp_transitividade_verbo, p3_fp_tonicidade,
+                                    p3_fp_morfologia_do_pronome, p3_fp_reflexivo,  # classificador
+                                    p3_fp_adjetivo_classificador,
+                                    # epitetos
+                                    p3_fp_adj_epit_exp_pre,
+                                    p3_fp_adj_epit_int_pre,
+                                    p3_fp_adj_epit_exp_pos,
+                                    p3_fp_adj_epit_int_pos,
+                                    p3_fp_genero_adjetivo, p3_fp_numero_adjetivo,
+                                    p3_fp_contracao)
         circunstancia_ = circunstancia(circ_oracao_realizacaoCircunstancia, circ_oracao_indice_preposicao_frase,
                                        circ_oracao_dissoc_ente_nucleo, circ_oracao_tem_qualificador,
                                        circ_oracao_tipo_qualificador, circ_oracao_indice_preposicao_qualif,
@@ -4714,317 +5022,95 @@ def oracaoVerbal(
                                        tipo_de_adverbio3=circ_oracao_tipo_de_adverbio3, adv_ind3=circ_oracao_ind3,
                                        tipo_de_adverbio4=circ_oracao_tipo_de_adverbio4, adv_ind4=circ_oracao_ind4,
                                        tipo_de_adverbio5=circ_oracao_tipo_de_adverbio5, adv_ind5=circ_oracao_ind5)
-        Dizente = estrutura_gn(p1_dissoc_ente_nucleo, p1_tem_qualificador, p1_tipo_qualificador,
-                               p1_indice_preposicao_qualif, p1_determinacao_especificidade_beta, p1_orientacao_beta,
-                               p1_genero_beta, p1_numero_beta, p1_morfologia_do_pronome_beta,
-                               p1_determinacao_especificidade_alpha, p1_orientacao_alpha, p1_genero_alpha,
-                               p1_numero_alpha, p1_morfologia_do_pronome_alpha, p1_pessoa_da_interlocucao_possuidor,
-                               p1_numero_obj_possuido, p1_genero_obj_possuido, p1_pessoa_da_interlocucao_proximidade,
-                               p1_funcao_numerativo, p1_cardinal, p1_genero, p1_tipo_precisa, p1_tipo_real_card,
-                               p1_milharExtenso, p1_centenaExtenso, p1_dezenaExtenso, p1_unidadeExtenso,
-                               p1_numIndefinido, p1_tipo_de_ente, p1_tipo_de_nao_consciente,
-                               p1_tipo_de_nao_consciente_material, p1_tipo_de_nao_consciente_semiotico,
-                               p1_classe_palavra_ente, p1_substantivo_lematizado, p1_numero, p1_tipo_feminino_ao,
-                               p1_tipo_masc_ao, p1_acent_tonica, p1_nome_proprio, p1_pessoa_da_interlocucao,
-                               p1_transitividade_verbo, p1_tonicidade, p1_morfologia_do_pronome)
-        if RECEPTIVIDADE == '+receptor':
-            Receptor = frase_preposicional(p3_FP_indice_preposicao_frase, p3_FP_dissoc_ente_nucleo,
-                                           p3_FP_tem_qualificador, p3_FP_tipo_qualificador,
-                                           p3_FP_indice_preposicao_qualif, p3_FP_determinacao_especificidade_beta,
-                                           p3_FP_orientacao_beta, p3_FP_genero_beta, p3_FP_numero_beta,
-                                           p3_FP_morfologia_do_pronome_beta, p3_FP_determinacao_especificidade_alpha,
-                                           p3_FP_orientacao_alpha, p3_FP_genero_alpha, p3_FP_numero_alpha,
-                                           p3_FP_morfologia_do_pronome_alpha, p3_FP_pessoa_da_interlocucao_possuidor,
-                                           p3_FP_numero_obj_possuido, p3_FP_genero_obj_possuido,
-                                           p3_FP_pessoa_da_interlocucao_proximidade, p3_FP_funcao_numerativo,
-                                           p3_FP_cardinal, p3_FP_genero, p3_FP_tipo_precisa, p3_FP_tipo_real_card,
-                                           p3_FP_milharExtenso, p3_FP_centenaExtenso, p3_FP_dezenaExtenso,
-                                           p3_FP_unidadeExtenso, p3_FP_numIndefinido, p3_FP_tipo_de_ente,
-                                           p3_FP_tipo_de_nao_consciente, p3_FP_tipo_de_nao_consciente_material,
-                                           p3_FP_tipo_de_nao_consciente_semiotico, p3_FP_classe_palavra_ente,
-                                           p3_FP_substantivo_lematizado, p3_FP_numero, p3_FP_tipo_feminino_ao,
-                                           p3_FP_tipo_masc_ao, p3_FP_acent_tonica, p3_FP_nome_proprio,
-                                           p3_FP_pessoa_da_interlocucao, p3_FP_transitividade_verbo, p3_FP_tonicidade)
+        dizente = p1_gn
+        if receptividade == '+receptor':
+            receptor = p3_fp
         else:
-            Receptor = ''
+            receptor = ''
 
         if transitividade_ == 'PR_Verbal_AG_médio_sem_alcance':
-            if MODO_DO_DIZENTE == 'atividade_fala' or MODO_DO_DIZENTE == 'semioticidade':
+            if modo_do_dizente == 'atividade_fala' or modo_do_dizente == 'semioticidade':
 
-                if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                    oracao = " ".join((Dizente, polar, processo_, Receptor + '.'))
-                elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                    oracao = " ".join((Dizente, polar, processo_, Receptor + '?'))
+                if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+                        and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+                    oracao = " ".join((dizente, polar, processo_, receptor + '.'))
+                elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+                        and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+                    oracao = " ".join((dizente, polar, processo_, receptor + '?'))
             # Ex.: Eu conversei até anoitecer; Eu falei muito ontem; Nós discutimos...
-            elif MODO_DO_DIZENTE == 'semioticidade':
-                TIPO_SEMIOTICIDADE == 'não_projeção_-verbiagem'
-                if TIPO_SEMIOTICIDADE == 'não_projeção_-verbiagem':
+            elif modo_do_dizente == 'semioticidade':
+                tipo_semioticidade = 'não_projeção_-verbiagem'
+                if tipo_semioticidade == 'não_projeção_-verbiagem':
                     # print('Não-projeção + médio sem alcance = -verbiagem')
-                    if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                        oracao = " ".join((Dizente, polar, processo_, Receptor + '.'))
-                    elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                        oracao = " ".join((Dizente, polar, processo_, Receptor + '?'))
+                    if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+                            and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+                        oracao = " ".join((dizente, polar, processo_, receptor + '.'))
+                    elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+                            and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+                        oracao = " ".join((dizente, polar, processo_, receptor + '?'))
 
         elif transitividade_ == 'PR_Verbal_AG_médio_com_alcance':
-            MODO_DO_DIZENTE = 'semioticidade'
-            if MODO_DO_DIZENTE == 'semioticidade':
-                if TIPO_SEMIOTICIDADE == 'projeção':
+            modo_do_dizente = 'semioticidade'
+            if modo_do_dizente == 'semioticidade':
+                if tipo_semioticidade == 'projeção':
                     # REVISAR: inserir parametros para a projetada.
                     oracao_projetada = oraçãoProjetada()
-                    if TIPO_PROJECAO == 'citativa':
+                    if tipo_projecao == 'citativa':
 
-                        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                            oracao = " ".join((Dizente, polar, processo_, Receptor, '"' + oracao_projetada + '".'))
-                        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                            oracao = " ".join((Dizente, polar, processo_, Receptor, '"' + oracao_projetada + '"?'))
+                        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+                                and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+                            oracao = " ".join((dizente, polar, processo_, receptor, '"' + oracao_projetada + '".'))
+                        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+                                and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+                            oracao = " ".join((dizente, polar, processo_, receptor, '"' + oracao_projetada + '"?'))
 
                     # Ex.: Eu disse a ele "Eu comi o bolo".
 
-                    elif TIPO_PROJECAO == 'relativa':
-                        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+                    elif tipo_projecao == 'relativa':
+                        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito'\
+                                and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
                             oracao = " ".join(
-                                (Dizente, polar, processo_, Receptor, 'que "' + oracao_projetada + '".'))
-                        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+                                (dizente, polar, processo_, receptor, 'que "' + oracao_projetada + '".'))
+                        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar'\
+                                and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
                             oracao = " ".join(
-                                (Dizente, polar, processo_, Receptor, 'que "' + oracao_projetada + '"?'))
+                                (dizente, polar, processo_, receptor, 'que "' + oracao_projetada + '"?'))
 
                     # Ex.: Eu disse a ele que eu havia comido o bolo.
 
-                elif TIPO_SEMIOTICIDADE == 'não_projeção_+verbiagem':
-                    Verbiagem = estrutura_gn(p2_dissoc_ente_nucleo, p2_tem_qualificador, p2_tipo_qualificador,
-                                             p2_indice_preposicao_qualif, p2_determinacao_especificidade_beta,
-                                             p2_orientacao_beta, p2_genero_beta, p2_numero_beta,
-                                             p2_morfologia_do_pronome_beta, p2_determinacao_especificidade_alpha,
-                                             p2_orientacao_alpha, p2_genero_alpha, p2_numero_alpha,
-                                             p2_morfologia_do_pronome_alpha, p2_pessoa_da_interlocucao_possuidor,
-                                             p2_numero_obj_possuido, p2_genero_obj_possuido,
-                                             p2_pessoa_da_interlocucao_proximidade, p2_funcao_numerativo, p2_cardinal,
-                                             p2_genero, p2_tipo_precisa, p2_tipo_real_card, p2_milharExtenso,
-                                             p2_centenaExtenso, p2_dezenaExtenso, p2_unidadeExtenso, p2_numIndefinido,
-                                             p2_tipo_de_ente, p2_tipo_de_nao_consciente,
-                                             p2_tipo_de_nao_consciente_material, p2_tipo_de_nao_consciente_semiotico,
-                                             p2_classe_palavra_ente, p2_substantivo_lematizado, p2_numero,
-                                             p2_tipo_feminino_ao, p2_tipo_masc_ao, p2_acent_tonica, p2_nome_proprio,
-                                             p2_pessoa_da_interlocucao, p2_transitividade_verbo, p2_tonicidade,
-                                             p2_morfologia_do_pronome)
-                    if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                        oracao = " ".join((Dizente, polar, processo_, Verbiagem, Receptor + '.'))
-                    elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                        oracao = " ".join((Dizente, polar, processo_, Verbiagem, Receptor + '?'))
-
+                elif tipo_semioticidade == 'não_projeção_+verbiagem':
+                    verbiagem = p2_gn
+                    if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito'\
+                            and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+                        oracao = " ".join((dizente, polar, processo_, verbiagem, receptor + '.'))
+                    elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+                            and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+                        oracao = " ".join((dizente, polar, processo_, verbiagem, receptor + '?'))
 
         elif transitividade_ == 'PR_Verbal_AG_efetivo_operativo':
-            if MODO_DO_DIZENTE == 'atividade_alvo':
-                Alvo = estrutura_gn(p2_dissoc_ente_nucleo, p2_tem_qualificador, p2_tipo_qualificador,
-                                    p2_indice_preposicao_qualif, p2_determinacao_especificidade_beta,
-                                    p2_orientacao_beta, p2_genero_beta, p2_numero_beta, p2_morfologia_do_pronome_beta,
-                                    p2_determinacao_especificidade_alpha, p2_orientacao_alpha, p2_genero_alpha,
-                                    p2_numero_alpha, p2_morfologia_do_pronome_alpha,
-                                    p2_pessoa_da_interlocucao_possuidor, p2_numero_obj_possuido, p2_genero_obj_possuido,
-                                    p2_pessoa_da_interlocucao_proximidade, p2_funcao_numerativo, p2_cardinal, p2_genero,
-                                    p2_tipo_precisa, p2_tipo_real_card, p2_milharExtenso, p2_centenaExtenso,
-                                    p2_dezenaExtenso, p2_unidadeExtenso, p2_numIndefinido, p2_tipo_de_ente,
-                                    p2_tipo_de_nao_consciente, p2_tipo_de_nao_consciente_material,
-                                    p2_tipo_de_nao_consciente_semiotico, p2_classe_palavra_ente,
-                                    p2_substantivo_lematizado, p2_numero, p2_tipo_feminino_ao, p2_tipo_masc_ao,
-                                    p2_acent_tonica, p2_nome_proprio, p2_pessoa_da_interlocucao,
-                                    p2_transitividade_verbo, p2_tonicidade, p2_morfologia_do_pronome)
-                if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                    oracao = " ".join((Dizente, polar, processo_, Alvo + '.'))
-                elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                    oracao = " ".join((Dizente, polar, processo_, Alvo + '?'))
+            if modo_do_dizente == 'atividade_alvo':
+                alvo = p2_gn
+                if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito'\
+                        and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+                    oracao = " ".join((dizente, polar, processo_, alvo + '.'))
+                elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+                        and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+                    oracao = " ".join((dizente, polar, processo_, alvo + '?'))
             # Ex.: Eu acusei o padeiro
 
         elif transitividade_ == 'PR_Verbal_AG_efetivo_receptivo':
-            if MODO_DO_DIZENTE == 'atividade_alvo':
-                Dizente = frase_preposicional(p1_FP_indice_preposicao_frase, p1_FP_dissoc_ente_nucleo,
-                                              p1_FP_tem_qualificador, p1_FP_tipo_qualificador,
-                                              p1_FP_indice_preposicao_qualif, p1_FP_determinacao_especificidade_beta,
-                                              p1_FP_orientacao_beta, p1_FP_genero_beta, p1_FP_numero_beta,
-                                              p1_FP_morfologia_do_pronome_beta, p1_FP_determinacao_especificidade_alpha,
-                                              p1_FP_orientacao_alpha, p1_FP_genero_alpha, p1_FP_numero_alpha,
-                                              p1_FP_morfologia_do_pronome_alpha, p1_FP_pessoa_da_interlocucao_possuidor,
-                                              p1_FP_numero_obj_possuido, p1_FP_genero_obj_possuido,
-                                              p1_FP_pessoa_da_interlocucao_proximidade, p1_FP_funcao_numerativo,
-                                              p1_FP_cardinal, p1_FP_genero, p1_FP_tipo_precisa, p1_FP_tipo_real_card,
-                                              p1_FP_milharExtenso, p1_FP_centenaExtenso, p1_FP_dezenaExtenso,
-                                              p1_FP_unidadeExtenso, p1_FP_numIndefinido, p1_FP_tipo_de_ente,
-                                              p1_FP_tipo_de_nao_consciente, p1_FP_tipo_de_nao_consciente_material,
-                                              p1_FP_tipo_de_nao_consciente_semiotico, p1_FP_classe_palavra_ente,
-                                              p1_FP_substantivo_lematizado, p1_FP_numero, p1_FP_tipo_feminino_ao,
-                                              p1_FP_tipo_masc_ao, p1_FP_acent_tonica, p1_FP_nome_proprio,
-                                              p1_FP_pessoa_da_interlocucao, p1_FP_transitividade_verbo,
-                                              p1_FP_tonicidade)
-                Alvo = estrutura_gn(p2_dissoc_ente_nucleo, p2_tem_qualificador, p2_tipo_qualificador,
-                                    p2_indice_preposicao_qualif, p2_determinacao_especificidade_beta,
-                                    p2_orientacao_beta, p2_genero_beta, p2_numero_beta, p2_morfologia_do_pronome_beta,
-                                    p2_determinacao_especificidade_alpha, p2_orientacao_alpha, p2_genero_alpha,
-                                    p2_numero_alpha, p2_morfologia_do_pronome_alpha,
-                                    p2_pessoa_da_interlocucao_possuidor, p2_numero_obj_possuido, p2_genero_obj_possuido,
-                                    p2_pessoa_da_interlocucao_proximidade, p2_funcao_numerativo, p2_cardinal, p2_genero,
-                                    p2_tipo_precisa, p2_tipo_real_card, p2_milharExtenso, p2_centenaExtenso,
-                                    p2_dezenaExtenso, p2_unidadeExtenso, p2_numIndefinido, p2_tipo_de_ente,
-                                    p2_tipo_de_nao_consciente, p2_tipo_de_nao_consciente_material,
-                                    p2_tipo_de_nao_consciente_semiotico, p2_classe_palavra_ente,
-                                    p2_substantivo_lematizado, p2_numero, p2_tipo_feminino_ao, p2_tipo_masc_ao,
-                                    p2_acent_tonica, p2_nome_proprio, p2_pessoa_da_interlocucao,
-                                    p2_transitividade_verbo, p2_tonicidade, p2_morfologia_do_pronome)
+            if modo_do_dizente == 'atividade_alvo':
+                dizente = p1_fp
+                alvo = p2_gn
 
-                if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                    oracao = " ".join((Alvo, polar, processo_, Dizente + '.'))
-                elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                    oracao = " ".join((Alvo, polar, processo_, Dizente + '?'))
+                if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+                        and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
+                    oracao = " ".join((alvo, polar, processo_, dizente + '.'))
+                elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
+                        and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
+                    oracao = " ".join((alvo, polar, processo_, dizente + '?'))
 
-        return (re.sub(' +', ' ', oracao.strip()).capitalize())
+        return re.sub(' +', ' ', ' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()
     except:
         return ""
 
-
-# O homem acusou o padeiro
-oracaoVerbal(
-    ##TRANSITIVIDADE
-    'Verbal', None, 2, None,
-    # MODO
-    0, 0, 1,
-    # TEMA IDEACIONAL
-    'orientado', 'direcional', 'default', 'indicativo', 'declarativo', 'NA', None, None, None,
-    ##PARAMETROS DO PROCESSO VERBAL
-    'atividade_alvo', None, None, None,
-    ##processo_
-    'Sentir', 'não_agenciado', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 'Sentir',
-    'Evento', 'acusar',
-    'pretérito_perfectivo_I', 'singular', None, '3pessoa', 'Morfologia_padrão',
-    # POLARIDADE
-    'positiva',
-    ##PARTICIPANTES
-    # P1
-    None, None, None, None, None, None, None, None, None, 'específico', 'NA', 'masculino', 'singular', None, None,
-    None, None, None, None, None, 'não-binário', None, None, None, None, None, None, None,
-    'não_consciente', 'material', 'abstração_material', None, 'substantivo_comum', 'homem', 'singular', None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-
-    ##PARTICIPANTE P1 REALIZADOS POR FP
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-
-    # P2
-
-    None, None, None, None, None, None, None, None, None, 'específico', 'NA', 'masculino', 'singular', None, None,
-    None, None, None, None, None, 'masculino', None, None, None, None, None, None, None,
-    'não_consciente', 'material', 'abstração_material', None, 'substantivo_comum', 'padeiro', 'singular', None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-
-    # P2 FRASE PREP
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None,
-
-    # P3
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-    ##PARTICIPANTE P3 REALIZADOS POR FP
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None)
-
-oracaoVerbal(
-    ##TRANSITIVIDADE
-    'Verbal', None, 0, None,
-    # MODO
-    0, 0, 1,
-    # TEMA IDEACIONAL
-    'orientado', 'direcional', 'default', 'indicativo', 'declarativo', 'NA', None, None, None,
-    ##PARAMETROS DO PROCESSO VERBAL
-    'semioticidade', 'não_projeção_-verbiagem', None, None,
-    ##processo_
-    'Sentir', 'não_agenciado', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 'Sentir',
-    'Evento', 'falar',
-    'pretérito_perfectivo_I', 'singular', None, '3pessoa', 'Morfologia_padrão',
-    # POLARIDADE
-    'positiva',
-    ##PARTICIPANTES
-    # P1
-    None, None, None, None, None, None, None, None, None, 'específico', 'NA', 'masculino', 'singular', None, None,
-    None, None, None, None, None, 'não-binário', None, None, None, None, None, None, None,
-    'não_consciente', 'material', 'abstração_material', None, 'substantivo_comum', 'homem', 'singular', None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-
-    ##PARTICIPANTE P1 REALIZADOS POR FP
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-
-    # P2
-
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-
-    # P2 FRASE PREP
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None,
-
-    # P3
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-    ##PARTICIPANTE P3 REALIZADOS POR FP
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None)
-
-oracaoVerbal(
-    ##TRANSITIVIDADE
-    'Verbal', None, 0, None,
-    # MODO
-    0, 0, 1,
-    # TEMA IDEACIONAL
-    'orientado', 'direcional', 'default', 'indicativo', 'declarativo', 'NA', None, None, None,
-    ##PARAMETROS DO PROCESSO VERBAL
-    'atividade_fala', None, None, None,
-    ##processo_
-    'Sentir', 'não_agenciado', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, 'Sentir',
-    'Evento', 'falar',
-    'pretérito_perfectivo_I', 'singular', None, '3pessoa', 'Morfologia_padrão',
-    # POLARIDADE
-    'positiva',
-    ##PARTICIPANTES
-    # P1
-    None, None, None, None, None, None, None, None, None, 'específico', 'NA', 'masculino', 'singular', None, None,
-    None, None, None, None, None, 'não-binário', None, None, None, None, None, None, None,
-    'não_consciente', 'material', 'abstração_material', None, 'substantivo_comum', 'homem', 'singular', None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-
-    ##PARTICIPANTE P1 REALIZADOS POR FP
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-
-    # P2
-
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-
-    # P2 FRASE PREP
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None,
-
-    # P3
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None,
-    ##PARTICIPANTE P3 REALIZADOS POR FP
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
-    None, None, None, None, None, None, None, None, None, None, None, None)

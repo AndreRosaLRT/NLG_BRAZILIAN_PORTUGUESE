@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from NLG_BRAZILIAN_PORTUGUESE.GENERATION_dev import *
+from NLG_BRAZILIAN_PORTUGUESE.arquivos_dev_antigos.GENERATION_dev import *
 import os
 path=os.getcwd()
 import json
 # WORDNET
 #WORDNET
 #preparando o ambiente
-import nltk
 #download do wordnet no ambiente
 # nltk.download('wordnet')
 # nltk.download('omw')

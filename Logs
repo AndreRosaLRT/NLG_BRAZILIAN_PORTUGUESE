@@ -1,3 +1,86 @@
 Grupo nominal:
     A implementar/corrigir:
         implementar a estrutura lógica completa do GN(Deit,Num,Epit Inter,Epit Exp,Ente,Classificador,Epit Exp, Epit Inter)
+
+
+
+testes oracao:
+
+#verbal
+
+
+# O homem acusou o padeiro
+oracao_verbal('Verbal', None, 2, None, 0, 0, 1, 'orientado', 'direcional', 'default', 'indicativo', 'declarativo', 'NA',
+              None, None, None, 'atividade_alvo', None, None, None, 'Sentir', 'não_agenciado', None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, 'Sentir', 'Evento', 'acusar',
+              'pretérito_perfectivo_I', 'singular', None, '3pessoa', 'Morfologia_padrão', 'positiva', None, None, None,
+              None, None, None, None, None, None, 'específico', 'NA', 'masculino', 'singular', None, None, None, None,
+              None, None, None, 'não-binário', None, None, None, None, None, None, None, 'não_consciente', 'material',
+              'abstração_material', None, 'substantivo_comum', 'homem', 'singular', None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              'específico', 'NA', 'masculino', 'singular', None, None, None, None, None, None, None, 'masculino', None,
+              None, None, None, None, None, None, 'não_consciente', 'material', 'abstração_material', None,
+              'substantivo_comum', 'padeiro', 'singular', None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None)
+
+oracao_verbal('Verbal', None, 0, None, 0, 0, 1, 'orientado', 'direcional', 'default', 'indicativo', 'declarativo', 'NA',
+              None, None, None, 'semioticidade', 'não_projeção_-verbiagem', None, None, 'Sentir', 'não_agenciado', None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, 'Sentir', 'Evento',
+              'falar', 'pretérito_perfectivo_I', 'singular', None, '3pessoa', 'Morfologia_padrão', 'positiva', None,
+              None, None, None, None, None, None, None, None, 'específico', 'NA', 'masculino', 'singular', None, None,
+              None, None, None, None, None, 'não-binário', None, None, None, None, None, None, None, 'não_consciente',
+              'material', 'abstração_material', None, 'substantivo_comum', 'homem', 'singular', None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None)
+
+oracao_verbal('Verbal', None, 0, None, 0, 0, 1, 'orientado', 'direcional', 'default', 'indicativo', 'declarativo', 'NA',
+              None, None, None, 'atividade_fala', None, None, None, 'Sentir', 'não_agenciado', None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, 'Sentir', 'Evento', 'falar',
+              'pretérito_perfectivo_I', 'singular', None, '3pessoa', 'Morfologia_padrão', 'positiva', None, None, None,
+              None, None, None, None, None, None, 'específico', 'NA', 'masculino', 'singular', None, None, None, None,
+              None, None, None, 'não-binário', None, None, None, None, None, None, None, 'não_consciente', 'material',
+              'abstração_material', None, 'substantivo_comum', 'homem', 'singular', None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+              None)
