@@ -1,2 +1,2 @@
 # NLG_BRAZILIAN_PORTUGUESE_19-11
-Brazilian portuguese lexicogrammatical module for natural language generation
+Rule-based Brazilian Portuguese lexicogrammatical module for superficial realization in natural language generation task.
