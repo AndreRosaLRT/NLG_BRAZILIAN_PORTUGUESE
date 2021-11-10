@@ -1,6 +1,5 @@
-
-from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.pal_verbais import *
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal import *
 import re
 
 
@@ -58,37 +57,37 @@ def frase_preposicional(indice_preposicao_frase=None, dissoc_ente_nucleo=None, t
     prep = preposicao(indice_preposicao_frase)
     grupo_nominal = (re.sub(' +', ' ',
                             estrutura_gn_downranked(dissoc_ente_nucleo, tem_qualificador,
-                                                   tipo_qualificador, indice_preposicao_qualif,
-                                                   determinacao_especificidade_beta, orientacao_beta,
-                                                   genero_beta, numero_beta,
-                                                   morfologia_do_pronome_beta,
-                                                   determinacao_especificidade_alpha, orientacao_alpha,
-                                                   genero_alpha, numero_alpha,
-                                                   morfologia_do_pronome_alpha,
-                                                   pessoa_da_interlocucao_possuidor, numero_obj_possuido,
-                                                   genero_obj_possuido,
-                                                   pessoa_da_interlocucao_proximidade, tipo_numerativo,
-                                                   cardinal,
-                                                   genero_numerativo,
-                                                   tipo_de_ente, tipo_de_nao_consciente,
-                                                   tipo_de_nao_consciente_material,
-                                                   tipo_de_nao_consciente_semiotico, classe_palavra_ente,
-                                                   substantivo_lematizado,
-                                                   numero_subs, genero_subs, tipo_feminino_ao,
-                                                   tipo_masc_ao, acent_tonica,
-                                                   nome_prop_fp, pessoa_da_interlocucao,
-                                                   transitividade_verbo, tonicidade,
-                                                   morfologia_do_pronome, reflexivo,
-                                                   # classificador
-                                                   adjetivo_classificador,
-                                                   # epitetos
-                                                   adj_epit_exp_pre,
-                                                   adj_epit_int_pre,
-                                                   adj_epit_exp_pos,
-                                                   adj_epit_int_pos,
-                                                   genero_adjetivo, numero_adjetivo,
+                                                    tipo_qualificador, indice_preposicao_qualif,
+                                                    determinacao_especificidade_beta, orientacao_beta,
+                                                    genero_beta, numero_beta,
+                                                    morfologia_do_pronome_beta,
+                                                    determinacao_especificidade_alpha, orientacao_alpha,
+                                                    genero_alpha, numero_alpha,
+                                                    morfologia_do_pronome_alpha,
+                                                    pessoa_da_interlocucao_possuidor, numero_obj_possuido,
+                                                    genero_obj_possuido,
+                                                    pessoa_da_interlocucao_proximidade, tipo_numerativo,
+                                                    cardinal,
+                                                    genero_numerativo,
+                                                    tipo_de_ente, tipo_de_nao_consciente,
+                                                    tipo_de_nao_consciente_material,
+                                                    tipo_de_nao_consciente_semiotico, classe_palavra_ente,
+                                                    substantivo_lematizado,
+                                                    numero_subs, genero_subs, tipo_feminino_ao,
+                                                    tipo_masc_ao, acent_tonica,
+                                                    nome_prop_fp, pessoa_da_interlocucao,
+                                                    transitividade_verbo, tonicidade,
+                                                    morfologia_do_pronome, reflexivo,
+                                                    # classificador
+                                                    adjetivo_classificador,
+                                                    # epitetos
+                                                    adj_epit_exp_pre,
+                                                    adj_epit_int_pre,
+                                                    adj_epit_exp_pos,
+                                                    adj_epit_int_pos,
+                                                    genero_adjetivo, numero_adjetivo,
 
-                                                   contracao))).strip()
+                                                    contracao))).strip()
     try:
         if prep == 'por':
             if grupo_nominal[:2] == 'o ':

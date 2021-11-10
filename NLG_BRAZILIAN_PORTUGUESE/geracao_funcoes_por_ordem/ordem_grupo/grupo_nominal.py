@@ -887,7 +887,7 @@ def estrutura_gn_downranked(dissoc_ente_nucleo=None, tem_qualificador=None,
                            contracao=None):
     """
     Ex.:
-    >>>  estrutura_gn_downraked(dissoc_ente_nucleo=None,tem_qualificador=None,tipo_qualificador=None,
+    >>>  estrutura_gn_downranked(dissoc_ente_nucleo=None,tem_qualificador=None,tipo_qualificador=None,
     indice_preposicao_qualif=None,determinacao_especificidade_beta='específico',
     orientacao_beta='NA',genero_beta='masculino',numero_beta=None,morfologia_do_pronome_beta=None,
     determinacao_especificidade_alpha='específico',orientacao_alpha='NA',genero_alpha='masculino',
@@ -897,7 +897,7 @@ def estrutura_gn_downranked(dissoc_ente_nucleo=None, tem_qualificador=None,
     genero_numerativo=None,tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
     tipo_de_nao_consciente_material='objeto_material',tipo_de_nao_consciente_semiotico=None,
     classe_palavra_ente='substantivo_comum',substantivo_lematizado='piano',numero_subs='singular',
-    genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_prop_fp=None,
+    genero_subs='não-binário',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_prop_fp=None,
     pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
     reflexivo=None,
     adjetivo_classificador='importado',
@@ -905,7 +905,7 @@ def estrutura_gn_downranked(dissoc_ente_nucleo=None, tem_qualificador=None,
     adj_epit_int_pre='grande',
     adj_epit_exp_pos=None,
     adj_epit_int_pos='bonito',
-    genero_adjetivo='masculino',
+    genero_adjetivo='não-binário',
     numero_adjetivo='singular',
     contracao=None)
 

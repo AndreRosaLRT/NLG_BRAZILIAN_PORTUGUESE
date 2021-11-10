@@ -125,6 +125,15 @@ def adverbio_duvida(indice=None):
 
 
 def adverbio(tipo_de_adverbio, indice):
+    """
+    Retorna advérbio, dado um tipo e um índice.
+
+    >>> adverbio('')
+    :param tipo_de_adverbio: ['Modo', 'Intensidade', 'Lugar', 'Tempo', 'Negação',
+                                              'Afirmação', 'Dúvida', 'Adv_relativo']
+    :param indice:
+    :return:
+    """
     adv = ''
     try:
         if tipo_de_adverbio == 'Modo':
@@ -161,7 +170,7 @@ if __name__ == '__main__':
                                                  "dados o tipo e um índice")
 
     parser.add_argument('tipo_adv',  choices=['Modo', 'Intensidade', 'Lugar', 'Tempo', 'Negação',
-                                                       'Afirmação', 'Dúvida', 'Adv_relativo'],
+                                              'Afirmação', 'Dúvida', 'Adv_relativo'],
                         help=""" Opcoes de Tipos: ['Modo','Intensidade','Lugar', 'Tempo','Negação','Afirmação',
                         'Dúvida','Adv_relativo']""")
 

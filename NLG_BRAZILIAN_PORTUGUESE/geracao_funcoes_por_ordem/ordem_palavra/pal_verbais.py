@@ -16,11 +16,9 @@ def preposicao(indice: int = None) -> str:
         preposicoes = dict(zip(nums, opcoes))
         prep = preposicoes[indice]
         return prep
-    except ValueError:
+    except (ValueError, KeyError):
         return ''
-# preposicao(0)
-# preposicao(11)
-# preposicao(None)
+
 
 # print("Com ou sem contração")
 # contracao = choice.Menu(['+contração', '-contração']).ask()

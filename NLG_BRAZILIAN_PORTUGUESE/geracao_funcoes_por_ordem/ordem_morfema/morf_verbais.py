@@ -22,7 +22,11 @@ def experiencia_do_verbo(verbo) -> str:
     me = verbo[slice(-2)]
     return me
 
-
+verbos = ['desmatar', 'registrar', 'detectar', 'identificar', 'atingir', 'contabilizar', 'somar', 'totalizar',
+          'alcançar', 'chegar', 'reportar', 'observar', 'ser', 'representar', 'acontecer', 'ocorrer', 'existir',
+          'ter', 'apresentar', 'possuir', 'estar', 'acumular', 'relatar', 'sofrer']
+for verb in verbos:
+    print(experiencia_do_verbo(verb))
 #
 # def experiencia_do_verbo2(verbo) -> str:
 #     """

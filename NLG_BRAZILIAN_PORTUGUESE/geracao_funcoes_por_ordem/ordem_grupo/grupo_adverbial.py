@@ -29,7 +29,6 @@ def grupo_adverbial(*argums):
         return ''
 
 
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Retorna a realização de um grupo adverbial,"
                                                  "dados os tipos e índices dos adv (alternadamente)")
