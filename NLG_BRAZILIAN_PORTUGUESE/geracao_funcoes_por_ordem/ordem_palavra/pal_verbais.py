@@ -1,5 +1,7 @@
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_morfema.morf_verbais import *
 import argparse
+# import sys
+# sys.path.append('../../..')
 
 
 def preposicao(indice: int = None) -> str:
@@ -364,8 +366,6 @@ def formacao_verbo_CAR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numer
 #
 # ###VERBOS TERMINADOS EM : 'GAR'
 #
-
-
 def formacao_verbo_GAR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero,
                        genero, oi_tipo_de_pessoa, padrao_pessoa_morfologia='Morfologia_padrão') -> str:
     """
@@ -990,8 +990,8 @@ def formacao_verbo_RUIR(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nume
     except ValueError:
         return ''
 
-formacao_verbo_RUIR('construir', 'subjuntivo_condicional', 'IR','plural' ,None, '3pessoa')
-formacao_verbo_RUIR('usufruir', 'subjuntivo_condicional', 'IR','plural' ,None, '3pessoa')
+# formacao_verbo_RUIR('construir', 'subjuntivo_condicional', 'IR','plural' ,None, '3pessoa')
+# formacao_verbo_RUIR('usufruir', 'subjuntivo_condicional', 'IR','plural' ,None, '3pessoa')
 # # VERBO agredir
 
 def formacao_verbo_agredir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero,
@@ -6254,8 +6254,8 @@ def verbo_geral(tipo_de_experiencia, funcao_no_grupo_verbal, verbo,
     Retorna a estrutura que realiza os verbos no português.
 
     Ex.:
-    >>> verbo_geral('Ser','Evento','vir','passado_volitivo','singular',None,'1pessoa')
-    'corto'
+    >>> verbo_geral('Fazer','Evento','vir','passado_volitivo','singular',None,'1pessoa')
+    'viria'
 
     :param tipo_de_experiencia:
         opções: 'Fazer','Ser', 'Sentir'
@@ -6689,10 +6689,18 @@ def flexionar_verbo(experience='none', function_in_group='none',
 # flexionarVerbo(experience='Ser', functionInGroup='Evento', lemma='alertar', person='3', gender='none', number='Sing',
 #                mood='Ind', tense='Past', aspect='Perf')
 
-
+#
+# for lema in lemas_verbos:
+#     dicionarioConjuga.update({lema: {}})
+#     for oi in OI_INTERPESSOAIS:
+#         conjugacao = []
+#         for numero in OI_numeros:
+#             for tipo_pessoa in OI_tipo_pessoas:
+#                 verbo = verbo_geral("Fazer", 'Evento', lema, oi, numero, None, tipo_pessoa)
+#                 conjugacao.append(verbo)
+#                 dicionarioConjuga[lema].update({oi:conjugacao})
 
 # main('Fazer', 'Evento', 'ser')
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Retorna verbo conjugado')

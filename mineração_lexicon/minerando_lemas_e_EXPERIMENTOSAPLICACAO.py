@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import os
+
+from scipy.stats.mstats_basic import sen_seasonal_slopes
+
 path=os.getcwd()
 import json
+
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.pal_verbais import *
 # WORDNET
 #WORDNET
 #preparando o ambiente
@@ -30,17 +35,17 @@ import json
 # palavras_skip = list(model_skip.wv.vocab)
 
 ####
-# OS VERBOS DE INTERESSE(COM BASE NAS VERBALIZAÇÕES DO ROBÔ):
+# Carrega OS VERBOS DE INTERESSE(COM BASE NAS VERBALIZAÇÕES DO ROBÔ):
 arquivo = json.load(open('./mineração_lexicon/verbs.json'))
 #
 # type(arquivo)
-chaves = arquivo.keys()
+chaves = arquivo.keys() #compila as chaves do arquivo
 # type(chaves)
-chaves = list(chaves)
+chaves = list(chaves) #transforma a variável 'chaves' em lista
 
-lemas_verbos = []
+lemas_verbos = [] #lista vazia para compilar os lemas verbais da lista de chaves
 i = 0
-for entrada in chaves:
+for entrada in chaves: # loop para coleção dos lemas verbais
     verbo = chaves[i].split()[1]
     if verbo not in lemas_verbos:
         lemas_verbos.append(verbo)
@@ -53,18 +58,19 @@ for entrada in chaves:
 ##dicionario co base no cbow
 dict_sinon_cbow = {}
 
-for palavra in lemas_verbos:
+for palavra in lemas_verbos:  #loop para checagem de sinonímia dos lemas verbais em comparação com o modelo cbow
     sinonimos = []
-    if palavra in model_cbow.vocab:
-        dict_sinon_cbow.update({palavra: sinonimos})
+    if palavra in model_cbow.vocab: #se o lema for encontrado no dicionário cbow,
+        dict_sinon_cbow.update({palavra: sinonimos})  #o dicionário de sinônimos é atualizado
     i=0
     for entrada in model_cbow.most_similar(palavra):
 
-        sinonimos.append(model_cbow.most_similar(palavra)[i][0])
+        sinonimos.append(model_cbow.most_similar(palavra)[i][0]) #cria lista de 10 'sinônimos', ou 'palavras similares' ao
+                                                                    #lema de interesse
         i+=1
     i+=1
 
-#
+#Cria um jason com o dicionário de lemas de interesse e sinônimos
 # # Serializing json
 # json_object = json.dumps(dict_sinon_cbow, indent=4)
 #
@@ -73,7 +79,7 @@ for palavra in lemas_verbos:
 #     outfile.write(json_object)
 #
 # dict_sinon_cbow.items()
-####COM O DICIONARIO JÁ SALVO EM JSON, É SÓ ABRIR
+####O disionário de sinônimos já foi criado. Tendo o dicionário já salvo, é só carregar:
 dicionario_cbow = json.load(open('./mineração_lexicon/dic_sin_cbow2.json'))
 
 
@@ -104,25 +110,26 @@ conjugacao = []
 #                 conjugacao.append('ERROR_'+oi+'_'+tipo_pessoa)
 
 
-dicionarioConjuga={}
+dicionarioConjuga={} # dicionário para atualização dos verbos conjugados, com base na lista de lemas, para todos
+                        #as Orientações Interpessoais (exceto gerúndio, particípio)
 
-for lema in lemas_verbos:
-    dicionarioConjuga.update({lema: {}})
-    for oi in OI_INTERPESSOAIS:
-        conjugacao = []
-        for numero in OI_numeros:
-            for tipo_pessoa in OI_tipo_pessoas:
-                verbo = verbo_geral("Fazer", 'Evento', lema, oi, numero, None, tipo_pessoa)
-                conjugacao.append(verbo)
-                dicionarioConjuga[lema].update({oi:conjugacao})
+for lema in lemas_verbos: #loop nos lemas
+    dicionarioConjuga.update({lema: {}}) #atualiza o dicionário
+    for oi in OI_INTERPESSOAIS: #loop nos tipos de orientação interpessoal
+        conjugacao = [] #lista de conjugações
+        for numero in OI_numeros: #loop nos números
+            for tipo_pessoa in OI_tipo_pessoas:#loop nas pessoas
+                verbo = verbo_geral("Fazer", 'Evento', lema, oi, numero, None, tipo_pessoa) #função de conjugação com base nos parâmetros
+                conjugacao.append(verbo) #append da conjugação
+                dicionarioConjuga[lema].update({oi:conjugacao}) #atualiza o dicionário de conjugações
 
 
-json_object=json.dumps(dicionarioConjuga, ensure_ascii=False)
+json_object=json.dumps(dicionarioConjuga, ensure_ascii=False) #cria um objto json com o dump do dicionário
 # Writing to sample.json
 with open('./mineração_lexicon/dicionarioVerbosDaMata.json', "w",) as outfile:
-    outfile.write(json_object)
+    outfile.write(json_object) #salva o dicionário de conjugações em arquivo json
 
-####PARA O GERUNDIO
+####GERUNDIO (o algoritmo segue a lógica do algoritmo anterior)
 
 dicionarioConjugaGerundio={}
 
@@ -135,7 +142,7 @@ json_object=json.dumps(dicionarioConjugaGerundio, ensure_ascii=False)
 with open('./mineração_lexicon/dicionarioVerbosDaMataGerundio.json', "w",) as outfile:
     outfile.write(json_object)
 
-####PARA O particípio
+####PARTICÍPIO (o algoritmo segue a lógica do algoritmo anterior)
 
 dicionarioConjugaParticipio={}
 
@@ -149,21 +156,22 @@ for lema in lemas_verbos:
 
 json_object=json.dumps(dicionarioConjugaParticipio, ensure_ascii=False)
 # Writing to sample.json
-with open('./mineração_lexicon/dicionarioVerbosDaMataParticipio.json', "w",) as outfile:
+with open('./mineração_lexicon/dicionarioVerbosDaMataParticipio.json', "w") as outfile:
     outfile.write(json_object)
 
-verbo_geral("Fazer", 'Evento', 'levar', 'imperativo_I', 'singular', None, '1pessoa')
 
-# # # #presente
-# print("A conjugação é:")
+# Algoritmo pra realização de sentença com sinônimos de lemas de interesse (pré-teste da função de realização do verbo nas sentenças do robô jornalista)
+listaSentencas = [] #cria lista vazia de sentenças
 
-listaSentencas = []
-
-for lema in dicionario_cbow['registrar']:
-    verbo = verbo_geral("Fazer", 'Evento', lema, 'pretérito_perfectivo_I', 'singular', None, '3pessoa')
-    sentenca = "Em 25 de março de 2020, o Instituto Nacional de Pesquisas Espaciais(INPE) " + verbo + " alertas de desmatamento de 5.91 km2 na RESERVA EXTRATIVISTA CHICO MENDES/AC."
-    listaSentencas.append(sentenca)
-
+for lema in dicionario_cbow['registrar']: #loop pelo dicionário de sinônimos, lema 'registrar'
+    verbo = verbo_geral("Fazer", 'Evento', dicionario_cbow['registrar'][lema], 'pretérito_perfectivo_I',
+                        'singular', None, '3pessoa') #realização do verbo
+    sentenca = "Em 25 de março de 2020, o Instituto Nacional de Pesquisas Espaciais(INPE) " \
+               + verbo + " alertas de desmatamento de 5.91 km2 na RESERVA EXTRATIVISTA CHICO MENDES/AC."
+    listaSentencas.append(sentenca) #append de sentenças com o verbo sinônimo conjugado
+senten_object= json.dumps(listaSentencas, ensure_ascii=False)
+with open ('/home/andrerosa/PROJETO_TESE/NLG_BRAZILIAN_PORTUGUESE_19-11/mineração_lexicon/listaSentencas.json', 'w') as outfile:
+    outfile.write(senten_object) #salva lista de sentenças em arquivo json
 
 ###DICIONARIOS QUE ACABEI NÃO USANDO NO EXPERIMENTO:
 # ###dicionario co base no skipgram

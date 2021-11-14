@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs" beforeDir="false" afterPath="$PROJECT_DIR$/Logs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_adverbial.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_adverbial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_morfema/morf_verbais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_morfema/morf_verbais.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_adverbiais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_adverbiais.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/dicionarioVerbosDaMataParticipio.json" beforeDir="false" afterPath="$PROJECT_DIR$/mineração_lexicon/dicionarioVerbosDaMataParticipio.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

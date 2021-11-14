@@ -209,7 +209,7 @@ for i in range(16):
 # sobre a segunda guerra mundial
 
 
-testes oracao:
+# testes oracao:
 
 #verbal
 
