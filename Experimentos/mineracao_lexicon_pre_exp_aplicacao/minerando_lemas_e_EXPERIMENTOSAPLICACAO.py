@@ -27,16 +27,16 @@ from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.pal_verbai
 # from gensim.models import KeyedVectors
 # print('done')
 
-# model_cbow = KeyedVectors.load_word2vec_format('./mineração_lexicon/cbow_s50.txt', encoding="utf-8")
+# model_cbow = KeyedVectors.load_word2vec_format('./mineracao_lexicon_pre_exp_aplicacao/cbow_s50.txt', encoding="utf-8")
 # print('Done')
-# model_skip = KeyedVectors.load_word2vec_format('./mineração_lexicon/skip_s300.txt')
+# model_skip = KeyedVectors.load_word2vec_format('./mineracao_lexicon_pre_exp_aplicacao/skip_s300.txt')
 # print('Done')
 # palavras_cbow = list(model_cbow.wv.vocab)
 # palavras_skip = list(model_skip.wv.vocab)
 
 ####
 # Carrega OS VERBOS DE INTERESSE(COM BASE NAS VERBALIZAÇÕES DO ROBÔ):
-arquivo = json.load(open('./mineração_lexicon/verbs.json'))
+arquivo = json.load(open('./mineracao_lexicon_pre_exp_aplicacao/verbs.json'))
 #
 # type(arquivo)
 chaves = arquivo.keys() #compila as chaves do arquivo
@@ -75,12 +75,12 @@ for palavra in lemas_verbos:  #loop para checagem de sinonímia dos lemas verbai
 # json_object = json.dumps(dict_sinon_cbow, indent=4)
 #
 # # Writing to sample.json
-# with open("./mineração_lexicon/dic_sin_cbow2.json", "w", encoding="utf-8") as outfile:
+# with open("./mineracao_lexicon_pre_exp_aplicacao/dic_sin_cbow2.json", "w", encoding="utf-8") as outfile:
 #     outfile.write(json_object)
 #
 # dict_sinon_cbow.items()
 ####O disionário de sinônimos já foi criado. Tendo o dicionário já salvo, é só carregar:
-dicionario_cbow = json.load(open('./mineração_lexicon/dic_sin_cbow2.json'))
+dicionario_cbow = json.load(open('./mineracao_lexicon_pre_exp_aplicacao/dic_sin_cbow2.json'))
 
 
 ##PRE-EXPERIMENTOS APLICAÇÃO
@@ -126,7 +126,7 @@ for lema in lemas_verbos: #loop nos lemas
 
 json_object=json.dumps(dicionarioConjuga, ensure_ascii=False) #cria um objto json com o dump do dicionário
 # Writing to sample.json
-with open('./mineração_lexicon/dicionarioVerbosDaMata.json', "w",) as outfile:
+with open('./mineracao_lexicon_pre_exp_aplicacao/dicionarioVerbosDaMata.json', "w",) as outfile:
     outfile.write(json_object) #salva o dicionário de conjugações em arquivo json
 
 ####GERUNDIO (o algoritmo segue a lógica do algoritmo anterior)
@@ -139,7 +139,7 @@ for lema in lemas_verbos:
 
 json_object=json.dumps(dicionarioConjugaGerundio, ensure_ascii=False)
 # Writing to sample.json
-with open('./mineração_lexicon/dicionarioVerbosDaMataGerundio.json', "w",) as outfile:
+with open('./mineracao_lexicon_pre_exp_aplicacao/dicionarioVerbosDaMataGerundio.json', "w",) as outfile:
     outfile.write(json_object)
 
 ####PARTICÍPIO (o algoritmo segue a lógica do algoritmo anterior)
@@ -156,7 +156,7 @@ for lema in lemas_verbos:
 
 json_object=json.dumps(dicionarioConjugaParticipio, ensure_ascii=False)
 # Writing to sample.json
-with open('./mineração_lexicon/dicionarioVerbosDaMataParticipio.json', "w") as outfile:
+with open('./mineracao_lexicon_pre_exp_aplicacao/dicionarioVerbosDaMataParticipio.json', "w") as outfile:
     outfile.write(json_object)
 
 
@@ -170,7 +170,7 @@ for lema in dicionario_cbow['registrar']: #loop pelo dicionário de sinônimos, 
                + verbo + " alertas de desmatamento de 5.91 km2 na RESERVA EXTRATIVISTA CHICO MENDES/AC."
     listaSentencas.append(sentenca) #append de sentenças com o verbo sinônimo conjugado
 senten_object= json.dumps(listaSentencas, ensure_ascii=False)
-with open ('/home/andrerosa/PROJETO_TESE/NLG_BRAZILIAN_PORTUGUESE_19-11/mineração_lexicon/listaSentencas.json', 'w') as outfile:
+with open ('/mineracao_lexicon_pre_exp_aplicacao/listaSentencas.json', 'w') as outfile:
     outfile.write(senten_object) #salva lista de sentenças em arquivo json
 
 ###DICIONARIOS QUE ACABEI NÃO USANDO NO EXPERIMENTO:
@@ -193,7 +193,7 @@ with open ('/home/andrerosa/PROJETO_TESE/NLG_BRAZILIAN_PORTUGUESE_19-11/mineraç
 # json_object = json.dumps(dict_sinon_skip, indent=4)
 #
 # # Writing to sample.json
-# with open("C:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/mineração_lexicon/dic_sin_cbow2.json", "w") as outfile:
+# with open("C:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/mineracao_lexicon_pre_exp_aplicacao/dic_sin_cbow2.json", "w") as outfile:
 #     outfile.write(json_object)
 #
 # dict_sinon_skip.items()
@@ -230,6 +230,6 @@ with open ('/home/andrerosa/PROJETO_TESE/NLG_BRAZILIAN_PORTUGUESE_19-11/mineraç
 # json_object = json.dumps(dict, indent=4)
 #
 # # Writing to sample.json
-# with open("C:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/mineração_lexicon/dic_sin_wn.json", "w", encoding="utf-8") as outfile:
+# with open("C:/Users/andre/Documents/GitHub/NLG_BRAZILIAN_PORTUGUESE_19-11/mineracao_lexicon_pre_exp_aplicacao/dic_sin_wn.json", "w", encoding="utf-8") as outfile:
 #     outfile.write(json_object)
 #

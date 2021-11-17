@@ -2,13 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/daily_corpus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/daily_corpus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/daily_grammar/lexicalization.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/daily_grammar/lexicalization.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/daily_grammar/ordering.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/daily_grammar/ordering.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/daily_grammar/references.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/daily_grammar/references.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/daily_grammar/structuring.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/daily_grammar/structuring.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/entity_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/entity_info.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/entity_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/entity_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/entity_info.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/entity_info.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/entity_info_updated.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/entity_info_updated.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/month_corpus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/month_corpus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/month_grammar/lexicalization.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/month_grammar/lexicalization.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/month_grammar/ordering.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/month_grammar/ordering.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/month_grammar/references.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/month_grammar/references.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/month_grammar/structuring.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/month_grammar/structuring.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/versions/inpe_corpus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/versions/inpe_corpus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/versions/inpe_corpus_v2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/versions/inpe_corpus_v2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/data/pt-br/versions/inpe_daily_corpus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/data/pt-br/versions/inpe_daily_corpus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/experimento_DAMATA_andre.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/experimento_DAMATA_andre.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimento_DaMata/realization.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/realization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_morfema/morf_verbais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_morfema/morf_verbais.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mineração_lexicon/dicionarioVerbosDaMataParticipio.json" beforeDir="false" afterPath="$PROJECT_DIR$/mineração_lexicon/dicionarioVerbosDaMataParticipio.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arquivos_dev_antigos/GENERATION_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_dev_antigos/GENERATION_dev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arquivos_dev_antigos/teste_grupo_verbal.py" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_dev_antigos/teste_grupo_verbal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/acertos_conjugação_TESTE.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test/acertos_conjugação_TESTE.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/acertos_conjugação_dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test/acertos_conjugação_dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/dicionario_presente.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test/dicionario_presente.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/erros_conjugação_TESTE.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test/erros_conjugação_TESTE.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/erros_conjugação_dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test/erros_conjugação_dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/corpora_train_dev_test/teste_DAMATA.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test/teste_DAMATA.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/experimento_corpora_dev-test_verbos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/experimento_corpora_dev-test_verbos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/scraping_verbos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/scraping_verbos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/dic_sin_cbow.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/dic_sin_cbow.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/dic_sin_cbow2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/dic_sin_cbow2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/dic_sin_skip.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/dic_sin_skip.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/dic_sin_wn.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/dic_sin_wn.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/dicionarioVerbosDaMata.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/dicionarioVerbosDaMata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/dicionarioVerbosDaMataGerundio.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/dicionarioVerbosDaMataGerundio.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/dicionarioVerbosDaMataParticipio.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/dicionarioVerbosDaMataParticipio.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/listaSentencas.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/listaSentencas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mineração_lexicon/verbs.json" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/verbs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,11 +72,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/corpus/experimento_corpora_dev-test_verbos.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Experimentos/experimento_corpora_dev-test_verbos.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/arquivos_dev_antigos/GENERATION_dev.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/mineração_lexicon/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/arquivos_dev_antigos/GENERATION_main.py" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/corpus/scraping_verbos.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Experimentos/scraping_verbos.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1lTW8rtfPkdVNdmbaWSqRvVh02Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -50,8 +88,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Experimento_DaMata" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -62,15 +100,16 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE" />
       <recent name="$PROJECT_DIR$/Experimento_DaMata" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test" />
+      <recent name="$PROJECT_DIR$/Experimentos" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/arquivos_dev_antigos" />
       <recent name="$PROJECT_DIR$/Experimento_DaMata" />
-      <recent name="$USER_HOME$/PLN_TESE_ANDRE" />
-      <recent name="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE" />
     </key>
   </component>
   <component name="RunManager" selected="Python tests.Doctests in grupo_nominal">
