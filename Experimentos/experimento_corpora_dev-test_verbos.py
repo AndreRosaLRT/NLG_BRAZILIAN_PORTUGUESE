@@ -7,75 +7,75 @@ import json
 import numpy as np
 from sklearn.impute import SimpleImputer
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.pal_verbais import *
-
-
-def flexionarVerboExp(tipo_de_experiencia, funcao_no_grupo_verbal,
-                    verbo, pessoa_genero, numero, modo, tempo, aspecto):
-    if numero == 'PL':
-        oi_numero = 'plural'
-    elif numero == 'SG':
-        oi_numero = 'singular'
-    else:
-        oi_numero = None
-
-    if pessoa_genero == '1':
-        oi_tipo_de_pessoa = '1pessoa'
-        genero = None
-
-    elif pessoa_genero == '2':
-        oi_tipo_de_pessoa = '2pessoa'
-        genero = None
-
-    elif pessoa_genero == '3':
-        oi_tipo_de_pessoa = '3pessoa'
-        genero = None
-
-    elif pessoa_genero == 'MASC':
-        genero = 'masculino'
-        oi_tipo_de_pessoa = None
-
-    elif pessoa_genero == 'FEM':
-        genero = 'feminino'
-        oi_tipo_de_pessoa = None
-    elif pessoa_genero == 'PRS' or pessoa_genero == 'NFIN':
-        genero = None
-        oi_tipo_de_pessoa = None
-        oi_numero = None
-
-    ####
-    if modo + '_' + tempo + '_' + aspecto == 'IND_PST_PFV':
-        tipo_de_orientacao = 'pretérito_perfectivo_I'
-    elif modo + '_' + tempo + '_' + aspecto == 'IND_PST_PRF':
-        tipo_de_orientacao = 'pretérito_perfectivo_II'
-    elif modo + '_' + tempo + '_' + aspecto == 'IND_PST_IPFV':
-        tipo_de_orientacao = 'pretérito_imperfectivo'
-    elif modo + '_' + tempo + '_' + aspecto == 'IND_FUT_none':
-        tipo_de_orientacao = 'futuro'
-    elif modo + '_' + tempo + '_' + aspecto == 'IND_PRS_none':
-        tipo_de_orientacao = 'presente'
-    elif modo + '_' + tempo + '_' + aspecto == 'SBJV_PRS_none':
-        tipo_de_orientacao = 'subjuntivo_conjuntivo'
-    elif modo + '_' + tempo + '_' + aspecto == 'SBJV_PST_IPFV':
-        tipo_de_orientacao = 'subjuntivo_condicional'
-    elif modo + '_' + tempo + '_' + aspecto == 'SBJV_FUT_none':
-        tipo_de_orientacao = 'subjuntivo_optativo'
-    elif modo + '_' + tempo + '_' + aspecto == 'PST_none_none':
-        tipo_de_orientacao = 'particípio'
-    elif modo + '_' + tempo + '_' + aspecto == 'IMP_POS_none':
-        tipo_de_orientacao = 'imperativo_I'
-    elif modo + '_' + tempo + '_' + aspecto == 'IMP_NEG_none':
-        tipo_de_orientacao = 'imperativo_II'
-    elif modo + '_' + tempo + '_' + aspecto == 'COND_none_none':
-        tipo_de_orientacao = 'passado_volitivo'
-    elif modo + '_' + tempo + '_' + aspecto == 'NFIN_none_none':
-        tipo_de_orientacao = 'não_finito_concretizado'
-    elif pessoa_genero + '_' + numero + '_' + modo + '_' + tempo + '_' + aspecto == 'PRS_none_none_none_none':
-        tipo_de_orientacao = 'gerúndio'
-    elif pessoa_genero + '_' + numero + '_' + modo + '_' + tempo + '_' + aspecto == 'NFIN_none_none_none_none':
-        tipo_de_orientacao = 'infinitivo'
-    verbo = verbo_geral(tipo_de_experiencia, funcao_no_grupo_verbal, verbo,tipo_de_orientacao, oi_numero, genero, oi_tipo_de_pessoa)
-
-    return verbo
+#
+#
+# def flexionarVerboExp(tipo_de_experiencia, funcao_no_grupo_verbal,
+#                     verbo, pessoa_genero, numero, modo, tempo, aspecto):
+#     if numero == 'PL':
+#         oi_numero = 'plural'
+#     elif numero == 'SG':
+#         oi_numero = 'singular'
+#     else:
+#         oi_numero = None
+#
+#     if pessoa_genero == '1':
+#         oi_tipo_de_pessoa = '1pessoa'
+#         genero = None
+#
+#     elif pessoa_genero == '2':
+#         oi_tipo_de_pessoa = '2pessoa'
+#         genero = None
+#
+#     elif pessoa_genero == '3':
+#         oi_tipo_de_pessoa = '3pessoa'
+#         genero = None
+#
+#     elif pessoa_genero == 'MASC':
+#         genero = 'masculino'
+#         oi_tipo_de_pessoa = None
+#
+#     elif pessoa_genero == 'FEM':
+#         genero = 'feminino'
+#         oi_tipo_de_pessoa = None
+#     elif pessoa_genero == 'PRS' or pessoa_genero == 'NFIN':
+#         genero = None
+#         oi_tipo_de_pessoa = None
+#         oi_numero = None
+#
+#     ####
+#     if modo + '_' + tempo + '_' + aspecto == 'IND_PST_PFV':
+#         tipo_de_orientacao = 'pretérito_perfectivo_I'
+#     elif modo + '_' + tempo + '_' + aspecto == 'IND_PST_PRF':
+#         tipo_de_orientacao = 'pretérito_perfectivo_II'
+#     elif modo + '_' + tempo + '_' + aspecto == 'IND_PST_IPFV':
+#         tipo_de_orientacao = 'pretérito_imperfectivo'
+#     elif modo + '_' + tempo + '_' + aspecto == 'IND_FUT_none':
+#         tipo_de_orientacao = 'futuro'
+#     elif modo + '_' + tempo + '_' + aspecto == 'IND_PRS_none':
+#         tipo_de_orientacao = 'presente'
+#     elif modo + '_' + tempo + '_' + aspecto == 'SBJV_PRS_none':
+#         tipo_de_orientacao = 'subjuntivo_conjuntivo'
+#     elif modo + '_' + tempo + '_' + aspecto == 'SBJV_PST_IPFV':
+#         tipo_de_orientacao = 'subjuntivo_condicional'
+#     elif modo + '_' + tempo + '_' + aspecto == 'SBJV_FUT_none':
+#         tipo_de_orientacao = 'subjuntivo_optativo'
+#     elif modo + '_' + tempo + '_' + aspecto == 'PST_none_none':
+#         tipo_de_orientacao = 'particípio'
+#     elif modo + '_' + tempo + '_' + aspecto == 'IMP_POS_none':
+#         tipo_de_orientacao = 'imperativo_I'
+#     elif modo + '_' + tempo + '_' + aspecto == 'IMP_NEG_none':
+#         tipo_de_orientacao = 'imperativo_II'
+#     elif modo + '_' + tempo + '_' + aspecto == 'COND_none_none':
+#         tipo_de_orientacao = 'passado_volitivo'
+#     elif modo + '_' + tempo + '_' + aspecto == 'NFIN_none_none':
+#         tipo_de_orientacao = 'não_finito_concretizado'
+#     elif pessoa_genero + '_' + numero + '_' + modo + '_' + tempo + '_' + aspecto == 'PRS_none_none_none_none':
+#         tipo_de_orientacao = 'gerúndio'
+#     elif pessoa_genero + '_' + numero + '_' + modo + '_' + tempo + '_' + aspecto == 'NFIN_none_none_none_none':
+#         tipo_de_orientacao = 'infinitivo'
+#     verbo = verbo_geral(tipo_de_experiencia, funcao_no_grupo_verbal, verbo,tipo_de_orientacao, oi_numero, genero, oi_tipo_de_pessoa)
+#
+#     return verbo
 
 # #EXEMPLOS USO FUNÇÃO
 # # # #urgir           urgia      V             3     SG  IND   PST    IPFV
@@ -128,12 +128,13 @@ lista_conjugados=[]
 
 for i in range(len(verbos)):
 	verbo = verbos[i, 0]
-	pessoa_genero = verbos[i, 3]
+	pessoa = verbos[i, 3]
+	genero = verbos[i,3]
 	modo = verbos[i, 5]
 	numero = verbos[i, 4]
 	tempo = verbos[i, 6]
 	aspecto = verbos[i, 7]
-	verbo_conj = flexionarVerboExp("Fazer", 'Evento', verbo, pessoa_genero, numero, modo, tempo, aspecto)
+	verbo_conj = flexionar_verbo("Fazer", 'Evento', verbo, pessoa,genero, numero, modo, tempo, aspecto)
 	lista_conjugados.append(verbo_conj)
 
 ###FAZENDO A CONTAGEM DE ERROS E ACERTOS COM BASE NO PADRÃO OURO
@@ -154,8 +155,7 @@ for conj in lista_conjugados:
 
 ##CALCULANDO A PORCENTAGEM DE ERROS E ACERTOS
 porcertangem_acerto = contador_acertos/1000
-porcertangem_acerto*100
-
+print(porcertangem_acerto*100)
 
 # Salvando os acertos e erros de conjugação em arquivos .json
 json_object=json.dumps(acertos, ensure_ascii=False)

@@ -6466,11 +6466,10 @@ def flexionar_verbo(experience='none', function_in_group='none',
                     lemma='none', person='none', gender='none', number='none',
                     mood='none', tense='none', aspect='none'):
 
-    tipo_de_orientacao = ''
 
-    if number == 'Plur':
+    if number == 'Plur' or number == 'PL':
         oi_numero = 'plural'
-    elif number == 'Sing':
+    elif number == 'Sing' or number == 'SG':
         oi_numero = 'singular'
     else:
         oi_numero = None
@@ -6486,49 +6485,85 @@ def flexionar_verbo(experience='none', function_in_group='none',
     else:
         oi_tipo_de_pessoa = None
 
-    if gender == 'Masc':
+    if gender == 'Masc' or gender == 'MASC':
         genero = 'masculino'
 
-    elif gender == 'Fem':
+    elif gender == 'Fem' or gender == 'FEM':
         genero = 'feminino'
 
     else:
         genero = None
 
+    if person == 'PRS' or person == 'NFIN':
+        genero = None
+        oi_tipo_de_pessoa = None
+        oi_numero = None
+
     ####
-    if mood + '_' + tense + '_' + aspect == 'Ind_Past_Perf':
+    if (mood + '_' + tense + '_' + aspect == 'Ind_Past_Perf' or
+            mood + '_' + tense + '_' + aspect == 'IND_PST_PFV'):
         tipo_de_orientacao = 'pretérito_perfectivo_I'
-    elif mood + '_' + tense + '_' + aspect == 'Ind_Past_Perf':
+    elif (mood + '_' + tense + '_' + aspect == 'Ind_Past_Mais_Perf' or
+          mood + '_' + tense + '_' + aspect == 'IND_PST_PRF'):
         tipo_de_orientacao = 'pretérito_perfectivo_II'
-    elif mood + '_' + tense + '_' + aspect == 'Ind_Past_Imp':
+    elif (mood + '_' + tense + '_' + aspect == 'Ind_Past_Imp' or
+          mood + '_' + tense + '_' + aspect == 'IND_PST_IPFV'):
         tipo_de_orientacao = 'pretérito_imperfectivo'
-    elif mood + '_' + tense + '_' + aspect == 'Ind_Fut_none':
+    elif (mood + '_' + tense + '_' + aspect == 'Ind_Fut_none' or
+          mood + '_' + tense + '_' + aspect == 'IND_FUT_none'):
         tipo_de_orientacao = 'futuro'
-    elif mood + '_' + tense + '_' + aspect == 'Ind_Pres_none':
+    elif (mood + '_' + tense + '_' + aspect == 'Ind_Pres_none' or
+          mood + '_' + tense + '_' + aspect == 'IND_PRS_none'):
         tipo_de_orientacao = 'presente'
-    elif mood + '_' + tense + '_' + aspect == 'Sub_Pres_none':
+    elif (mood + '_' + tense + '_' + aspect == 'Sub_Pres_none' or
+          mood + '_' + tense + '_' + aspect == 'SBJV_PRS_none'):
         tipo_de_orientacao = 'subjuntivo_conjuntivo'
-    elif mood + '_' + tense + '_' + aspect == 'Sub_Past_Imp':
+    elif (mood + '_' + tense + '_' + aspect == 'Sub_Past_Imp' or
+          mood + '_' + tense + '_' + aspect == 'SBJV_PST_IPFV'):
         tipo_de_orientacao = 'subjuntivo_condicional'
-    elif mood + '_' + tense + '_' + aspect == 'Sub_Fut_none':
+    elif (mood + '_' + tense + '_' + aspect == 'Sub_Fut_none' or
+          mood + '_' + tense + '_' + aspect == 'SBJV_FUT_none'):
         tipo_de_orientacao = 'subjuntivo_optativo'
-    elif mood + '_' + tense + '_' + aspect == 'none_Past_Perf':
+    elif (mood + '_' + tense + '_' + aspect == 'none_Past_Perf' or
+          mood + '_' + tense + '_' + aspect == 'PST_none_none'):
         tipo_de_orientacao = 'particípio'
-    elif mood == 'Imp_POS':
+    elif (mood == 'Imp_POS_none' or
+          mood + '_' + tense + '_' + aspect == 'IMP_POS_none'):
         tipo_de_orientacao = 'imperativo_I'
-    elif mood == 'Imp_NEG':
+    elif (mood == 'Imp_NEG_none' or
+          mood + '_' + tense + '_' + aspect == 'IMP_NEG_none'):
         tipo_de_orientacao = 'imperativo_II'
-    elif mood + '_' + tense + '_' + aspect == 'Cnd_Past_none':
+    elif (mood + '_' + tense + '_' + aspect == 'Cnd_Past_none' or
+          mood + '_' + tense + '_' + aspect == 'COND_none_none'):
         tipo_de_orientacao = 'passado_volitivo'
-    elif mood + '_' + tense + '_' + aspect == 'none_Inf_none':
+    elif (mood + '_' + tense + '_' + aspect == 'none_Inf_none' or
+          mood + '_' + tense + '_' + aspect == 'NFIN_none_none'):
         tipo_de_orientacao = 'não_finito_concretizado'
-    elif person + '_' + gender + '_' + number + '_' + mood + '_' + tense + '_' + aspect == 'none_none_none_none_Pres_Prog':
+    elif (
+            person + '_' + gender + '_' + number + '_' + mood + '_' + tense + '_' + aspect == 'none_none_none_none_Pres_Prog' or
+            person + '_' + number + '_' + mood + '_' + tense + '_' + aspect == 'PRS_none_none_none_none'):
         tipo_de_orientacao = 'gerúndio'
-    elif person + '_' + gender + '_' + number + '_' + mood + '_' + tense + '_' + aspect == 'none_none_none_none_Inf_none':
+    elif (
+            person + '_' + gender + '_' + number + '_' + mood + '_' + tense + '_' + aspect == 'none_none_none_none_Inf_none' or
+            person + '_' + number + '_' + mood + '_' + tense + '_' + aspect == 'NFIN_none_none_none_none'):
         tipo_de_orientacao = 'infinitivo'
     verb = verbo_geral(experience, function_in_group, lemma, tipo_de_orientacao, oi_numero, genero, oi_tipo_de_pessoa)
     return verb
+
 #
+# lemma = verbo
+# person = pessoa_genero
+# number = numero
+# mood = modo
+# tense = tempo
+# aspect = aspecto
+# gender = None
+#
+# experience = "Fazer"
+# function_in_group = 'Evento'
+# flexionar_verbo("Fazer", 'Evento', verbo, pessoa_genero, numero, modo, tempo, aspecto)
+flexionar_verbo("Fazer", 'Evento','sorver','2',None,'PL','IMP','NEG','none')
+# verbo_geral("Fazer", 'Evento','sorver','imperativo_II','plural',None,'2pessoa')
 # token = 'VP[experience=Ser,function_in_group=Evento,lemma=ser,person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf]'
 # #
 # import re
@@ -6566,8 +6601,8 @@ def flexionar_verbo(experience='none', function_in_group='none',
 #             new_text.append(token)
 #     return new_text
 # generate(texto)
-# 
-# 
+#
+#
 # #
 # flexionar_verbo(experience="Fazer", function_in_group='Evento', lemma="registrar", person='none', gender='none',
 #                number='none', mood='none', tense='Pres', aspect='Prog')
