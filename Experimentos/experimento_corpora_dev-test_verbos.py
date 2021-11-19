@@ -7,6 +7,9 @@ import json
 import numpy as np
 from sklearn.impute import SimpleImputer
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.pal_verbais import *
+flexionar_verbo('Ser','Evento','manter','3','none','SG','SBJV','PRS','none')
+verbo_geral("Fazer", 'Evento', 'manter', 'subjuntivo_conjuntivo', 'singular', None, '3pessoa')
+
 #
 #
 # def flexionarVerboExp(tipo_de_experiencia, funcao_no_grupo_verbal,
@@ -154,8 +157,8 @@ for conj in lista_conjugados:
 	contador+=1
 
 ##CALCULANDO A PORCENTAGEM DE ERROS E ACERTOS
-porcertangem_acerto = contador_acertos/1000
-print(porcertangem_acerto*100)
+porcertangem_acerto = (contador_acertos/1000)*100
+print(porcertangem_acerto)
 
 # Salvando os acertos e erros de conjugação em arquivos .json
 json_object=json.dumps(acertos, ensure_ascii=False)
@@ -172,6 +175,14 @@ with open("./Experimentos/saida_experimento_dev_test/erros_conjugação_dev.json
 ###EXPERIMENTO CORPUS TESTE
 path2='https://raw.githubusercontent.com/sigmorphon/conll2017/master/answers/task1/portuguese-uncovered-test'
 verbos_TESTE = pd.read_csv(path2,sep='[\s+ ;]',names=['lema','verbo_conjugado','classe','pessoa_genero','numero','modo','tempo','aspecto'],engine='python', encoding='utf-8')
+
+#VERIFIQUEI UM ERRO NA COLUNA DE VERBO CONJUGADO DO VERBO REMOER NO FUTURO DE INDIVATIVO, QUE CAUSOU UM ERRO
+# NO TESTE DE ACURÁCIA: TRATEI O ERRO
+# verbos_TESTE.query('lema == "remoer"')
+verbos_TESTE.loc[940,['verbo_conjugado']] = 'remoeremos'
+
+# verbos_TESTE.query('lema == "assentir"')
+# verbos_TESTE.query('lema == "manter"')
 #
 ##TRATAR VALORES NaN
 # imputer = SimpleImputer(missing_values = np.nan, strategy='constant', fill_value='none',verbose=0)
@@ -180,7 +191,7 @@ imputer = SimpleImputer(missing_values = None, strategy='constant', fill_value='
 imputer = imputer.fit(verbos_TESTE)
 verbos_TESTE = imputer.transform(verbos_TESTE)
 ####tratamento de grafia em pt de portugal:
-# verbos_TESTE.query('lema == "fluir"')
+# verbos_TESTE.query('lema == "manter"')
 
 #####tratamento de grafia em pt europeu:
 for i in range(len(verbos_TESTE[:,0])):
@@ -197,12 +208,14 @@ for i in range(len(verbos_TESTE[:, 1])):
 lista_conjugados_TESTE=[]
 for i in range(len(verbos_TESTE)):
 	verbo = verbos_TESTE[i, 0]
-	pessoa_genero = verbos_TESTE[i, 3]
+	pessoa = verbos_TESTE[i, 3]
+	genero = verbos_TESTE[i, 3]
 	modo = verbos_TESTE[i, 5]
 	numero = verbos_TESTE[i, 4]
 	tempo = verbos_TESTE[i, 6]
 	aspecto = verbos_TESTE[i, 7]
-	verbo_conj = flexionar_verbo("Fazer", 'Evento', verbo, pessoa_genero, numero, modo, tempo, aspecto)
+	verbo_conj = flexionar_verbo("Fazer", 'Evento', verbo, pessoa, genero, numero, modo, tempo, aspecto)
+
 	lista_conjugados_TESTE.append(verbo_conj)
 
 ##CALCULANDO A PORCENTAGEM DE ERROS E ACERTOS
@@ -226,8 +239,8 @@ for conj in lista_conjugados_TESTE:
 	contador_TESTE+=1
 
 # CALCULANDO A PORCENTAGEM DE ACERTOS
-porcertangem_acerto_TESTE = contador_acertos_TESTE/1000
-porcertangem_acerto_TESTE*100
+porcertangem_acerto_TESTE = (contador_acertos_TESTE/1000)*100
+print(porcertangem_acerto_TESTE)
 #SALVANDO ERROS E ACERTOS EM ARQUIVOS JSON
 json_object=json.dumps(acertos_TESTE, ensure_ascii=False)
 # Writing to sample.json

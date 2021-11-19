@@ -1524,8 +1524,6 @@ def formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_num
 
 #
 # VERBO sentir
-
-
 def formacao_verbo_sentir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero,
                           genero, oi_tipo_de_pessoa, padrao_pessoa_morfologia='Morfologia_padrão'):
     """
@@ -1533,6 +1531,8 @@ def formacao_verbo_sentir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nu
 
     >>> formacao_verbo_sentir('sentir', 'gerúndio', 'IR', None, None, None)
     'sentindo'
+    >>>formacao_verbo_sentir('assentir', 'subjuntivo_conjuntivo', 'IR','plural',None, '1pessoa')
+    'assintamos'
 
     :param verbo:
     :param tipo_de_orientacao:
@@ -1697,6 +1697,8 @@ def formacao_verbo_sentir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_nu
         return ''.join((me, mi))
     except ValueError:
         return ''
+
+
 
 
 # # VERBO SABER
@@ -2944,14 +2946,14 @@ def formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                 if (oi_tipo_de_pessoa == '1pessoa' or
                         oi_tipo_de_pessoa == '3pessoa'):
                     mi = 'a'
-
+                    verbo_conj = me + 'enh' + mi
                 elif oi_tipo_de_pessoa == '2pessoa':
 
                     if padrao_pessoa_morfologia == '3pessoa_do_singular':
                         mi = 'a'
                     else:
                         mi = 'as'
-                verbo_conj = me + 'enh' + mi
+                    verbo_conj = me + 'enh' + mi
 
             elif oi_numero == 'plural':
                 if oi_tipo_de_pessoa == '1pessoa':
@@ -6195,7 +6197,7 @@ def formacao_da_estrutura_do_verbo(verbo, tipo_de_orientacao, oi_numero,
                                                   genero, oi_tipo_de_pessoa,
                                                   padrao_pessoa_morfologia)
 
-            elif verbo == 'ter':
+            elif verbo == 'ter' or verbo == 'manter' or verbo == 'conter' or verbo == 'deter':
                 verbo_conj = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                                 oi_numero,
                                                 genero, oi_tipo_de_pessoa,
@@ -6256,6 +6258,8 @@ def verbo_geral(tipo_de_experiencia, funcao_no_grupo_verbal, verbo,
     Ex.:
     >>> verbo_geral('Fazer','Evento','vir','passado_volitivo','singular',None,'1pessoa')
     'viria'
+    >>> verbo_geral('Fazer','Evento','sentir','subjuntivo_conjuntivo','plural',None,'1pessoa')
+    'sintamos'
 
     :param tipo_de_experiencia:
         opções: 'Fazer','Ser', 'Sentir'
@@ -6289,50 +6293,64 @@ def verbo_geral(tipo_de_experiencia, funcao_no_grupo_verbal, verbo,
                 if verbo == 'estar':
                     verbo_conj = formacao_verbo_estar(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero,
                                                       genero, oi_tipo_de_pessoa, padrao_pessoa_morfologia)
-                elif verbo == 'sentir':
+
+                elif verbo[-6:] == 'sentir':
                     verbo_conj = formacao_verbo_sentir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero,
                                                        genero, oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+
                 elif verbo == 'trazer':
                     verbo_conj = formacao_verbo_trazer(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero,
                                                        genero, oi_tipo_de_pessoa, padrao_pessoa_morfologia)
-                elif verbo == 'ter':
+
+                elif verbo == 'ter' or verbo == 'manter' or verbo == 'conter' or verbo == 'reter' or verbo == 'deter'\
+                        or verbo == 'obter':
                     verbo_conj = formacao_verbo_ter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                                     oi_numero, genero, oi_tipo_de_pessoa,
                                                     padrao_pessoa_morfologia)
+
                 elif verbo == 'ser':
                     verbo_conj = formacao_verbo_ser(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero, genero,
                                                     oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+
                 elif verbo == 'ir':
                     verbo_conj = formacao_verbo_ir(verbo, tipo_de_orientacao, padrao_de_morfologia, oi_numero,
                                                    genero, oi_tipo_de_pessoa, padrao_pessoa_morfologia)
+
                 elif verbo == 'haver':
                     verbo_conj = formacao_verbo_haver(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                                       oi_numero, genero, oi_tipo_de_pessoa,
                                                       padrao_pessoa_morfologia)
+
                 elif verbo == 'agredir':
                     verbo_conj = formacao_verbo_agredir(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                                         oi_numero, genero, oi_tipo_de_pessoa,
                                                         padrao_pessoa_morfologia)
+
                 elif verbo == 'aferir':
                     verbo_conj = formacao_verbo_aferir(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                                        oi_numero, genero, oi_tipo_de_pessoa,
                                                        padrao_pessoa_morfologia)
+
                 elif verbo == 'medir':
                     verbo_conj = formacao_verbo_medir(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                                       oi_numero, genero, oi_tipo_de_pessoa,
                                                       padrao_pessoa_morfologia)
+
                 elif verbo == 'saber':
                     verbo_conj = formacao_verbo_saber(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                                       oi_numero, genero, oi_tipo_de_pessoa,
                                                       padrao_pessoa_morfologia)
+
                 elif verbo == 'vir' or verbo == 'intervir':
                     verbo_conj = formacao_verbo_vir_intervir(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                                              oi_numero, genero, oi_tipo_de_pessoa,
                                                              padrao_pessoa_morfologia)
+
                 elif verbo == 'conter' or verbo == 'deter':
                     verbo_conj = formacao_verbo_conter_deter(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                                              oi_numero, genero, oi_tipo_de_pessoa,
                                                              padrao_pessoa_morfologia)
+
                 elif verbo == 'poder':
                     verbo_conj = formacao_verbo_poder(verbo, tipo_de_orientacao, padrao_de_morfologia,
                                                       oi_numero, genero, oi_tipo_de_pessoa,
@@ -6461,17 +6479,44 @@ def main(tipo_de_experiencia, funcao_no_grupo_verbal, lema):
     except ValueError:
         return ''
 
-
+experience="Fazer"
+function_in_group='Evento'
+lemma='manter'
+person='3'
+gender=None
+number='SG'
+mood='SBJV'
+tense='PRS'
+aspect=None
 def flexionar_verbo(experience='none', function_in_group='none',
                     lemma='none', person='none', gender='none', number='none',
                     mood='none', tense='none', aspect='none'):
-
-
+    if experience is None:
+        experience = 'none'
+    if function_in_group is None:
+        function_in_group = 'none'
+    if lemma is None:
+        lemma = 'none'
+    if person is None:
+        person = 'none'
+    if gender is None:
+        gender = 'none'
+    if number is None:
+        number = 'none'
+    if mood is None:
+        mood = 'none'
+    if tense is None:
+        tense = 'none'
+    if aspect is None:
+        aspect = 'none'
+    
     if number == 'Plur' or number == 'PL':
         oi_numero = 'plural'
     elif number == 'Sing' or number == 'SG':
         oi_numero = 'singular'
     else:
+        if number is None:
+            number = 'none'
         oi_numero = None
 
     if person == '1':
@@ -6483,6 +6528,9 @@ def flexionar_verbo(experience='none', function_in_group='none',
     elif person == '3':
         oi_tipo_de_pessoa = '3pessoa'
     else:
+        if person is None:
+            person = 'none'
+
         oi_tipo_de_pessoa = None
 
     if gender == 'Masc' or gender == 'MASC':
@@ -6492,6 +6540,8 @@ def flexionar_verbo(experience='none', function_in_group='none',
         genero = 'feminino'
 
     else:
+        if gender is None:
+            gender = 'none'
         genero = None
 
     if person == 'PRS' or person == 'NFIN':
@@ -6550,6 +6600,26 @@ def flexionar_verbo(experience='none', function_in_group='none',
     verb = verbo_geral(experience, function_in_group, lemma, tipo_de_orientacao, oi_numero, genero, oi_tipo_de_pessoa)
     return verb
 
+
+flexionar_verbo(experience="Fazer", function_in_group='Evento',
+                    lemma='manter', person='3', gender=None, number='SG',
+                    mood='SBJV', tense='PRS', aspect=None)
+
+
+
+# flexionar_verbo('Fazer','Evento','manter','3','none','SG','SBJV','PRS','none')
+#
+verbo_geral("Fazer", 'Evento', 'manter', 'subjuntivo_conjuntivo', 'singular', None, '3pessoa')
+#
+#
+#
+#
+#
+#     experience=,function_in_group = 'Evento', verbo='manter', pessoa='3',
+#                 genero=None, numero='singular', modo='SBJV', tempo='PRS', aspecto=None)
+
+
+flexionar_verbo('Ser','Evento','manter','3','none','SG','SBJV','PRS','none')
 #
 # lemma = verbo
 # person = pessoa_genero
