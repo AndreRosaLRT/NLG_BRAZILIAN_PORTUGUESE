@@ -207,58 +207,25 @@ def circunstancia(realizacao_circunstancia=None,
 
 
 # teste circunstancia
-# circunstancia('grupo_adverbial', None,None,tem_qualificador=None,tipo_qualificador=None,indice_preposicao_qualif=None,
-#               determinacao_especificidade_beta=None, orientacao_beta=None, genero_beta=None, numero_beta=None,
-#               morfologia_do_pronome_beta=None, determinacao_especificidade_alpha='específico',
-#               orientacao_alpha='orientação_específica_proximidade', genero_alpha='masculino',
-#               numero_alpha='plural', morfologia_do_pronome_alpha='morfologia_terceira_pessoa',
-#               pessoa_da_interlocucao_possuidor='1s', numero_obj_possuido='plural', genero_obj_possuido='masculino',
-#               pessoa_da_interlocucao_proximidade='próximo_ao_não_interlocutor',   tipo_numerativo=None, cardinal=None,
+#
+# circunstancia('grupo_adverbial', None, None, tem_qualificador=None, tipo_qualificador=None,
+#               indice_preposicao_qualif=None, determinacao_especificidade_beta=None, orientacao_beta=None,
+#               genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
+#               determinacao_especificidade_alpha='específico',
+#               orientacao_alpha='orientação_específica_proximidade', genero_alpha='masculino', numero_alpha='plural',
+#               morfologia_do_pronome_alpha='morfologia_terceira_pessoa', pessoa_da_interlocucao_possuidor='1s',
+#               numero_obj_possuido='plural', genero_obj_possuido='masculino',
+#               pessoa_da_interlocucao_proximidade='próximo_ao_não_interlocutor', tipo_numerativo=None, cardinal=None,
 #               genero_numerativo=None, tipo_de_ente='não_consciente', tipo_de_nao_consciente='material',
 #               tipo_de_nao_consciente_material='animal', tipo_de_nao_consciente_semiotico=None,
-#               classe_palavra_ente='substantivo_comum', substantivo_lematizado='prédio', numero='plural',
-#               tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_prop=None,
-#               pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
-#               morfologia_do_pronome=None, reflexivo=None,  adjetivo_epiteto='alto', adjetivo_classificador=None,
-#               genero_adjetivo='masculino' , numero_adjetivo='plural',contracao='-contração' ,tipo_de_adverbio1='Modo',
-#               ind1=10)
-
-
-for ordem_lugar_preciso in range(12):
-    print(circunstancia(realizacao_circunstancia='frase_preposicional', indice_preposicao_frase=6,
-                        dissoc_ente_nucleo=None, tem_qualificador=None,
-                        tipo_qualificador=None, indice_preposicao_qualif=None,
-                        determinacao_especificidade_beta=None, orientacao_beta=None,
-                        genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
-                        determinacao_especificidade_alpha='específico', orientacao_alpha='NA',
-                        genero_alpha='feminino', numero_alpha='singular', morfologia_do_pronome_alpha=None,
-                        pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None,
-                        genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None,
-                        tipo_numerativo='ordem_lugar_preciso(ordinal)', cardinal=2, genero='feminino',
-                        tipo_de_ente='não_consciente',
-                        tipo_de_nao_consciente='material', tipo_de_nao_consciente_material='abstração_material',
-                        tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='substantivo_comum',
-                        substantivo_lematizado='guerra', numero='singular', tipo_feminino_ao=None,
-                        tipo_masc_ao=None, acent_tonica=None, nome_proprio=None, pessoa_da_interlocucao=None,
-                        transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None, reflexivo=None,
-                        adjetivo_epiteto=None, adjetivo_classificador=None, genero_adjetivo='feminino',
-                        numero_adjetivo='singular', contracao=None))
-
-
- circunstancia('grupo_adverbial',None,None,tem_qualificador=None,tipo_qualificador=None,
-    indice_preposicao_qualif=None,determinacao_especificidade_beta=None,orientacao_beta=None,
-    genero_beta=None,numero_beta=None,morfologia_do_pronome_beta=None,determinacao_especificidade_alpha='específico',
-    orientacao_alpha='orientação_específica_proximidade',genero_alpha='masculino',numero_alpha='plural',
-    morfologia_do_pronome_alpha='morfologia_terceira_pessoa',pessoa_da_interlocucao_possuidor='1s',
-    numero_obj_possuido='plural',genero_obj_possuido='masculino',
-    pessoa_da_interlocucao_proximidade='próximo_ao_não_interlocutor',tipo_numerativo=None,cardinal=None,
-    genero_numerativo=None,tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
-    tipo_de_nao_consciente_material='animal',tipo_de_nao_consciente_semiotico=None,
-    classe_palavra_ente='substantivo_comum',substantivo_lematizado='prédio',tipo_feminino_ao=None,tipo_masc_ao=None,
-    acent_tonica=None,pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
-    reflexivo=None,adjetivo_classificador=None,adj_epit_exp_pre=None,adj_epit_int_pre=None,adj_epit_exp_pos=None,
-    adj_epit_int_pos=None,genero_adjetivo=None,numero_adjetivo=None,contracao='-contração',
-    tipo_de_adverbio1='Modo',adv_ind1=10)
+#               classe_palavra_ente='substantivo_comum', substantivo_lematizado='prédio', tipo_feminino_ao=None,
+#               tipo_masc_ao=None,
+#               acent_tonica=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+#               morfologia_do_pronome=None,
+#               reflexivo=None, adjetivo_classificador=None, adj_epit_exp_pre=None, adj_epit_int_pre=None,
+#               adj_epit_exp_pos=None,
+#               adj_epit_int_pos=None, genero_adjetivo=None, numero_adjetivo=None, contracao='-contração',
+#               tipo_de_adverbio1='Modo', adv_ind1=10)
 # 'ordem_lugar_preciso(ordinal)','2','feminino',None,None,
 # 			   None,None,None,None,None
 
@@ -308,12 +275,12 @@ def processo_material(indice=None):
 
     Exs.:
 
-    >>> for j in range(4):
-    ...print(processo_material(j))
-    ..."PR_material_transformativo_IMPA_transitivo"
-    ..."PR_material_criativo_IMPA_transitivo"
-    ..."PR_material_transformativo_IMPA_intransitivo"
-    ..."PR_material_criativo_IMPA_intransitivo"
+    >>> [print(processo_material(j)) for j in range(4)]
+
+    "PR_material_transformativo_IMPA_transitivo"
+    "PR_material_criativo_IMPA_transitivo"
+    "PR_material_transformativo_IMPA_intransitivo"
+    "PR_material_criativo_IMPA_intransitivo"
 
     :param indice:
         [0:'PR_material_transformativo_IMPA_transitivo',
@@ -474,6 +441,9 @@ def tipo_de_modo(indice_modo):
 
 def avaliacao_modal(avaliacao: bool = False, polar: str = None) -> str:
     """
+    Ex.:
+
+    >>> avaliacao_modal(avaliacao = True, polar = 'negativa') -> 'não'
 
     :param polar= positiva', 'negativa'
     ##Preciso pesquisar mais a fundo sobre os tipos de polaridade e como ela é realizada.
@@ -499,7 +469,7 @@ def avaliacao_modal(avaliacao: bool = False, polar: str = None) -> str:
 
 ###
 
-def polaridade(tipo_polaridade=None):
+def polaridade(tipo_polaridade: str= None):
     """
 
     :param tipo_polaridade= 'positiva', 'negativa'
@@ -1060,10 +1030,33 @@ def transitividade(tipo_de_processo=None, indice_material=None,
 
     >>> transitividade(tipo_de_processo='Relacional',indice_material=None, indice_agenciamento=1, indice_relacional=0)
     -> 'PR_relacional_intensivo_atributivo_sem_atribuição_de_relação_AG_médio_com_alcance':
-    for i in range(3):
+    >>> for i in range(3):
         for j in range(7):
             print(transitividade(tipo_de_processo='Material', indice_material=i,
             indice_agenciamento=j, indice_relacional=None))
+    ->PR_material_transformativo_IMPA_transitivo_AG_médio_sem_alcance
+    PR_material_transformativo_IMPA_transitivo_AG_médio_com_alcance
+    PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo
+    PR_material_transformativo_IMPA_transitivo_AG_efetivo_receptivo
+    PR_material_transformativo_IMPA_transitivo_AG_efetivo_receptivo
+    PR_material_transformativo_IMPA_transitivo_AG_processo_sem_alcance
+    PR_material_transformativo_IMPA_transitivo_AG_processo_com_alcance
+    PR_material_criativo_IMPA_transitivo_AG_médio_sem_alcance
+    PR_material_criativo_IMPA_transitivo_AG_médio_com_alcance
+    PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo
+    PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo
+    PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo
+    PR_material_criativo_IMPA_transitivo_AG_processo_sem_alcance
+    PR_material_criativo_IMPA_transitivo_AG_processo_com_alcance
+    PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance
+    PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance
+    PR_material_transformativo_IMPA_intransitivo_AG_efetivo_operativo
+    PR_material_transformativo_IMPA_intransitivo_AG_efetivo_receptivo
+    PR_material_transformativo_IMPA_intransitivo_AG_efetivo_receptivo
+    PR_material_transformativo_IMPA_intransitivo_AG_processo_sem_alcance
+    PR_material_transformativo_IMPA_intransitivo_AG_processo_com_alcance
+
+
     :param tipo_de_processo: ['Material', 'Relacional',
                             'Mental', 'Verbal',
                             'Existencial']
@@ -1161,7 +1154,7 @@ def transitividade(tipo_de_processo=None, indice_material=None,
 # print('Médio sem alcance: Não-fenomenalização = comportamento-passivo')
 # TIPO_NAO_FENOMENALIZACAO= choice.Menu(['comportamento-passivo']).ask()
 ##terminar de ver a questão do tema interpessoal
-
+# parei aqui: teste 03/01/2022
 def oracao_mental(
         # TRANSITIVIDADE
         tipo_de_processo=None, indice_material=None, indice_agenciamento=None, indice_relacional=None,

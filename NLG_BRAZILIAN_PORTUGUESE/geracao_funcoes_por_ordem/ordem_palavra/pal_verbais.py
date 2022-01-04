@@ -6600,16 +6600,16 @@ def flexionar_verbo(experience='none', function_in_group='none',
     verb = verbo_geral(experience, function_in_group, lemma, tipo_de_orientacao, oi_numero, genero, oi_tipo_de_pessoa)
     return verb
 
-
-flexionar_verbo(experience="Fazer", function_in_group='Evento',
-                    lemma='manter', person='3', gender=None, number='SG',
-                    mood='SBJV', tense='PRS', aspect=None)
+#
+# flexionar_verbo(experience="Fazer", function_in_group='Evento',
+#                     lemma='manter', person='3', gender=None, number='SG',
+#                     mood='SBJV', tense='PRS', aspect=None)
 
 
 
 # flexionar_verbo('Fazer','Evento','manter','3','none','SG','SBJV','PRS','none')
 #
-verbo_geral("Fazer", 'Evento', 'manter', 'subjuntivo_conjuntivo', 'singular', None, '3pessoa')
+# verbo_geral("Fazer", 'Evento', 'manter', 'subjuntivo_conjuntivo', 'singular', None, '3pessoa')
 #
 #
 #
@@ -6619,7 +6619,7 @@ verbo_geral("Fazer", 'Evento', 'manter', 'subjuntivo_conjuntivo', 'singular', No
 #                 genero=None, numero='singular', modo='SBJV', tempo='PRS', aspecto=None)
 
 
-flexionar_verbo('Ser','Evento','manter','3','none','SG','SBJV','PRS','none')
+# flexionar_verbo('Ser','Evento','manter','3','none','SG','SBJV','PRS','none')
 #
 # lemma = verbo
 # person = pessoa_genero
@@ -6632,7 +6632,7 @@ flexionar_verbo('Ser','Evento','manter','3','none','SG','SBJV','PRS','none')
 # experience = "Fazer"
 # function_in_group = 'Evento'
 # flexionar_verbo("Fazer", 'Evento', verbo, pessoa_genero, numero, modo, tempo, aspecto)
-flexionar_verbo("Fazer", 'Evento','sorver','2',None,'PL','IMP','NEG','none')
+# flexionar_verbo("Fazer", 'Evento','sorver','2',None,'PL','IMP','NEG','none')
 # verbo_geral("Fazer", 'Evento','sorver','imperativo_II','plural',None,'2pessoa')
 # token = 'VP[experience=Ser,function_in_group=Evento,lemma=ser,person=3,gender=none,number=Sing,mood=Ind,tense=Past,aspect=Perf]'
 # #
