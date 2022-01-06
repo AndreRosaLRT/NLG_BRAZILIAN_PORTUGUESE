@@ -1,4 +1,4 @@
-# Cardinais teste
+
 import argparse
 import re
 # import nltk
@@ -1114,13 +1114,13 @@ def pronome_relativo(tipo_pronome_relativo=None,
         return ''
 
 
-def nome_proprio(nome: str = ''):
+def real_nome_proprio(nome: str = ''):
     """
     Retorna o nome próprio. #Futuramente parte das listas de léxicos
     advindas da anotação na GUM.
 
     Ex.:
-    >>> nome_proprio('andré')
+    >>> real_nome_proprio('andré')
     'André'
     :param nome:
     :return:

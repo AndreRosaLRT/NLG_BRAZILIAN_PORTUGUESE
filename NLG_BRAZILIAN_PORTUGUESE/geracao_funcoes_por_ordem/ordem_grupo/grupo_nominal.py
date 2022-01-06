@@ -410,11 +410,9 @@ def ente(tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_
     Ex.:
 
     >>> ente("consciente",None,None, None,
-    ...'pronome_caso_reto', None, "singular",
-    ...None,None, None,None,None,"falante",
-    ...None,None,None,None)
-
-    'eu'
+    'pronome_caso_reto', None, "singular",
+    None,None, None,None,None,"falante",
+    None,None,None,None) -> 'eu'
 
     >>> ente(tipo_de_ente='não_consciente', tipo_de_nao_consciente='material',
     ...tipo_de_nao_consciente_material='animal',
@@ -480,7 +478,7 @@ def ente(tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_
                                                         tipo_feminino_ao, tipo_masc_ao, acent_tonica)
 
                     elif classe_palavra_ente == 'substantivo_próprio':
-                        ente_realiz = nome_proprio(nome_prop)
+                        ente_realiz = real_nome_proprio(nome_prop)
                     elif classe_palavra_ente == 'pronome_caso_reto':
                         ente_realiz = realizacao_pronominal_casoreto(pessoa_da_interlocucao, genero,
                                                                      numero, morfologia_do_pronome)
@@ -499,7 +497,7 @@ def ente(tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_
                                                              numero, morfologia_do_pronome)
 
             elif classe_palavra_ente == 'substantivo_próprio':
-                ente_realiz = nome_proprio(nome_prop)
+                ente_realiz = real_nome_proprio(nome_prop)
             elif classe_palavra_ente == 'pronome_caso_oblíquo':
                 ente_realiz = realizacao_pronome_caso_obliquo(transitividade_verbo, tonicidade,
                                                               pessoa_da_interlocucao, numero, genero,
@@ -553,7 +551,7 @@ def qualificador(indice_preposicao_frase=None, dissoc_ente_nucleo=None, tem_qual
                  tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
                  tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
                  numero_subs=None, genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
-                 nome_prop_fp=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+                 nome_proprio=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
                  morfologia_do_pronome=None, reflexivo=None,
                  # classificador
                  adjetivo_classificador=None,
@@ -597,7 +595,7 @@ def qualificador(indice_preposicao_frase=None, dissoc_ente_nucleo=None, tem_qual
     :param tipo_feminino_ao:
     :param tipo_masc_ao:
     :param acent_tonica:
-    :param nome_prop_fp:
+    :param nome_proprio:
     :param pessoa_da_interlocucao:
     :param transitividade_verbo:
     :param tonicidade:
@@ -633,7 +631,7 @@ def qualificador(indice_preposicao_frase=None, dissoc_ente_nucleo=None, tem_qual
                                      substantivo_lematizado,
                                      numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao,
                                      acent_tonica,
-                                     nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo,
+                                     nome_proprio, pessoa_da_interlocucao, transitividade_verbo,
                                      tonicidade,
                                      morfologia_do_pronome, reflexivo,
                                      # classificador
@@ -666,7 +664,7 @@ def qualificador(indice_preposicao_frase=None, dissoc_ente_nucleo=None, tem_qual
 #                      tipo_de_nao_consciente_material='abstração_material', tipo_de_nao_consciente_semiotico=None,
 #                      classe_palavra_ente='substantivo_comum', substantivo_lematizado='café', numero_subs='singular',
 #                      genero_subs='não-binário',
-#                      tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_prop_fp=None,
+#                      tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None, nome_proprio=None,
 #                      pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
 #                      morfologia_do_pronome=None, reflexivo=None, adjetivo_epiteto='alto', adjetivo_classificador=None,
 #                      genero_adjetivo='masculino', numero_adjetivo='singular', contracao=None))
@@ -686,7 +684,7 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
                  tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
                  tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
                  numero_subs=None, genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
-                 nome_prop_fp=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+                 nome_proprio=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
                  morfologia_do_pronome=None, reflexivo=None,
                  # classificador
                  adjetivo_classificador=None,
@@ -711,7 +709,7 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
     genero_numerativo=None,tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
     tipo_de_nao_consciente_material='objeto_material',tipo_de_nao_consciente_semiotico=None,
     classe_palavra_ente='substantivo_comum',substantivo_lematizado='piano',numero_subs='singular',
-    genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_prop_fp=None,
+    genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_proprio=None,
     pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
     reflexivo=None,
     adjetivo_classificador='importado',
@@ -756,7 +754,7 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
     :param tipo_feminino_ao:
     :param tipo_masc_ao:
     :param acent_tonica:
-    :param nome_prop_fp:
+    :param nome_proprio:
     :param pessoa_da_interlocucao:
     :param transitividade_verbo:
     :param tonicidade:
@@ -783,7 +781,7 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
 
             ente_ = ente(tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
                          tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado, numero_subs,
-                         genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica, nome_prop_fp, pessoa_da_interlocucao,
+                         genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica, nome_proprio, pessoa_da_interlocucao,
                          transitividade_verbo, tonicidade, morfologia_do_pronome, reflexivo)
 
             classificador_adj = adjetivo(adjetivo_classificador, genero_adjetivo, numero_adjetivo)
@@ -817,7 +815,7 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
                                          substantivo_lematizado,
                                          numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao,
                                          acent_tonica,
-                                         nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo,
+                                         nome_proprio, pessoa_da_interlocucao, transitividade_verbo,
                                          tonicidade,
                                          morfologia_do_pronome, reflexivo,
                                          # classificador
@@ -842,7 +840,7 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
                                   tipo_de_nao_consciente_material,
                                   tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado,
                                   numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica,
-                                  nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
+                                  nome_proprio, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
                                   morfologia_do_pronome, reflexivo,  # classificador
                                   adjetivo_classificador,
                                   # epitetos
@@ -860,31 +858,32 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
 
 
 def estrutura_gn_downranked(dissoc_ente_nucleo=None, tem_qualificador=None,
-                           tipo_qualificador=None, indice_preposicao_qualif=None,
-                           determinacao_especificidade_beta=None, orientacao_beta=None, genero_beta=None,
-                           numero_beta=None,
-                           morfologia_do_pronome_beta=None, determinacao_especificidade_alpha=None,
-                           orientacao_alpha=None,
-                           genero_alpha=None, numero_alpha=None, morfologia_do_pronome_alpha=None,
-                           pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None, genero_obj_possuido=None,
-                           pessoa_da_interlocucao_proximidade=None, tipo_numerativo=None, cardinal=None,
-                           genero_numerativo=None,
-                           tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
-                           tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
-                           numero_subs=None, genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None,
-                           acent_tonica=None,
-                           nome_prop_fp=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
-                           morfologia_do_pronome=None, reflexivo=None,
-                           # classificador
-                           adjetivo_classificador=None,
-                           # epitetos
-                           adj_epit_exp_pre=None,
-                           adj_epit_int_pre=None,
-                           adj_epit_exp_pos=None,
-                           adj_epit_int_pos=None,
-                           genero_adjetivo=None, numero_adjetivo=None,
+                            tipo_qualificador=None, indice_preposicao_qualif=None,
+                            determinacao_especificidade_beta=None, orientacao_beta=None, genero_beta=None,
+                            numero_beta=None,
+                            morfologia_do_pronome_beta=None, determinacao_especificidade_alpha=None,
+                            orientacao_alpha=None,
+                            genero_alpha=None, numero_alpha=None, morfologia_do_pronome_alpha=None,
+                            pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None, genero_obj_possuido=None,
+                            pessoa_da_interlocucao_proximidade=None, tipo_numerativo=None, cardinal=None,
+                            genero_numerativo=None,
+                            tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
+                            tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None,
+                            substantivo_lematizado=None,
+                            numero_subs=None, genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None,
+                            acent_tonica=None,
+                            nome_proprio=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+                            morfologia_do_pronome=None, reflexivo=None,
+                            # classificador
+                            adjetivo_classificador=None,
+                            # epitetos
+                            adj_epit_exp_pre=None,
+                            adj_epit_int_pre=None,
+                            adj_epit_exp_pos=None,
+                            adj_epit_int_pos=None,
+                            genero_adjetivo=None, numero_adjetivo=None,
 
-                           contracao=None):
+                            contracao=None):
     """
     Ex.:
     >>>  estrutura_gn_downranked(dissoc_ente_nucleo=None,tem_qualificador=None,tipo_qualificador=None,
@@ -897,7 +896,7 @@ def estrutura_gn_downranked(dissoc_ente_nucleo=None, tem_qualificador=None,
     genero_numerativo=None,tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
     tipo_de_nao_consciente_material='objeto_material',tipo_de_nao_consciente_semiotico=None,
     classe_palavra_ente='substantivo_comum',substantivo_lematizado='piano',numero_subs='singular',
-    genero_subs='não-binário',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_prop_fp=None,
+    genero_subs='não-binário',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_proprio=None,
     pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
     reflexivo=None,
     adjetivo_classificador='importado',
@@ -941,13 +940,16 @@ def estrutura_gn_downranked(dissoc_ente_nucleo=None, tem_qualificador=None,
     :param tipo_feminino_ao:
     :param tipo_masc_ao:
     :param acent_tonica:
-    :param nome_prop:
+    :param nome_proprio:
     :param pessoa_da_interlocucao:
     :param transitividade_verbo:
     :param tonicidade:
     :param morfologia_do_pronome:
     :param reflexivo:
-    :param adjetivo_epiteto:
+    :param adj_epit_exp_pre=None,
+    :param adj_epit_int_pre=None,
+    :param adj_epit_exp_pos=None,
+    :param adj_epit_int_pos=None,:
     :param adjetivo_classificador:
     :param genero_adjetivo:
     :param numero_adjetivo:
@@ -955,28 +957,28 @@ def estrutura_gn_downranked(dissoc_ente_nucleo=None, tem_qualificador=None,
     :return:
     """
     gn_downranked = estrutura_gn(dissoc_ente_nucleo, tem_qualificador,
-                 tipo_qualificador, indice_preposicao_qualif,
-                 determinacao_especificidade_beta, orientacao_beta, genero_beta, numero_beta,
-                 morfologia_do_pronome_beta, determinacao_especificidade_alpha, orientacao_alpha,
-                 genero_alpha, numero_alpha, morfologia_do_pronome_alpha,
-                 pessoa_da_interlocucao_possuidor, numero_obj_possuido, genero_obj_possuido,
-                 pessoa_da_interlocucao_proximidade, tipo_numerativo, cardinal,
-                 genero_numerativo,
-                 tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
-                 tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado,
-                 numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica,
-                 nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
-                 morfologia_do_pronome, reflexivo,
-                 # classificador
-                 adjetivo_classificador,
-                 # epitetos
-                 adj_epit_exp_pre,
-                 adj_epit_int_pre,
-                 adj_epit_exp_pos,
-                 adj_epit_int_pos,
-                 genero_adjetivo, numero_adjetivo,
+                                 tipo_qualificador, indice_preposicao_qualif,
+                                 determinacao_especificidade_beta, orientacao_beta, genero_beta, numero_beta,
+                                 morfologia_do_pronome_beta, determinacao_especificidade_alpha, orientacao_alpha,
+                                 genero_alpha, numero_alpha, morfologia_do_pronome_alpha,
+                                 pessoa_da_interlocucao_possuidor, numero_obj_possuido, genero_obj_possuido,
+                                 pessoa_da_interlocucao_proximidade, tipo_numerativo, cardinal,
+                                 genero_numerativo,
+                                 tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
+                                 tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado,
+                                 numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica,
+                                 nome_proprio, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
+                                 morfologia_do_pronome, reflexivo,
+                                 # classificador
+                                 adjetivo_classificador,
+                                 # epitetos
+                                 adj_epit_exp_pre,
+                                 adj_epit_int_pre,
+                                 adj_epit_exp_pos,
+                                 adj_epit_int_pos,
+                                 genero_adjetivo, numero_adjetivo,
 
-                 contracao)
+                                 contracao)
 
     return re.sub(' +', ' ', gn_downranked).strip()
 

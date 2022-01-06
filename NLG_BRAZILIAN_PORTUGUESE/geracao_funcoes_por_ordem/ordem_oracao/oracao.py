@@ -17,7 +17,7 @@ def circunstancia(realizacao_circunstancia=None,
                   tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
                   tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
                   numero_subs=None, genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
-                  nome_prop_fp=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+                  nome_proprio=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
                   morfologia_do_pronome=None, reflexivo=None,
                   # classificador
                   adjetivo_classificador=None,
@@ -47,7 +47,7 @@ def circunstancia(realizacao_circunstancia=None,
     genero_numerativo='feminino',tipo_de_ente='não_consciente',tipo_de_nao_consciente='semiótico',
     tipo_de_nao_consciente_material=None,tipo_de_nao_consciente_semiotico='objeto_semiótico',
     classe_palavra_ente='substantivo_comum',substantivo_lematizado='guerra',numero_subs='singular',
-    genero_subs='feminino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_prop_fp=None,
+    genero_subs='feminino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_proprio=None,
     pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
     reflexivo=None,
     adjetivo_classificador='mundial',
@@ -69,7 +69,7 @@ def circunstancia(realizacao_circunstancia=None,
     genero_numerativo=None,tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
     tipo_de_nao_consciente_material='objeto_material',tipo_de_nao_consciente_semiotico=None,
     classe_palavra_ente='substantivo_comum',substantivo_lematizado='piano',numero_subs='singular',
-    genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_prop_fp=None,
+    genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_proprio=None,
     pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
     reflexivo=None,
     adjetivo_classificador='importado',
@@ -115,7 +115,7 @@ def circunstancia(realizacao_circunstancia=None,
     :param tipo_feminino_ao:
     :param tipo_masc_ao:
     :param acent_tonica:
-    :param nome_prop_fp:
+    :param nome_proprio:
     :param pessoa_da_interlocucao:
     :param transitividade_verbo:
     :param tonicidade:
@@ -161,7 +161,7 @@ def circunstancia(realizacao_circunstancia=None,
                                 substantivo_lematizado,
                                 numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao,
                                 acent_tonica,
-                                nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo,
+                                real_nome_proprio, pessoa_da_interlocucao, transitividade_verbo,
                                 tonicidade,
                                 morfologia_do_pronome, reflexivo,
                                 # classificador
@@ -186,7 +186,7 @@ def circunstancia(realizacao_circunstancia=None,
                                        tipo_de_ente, tipo_de_nao_consciente, tipo_de_nao_consciente_material,
                                        tipo_de_nao_consciente_semiotico, classe_palavra_ente, substantivo_lematizado,
                                        numero_subs, genero_subs, tipo_feminino_ao, tipo_masc_ao, acent_tonica,
-                                       nome_prop_fp, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
+                                       nome_proprio, pessoa_da_interlocucao, transitividade_verbo, tonicidade,
                                        morfologia_do_pronome, reflexivo,
                                        # classificador
                                        adjetivo_classificador,
@@ -211,20 +211,20 @@ def circunstancia(realizacao_circunstancia=None,
 # circunstancia('grupo_adverbial', None, None, tem_qualificador=None, tipo_qualificador=None,
 #               indice_preposicao_qualif=None, determinacao_especificidade_beta=None, orientacao_beta=None,
 #               genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
-#               determinacao_especificidade_alpha='específico',
-#               orientacao_alpha='orientação_específica_proximidade', genero_alpha='masculino', numero_alpha='plural',
-#               morfologia_do_pronome_alpha='morfologia_terceira_pessoa', pessoa_da_interlocucao_possuidor='1s',
-#               numero_obj_possuido='plural', genero_obj_possuido='masculino',
-#               pessoa_da_interlocucao_proximidade='próximo_ao_não_interlocutor', tipo_numerativo=None, cardinal=None,
-#               genero_numerativo=None, tipo_de_ente='não_consciente', tipo_de_nao_consciente='material',
-#               tipo_de_nao_consciente_material='animal', tipo_de_nao_consciente_semiotico=None,
-#               classe_palavra_ente='substantivo_comum', substantivo_lematizado='prédio', tipo_feminino_ao=None,
+#               determinacao_especificidade_alpha=None,
+#               orientacao_alpha=None, genero_alpha=None, numero_alpha=None,
+#               morfologia_do_pronome_alpha=None, pessoa_da_interlocucao_possuidor=None,
+#               numero_obj_possuido=None, genero_obj_possuido=None,
+#               pessoa_da_interlocucao_proximidade=None, tipo_numerativo=None, cardinal=None,
+#               genero_numerativo=None, tipo_de_ente=None, tipo_de_nao_consciente=None,
+#               tipo_de_nao_consciente_material=None, tipo_de_nao_consciente_semiotico=None,
+#               classe_palavra_ente=None, substantivo_lematizado=None, tipo_feminino_ao=None,
 #               tipo_masc_ao=None,
 #               acent_tonica=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
 #               morfologia_do_pronome=None,
 #               reflexivo=None, adjetivo_classificador=None, adj_epit_exp_pre=None, adj_epit_int_pre=None,
 #               adj_epit_exp_pos=None,
-#               adj_epit_int_pos=None, genero_adjetivo=None, numero_adjetivo=None, contracao='-contração',
+#               adj_epit_int_pos=None, genero_adjetivo=None, numero_adjetivo=None, contracao=None,
 #               tipo_de_adverbio1='Modo', adv_ind1=10)
 # 'ordem_lugar_preciso(ordinal)','2','feminino',None,None,
 # 			   None,None,None,None,None
@@ -607,7 +607,7 @@ def conjuncao_continuativa(indice=None):
         conjuncao = conjuncoes[indice]
 
         return conjuncao
-    except:
+    except(ValueError, KeyError, TypeError, UnboundLocalError):
         return ''
 
 
@@ -765,7 +765,7 @@ def tema_interpessoal(tipo_tema_interpessoal=None, tipo_realizacao=None,
                       tipo_de_ente=None, tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
                       tipo_de_nao_consciente_semiotico=None, classe_palavra_ente=None, substantivo_lematizado=None,
                       numero_subs=None, genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
-                      nome_prop_fp=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
+                      nome_proprio=None, pessoa_da_interlocucao=None, transitividade_verbo=None, tonicidade=None,
                       morfologia_do_pronome=None, reflexivo=None, adjetivo_epiteto=None,
                       adjetivo_classificador=None, genero_adjetivo=None, numero_adjetivo=None, contracao=None,
                       #
@@ -778,7 +778,7 @@ def tema_interpessoal(tipo_tema_interpessoal=None, tipo_realizacao=None,
     
     Ex.:
     
-    >>> tema_interpessoal("TI_avaliação_comentário", 'grupo_adverbial','Modo', 18) -> 'infelizmente'
+    >>> tema_interpessoal("TI_avaliação_comentário",'grupo_adverbial','Modo',18) -> 'infelizmente'
     >>> tema_interpessoal('TI_avaliação_comentário','grupo_adverbial','Modo',12) -> 'tristemente'
     
     :param tipo_tema_interpessoal: ['TI_avaliação_modo', 'TI_avaliação_comentário',
@@ -828,7 +828,7 @@ def tema_interpessoal(tipo_tema_interpessoal=None, tipo_realizacao=None,
     :param tipo_feminino_ao: 
     :param tipo_masc_ao: 
     :param acent_tonica: 
-    :param nome_prop_fp: 
+    :param nome_proprio:
     :param pessoa_da_interlocucao: 
     :param transitividade_verbo: 
     :param tonicidade: 
@@ -874,7 +874,7 @@ def tema_interpessoal(tipo_tema_interpessoal=None, tipo_realizacao=None,
                                                substantivo_lematizado,
                                                numero_subs, genero_subs, tipo_feminino_ao,
                                                tipo_masc_ao, acent_tonica,
-                                               nome_prop_fp, pessoa_da_interlocucao,
+                                               nome_proprio, pessoa_da_interlocucao,
                                                transitividade_verbo, tonicidade,
                                                morfologia_do_pronome, reflexivo, adjetivo_epiteto,
                                                adjetivo_classificador, genero_adjetivo, numero_adjetivo,
@@ -886,7 +886,7 @@ def tema_interpessoal(tipo_tema_interpessoal=None, tipo_realizacao=None,
         elif tipo_tema_interpessoal == 'TI_encenação_papel_falante':
             tema_int = particula_modal(indice_part_modal)
         elif tipo_tema_interpessoal == 'TI_encenação_papel_ouvinte':
-            tema_int = nome_proprio(nome_prop)
+            tema_int = real_nome_proprio(nome_prop)
     except:
         tema_int = ''
 
@@ -914,10 +914,10 @@ def tema_ideacional(orientacao_modal=None, orientacao_transitiva=None,
     Ex.:
 
     >>> tema_ideacional(orientacao_modal='orientado', orientacao_transitiva='direcional',
-    ...selecao_tematica='default', tema_default='indicativo',
-    ...tema_default_indicativo='declarativo', tema_identificativo='NA',
-    ...tema_angulo=None, tema_elemental=None,
-    ...tema_proeminente=None) -> 'TID_default_indicativo_declarativo_TIdentif_NA'
+    selecao_tematica='default', tema_default='indicativo',
+    tema_default_indicativo='declarativo', tema_identificativo='NA',
+    tema_angulo=None, tema_elemental=None,
+    tema_proeminente=None) -> 'TID_default_indicativo_declarativo_TIdentif_NA'
 
     >>> tema_ideacional('não_orientado','não_direcional','proeminente', None,None, 'NA',
     ...None,None, 'intensivo_relativo_papel_transitivo_nuclear_participante')
@@ -1154,7 +1154,7 @@ def transitividade(tipo_de_processo=None, indice_material=None,
 # print('Médio sem alcance: Não-fenomenalização = comportamento-passivo')
 # TIPO_NAO_FENOMENALIZACAO= choice.Menu(['comportamento-passivo']).ask()
 ##terminar de ver a questão do tema interpessoal
-# parei aqui: teste 03/01/2022
+
 def oracao_mental(
         # TRANSITIVIDADE
         tipo_de_processo=None, indice_material=None, indice_agenciamento=None, indice_relacional=None,
@@ -1170,7 +1170,7 @@ def oracao_mental(
         t_inter_tipo_de_adverbio4=None, t_inter_ind_adv_4=None,
         t_inter_tipo_de_adverbio5=None, t_inter_ind_adv_5=None,
         #
-        # # TEMA INTERPESSOAL realiziado por frase preposicional
+        # # TEMA INTERPESSOAL realizado por frase preposicional
         t_inter_fp_indice_preposicao_frase=None, t_inter_fp_dissoc_ente_nucleo=None, t_inter_fp_tem_qualificador=None,
         t_inter_fp_tipo_qualificador=None, t_inter_fp_indice_preposicao_qualif=None,
         t_inter_fp_determinacao_especificidade_beta=None, t_inter_fp_orientacao_beta=None, t_inter_fp_genero_beta=None,
@@ -1188,7 +1188,7 @@ def oracao_mental(
         t_inter_fp_substantivo_lematizado=None,
         t_inter_fp_numero_subs=None, t_inter_fp_genero_subs=None, t_inter_fp_tipo_feminino_ao=None,
         t_inter_fp_tipo_masc_ao=None, t_inter_fp_acent_tonica=None,
-        t_inter_fp_nome_prop_fp=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
+        t_inter_fp_nome_proprio=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
         t_inter_fp_tonicidade=None,
         t_inter_fp_morfologia_do_pronome=None, t_inter_fp_reflexivo=None, t_inter_fp_adjetivo_epiteto=None,
         t_inter_fp_adjetivo_classificador=None, t_inter_fp_genero_adjetivo=None, t_inter_fp_numero_adjetivo=None,
@@ -1319,7 +1319,7 @@ def oracao_mental(
         circunst_substantivo_lematizado=None,
         circunst_numero_subs=None, circunst_genero_subs=None, circunst_tipo_feminino_ao=None,
         circunst_tipo_masc_ao=None, circunst_acent_tonica=None,
-        circunst_nome_prop_fp=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
+        circunst_nome_proprio=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
         circunst_tonicidade=None,
         circunst_morfologia_do_pronome=None, circunst_reflexivo=None,
         # classificador
@@ -1347,39 +1347,29 @@ def oracao_mental(
                                         t_inter_ind_adv_1, t_inter_tipo_de_adverbio2, t_inter_ind_adv_2,
                                         t_inter_tipo_de_adverbio3, t_inter_ind_adv_3, t_inter_tipo_de_adverbio4,
                                         t_inter_ind_adv_4, t_inter_tipo_de_adverbio5, t_inter_ind_adv_5,
-                                        t_inter_fp_indice_preposicao_frase,
-                                        t_inter_fp_dissoc_ente_nucleo, t_inter_fp_tem_qualificador,
-                                        t_inter_fp_tipo_qualificador,
+                                        t_inter_fp_indice_preposicao_frase, t_inter_fp_dissoc_ente_nucleo,
+                                        t_inter_fp_tem_qualificador, t_inter_fp_tipo_qualificador,
                                         t_inter_fp_indice_preposicao_qualif,
-                                        t_inter_fp_determinacao_especificidade_beta,
-                                        t_inter_fp_orientacao_beta, t_inter_fp_genero_beta,
-                                        t_inter_fp_numero_beta,
+                                        t_inter_fp_determinacao_especificidade_beta, t_inter_fp_orientacao_beta,
+                                        t_inter_fp_genero_beta, t_inter_fp_numero_beta,
                                         t_inter_fp_morfologia_do_pronome_beta,
-                                        t_inter_fp_determinacao_especificidade_alpha,
-                                        t_inter_fp_orientacao_alpha,
+                                        t_inter_fp_determinacao_especificidade_alpha, t_inter_fp_orientacao_alpha,
                                         t_inter_fp_genero_alpha, t_inter_fp_numero_alpha,
                                         t_inter_fp_morfologia_do_pronome_alpha,
-                                        t_inter_fp_pessoa_da_interlocucao_possuidor,
-                                        t_inter_fp_numero_obj_possuido, t_inter_fp_genero_obj_possuido,
-                                        t_inter_fp_pessoa_da_interlocucao_proximidade,
-                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal,
-                                        t_inter_fp_genero_numerativo,
+                                        t_inter_fp_pessoa_da_interlocucao_possuidor, t_inter_fp_numero_obj_possuido,
+                                        t_inter_fp_genero_obj_possuido, t_inter_fp_pessoa_da_interlocucao_proximidade,
+                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal, t_inter_fp_genero_numerativo,
                                         t_inter_fp_tipo_de_ente, t_inter_fp_tipo_de_nao_consciente,
                                         t_inter_fp_tipo_de_nao_consciente_material,
-                                        t_inter_fp_tipo_de_nao_consciente_semiotico,
-                                        t_inter_fp_classe_palavra_ente,
-                                        t_inter_fp_substantivo_lematizado,
-                                        t_inter_fp_numero_subs, t_inter_fp_genero_subs,
-                                        t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
-                                        t_inter_fp_acent_tonica,
-                                        t_inter_fp_nome_prop_fp, t_inter_fp_pessoa_da_interlocucao,
-                                        t_inter_fp_transitividade_verbo, t_inter_fp_tonicidade,
-                                        t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
-                                        t_inter_fp_adjetivo_epiteto,
-                                        t_inter_fp_adjetivo_classificador, t_inter_fp_genero_adjetivo,
-                                        t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
-                                        t_inter_indice_elem_qu,
-                                        t_inter_indice_part_modal, t_inter_nome_proprio)
+                                        t_inter_fp_tipo_de_nao_consciente_semiotico, t_inter_fp_classe_palavra_ente,
+                                        t_inter_fp_substantivo_lematizado, t_inter_fp_numero_subs,
+                                        t_inter_fp_genero_subs, t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
+                                        t_inter_fp_acent_tonica, t_inter_fp_nome_proprio,
+                                        t_inter_fp_pessoa_da_interlocucao, t_inter_fp_transitividade_verbo,
+                                        t_inter_fp_tonicidade, t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
+                                        t_inter_fp_adjetivo_epiteto, t_inter_fp_adjetivo_classificador,
+                                        t_inter_fp_genero_adjetivo, t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
+                                        t_inter_indice_elem_qu, t_inter_indice_part_modal, t_inter_nome_proprio)
         tema_text = tema_textual(t_text_tem_tema_textual, t_text_indice_cont,
                                  t_text_tipo_de_conjuncao,
                                  t_text_indice_conj, t_text_tipo_de_relativo,
@@ -1424,7 +1414,7 @@ def oracao_mental(
                                        circunst_numero_subs, circunst_genero_subs,
                                        circunst_tipo_feminino_ao, circunst_tipo_masc_ao,
                                        circunst_acent_tonica,
-                                       circunst_nome_prop_fp, circunst_pessoa_da_interlocucao,
+                                       circunst_nome_proprio, circunst_pessoa_da_interlocucao,
                                        circunst_transitividade_verbo, circunst_tonicidade,
                                        circunst_morfologia_do_pronome, circunst_reflexivo,
                                        # classificador
@@ -1445,8 +1435,9 @@ def oracao_mental(
 
         # ORAÇÃO MENTAL declarativa
 
-        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
+                and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+            # parei aqui:testes 6 janeiro 2022
             if transitividade_ == 'PR_Mental_AG_médio_sem_alcance':
 
                 experienciador = estrutura_gn(p1_dissoc_ente_nucleo, p1_tem_qualificador,
@@ -1488,7 +1479,7 @@ def oracao_mental(
                             # Ex.: Tenho pensado; Eu pensei a noite toda;
                             tipo_de_mental == 'inferior_emotivo' or
                             tipo_de_mental == 'inferior_perceptivo'):
-                        oracao = ' '.join((experienciador, polar, processo_ + '.'))
+                        oracao = ' '.join((experienciador, polar, processo_, circunstancia_ + '.'))
                     # 'Eu ouvi perfeitamente'
 
             elif transitividade_ == 'PR_Mental_AG_médio_com_alcance':
@@ -1559,7 +1550,7 @@ def oracao_mental(
                                                       part_fp_adj_epit_int_pos,
                                                       part_fp_genero_adjetivo, part_fp_numero_adjetivo,
                                                       part_fp_contracao)
-                        oracao = " ".join((experienciador, polar, processo_, assunto + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, assunto, circunstancia_ + '.'))
                 # Ex.: Eu sei de futebol.
 
                 # 'Médio com alcance = mental emanente.'
@@ -1594,7 +1585,7 @@ def oracao_mental(
                                                 p2_adj_epit_int_pos,
                                                 p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
 
-                        oracao = " ".join((experienciador, polar, processo_, fenomeno + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, fenomeno, circunstancia_ + '.'))
                     # Ex.: Eu imaginei o jogo
                     elif tipo_de_mental == 'inferior_emotivo' or tipo_de_mental == 'inferior_perceptivo':
                         # APESAR DE PARECER REDUNDANTE, EM UMA PRÓXIMA FASE, CADA UMA DESTAS ITERAÇÕES
@@ -1630,13 +1621,13 @@ def oracao_mental(
                                                 p2_genero_adjetivo, p2_numero_adjetivo,
                                                 p2_contracao)
 
-                        oracao = " ".join((experienciador, polar, processo_, fenomeno + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, fenomeno, circunstancia_ + '.'))
 
                 elif fenomenalizacao == 'hiperfenômeno_criativo_pensamento':
                     if tipo_de_mental == 'superior_cognitivo':
                         # 'pensar', 'saber', 'sonhar'
                         pensamento = oracao_projetada()
-                        oracao = " ".join((experienciador, polar, processo_, 'que', pensamento + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, 'que', pensamento, circunstancia_ + '.'))
 
                 elif fenomenalizacao == 'hiperfenômeno_criativo_desejo':
                     if tipo_de_mental == 'superior_desiderativo':
@@ -1644,15 +1635,15 @@ def oracao_mental(
                         # print('Projeção = hiperfenômeno: criativo')
                         # TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar'])
                         desejo = oracao_projetada()
-                        oracao = " ".join((experienciador, polar, processo_, 'que', desejo + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, 'que', desejo, circunstancia_ + '.'))
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_oração_mudada_ordem':
                     if tipo_de_mental == 'inferior_emotivo':
                         metafenomeno = oracao_projetada()
-                        oracao = " ".join((experienciador, polar, processo_, metafenomeno + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, metafenomeno, circunstancia_ + '.'))
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_oração_que':
                     if tipo_de_mental == 'inferior_emotivo':
                         metafenomeno = 'que' + ' ' + oracao_projetada()
-                        oracao = " ".join((experienciador, polar, processo_, metafenomeno + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, metafenomeno, circunstancia_ + '.'))
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == 'inferior_emotivo':
                         # print('Selecione o GN com oração qualificadora:')
@@ -1683,18 +1674,18 @@ def oracao_mental(
                                                     p2_genero_adjetivo, p2_numero_adjetivo,
                                                     p2_contracao)
 
-                        oracao = " ".join((experienciador, polar, processo_, metafenomeno + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, metafenomeno, circunstancia_ + '.'))
 
                 elif (fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_não-finito_concretizado' or
                       fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_não-orientado_gerúndio'):
                     if tipo_de_mental == 'inferior_perceptivo':
                         macrofenomeno = oracao_projetada()
-                        oracao = " ".join((experienciador, polar, processo_, macrofenomeno + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, macrofenomeno, circunstancia_ + '.'))
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_oração_que':
                     if tipo_de_mental == 'inferior_perceptivo':
                         macrofenomeno = 'que' + ' ' + oracao_projetada()
-                        oracao = " ".join((experienciador, polar, processo_, macrofenomeno + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, macrofenomeno, circunstancia_ + '.'))
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == 'inferior_perceptivo':
@@ -1725,7 +1716,7 @@ def oracao_mental(
                                                      p2_adj_epit_int_pos,
                                                      p2_genero_adjetivo, p2_numero_adjetivo,
                                                      p2_contracao)
-                        oracao = " ".join((experienciador, polar, processo_, macrofenomeno + '.'))
+                        oracao = " ".join((experienciador, polar, processo_, macrofenomeno, circunstancia_ + '.'))
 
             elif transitividade_ == 'PR_Mental_AG_efetivo_operativo':
                 # impingente
@@ -1798,13 +1789,13 @@ def oracao_mental(
                     if tipo_de_mental == 'inferior_emotivo':
                         metafenomeno_agente = oracao_projetada()
                         oracao = " ".join((metafenomeno_agente, polar, processo_, experienciador_gn,
-                                           experienciador_fp + '.'))
+                                           experienciador_fp + circunstancia_ + '.'))
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_oração_que':
                     if tipo_de_mental == 'inferior_emotivo':
                         metafenomeno_agente = 'que' + ' ' + oracao_projetada()
                         oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn \
-                                 +' ' + experienciador_fp + ' ' + '.'
+                                 +' ' + experienciador_fp + ' ' + circunstancia_ + '.'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == 'inferior_emotivo':
@@ -1840,20 +1831,20 @@ def oracao_mental(
                                                            p2_adj_epit_int_pos,
                                                            p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
                         oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn +\
-                                 ' ' + experienciador_fp + ' ' + '.'
+                                 ' ' + experienciador_fp + ' ' + circunstancia_ + '.'
 
                 elif (fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_não-finito_concretizado' or
                       fenomenalizacao == 'reativo_macrofenômeno_não-orientado_gerúndio'):
                     if tipo_de_mental == "superior_cognitivo":
                         macrofenomeno_agente = oracao_projetada()
                         oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn +\
-                                 ' ' + experienciador_fp + ' ' + '.'
+                                 ' ' + experienciador_fp + ' ' + circunstancia_ + '.'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_oração_que':
                     if tipo_de_mental == "superior_cognitivo":
                         macrofenomeno_agente = 'que' + ' ' + oracao_projetada()
                         oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn \
-                                 + ' ' + experienciador_fp + ' ' + '.'
+                                 + ' ' + experienciador_fp + ' ' + circunstancia_ + '.'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == "superior_cognitivo":
@@ -1888,7 +1879,7 @@ def oracao_mental(
                                                             p2_adj_epit_int_pos,
                                                             p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
                         oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn +\
-                                 ' ' + experienciador_fp + ' ' + '.'
+                                 ' ' + experienciador_fp + ' ' + circunstancia_ + '.'
 
                 elif fenomenalizacao == "fenomenalização_fenômeno_simples":
                     if tipo_de_mental == "superior_cognitivo":
@@ -1928,7 +1919,7 @@ def oracao_mental(
                                                        p1_adj_epit_int_pos,
                                                        p1_genero_adjetivo, p1_numero_adjetivo, p1_contracao)
                         oracao = fenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn +\
-                                 ' ' + experienciador_fp + ' ' + '.'
+                                 ' ' + experienciador_fp + ' ' + circunstancia_ + '.'
 
         # comeca interrogativa polar
         if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' \
@@ -1971,7 +1962,7 @@ def oracao_mental(
                             # Ex.: Tenho pensado; Eu pensei a noite toda;
                             tipo_de_mental == 'inferior_emotivo' or
                             tipo_de_mental == 'inferior_perceptivo'):
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + circunstancia_ + '?'
             # 'Eu ouvi perfeitamente'
 
             elif transitividade_ == 'PR_Mental_AG_médio_com_alcance':
@@ -2045,7 +2036,7 @@ def oracao_mental(
                                                       part_fp_adj_epit_int_pos,
                                                       part_fp_genero_adjetivo, part_fp_numero_adjetivo,
                                                       part_fp_contracao)
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + assunto + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + assunto + circunstancia_ + '?'
                 # Ex.: Eu sei de futebol.
 
                 # 'Médio com alcance = mental emanente.'
@@ -2080,7 +2071,7 @@ def oracao_mental(
                                                 p2_adj_epit_int_pos,
                                                 p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
 
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + fenomeno + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + fenomeno + circunstancia_ + '?'
                     # Ex.: Eu imaginei o jogo
                     elif tipo_de_mental == 'inferior_emotivo' or tipo_de_mental == 'inferior_perceptivo':
                         # APESAR DE PARECER REDUNDANTE, EM UMA PRÓXIMA FASE, CADA UMA DESTAS ITERAÇÕES
@@ -2114,13 +2105,13 @@ def oracao_mental(
                                                 p2_adj_epit_int_pos,
                                                 p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
 
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + fenomeno + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + fenomeno + circunstancia_ + '?'
 
                 elif fenomenalizacao == 'hiperfenômeno_criativo_pensamento':
                     if tipo_de_mental == 'superior_cognitivo':
                         # 'pensar', 'saber', 'sonhar'
                         pensamento = oracao_projetada()
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + 'que' + ' ' + pensamento + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + 'que' + ' ' + pensamento + circunstancia_ + '?'
 
                 elif fenomenalizacao == 'hiperfenômeno_criativo_desejo':
                     if tipo_de_mental == 'superior_desiderativo':
@@ -2128,15 +2119,18 @@ def oracao_mental(
                         # print('Projeção = hiperfenômeno: criativo')
                         # TIPO_DE_DESIDERATIVO = choice.Menu(['querer', 'esperar'])
                         desejo = oracao_projetada()
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + 'que' + ' ' + desejo + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + 'que' + ' ' \
+                                 + desejo + circunstancia_ + '?'
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_oração_mudada_ordem':
                     if tipo_de_mental == 'inferior_emotivo':
                         metafenomeno = oracao_projetada()
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + metafenomeno + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + metafenomeno\
+                                 + circunstancia_ + '?'
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_oração_que':
                     if tipo_de_mental == 'inferior_emotivo':
                         metafenomeno = 'que' + ' ' + oracao_projetada()
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + metafenomeno + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + metafenomeno \
+                                 + circunstancia_ + '?'
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == 'inferior_emotivo':
                         # print('Selecione o GN com oração qualificadora:')
@@ -2167,18 +2161,21 @@ def oracao_mental(
                                                     p2_adj_epit_int_pos,
                                                     p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
 
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + metafenomeno + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + metafenomeno \
+                                 + circunstancia_ + '?'
 
                 elif (fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_não-finito_concretizado' or
                       fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_não-orientado_gerúndio'):
                     if tipo_de_mental == 'inferior_perceptivo':
                         macrofenomeno = oracao_projetada()
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + macrofenomeno + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' \
+                                 + macrofenomeno + circunstancia_ + '?'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_oração_que':
                     if tipo_de_mental == 'inferior_perceptivo':
                         macrofenomeno = 'que' + ' ' + oracao_projetada()
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + macrofenomeno + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' \
+                                 + macrofenomeno + circunstancia_ + '?'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == 'inferior_perceptivo':
@@ -2207,7 +2204,8 @@ def oracao_mental(
                                                      p2_adj_epit_exp_pos,
                                                      p2_adj_epit_int_pos,
                                                      p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
-                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + macrofenomeno + '?'
+                        oracao = experienciador + ' ' + polar + ' ' + processo_ + ' ' + macrofenomeno \
+                                 + circunstancia_ + '?'
 
             elif transitividade_ == 'PR_Mental_AG_efetivo_operativo':
                 # impingente
@@ -2279,12 +2277,14 @@ def oracao_mental(
                 if fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_oração_mudada_ordem':
                     if tipo_de_mental == 'inferior_emotivo':
                         metafenomeno_agente = oracao_projetada()
-                        oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + '?'
+                        oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ \
+                                 + ' ' + experienciador_gn + ' ' + experienciador_fp + circunstancia_ + '?'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_oração_que':
                     if tipo_de_mental == 'inferior_emotivo':
                         metafenomeno_agente = 'que' + ' ' + oracao_projetada()
-                        oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + '?'
+                        oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ \
+                                 + ' ' + experienciador_gn + ' ' + experienciador_fp + circunstancia_ + '?'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == 'inferior_emotivo':
@@ -2319,18 +2319,21 @@ def oracao_mental(
                                                            p2_adj_epit_exp_pos,
                                                            p2_adj_epit_int_pos,
                                                            p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
-                        oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + '?'
+                        oracao = metafenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' \
+                                 + experienciador_gn + ' ' + experienciador_fp + circunstancia_ + '?'
 
                 elif (fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_não-finito_concretizado' or
                       fenomenalizacao == 'reativo_macrofenômeno_não-orientado_gerúndio'):
                     if tipo_de_mental == "superior_cognitivo":
                         macrofenomeno_agente = oracao_projetada()
-                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + '?'
+                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' \
+                                 + experienciador_gn + ' ' + experienciador_fp + circunstancia_ + '?'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_oração_que':
                     if tipo_de_mental == "superior_cognitivo":
                         macrofenomeno_agente = 'que' + ' ' + oracao_projetada()
-                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + '?'
+                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' \
+                                 + experienciador_gn + ' ' + experienciador_fp + circunstancia_ + '?'
 
                 elif fenomenalizacao == 'hiperfenômeno_reativo_macrofenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == "superior_cognitivo":
@@ -2364,7 +2367,8 @@ def oracao_mental(
                                                             p2_adj_epit_exp_pos,
                                                             p2_adj_epit_int_pos,
                                                             p2_genero_adjetivo, p2_numero_adjetivo, p2_contracao)
-                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + '?'
+                        oracao = macrofenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' \
+                                 + experienciador_gn + ' ' + experienciador_fp + circunstancia_ + '?'
 
                 elif fenomenalizacao == "fenomenalização_fenômeno_simples":
                     if tipo_de_mental == "superior_cognitivo":
@@ -2400,10 +2404,11 @@ def oracao_mental(
                                                        p1_adj_epit_exp_pos,
                                                        p1_adj_epit_int_pos,
                                                        p1_genero_adjetivo, p1_numero_adjetivo, p1_contracao)
-                        oracao = fenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' + experienciador_gn + ' ' + experienciador_fp + '?'
+                        oracao = fenomeno_agente + ' ' + polar + ' ' + processo_ + ' ' \
+                                 + experienciador_gn + ' ' + experienciador_fp + circunstancia_ + '?'
 
-        return re.sub(' +', ' ', ' '.join((tema_interp, tema_text, oracao, circunstancia_))).strip().capitalize()
-    except:
+        return re.sub(' +', ' ', ' '.join((tema_interp, tema_text, oracao))).strip().capitalize()
+    except(ValueError, KeyError, TypeError, UnboundLocalError):
         return ""
 
 
@@ -2441,7 +2446,7 @@ def oracao_material(
         t_inter_fp_substantivo_lematizado=None,
         t_inter_fp_numero_subs=None, t_inter_fp_genero_subs=None, t_inter_fp_tipo_feminino_ao=None,
         t_inter_fp_tipo_masc_ao=None, t_inter_fp_acent_tonica=None,
-        t_inter_fp_nome_prop_fp=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
+        t_inter_fp_nome_proprio=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
         t_inter_fp_tonicidade=None,
         t_inter_fp_morfologia_do_pronome=None, t_inter_fp_reflexivo=None, t_inter_fp_adjetivo_epiteto=None,
         t_inter_fp_adjetivo_classificador=None, t_inter_fp_genero_adjetivo=None, t_inter_fp_numero_adjetivo=None,
@@ -2663,7 +2668,7 @@ def oracao_material(
         circunst_substantivo_lematizado=None,
         circunst_numero_subs=None, circunst_genero_subs=None, circunst_tipo_feminino_ao=None,
         circunst_tipo_masc_ao=None, circunst_acent_tonica=None,
-        circunst_nome_prop_fp=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
+        circunst_nome_proprio=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
         circunst_tonicidade=None,
         circunst_morfologia_do_pronome=None, circunst_reflexivo=None,
         # classificador
@@ -2690,39 +2695,29 @@ def oracao_material(
                                         t_inter_ind_adv_1, t_inter_tipo_de_adverbio2, t_inter_ind_adv_2,
                                         t_inter_tipo_de_adverbio3, t_inter_ind_adv_3, t_inter_tipo_de_adverbio4,
                                         t_inter_ind_adv_4, t_inter_tipo_de_adverbio5, t_inter_ind_adv_5,
-                                        t_inter_fp_indice_preposicao_frase,
-                                        t_inter_fp_dissoc_ente_nucleo, t_inter_fp_tem_qualificador,
-                                        t_inter_fp_tipo_qualificador,
+                                        t_inter_fp_indice_preposicao_frase, t_inter_fp_dissoc_ente_nucleo,
+                                        t_inter_fp_tem_qualificador, t_inter_fp_tipo_qualificador,
                                         t_inter_fp_indice_preposicao_qualif,
-                                        t_inter_fp_determinacao_especificidade_beta,
-                                        t_inter_fp_orientacao_beta, t_inter_fp_genero_beta,
-                                        t_inter_fp_numero_beta,
+                                        t_inter_fp_determinacao_especificidade_beta, t_inter_fp_orientacao_beta,
+                                        t_inter_fp_genero_beta, t_inter_fp_numero_beta,
                                         t_inter_fp_morfologia_do_pronome_beta,
-                                        t_inter_fp_determinacao_especificidade_alpha,
-                                        t_inter_fp_orientacao_alpha,
+                                        t_inter_fp_determinacao_especificidade_alpha, t_inter_fp_orientacao_alpha,
                                         t_inter_fp_genero_alpha, t_inter_fp_numero_alpha,
                                         t_inter_fp_morfologia_do_pronome_alpha,
-                                        t_inter_fp_pessoa_da_interlocucao_possuidor,
-                                        t_inter_fp_numero_obj_possuido, t_inter_fp_genero_obj_possuido,
-                                        t_inter_fp_pessoa_da_interlocucao_proximidade,
-                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal,
-                                        t_inter_fp_genero_numerativo,
+                                        t_inter_fp_pessoa_da_interlocucao_possuidor, t_inter_fp_numero_obj_possuido,
+                                        t_inter_fp_genero_obj_possuido, t_inter_fp_pessoa_da_interlocucao_proximidade,
+                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal, t_inter_fp_genero_numerativo,
                                         t_inter_fp_tipo_de_ente, t_inter_fp_tipo_de_nao_consciente,
                                         t_inter_fp_tipo_de_nao_consciente_material,
-                                        t_inter_fp_tipo_de_nao_consciente_semiotico,
-                                        t_inter_fp_classe_palavra_ente,
-                                        t_inter_fp_substantivo_lematizado,
-                                        t_inter_fp_numero_subs, t_inter_fp_genero_subs,
-                                        t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
-                                        t_inter_fp_acent_tonica,
-                                        t_inter_fp_nome_prop_fp, t_inter_fp_pessoa_da_interlocucao,
-                                        t_inter_fp_transitividade_verbo, t_inter_fp_tonicidade,
-                                        t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
-                                        t_inter_fp_adjetivo_epiteto,
-                                        t_inter_fp_adjetivo_classificador, t_inter_fp_genero_adjetivo,
-                                        t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
-                                        t_inter_indice_elem_qu,
-                                        t_inter_indice_part_modal, t_inter_nome_proprio)
+                                        t_inter_fp_tipo_de_nao_consciente_semiotico, t_inter_fp_classe_palavra_ente,
+                                        t_inter_fp_substantivo_lematizado, t_inter_fp_numero_subs,
+                                        t_inter_fp_genero_subs, t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
+                                        t_inter_fp_acent_tonica, t_inter_fp_nome_proprio,
+                                        t_inter_fp_pessoa_da_interlocucao, t_inter_fp_transitividade_verbo,
+                                        t_inter_fp_tonicidade, t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
+                                        t_inter_fp_adjetivo_epiteto, t_inter_fp_adjetivo_classificador,
+                                        t_inter_fp_genero_adjetivo, t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
+                                        t_inter_indice_elem_qu, t_inter_indice_part_modal, t_inter_nome_proprio)
         tema_text = tema_textual(t_text_tem_tema_textual, t_text_indice_cont,
                                  t_text_tipo_de_conjuncao,
                                  t_text_indice_conj, t_text_tipo_de_relativo,
@@ -2767,7 +2762,7 @@ def oracao_material(
                                        circunst_numero_subs, circunst_genero_subs,
                                        circunst_tipo_feminino_ao, circunst_tipo_masc_ao,
                                        circunst_acent_tonica,
-                                       circunst_nome_prop_fp, circunst_pessoa_da_interlocucao,
+                                       circunst_nome_proprio, circunst_pessoa_da_interlocucao,
                                        circunst_transitividade_verbo, circunst_tonicidade,
                                        circunst_morfologia_do_pronome, circunst_reflexivo,
                                        # classificador
@@ -3295,7 +3290,7 @@ def oracao_relacional(
         t_inter_fp_substantivo_lematizado=None,
         t_inter_fp_numero_subs=None, t_inter_fp_genero_subs=None, t_inter_fp_tipo_feminino_ao=None,
         t_inter_fp_tipo_masc_ao=None, t_inter_fp_acent_tonica=None,
-        t_inter_fp_nome_prop_fp=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
+        t_inter_fp_nome_proprio=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
         t_inter_fp_tonicidade=None,
         t_inter_fp_morfologia_do_pronome=None, t_inter_fp_reflexivo=None, t_inter_fp_adjetivo_epiteto=None,
         t_inter_fp_adjetivo_classificador=None, t_inter_fp_genero_adjetivo=None, t_inter_fp_numero_adjetivo=None,
@@ -3491,7 +3486,7 @@ def oracao_relacional(
         p3_fp_adj_epit_int_pos=None,
         p3_fp_genero_adjetivo=None, p3_fp_numero_adjetivo=None,
         p3_fp_contracao=None,
-        
+
         ##participante realziado por circunstancia (relacionais circunstanciais)
         p_circ_realizacao_circunstancia=None,
         p_circ_indice_preposicao_frase=None, p_circ_dissoc_ente_nucleo=None, p_circ_tem_qualificador=None,
@@ -3510,7 +3505,7 @@ def oracao_relacional(
         p_circ_substantivo_lematizado=None,
         p_circ_numero_subs=None, p_circ_genero_subs=None, p_circ_tipo_feminino_ao=None,
         p_circ_tipo_masc_ao=None, p_circ_acent_tonica=None,
-        p_circ_nome_prop_fp=None, p_circ_pessoa_da_interlocucao=None, p_circ_transitividade_verbo=None,
+        p_circ_nome_proprio=None, p_circ_pessoa_da_interlocucao=None, p_circ_transitividade_verbo=None,
         p_circ_tonicidade=None,
         p_circ_morfologia_do_pronome=None, p_circ_reflexivo=None,
         # classificador
@@ -3547,7 +3542,7 @@ def oracao_relacional(
         circunst_substantivo_lematizado=None,
         circunst_numero_subs=None, circunst_genero_subs=None, circunst_tipo_feminino_ao=None,
         circunst_tipo_masc_ao=None, circunst_acent_tonica=None,
-        circunst_nome_prop_fp=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
+        circunst_nome_proprio=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
         circunst_tonicidade=None,
         circunst_morfologia_do_pronome=None, circunst_reflexivo=None,
         # classificador
@@ -3575,39 +3570,29 @@ def oracao_relacional(
                                         t_inter_ind_adv_1, t_inter_tipo_de_adverbio2, t_inter_ind_adv_2,
                                         t_inter_tipo_de_adverbio3, t_inter_ind_adv_3, t_inter_tipo_de_adverbio4,
                                         t_inter_ind_adv_4, t_inter_tipo_de_adverbio5, t_inter_ind_adv_5,
-                                        t_inter_fp_indice_preposicao_frase,
-                                        t_inter_fp_dissoc_ente_nucleo, t_inter_fp_tem_qualificador,
-                                        t_inter_fp_tipo_qualificador,
+                                        t_inter_fp_indice_preposicao_frase, t_inter_fp_dissoc_ente_nucleo,
+                                        t_inter_fp_tem_qualificador, t_inter_fp_tipo_qualificador,
                                         t_inter_fp_indice_preposicao_qualif,
-                                        t_inter_fp_determinacao_especificidade_beta,
-                                        t_inter_fp_orientacao_beta, t_inter_fp_genero_beta,
-                                        t_inter_fp_numero_beta,
+                                        t_inter_fp_determinacao_especificidade_beta, t_inter_fp_orientacao_beta,
+                                        t_inter_fp_genero_beta, t_inter_fp_numero_beta,
                                         t_inter_fp_morfologia_do_pronome_beta,
-                                        t_inter_fp_determinacao_especificidade_alpha,
-                                        t_inter_fp_orientacao_alpha,
+                                        t_inter_fp_determinacao_especificidade_alpha, t_inter_fp_orientacao_alpha,
                                         t_inter_fp_genero_alpha, t_inter_fp_numero_alpha,
                                         t_inter_fp_morfologia_do_pronome_alpha,
-                                        t_inter_fp_pessoa_da_interlocucao_possuidor,
-                                        t_inter_fp_numero_obj_possuido, t_inter_fp_genero_obj_possuido,
-                                        t_inter_fp_pessoa_da_interlocucao_proximidade,
-                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal,
-                                        t_inter_fp_genero_numerativo,
+                                        t_inter_fp_pessoa_da_interlocucao_possuidor, t_inter_fp_numero_obj_possuido,
+                                        t_inter_fp_genero_obj_possuido, t_inter_fp_pessoa_da_interlocucao_proximidade,
+                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal, t_inter_fp_genero_numerativo,
                                         t_inter_fp_tipo_de_ente, t_inter_fp_tipo_de_nao_consciente,
                                         t_inter_fp_tipo_de_nao_consciente_material,
-                                        t_inter_fp_tipo_de_nao_consciente_semiotico,
-                                        t_inter_fp_classe_palavra_ente,
-                                        t_inter_fp_substantivo_lematizado,
-                                        t_inter_fp_numero_subs, t_inter_fp_genero_subs,
-                                        t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
-                                        t_inter_fp_acent_tonica,
-                                        t_inter_fp_nome_prop_fp, t_inter_fp_pessoa_da_interlocucao,
-                                        t_inter_fp_transitividade_verbo, t_inter_fp_tonicidade,
-                                        t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
-                                        t_inter_fp_adjetivo_epiteto,
-                                        t_inter_fp_adjetivo_classificador, t_inter_fp_genero_adjetivo,
-                                        t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
-                                        t_inter_indice_elem_qu,
-                                        t_inter_indice_part_modal, t_inter_nome_proprio)
+                                        t_inter_fp_tipo_de_nao_consciente_semiotico, t_inter_fp_classe_palavra_ente,
+                                        t_inter_fp_substantivo_lematizado, t_inter_fp_numero_subs,
+                                        t_inter_fp_genero_subs, t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
+                                        t_inter_fp_acent_tonica, t_inter_fp_nome_proprio,
+                                        t_inter_fp_pessoa_da_interlocucao, t_inter_fp_transitividade_verbo,
+                                        t_inter_fp_tonicidade, t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
+                                        t_inter_fp_adjetivo_epiteto, t_inter_fp_adjetivo_classificador,
+                                        t_inter_fp_genero_adjetivo, t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
+                                        t_inter_indice_elem_qu, t_inter_indice_part_modal, t_inter_nome_proprio)
         tema_text = tema_textual(t_text_tem_tema_textual, t_text_indice_cont,
                                  t_text_tipo_de_conjuncao,
                                  t_text_indice_conj, t_text_tipo_de_relativo,
@@ -3652,7 +3637,7 @@ def oracao_relacional(
                                        circunst_numero_subs, circunst_genero_subs,
                                        circunst_tipo_feminino_ao, circunst_tipo_masc_ao,
                                        circunst_acent_tonica,
-                                       circunst_nome_prop_fp, circunst_pessoa_da_interlocucao,
+                                       circunst_nome_proprio, circunst_pessoa_da_interlocucao,
                                        circunst_transitividade_verbo, circunst_tonicidade,
                                        circunst_morfologia_do_pronome, circunst_reflexivo,
                                        # classificador
@@ -3854,7 +3839,7 @@ def oracao_relacional(
                                p_circ_substantivo_lematizado,
                                p_circ_numero_subs, p_circ_genero_subs, p_circ_tipo_feminino_ao,
                                p_circ_tipo_masc_ao, p_circ_acent_tonica,
-                               p_circ_nome_prop_fp, p_circ_pessoa_da_interlocucao, p_circ_transitividade_verbo,
+                               p_circ_nome_proprio, p_circ_pessoa_da_interlocucao, p_circ_transitividade_verbo,
                                p_circ_tonicidade,
                                p_circ_morfologia_do_pronome, p_circ_reflexivo,
                                # classificador
@@ -4273,7 +4258,7 @@ def oracao_existencial(
         t_inter_fp_substantivo_lematizado=None,
         t_inter_fp_numero_subs=None, t_inter_fp_genero_subs=None, t_inter_fp_tipo_feminino_ao=None,
         t_inter_fp_tipo_masc_ao=None, t_inter_fp_acent_tonica=None,
-        t_inter_fp_nome_prop_fp=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
+        t_inter_fp_nome_proprio=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
         t_inter_fp_tonicidade=None,
         t_inter_fp_morfologia_do_pronome=None, t_inter_fp_reflexivo=None, t_inter_fp_adjetivo_epiteto=None,
         t_inter_fp_adjetivo_classificador=None, t_inter_fp_genero_adjetivo=None, t_inter_fp_numero_adjetivo=None,
@@ -4354,7 +4339,7 @@ def oracao_existencial(
         circunst_substantivo_lematizado=None,
         circunst_numero_subs=None, circunst_genero_subs=None, circunst_tipo_feminino_ao=None,
         circunst_tipo_masc_ao=None, circunst_acent_tonica=None,
-        circunst_nome_prop_fp=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
+        circunst_nome_proprio=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
         circunst_tonicidade=None,
         circunst_morfologia_do_pronome=None, circunst_reflexivo=None,
         # classificador
@@ -4380,39 +4365,29 @@ def oracao_existencial(
                                         t_inter_ind_adv_1, t_inter_tipo_de_adverbio2, t_inter_ind_adv_2,
                                         t_inter_tipo_de_adverbio3, t_inter_ind_adv_3, t_inter_tipo_de_adverbio4,
                                         t_inter_ind_adv_4, t_inter_tipo_de_adverbio5, t_inter_ind_adv_5,
-                                        t_inter_fp_indice_preposicao_frase,
-                                        t_inter_fp_dissoc_ente_nucleo, t_inter_fp_tem_qualificador,
-                                        t_inter_fp_tipo_qualificador,
+                                        t_inter_fp_indice_preposicao_frase, t_inter_fp_dissoc_ente_nucleo,
+                                        t_inter_fp_tem_qualificador, t_inter_fp_tipo_qualificador,
                                         t_inter_fp_indice_preposicao_qualif,
-                                        t_inter_fp_determinacao_especificidade_beta,
-                                        t_inter_fp_orientacao_beta, t_inter_fp_genero_beta,
-                                        t_inter_fp_numero_beta,
+                                        t_inter_fp_determinacao_especificidade_beta, t_inter_fp_orientacao_beta,
+                                        t_inter_fp_genero_beta, t_inter_fp_numero_beta,
                                         t_inter_fp_morfologia_do_pronome_beta,
-                                        t_inter_fp_determinacao_especificidade_alpha,
-                                        t_inter_fp_orientacao_alpha,
+                                        t_inter_fp_determinacao_especificidade_alpha, t_inter_fp_orientacao_alpha,
                                         t_inter_fp_genero_alpha, t_inter_fp_numero_alpha,
                                         t_inter_fp_morfologia_do_pronome_alpha,
-                                        t_inter_fp_pessoa_da_interlocucao_possuidor,
-                                        t_inter_fp_numero_obj_possuido, t_inter_fp_genero_obj_possuido,
-                                        t_inter_fp_pessoa_da_interlocucao_proximidade,
-                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal,
-                                        t_inter_fp_genero_numerativo,
+                                        t_inter_fp_pessoa_da_interlocucao_possuidor, t_inter_fp_numero_obj_possuido,
+                                        t_inter_fp_genero_obj_possuido, t_inter_fp_pessoa_da_interlocucao_proximidade,
+                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal, t_inter_fp_genero_numerativo,
                                         t_inter_fp_tipo_de_ente, t_inter_fp_tipo_de_nao_consciente,
                                         t_inter_fp_tipo_de_nao_consciente_material,
-                                        t_inter_fp_tipo_de_nao_consciente_semiotico,
-                                        t_inter_fp_classe_palavra_ente,
-                                        t_inter_fp_substantivo_lematizado,
-                                        t_inter_fp_numero_subs, t_inter_fp_genero_subs,
-                                        t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
-                                        t_inter_fp_acent_tonica,
-                                        t_inter_fp_nome_prop_fp, t_inter_fp_pessoa_da_interlocucao,
-                                        t_inter_fp_transitividade_verbo, t_inter_fp_tonicidade,
-                                        t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
-                                        t_inter_fp_adjetivo_epiteto,
-                                        t_inter_fp_adjetivo_classificador, t_inter_fp_genero_adjetivo,
-                                        t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
-                                        t_inter_indice_elem_qu,
-                                        t_inter_indice_part_modal, t_inter_nome_proprio)
+                                        t_inter_fp_tipo_de_nao_consciente_semiotico, t_inter_fp_classe_palavra_ente,
+                                        t_inter_fp_substantivo_lematizado, t_inter_fp_numero_subs,
+                                        t_inter_fp_genero_subs, t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
+                                        t_inter_fp_acent_tonica, t_inter_fp_nome_proprio,
+                                        t_inter_fp_pessoa_da_interlocucao, t_inter_fp_transitividade_verbo,
+                                        t_inter_fp_tonicidade, t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
+                                        t_inter_fp_adjetivo_epiteto, t_inter_fp_adjetivo_classificador,
+                                        t_inter_fp_genero_adjetivo, t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
+                                        t_inter_indice_elem_qu, t_inter_indice_part_modal, t_inter_nome_proprio)
         tema_text = tema_textual(t_text_tem_tema_textual, t_text_indice_cont,
                                  t_text_tipo_de_conjuncao,
                                  t_text_indice_conj, t_text_tipo_de_relativo,
@@ -4457,7 +4432,7 @@ def oracao_existencial(
                                        circunst_numero_subs, circunst_genero_subs,
                                        circunst_tipo_feminino_ao, circunst_tipo_masc_ao,
                                        circunst_acent_tonica,
-                                       circunst_nome_prop_fp, circunst_pessoa_da_interlocucao,
+                                       circunst_nome_proprio, circunst_pessoa_da_interlocucao,
                                        circunst_transitividade_verbo, circunst_tonicidade,
                                        circunst_morfologia_do_pronome, circunst_reflexivo,
                                        # classificador
@@ -4562,7 +4537,7 @@ def oracao_verbal(
         t_inter_fp_substantivo_lematizado=None,
         t_inter_fp_numero_subs=None, t_inter_fp_genero_subs=None, t_inter_fp_tipo_feminino_ao=None,
         t_inter_fp_tipo_masc_ao=None, t_inter_fp_acent_tonica=None,
-        t_inter_fp_nome_prop_fp=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
+        t_inter_fp_nome_proprio=None, t_inter_fp_pessoa_da_interlocucao=None, t_inter_fp_transitividade_verbo=None,
         t_inter_fp_tonicidade=None,
         t_inter_fp_morfologia_do_pronome=None, t_inter_fp_reflexivo=None, t_inter_fp_adjetivo_epiteto=None,
         t_inter_fp_adjetivo_classificador=None, t_inter_fp_genero_adjetivo=None, t_inter_fp_numero_adjetivo=None,
@@ -4771,7 +4746,7 @@ def oracao_verbal(
         circunst_substantivo_lematizado=None,
         circunst_numero_subs=None, circunst_genero_subs=None, circunst_tipo_feminino_ao=None,
         circunst_tipo_masc_ao=None, circunst_acent_tonica=None,
-        circunst_nome_prop_fp=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
+        circunst_nome_proprio=None, circunst_pessoa_da_interlocucao=None, circunst_transitividade_verbo=None,
         circunst_tonicidade=None,
         circunst_morfologia_do_pronome=None, circunst_reflexivo=None,
         # classificador
@@ -4798,39 +4773,29 @@ def oracao_verbal(
                                         t_inter_ind_adv_1, t_inter_tipo_de_adverbio2, t_inter_ind_adv_2,
                                         t_inter_tipo_de_adverbio3, t_inter_ind_adv_3, t_inter_tipo_de_adverbio4,
                                         t_inter_ind_adv_4, t_inter_tipo_de_adverbio5, t_inter_ind_adv_5,
-                                        t_inter_fp_indice_preposicao_frase,
-                                        t_inter_fp_dissoc_ente_nucleo, t_inter_fp_tem_qualificador,
-                                        t_inter_fp_tipo_qualificador,
+                                        t_inter_fp_indice_preposicao_frase, t_inter_fp_dissoc_ente_nucleo,
+                                        t_inter_fp_tem_qualificador, t_inter_fp_tipo_qualificador,
                                         t_inter_fp_indice_preposicao_qualif,
-                                        t_inter_fp_determinacao_especificidade_beta,
-                                        t_inter_fp_orientacao_beta, t_inter_fp_genero_beta,
-                                        t_inter_fp_numero_beta,
+                                        t_inter_fp_determinacao_especificidade_beta, t_inter_fp_orientacao_beta,
+                                        t_inter_fp_genero_beta, t_inter_fp_numero_beta,
                                         t_inter_fp_morfologia_do_pronome_beta,
-                                        t_inter_fp_determinacao_especificidade_alpha,
-                                        t_inter_fp_orientacao_alpha,
+                                        t_inter_fp_determinacao_especificidade_alpha, t_inter_fp_orientacao_alpha,
                                         t_inter_fp_genero_alpha, t_inter_fp_numero_alpha,
                                         t_inter_fp_morfologia_do_pronome_alpha,
-                                        t_inter_fp_pessoa_da_interlocucao_possuidor,
-                                        t_inter_fp_numero_obj_possuido, t_inter_fp_genero_obj_possuido,
-                                        t_inter_fp_pessoa_da_interlocucao_proximidade,
-                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal,
-                                        t_inter_fp_genero_numerativo,
+                                        t_inter_fp_pessoa_da_interlocucao_possuidor, t_inter_fp_numero_obj_possuido,
+                                        t_inter_fp_genero_obj_possuido, t_inter_fp_pessoa_da_interlocucao_proximidade,
+                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal, t_inter_fp_genero_numerativo,
                                         t_inter_fp_tipo_de_ente, t_inter_fp_tipo_de_nao_consciente,
                                         t_inter_fp_tipo_de_nao_consciente_material,
-                                        t_inter_fp_tipo_de_nao_consciente_semiotico,
-                                        t_inter_fp_classe_palavra_ente,
-                                        t_inter_fp_substantivo_lematizado,
-                                        t_inter_fp_numero_subs, t_inter_fp_genero_subs,
-                                        t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
-                                        t_inter_fp_acent_tonica,
-                                        t_inter_fp_nome_prop_fp, t_inter_fp_pessoa_da_interlocucao,
-                                        t_inter_fp_transitividade_verbo, t_inter_fp_tonicidade,
-                                        t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
-                                        t_inter_fp_adjetivo_epiteto,
-                                        t_inter_fp_adjetivo_classificador, t_inter_fp_genero_adjetivo,
-                                        t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
-                                        t_inter_indice_elem_qu,
-                                        t_inter_indice_part_modal, t_inter_nome_proprio)
+                                        t_inter_fp_tipo_de_nao_consciente_semiotico, t_inter_fp_classe_palavra_ente,
+                                        t_inter_fp_substantivo_lematizado, t_inter_fp_numero_subs,
+                                        t_inter_fp_genero_subs, t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
+                                        t_inter_fp_acent_tonica, t_inter_fp_nome_proprio,
+                                        t_inter_fp_pessoa_da_interlocucao, t_inter_fp_transitividade_verbo,
+                                        t_inter_fp_tonicidade, t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
+                                        t_inter_fp_adjetivo_epiteto, t_inter_fp_adjetivo_classificador,
+                                        t_inter_fp_genero_adjetivo, t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
+                                        t_inter_indice_elem_qu, t_inter_indice_part_modal, t_inter_nome_proprio)
         tema_text = tema_textual(t_text_tem_tema_textual, t_text_indice_cont,
                                  t_text_tipo_de_conjuncao,
                                  t_text_indice_conj, t_text_tipo_de_relativo,
@@ -4875,7 +4840,7 @@ def oracao_verbal(
                                        circunst_numero_subs, circunst_genero_subs,
                                        circunst_tipo_feminino_ao, circunst_tipo_masc_ao,
                                        circunst_acent_tonica,
-                                       circunst_nome_prop_fp, circunst_pessoa_da_interlocucao,
+                                       circunst_nome_proprio, circunst_pessoa_da_interlocucao,
                                        circunst_transitividade_verbo, circunst_tonicidade,
                                        circunst_morfologia_do_pronome, circunst_reflexivo,
                                        # classificador

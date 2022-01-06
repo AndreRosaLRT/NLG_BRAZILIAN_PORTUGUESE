@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimentos/experimento_corpora_dev-test_verbos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimentos/experimento_corpora_dev-test_verbos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test/acertos_conjugação_TESTE.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test/acertos_conjugação_dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test/erros_conjugação_TESTE.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimentos/saida_experimento_dev_test/erros_conjugação_dev.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_nominais.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_nominais.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arquivos_dev_antigos/teste_grupo_verbal.py" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_dev_antigos/teste_grupo_verbal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,6 +225,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py</url>
+          <line>1437</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

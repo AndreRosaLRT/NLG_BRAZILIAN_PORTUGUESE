@@ -291,3 +291,26 @@
 # # 		print(formacao_verbo_ter('ter', 'particípio', '-ER', numero, genero, None))
 #
 #
+estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None, tipo_qualificador=None,
+        indice_preposicao_qualif=None, determinacao_especificidade_beta=None, orientacao_beta=None,
+        genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
+        determinacao_especificidade_alpha=None, orientacao_alpha=None, genero_alpha=None,numero_alpha=None,
+        morfologia_do_pronome_alpha=None, pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None,
+        genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None, tipo_numerativo=None,
+        cardinal=None, genero_numerativo=None,
+        tipo_de_ente="consciente", tipo_de_nao_consciente=None, tipo_de_nao_consciente_material=None,
+        tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='pronome_caso_reto', substantivo_lematizado=None,
+        numero_subs="singular", genero_subs=None, tipo_feminino_ao=None, tipo_masc_ao=None, acent_tonica=None,
+        nome_proprio=None,
+        pessoa_da_interlocucao="falante", transitividade_verbo=None, tonicidade=None, morfologia_do_pronome=None,
+        reflexivo=None,
+        # classificador
+        adjetivo_classificador=None,
+        # epitetos
+        adj_epit_exp_pre=None,
+        adj_epit_int_pre=None,
+        adj_epit_exp_pos=None,
+        adj_epit_int_pos=None,
+        genero_adjetivo=None, numero_adjetivo=None,
+
+        contracao=None)
