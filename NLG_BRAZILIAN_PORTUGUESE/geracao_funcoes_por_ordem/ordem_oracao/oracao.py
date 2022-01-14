@@ -1437,7 +1437,7 @@ def oracao_mental(
 
         if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' \
                 and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-            # parei aqui:testes 6 janeiro 2022
+
             if transitividade_ == 'PR_Mental_AG_médio_sem_alcance':
 
                 experienciador = estrutura_gn(p1_dissoc_ente_nucleo, p1_tem_qualificador,
@@ -1621,8 +1621,8 @@ def oracao_mental(
                                                 p2_genero_adjetivo, p2_numero_adjetivo,
                                                 p2_contracao)
 
-                        oracao = " ".join((experienciador, polar, processo_, fenomeno, circunstancia_ + '.'))
-
+                        oracao = " ".join((experienciador, polar, processo_, fenomeno, circunstancia_ + '.')).strip()
+                # Ex.: O peixe estranhou a água
                 elif fenomenalizacao == 'hiperfenômeno_criativo_pensamento':
                     if tipo_de_mental == 'superior_cognitivo':
                         # 'pensar', 'saber', 'sonhar'
@@ -1646,7 +1646,7 @@ def oracao_mental(
                         oracao = " ".join((experienciador, polar, processo_, metafenomeno, circunstancia_ + '.'))
                 elif fenomenalizacao == 'hiperfenômeno_reativo_metafenômeno_GN+oração_qualificadora':
                     if tipo_de_mental == 'inferior_emotivo':
-                        # print('Selecione o GN com oração qualificadora:')
+                        # print('Selecione o GN com oração qualificadora: em desenvolvimento')
                         metafenomeno = estrutura_gn(p2_dissoc_ente_nucleo, p2_tem_qualificador,
                                                     p2_tipo_qualificador, p2_indice_preposicao_qualif,
                                                     p2_determinacao_especificidade_beta, p2_orientacao_beta,
@@ -2412,7 +2412,7 @@ def oracao_mental(
         return ""
 
 
-
+#parei aqui revisão 14-jan-2022
 def oracao_material(
         # TRANSITIVIDADE
         tipo_de_processo=None, indice_material=None, indice_agenciamento=None, indice_relacional=None,

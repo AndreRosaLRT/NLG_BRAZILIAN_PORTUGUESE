@@ -700,8 +700,8 @@ def estrutura_gn(dissoc_ente_nucleo=None, tem_qualificador=None,
     Ex.:
 
     >>> estrutura_gn(dissoc_ente_nucleo=None,tem_qualificador=None,tipo_qualificador=None,
-    indice_preposicao_qualif=None,determinacao_especificidade_beta='específico',
-    orientacao_beta='NA',genero_beta='masculino',numero_beta=None,morfologia_do_pronome_beta=None,
+    indice_preposicao_qualif=None,determinacao_especificidade_beta=None,
+    orientacao_beta=None,genero_beta=None,numero_beta=None,morfologia_do_pronome_beta=None,
     determinacao_especificidade_alpha='específico',orientacao_alpha='NA',genero_alpha='masculino',
     numero_alpha='singular',morfologia_do_pronome_alpha=None,pessoa_da_interlocucao_possuidor='1s',
     numero_obj_possuido='singular',genero_obj_possuido='masculino',
