@@ -920,7 +920,7 @@ def tema_ideacional(orientacao_modal=None, orientacao_transitiva=None,
     tema_proeminente=None) -> 'TID_default_indicativo_declarativo_TIdentif_NA'
 
     >>> tema_ideacional('não_orientado','não_direcional','proeminente', None,None, 'NA',
-    ...None,None, 'intensivo_relativo_papel_transitivo_nuclear_participante')
+    None,None, 'intensivo_relativo_papel_transitivo_nuclear_participante')
     -> 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante'
 
     :param orientacao_modal:['orientado', 'não_orientado']
@@ -2412,7 +2412,6 @@ def oracao_mental(
         return ""
 
 
-#parei aqui revisão 14-jan-2022
 def oracao_material(
         # TRANSITIVIDADE
         tipo_de_processo=None, indice_material=None, indice_agenciamento=None, indice_relacional=None,
@@ -2461,6 +2460,7 @@ def oracao_material(
         t_text_indice_conj=None, t_text_tipo_de_relativo=None,
         t_text_tipo_pronome_relativo=None, t_text_genero=None, t_text_numero=None,
         t_text_indice_relativo=None, t_text_indice_relativo_adv=None,
+
         # TEMA IDEACIONAL
         orientacao_modal=None, orientacao_transitiva=None,
         selecao_tematica=None, tema_default=None,
@@ -2929,8 +2929,7 @@ def oracao_material(
         if transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_efetivo_operativo':
             # NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDENS DE AGENTES
             ator = p1_gn
-
-            iniciador = '+iniciador'
+            # iniciador = '+iniciador'
             iniciador_ = p3_gn
 
             try:
@@ -2949,15 +2948,18 @@ def oracao_material(
                 locativo_ = ''
             if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and \
                     tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((iniciador_, polar, processo_, ator, locativo_, cliente + '.'))
+                oracao = " ".join((iniciador_, polar, processo_, ator, locativo_, cliente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
             elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and \
                     tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((iniciador_, polar, processo_, ator, locativo_, cliente + '?'))
+                oracao = " ".join((iniciador_, polar, processo_, ator, locativo_, cliente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
         elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance':
             ator = p1_gn
-            iniciador = '-iniciador'
-            iniciador_ = ''
+            # iniciador = '-iniciador'
+            # iniciador_ = ''
             oracao = ator + ' ' + polar + ' ' + processo_
             try:
                 if beneficiario == '+cliente':
@@ -2974,9 +2976,12 @@ def oracao_material(
             except:
                 locativo_ = ''
             if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((oracao, locativo_, cliente + '.'))
+                oracao = " ".join((oracao, locativo_, cliente))
+                oracao = (re.sub(' +', ' ', ' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
             elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((oracao, locativo_, cliente + '?'))
+                oracao = " ".join((oracao, locativo_, cliente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
         elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance':
             ator = p1_gn
@@ -3000,70 +3005,76 @@ def oracao_material(
 
             if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and \
                     tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, escopo_, locativo_ + '.'))
+                oracao = " ".join((ator, polar, processo_, escopo_, locativo_))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
             elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and \
                     tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, escopo_, locativo_ + '?'))
+                oracao = " ".join((ator, polar, processo_, escopo_, locativo_))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
         elif transitividade_ == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance':
 
             ator = p1_gn
             if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_ + '.'))
+                oracao = " ".join((ator, polar, processo_))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
             elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_ + '?'))
+                oracao = " ".join((ator, polar, processo_))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
         elif transitividade_ == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo':
             # NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDENS DE AGENTES
             ator = p1_gn
             meta = p2_gn
 
-            try:
-                if resultado_qualitativo == 'resultado_atributo' or resultado_qualitativo == 'resultado_papel(produto)':
-                    if realizacao_atributo == 'atributo_adjetivo':
-                        atributo = adjetivo(atributo_adjetivo_lematizado, atributo_genero, atributo_numero)
-                    elif realizacao_atributo == 'atributo_frase_preposicional':
-                        atributo = frase_preposicional(atrib_indice_preposicao_frase,
-                                                       atrib_dissoc_ente_nucleo, atrib_tem_qualificador,
-                                                       atrib_tipo_qualificador,
-                                                       atrib_indice_preposicao_qualif,
-                                                       atrib_determinacao_especificidade_beta,
-                                                       atrib_orientacao_beta, atrib_genero_beta,
-                                                       atrib_numero_beta, atrib_morfologia_do_pronome_beta,
-                                                       atrib_determinacao_especificidade_alpha,
-                                                       atrib_orientacao_alpha, atrib_genero_alpha,
-                                                       atrib_numero_alpha, atrib_morfologia_do_pronome_alpha,
-                                                       atrib_pessoa_da_interlocucao_possuidor,
-                                                       atrib_numero_obj_possuido,
-                                                       atrib_genero_obj_possuido,
-                                                       atrib_pessoa_da_interlocucao_proximidade,
-                                                       atrib_tipo_numerativo, atrib_cardinal,
-                                                       atrib_genero_numerativo, atrib_tipo_de_ente,
-                                                       atrib_tipo_de_nao_consciente,
-                                                       atrib_tipo_de_nao_consciente_material,
-                                                       atrib_tipo_de_nao_consciente_semiotico,
-                                                       atrib_classe_palavra_ente,
-                                                       atrib_substantivo_lematizado, atrib_numero_subs,
-                                                       atrib_genero_subs,
-                                                       atrib_tipo_feminino_ao,
-                                                       atrib_tipo_masc_ao, atrib_acent_tonica,
-                                                       atrib_nome_proprio,
-                                                       atrib_pessoa_da_interlocucao,
-                                                       atrib_transitividade_verbo, atrib_tonicidade,
-                                                       atrib_morfologia_do_pronome, atrib_reflexivo,
-                                                       # classificador
-                                                       atrib_adjetivo_classificador,
-                                                       # epitetos
-                                                       atrib_adj_epit_exp_pre,
-                                                       atrib_adj_epit_int_pre,
-                                                       atrib_adj_epit_exp_pos,
-                                                       atrib_adj_epit_int_pos,
-                                                       atrib_genero_adjetivo, atrib_numero_adjetivo,
-                                                       atrib_contracao)
-                elif resultado_qualitativo == '-resultado':
-                    atributo = ''
-            except:
+
+            if resultado_qualitativo == 'resultado_atributo' or resultado_qualitativo == 'resultado_papel(produto)':
+                if realizacao_atributo == 'atributo_adjetivo':
+                    atributo = adjetivo(atributo_adjetivo_lematizado, atributo_genero, atributo_numero)
+                elif realizacao_atributo == 'atributo_frase_preposicional':
+                    atributo = frase_preposicional(atrib_indice_preposicao_frase,
+                                                   atrib_dissoc_ente_nucleo, atrib_tem_qualificador,
+                                                   atrib_tipo_qualificador,
+                                                   atrib_indice_preposicao_qualif,
+                                                   atrib_determinacao_especificidade_beta,
+                                                   atrib_orientacao_beta, atrib_genero_beta,
+                                                   atrib_numero_beta, atrib_morfologia_do_pronome_beta,
+                                                   atrib_determinacao_especificidade_alpha,
+                                                   atrib_orientacao_alpha, atrib_genero_alpha,
+                                                   atrib_numero_alpha, atrib_morfologia_do_pronome_alpha,
+                                                   atrib_pessoa_da_interlocucao_possuidor,
+                                                   atrib_numero_obj_possuido,
+                                                   atrib_genero_obj_possuido,
+                                                   atrib_pessoa_da_interlocucao_proximidade,
+                                                   atrib_tipo_numerativo, atrib_cardinal,
+                                                   atrib_genero_numerativo, atrib_tipo_de_ente,
+                                                   atrib_tipo_de_nao_consciente,
+                                                   atrib_tipo_de_nao_consciente_material,
+                                                   atrib_tipo_de_nao_consciente_semiotico,
+                                                   atrib_classe_palavra_ente,
+                                                   atrib_substantivo_lematizado, atrib_numero_subs,
+                                                   atrib_genero_subs,
+                                                   atrib_tipo_feminino_ao,
+                                                   atrib_tipo_masc_ao, atrib_acent_tonica,
+                                                   atrib_nome_proprio,
+                                                   atrib_pessoa_da_interlocucao,
+                                                   atrib_transitividade_verbo, atrib_tonicidade,
+                                                   atrib_morfologia_do_pronome, atrib_reflexivo,
+                                                   # classificador
+                                                   atrib_adjetivo_classificador,
+                                                   # epitetos
+                                                   atrib_adj_epit_exp_pre,
+                                                   atrib_adj_epit_int_pre,
+                                                   atrib_adj_epit_exp_pos,
+                                                   atrib_adj_epit_int_pos,
+                                                   atrib_genero_adjetivo, atrib_numero_adjetivo,
+                                                   atrib_contracao)
+            elif resultado_qualitativo == '-resultado':
                 atributo = ''
+            # except:
+            #     atributo = ''
 
             try:
                 if beneficiario == '+recipiente':
@@ -3081,10 +3092,13 @@ def oracao_material(
                 locativo_ = ''
             if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and \
                     tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, meta, atributo, locativo_, recipiente + '.'))
+                oracao = " ".join((ator, polar, processo_, meta, atributo, locativo_, recipiente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
             elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and \
                     tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, meta, atributo, locativo_, recipiente + '?'))
+                oracao = " ".join((ator, polar, processo_, meta, atributo, locativo_, recipiente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
         elif transitividade_ == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo':
 
@@ -3099,24 +3113,36 @@ def oracao_material(
             except:
                 cliente = ''
             if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, meta, cliente + '.'))
+                oracao = " ".join((ator, polar, processo_, meta, cliente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
             elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, meta, cliente + '?'))
+                oracao = " ".join((ator, polar, processo_, meta, cliente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+
 
         ##MATERIAL METEOROLÓGICA
         elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_processo_com_alcance':
             escopo_ = p3_gn
 
             if modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((processo_, escopo_ + '.'))
+                oracao = " ".join((processo_, escopo_))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
             elif modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((processo_, escopo_ + '?'))
+                oracao = " ".join((processo_, escopo_))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+
 
         elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_processo_sem_alcance':
             if modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = processo_ + '.'
+                oracao = processo_
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
             elif modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = processo_ + '?'
+                oracao = processo_
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+
 
         # 		##########COMEÇO DE AGENCIAMENTO PASSIVA
         #
@@ -3191,9 +3217,13 @@ def oracao_material(
                 locativo_ = ''
 
             if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((meta, polar, processo_, atributo, ator, locativo_, recipiente + '.'))
+                oracao = " ".join((meta, polar, processo_, atributo, ator, locativo_, recipiente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
             elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((meta, polar, processo_, atributo, ator, locativo_, recipiente + '?'))
+                oracao = " ".join((meta, polar, processo_, atributo, ator, locativo_, recipiente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+
 
         ######################################################################
         elif transitividade_ == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo':
@@ -3210,9 +3240,13 @@ def oracao_material(
                 cliente = ''
 
             if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((meta, polar, processo_, ator, cliente + '.'))
+                oracao = " ".join((meta, polar, processo_, ator, cliente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
             elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((meta, polar, processo_, ator, cliente + '?'))
+                oracao = " ".join((meta, polar, processo_, ator, cliente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+
 
         elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_efetivo_receptivo':
             # NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDEM DE AGENTES
@@ -3236,11 +3270,15 @@ def oracao_material(
             except:
                 locativo_ = ''
             if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, locativo_, iniciador_, cliente + '.'))
-            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, locativo_, iniciador_, cliente + '?'))
+                oracao = " ".join((ator, polar, processo_, locativo_, iniciador_, cliente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
 
-        return re.sub(' +', ' ', ' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()
+            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+                oracao = " ".join((ator, polar, processo_, locativo_, iniciador_, cliente))
+                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+
+
+        return oracao
     except:
         return ""
 

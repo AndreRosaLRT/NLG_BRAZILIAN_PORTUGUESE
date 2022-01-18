@@ -306,12 +306,12 @@ def deixis_geral(determinacao_especificidade_beta=None, orientacao_beta=None,
     Ex.:
 
     >>> deixis_geral(determinacao_especificidade_beta='específico', orientacao_beta='NA',
-    ... genero_beta='masculino', numero_beta='singular', morfologia_do_pronome_beta='padrão',
-    ...determinacao_especificidade_alpha='específico',
-    ... orientacao_alpha='orientação_específica_pessoa', genero_alpha='masculino', numero_alpha='singular',
-    ...morfologia_do_pronome_alpha='padrão',
-    ...pessoa_da_interlocucao_possuidor='1s', numero_obj_possuido='singular',
-    ... genero_obj_possuido='masculino', pessoa_da_interlocucao_proximidade=None)
+     genero_beta='masculino', numero_beta='singular', morfologia_do_pronome_beta='padrão',
+    determinacao_especificidade_alpha='específico',
+     orientacao_alpha='orientação_específica_pessoa', genero_alpha='masculino', numero_alpha='singular',
+    morfologia_do_pronome_alpha='padrão',
+    pessoa_da_interlocucao_possuidor='1s', numero_obj_possuido='singular',
+     genero_obj_possuido='masculino', pessoa_da_interlocucao_proximidade=None)
 
     'o meu'
 
