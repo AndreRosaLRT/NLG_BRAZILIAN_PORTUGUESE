@@ -45,6 +45,7 @@ def grupo_conjuntivo(tipo_de_conjuncao=None, indice=None):
     :return: grupo conjuntivo
     """
     conjuncao = ''
+    indice = int(indice)
     try:
 
         if tipo_de_conjuncao == 'paratática_aditiva':

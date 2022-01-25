@@ -16,6 +16,7 @@ DECIMAIS = (('décimo', 'décimos'), ('centésimo', 'centésimos'), ('milésimo'
             ('quatrilionésimo', 'quatrilionésimos'),
             ('quintilionésimo', 'quintilionésimos'), ('sextilionésimo', 'sextilionésimos'),
             ('septilionésimo', 'septilionésimos'), ('octilionésimo', 'octilionésimos'),
+            ('septilionésimo', 'septilionésimos'), ('octilionésimo', 'octilionésimos'),
             ('nonilionésimo', 'nonilionésimos'), ('decilionésimo', 'decilionésimos')
             )
 UNIDADES = ('zero', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove')
@@ -358,7 +359,7 @@ def porcento_extenso(numero):
 
 def numerativo(tipo_numerativo=None, cardinal=None, genero_numerativo=None):
     """
-    Retorna numerativos (ainda restrito a cardinal, ordinal e porcentagem, por enquanto), dada o
+    Retorna numerativos (ainda restrito a cardinal, ordinal e porcentagem, por enquanto), dado o
     tipo de numerativo, um número cardinal, genero,
 
     Ex.:
@@ -1132,6 +1133,3 @@ def real_nome_proprio(nome: str = ''):
         return ''
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Retorna palavras nominais')
-    pass

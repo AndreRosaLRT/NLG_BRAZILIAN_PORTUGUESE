@@ -27,8 +27,9 @@ def frase_preposicional(indice_preposicao_frase=None, dissoc_ente_nucleo=None, t
 
                         contracao=None):
     """
-    Ex.:
+    Retorna uma frase preposicional dados o índice da preposição e os argumentos referentes ao grupo nominal encaixado
 
+    Ex.:
     >>> frase_preposicional(indice_preposicao_frase=0,dissoc_ente_nucleo=None,tem_qualificador=None,tipo_qualificador=None,
     indice_preposicao_qualif=None,determinacao_especificidade_beta='específico',
     orientacao_beta='NA',genero_beta='masculino',numero_beta=None,morfologia_do_pronome_beta=None,
@@ -52,9 +53,57 @@ def frase_preposicional(indice_preposicao_frase=None, dissoc_ente_nucleo=None, t
     contracao=None) -> 'ao grande piano importado bonito'
 
 
+    :param indice_preposicao_frase:
+    :param dissoc_ente_nucleo:
+    :param tem_qualificador:
+    :param tipo_qualificador:
+    :param indice_preposicao_qualif:
+    :param determinacao_especificidade_beta:
+    :param orientacao_beta:
+    :param genero_beta:
+    :param numero_beta:
+    :param morfologia_do_pronome_beta:
+    :param determinacao_especificidade_alpha:
+    :param orientacao_alpha:
+    :param genero_alpha:
+    :param numero_alpha:
+    :param morfologia_do_pronome_alpha:
+    :param pessoa_da_interlocucao_possuidor:
+    :param numero_obj_possuido:
+    :param genero_obj_possuido:
+    :param pessoa_da_interlocucao_proximidade:
+    :param tipo_numerativo:
+    :param cardinal:
+    :param genero_numerativo:
+    :param tipo_de_ente:
+    :param tipo_de_nao_consciente:
+    :param tipo_de_nao_consciente_material:
+    :param tipo_de_nao_consciente_semiotico:
+    :param classe_palavra_ente:
+    :param substantivo_lematizado:
+    :param numero_subs:
+    :param genero_subs:
+    :param tipo_feminino_ao:
+    :param tipo_masc_ao:
+    :param acent_tonica:
+    :param nome_proprio:
+    :param pessoa_da_interlocucao:
+    :param transitividade_verbo:
+    :param tonicidade:
+    :param morfologia_do_pronome:
+    :param reflexivo:
+    :param adjetivo_classificador:
+    :param adj_epit_exp_pre:
+    :param adj_epit_int_pre:
+    :param adj_epit_exp_pos:
+    :param adj_epit_int_pos:
+    :param genero_adjetivo:
+    :param numero_adjetivo:
+    :param contracao:
+    :return:
     """
     frase_prep = ''
-    prep = preposicao(indice_preposicao_frase)
+    prep = preposicao(int(indice_preposicao_frase))
     grupo_nominal = (re.sub(' +', ' ',
                             estrutura_gn_downranked(dissoc_ente_nucleo, tem_qualificador,
                                                     tipo_qualificador, indice_preposicao_qualif,
@@ -155,24 +204,10 @@ def frase_preposicional(indice_preposicao_frase=None, dissoc_ente_nucleo=None, t
 
     except ValueError:
         return ''
-#
-# for i in range(12):
-#     print(frase_preposicional(indice_preposicao_frase=i, dissoc_ente_nucleo=None, tem_qualificador=None,
-#                           tipo_qualificador=None, indice_preposicao_qualif=None,
-#                           determinacao_especificidade_beta=None,
-#                           orientacao_beta=None,
-#                           genero_beta=None, numero_beta=None, morfologia_do_pronome_beta=None,
-#                           determinacao_especificidade_alpha='específico', orientacao_alpha='NA',
-#                           genero_alpha='masculino', numero_alpha='singular', morfologia_do_pronome_alpha=None,
-#                           pessoa_da_interlocucao_possuidor=None, numero_obj_possuido=None,
-#                           genero_obj_possuido=None, pessoa_da_interlocucao_proximidade=None,
-#                           tipo_numerativo=None, cardinal=None, genero_numerativo='não-binário',
-#                           tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
-#                           tipo_de_nao_consciente_material='abstração_material',
-#                           tipo_de_nao_consciente_semiotico=None, classe_palavra_ente='substantivo_comum',
-#                           substantivo_lematizado='homem', numero_subs='singular',genero_subs='masculino',
-#                           tipo_feminino_ao=None,tipo_masc_ao=None, acent_tonica=None, nome_proprio=None,
-#                           pessoa_da_interlocucao=None,transitividade_verbo=None, tonicidade=None,
-#                           morfologia_do_pronome=None, reflexivo=None,adjetivo_epiteto='alto',
-#                           adjetivo_classificador=None, genero_adjetivo='masculino',
-#                           numero_adjetivo='singular', contracao=None))
+
+
+
+
+
+
+

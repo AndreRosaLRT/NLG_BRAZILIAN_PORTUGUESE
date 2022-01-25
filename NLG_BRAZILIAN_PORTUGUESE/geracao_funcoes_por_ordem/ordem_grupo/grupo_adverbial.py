@@ -18,7 +18,7 @@ def grupo_adverbial(*argums):
     try:
         advs = []
         for x in range(0, len(argums), 2):
-            advs.append(adverbio(argums[x], argums[x + 1]))
+            advs.append(adverbio(argums[x], int(argums[x + 1])))
         for j in range(len(advs)):
             if advs[j] is None:
                 advs[j] = ''

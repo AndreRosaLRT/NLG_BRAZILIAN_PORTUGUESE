@@ -1,8 +1,8 @@
+import sys
+sys.path.append('../')
+
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_morfema.morf_verbais import *
 import argparse
-# import sys
-# sys.path.append('../../..')
-
 
 def preposicao(indice: int = None) -> str:
     """
@@ -6478,16 +6478,16 @@ def main(tipo_de_experiencia, funcao_no_grupo_verbal, lema):
         return dicionario_conjuga
     except ValueError:
         return ''
-
-experience="Fazer"
-function_in_group='Evento'
-lemma='manter'
-person='3'
-gender=None
-number='SG'
-mood='SBJV'
-tense='PRS'
-aspect=None
+#
+# experience="Fazer"
+# function_in_group='Evento'
+# lemma='manter'
+# person='3'
+# gender=None
+# number='SG'
+# mood='SBJV'
+# tense='PRS'
+# aspect=None
 def flexionar_verbo(experience='none', function_in_group='none',
                     lemma='none', person='none', gender='none', number='none',
                     mood='none', tense='none', aspect='none'):

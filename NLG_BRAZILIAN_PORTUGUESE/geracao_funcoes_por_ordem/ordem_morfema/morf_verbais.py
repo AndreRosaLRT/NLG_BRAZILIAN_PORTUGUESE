@@ -2000,6 +2000,7 @@ if __name__ == '__main__':
         if value == 'None':
             return None
         return value
+
     # parseamentos detecção ME e MI
     parser = argparse.ArgumentParser(description='Retorna experiência (radical), '
                                                  'morfema interpessoal do verbo conjugado, '

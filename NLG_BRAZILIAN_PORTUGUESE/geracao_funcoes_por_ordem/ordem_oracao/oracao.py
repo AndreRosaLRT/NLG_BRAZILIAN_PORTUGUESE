@@ -2412,6 +2412,7 @@ def oracao_mental(
         return ""
 
 
+
 def oracao_material(
         # TRANSITIVIDADE
         tipo_de_processo=None, indice_material=None, indice_agenciamento=None, indice_relacional=None,
@@ -2688,348 +2689,469 @@ def oracao_material(
         circunst_tipo_de_adverbio5=None, circunst_adv_ind5=None):
     iniciador_, polar, processo_, ator, locativo_, cliente, escopo_, atributo, recipiente = '', '', '', '', '', '', '', '', ''
     tema_text, tema_interp, oracao, circunstancia_ = '', '', '', ''
-    try:
-        transitividade_ = transitividade(tipo_de_processo, indice_material, indice_agenciamento, indice_relacional)
-        modo_ = modo(responsabilidade, pressuposicao_do_sujeito, tipo_modo)
-        tema_interp = tema_interpessoal(tipo_tema_interpessoal, t_inter_tipo_realizacao, t_inter_tipo_de_adverbio1,
-                                        t_inter_ind_adv_1, t_inter_tipo_de_adverbio2, t_inter_ind_adv_2,
-                                        t_inter_tipo_de_adverbio3, t_inter_ind_adv_3, t_inter_tipo_de_adverbio4,
-                                        t_inter_ind_adv_4, t_inter_tipo_de_adverbio5, t_inter_ind_adv_5,
-                                        t_inter_fp_indice_preposicao_frase, t_inter_fp_dissoc_ente_nucleo,
-                                        t_inter_fp_tem_qualificador, t_inter_fp_tipo_qualificador,
-                                        t_inter_fp_indice_preposicao_qualif,
-                                        t_inter_fp_determinacao_especificidade_beta, t_inter_fp_orientacao_beta,
-                                        t_inter_fp_genero_beta, t_inter_fp_numero_beta,
-                                        t_inter_fp_morfologia_do_pronome_beta,
-                                        t_inter_fp_determinacao_especificidade_alpha, t_inter_fp_orientacao_alpha,
-                                        t_inter_fp_genero_alpha, t_inter_fp_numero_alpha,
-                                        t_inter_fp_morfologia_do_pronome_alpha,
-                                        t_inter_fp_pessoa_da_interlocucao_possuidor, t_inter_fp_numero_obj_possuido,
-                                        t_inter_fp_genero_obj_possuido, t_inter_fp_pessoa_da_interlocucao_proximidade,
-                                        t_inter_fp_tipo_numerativo, t_inter_fp_cardinal, t_inter_fp_genero_numerativo,
-                                        t_inter_fp_tipo_de_ente, t_inter_fp_tipo_de_nao_consciente,
-                                        t_inter_fp_tipo_de_nao_consciente_material,
-                                        t_inter_fp_tipo_de_nao_consciente_semiotico, t_inter_fp_classe_palavra_ente,
-                                        t_inter_fp_substantivo_lematizado, t_inter_fp_numero_subs,
-                                        t_inter_fp_genero_subs, t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
-                                        t_inter_fp_acent_tonica, t_inter_fp_nome_proprio,
-                                        t_inter_fp_pessoa_da_interlocucao, t_inter_fp_transitividade_verbo,
-                                        t_inter_fp_tonicidade, t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
-                                        t_inter_fp_adjetivo_epiteto, t_inter_fp_adjetivo_classificador,
-                                        t_inter_fp_genero_adjetivo, t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
-                                        t_inter_indice_elem_qu, t_inter_indice_part_modal, t_inter_nome_proprio)
-        tema_text = tema_textual(t_text_tem_tema_textual, t_text_indice_cont,
-                                 t_text_tipo_de_conjuncao,
-                                 t_text_indice_conj, t_text_tipo_de_relativo,
-                                 t_text_tipo_pronome_relativo, t_text_genero, t_text_numero,
-                                 t_text_indice_relativo, t_text_indice_relativo_adv)
-        tema_id = tema_ideacional(orientacao_modal, orientacao_transitiva,
-                                  selecao_tematica, tema_default,
-                                  tema_default_indicativo, tema_identificativo,
-                                  tema_angulo, tema_elemental,
-                                  tema_proeminente)
-        polar = polaridade(tipo_polaridade)
-        processo_ = grupo_verbal(tipo_de_experiencia_gv, agencia, tipo_de_experiencia_1, funcao_no_grupo_verbal_1,
-                                 verbo_1, tipo_de_orientacao_1, oi_numero_1, genero_1, oi_tipo_de_pessoa_1,
-                                 padrao_pessoa_morfologia_1, tipo_de_experiencia_2, funcao_no_grupo_verbal_2, verbo_2,
-                                 tipo_de_orientacao_2, oi_numero_2, genero_2, oi_tipo_de_pessoa_2,
-                                 padrao_pessoa_morfologia_2, tipo_de_experiencia_3, funcao_no_grupo_verbal_3, verbo_3,
-                                 tipo_de_orientacao_3, oi_numero_3, genero_3, oi_tipo_de_pessoa_3,
-                                 padrao_pessoa_morfologia_3, tipo_de_experiencia_4, funcao_no_grupo_verbal_4, verbo_4,
-                                 tipo_de_orientacao_4, oi_numero_4, genero_4, oi_tipo_de_pessoa_4,
-                                 padrao_pessoa_morfologia_4, tipo_de_experiencia_lex, funcao_no_grupo_verbal_pos_final,
-                                 verbo_lex, tipo_de_orientacao_lex, oi_numero_lex, genero_lex, oi_tipo_de_pessoa_lex,
-                                 padrao_pessoa_morfologia_lex)
-        circunstancia_ = circunstancia(circunst_realizacao_circunstancia,
-                                       circunst_indice_preposicao_frase, circunst_dissoc_ente_nucleo,
-                                       circunst_tem_qualificador,
-                                       circunst_tipo_qualificador, circunst_indice_preposicao_qualif,
-                                       circunst_determinacao_especificidade_beta, circunst_orientacao_beta,
-                                       circunst_genero_beta, circunst_numero_beta,
-                                       circunst_morfologia_do_pronome_beta,
-                                       circunst_determinacao_especificidade_alpha, circunst_orientacao_alpha,
-                                       circunst_genero_alpha, circunst_numero_alpha,
-                                       circunst_morfologia_do_pronome_alpha,
-                                       circunst_pessoa_da_interlocucao_possuidor, circunst_numero_obj_possuido,
-                                       circunst_genero_obj_possuido,
-                                       circunst_pessoa_da_interlocucao_proximidade, circunst_tipo_numerativo,
-                                       circunst_cardinal,
-                                       circunst_genero_numerativo,
-                                       circunst_tipo_de_ente, circunst_tipo_de_nao_consciente,
-                                       circunst_tipo_de_nao_consciente_material,
-                                       circunst_tipo_de_nao_consciente_semiotico, circunst_classe_palavra_ente,
-                                       circunst_substantivo_lematizado,
-                                       circunst_numero_subs, circunst_genero_subs,
-                                       circunst_tipo_feminino_ao, circunst_tipo_masc_ao,
-                                       circunst_acent_tonica,
-                                       circunst_nome_proprio, circunst_pessoa_da_interlocucao,
-                                       circunst_transitividade_verbo, circunst_tonicidade,
-                                       circunst_morfologia_do_pronome, circunst_reflexivo,
-                                       # classificador
-                                       circunst_adjetivo_classificador,
-                                       # epitetos
-                                       circunst_adj_epit_exp_pre,
-                                       circunst_adj_epit_int_pre,
-                                       circunst_adj_epit_exp_pos,
-                                       circunst_adj_epit_int_pos,
-                                       circunst_genero_adjetivo, circunst_numero_adjetivo,
 
-                                       circunst_contracao,
-                                       circunst_tipo_de_adverbio1, circunst_adv_ind1,
-                                       circunst_tipo_de_adverbio2, circunst_adv_ind2,
-                                       circunst_tipo_de_adverbio3, circunst_adv_ind3,
-                                       circunst_tipo_de_adverbio4, circunst_adv_ind4,
-                                       circunst_tipo_de_adverbio5, circunst_adv_ind5)
+    transitividade_ = transitividade(tipo_de_processo, indice_material, indice_agenciamento, indice_relacional)
+    modo_ = modo(responsabilidade, pressuposicao_do_sujeito, tipo_modo)
+    tema_interp = tema_interpessoal(tipo_tema_interpessoal, t_inter_tipo_realizacao, t_inter_tipo_de_adverbio1,
+                                    t_inter_ind_adv_1, t_inter_tipo_de_adverbio2, t_inter_ind_adv_2,
+                                    t_inter_tipo_de_adverbio3, t_inter_ind_adv_3, t_inter_tipo_de_adverbio4,
+                                    t_inter_ind_adv_4, t_inter_tipo_de_adverbio5, t_inter_ind_adv_5,
+                                    t_inter_fp_indice_preposicao_frase, t_inter_fp_dissoc_ente_nucleo,
+                                    t_inter_fp_tem_qualificador, t_inter_fp_tipo_qualificador,
+                                    t_inter_fp_indice_preposicao_qualif,
+                                    t_inter_fp_determinacao_especificidade_beta, t_inter_fp_orientacao_beta,
+                                    t_inter_fp_genero_beta, t_inter_fp_numero_beta,
+                                    t_inter_fp_morfologia_do_pronome_beta,
+                                    t_inter_fp_determinacao_especificidade_alpha, t_inter_fp_orientacao_alpha,
+                                    t_inter_fp_genero_alpha, t_inter_fp_numero_alpha,
+                                    t_inter_fp_morfologia_do_pronome_alpha,
+                                    t_inter_fp_pessoa_da_interlocucao_possuidor, t_inter_fp_numero_obj_possuido,
+                                    t_inter_fp_genero_obj_possuido, t_inter_fp_pessoa_da_interlocucao_proximidade,
+                                    t_inter_fp_tipo_numerativo, t_inter_fp_cardinal, t_inter_fp_genero_numerativo,
+                                    t_inter_fp_tipo_de_ente, t_inter_fp_tipo_de_nao_consciente,
+                                    t_inter_fp_tipo_de_nao_consciente_material,
+                                    t_inter_fp_tipo_de_nao_consciente_semiotico, t_inter_fp_classe_palavra_ente,
+                                    t_inter_fp_substantivo_lematizado, t_inter_fp_numero_subs,
+                                    t_inter_fp_genero_subs, t_inter_fp_tipo_feminino_ao, t_inter_fp_tipo_masc_ao,
+                                    t_inter_fp_acent_tonica, t_inter_fp_nome_proprio,
+                                    t_inter_fp_pessoa_da_interlocucao, t_inter_fp_transitividade_verbo,
+                                    t_inter_fp_tonicidade, t_inter_fp_morfologia_do_pronome, t_inter_fp_reflexivo,
+                                    t_inter_fp_adjetivo_epiteto, t_inter_fp_adjetivo_classificador,
+                                    t_inter_fp_genero_adjetivo, t_inter_fp_numero_adjetivo, t_inter_fp_contracao,
+                                    t_inter_indice_elem_qu, t_inter_indice_part_modal, t_inter_nome_proprio)
+    tema_text = tema_textual(t_text_tem_tema_textual, t_text_indice_cont,
+                             t_text_tipo_de_conjuncao,
+                             t_text_indice_conj, t_text_tipo_de_relativo,
+                             t_text_tipo_pronome_relativo, t_text_genero, t_text_numero,
+                             t_text_indice_relativo, t_text_indice_relativo_adv)
+    tema_id = tema_ideacional(orientacao_modal, orientacao_transitiva,
+                              selecao_tematica, tema_default,
+                              tema_default_indicativo, tema_identificativo,
+                              tema_angulo, tema_elemental,
+                              tema_proeminente)
+    polar = polaridade(tipo_polaridade)
+    processo_ = grupo_verbal(tipo_de_experiencia_gv, agencia, tipo_de_experiencia_1, funcao_no_grupo_verbal_1,
+                             verbo_1, tipo_de_orientacao_1, oi_numero_1, genero_1, oi_tipo_de_pessoa_1,
+                             padrao_pessoa_morfologia_1, tipo_de_experiencia_2, funcao_no_grupo_verbal_2, verbo_2,
+                             tipo_de_orientacao_2, oi_numero_2, genero_2, oi_tipo_de_pessoa_2,
+                             padrao_pessoa_morfologia_2, tipo_de_experiencia_3, funcao_no_grupo_verbal_3, verbo_3,
+                             tipo_de_orientacao_3, oi_numero_3, genero_3, oi_tipo_de_pessoa_3,
+                             padrao_pessoa_morfologia_3, tipo_de_experiencia_4, funcao_no_grupo_verbal_4, verbo_4,
+                             tipo_de_orientacao_4, oi_numero_4, genero_4, oi_tipo_de_pessoa_4,
+                             padrao_pessoa_morfologia_4, tipo_de_experiencia_lex, funcao_no_grupo_verbal_pos_final,
+                             verbo_lex, tipo_de_orientacao_lex, oi_numero_lex, genero_lex, oi_tipo_de_pessoa_lex,
+                             padrao_pessoa_morfologia_lex)
+    circunstancia_ = circunstancia(circunst_realizacao_circunstancia,
+                                   circunst_indice_preposicao_frase, circunst_dissoc_ente_nucleo,
+                                   circunst_tem_qualificador,
+                                   circunst_tipo_qualificador, circunst_indice_preposicao_qualif,
+                                   circunst_determinacao_especificidade_beta, circunst_orientacao_beta,
+                                   circunst_genero_beta, circunst_numero_beta,
+                                   circunst_morfologia_do_pronome_beta,
+                                   circunst_determinacao_especificidade_alpha, circunst_orientacao_alpha,
+                                   circunst_genero_alpha, circunst_numero_alpha,
+                                   circunst_morfologia_do_pronome_alpha,
+                                   circunst_pessoa_da_interlocucao_possuidor, circunst_numero_obj_possuido,
+                                   circunst_genero_obj_possuido,
+                                   circunst_pessoa_da_interlocucao_proximidade, circunst_tipo_numerativo,
+                                   circunst_cardinal,
+                                   circunst_genero_numerativo,
+                                   circunst_tipo_de_ente, circunst_tipo_de_nao_consciente,
+                                   circunst_tipo_de_nao_consciente_material,
+                                   circunst_tipo_de_nao_consciente_semiotico, circunst_classe_palavra_ente,
+                                   circunst_substantivo_lematizado,
+                                   circunst_numero_subs, circunst_genero_subs,
+                                   circunst_tipo_feminino_ao, circunst_tipo_masc_ao,
+                                   circunst_acent_tonica,
+                                   circunst_nome_proprio, circunst_pessoa_da_interlocucao,
+                                   circunst_transitividade_verbo, circunst_tonicidade,
+                                   circunst_morfologia_do_pronome, circunst_reflexivo,
+                                   # classificador
+                                   circunst_adjetivo_classificador,
+                                   # epitetos
+                                   circunst_adj_epit_exp_pre,
+                                   circunst_adj_epit_int_pre,
+                                   circunst_adj_epit_exp_pos,
+                                   circunst_adj_epit_int_pos,
+                                   circunst_genero_adjetivo, circunst_numero_adjetivo,
 
-        p1_gn = estrutura_gn(p1_dissoc_ente_nucleo, p1_tem_qualificador, p1_tipo_qualificador,
-                             p1_indice_preposicao_qualif, p1_determinacao_especificidade_beta,
-                             p1_orientacao_beta,
-                             p1_genero_beta, p1_numero_beta, p1_morfologia_do_pronome_beta,
-                             p1_determinacao_especificidade_alpha, p1_orientacao_alpha,
-                             p1_genero_alpha, p1_numero_alpha,
-                             p1_morfologia_do_pronome_alpha, p1_pessoa_da_interlocucao_possuidor,
-                             p1_numero_obj_possuido,
-                             p1_genero_obj_possuido, p1_pessoa_da_interlocucao_proximidade,
-                             p1_tipo_numerativo,
-                             p1_cardinal, p1_genero_numerativo,
-                             p1_tipo_de_ente, p1_tipo_de_nao_consciente,
-                             p1_tipo_de_nao_consciente_material,
-                             p1_tipo_de_nao_consciente_semiotico, p1_classe_palavra_ente,
-                             p1_substantivo_lematizado,
-                             p1_numero_subs, p1_genero_subs, p1_tipo_feminino_ao,
-                             p1_tipo_masc_ao, p1_acent_tonica,
-                             p1_nome_proprio,
-                             p1_pessoa_da_interlocucao, p1_transitividade_verbo, p1_tonicidade,
-                             p1_morfologia_do_pronome,
-                             p1_reflexivo,
-                             # classificador
-                             p1_adjetivo_classificador,
-                             # epitetos
-                             p1_adj_epit_exp_pre,
-                             p1_adj_epit_int_pre,
-                             p1_adj_epit_exp_pos,
-                             p1_adj_epit_int_pos,
-                             p1_genero_adjetivo, p1_numero_adjetivo, p1_contracao)
-        p1_fp = frase_preposicional(p1_fp_indice_preposicao_frase, p1_fp_dissoc_ente_nucleo,
-                                    p1_fp_tem_qualificador,
-                                    p1_fp_tipo_qualificador, p1_fp_indice_preposicao_qualif,
-                                    p1_fp_determinacao_especificidade_beta, p1_fp_orientacao_beta,
-                                    p1_fp_genero_beta,
-                                    p1_fp_numero_beta, p1_fp_morfologia_do_pronome_beta,
-                                    p1_fp_determinacao_especificidade_alpha, p1_fp_orientacao_alpha,
-                                    p1_fp_genero_alpha,
-                                    p1_fp_numero_alpha, p1_fp_morfologia_do_pronome_alpha,
-                                    p1_fp_pessoa_da_interlocucao_possuidor, p1_fp_numero_obj_possuido,
-                                    p1_fp_genero_obj_possuido, p1_fp_pessoa_da_interlocucao_proximidade,
-                                    p1_fp_tipo_numerativo, p1_fp_cardinal,
-                                    p1_fp_genero_numerativo, p1_fp_tipo_de_ente,
-                                    p1_fp_tipo_de_nao_consciente, p1_fp_tipo_de_nao_consciente_material,
-                                    p1_fp_tipo_de_nao_consciente_semiotico, p1_fp_classe_palavra_ente,
-                                    p1_fp_substantivo_lematizado, p1_fp_numero_subs, p1_fp_genero_subs,
-                                    p1_fp_tipo_feminino_ao,
-                                    p1_fp_tipo_masc_ao, p1_fp_acent_tonica, p1_fp_nome_proprio,
-                                    p1_fp_pessoa_da_interlocucao, p1_fp_transitividade_verbo,
-                                    p1_fp_tonicidade,
-                                    p1_fp_morfologia_do_pronome, p1_fp_reflexivo,  # classificador
-                                    p1_fp_adjetivo_classificador,
-                                    # epitetos
-                                    p1_fp_adj_epit_exp_pre,
-                                    p1_fp_adj_epit_int_pre,
-                                    p1_fp_adj_epit_exp_pos,
-                                    p1_fp_adj_epit_int_pos,
-                                    p1_fp_genero_adjetivo, p1_fp_numero_adjetivo,
-                                    p1_fp_contracao)
-        p2_gn = estrutura_gn(p2_dissoc_ente_nucleo, p2_tem_qualificador, p2_tipo_qualificador,
-                             p2_indice_preposicao_qualif, p2_determinacao_especificidade_beta,
-                             p2_orientacao_beta,
-                             p2_genero_beta, p2_numero_beta, p2_morfologia_do_pronome_beta,
-                             p2_determinacao_especificidade_alpha, p2_orientacao_alpha, p2_genero_alpha,
-                             p2_numero_alpha,
-                             p2_morfologia_do_pronome_alpha, p2_pessoa_da_interlocucao_possuidor,
-                             p2_numero_obj_possuido,
-                             p2_genero_obj_possuido, p2_pessoa_da_interlocucao_proximidade,
-                             p2_tipo_numerativo,
-                             p2_cardinal, p2_genero_numerativo,
-                             p2_tipo_de_ente, p2_tipo_de_nao_consciente,
-                             p2_tipo_de_nao_consciente_material,
-                             p2_tipo_de_nao_consciente_semiotico, p2_classe_palavra_ente,
-                             p2_substantivo_lematizado,
-                             p2_numero_subs, p2_genero_subs, p2_tipo_feminino_ao, p2_tipo_masc_ao,
-                             p2_acent_tonica,
-                             p2_nome_proprio,
-                             p2_pessoa_da_interlocucao, p2_transitividade_verbo, p2_tonicidade,
-                             p2_morfologia_do_pronome,
-                             p2_reflexivo,
-                             # classificador
-                             p2_adjetivo_classificador,
-                             # epitetos
-                             p2_adj_epit_exp_pre,
-                             p2_adj_epit_int_pre,
-                             p2_adj_epit_exp_pos,
-                             p2_adj_epit_int_pos,
-                             p2_genero_adjetivo, p2_numero_adjetivo,
+                                   circunst_contracao,
+                                   circunst_tipo_de_adverbio1, circunst_adv_ind1,
+                                   circunst_tipo_de_adverbio2, circunst_adv_ind2,
+                                   circunst_tipo_de_adverbio3, circunst_adv_ind3,
+                                   circunst_tipo_de_adverbio4, circunst_adv_ind4,
+                                   circunst_tipo_de_adverbio5, circunst_adv_ind5)
 
-                             p2_contracao)
-        p3_gn = estrutura_gn(p3_dissoc_ente_nucleo, p3_tem_qualificador, p3_tipo_qualificador,
-                             p3_indice_preposicao_qualif, p3_determinacao_especificidade_beta, p3_orientacao_beta,
-                             p3_genero_beta, p3_numero_beta, p3_morfologia_do_pronome_beta,
-                             p3_determinacao_especificidade_alpha, p3_orientacao_alpha, p3_genero_alpha,
-                             p3_numero_alpha,
-                             p3_morfologia_do_pronome_alpha, p3_pessoa_da_interlocucao_possuidor,
-                             p3_numero_obj_possuido,
-                             p3_genero_obj_possuido, p3_pessoa_da_interlocucao_proximidade, p3_tipo_numerativo,
-                             p3_cardinal, p3_genero_numerativo,
-                             p3_tipo_de_ente, p3_tipo_de_nao_consciente, p3_tipo_de_nao_consciente_material,
-                             p3_tipo_de_nao_consciente_semiotico, p3_classe_palavra_ente, p3_substantivo_lematizado,
-                             p3_numero_subs, p3_genero_subs, p3_tipo_feminino_ao, p3_tipo_masc_ao, p3_acent_tonica,
-                             p3_nome_proprio,
-                             p3_pessoa_da_interlocucao, p3_transitividade_verbo, p3_tonicidade,
-                             p3_morfologia_do_pronome,
-                             p3_reflexivo,
-                             # classificador
-                             p3_adjetivo_classificador,
-                             # epitetos
-                             p3_adj_epit_exp_pre,
-                             p3_adj_epit_int_pre,
-                             p3_adj_epit_exp_pos,
-                             p3_adj_epit_int_pos,
-                             p3_genero_adjetivo, p3_numero_adjetivo,
+    p1_gn = estrutura_gn(p1_dissoc_ente_nucleo, p1_tem_qualificador, p1_tipo_qualificador,
+                         p1_indice_preposicao_qualif, p1_determinacao_especificidade_beta,
+                         p1_orientacao_beta,
+                         p1_genero_beta, p1_numero_beta, p1_morfologia_do_pronome_beta,
+                         p1_determinacao_especificidade_alpha, p1_orientacao_alpha,
+                         p1_genero_alpha, p1_numero_alpha,
+                         p1_morfologia_do_pronome_alpha, p1_pessoa_da_interlocucao_possuidor,
+                         p1_numero_obj_possuido,
+                         p1_genero_obj_possuido, p1_pessoa_da_interlocucao_proximidade,
+                         p1_tipo_numerativo,
+                         p1_cardinal, p1_genero_numerativo,
+                         p1_tipo_de_ente, p1_tipo_de_nao_consciente,
+                         p1_tipo_de_nao_consciente_material,
+                         p1_tipo_de_nao_consciente_semiotico, p1_classe_palavra_ente,
+                         p1_substantivo_lematizado,
+                         p1_numero_subs, p1_genero_subs, p1_tipo_feminino_ao,
+                         p1_tipo_masc_ao, p1_acent_tonica,
+                         p1_nome_proprio,
+                         p1_pessoa_da_interlocucao, p1_transitividade_verbo, p1_tonicidade,
+                         p1_morfologia_do_pronome,
+                         p1_reflexivo,
+                         # classificador
+                         p1_adjetivo_classificador,
+                         # epitetos
+                         p1_adj_epit_exp_pre,
+                         p1_adj_epit_int_pre,
+                         p1_adj_epit_exp_pos,
+                         p1_adj_epit_int_pos,
+                         p1_genero_adjetivo, p1_numero_adjetivo, p1_contracao)
+    p1_fp = frase_preposicional(p1_fp_indice_preposicao_frase, p1_fp_dissoc_ente_nucleo,
+                                p1_fp_tem_qualificador,
+                                p1_fp_tipo_qualificador, p1_fp_indice_preposicao_qualif,
+                                p1_fp_determinacao_especificidade_beta, p1_fp_orientacao_beta,
+                                p1_fp_genero_beta,
+                                p1_fp_numero_beta, p1_fp_morfologia_do_pronome_beta,
+                                p1_fp_determinacao_especificidade_alpha, p1_fp_orientacao_alpha,
+                                p1_fp_genero_alpha,
+                                p1_fp_numero_alpha, p1_fp_morfologia_do_pronome_alpha,
+                                p1_fp_pessoa_da_interlocucao_possuidor, p1_fp_numero_obj_possuido,
+                                p1_fp_genero_obj_possuido, p1_fp_pessoa_da_interlocucao_proximidade,
+                                p1_fp_tipo_numerativo, p1_fp_cardinal,
+                                p1_fp_genero_numerativo, p1_fp_tipo_de_ente,
+                                p1_fp_tipo_de_nao_consciente, p1_fp_tipo_de_nao_consciente_material,
+                                p1_fp_tipo_de_nao_consciente_semiotico, p1_fp_classe_palavra_ente,
+                                p1_fp_substantivo_lematizado, p1_fp_numero_subs, p1_fp_genero_subs,
+                                p1_fp_tipo_feminino_ao,
+                                p1_fp_tipo_masc_ao, p1_fp_acent_tonica, p1_fp_nome_proprio,
+                                p1_fp_pessoa_da_interlocucao, p1_fp_transitividade_verbo,
+                                p1_fp_tonicidade,
+                                p1_fp_morfologia_do_pronome, p1_fp_reflexivo,  # classificador
+                                p1_fp_adjetivo_classificador,
+                                # epitetos
+                                p1_fp_adj_epit_exp_pre,
+                                p1_fp_adj_epit_int_pre,
+                                p1_fp_adj_epit_exp_pos,
+                                p1_fp_adj_epit_int_pos,
+                                p1_fp_genero_adjetivo, p1_fp_numero_adjetivo,
+                                p1_fp_contracao)
+    p2_gn = estrutura_gn(p2_dissoc_ente_nucleo, p2_tem_qualificador, p2_tipo_qualificador,
+                         p2_indice_preposicao_qualif, p2_determinacao_especificidade_beta,
+                         p2_orientacao_beta,
+                         p2_genero_beta, p2_numero_beta, p2_morfologia_do_pronome_beta,
+                         p2_determinacao_especificidade_alpha, p2_orientacao_alpha, p2_genero_alpha,
+                         p2_numero_alpha,
+                         p2_morfologia_do_pronome_alpha, p2_pessoa_da_interlocucao_possuidor,
+                         p2_numero_obj_possuido,
+                         p2_genero_obj_possuido, p2_pessoa_da_interlocucao_proximidade,
+                         p2_tipo_numerativo,
+                         p2_cardinal, p2_genero_numerativo,
+                         p2_tipo_de_ente, p2_tipo_de_nao_consciente,
+                         p2_tipo_de_nao_consciente_material,
+                         p2_tipo_de_nao_consciente_semiotico, p2_classe_palavra_ente,
+                         p2_substantivo_lematizado,
+                         p2_numero_subs, p2_genero_subs, p2_tipo_feminino_ao, p2_tipo_masc_ao,
+                         p2_acent_tonica,
+                         p2_nome_proprio,
+                         p2_pessoa_da_interlocucao, p2_transitividade_verbo, p2_tonicidade,
+                         p2_morfologia_do_pronome,
+                         p2_reflexivo,
+                         # classificador
+                         p2_adjetivo_classificador,
+                         # epitetos
+                         p2_adj_epit_exp_pre,
+                         p2_adj_epit_int_pre,
+                         p2_adj_epit_exp_pos,
+                         p2_adj_epit_int_pos,
+                         p2_genero_adjetivo, p2_numero_adjetivo,
 
-                             p3_contracao)
-        p3_fp = frase_preposicional(p3_fp_indice_preposicao_frase, p3_fp_dissoc_ente_nucleo,
-                                    p3_fp_tem_qualificador,
-                                    p3_fp_tipo_qualificador, p3_fp_indice_preposicao_qualif,
-                                    p3_fp_determinacao_especificidade_beta, p3_fp_orientacao_beta,
-                                    p3_fp_genero_beta,
-                                    p3_fp_numero_beta, p3_fp_morfologia_do_pronome_beta,
-                                    p3_fp_determinacao_especificidade_alpha, p3_fp_orientacao_alpha,
-                                    p3_fp_genero_alpha,
-                                    p3_fp_numero_alpha, p3_fp_morfologia_do_pronome_alpha,
-                                    p3_fp_pessoa_da_interlocucao_possuidor, p3_fp_numero_obj_possuido,
-                                    p3_fp_genero_obj_possuido, p3_fp_pessoa_da_interlocucao_proximidade,
-                                    p3_fp_tipo_numerativo, p3_fp_cardinal,
-                                    p3_fp_genero_numerativo, p3_fp_tipo_de_ente,
-                                    p3_fp_tipo_de_nao_consciente, p3_fp_tipo_de_nao_consciente_material,
-                                    p3_fp_tipo_de_nao_consciente_semiotico, p3_fp_classe_palavra_ente,
-                                    p3_fp_substantivo_lematizado, p3_fp_numero_subs, p3_fp_genero_subs,
-                                    p3_fp_tipo_feminino_ao,
-                                    p3_fp_tipo_masc_ao, p3_fp_acent_tonica, p3_fp_nome_proprio,
-                                    p3_fp_pessoa_da_interlocucao, p3_fp_transitividade_verbo,
-                                    p3_fp_tonicidade,
-                                    p3_fp_morfologia_do_pronome, p3_fp_reflexivo,  # classificador
-                                    p3_fp_adjetivo_classificador,
-                                    # epitetos
-                                    p3_fp_adj_epit_exp_pre,
-                                    p3_fp_adj_epit_int_pre,
-                                    p3_fp_adj_epit_exp_pos,
-                                    p3_fp_adj_epit_int_pos,
-                                    p3_fp_genero_adjetivo, p3_fp_numero_adjetivo,
-                                    p3_fp_contracao)
+                         p2_contracao)
+    p3_gn = estrutura_gn(p3_dissoc_ente_nucleo, p3_tem_qualificador, p3_tipo_qualificador,
+                         p3_indice_preposicao_qualif, p3_determinacao_especificidade_beta, p3_orientacao_beta,
+                         p3_genero_beta, p3_numero_beta, p3_morfologia_do_pronome_beta,
+                         p3_determinacao_especificidade_alpha, p3_orientacao_alpha, p3_genero_alpha,
+                         p3_numero_alpha,
+                         p3_morfologia_do_pronome_alpha, p3_pessoa_da_interlocucao_possuidor,
+                         p3_numero_obj_possuido,
+                         p3_genero_obj_possuido, p3_pessoa_da_interlocucao_proximidade, p3_tipo_numerativo,
+                         p3_cardinal, p3_genero_numerativo,
+                         p3_tipo_de_ente, p3_tipo_de_nao_consciente, p3_tipo_de_nao_consciente_material,
+                         p3_tipo_de_nao_consciente_semiotico, p3_classe_palavra_ente, p3_substantivo_lematizado,
+                         p3_numero_subs, p3_genero_subs, p3_tipo_feminino_ao, p3_tipo_masc_ao, p3_acent_tonica,
+                         p3_nome_proprio,
+                         p3_pessoa_da_interlocucao, p3_transitividade_verbo, p3_tonicidade,
+                         p3_morfologia_do_pronome,
+                         p3_reflexivo,
+                         # classificador
+                         p3_adjetivo_classificador,
+                         # epitetos
+                         p3_adj_epit_exp_pre,
+                         p3_adj_epit_int_pre,
+                         p3_adj_epit_exp_pos,
+                         p3_adj_epit_int_pos,
+                         p3_genero_adjetivo, p3_numero_adjetivo,
 
-        if transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_efetivo_operativo':
-            # NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDENS DE AGENTES
-            ator = p1_gn
-            # iniciador = '+iniciador'
-            iniciador_ = p3_gn
+                         p3_contracao)
+    p3_fp = frase_preposicional(p3_fp_indice_preposicao_frase, p3_fp_dissoc_ente_nucleo,
+                                p3_fp_tem_qualificador,
+                                p3_fp_tipo_qualificador, p3_fp_indice_preposicao_qualif,
+                                p3_fp_determinacao_especificidade_beta, p3_fp_orientacao_beta,
+                                p3_fp_genero_beta,
+                                p3_fp_numero_beta, p3_fp_morfologia_do_pronome_beta,
+                                p3_fp_determinacao_especificidade_alpha, p3_fp_orientacao_alpha,
+                                p3_fp_genero_alpha,
+                                p3_fp_numero_alpha, p3_fp_morfologia_do_pronome_alpha,
+                                p3_fp_pessoa_da_interlocucao_possuidor, p3_fp_numero_obj_possuido,
+                                p3_fp_genero_obj_possuido, p3_fp_pessoa_da_interlocucao_proximidade,
+                                p3_fp_tipo_numerativo, p3_fp_cardinal,
+                                p3_fp_genero_numerativo, p3_fp_tipo_de_ente,
+                                p3_fp_tipo_de_nao_consciente, p3_fp_tipo_de_nao_consciente_material,
+                                p3_fp_tipo_de_nao_consciente_semiotico, p3_fp_classe_palavra_ente,
+                                p3_fp_substantivo_lematizado, p3_fp_numero_subs, p3_fp_genero_subs,
+                                p3_fp_tipo_feminino_ao,
+                                p3_fp_tipo_masc_ao, p3_fp_acent_tonica, p3_fp_nome_proprio,
+                                p3_fp_pessoa_da_interlocucao, p3_fp_transitividade_verbo,
+                                p3_fp_tonicidade,
+                                p3_fp_morfologia_do_pronome, p3_fp_reflexivo,  # classificador
+                                p3_fp_adjetivo_classificador,
+                                # epitetos
+                                p3_fp_adj_epit_exp_pre,
+                                p3_fp_adj_epit_int_pre,
+                                p3_fp_adj_epit_exp_pos,
+                                p3_fp_adj_epit_int_pos,
+                                p3_fp_genero_adjetivo, p3_fp_numero_adjetivo,
+                                p3_fp_contracao)
 
-            try:
-                if beneficiario == '+cliente':
-                    cliente = p3_fp
-                elif beneficiario == '-cliente':
-                    cliente = ''
-            except:
+    if transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_efetivo_operativo':
+        # NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDENS DE AGENTES
+        ator = p1_gn
+        # iniciador = '+iniciador'
+        iniciador_ = p3_gn
+
+        try:
+            if beneficiario == '+cliente':
+                cliente = p3_fp
+            elif beneficiario == '-cliente':
                 cliente = ''
-            try:
-                if locativo == '+locativo':
-                    locativo_ = p3_fp
-                elif locativo == '-locativo':
-                    locativo_ = ''
-            except:
+        except:
+            cliente = ''
+        try:
+            if locativo == '+locativo':
+                locativo_ = p3_fp
+            elif locativo == '-locativo':
                 locativo_ = ''
-            if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and \
-                    tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((iniciador_, polar, processo_, ator, locativo_, cliente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+        except:
+            locativo_ = ''
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and \
+                tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
+            oracao = " ".join((iniciador_, polar, processo_, ator, locativo_, cliente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
 
-            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and \
-                    tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((iniciador_, polar, processo_, ator, locativo_, cliente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and \
+                tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
+            oracao = " ".join((iniciador_, polar, processo_, ator, locativo_, cliente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
-        elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance':
-            ator = p1_gn
-            # iniciador = '-iniciador'
-            # iniciador_ = ''
-            oracao = ator + ' ' + polar + ' ' + processo_
-            try:
-                if beneficiario == '+cliente':
-                    cliente = p3_fp
-                elif beneficiario == '-cliente':
-                    cliente = ''
-            except:
+    elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_sem_alcance':
+        ator = p1_gn
+        # iniciador = '-iniciador'
+        # iniciador_ = ''
+        oracao = ator + ' ' + polar + ' ' + processo_
+        try:
+            if beneficiario == '+cliente':
+                cliente = p3_fp
+            elif beneficiario == '-cliente':
                 cliente = ''
-            try:
-                if locativo == '+locativo':
-                    locativo_ = p3_fp
-                elif locativo == '-locativo':
-                    locativo_ = ''
-            except:
+        except:
+            cliente = ''
+        try:
+            if locativo == '+locativo':
+                locativo_ = p3_fp
+            elif locativo == '-locativo':
                 locativo_ = ''
-            if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((oracao, locativo_, cliente))
-                oracao = (re.sub(' +', ' ', ' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+        except:
+            locativo_ = ''
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+            oracao = " ".join((oracao, locativo_, cliente))
+            oracao = (re.sub(' +', ' ', ' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
 
-            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((oracao, locativo_, cliente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+            oracao = " ".join((oracao, locativo_, cliente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
-        elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance':
-            ator = p1_gn
+    elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_médio_com_alcance':
+        ator = p1_gn
 
-            try:
-                if escopo == '+escopo':
-                    escopo_ = p3_gn
+        try:
+            if escopo == '+escopo':
+                escopo_ = p3_gn
 
-                elif escopo == '-escopo':
-                    escopo_ = ''
-            except:
+            elif escopo == '-escopo':
                 escopo_ = ''
+        except:
+            escopo_ = ''
 
-            try:
-                if locativo == '+locativo':
-                    locativo_ = p3_fp
-                elif locativo == '-locativo':
-                    locativo_ = ''
-            except:
+        try:
+            if locativo == '+locativo':
+                locativo_ = p3_fp
+            elif locativo == '-locativo':
                 locativo_ = ''
+        except:
+            locativo_ = ''
 
-            if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and \
-                    tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, escopo_, locativo_))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and \
+                tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+            oracao = " ".join((ator, polar, processo_, escopo_, locativo_))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
 
-            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and \
-                    tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, escopo_, locativo_))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and \
+                tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+            oracao = " ".join((ator, polar, processo_, escopo_, locativo_))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
-        elif transitividade_ == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance':
+    elif transitividade_ == 'PR_material_criativo_IMPA_intransitivo_AG_médio_sem_alcance':
 
-            ator = p1_gn
-            if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+        ator = p1_gn
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+            oracao = " ".join((ator, polar, processo_))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
 
-            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+            oracao = " ".join((ator, polar, processo_))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
-        elif transitividade_ == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo':
-            # NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDENS DE AGENTES
-            ator = p1_gn
-            meta = p2_gn
+    elif transitividade_ == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_operativo':
+        # NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDENS DE AGENTES
+        ator = p1_gn
+        meta = p2_gn
+
+        if resultado_qualitativo == 'resultado_atributo' or resultado_qualitativo == 'resultado_papel(produto)':
+            if realizacao_atributo == 'atributo_adjetivo':
+                atributo = adjetivo(atributo_adjetivo_lematizado, atributo_genero, atributo_numero)
+            elif realizacao_atributo == 'atributo_frase_preposicional':
+                atributo = frase_preposicional(atrib_indice_preposicao_frase,
+                                               atrib_dissoc_ente_nucleo, atrib_tem_qualificador,
+                                               atrib_tipo_qualificador,
+                                               atrib_indice_preposicao_qualif,
+                                               atrib_determinacao_especificidade_beta,
+                                               atrib_orientacao_beta, atrib_genero_beta,
+                                               atrib_numero_beta, atrib_morfologia_do_pronome_beta,
+                                               atrib_determinacao_especificidade_alpha,
+                                               atrib_orientacao_alpha, atrib_genero_alpha,
+                                               atrib_numero_alpha, atrib_morfologia_do_pronome_alpha,
+                                               atrib_pessoa_da_interlocucao_possuidor,
+                                               atrib_numero_obj_possuido,
+                                               atrib_genero_obj_possuido,
+                                               atrib_pessoa_da_interlocucao_proximidade,
+                                               atrib_tipo_numerativo, atrib_cardinal,
+                                               atrib_genero_numerativo, atrib_tipo_de_ente,
+                                               atrib_tipo_de_nao_consciente,
+                                               atrib_tipo_de_nao_consciente_material,
+                                               atrib_tipo_de_nao_consciente_semiotico,
+                                               atrib_classe_palavra_ente,
+                                               atrib_substantivo_lematizado, atrib_numero_subs,
+                                               atrib_genero_subs,
+                                               atrib_tipo_feminino_ao,
+                                               atrib_tipo_masc_ao, atrib_acent_tonica,
+                                               atrib_nome_proprio,
+                                               atrib_pessoa_da_interlocucao,
+                                               atrib_transitividade_verbo, atrib_tonicidade,
+                                               atrib_morfologia_do_pronome, atrib_reflexivo,
+                                               # classificador
+                                               atrib_adjetivo_classificador,
+                                               # epitetos
+                                               atrib_adj_epit_exp_pre,
+                                               atrib_adj_epit_int_pre,
+                                               atrib_adj_epit_exp_pos,
+                                               atrib_adj_epit_int_pos,
+                                               atrib_genero_adjetivo, atrib_numero_adjetivo,
+                                               atrib_contracao)
+        elif resultado_qualitativo == '-resultado':
+            atributo = ''
+        # except:
+        #     atributo = ''
+
+        try:
+            if beneficiario == '+recipiente':
+                recipiente = p3_fp
+            elif beneficiario == '-recipiente':
+                recipiente = ''
+        except:
+            recipiente = ''
+        try:
+            if locativo == '+locativo':
+                locativo_ = p3_fp
+            elif locativo == '-locativo':
+                locativo_ = ''
+        except:
+            locativo_ = ''
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and \
+                tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+            oracao = " ".join((ator, polar, processo_, meta, atributo, locativo_, recipiente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
+        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and \
+                tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+            oracao = " ".join((ator, polar, processo_, meta, atributo, locativo_, recipiente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+
+    elif transitividade_ == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo':
+
+        ator = p1_gn
+        meta = p2_gn
+
+        try:
+            if beneficiario == '+cliente':
+                cliente = p3_fp
+            elif beneficiario == '-cliente':
+                cliente = ''
+        except:
+            cliente = ''
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+            oracao = " ".join((ator, polar, processo_, meta, cliente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
+        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+            oracao = " ".join((ator, polar, processo_, meta, cliente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
 
+    ##MATERIAL METEOROLÓGICA
+    elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_processo_com_alcance':
+        escopo_ = p3_gn
+
+        if modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+            oracao = " ".join((processo_, escopo_))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
+        elif modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+            oracao = " ".join((processo_, escopo_))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+
+    elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_processo_sem_alcance':
+        if modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+            oracao = processo_
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+
+        elif modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+            oracao = processo_
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+
+#parei teste aqui
+    # 		##########COMEÇO DE AGENCIAMENTO PASSIVA
+    #
+    #
+    elif transitividade_ == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_receptivo':
+
+        ator = p1_fp
+        meta = p2_gn
+
+        try:
             if resultado_qualitativo == 'resultado_atributo' or resultado_qualitativo == 'resultado_papel(produto)':
                 if realizacao_atributo == 'atributo_adjetivo':
                     atributo = adjetivo(atributo_adjetivo_lematizado, atributo_genero, atributo_numero)
@@ -3073,214 +3195,90 @@ def oracao_material(
                                                    atrib_contracao)
             elif resultado_qualitativo == '-resultado':
                 atributo = ''
-            # except:
-            #     atributo = ''
+        except:
+            atributo = ''
 
-            try:
-                if beneficiario == '+recipiente':
-                    recipiente = p3_fp
-                elif beneficiario == '-recipiente':
-                    recipiente = ''
-            except:
+        try:
+            if beneficiario == '+recipiente':
+                recipiente = p3_fp
+            elif beneficiario == '-recipiente':
                 recipiente = ''
-            try:
-                if locativo == '+locativo':
-                    locativo_ = p3_fp
-                elif locativo == '-locativo':
-                    locativo_ = ''
-            except:
-                locativo_ = ''
-            if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and \
-                    tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, meta, atributo, locativo_, recipiente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
-
-            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and \
-                    tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, meta, atributo, locativo_, recipiente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
-
-        elif transitividade_ == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_operativo':
-
-            ator = p1_gn
-            meta = p2_gn
-
-            try:
-                if beneficiario == '+cliente':
-                    cliente = p3_fp
-                elif beneficiario == '-cliente':
-                    cliente = ''
-            except:
-                cliente = ''
-            if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, meta, cliente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
-
-            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, meta, cliente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
-
-
-        ##MATERIAL METEOROLÓGICA
-        elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_processo_com_alcance':
-            escopo_ = p3_gn
-
-            if modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((processo_, escopo_))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
-
-            elif modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((processo_, escopo_))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
-
-
-        elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_processo_sem_alcance':
-            if modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = processo_
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
-
-            elif modo_ == 'SUJ_-sujeitabilidade_recuperação_NA_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = processo_
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
-
-
-        # 		##########COMEÇO DE AGENCIAMENTO PASSIVA
-        #
-        #
-        elif transitividade_ == 'PR_material_transformativo_IMPA_transitivo_AG_efetivo_receptivo':
-
-            ator = p1_fp
-            meta = p2_gn
-
-            try:
-                if resultado_qualitativo == 'resultado_atributo' or resultado_qualitativo == 'resultado_papel(produto)':
-                    if realizacao_atributo == 'atributo_adjetivo':
-                        atributo = adjetivo(atributo_adjetivo_lematizado, atributo_genero, atributo_numero)
-                    elif realizacao_atributo == 'atributo_frase_preposicional':
-                        atributo = frase_preposicional(atrib_indice_preposicao_frase,
-                                                       atrib_dissoc_ente_nucleo, atrib_tem_qualificador,
-                                                       atrib_tipo_qualificador,
-                                                       atrib_indice_preposicao_qualif,
-                                                       atrib_determinacao_especificidade_beta,
-                                                       atrib_orientacao_beta, atrib_genero_beta,
-                                                       atrib_numero_beta, atrib_morfologia_do_pronome_beta,
-                                                       atrib_determinacao_especificidade_alpha,
-                                                       atrib_orientacao_alpha, atrib_genero_alpha,
-                                                       atrib_numero_alpha, atrib_morfologia_do_pronome_alpha,
-                                                       atrib_pessoa_da_interlocucao_possuidor,
-                                                       atrib_numero_obj_possuido,
-                                                       atrib_genero_obj_possuido,
-                                                       atrib_pessoa_da_interlocucao_proximidade,
-                                                       atrib_tipo_numerativo, atrib_cardinal,
-                                                       atrib_genero_numerativo, atrib_tipo_de_ente,
-                                                       atrib_tipo_de_nao_consciente,
-                                                       atrib_tipo_de_nao_consciente_material,
-                                                       atrib_tipo_de_nao_consciente_semiotico,
-                                                       atrib_classe_palavra_ente,
-                                                       atrib_substantivo_lematizado, atrib_numero_subs,
-                                                       atrib_genero_subs,
-                                                       atrib_tipo_feminino_ao,
-                                                       atrib_tipo_masc_ao, atrib_acent_tonica,
-                                                       atrib_nome_proprio,
-                                                       atrib_pessoa_da_interlocucao,
-                                                       atrib_transitividade_verbo, atrib_tonicidade,
-                                                       atrib_morfologia_do_pronome, atrib_reflexivo,
-                                                       # classificador
-                                                       atrib_adjetivo_classificador,
-                                                       # epitetos
-                                                       atrib_adj_epit_exp_pre,
-                                                       atrib_adj_epit_int_pre,
-                                                       atrib_adj_epit_exp_pos,
-                                                       atrib_adj_epit_int_pos,
-                                                       atrib_genero_adjetivo, atrib_numero_adjetivo,
-                                                       atrib_contracao)
-                elif resultado_qualitativo == '-resultado':
-                    atributo = ''
-            except:
-                atributo = ''
-
-            try:
-                if beneficiario == '+recipiente':
-                    recipiente = p3_fp
-                elif beneficiario == '-recipiente':
-                    recipiente = ''
-                else:
-                    recipiente = ''
-            except:
+            else:
                 recipiente = ''
-            try:
-                if locativo == '+locativo':
-                    locativo_ = p3_fp
-                elif locativo == '-locativo':
-                    locativo_ = ''
-            except:
+        except:
+            recipiente = ''
+        try:
+            if locativo == '+locativo':
+                locativo_ = p3_fp
+            elif locativo == '-locativo':
                 locativo_ = ''
+        except:
+            locativo_ = ''
 
-            if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((meta, polar, processo_, atributo, ator, locativo_, recipiente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
+            oracao = " ".join((meta, polar, processo_, atributo, ator, locativo_, recipiente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
 
-            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((meta, polar, processo_, atributo, ator, locativo_, recipiente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
+            oracao = " ".join((meta, polar, processo_, atributo, ator, locativo_, recipiente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
 
-        ######################################################################
-        elif transitividade_ == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo':
+    ######################################################################
+    elif transitividade_ == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo':
 
-            ator = p1_gn
-            meta = p2_gn
+        ator = p1_gn
+        meta = p2_gn
 
-            try:
-                if beneficiario == '+cliente':
-                    cliente = p3_fp
-                elif beneficiario == '-cliente':
-                    cliente = ''
-            except:
+        try:
+            if beneficiario == '+cliente':
+                cliente = p3_fp
+            elif beneficiario == '-cliente':
                 cliente = ''
+        except:
+            cliente = ''
 
-            if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((meta, polar, processo_, ator, cliente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
+            oracao = " ".join((meta, polar, processo_, ator, cliente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
 
-            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
-                oracao = " ".join((meta, polar, processo_, ator, cliente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
+            oracao = " ".join((meta, polar, processo_, ator, cliente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
 
-        elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_efetivo_receptivo':
-            # NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDEM DE AGENTES
-            ator = p1_gn
+    elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_efetivo_receptivo':
+        # NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDEM DE AGENTES
+        ator = p1_gn
 
-            iniciador = '+iniciador'
-            iniciador_ = p3_fp
+        iniciador = '+iniciador'
+        iniciador_ = p3_fp
 
-            try:
-                if beneficiario == '+cliente':
-                    cliente = p3_fp
-                elif beneficiario == '-cliente':
-                    cliente = ''
-            except:
+        try:
+            if beneficiario == '+cliente':
+                cliente = p3_fp
+            elif beneficiario == '-cliente':
                 cliente = ''
-            try:
-                if locativo == '+locativo':
-                    locativo_ = p3_fp
-                elif locativo == '-locativo':
-                    locativo_ = ''
-            except:
+        except:
+            cliente = ''
+        try:
+            if locativo == '+locativo':
+                locativo_ = p3_fp
+            elif locativo == '-locativo':
                 locativo_ = ''
-            if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, locativo_, iniciador_, cliente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
+        except:
+            locativo_ = ''
+        if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito' and tema_id == 'TID_default_indicativo_declarativo_TIdentif_NA':
+            oracao = " ".join((ator, polar, processo_, locativo_, iniciador_, cliente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '.'
 
-            elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
-                oracao = " ".join((ator, polar, processo_, locativo_, iniciador_, cliente))
-                oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
+        elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_default_indicativo_interrogativo_polar_TIdentif_NA':
+            oracao = " ".join((ator, polar, processo_, locativo_, iniciador_, cliente))
+            oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
 
-        return oracao
-    except:
-        return ""
+    return oracao
+
 
 
 ##ORACAO RELACIONAL
@@ -5152,3 +5150,10 @@ def oracao_verbal(
         return re.sub(' +', ' ', ' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()
     except:
         return ""
+
+
+
+
+
+
+
