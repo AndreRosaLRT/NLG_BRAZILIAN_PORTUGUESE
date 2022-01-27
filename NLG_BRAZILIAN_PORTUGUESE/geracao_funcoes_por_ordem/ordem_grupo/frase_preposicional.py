@@ -1,6 +1,8 @@
+
+import re
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_palavra.pal_verbais import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal import *
-import re
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal import estrutura_gn
 
 
 def frase_preposicional(indice_preposicao_frase=None, dissoc_ente_nucleo=None, tem_qualificador=None,
@@ -103,9 +105,9 @@ def frase_preposicional(indice_preposicao_frase=None, dissoc_ente_nucleo=None, t
     :return:
     """
     frase_prep = ''
-    prep = preposicao(int(indice_preposicao_frase))
+    prep = preposicao(indice_preposicao_frase)
     grupo_nominal = (re.sub(' +', ' ',
-                            estrutura_gn_downranked(dissoc_ente_nucleo, tem_qualificador,
+                            estrutura_gn(dissoc_ente_nucleo, tem_qualificador,
                                                     tipo_qualificador, indice_preposicao_qualif,
                                                     determinacao_especificidade_beta, orientacao_beta,
                                                     genero_beta, numero_beta,

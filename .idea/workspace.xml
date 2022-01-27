@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad110799-fa20-4e01-829b-5b9db50e09eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/NLG_BRAZILIAN_PORTUGUESE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NLG_BRAZILIAN_PORTUGUESE.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_adverbial.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_adverbial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main_oracao_mental.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main_oracao_mental.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arquivos_dev_antigos/teste_grupo_verbal.py" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_dev_antigos/teste_grupo_verbal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,10 +38,17 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Experimentos/mineracao_lexicon_pre_exp_aplicacao/minerando_lemas_e_EXPERIMENTOSAPLICACAO.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main_frase_preposicional.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Experimentos/scraping_verbos.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_adverbial.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/frase_preposicional.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/arquivos_dev_antigos/GENERATION_main.py" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main_oracao_mental.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/main.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/arquivos_dev_antigos/GENERATION_dev.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_oracao/oracao.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Experimentos/experimento_corpora_dev-test_verbos.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -51,7 +64,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -74,7 +87,7 @@
       <recent name="$PROJECT_DIR$/Experimento_DaMata" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.grupo_adverbial">
     <configuration name="experimento_corpora_dev-test_verbos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLG_BRAZILIAN_PORTUGUESE" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -88,6 +101,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Experimentos/experimento_corpora_dev-test_verbos.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="grupo_adverbial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NLG_BRAZILIAN_PORTUGUESE" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_adverbial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -117,40 +151,25 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Doctest formacao_verbo_ter" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
+    <configuration name="teste_grupo_verbal" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLG_BRAZILIAN_PORTUGUESE" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/arquivos_dev_antigos" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="formacao_verbo_ter" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_FUNCTION" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Doctests in grupo_nominal" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
-      <module name="NLG_BRAZILIAN_PORTUGUESE" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_grupo/grupo_nominal.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/arquivos_dev_antigos/teste_grupo_verbal.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="Doctests in pal_verbais" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
@@ -173,11 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.grupo_adverbial" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.teste_grupo_verbal" />
         <item itemvalue="Python.experimento_corpora_dev-test_verbos" />
         <item itemvalue="Python tests.Doctests in pal_verbais" />
-        <item itemvalue="Python tests.Doctest formacao_verbo_ter" />
-        <item itemvalue="Python tests.Doctests in grupo_nominal" />
       </list>
     </recent_temporary>
   </component>

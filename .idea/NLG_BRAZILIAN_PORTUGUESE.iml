@@ -5,8 +5,9 @@
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/ProjEnv" />
       <excludeFolder url="file://$USER_HOME$/PLN_TESE_ANDRE/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/ExpVenv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9 (NLG_BRAZILIAN_PORTUGUESE_19-11)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (NLG_BRAZILIAN_PORTUGUESE_19-11)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
