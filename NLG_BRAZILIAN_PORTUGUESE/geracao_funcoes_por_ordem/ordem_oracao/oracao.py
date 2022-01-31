@@ -1,5 +1,5 @@
-from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal import *
-from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.frase_preposicional import *
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal_frase_preposicional import *
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.frase.frase_preposicional import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_verbal import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_adverbial import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_conjuntivo import *
@@ -3140,7 +3140,7 @@ def oracao_material(
             oracao = processo_
             oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
-#parei teste aqui
+
     # 		##########COMEÇO DE AGENCIAMENTO PASSIVA
     #
     #
@@ -3221,11 +3221,10 @@ def oracao_material(
             oracao = " ".join((meta, polar, processo_, atributo, ator, locativo_, recipiente))
             oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
 
-
     ######################################################################
     elif transitividade_ == 'PR_material_criativo_IMPA_transitivo_AG_efetivo_receptivo':
 
-        ator = p1_gn
+        ator = p1_fp
         meta = p2_gn
 
         try:
@@ -3243,7 +3242,6 @@ def oracao_material(
         elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar' and tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
             oracao = " ".join((meta, polar, processo_, ator, cliente))
             oracao = (re.sub(' +', ' ',' '.join((tema_text, tema_interp, oracao, circunstancia_))).strip().capitalize()) + '?'
-
 
     elif transitividade_ == 'PR_material_transformativo_IMPA_intransitivo_AG_efetivo_receptivo':
         # NÃO CONTEMPLO O POTENCIAL DE SEGUNDA ORDEM DE AGENTES

@@ -2,7 +2,7 @@ import sys
 sys.path.append('../')
 
 import argparse
-from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal import *
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal_frase_preposicional import *
 
 if __name__ == '__main__':
     def none_ou_str_int(value):
