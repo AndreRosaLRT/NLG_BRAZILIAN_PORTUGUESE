@@ -25,64 +25,14 @@ if __name__ == '__main__':
     print(oracao_material(*args.argumentos))
 
 
-
-# python3 main_oracao_material.py 'Material' 1 3 None None 0 0 1 None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None False None None None None None None None None None 'não_orientado' 'não_direcional' 'proeminente' None None 'NA' None None 'intensivo_relativo_papel_transitivo_nuclear_participante' None None None None None None 6 None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None 'Fazer' 'agenciado_passiva' None None None None None None None None None None None None None None None None None None None None None None None None 'Ser' 'Auxiliar' 'ser' 'pretérito_perfectivo_I' 'singular' None '3pessoa' 'Morfologia_padrão' 'Fazer' 'Evento' 'fazer' 'particípio' 'singular' 'masculino' '3pessoa' 'Morfologia_padrão' None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None 11 None None None None None None None None None 'específico' 'NA' 'masculino' 'singular' None None None None None None None None 'consciente' None None None 'substantivo_comum' 'homem' 'singular' 'não-binário' None None None None None None None None None None None None None None None None None None None None None None None None None None 'específico' 'NA' 'masculino' 'singular' None None None None None None None None 'não_consciente' 'material' 'objeto_material' None 'substantivo_comum' 'bolo' 'singular' 'não-binário' None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None
-
-
-
+# # ORACÃO MATERIAL exemplos
+#
+# oracao_material('Material', 2, 2, None,None,0, 0, 1,None, None,None, None,None, None,None, None,None, None,None, None,None, None, None,None, None,None, None, None,None,None, None,None,None, None, None,None, None,None,None, None, None,None,None, None,None,None, None,None,None, None, None,None, None,None, None, None,None,None, None, None,None, None, None,None,None, None, None,False, None,None,None, None,None, None, None,None, None,'não_orientado', 'não_direcional','proeminente', None,None, 'NA',None, None,'intensivo_relativo_papel_transitivo_nuclear_participante',None,None, None,None, None, None,None, None, None,None, None,None, None, None,None, None,None, None, None,None, None,None, None,None, None,None, None,None, None,None, None,None, None,None, None, None,None,None, None, None,None, None, None,None, None,None,None,None,None,None,None, None,None,None,None,None,'Fazer', 'agenciado_ativa', None,None,None, None, None, None, None,None, None, None, None,None, None, None, None,None, None, None, None,None, None, None, None,None, None, None, None,None, None, None, None,None, 'Fazer', 'Evento','rolar', 'pretérito_perfectivo_I', 'singular', None,'3pessoa','Morfologia_padrão',None,None, None, None,None, 'específico', 'NA','feminino', None, None,'específico', 'NA', 'feminino', 'singular',None, None, None,None, None, None,None, None,'consciente', None, None,None, 'substantivo_comum', 'bola','singular', 'não-binário', None, None, None,None,None, None, None, None,None,None,None,None,None,None,None, None,None,None, None, None,None, None,None, None, None,None, None,None, None, None,None, None,None, None,None, None,None, None,None, None, None, None,None, None,None, None, None,None,None, None, None,None, None, None,None, None,None,None,None,None,None,None, None,None,None, None, None,None, None, None,None, None, None,None, None, None, None,None, None, None,None, None, None,None, None,None, None, None,None, None, None,None, None, None, None, None,None,None, None, None, None,None,None,None,None,None,None,None, None,None,None, None, None,None, 'específico', 'NA','masculino', None, None,'específico', 'NA', 'masculino','singular',None, None, None,None, None, None,None, None,'consciente', None,None,None, 'substantivo_comum','homem','singular', 'não-binário', None, None,None,None,None, None, None, None,None,None,None,None,None,None, None,None,None, None, None,None, None,None, None, None,None, None,None, None, None,None, None,None, None,None, None,None, None,None, None,None, None,None, None,None, None, None,None,None, None, None,None, None, None,None,None,None,None,None,None,None,None, None,None,None,None, None, None,None, None,None, None, None,None,None, None,None,None, None, None,None, None,None,None, None, None,None,None, None, None,None, None,None,None, None, None,None, None,None, None, None,None,None, None,None,None,None,None,None,None, None,None,None, None,None, None,None, None,None, None,None, None)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#Exemplo de uso no terminal como script
+# python3 main_oracao_material.py 'Material' 2 2 None None 0 0 1 None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None False None None None None None None None None None 'não_orientado' 'não_direcional' 'proeminente' None None 'NA' None None 'intensivo_relativo_papel_transitivo_nuclear_participante' '+iniciador' None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None 'Fazer' 'agenciado_ativa' None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None 'Fazer' 'Evento' 'rolar' 'pretérito_perfectivo_I' 'singular' None '3pessoa' 'Morfologia_padrão' None None None None None 'específico' 'NA' 'feminino' None None 'específico' 'NA' 'feminino' 'singular' None None None None None None None None 'consciente' None None None 'substantivo_comum' 'bola' 'singular' 'não-binário' None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None 'específico' 'NA' 'masculino' None None 'específico' 'NA' 'masculino' 'singular' None None None None None None None None 'consciente' None None None 'substantivo_comum' 'homem' 'singular' 'não-binário' None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None None
+#
+# # # O homem rolou a bola
+# #
+# #

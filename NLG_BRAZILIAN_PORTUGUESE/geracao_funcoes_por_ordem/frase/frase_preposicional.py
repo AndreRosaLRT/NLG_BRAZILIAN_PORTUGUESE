@@ -207,8 +207,49 @@ def frase_preposicional(indice_preposicao_frase=None, dissoc_ente_nucleo=None, t
         return ''
 
 
+frase_preposicional(indice_preposicao_frase=1,dissoc_ente_nucleo=None,tem_qualificador=None,tipo_qualificador=None,
+    indice_preposicao_qualif=None,determinacao_especificidade_beta='específico',
+    orientacao_beta='orientação_específica_pessoa',genero_beta='masculino',numero_beta=None,morfologia_do_pronome_beta=None,
+    determinacao_especificidade_alpha='específico',orientacao_alpha='NA',genero_alpha='masculino',
+    numero_alpha='singular',morfologia_do_pronome_alpha=None,pessoa_da_interlocucao_possuidor='1s',
+    numero_obj_possuido='singular',genero_obj_possuido='masculino',
+    pessoa_da_interlocucao_proximidade='próximo_ao_falante',tipo_numerativo=None,cardinal=None,
+    genero_numerativo=None,tipo_de_ente='não_consciente',tipo_de_nao_consciente='material',
+    tipo_de_nao_consciente_material='objeto_material',tipo_de_nao_consciente_semiotico=None,
+    classe_palavra_ente='substantivo_comum',substantivo_lematizado='piano',numero_subs='singular',
+    genero_subs='masculino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_proprio=None,
+    pessoa_da_interlocucao=None,transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
+    reflexivo=None,
+    adjetivo_classificador='importado',
+    adj_epit_exp_pre=None,
+    adj_epit_int_pre='grande',
+    adj_epit_exp_pos=None,
+    adj_epit_int_pos='bonito',
+    genero_adjetivo='não-binário',
+    numero_adjetivo='singular',
+    contracao=None)
 
 
 
-
+frase_preposicional(indice_preposicao_frase=6,dissoc_ente_nucleo=None,tem_qualificador=None,tipo_qualificador=None,
+                    indice_preposicao_qualif=None,determinacao_especificidade_beta='específico',
+                    orientacao_beta='NA',genero_beta=None,numero_beta=None,morfologia_do_pronome_beta=None,
+                    determinacao_especificidade_alpha='NA',orientacao_alpha='NA',genero_alpha=None,
+                    numero_alpha=None,morfologia_do_pronome_alpha=None,pessoa_da_interlocucao_possuidor=None,
+                    numero_obj_possuido=None,genero_obj_possuido=None,
+                    pessoa_da_interlocucao_proximidade=None,tipo_numerativo=None,cardinal=None,
+                    genero_numerativo=None,tipo_de_ente='consciente',tipo_de_nao_consciente=None,
+                    tipo_de_nao_consciente_material=None,tipo_de_nao_consciente_semiotico=None,
+                    classe_palavra_ente='pronome_caso_reto',substantivo_lematizado=None,numero_subs='singular',
+                    genero_subs='feminino',tipo_feminino_ao=None,tipo_masc_ao=None,acent_tonica=None,nome_proprio=None,
+                    pessoa_da_interlocucao='ouvinte',transitividade_verbo=None,tonicidade=None,morfologia_do_pronome=None,
+                    reflexivo=None,
+                    adjetivo_classificador=None,
+                    adj_epit_exp_pre=None,
+                    adj_epit_int_pre=None,
+                    adj_epit_exp_pos=None,
+                    adj_epit_int_pos=None,
+                    genero_adjetivo=None,
+                    numero_adjetivo=None,
+                    contracao=None)
 

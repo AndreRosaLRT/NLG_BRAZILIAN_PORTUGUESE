@@ -1,8 +1,8 @@
 import sys
 sys.path.append('../')
 
-from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_morfema.morf_verbais import *
 import argparse
+from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_morfema.morf_verbais import *
 
 def preposicao(indice: int = None) -> str:
     """
@@ -6253,35 +6253,35 @@ def verbo_geral(tipo_de_experiencia, funcao_no_grupo_verbal, verbo,
                 tipo_de_orientacao, oi_numero, genero, oi_tipo_de_pessoa,
                 padrao_pessoa_morfologia="Morfologia_padrão"):
     """
-    Retorna a estrutura que realiza os verbos no português.
-
-    Ex.:
-    >>> verbo_geral('Fazer','Evento','vir','passado_volitivo','singular',None,'1pessoa')
-    'viria'
-    >>> verbo_geral('Fazer','Evento','sentir','subjuntivo_conjuntivo','plural',None,'1pessoa')
-    'sintamos'
-
-    :param tipo_de_experiencia:
-        opções: 'Fazer','Ser', 'Sentir'
-    :param funcao_no_grupo_verbal:
-        opções:'Evento', 'Auxiliar', 'Modal', 'Evento+Núcleo','Auxiliar+Núcleo', 'Modal+Núcleo'
-    :param verbo: str
-        lema verbal - no infinitivo
-    :param tipo_de_orientacao: str
-        opções: 'infinitivo','presente','pretérito_perfectivo_I', 'pretérito_perfectivo_II', 'pretérito_imperfectivo',
-        'passado_volitivo', 'futuro', 'subjuntivo_conjuntivo','subjuntivo_condicional', 'subjuntivo_optativo',
-        'não_finito_concretizado','imperativo_I','imperativo_II','gerúndio', 'particípio'
-    :param oi_numero:str
-       escolhas: 'singular', 'plural'
-    :param genero:str
-        escolhas: 'feminino', 'masculino'
-    :param oi_tipo_de_pessoa:str
-        escolhas: '1pessoa','2pessoa','3pessoa'
-    :param padrao_pessoa_morfologia:str
-       escolhas: "Morfologia_padrão", "3pessoa_do_singular"
-    :return verbo: str
-        verbo conjugado de acordo com os parâmetros
-    """
+        Retorna a estrutura que realiza os verbos no português.
+    
+        Ex.:
+        >>> verbo_geral('Fazer','Evento','vir','passado_volitivo','singular',None,'1pessoa')
+        'viria'
+        >>> verbo_geral('Fazer','Evento','sentir','subjuntivo_conjuntivo','plural',None,'1pessoa')
+        'sintamos'
+    
+        :param tipo_de_experiencia:
+            opções: 'Fazer','Ser', 'Sentir'
+        :param funcao_no_grupo_verbal:
+            opções:'Evento', 'Auxiliar', 'Modal', 'Evento+Núcleo','Auxiliar+Núcleo', 'Modal+Núcleo'
+        :param verbo: str
+            lema verbal - no infinitivo
+        :param tipo_de_orientacao: str
+            opções: 'infinitivo','presente','pretérito_perfectivo_I', 'pretérito_perfectivo_II', 'pretérito_imperfectivo',
+            'passado_volitivo', 'futuro', 'subjuntivo_conjuntivo','subjuntivo_condicional', 'subjuntivo_optativo',
+            'não_finito_concretizado','imperativo_I','imperativo_II','gerúndio', 'particípio'
+        :param oi_numero:str
+           escolhas: 'singular', 'plural'
+        :param genero:str
+            escolhas: 'feminino', 'masculino'
+        :param oi_tipo_de_pessoa:str
+            escolhas: '1pessoa','2pessoa','3pessoa'
+        :param padrao_pessoa_morfologia:str
+           escolhas: "Morfologia_padrão", "3pessoa_do_singular"
+        :return verbo: str
+            verbo conjugado de acordo com os parâmetros
+        """
     classe_do_verbo = def_classe_de_verbo(funcao_no_grupo_verbal)
     padrao_de_morfologia = detecta_padrao_morfologia(verbo)
     verbo_conj = ''
@@ -6488,6 +6488,7 @@ def main(tipo_de_experiencia, funcao_no_grupo_verbal, lema):
 # mood='SBJV'
 # tense='PRS'
 # aspect=None
+
 def flexionar_verbo(experience='none', function_in_group='none',
                     lemma='none', person='none', gender='none', number='none',
                     mood='none', tense='none', aspect='none'):
@@ -6600,7 +6601,7 @@ def flexionar_verbo(experience='none', function_in_group='none',
     verb = verbo_geral(experience, function_in_group, lemma, tipo_de_orientacao, oi_numero, genero, oi_tipo_de_pessoa)
     return verb
 
-#
+
 # flexionar_verbo(experience="Fazer", function_in_group='Evento',
 #                     lemma='manter', person='3', gender=None, number='SG',
 #                     mood='SBJV', tense='PRS', aspect=None)
@@ -6808,12 +6809,3 @@ def flexionar_verbo(experience='none', function_in_group='none',
 #                 dicionarioConjuga[lema].update({oi:conjugacao})
 
 # main('Fazer', 'Evento', 'ser')
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Retorna verbo conjugado')
-    parser.add_argument('tipo_experiencia', type=str)
-    parser.add_argument('funcao_verbo', type=str)
-    parser.add_argument('lema', type=str)
-    args = parser.parse_args()
-
-    main(args.tipo_experiencia, args.funcao_verbo, args.lema)

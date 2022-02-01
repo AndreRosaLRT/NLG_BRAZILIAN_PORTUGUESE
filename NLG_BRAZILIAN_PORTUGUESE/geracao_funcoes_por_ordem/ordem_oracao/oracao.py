@@ -2470,6 +2470,7 @@ def oracao_material(
         # FENOMENALIZACAO=None, TIPO_DE_MENTAL=None,
         ##Parâmetors específicos do processo material
         # iniciador
+
         iniciador=None,
 
         resultado_qualitativo=None, realizacao_atributo=None,
@@ -3288,7 +3289,7 @@ def oracao_material(
 # print('Qual o domínio da atribuição')
 # dominio_atribuicao = choice.Menu(['material', 'semiótico']).ask()
 #
-# aqui dev
+
 def oracao_relacional(
     # TRANSITIVIDADE
         tipo_de_processo=None, indice_material=None, indice_agenciamento=None, indice_relacional=None,
@@ -3902,7 +3903,7 @@ def oracao_relacional(
             ## Selecionam sem_atribuição_de relação no sistema de ATRIBUIÇÃO DE RELAÇÃO
             portador = p1_gn
 
-            # POR ENQUANTO PARECE DESNECESSÁRIO DEIXAR TODAS AS POSSÍVILIDADES COMO ESTÃO AQUI, MAS NA HORA DE DESENVOLVER MAIS VAI SER NECESSÁRIO
+            # POR ENQUANTO PARECE DESNECESSÁRIO DEIXAR TODAS AS POSSIBILIDADES COMO ESTÃO AQUI, MAS NA HORA DE DESENVOLVER MAIS VAI SER NECESSÁRIO
             if (
                     (
                             especificacao_tipo_modo_relacao == 'entidade' and fase_atribuicao == 'neutra'
@@ -3918,6 +3919,8 @@ def oracao_relacional(
                             and dominio_atribuicao == 'semiótico')
             ):
                 atributo = p2_gn
+
+            #Ex.: A mulher era uma arquiteta
 
             ## O que diferencia os dois tipos é o que realiza o Atributo. Neste caso
             # o Núcleo do grupo é um EPíteto (por isso coloquei realizado pelo adjetivo.
@@ -3953,6 +3956,7 @@ def oracao_relacional(
         elif transitividade_ == 'PR_relacional_intensivo_atributivo_AG_efetivo_operativo':
             atribuidor = p3_gn
             portador = p1_gn
+            portador_fp = p1_fp
             if ((tipo_atribuicao == 'atribuição_proj_ment_cognitiva') or
                     (tipo_atribuicao == 'atribuição_proj_ment_desiderativa') or
                     (tipo_atribuicao == 'atribuição_proj_verbal') or
@@ -3986,9 +3990,9 @@ def oracao_relacional(
                 # ser realizado por frase prep: "Eu fiz de você o presidente da cia...."
                 if tema_id == 'TID_proeminente_intensivo_relativo_papel_transitivo_nuclear_participante':
                     if modo_ == 'SUJ_responsável_recuperado_explícito_MOD_declarativo_-perguntafinito':
-                        oracao = " ".join((atribuidor, polar, processo_, portador, atributo + '.'))
+                        oracao = " ".join((atribuidor, polar, processo_, portador,portador_fp, atributo + '.'))
                     elif modo_ == 'SUJ_responsável_recuperado_explícito_MOD_interrogativo_polar':
-                        oracao = " ".join((atribuidor, polar, processo_, portador, atributo + '?'))
+                        oracao = " ".join((atribuidor, polar, processo_, portador,portador_fp, atributo + '?'))
 
         elif transitividade_ == 'PR_relacional_intensivo_atributivo_AG_efetivo_receptivo':
             ##PARA QUE O atribuidor seja omitido é só deixar todos os parâmetros default None
