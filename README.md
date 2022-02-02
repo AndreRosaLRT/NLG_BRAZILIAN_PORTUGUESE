@@ -3,13 +3,13 @@
 Repositório contendo arquivos de corpora, experimento e os módulos lexicogramaticais para
 realização superficial do português brasileiro independente de domínio.
 
-##Conteúdo
+## Conteúdo
 Este repositório geral contém os seguintes diretórios:
 
 1 - 
 
 
-##Utilizando a função de realização do verbo no português brasileiro
+## Utilizando a função de realização do verbo no português brasileiro
 
 A função de realização das palavras verbais_verbos encontra-se no caminho 
 NLG_BRAZILIAN_PORTUGUESE/geracao_funcoes_por_ordem/ordem_palavra/pal_verbais.py.
