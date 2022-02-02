@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-
+import sys
+sys.path.append('../')
 ##PRELIMINARES
 import pandas as pd
 import json
@@ -165,60 +166,4 @@ def experimento(in_path,acertos_out_path, erros_out_path):
 #     outfile.write(json_object)
 #
 #
-# ##EXEMPLO TESTE NO DAMATA:
-#
-# ##importando sinonimos
-# sinonimos = json.load(open('/home/andrerosa/PROJETO_TESE/NLG_BRAZILIAN_PORTUGUESE_19-11/Experimentos/'
-# 						   'mineracao_lexicon_pre_exp_aplicacao/dic_sin_cbow.json'))
-# #
-# # verbo_geral(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, verbo,
-# # 		            tipo_de_orientacao, OI_numero, genero, OI_tipo_de_pessoa)
-#
-# TIPO_DE_EXPERIENCIA='Fazer'
-# funcao_no_grupo_verbal='Evento'
-#
-# tipo_de_orientacao='pretérito_perfectivo_I'
-# OI_numero='singular'
-# genero=None
-# OI_tipo_de_pessoa='3pessoa'
-#
-# texto="Em 25 de março de 2020, o Instituto Nacional de Pesquisas Espaciais(INPE) VP[aspect=simple,tense=past,voice=active,person=3rd,number=singular] registrar alertas de desmatamento de 5.91 km2 na RESERVA EXTRATIVISTA CHICO MENDES/AC."
-# texto_token = texto.split()
-# lista_oracao,texto_novo, i =[], [], 0
-# for token in texto_token:
-# 	if 'VP[' in token:
-# 		indice = texto_token.index(token)
-# 		del texto_token[indice]
-# 		verbo_infinitivo = texto_token[indice]
-# 		if verbo_infinitivo in sinonimos:
-# 			for sinonimo in sinonimos[verbo_infinitivo]:
-# 				texto_token[indice] = verbo_geral(TIPO_DE_EXPERIENCIA, funcao_no_grupo_verbal, sinonimo,tipo_de_orientacao, OI_numero, genero, OI_tipo_de_pessoa)
-# 				texto_novo = ' '.join(texto_token)
-# 				lista_oracao.append(texto_novo)
-#
-# # Serializing json
-# import codecs
-#
-# json_object = json.dumps(lista_oracao,  ensure_ascii=False,indent=4)
-#
-# # Writing to sample.json
-# path =r'/home/andrerosa/git_workspace/NLG_BRAZILIAN_PORTUGUESE_19-11/corpus/corpora_train_dev_test'
-# with codecs.open(path + "/teste_DAMATA.json", "w",encoding='utf-8' ) as outfile:
-# 	json.dump(json_object,outfile, ensure_ascii=False)
-# 	outfile.write(json_object)
 
-if __name__ == '__main__':
-	# path = 'https://raw.githubusercontent.com/sigmorphon/conll2017/master/all/task1/portuguese-dev'
-	# path2 = 'https://raw.githubusercontent.com/sigmorphon/conll2017/master/answers/task1/portuguese-uncovered-test'
-	# acertos_outapth_dev = 'acertos_conjugação_dev.json'
-	# erros_outapth_dev = 'erros_conjugação_dev.json'
-	# acertos_outapth_test = 'acertos_conjugação_TESTE.json'
-	# erros_outapth_test = 'erros_conjugação_TESTE.json'
-	# #
-	# # experimento_dev = experimento(path,acertos_outapth_dev,erros_outapth_dev)
-	# # experimento_test = experimento(path2,acertos_outapth_test,erros_outapth_test)
-
-	experimento_dev = experimento('https://raw.githubusercontent.com/sigmorphon/conll2017/master/all/task1/portuguese-dev',
-								  'acertos_conjugação_dev.json','erros_conjugação_dev.json')
-	experimento_test = experimento('https://raw.githubusercontent.com/sigmorphon/conll2017/master/answers/task1/portuguese-uncovered-test',
-								   'acertos_conjugação_TESTE.json','erros_conjugação_TESTE.json')

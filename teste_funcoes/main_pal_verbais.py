@@ -54,3 +54,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     print(main(args.tipo_experiencia, args.funcao_verbo, args.lema))
+
+
+# python3 main_pal_verbais.py Fazer Evento levar
+# python3 main_pal_verbais.py Fazer Evento comer
+# python3 main_pal_verbais.py Fazer Evento desmatar

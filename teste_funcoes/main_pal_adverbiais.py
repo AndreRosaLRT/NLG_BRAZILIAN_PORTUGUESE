@@ -51,3 +51,6 @@ if __name__ == '__main__':
 
     print(adverbio(args.tipo_adv, args.indice_adv))
 
+# Ex. no terminal:
+#
+# python3 main_pal_adverbiais.py Negação 2

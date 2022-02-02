@@ -1,8 +1,9 @@
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_nominal_frase_preposicional import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_oracao.oracao import *
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.frase.frase_preposicional import *
-
 from NLG_BRAZILIAN_PORTUGUESE.geracao_funcoes_por_ordem.ordem_grupo.grupo_conjuntivo import *
+
+
 #
 # frase_preposicional(indice_preposicao_frase=0,dissoc_ente_nucleo=None,tem_qualificador=None,tipo_qualificador=None,
 #     indice_preposicao_qualif=None,determinacao_especificidade_beta='específico',

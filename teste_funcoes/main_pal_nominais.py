@@ -16,3 +16,14 @@ if __name__ == '__main__':
     print(realizacao_pronominal_casoreto(args.pessoa_da_interlocucao,
                                          args.genero, args.numero, args.morfologia_do_pronome))
 
+
+
+# EX.:
+#
+# realizacao_pronominal_casoreto("não_interlocutor", "feminino", "singular",'morfologia_terceira_pessoa')
+#
+# realizacao_pronominal_casoreto("ouvinte", "feminino", "singular",'padrão', 'morfologia_terceira_pessoa)
+
+# python3 main_pal_nominais.py não_interlocutor feminino singular morfologia_terceira_pessoa
+# python3 main_pal_nominais.py ouvinte none singular morfologia_terceira_pessoa
+# python3 main_pal_nominais.py ouvinte none singular padrão
